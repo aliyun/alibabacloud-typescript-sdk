@@ -15,14 +15,21 @@ export class UpdateDataQualityAlertRuleRequestNotificationReceivers extends $dar
    * @remarks
    * The type of alert recipients.
    * 
-   * *   AliUid
-   * *   WebhookUrl
-   * *   DingdingUrl
-   * *   WeixinUrl
-   * *   FeishuUrl
-   * *   TaskOwner
-   * *   DataQualityScanOwner
-   * *   ShiftSchedule
+   * - AliUid
+   * 
+   * - WebhookUrl
+   * 
+   * - DingdingUrl
+   * 
+   * - WeixinUrl
+   * 
+   * - FeishuUrl
+   * 
+   * - TaskOwner
+   * 
+   * - DataQualityScanOwner
+   * 
+   * - ShiftSchedule
    * 
    * This parameter is required.
    * 

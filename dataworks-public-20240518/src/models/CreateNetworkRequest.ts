@@ -20,7 +20,7 @@ export class CreateNetworkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Serverless_res_group_524257424564736_6831777003XXXXX
+   * Serverless_res_group_524257424564736_6831777003****
    */
   resourceGroupId?: string;
   /**

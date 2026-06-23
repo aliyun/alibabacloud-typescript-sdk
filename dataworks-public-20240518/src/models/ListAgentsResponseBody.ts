@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentsResponseBodyJsonRpcResponseResultAgents extends $dara.Model {
   /**
+   * @remarks
+   * The agent name.
+   * 
    * @example
    * chat_cli_chatbi
    */
@@ -30,18 +33,31 @@ export class ListAgentsResponseBodyJsonRpcResponseResultAgents extends $dara.Mod
 }
 
 export class ListAgentsResponseBodyJsonRpcResponseResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of agents.
+   */
   agents?: ListAgentsResponseBodyJsonRpcResponseResultAgents[];
   /**
+   * @remarks
+   * The actual number of entries per page that takes effect.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page. The value is null when the current page is the last page or no data is available.
+   * 
    * @example
    * 2
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The total number of agents that match the filter criteria.
+   * 
    * @example
    * 27
    */
@@ -78,11 +94,25 @@ export class ListAgentsResponseBodyJsonRpcResponseResult extends $dara.Model {
 
 export class ListAgentsResponseBodyJsonRpcResponse extends $dara.Model {
   /**
+   * @remarks
+   * The request ID passed in by the caller. The value is returned as-is in the response.
+   * 
    * @example
    * 70623e38-a889-4192-930a-752ffdd75f48
    */
   id?: string;
+  /**
+   * @remarks
+   * The JSON-RPC version. Fixed value: 2.0.
+   * 
+   * @example
+   * 2.0
+   */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * The paginated query result for agents.
+   */
   result?: ListAgentsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
     return {
@@ -113,6 +143,10 @@ export class ListAgentsResponseBodyJsonRpcResponse extends $dara.Model {
 }
 
 export class ListAgentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response object that conforms to the JSON-RPC specification.
+   */
   jsonRpcResponse?: ListAgentsResponseBodyJsonRpcResponse;
   /**
    * @remarks

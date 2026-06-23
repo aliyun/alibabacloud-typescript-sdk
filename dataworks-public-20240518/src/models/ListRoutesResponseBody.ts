@@ -13,7 +13,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Route destination CIDR
+   * The destination CIDR block of the route.
    * 
    * @example
    * 192.168.0.0/16
@@ -21,7 +21,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
-   * Route ID
+   * The route ID.
    * 
    * @example
    * 1000
@@ -29,7 +29,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Network Resource ID
+   * The network resource ID.
    * 
    * @example
    * 1000
@@ -37,7 +37,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   networkId?: number;
   /**
    * @remarks
-   * Unique identifier of the resource group to which it belongs
+   * The ID of the resource group.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003****
@@ -45,7 +45,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Unique identifier of network resource
+   * The ID of the network resource.
    * 
    * @example
    * ns-679XXXXXX
@@ -101,12 +101,12 @@ export class ListRoutesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of network resource routing information obtained.
+   * The routes of the network resource.
    */
   routeList?: ListRoutesResponseBodyPagingInfoRouteList[];
   /**
    * @remarks
-   * All data entries
+   * The total number of entries returned.
    * 
    * @example
    * 100

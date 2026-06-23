@@ -27,8 +27,9 @@ export class ListDatasetVersionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Asc: Ascending.
-   * *   Desc: Descending.
+   * - Asc: Ascending.
+   * 
+   * - Desc: Descending.
    * 
    * @example
    * Desc
@@ -56,9 +57,11 @@ export class ListDatasetVersionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ModifyTime: Modification time.
-   * *   CreateTime: Creation time.
-   * *   VersionNumber: Version number.
+   * - ModifyTime: Modification time.
+   * 
+   * - CreateTime: Creation time.
+   * 
+   * - VersionNumber: Version number.
    * 
    * @example
    * CreateTime

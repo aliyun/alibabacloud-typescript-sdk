@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.Model {
   /**
    * @remarks
-   * The destination type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+   * The destination data type. Examples: `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, and `binary`. The supported data types depend on the destination data source.
    * 
    * @example
    * text
@@ -13,7 +13,7 @@ export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.M
   destinationDataType?: string;
   /**
    * @remarks
-   * The source type, such as bigint, boolean, string, text, datetime, timestamp, decimal, or binary. Different data sources may have different types.
+   * The source data type. Examples: `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, and `binary`. The supported data types depend on the source data source.
    * 
    * @example
    * bigint
@@ -75,11 +75,13 @@ export class UpdateDIJobRequestJobSettingsCycleScheduleSettings extends $dara.Mo
 export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $dara.Model {
   /**
    * @remarks
-   * Valid values:
+   * The handling action. Valid values:
    * 
-   * *   Ignore
-   * *   Critical: Fail the task
-   * *   Normal
+   * - `Ignore`: Ignores the DDL message.
+   * 
+   * - `Critical`: Reports an error and terminates the synchronization job.
+   * 
+   * - `Normal`: Processes the DDL message normally.
    * 
    * @example
    * Critical
@@ -89,13 +91,19 @@ export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $dara.Mode
    * @remarks
    * The DDL type. Valid values:
    * 
-   * *   RenameColumn
-   * *   ModifyColumn
-   * *   CreateTable
-   * *   TruncateTable
-   * *   DropTable
-   * *   DropColumn
-   * *   AddColumn
+   * - `RenameColumn`
+   * 
+   * - `ModifyColumn`
+   * 
+   * - `CreateTable`
+   * 
+   * - `TruncateTable`
+   * 
+   * - `DropTable`
+   * 
+   * - `DropColumn`
+   * 
+   * - `AddColumn`
    * 
    * @example
    * AddColumn
@@ -127,24 +135,31 @@ export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $dara.Mode
 export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
   /**
    * @remarks
-   * The setting name. Valid values:
+   * The name of the setting. Valid values:
    * 
-   * *   src.offline.datasource.max.connection: Specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
-   * *   dst.offline.truncate: Specifies whether to clear the destination table before data writing.
-   * *   runtime.offline.speed.limit.enable: Specifies whether throttling is enabled for a batch synchronization task.
-   * *   runtime.offline.concurrent: Specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   runtime.enable.auto.create.schema: Specifies whether schemas are automatically created in the destination of a synchronization task.
-   * *   runtime.realtime.concurrent: Specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
-   * *   runtime.realtime.failover.minute.dataxcdc: Specifies the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
-   * *   runtime.realtime.failover.times.dataxcdc: Specifies the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
+   * - `src.offline.datasource.max.connection`: The maximum number of concurrent connections to the source for an offline synchronization job.
+   * 
+   * - `dst.offline.truncate`: Specifies whether to truncate the destination table before an offline synchronization job.
+   * 
+   * - `runtime.offline.speed.limit.enable`: Specifies whether to enable speed limiting for an offline synchronization job.
+   * 
+   * - `runtime.offline.concurrent`: The concurrency level for an offline synchronization job.
+   * 
+   * - `runtime.enable.auto.create.schema`: Specifies whether to automatically create a schema at the destination.
+   * 
+   * - `runtime.realtime.concurrent`: The concurrency level for a real-time synchronization job.
+   * 
+   * - `runtime.realtime.failover.minute.dataxcdc`: The number of minutes to wait before a failover retry.
+   * 
+   * - `runtime.realtime.failover.times.dataxcdc`: The number of failover retries.
    * 
    * @example
-   * runtime.offline.concurrent
+   * src.offline.datasource.max.connection
    */
   name?: string;
   /**
    * @remarks
-   * The setting value.
+   * The value of the setting.
    * 
    * @example
    * 1
@@ -176,42 +191,60 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
 export class UpdateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
-   * The channel-specific settings. You can configure special settings for specific channels. Currently supported: Holo2Holo (Hologres to Hologres) and Holo2Kafka (Hologres to Kafka).
+   * The job settings for specific data synchronization channels. You can apply special configurations to certain channels. Currently, `Holo2Holo` (synchronization from Hologres to Hologres) and `Holo2Kafka` (synchronization from Hologres to Kafka) are supported.
    * 
-   * 1.  Holo2Kafka
+   * 1. `Holo2Kafka`
    * 
-   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}} kafkaClientProperties: Kafka producer parameters used when writing to Kafka.
-   * *   keyColumns: The columns to write to Kafka.
-   * *   writeMode: The Kafka write format. Valid values: json and canal.
+   * - Example: `{"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}`
+   *   `kafkaClientProperties`: The Kafka producer parameters used when writing to Kafka.
    * 
-   * 2.  Holo2Holo
+   * - `keyColumns`: The columns whose values are written to the key of a Kafka message.
    * 
-   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
-   * *   conflictMode: The conflict handling policy when writing to Hologres. Valid values: replace (overwrite) and ignore.
-   * *   writeMode: The write mode for Hologres. Valid values: replay and insert.
-   * *   dynamicColumnAction: The dynamic column handling mode when writing to Hologres. Valid values: replay, insert, and ignore.
+   * - `writeMode`: The format for writing data to Kafka. Valid values: `json` and `canal`.
+   * 
+   * 2. `Holo2Holo`
+   * 
+   * - Example: `{"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}`
+   * 
+   * - `conflictMode`: The conflict handling policy for writing data to Hologres. Valid values: `replace` (overwrite) and `ignore` (ignore).
+   * 
+   * - `writeMode`: The method for writing data to Hologres. Valid values: `replay` and `insert`.
+   * 
+   * - `dynamicColumnAction`: The action for handling dynamic columns when writing data to Hologres. Valid values: `replay`, `insert`, and `ignore`.
    * 
    * @example
-   * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+   * {
+   *       "structInfo": "MANAGED",
+   *       "storageType": "TEXTFILE",
+   *       "writeMode": "APPEND",
+   *       "partitionColumns": [
+   *             {
+   *                   "columnName": "pt",
+   *                   "columnType": "STRING",
+   *                   "comment": ""
+   *             }
+   *       ],
+   *       "fieldDelimiter": ""
+   * }
    */
   channelSettings?: string;
   /**
    * @remarks
-   * The array of column type mappings.
+   * An array of column data type mappings.
    * 
-   * >  ["ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
+   * > ["ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
    */
   columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
   /**
    * @remarks
-   * The scheduled task settings.
+   * The settings for periodic scheduling.
    */
   cycleScheduleSettings?: UpdateDIJobRequestJobSettingsCycleScheduleSettings;
   /**
    * @remarks
-   * The array of DDL handling settings.
+   * An array of DDL handling settings.
    * 
-   * >  ["DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
+   * > ["DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
    */
   ddlHandlingSettings?: UpdateDIJobRequestJobSettingsDdlHandlingSettings[];
   /**
@@ -263,15 +296,15 @@ export class UpdateDIJobRequestJobSettings extends $dara.Model {
 export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The CUs of the resource group for Data Integration used for batch synchronization.
+   * The number of CUs for the Data Integration resource group used by the offline synchronization job.
    * 
    * @example
-   * 2.0
+   * 2
    */
   requestedCu?: number;
   /**
    * @remarks
-   * The name of the resource group for Data Integration that are used for batch synchronization.
+   * The name of the Data Integration resource group used by the offline synchronization job.
    * 
    * @example
    * S_res_group_111_222
@@ -303,15 +336,15 @@ export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $
 export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The CUs of the resource group for Data Integration that are used for real-time synchronization.
+   * The number of CUs for the Data Integration resource group used by the real-time synchronization job.
    * 
    * @example
-   * 2.0
+   * 2
    */
   requestedCu?: number;
   /**
    * @remarks
-   * The name of the resource group for Data Integration that are used for real-time synchronization.
+   * The name of the Data Integration resource group used by the real-time synchronization job.
    * 
    * @example
    * S_res_group_111_222
@@ -343,18 +376,18 @@ export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The CUs of the scheduling resource group for batch synchronization tasks.
+   * The number of CUs for the scheduling resource group used by the offline synchronization job.
    * 
    * @example
-   * 2.0
+   * 2
    */
   requestedCu?: number;
   /**
    * @remarks
-   * The name of the scheduling resource group used for batch synchronization tasks.
+   * The name of the scheduling resource group used by the offline synchronization job.
    * 
    * @example
-   * S_res_group_235454102432001_1721021993437
+   * S_res_group_222_333
    */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
@@ -383,17 +416,17 @@ export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends 
 export class UpdateDIJobRequestResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The batch synchronization resources.
+   * The resource settings for the offline synchronization job.
    */
   offlineResourceSettings?: UpdateDIJobRequestResourceSettingsOfflineResourceSettings;
   /**
    * @remarks
-   * The real-time synchronization resources.
+   * The resource settings for the real-time synchronization job.
    */
   realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
   /**
    * @remarks
-   * The resource used for scheduling.
+   * The scheduling resource settings.
    */
   scheduleResourceSettings?: UpdateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
@@ -433,7 +466,7 @@ export class UpdateDIJobRequestResourceSettings extends $dara.Model {
 export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $dara.Model {
   /**
    * @remarks
-   * Valid values: Include and Exclude.
+   * The selection action. Valid values: `Include` and `Exclude`.
    * 
    * @example
    * Include
@@ -449,7 +482,7 @@ export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
   expression?: string;
   /**
    * @remarks
-   * The expression type. Valid values: Exact and Regex.
+   * The type of the expression. Valid values: `Exact` and `Regex`.
    * 
    * @example
    * Exact
@@ -459,9 +492,11 @@ export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
    * @remarks
    * The object type. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table` (table)
+   * 
+   * - `Schema` (schema)
+   * 
+   * - `Database` (database)
    * 
    * @example
    * Table
@@ -497,12 +532,15 @@ export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
 export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Model {
   /**
    * @remarks
-   * Valid values:
+   * The type of the action. Valid values:
    * 
-   * *   DefinePrimaryKey
-   * *   Rename
-   * *   AddColumn
-   * *   HandleDml
+   * - `DefinePrimaryKey`: Defines a primary key.
+   * 
+   * - `Rename`: Renames an object.
+   * 
+   * - `AddColumn`: Adds a column.
+   * 
+   * - `HandleDml`: Handles DML operations.
    * 
    * @example
    * Rename
@@ -510,7 +548,7 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
   ruleActionType?: string;
   /**
    * @remarks
-   * The rule name. The rule name must be unique for a given combination of action type and target type. The name cannot exceed 50 characters.
+   * The name of the transformation rule. The name must be unique for a specific combination of `RuleActionType` and `RuleTargetType` and can be up to 50 characters long.
    * 
    * @example
    * rename_rule_1
@@ -518,11 +556,13 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
   ruleName?: string;
   /**
    * @remarks
-   * Valid values:
+   * The type of the target object. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table` (table)
+   * 
+   * - `Schema` (schema)
+   * 
+   * - `Database` (database)
    * 
    * @example
    * Table
@@ -556,12 +596,12 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
 export class UpdateDIJobRequestTableMappings extends $dara.Model {
   /**
    * @remarks
-   * Each rule can select different object types from the source, such as source databases and source tables.
+   * The rules for selecting source objects. Each rule can select a different type of source object to synchronize, such as a source database or table.
    */
   sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
   /**
    * @remarks
-   * The transformation rules applied to source objects.
+   * The transformation rules for the source objects.
    */
   transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
@@ -596,15 +636,21 @@ export class UpdateDIJobRequestTableMappings extends $dara.Model {
 export class UpdateDIJobRequestTransformationRules extends $dara.Model {
   /**
    * @remarks
-   * Valid values:
+   * The type of the action. Valid values:
    * 
-   * *   DefinePrimaryKey
-   * *   Rename
-   * *   AddColumn
-   * *   HandleDml
-   * *   DefineIncrementalCondition
-   * *   DefineCycleScheduleSettings
-   * *   DefinePartitionKey
+   * - `DefinePrimaryKey`: Defines a primary key.
+   * 
+   * - `Rename`: Renames an object.
+   * 
+   * - `AddColumn`: Adds a column.
+   * 
+   * - `HandleDml`: Handles DML operations.
+   * 
+   * - `DefineIncrementalCondition`: Defines an incremental condition.
+   * 
+   * - `DefineCycleScheduleSettings`: Defines periodic scheduling settings.
+   * 
+   * - `DefinePartitionKey`: Defines a partition key.
    * 
    * @example
    * Rename
@@ -612,50 +658,65 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
   ruleActionType?: string;
   /**
    * @remarks
-   * The rule expression in JSON string format.
+   * The rule expression, specified as a JSON string.
    * 
-   * 1.  Rename rule
+   * 1. Rename rule (`Rename`)
    * 
-   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
-   * *   expression: The rename transformation expression. Supported variables include: ${srcDatasourceName} (source data source name), ${srcDatabaseName} (source database name), and ${srcTableName} (source table name).
+   * - Example: `{"expression":"${srcDatasourceName}_${srcDatabaseName}_0922"}`
    * 
-   * 2.  AddColumn rule
+   * - `expression`: The expression for the rename transformation rule. The expression supports variables, including `${srcDatasourceName}` (source data source name), `${srcDatabaseName}` (source database name), and `${srcTableName}` (source table name).
    * 
-   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
-   * *   If not specified, the default behavior is to not add columns.
-   * *   columnName: The name of the column to add.
-   * *   columnValueType: The value type of the column to add. Valid values: Constant and Variable.
-   * *   columnValue: The value of the column to add. When columnValueType is set to Constant, the value is a custom constant of the string type. When columnValueType is set to Variable, the value is a built-in variable. Built-in variables include: EXECUTE_TIME (execution time, long type), DB_NAME_SRC (source database name, string type), DATASOURCE_NAME_SRC (source data source name, string type), TABLE_NAME_SRC (source table name, string type), DB_NAME_DEST (destination database name, string type), DATASOURCE_NAME_DEST (destination data source name, string type), TABLE_NAME_DEST (destination table name, string type), and DB_NAME_SRC_TRANSED (transformed source database name, string type).
+   * 2. Add column rule (`AddColumn`)
    * 
-   * 3.  DefinePrimaryKey
+   * - Example: `{"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}`
    * 
-   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
-   * *   If not specified, the source primary key columns are used by default.
-   * *   When the destination table already exists: Data Integration does not modify the destination table structure. If the specified primary key columns are not in the destination table, the task fails to start.
-   * *   When the destination table is auto-created: Data Integration automatically creates the destination table structure with the defined primary key columns. If the specified primary key columns are not in the destination table, the task fails to start.
+   * - If this rule is not specified, no columns are added.
    * 
-   * 4.  HandleDml rule
+   * - `columnName`: The name of the column to add.
    * 
-   * *   Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
-   * *   If not specified, the default rule is Normal for Insert, Update, and Delete.
-   * *   dmlType: The DML operation type. Valid values: Insert, Update, Delete.
-   * *   dmlAction: The DML handling policy. Valid values: Normal, Ignore, Filter (conditional processing, used when dmlType is Update or Delete), and LogicalDelete.
-   * *   filterCondition: The DML filter condition. This parameter is used when dmlAction is set to Filter.
+   * - `columnValueType`: The value type of the added column. Valid values: `Constant` and `Variable`.
    * 
-   * 5.  DefineIncrementalCondition
+   * - `columnValue`: The value of the added column. If `columnValueType` is `Constant`, the value is a custom constant of the string type. If `columnValueType` is `Variable`, the value is a built-in variable. Valid built-in variables: `EXECUTE_TIME` (execution time, Long type), `DB_NAME_SRC` (source database name, String type), `DATASOURCE_NAME_SRC` (source data source name, String type), `TABLE_NAME_SRC` (source table name, String type), `DB_NAME_DEST` (destination database name, String type), `DATASOURCE_NAME_DEST` (destination data source name, String type), `TABLE_NAME_DEST` (destination table name, String type), and `DB_NAME_SRC_TRANSED` (transformed database name, String type).
    * 
-   * *   Example: {"where":"id > 0"}
-   * *   Specifies the incremental filter condition.
+   * 3. Define primary key rule (`DefinePrimaryKey`)
    * 
-   * 6.  DefineCycleScheduleSettings
+   * - Example: `{"columns":["ukcolumn1","ukcolumn2"]}`
    * 
-   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
-   * *   Specifies the scheduled task parameters.
+   * - If this rule is not specified, the primary key of the source is used by default.
    * 
-   * 7.  DefinePartitionKey
+   * - Data Integration does not modify the structure of an existing destination table. If a specified primary key column does not exist in the table, the synchronization job fails.
    * 
-   * *   Example: {"columns":["id"]}
-   * *   Specifies the partition key.
+   * - When a destination table is automatically created, Data Integration includes the defined primary key columns in the structure. If a specified primary key column is not in the destination column set, the synchronization job fails.
+   * 
+   * 4. DML handling rule (`HandleDml`)
+   * 
+   * - Example: `{"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}`
+   * 
+   * - If this rule is not specified, the default action for `Insert`, `Update`, and `Delete` operations is `Normal`.
+   * 
+   * - `dmlType`: The DML operation type. Valid values: `Insert`, `Update`, and `Delete`.
+   * 
+   * - `dmlAction`: The DML handling policy. Valid values: `Normal` (process the operation), `Ignore` (ignore the operation), `Filter` (conditionally process the operation, used when `dmlType` is `Update` or `Delete`), and `LogicalDelete` (perform a logical delete).
+   * 
+   * - `filterCondition`: The DML filter condition, used when `dmlAction` is `Filter`.
+   * 
+   * 5. Incremental condition rule (`DefineIncrementalCondition`)
+   * 
+   * - Example: `{"where":"id > 0"}`
+   * 
+   * - The `WHERE` clause for the incremental condition.
+   * 
+   * 6. Periodic scheduling rule (`DefineCycleScheduleSettings`)
+   * 
+   * - Example: `{"cronExpress":" * * * * * *", "cycleType":"1"}`
+   * 
+   * - Specifies the scheduling parameters for a periodic job.
+   * 
+   * 7. Define partition key rule (`DefinePartitionKey`)
+   * 
+   * - Example: `{"columns":["id"]}`
+   * 
+   * - Specifies the partition key.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -663,7 +724,7 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
   ruleExpression?: string;
   /**
    * @remarks
-   * The rule name. When the action type and target type are the same, the rule name must be unique. The name cannot exceed 50 characters.
+   * The name of the transformation rule. The name must be unique for a specific combination of `RuleActionType` and `RuleTargetType` and can be up to 50 characters long.
    * 
    * @example
    * rename_rule_1
@@ -671,11 +732,13 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The target type for the action. Valid values:
+   * The type of the target object. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table` (table)
+   * 
+   * - `Schema` (schema)
+   * 
+   * - `Database` (database)
    * 
    * @example
    * Table
@@ -711,7 +774,7 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
 export class UpdateDIJobRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use the Id parameter instead.
+   * This parameter is deprecated. Use the `Id` parameter instead.
    * 
    * @example
    * 11588
@@ -721,16 +784,204 @@ export class UpdateDIJobRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The task description.
+   * The description of the synchronization job.
    * 
    * @example
-   * The description of the synchronization task.
+   * DI Job Demo
    */
   description?: string;
+  /**
+   * @remarks
+   * The job configuration in script mode.
+   * 
+   * @example
+   * {
+   *     "resourceSettings": {
+   *         "realtimeResourceSettings": {
+   *             "requestedCu": 2,
+   *             "resourceGroupIdentifier": "Serverless_res_group_123_456"
+   *         },
+   *         "offlineResourceSettings": {
+   *             "requestedCu": 2,
+   *             "resourceGroupIdentifier": "Serverless_res_group_123_456"
+   *         }
+   *     },
+   *     "tableMappings": [
+   *         {
+   *             "sourceObjectSelectionRules": [
+   *                 {
+   *                     "expression": "autotest_hologres",
+   *                     "action": "Include",
+   *                     "expressionType": "Exact",
+   *                     "objectType": "Datasource"
+   *                 },
+   *                 {
+   *                     "expression": "auto_holo_2661647",
+   *                     "action": "Include",
+   *                     "expressionType": "Exact",
+   *                     "objectType": "Table"
+   *                 },
+   *                 {
+   *                     "expression": "public",
+   *                     "action": "Include",
+   *                     "expressionType": "Exact",
+   *                     "objectType": "Schema"
+   *                 }
+   *             ],
+   *             "transformationRules": [
+   *                 {
+   *                     "ruleTargetType": "Table",
+   *                     "ruleActionType": "SourceSchema",
+   *                     "ruleName": "SourceSchema_Table_BStf8aXPSCJjOWGe"
+   *                 },
+   *                 {
+   *                     "ruleTargetType": "Schema",
+   *                     "ruleActionType": "Rename",
+   *                     "ruleName": "Rename_Schema_3qWNOIsljtInvKJy"
+   *                 },
+   *                 {
+   *                     "ruleTargetType": "Table",
+   *                     "ruleActionType": "Rename",
+   *                     "ruleName": "Rename_Table_o3PVQq1aIKDGoVVW"
+   *                 },
+   *                 {
+   *                     "ruleTargetType": "Table",
+   *                     "ruleActionType": "DefineDstTableSettings",
+   *                     "ruleName": "DefineDstTableSettings_Table_BhJltOmOCIc81fzi"
+   *                 },
+   *                 {
+   *                     "ruleTargetType": "Table",
+   *                     "ruleActionType": "ColumnMapping",
+   *                     "ruleName": "ColumnMapping_Table_nP4hJPX1wh2W3fpo"
+   *                 }
+   *             ]
+   *         }
+   *     ],
+   *     "sourceDataSourceSettings": [
+   *         {
+   *             "dataSourceProperties": {
+   *                 "timeZone": "Asia/Shanghai"
+   *             },
+   *             "dataSourceName": "autotest_hologres"
+   *         }
+   *     ],
+   *     "jobSettings": {
+   *         "runtimeSettings": [
+   * 
+   *         ],
+   *         "ddlHandlingSettings": [
+   * 
+   *         ],
+   *         "columnDataTypeSettings": [
+   * 
+   *         ],
+   *         "cycleScheduleSettings": {
+   * 
+   *         },
+   *         "channelSettings": {
+   *             "destinationChannelSettings": {
+   *                 "conflictMode": "replace",
+   *                 "dynamicColumnAction": "replay",
+   *                 "writeMode": "replay"
+   *             },
+   *             "sourceChannelSettings": {
+   * 
+   *             }
+   *         }
+   *     },
+   *     "destinationDataSourceType": "Hologres",
+   *     "transformationRules": [
+   *         {
+   *             "ruleTargetType": "Table",
+   *             "ruleName": "SourceSchema_Table_BStf8aXPSCJjOWGe",
+   *             "ruleActionType": "SourceSchema",
+   *             "ruleExpression": {
+   *                 "columns": [
+   *                     {
+   *                         "name": "id",
+   *                         "category": "normal",
+   *                         "type": "BIGINT"
+   *                     },
+   *                     {
+   *                         "name": "decimal",
+   *                         "category": "normal",
+   *                         "type": "DECIMAL"
+   *                     }
+   *                 ]
+   *             }
+   *         },
+   *         {
+   *             "ruleTargetType": "Schema",
+   *             "ruleName": "Rename_Schema_3qWNOIsljtInvKJy",
+   *             "ruleActionType": "Rename",
+   *             "ruleExpression": {
+   *                 "expression": "public"
+   *             }
+   *         },
+   *         {
+   *             "ruleTargetType": "Table",
+   *             "ruleName": "Rename_Table_o3PVQq1aIKDGoVVW",
+   *             "ruleActionType": "Rename",
+   *             "ruleExpression": {
+   *                 "expression": "auto_holo_2661647_dst"
+   *             }
+   *         },
+   *         {
+   *             "ruleTargetType": "Table",
+   *             "ruleName": "DefineDstTableSettings_Table_BhJltOmOCIc81fzi",
+   *             "ruleActionType": "DefineDstTableSettings",
+   *             "ruleExpression": {
+   *                 "ddlString": "BEGIN;
+   * CREATE TABLE IF NOT EXISTS public.auto_holo_2661647_dst (
+   *    id          BIGINT PRIMARY KEY,
+   *    "decimal"   DECIMAL(38,18)
+   * );
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"time_to_live_in_seconds\\", \\"3153600000\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"orientation\\", \\"column\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"binlog.level\\", \\"replica\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"binlog.ttl\\", \\"2592000\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"bitmap_columns\\", \\""text","char","varchar"\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"dictionary_encoding_columns\\", \\""text":auto,"bytea":auto,"char":auto,"varchar":auto\\");
+   * CALL SET_TABLE_PROPERTY(\\"public.auto_holo_2661647_dst\\", \\"distribution_key\\", \\""id"\\");
+   * COMMIT;
+   * ",
+   *                 "ddlType": "STRUCT"
+   *             }
+   *         },
+   *         {
+   *             "ruleTargetType": "Table",
+   *             "ruleName": "ColumnMapping_Table_nP4hJPX1wh2W3fpo",
+   *             "ruleActionType": "ColumnMapping",
+   *             "ruleExpression": {
+   *                 "columnMapping": [
+   *                     {
+   *                         "sourceColName": "id",
+   *                         "dstColName": "id"
+   *                     },
+   *                     {
+   *                         "sourceColName": "decimal",
+   *                         "dstColName": "decimal"
+   *                     }
+   *                 ]
+   *             }
+   *         }
+   *     ],
+   *     "migrationType": "FullAndRealtimeIncremental",
+   *     "destinationDataSourceSettings": [
+   *         {
+   *             "dataSourceProperties": {
+   * 
+   *             },
+   *             "dataSourceName": "autotest_hologres"
+   *         }
+   *     ],
+   *     "sourceDataSourceType": "Hologres"
+   * }
+   */
   fileSpec?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The ID of the synchronization job.
    * 
    * @example
    * 11588
@@ -738,12 +989,12 @@ export class UpdateDIJobRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
+   * The settings for the synchronization job. This includes DDL handling settings, data type mappings for columns between the source and destination, and runtime parameters.
    */
   jobSettings?: UpdateDIJobRequestJobSettings;
   /**
    * @remarks
-   * The task owner.
+   * The owner of the synchronization job.
    * 
    * @example
    * 95279527
@@ -751,7 +1002,7 @@ export class UpdateDIJobRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
+   * The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to get the workspace ID.
    * 
    * @example
    * 10000
@@ -764,16 +1015,16 @@ export class UpdateDIJobRequest extends $dara.Model {
   resourceSettings?: UpdateDIJobRequestResourceSettings;
   /**
    * @remarks
-   * The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+   * A list of object transformation mappings. Each mapping specifies a set of selection rules for source objects and a list of transformation rules that apply to the selected objects.
    * 
-   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * > [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
    */
   tableMappings?: UpdateDIJobRequestTableMappings[];
   /**
    * @remarks
-   * The list of synchronization object transformation rule definitions.
+   * A list of transformation rule definitions.
    * 
-   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
+   * > [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRules?: UpdateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {

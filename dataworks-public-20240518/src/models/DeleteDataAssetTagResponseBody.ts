@@ -8,7 +8,7 @@ export class DeleteDataAssetTagResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0bc1411515937635973****
+   * 0bc141151593763597*****
    */
   requestId?: string;
   /**

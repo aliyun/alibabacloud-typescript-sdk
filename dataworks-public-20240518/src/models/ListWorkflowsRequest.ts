@@ -7,8 +7,9 @@ export class ListWorkflowsRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -65,9 +66,11 @@ export class ListWorkflowsRequest extends $dara.Model {
    * @remarks
    * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
    * 
-   * *   ModifyTime (Desc/Asc)
-   * *   CreateTime (Desc/Asc)
-   * *   Id (Desc/Asc)
+   * - ModifyTime (Desc/Asc)
+   * 
+   * - CreateTime (Desc/Asc)
+   * 
+   * - Id (Desc/Asc)
    * 
    * Default value: Id Desc.
    * 
@@ -75,14 +78,20 @@ export class ListWorkflowsRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * List of tags. A result is returned if it matches any one of the specified tags.
+   */
   tags?: string[];
   /**
    * @remarks
    * The trigger type.
    * 
-   * *   Scheduler
-   * *   Manual
-   * *   TriggerWorkflow
+   * - Scheduler
+   * 
+   * - Manual
+   * 
+   * - TriggerWorkflow
    * 
    * @example
    * Scheduler

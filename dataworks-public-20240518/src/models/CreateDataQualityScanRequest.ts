@@ -9,9 +9,11 @@ export class CreateDataQualityScanRequestComputeResourceRuntime extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   Hive: Hive SQL
-   * *   Spark: Spark SQL
-   * *   Kyuubi
+   * - Hive: Hive SQL
+   * 
+   * - Spark: Spark SQL
+   * 
+   * - Kyuubi
    * 
    * @example
    * Hive
@@ -71,8 +73,9 @@ export class CreateDataQualityScanRequestComputeResource extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Prod: production environment .
-   * *   Dev: development environment.
+   * - Prod: production environment .
+   * 
+   * - Dev: development environment.
    * 
    * @example
    * Dev
@@ -136,7 +139,7 @@ export class CreateDataQualityScanRequestHooks extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   BlockTaskInstance: Blocks the scheduling of the task instance.
+   * - BlockTaskInstance: Blocks the scheduling of the task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -267,8 +270,9 @@ export class CreateDataQualityScanRequestTrigger extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ByManual: Manual trigger. This is the default setting.
-   * *   BySchedule: Triggered by a scheduled task instance.
+   * - ByManual: Manual trigger. This is the default setting.
+   * 
+   * - BySchedule: Triggered by a scheduled task instance.
    * 
    * @example
    * BySchedule

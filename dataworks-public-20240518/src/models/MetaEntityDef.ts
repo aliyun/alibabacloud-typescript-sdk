@@ -4,24 +4,65 @@ import { MetaEntityAttributeDef } from "./MetaEntityAttributeDef";
 
 
 export class MetaEntityDef extends $dara.Model {
+  /**
+   * @remarks
+   * A list of entity attribute definition objects.
+   */
   attributeDefs?: MetaEntityAttributeDef[];
+  /**
+   * @remarks
+   * The time when the definition was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1780553640613
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 业务API
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The entity type.
+   * 
    * @example
-   * custom_entity-customer_api
+   * custom_entity-biz_api
    */
   entityType?: string;
   /**
+   * @remarks
+   * The extension mode. Valid values: NONE and TABLE. NONE indicates a custom type. TABLE indicates that the type extends a table type.
+   * 
    * @example
    * NONE
    */
   extend?: string;
+  /**
+   * @remarks
+   * The time when the definition was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1780553640613
+   */
   modifyTime?: number;
   /**
+   * @remarks
+   * The name of the type definition.
+   * 
    * @example
-   * customer_api
+   * biz_api
    */
   name?: string;
   static names(): { [key: string]: string } {

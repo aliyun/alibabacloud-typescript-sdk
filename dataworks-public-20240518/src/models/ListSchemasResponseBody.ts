@@ -5,6 +5,9 @@ import { Schema } from "./Schema";
 
 export class ListSchemasResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
@@ -23,6 +26,9 @@ export class ListSchemasResponseBodyPagingInfo extends $dara.Model {
    */
   schemas?: Schema[];
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 1
    */

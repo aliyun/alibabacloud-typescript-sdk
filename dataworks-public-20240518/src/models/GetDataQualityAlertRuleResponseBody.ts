@@ -15,14 +15,21 @@ export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotification
    * @remarks
    * The type of alert recipients.
    * 
-   * *   ShiftSchedule
-   * *   WebhookUrl
-   * *   FeishuUrl
-   * *   TaskOwner
-   * *   WeixinUrl
-   * *   DingdingUrl
-   * *   DataQualityScanOwner
-   * *   AliUid
+   * - ShiftSchedule
+   * 
+   * - WebhookUrl
+   * 
+   * - FeishuUrl
+   * 
+   * - TaskOwner
+   * 
+   * - WeixinUrl
+   * 
+   * - DingdingUrl
+   * 
+   * - DataQualityScanOwner
+   * 
+   * - AliUid
    * 
    * @example
    * TaskOwner

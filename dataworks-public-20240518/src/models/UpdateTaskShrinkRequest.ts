@@ -33,8 +33,9 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The project environment.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -59,8 +60,9 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The instance generation mode.
    * 
-   * *   T+1: the next day
-   * *   Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+   * - T+1: the next day
+   * 
+   * - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
    * 
    * @example
    * T+1
@@ -92,16 +94,18 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * The rerun interval. Unit: milliseconds. Must not exceed 1800000.
    * 
    * @example
-   * 60
+   * 60000
    */
   rerunInterval?: number;
   /**
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun.
-   * *   FailureAllowed: The task can be rerun only after it fails.
-   * *   AllAllowed: The task can always be rerun.
+   * - AllDenied: The task cannot be rerun.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails.
+   * 
+   * - AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed

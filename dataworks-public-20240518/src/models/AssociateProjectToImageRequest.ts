@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateProjectToImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AssociateProjectToImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

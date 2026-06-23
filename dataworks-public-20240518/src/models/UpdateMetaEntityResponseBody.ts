@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMetaEntityResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the entity.
+   * 
    * @example
    * custom_entity-customer_api:api_001
    */
   id?: string;
   /**
+   * @remarks
+   * Indicates whether the update was successful.
+   * 
    * @example
    * true
    */
@@ -39,14 +45,21 @@ export class UpdateMetaEntityResponseBodyResult extends $dara.Model {
 export class UpdateMetaEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * AASFDFSDFG-DFSDF-DFSDFD-SDFSDF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the update operation.
+   */
   result?: UpdateMetaEntityResponseBodyResult;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -16,7 +16,7 @@ export class CreateDataSourceResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * B62EC203-B39E-5DC1-B5B8-EB3C61707009
+   * B62EC203-B39E-5DC1-B5B8-EB3C6****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

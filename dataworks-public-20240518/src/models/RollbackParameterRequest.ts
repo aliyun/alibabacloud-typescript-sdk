@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackParameterRequest extends $dara.Model {
   /**
    * @remarks
+   * The parameter ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RollbackParameterRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The rollback version.
+   * 
    * This parameter is required.
    * 
    * @example

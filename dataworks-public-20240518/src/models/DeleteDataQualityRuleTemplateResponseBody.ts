@@ -13,7 +13,7 @@ export class DeleteDataQualityRuleTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteProcessDefinitionRequest extends $dara.Model {
   /**
    * @remarks
+   * **The ID of the process definition to delete.**
+   * 
    * This parameter is required.
    * 
    * @example

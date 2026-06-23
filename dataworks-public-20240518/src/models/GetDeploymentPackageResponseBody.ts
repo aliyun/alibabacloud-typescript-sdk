@@ -21,13 +21,19 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
   fileVersion?: number;
   /**
    * @remarks
-   * *   UNPUBLISHED(0)
-   * *   SUCCESS(1)
-   * *   ERROR(2)
-   * *   CLONED(3)
-   * *   DEPLOY_ERROR(4)
-   * *   CLONING(5)
-   * *   REJECT(6)
+   * - UNPUBLISHED(0)
+   * 
+   * - SUCCESS(1)
+   * 
+   * - ERROR(2)
+   * 
+   * - CLONED(3)
+   * 
+   * - DEPLOY_ERROR(4)
+   * 
+   * - CLONING(5)
+   * 
+   * - REJECT(6)
    * 
    * @example
    * 1
@@ -63,8 +69,9 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
    * @remarks
    * The validation status of nodes in the deployment package. For packages deployed to the development environment (toEnviroment=1), you can only proceed to deploy to production if the package Status is 1 (succeeded) and CheckingStatus is empty (validation complete).
    * 
-   * *   7: Validation failed
-   * *   8: Validation in progress
+   * - 7: Validation failed
+   * 
+   * - 8: Validation in progress
    * 
    * @example
    * 7
@@ -263,8 +270,9 @@ export class GetDeploymentPackageResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call succeeded. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

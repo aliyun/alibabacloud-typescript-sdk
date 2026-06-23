@@ -34,15 +34,16 @@ export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   id?: string;
   /**
    * @remarks
    * The sort order. Valid values:
    * 
-   * *   Asc (default): ascending order.
-   * *   Desc
+   * - Asc (default): ascending order.
+   * 
+   * - Desc
    * 
    * @example
    * Asc
@@ -68,8 +69,9 @@ export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
    * @remarks
    * The sort field. Valid values:
    * 
-   * *   Name (default)
-   * *   CreateTime
+   * - Name (default)
+   * 
+   * - CreateTime
    * 
    * @example
    * Name

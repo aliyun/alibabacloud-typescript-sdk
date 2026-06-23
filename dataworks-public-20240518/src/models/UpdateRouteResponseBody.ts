@@ -8,7 +8,7 @@ export class UpdateRouteResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
+   * 6A6CBE87-9F91-1323-B680-E7A7065****
    */
   requestId?: string;
   /**

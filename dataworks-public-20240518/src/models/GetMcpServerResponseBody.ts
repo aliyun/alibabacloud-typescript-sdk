@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMcpServerResponseBodyMcpServerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The custom headers.
+   * 
+   * @example
+   * {}
+   */
   customHeaders?: { [key: string]: any };
   /**
+   * @remarks
+   * The transport protocol.
+   * 
    * @example
    * SSE
    */
   transport?: string;
   /**
+   * @remarks
+   * The service address of the MCP Server.
+   * 
    * @example
    * https://example.com/mcp/sse
    */
@@ -43,14 +56,23 @@ export class GetMcpServerResponseBodyMcpServerConfig extends $dara.Model {
 }
 
 export class GetMcpServerResponseBodyMcpServer extends $dara.Model {
+  /**
+   * @remarks
+   * The connection configuration for the MCP Server.
+   */
   config?: GetMcpServerResponseBodyMcpServerConfig;
   /**
+   * @remarks
+   * The creator ID.
+   * 
    * @example
    * 123456
    */
   creatorId?: string;
   /**
    * @remarks
+   * The creation time, provided as a timestamp in milliseconds.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -59,6 +81,8 @@ export class GetMcpServerResponseBodyMcpServer extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * The modification time, provided as a timestamp in milliseconds.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -66,15 +90,28 @@ export class GetMcpServerResponseBodyMcpServer extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The modifier ID.
+   * 
    * @example
    * 123456
    */
   modifierId?: string;
   /**
+   * @remarks
+   * The MCP Server name.
+   * 
    * @example
    * my-mcp-server
    */
   name?: string;
+  /**
+   * @remarks
+   * The visibility level. Valid values: TENANT (visible within the account), PROJECT (visible to specified projects), and USER (visible to specified users).
+   * 
+   * @example
+   * TENANT
+   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,8 +150,15 @@ export class GetMcpServerResponseBodyMcpServer extends $dara.Model {
 }
 
 export class GetMcpServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The MCP Server configuration.
+   */
   mcpServer?: GetMcpServerResponseBodyMcpServer;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */

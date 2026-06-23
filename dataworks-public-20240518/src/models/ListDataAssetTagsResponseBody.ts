@@ -9,8 +9,9 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
    * 
    * Valid values:
    * 
-   * *   Normal
-   * *   System
+   * - Normal
+   * 
+   * - System
    * 
    * @example
    * Normal

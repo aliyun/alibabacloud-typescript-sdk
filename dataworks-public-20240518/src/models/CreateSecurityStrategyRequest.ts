@@ -4,51 +4,101 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSecurityStrategyRequestContentControllers extends $dara.Model {
   /**
+   * @remarks
+   * The default value for Basic Edition.
+   * 
    * @example
    * 0
    */
   basicEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value interval for Basic Edition, in the format `[min, max]`.
+   */
   basicEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The controller identifier. For valid values, see the list of controllers for each schema.
+   * 
    * @example
    * viewCount
    */
   controller?: string;
   /**
+   * @remarks
+   * The value type. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
+   * 
    * @example
    * Integer
    */
   controllerValueType?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 查询结果-单次展示记录值上限
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The English display name.
+   * 
    * @example
    * Query Results - Single Display Record Limit
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * Specifies whether to enable this controller.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The default value for Enterprise Edition.
+   * 
    * @example
    * 500000
    */
   enterpriseEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value interval for Enterprise Edition, in the format `[min, max]`.
+   */
   enterpriseEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for Professional Edition.
+   * 
    * @example
    * 200000
    */
   professionalEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value interval for Professional Edition, in the format `[min, max]`.
+   */
   professionalEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for Standard Edition.
+   * 
    * @example
    * 100000
    */
   standardEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value interval for Standard Edition, in the format `[min, max]`.
+   */
   standardEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The user-configured value. The type of this value depends on the `ControllerValueType` parameter.
+   * 
    * @example
    * 10
    */
@@ -114,12 +164,17 @@ export class CreateSecurityStrategyRequestContentControllers extends $dara.Model
 
 export class CreateSecurityStrategyRequestContent extends $dara.Model {
   /**
+   * @remarks
+   * The control scope. This corresponds to the `controlDwScope` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * @example
    * Tenant
    */
   controlDwScope?: string;
   /**
    * @remarks
+   * The control module. This corresponds to the `controlModule` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -127,19 +182,40 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
    */
   controlModule?: string;
   /**
+   * @remarks
+   * The control submodule. This corresponds to the `controlSubModule` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
+  /**
+   * @remarks
+   * A list of controllers.
+   * 
+   * **Note:** Valid controllers depend on the selected schema. For more information, see the controller definitions and the list of controllers for each schema.
+   */
   controllers?: CreateSecurityStrategyRequestContentControllers[];
+  /**
+   * @remarks
+   * The `displayName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
+   * @example
+   * 数据分析
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The `displayNameEn` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * @example
    * Data Analysis
    */
   displayNameEn?: string;
   /**
    * @remarks
+   * The `name` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -147,11 +223,17 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The `systemPolicyDisplayName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * @example
    * Default system generate data query policy
    */
   systemPolicyDisplayName?: string;
   /**
+   * @remarks
+   * The `systemPolicyName` property of the `SecurityStrategySchema` associated with the current strategy.
+   * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
    */
@@ -198,17 +280,24 @@ export class CreateSecurityStrategyRequestContent extends $dara.Model {
 
 export class CreateSecurityStrategyRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client-generated token that ensures request idempotency, preventing duplicate operations if you retry the request.
+   * 
    * @example
    * ABFUOEUOTRTRJKE
    */
   clientToken?: string;
   /**
    * @remarks
+   * The content of the strategy. This value is constrained by the `SecurityStrategySchema`.
+   * 
    * This parameter is required.
    */
   content?: CreateSecurityStrategyRequestContent;
   /**
    * @remarks
+   * **The control scope. Valid values: Workspace and Tenant.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -217,6 +306,8 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
   controlDwScope?: string;
   /**
    * @remarks
+   * **Control module**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -224,24 +315,45 @@ export class CreateSecurityStrategyRequest extends $dara.Model {
    */
   controlModule?: string;
   /**
+   * @remarks
+   * **Control submodule**
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
+  /**
+   * @remarks
+   * **Strategy description**
+   * 
+   * @example
+   * 控制数据分析模块的查询结果安全行为
+   */
   description?: string;
   /**
    * @remarks
+   * **Strategy name**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 默认数据分析策略
    */
   name?: string;
   /**
    * @remarks
+   * **Schema template name**
+   * 
    * This parameter is required.
    * 
    * @example
    * DataQuerySecurityStrategySchema
    */
   schemaName?: string;
+  /**
+   * @remarks
+   * A list of associated workspace IDs.
+   */
   workspaces?: number[];
   static names(): { [key: string]: string } {
     return {

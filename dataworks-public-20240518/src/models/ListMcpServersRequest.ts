@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMcpServersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The next page token from a previous response. Use this token to retrieve the next page of results. Leave this parameter empty for the first request.
+   * 
    * @example
    * 12345
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The search keyword for a fuzzy search on MCP Server names.
+   * 
    * @example
    * mcp
    */
   q?: string;
   /**
+   * @remarks
+   * The visibility level for filtering the results.
+   * 
    * @example
    * -
    */

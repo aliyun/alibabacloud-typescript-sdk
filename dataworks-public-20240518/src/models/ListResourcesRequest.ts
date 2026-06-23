@@ -53,13 +53,16 @@ export class ListResourcesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Python
-   * *   Jar
-   * *   Archive
-   * *   File
+   * - Python
+   * 
+   * - Jar
+   * 
+   * - Archive
+   * 
+   * - File
    * 
    * @example
-   * python
+   * Python
    */
   type?: string;
   static names(): { [key: string]: string } {

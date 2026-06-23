@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data quality monitoring task that is associated with the rule.
+   * ID of the associated data quality evaluation task.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class ListDataQualityRulesRequest extends $dara.Model {
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
-   * The name of the rule. Fuzzy match is supported.
+   * Rule name for fuzzy matching.
    * 
    * @example
    * unit_test
@@ -21,7 +21,7 @@ export class ListDataQualityRulesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * Page number for paginated query. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListDataQualityRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 200.
+   * Number of entries per page. Default value: 10. Maximum value: 200.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListDataQualityRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * DataWorks workspace ID.
    * 
    * @example
    * 10002
@@ -45,7 +45,7 @@ export class ListDataQualityRulesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the table that is limited by the rule in Data Map.
+   * The unique identifier of the table to which the rule applies in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test

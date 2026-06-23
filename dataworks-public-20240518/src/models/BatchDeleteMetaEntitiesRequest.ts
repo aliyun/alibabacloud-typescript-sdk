@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteMetaEntitiesRequest extends $dara.Model {
   /**
    * @remarks
+   * An array of IDs for the meta entities to delete. You can specify up to 10 IDs in a single request. All entities in the batch must have the same EntityType.
+   * 
    * This parameter is required.
    */
   ids?: string[];

@@ -4,51 +4,101 @@ import * as $dara from '@darabonba/typescript';
 
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContentControllers extends $dara.Model {
   /**
+   * @remarks
+   * **Basic Edition default value**
+   * 
    * @example
    * 0
    */
   basicEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * Basic Edition valid value range [min, max].
+   */
   basicEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * Controller identifier. For values, see the controller list of each Schema.
+   * 
    * @example
    * viewCount
    */
   controller?: string;
   /**
+   * @remarks
+   * **Value type (Boolean/Integer/Long/String)**
+   * 
    * @example
    * Integer
    */
   controllerValueType?: string;
+  /**
+   * @remarks
+   * Display name.
+   * 
+   * @example
+   * 查询结果-单次展示记录值上限
+   */
   displayName?: string;
   /**
+   * @remarks
+   * **English display name**
+   * 
    * @example
    * Query Results - Single Display Record Limit
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * **Whether this controller is enabled**
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Enterprise Edition default value.
+   * 
    * @example
    * 500000
    */
   enterpriseEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * Enterprise Edition valid value range [min, max].
+   */
   enterpriseEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * Professional Edition default value.
+   * 
    * @example
    * 200000
    */
   professionalEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * Professional Edition valid value range [min, max].
+   */
   professionalEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * **Standard Edition default value**
+   * 
    * @example
    * 10000
    */
   standardEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * Standard Edition valid value range [min, max].
+   */
   standardEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * **User-configured value. The type depends on ControllerValueType.**
+   * 
    * @example
    * 20
    */
@@ -114,38 +164,72 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
 
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContent extends $dara.Model {
   /**
+   * @remarks
+   * **Control scope**
+   * 
    * @example
    * Tenant
    */
   controlDwScope?: string;
   /**
+   * @remarks
+   * **Control module**
+   * 
    * @example
    * DataQuery
    */
   controlModule?: string;
   /**
+   * @remarks
+   * **Control sub-module**
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
+  /**
+   * @remarks
+   * Controller list.
+   * 
+   * Note: Valid controllers depend on the selected Schema. Refer to the Controller definition and the controller list of each Schema.
+   */
   controllers?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContentControllers[];
+  /**
+   * @remarks
+   * **Display name**
+   * 
+   * @example
+   * 数据分析
+   */
   displayName?: string;
   /**
+   * @remarks
+   * **English display name**
+   * 
    * @example
    * Data Query
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * **Schema name**
+   * 
    * @example
    * DataQuerySecurityStrategySchema
    */
   name?: string;
   /**
+   * @remarks
+   * System policy display name.
+   * 
    * @example
    * Default system generate data query policy
    */
   systemPolicyDisplayName?: string;
   /**
+   * @remarks
+   * System policy name (when not empty, the system automatically creates a default policy).
+   * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
    */
@@ -191,64 +275,119 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyConten
 }
 
 export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * **Policy content**. Refer to the StrategyContent definition.
+   */
   content?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategyContent;
   /**
+   * @remarks
+   * **Control scope** (Workspace/Tenant).
+   * 
    * @example
    * Tenant
    */
   controlDwScope?: string;
   /**
+   * @remarks
+   * **Control module**
+   * 
    * @example
    * DataQuery
    */
   controlModule?: string;
   /**
+   * @remarks
+   * **Control sub-module**
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2026-05-25T20:46:19
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creator user ID.
+   * 
    * @example
    * 203322746501002787
    */
   creator?: string;
+  /**
+   * @remarks
+   * **Policy description**
+   * 
+   * @example
+   * 控制数据分析模块的查询结果安全行为
+   */
   description?: string;
   /**
+   * @remarks
+   * **Whether enabled**
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * **Policy ID**
+   * 
    * @example
    * 16
    */
   id?: number;
+  /**
+   * @remarks
+   * **Policy name**
+   * 
+   * @example
+   * 默认数据分析策略
+   */
   name?: string;
   /**
+   * @remarks
+   * System default policy source ID.
+   * 
    * @example
    * 12
    */
   originPolicyId?: number;
   /**
+   * @remarks
+   * **Schema template name**
+   * 
    * @example
    * DataQuerySecurityStrategySchema
    */
   schemaName?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2026-05-25T20:46:19
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last updater user ID.
+   * 
    * @example
    * 207947397706614297
    */
   updater?: string;
+  /**
+   * @remarks
+   * **Associated workspace ID list**
+   */
   workspaces?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -307,11 +446,25 @@ export class FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy exten
 
 export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Purchased DataWorks edition.
+   * 
    * @example
    * STANDARD
    */
   edition?: string;
+  /**
+   * @remarks
+   * Purchased DataWorks edition name.
+   * 
+   * @example
+   * 标准版
+   */
   editionDisplayName?: string;
+  /**
+   * @remarks
+   * Security policy.
+   */
   securityStrategy?: FindBestMatchSecurityStrategyResponseBodyDataSecurityStrategy;
   static names(): { [key: string]: string } {
     return {
@@ -342,8 +495,15 @@ export class FindBestMatchSecurityStrategyResponseBodyData extends $dara.Model {
 }
 
 export class FindBestMatchSecurityStrategyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Data object.
+   */
   data?: FindBestMatchSecurityStrategyResponseBodyData;
   /**
+   * @remarks
+   * **API request ID**
+   * 
    * @example
    * 0bc5df3a17***903790e8e8a
    */

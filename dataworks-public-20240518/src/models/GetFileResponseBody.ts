@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileResponseBodyDataFile extends $dara.Model {
   /**
    * @remarks
-   * The advanced configurations of the node.
+   * Advanced configuration of the job.
    * 
-   * This parameter is valid for an EMR node. This parameter corresponds to the Advanced Settings tab in the right-side navigation pane on the configuration tab of the node in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to "Advanced Settings" in the right-side navigation bar on the editing page of an EMR Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
-   * >  You cannot configure advanced parameters for EMR Shell nodes.
+   * > Currently, EMR Shell jobs do not support advanced parameters.
    * 
-   * For information about the advanced parameters of each type of EMR node, see [Develop EMR tasks](https://help.aliyun.com/document_detail/473077.html).
+   * For details about advanced parameters for different EMR job types, see [EMR Job Development](https://help.aliyun.com/document_detail/473077.html).
    * 
    * @example
    * {\\"priority\\":\\"1\\",\\"ENABLE_SPARKSQL_JDBC\\":false,\\"FLOW_SKIP_SQL_ANALYZE\\":false,\\"queue\\":\\"default\\"}
@@ -19,12 +19,13 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   advancedSettings?: string;
   /**
    * @remarks
-   * Indicates whether the automatic parsing feature is enabled for the file. Valid values:
+   * Indicates whether automatic parsing is enabled for the file. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The code in the file is automatically parsed.
    * 
-   * This parameter corresponds to the Automatic Parsing From Code Before Node Committing parameter that is displayed after you select Same Cycle in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * - false: The code in the file is not automatically parsed.
+   * 
+   * This parameter corresponds to the "Code Parsing" option in the DataWorks console (https\\://workbench.data.aliyun.com/console) when you select "Same Cycle" under Schedule Configuration > Schedule Dependency for a Data Development job.
    * 
    * @example
    * true
@@ -32,7 +33,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   autoParsing?: boolean;
   /**
    * @remarks
-   * The ID of the workflow to which the file belongs. This parameter is deprecated and replaced by the BusinessId parameter.
+   * The ID of the Business Process to which the file belongs. This field is deprecated. Use the BusinessId field instead.
    * 
    * @example
    * 1000001
@@ -40,7 +41,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   bizId?: number;
   /**
    * @remarks
-   * The ID of the workflow to which the file belongs.
+   * The Business Process ID of the file.
    * 
    * @example
    * 1000001
@@ -48,7 +49,11 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * Indicates whether the latest code in the file is committed. Valid values: 0 and 1. The value 0 indicates that the latest code in the file is not committed. The value 1 indicates that the latest code in the file is committed.
+   * The current commit status of the file. Valid values:
+   * 
+   * - 0: The latest code has not been submitted.
+   * 
+   * - 1: The latest code has been submitted.
    * 
    * @example
    * 0
@@ -56,7 +61,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   commitStatus?: number;
   /**
    * @remarks
-   * The name of the data source that is used to run the node that corresponds to the file.
+   * The name of the data source used when executing the job corresponding to the file.
    * 
    * @example
    * odps_source
@@ -64,7 +69,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The code in the file.
+   * The code of the file.
    * 
    * @example
    * SHOW TABLES;
@@ -72,7 +77,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the file was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * UNIX timestamp when the file was created, in milliseconds.
    * 
    * @example
    * 1593879116000
@@ -80,7 +85,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used to create the file.
+   * The Alibaba Cloud User ID of the file creator.
    * 
    * @example
    * 424732****
@@ -88,7 +93,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The latest version number of the file.
+   * Version number of the latest submitted version of the file.
    * 
    * @example
    * 3
@@ -96,11 +101,13 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   currentVersion?: number;
   /**
    * @remarks
-   * The status of the file. Valid values:
+   * The deletion status of the file. Valid values:
    * 
-   * *   NORMAL: The file is not deleted.
-   * *   RECYCLE_BIN: The file is stored in the recycle bin.
-   * *   DELETED: The file is deleted.
+   * - NORMAL: Not deleted.
+   * 
+   * - RECYCLE_BIN: In the recycle bin.
+   * 
+   * - DELETED: Deleted.
    * 
    * @example
    * RECYCLE
@@ -124,7 +131,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   fileFolderId?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 100000001
@@ -132,7 +139,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The name of the file.
+   * Name of the file.
    * 
    * @example
    * ods_user_info_d
@@ -140,7 +147,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The type of the code for the file. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+   * The code type of the file. Different file types use different code. For more information, see [DataWorks Edge Zone Collection](https://help.aliyun.com/document_detail/600169.html).
    * 
    * @example
    * 10
@@ -148,7 +155,8 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * Indicates whether the resource file needs to be uploaded to MaxCompute. This parameter is returned only if the file is a MaxCompute resource file.
+   * Indicates whether the resource file needs to be uploaded to MaxCompute.
+   * Configure this parameter only when the file is a MaxCompute resource file.
    * 
    * @example
    * true
@@ -156,7 +164,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   isMaxCompute?: boolean;
   /**
    * @remarks
-   * The time when the file was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp of the most recent edit to the file, in milliseconds.
    * 
    * @example
    * 1593879116000
@@ -164,7 +172,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   lastEditTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used to last modify the file.
+   * The Alibaba Cloud User ID of the user who last edited the file.
    * 
    * @example
    * 424732****
@@ -172,7 +180,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   lastEditUser?: string;
   /**
    * @remarks
-   * The ID of the auto triggered node that is generated in the scheduling system after the file is committed.
+   * The ID of the scheduling task generated in the CDN mapping system after the file is submitted.
    * 
    * @example
    * 300001
@@ -180,7 +188,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the file owner.
+   * Alibaba Cloud User ID of the file owner.
    * 
    * @example
    * 7775674356****
@@ -188,7 +196,7 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the node group file to which the current file belongs. This parameter is returned only if the current file is an inner file of the node group file.
+   * If the current file is an internal file of a composite edge zone file, this field identifies the ID of the corresponding composite edge zone file.
    * 
    * @example
    * -1
@@ -196,14 +204,19 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The module to which the file belongs. Valid values:
+   * The function module to which the file belongs. Valid values:
    * 
-   * *   NORMAL: The file is used for DataStudio.
-   * *   MANUAL: The file is used for a manually triggered node.
-   * *   MANUAL_BIZ: The file is used for a manually triggered workflow.
-   * *   SKIP: The file is used for a dry-run node in DataStudio.
-   * *   ADHOCQUERY: The file is used for an ad hoc query.
-   * *   COMPONENT: The file is used for a script template.
+   * - NORMAL: Data Development.
+   * 
+   * - MANUAL: One-time task.
+   * 
+   * - MANUAL_BIZ: Manually triggered workflow.
+   * 
+   * - SKIP: Dry-run scheduling in Data Development.
+   * 
+   * - ADHOCQUERY: Ad-hoc query.
+   * 
+   * - COMPONENT: Widget Management.
    * 
    * @example
    * NORMAL
@@ -277,9 +290,9 @@ export class GetFileResponseBodyDataFile extends $dara.Model {
 export class GetFileResponseBodyDataNodeConfigurationInputList extends $dara.Model {
   /**
    * @remarks
-   * The output name of the parent file on which the current file depends.
+   * The output name of the upstream file on which this file depends.
    * 
-   * This parameter corresponds to the Output Name of Ancestor Node parameter under Parent Nodes after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to "Parent Node Output Name" when "Same Cycle" is selected under "Schedule Configuration > Schedule Dependency" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * project.001_out
@@ -287,10 +300,11 @@ export class GetFileResponseBodyDataNodeConfigurationInputList extends $dara.Mod
   input?: string;
   /**
    * @remarks
-   * The mode of the configuration file dependency. Valid values:
+   * The method for configuring file dependencies. Valid values:
    * 
-   * *   MANUAL: Scheduling dependencies are manually configured.
-   * *   AUTO: Scheduling dependencies are automatically parsed.
+   * - MANUAL: Manually configured.
+   * 
+   * - AUTO: Automatically parsed.
    * 
    * @example
    * MANUAL
@@ -322,9 +336,9 @@ export class GetFileResponseBodyDataNodeConfigurationInputList extends $dara.Mod
 export class GetFileResponseBodyDataNodeConfigurationInputParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the input parameter of the node. In the code, you can use the ${...} method to reference the input parameter of the node.
+   * The parameter name of the input parameter in the node context. You can reference this parameter in code by using the ${...} syntax.
    * 
-   * This parameter corresponds to the Parameter Name parameter in the Input Parameters table in the Input and Output Parameters section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Parameter Name" field under "Schedule Configuration > Node Context > Input Parameters of This Node" in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * input
@@ -332,9 +346,9 @@ export class GetFileResponseBodyDataNodeConfigurationInputParameters extends $da
   parameterName?: string;
   /**
    * @remarks
-   * The value source of the input parameter of the node.
+   * The value source of the input parameter in the node context.
    * 
-   * This parameter corresponds to the Value Source parameter in the Input Parameters table in the Input and Output Parameters section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Value Source" field under "Schedule Configuration > Node Context > Input Parameters of This Node" in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * project_001.parent_node:outputs
@@ -366,9 +380,9 @@ export class GetFileResponseBodyDataNodeConfigurationInputParameters extends $da
 export class GetFileResponseBodyDataNodeConfigurationOutputList extends $dara.Model {
   /**
    * @remarks
-   * The output name of the current file.
+   * Output name of the file.
    * 
-   * This parameter corresponds to the Output Name parameter under Output after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the value in the "Output Name" column when "Same Cycle" is selected under "Scan Configuration > Schedule Dependency" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * dw_project.002_out
@@ -376,9 +390,9 @@ export class GetFileResponseBodyDataNodeConfigurationOutputList extends $dara.Mo
   output?: string;
   /**
    * @remarks
-   * The output table name of the current file.
+   * Output value of the file.
    * 
-   * This parameter corresponds to the Output Table Name parameter under Output after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the value in the "Output Table" column when "Same Cycle" is selected under "Scan Configuration > Schedule Dependency" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ods_user_info_d
@@ -410,7 +424,7 @@ export class GetFileResponseBodyDataNodeConfigurationOutputList extends $dara.Mo
 export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $dara.Model {
   /**
    * @remarks
-   * The description of the output parameter of the node.
+   * The description of the output parameter in the edge zone context.
    * 
    * @example
    * It\\"s a context output parameter.
@@ -418,9 +432,9 @@ export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $d
   description?: string;
   /**
    * @remarks
-   * The name of the output parameter of the node.
+   * The parameter name of the output parameter in the node context.
    * 
-   * This parameter corresponds to the Parameter Name parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Parameter Name" field under "Schedule Configuration > Node Context > Output Parameters of This Node" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * output
@@ -428,13 +442,15 @@ export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $d
   parameterName?: string;
   /**
    * @remarks
-   * The type of the output parameter of the node. Valid values:
+   * The type of the expression for the edge zone context output parameter. Valid values are as follows:
    * 
-   * *   1: indicates a constant.
-   * *   2: indicates a variable.
-   * *   3: indicates a pass-through variable.
+   * - 1: constant
    * 
-   * This parameter corresponds to the Type parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * - 2: variable
+   * 
+   * - 3: pass-through variable from a parameter node
+   * 
+   * This parameter corresponds to the "Type" field in the "Scan Configuration > Edge Zone Context > Output Parameters of This Node" section for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 1
@@ -442,9 +458,9 @@ export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $d
   type?: string;
   /**
    * @remarks
-   * The value of the output parameter of the node.
+   * The expression of the output parameter in the edge zone context.
    * 
-   * This parameter corresponds to the Value parameter in the Output Parameters table in the Input and Output Parameters section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Value" field in the "Scan Configuration > Edge Zone Context > Output Parameters of This Node" section for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ${bizdate}
@@ -480,7 +496,7 @@ export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $d
 export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether scheduling configurations immediately take effect after the deployment.
+   * Whether to apply the schedule configuration immediately after publishing.
    * 
    * @example
    * true
@@ -488,9 +504,10 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   applyScheduleImmediately?: string;
   /**
    * @remarks
-   * The interval between automatic reruns after an error occurs. Unit: milliseconds.
+   * The time interval between automatic reruns after an error, in milliseconds.
    * 
-   * This parameter corresponds to the Rerun interval parameter that is displayed after the Auto Rerun upon Failure check box is selected in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). The interval that you specify in the DataWorks console is measured in minutes. Pay attention to the conversion between the units of time when you call the operation.
+   * This parameter corresponds to the "Rerun Interval" setting under "Schedule Configuration > Time Properties > Auto Rerun on Error" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).<br>
+   * Note that the time unit for "Rerun Interval" in the console is minutes; convert the time accordingly when invoking the API.
    * 
    * @example
    * 120000
@@ -498,7 +515,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   autoRerunIntervalMillis?: number;
   /**
    * @remarks
-   * The number of automatic reruns that are allowed after an error occurs.
+   * The number of automatic reruns after an error.
    * 
    * @example
    * 3
@@ -506,7 +523,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   autoRerunTimes?: number;
   /**
    * @remarks
-   * The cron expression that represents the periodic scheduling policy of the node.
+   * The Cron Expression for timed scheduling of the file.
    * 
    * @example
    * 00 05 00 * * ?
@@ -514,9 +531,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   cronExpress?: string;
   /**
    * @remarks
-   * The type of the scheduling cycle. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
+   * The type of recurrence, including NOT_DAY (minute, hour) and DAY (day, week, month).
    * 
-   * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to "Schedule Configuration > Time Properties > Recurrence" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * DAY
@@ -524,9 +541,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The ID of the node on which the node that corresponds to the file depends when the DependentType parameter is set to USER_DEFINE. Multiple IDs are separated by commas (,).
+   * When the DependentType parameter is set to USER_DEFINE, this parameter specifies the IDs of the nodes on which the current file depends. Separate multiple node IDs with commas (,).
    * 
-   * The value of this parameter is equivalent to the ID of the node that you specified after you select Previous Cycle and set Depend On to Other Nodes in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the configuration when, in the [DataWorks console](https://workbench.data.aliyun.com/console), the "Schedule Configuration > Schedule Dependency" of a Data Development job is set to "Previous Cycle" and the dependency option is set to "Other Nodes".
    * 
    * @example
    * 5,10,15,20
@@ -534,12 +551,15 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   dependentNodeIdList?: string;
   /**
    * @remarks
-   * The type of the cross-cycle scheduling dependency of the node. Valid values:
+   * The method of depending on the previous cycle. Valid values:
    * 
-   * *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
-   * *   CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
-   * *   USER_DEFINE: The instance generated for the node in the current cycle depends on the instances generated for one or more specified nodes in the previous cycle.
-   * *   NONE: No cross-cycle scheduling dependency type is selected for the node.
+   * - SELF: The dependency is the current node itself.
+   * 
+   * - CHILD: The dependency is direct child nodes.
+   * 
+   * - USER_DEFINE: The dependency is other specified nodes.
+   * 
+   * - NONE: No dependency is selected, meaning the node does not depend on the previous cycle.
    * 
    * @example
    * USER_DEFINE
@@ -547,9 +567,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   dependentType?: string;
   /**
    * @remarks
-   * The end of the time range for automatic scheduling. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp, in milliseconds, when automatic scheduling stops.
    * 
-   * Configuring this parameter is equivalent to specifying an end time for the Validity Period parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the millisecond UNIX timestamp of the end time configured in the "Scan Configuration > Time Properties > Effective Date" setting for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 4155787800000
@@ -557,7 +577,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   endEffectDate?: number;
   /**
    * @remarks
-   * Indicates whether the dry-run property of the ancestor nodes of the node is skipped. This parameter corresponds to the Skip the dry-run property of the ancestor node parameter that is displayed after you configure the Depend On parameter in the Dependencies section of the Properties tab on the DataStudio page in the DataWorks console.
+   * Schedule Configuration > Previous Cycle > Whether to ignore the upstream dry-run property.
    * 
    * @example
    * true
@@ -565,7 +585,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   ignoreParentSkipRunningProperty?: string;
   /**
    * @remarks
-   * The custom image ID.
+   * Custom image ID
    * 
    * @example
    * m-bp1h4b5a8ogkbll2f3tr
@@ -573,29 +593,29 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The output information about the parent files on which the current file depends.
+   * Information about outputs from upstream files on which this file depends.
    */
   inputList?: GetFileResponseBodyDataNodeConfigurationInputList[];
   /**
    * @remarks
-   * The input parameters of the node.
+   * Return Result.
    */
   inputParameters?: GetFileResponseBodyDataNodeConfigurationInputParameters[];
   /**
    * @remarks
-   * The output information about the current file.
+   * Output information of the file.
    */
   outputList?: GetFileResponseBodyDataNodeConfigurationOutputList[];
   /**
    * @remarks
-   * The output parameters of the node.
+   * Return Result.
    */
   outputParameters?: GetFileResponseBodyDataNodeConfigurationOutputParameters[];
   /**
    * @remarks
-   * The scheduling parameters of the node.
+   * Schedule parameter.
    * 
-   * This parameter corresponds to the Scheduling Parameter section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+   * This parameter corresponds to the "Scan Configuration > Parameters" setting for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console). You can refer to the [Schedule Parameters](https://help.aliyun.com/document_detail/137548.html) documentation for configuration details.
    * 
    * @example
    * a=x b=y
@@ -603,13 +623,15 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   paraValue?: string;
   /**
    * @remarks
-   * Indicates whether the node that corresponds to the file can be rerun. Valid values:
+   * Rerun property. Valid values:
    * 
-   * *   ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
-   * *   FAILURE_ALLOWED: The node can be rerun only after it fails to run.
-   * *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
+   * - ALL_ALLOWED: The job can be rerun regardless of whether it previously Succeeded or failed.
    * 
-   * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * - FAILURE_ALLOWED: The job cannot be rerun if it previously Succeeded, but can be rerun if it previously failed.
+   * 
+   * - ALL_DENIED: The job cannot be rerun regardless of whether it previously Succeeded or failed.
+   * 
+   * This parameter corresponds to the "Scan Configuration > Time Properties > Rerun Property" setting for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ALL_ALLOWED
@@ -617,7 +639,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The ID of the resource group that is used to run the node that corresponds to the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
+   * The resource group used when the file is published as a Job and executed. You can call [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) to obtain the list of available resource groups in the workspace.
    * 
    * @example
    * 375827434852437
@@ -625,12 +647,15 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   resourceGroupId?: number;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
+   * The schedule type. Valid values:
    * 
-   * *   NORMAL: The node is an auto triggered node.
-   * *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
-   * *   PAUSE: The node is a paused node.
-   * *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
+   * - NORMAL: Normal scheduling task.
+   * 
+   * - MANUAL: One-time task, which is not included in regular scheduling and corresponds to a node in a manually triggered workflow.
+   * 
+   * - PAUSE: Paused task.
+   * 
+   * - SKIP: Dry-run task, which is included in regular scheduling but is immediately marked as Succeeded when scheduled.
    * 
    * @example
    * NORMAL
@@ -638,9 +663,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   schedulerType?: string;
   /**
    * @remarks
-   * The beginning of the time range for automatic scheduling. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp (in milliseconds) indicating when automatic scheduling starts.
    * 
-   * Configuring this parameter is equivalent to specifying a start time for the Validity Period parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the start time (as a UNIX timestamp in milliseconds) configured under "Schedule Configuration > Time Properties > Effective Date" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 936923400000
@@ -648,9 +673,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   startEffectDate?: number;
   /**
    * @remarks
-   * Indicates whether a node is immediately run after the node is deployed to the production environment.
+   * Indicates whether to start immediately after publishing.
    * 
-   * This parameter is valid only for an EMR Spark Streaming node or an EMR Streaming SQL node. This parameter corresponds to the Start Method parameter in the Schedule section of the Configure tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Start Method" setting under "Configuration > Time Properties" in the right-side navigation bar on the editing page for EMR Spark Streaming and EMR Streaming SQL Data Development jobs in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -658,12 +683,13 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   startImmediately?: boolean;
   /**
    * @remarks
-   * Indicates whether the scheduling for the node is suspended Valid values:
+   * Indicates whether to skip execution. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Skip execution.
    * 
-   * This parameter corresponds to the Recurrence parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * - false: Do not skip execution.
+   * 
+   * This parameter corresponds to the setting "Schedule Type" under "Schedule Configuration > Time Properties" for a Data Development job in the [DataWorks console](https://workbench.data.aliyun.com/console), when it is set to "skip execution".
    * 
    * @example
    * false
@@ -671,7 +697,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   stop?: boolean;
   /**
    * @remarks
-   * The timeout period.
+   * Timeout definition for scheduling configuration.
    * 
    * @example
    * 1
@@ -755,7 +781,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
 export class GetFileResponseBodyDataResourceDownloadLink extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the resource.
+   * Link for downloading the resource.
    * 
    * @example
    * http://xx
@@ -785,17 +811,17 @@ export class GetFileResponseBodyDataResourceDownloadLink extends $dara.Model {
 export class GetFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The basic information about the file.
+   * Basic information about the file.
    */
   file?: GetFileResponseBodyDataFile;
   /**
    * @remarks
-   * The scheduling configurations of the file.
+   * The schedule configuration of the file.
    */
   nodeConfiguration?: GetFileResponseBodyDataNodeConfiguration;
   /**
    * @remarks
-   * The download URL of the resource.
+   * Resource download link.
    */
   resourceDownloadLink?: GetFileResponseBodyDataResourceDownloadLink;
   static names(): { [key: string]: string } {
@@ -835,12 +861,12 @@ export class GetFileResponseBodyData extends $dara.Model {
 export class GetFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the file.
+   * Details of the file.
    */
   data?: GetFileResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -848,7 +874,7 @@ export class GetFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * The connection does not exist.
@@ -856,7 +882,7 @@ export class GetFileResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -864,7 +890,7 @@ export class GetFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID. Used for troubleshooting when a fault occurs.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -872,10 +898,11 @@ export class GetFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the invocation succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The invocation succeeded.
+   * 
+   * - false: Failed to invoke.
    * 
    * @example
    * true

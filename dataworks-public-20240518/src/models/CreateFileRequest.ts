@@ -27,8 +27,9 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic parsing for the file. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
@@ -76,8 +77,9 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically create the directory specified by FileFolderPath if the directory does not exist. Valid values:
    * 
-   * *   true: If the directory does not exist, automatically create it.
-   * *   false: If the directory does not exist, the call fails.
+   * - true: If the directory does not exist, automatically create it.
+   * 
+   * - false: If the directory does not exist, the call fails.
    * 
    * @example
    * false
@@ -89,18 +91,25 @@ export class CreateFileRequest extends $dara.Model {
    * 
    * Examples:
    * 
-   * *   Scheduled at 05:30 every day: `00 30 05 * * ?`
-   * *   Scheduled at the 15th minute of every hour: `00 15 00-23/1 * * ?`
-   * *   Scheduled every 10 minutes: `00 00/10 * * * ?`
-   * *   Scheduled every 10 minutes between 08:00 and 17:00 every day: `00 00-59/10 8-17 * * * ?`
-   * *   Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
-   * *   Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
-   * *   Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
+   * - Scheduled at 05:30 every day: `00 30 05 * * ?`
+   * 
+   * - Scheduled at the 15th minute of every hour: `00 15 00-23/1 * * ?`
+   * 
+   * - Scheduled every 10 minutes: `00 00/10 * * * ?`
+   * 
+   * - Scheduled every 10 minutes between 08:00 and 17:00 every day: `00 00-59/10 8-17 * * * ?`
+   * 
+   * - Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
+   * 
+   * - Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
+   * 
+   * - Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
    * 
    * Due to the rules of the DataWorks scheduling system, cron expressions have the following restrictions:
    * 
-   * *   The minimum scheduling interval is 5 minutes.
-   * *   The earliest scheduling time each day is 00:05.
+   * - The minimum scheduling interval is 5 minutes.
+   * 
+   * - The earliest scheduling time each day is 00:05.
    * 
    * @example
    * 00 05 00 * * ?
@@ -130,12 +139,17 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * The dependency mode on the previous cycle. Valid values:
    * 
-   * *   SELF: Depends on the current node.
-   * *   CHILD: Depends on the child nodes.
-   * *   USER_DEFINE: Depends on other nodes.
-   * *   NONE: No dependencies. Does not depend on the previous cycle.
-   * *   USER_DEFINE_AND_SELF: Depends on both the current node and other nodes in the previous cycle.
-   * *   CHILD_AND_SELF: Depends on both the current node and its child nodes in the previous cycle.
+   * - SELF: Depends on the current node.
+   * 
+   * - CHILD: Depends on the child nodes.
+   * 
+   * - USER_DEFINE: Depends on other nodes.
+   * 
+   * - NONE: No dependencies. Does not depend on the previous cycle.
+   * 
+   * - USER_DEFINE_AND_SELF: Depends on both the current node and other nodes in the previous cycle.
+   * 
+   * - CHILD_AND_SELF: Depends on both the current node and its child nodes in the previous cycle.
    * 
    * @example
    * NONE
@@ -191,8 +205,9 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * Specifies whether to inherit the dry-run status from the previous cycle. Valid values:
    * 
-   * *   true: Inherit the dry-run status from the previous cycle.
-   * *   false: Do not inherit the dry-run status from the previous cycle.
+   * - true: Inherit the dry-run status from the previous cycle.
+   * 
+   * - false: Do not inherit the dry-run status from the previous cycle.
    * 
    * @example
    * false
@@ -276,9 +291,11 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * The rerun policy. Valid values:
    * 
-   * *   ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
-   * *   FAILURE_ALLOWED: Reruns are allowed only when the task fails.
-   * *   ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
+   * - ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
+   * 
+   * - FAILURE_ALLOWED: Reruns are allowed only when the task fails.
+   * 
+   * - ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
    * 
    * This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
@@ -306,10 +323,13 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * The scheduling type. Valid values:
    * 
-   * *   NORMAL: Normal scheduled task.
-   * *   MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
-   * *   PAUSE: Paused task.
-   * *   SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
+   * - NORMAL: Normal scheduled task.
+   * 
+   * - MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
+   * 
+   * - PAUSE: Paused task.
+   * 
+   * - SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
    * 
    * @example
    * NORMAL
@@ -339,8 +359,9 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * Specifies whether to skip execution. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 

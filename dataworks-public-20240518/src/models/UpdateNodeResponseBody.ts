@@ -8,15 +8,16 @@ export class UpdateNodeResponseBody extends $dara.Model {
    * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
-   * 99EBE7CF-69C0-5089-BE3E-79563C31XXXX
+   * 99EBE7CF-69C0-5089-BE3E-79563C31****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

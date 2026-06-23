@@ -26,7 +26,7 @@ export class CreateDIAlarmRuleResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * C636A747-7E4E-594D-94CD-2B4F8A9A9A63
+   * C636A747-7E4E-594D-94CD-2B****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

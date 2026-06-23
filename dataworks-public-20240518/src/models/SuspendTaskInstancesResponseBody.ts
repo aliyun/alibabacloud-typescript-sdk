@@ -9,7 +9,7 @@ export class SuspendTaskInstancesResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   * 22C97E95-F023-56B5-8852-B1A77A17****
    */
   requestId?: string;
   /**

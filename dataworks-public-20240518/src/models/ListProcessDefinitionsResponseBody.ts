@@ -3,35 +3,107 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListProcessDefinitionsResponseBodyPagingInfoProcessDefinitions extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the process definition.
+   * 
+   * @example
+   * lwt_ide_simple 项目 MaxCompute 表审批策略
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the process definition is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The ID of the process definition.
+   * 
    * @example
    * 10354346
    */
   id?: string;
   /**
+   * @remarks
+   * Indicates whether this is a default system policy. System policies have restricted update capabilities.
+   * 
    * @example
    * false
    */
   isSystem?: boolean;
+  /**
+   * @remarks
+   * The name of the process definition.
+   * 
+   * @example
+   * MaxCompute 表审批
+   */
   name?: string;
   /**
+   * @remarks
+   * The priority. A smaller value indicates a higher priority.
+   * 
    * @example
    * 1
    */
   priority?: string;
+  /**
+   * @remarks
+   * The phases in which the rule is effective. Valid values:
+   * 
+   * - `Deployment`: The policy is checked when an application is submitted.
+   * 
+   * - `Running`: The policy is checked during process execution to determine if approval can be skipped. (Supported only for the MaxCompute type)
+   */
   scopes?: string[];
   /**
+   * @remarks
+   * The subtype. Valid values:
+   * 
+   * - Table
+   * 
+   * - Column
+   * 
+   * - Database
+   * 
+   * - Schema
+   * 
+   * - Default
+   * 
    * @example
    * Table
    */
   subType?: string;
   /**
+   * @remarks
+   * The type of the process definition. Valid values:
+   * 
+   * - MaxCompute
+   * 
+   * - DataService
+   * 
+   * - Extension
+   * 
+   * - Hologres
+   * 
+   * - DlfV1 (You cannot create custom definitions for this type.)
+   * 
+   * - EMR (You cannot create custom definitions for this type.)
+   * 
+   * - DataAssetGovernance (You cannot create custom definitions for this type.)
+   * 
+   * - Lindorm (You cannot create custom definitions for this type.)
+   * 
+   * - StarRocks (You cannot create custom definitions for this type.)
+   * 
+   * - DlfNext (You cannot create custom definitions for this type.)
+   * 
+   * - DataWorks (You cannot create custom definitions for this type.)
+   * 
    * @example
    * MaxCompute
    */
@@ -77,8 +149,15 @@ export class ListProcessDefinitionsResponseBodyPagingInfoProcessDefinitions exte
 }
 
 export class ListProcessDefinitionsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * A list of process definitions. For more information, see the `ProcessDefinition` object.
+   */
   processDefinitions?: ListProcessDefinitionsResponseBodyPagingInfoProcessDefinitions[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -110,8 +189,15 @@ export class ListProcessDefinitionsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListProcessDefinitionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListProcessDefinitionsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc5df3a17***903790e8e8a
    */

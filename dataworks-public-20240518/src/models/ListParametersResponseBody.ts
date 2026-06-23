@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParametersResponseBodyPagingInfoParametersProperties extends $dara.Model {
   /**
+   * @remarks
+   * The environment type. Valid values:
+   * 
+   * - `Prod`: production environment
+   * 
+   * - `Dev`: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * value123
    */
@@ -38,62 +48,108 @@ export class ListParametersResponseBodyPagingInfoParametersProperties extends $d
 
 export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model {
   /**
+   * @remarks
+   * The time when the parameter was created. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1640000000000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the creator.
+   * 
    * @example
    * 123456789
    */
   createUser?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
-   * 这是一个测试参数
+   * This is a test parameter.
    */
   description?: string;
   /**
+   * @remarks
+   * The parameter ID.
+   * 
    * @example
    * 12345
    */
   id?: number;
   /**
+   * @remarks
+   * The time when the parameter was last modified. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1640000000000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the user who last modified the parameter.
+   * 
    * @example
    * 123456789
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * workspace.para
    */
   name?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the owner.
+   * 
    * @example
    * 123456789
    */
   owner?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The environment-specific values for the parameter.
+   */
   properties?: ListParametersResponseBodyPagingInfoParametersProperties[];
   /**
+   * @remarks
+   * The parameter scope.
+   * 
    * @example
    * Project
    */
   scope?: string;
   /**
+   * @remarks
+   * The parameter type. Valid values:
+   * 
+   * - `PlainConstant`: a plaintext constant
+   * 
+   * - `SecretConstant`: an encrypted constant
+   * 
+   * - `Variable`: a variable
+   * 
    * @example
    * PlainConstant
    */
   type?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -148,17 +204,30 @@ export class ListParametersResponseBodyPagingInfoParameters extends $dara.Model 
 
 export class ListParametersResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * A list of parameters.
+   */
   parameters?: ListParametersResponseBodyPagingInfoParameters[];
   /**
+   * @remarks
+   * The total number of parameters.
+   * 
    * @example
    * 100
    */
@@ -194,8 +263,15 @@ export class ListParametersResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListParametersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListParametersResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */

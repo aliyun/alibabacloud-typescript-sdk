@@ -39,8 +39,9 @@ export class DeleteBusinessResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: success.
-   * *   false: failure.
+   * - true: success.
+   * 
+   * - false: failure.
    * 
    * @example
    * true

@@ -50,7 +50,7 @@ export class ListProjectsRequest extends $dara.Model {
    * This parameter is used to query the information about workspaces that belong to a specific resource group.
    * 
    * @example
-   * rg-acfmzbn7pti3zff
+   * rg-acfmzbn****
    */
   aliyunResourceGroupId?: string;
   /**
@@ -62,8 +62,9 @@ export class ListProjectsRequest extends $dara.Model {
    * @remarks
    * Specifies whether the development environment is enabled. Valid values:
    * 
-   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
-   * *   false: The development environment is disabled. In this case, only the production environment is used in a workspace.
+   * - true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
+   * 
+   * - false: The development environment is disabled. In this case, only the production environment is used in a workspace.
    * 
    * @example
    * true
@@ -73,8 +74,9 @@ export class ListProjectsRequest extends $dara.Model {
    * @remarks
    * Specifies whether the Develop role is disabled. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default)
+   * 
+   * - true
    * 
    * @example
    * false
@@ -110,8 +112,9 @@ export class ListProjectsRequest extends $dara.Model {
    * @remarks
    * Specifies whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
    * 
-   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
-   * *   false: Scheduling of PAI tasks is disabled.
+   * - true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * 
+   * - false: Scheduling of PAI tasks is disabled.
    * 
    * @example
    * true
@@ -121,15 +124,23 @@ export class ListProjectsRequest extends $dara.Model {
    * @remarks
    * The status of the workspaces. Valid values:
    * 
-   * *   Available
-   * *   Initializing
-   * *   InitFailed
-   * *   Forbidden
-   * *   Deleting
-   * *   DeleteFailed
-   * *   Frozen
-   * *   Updating
-   * *   UpdateFailed
+   * - Available
+   * 
+   * - Initializing
+   * 
+   * - InitFailed
+   * 
+   * - Forbidden
+   * 
+   * - Deleting
+   * 
+   * - DeleteFailed
+   * 
+   * - Frozen
+   * 
+   * - Updating
+   * 
+   * - UpdateFailed
    * 
    * @example
    * Available

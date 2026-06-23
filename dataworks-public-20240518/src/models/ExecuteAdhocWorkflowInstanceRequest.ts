@@ -76,7 +76,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $da
    * The value of the variable. You must configure this parameter in the `The ancestor output: The output variable name of the ancestor task` format.
    * 
    * @example
-   * Value1
+   * upstream_task_output:key1
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -175,10 +175,13 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $d
    * @remarks
    * The type. Valid values:
    * 
-   * *   System
-   * *   Constant
-   * *   NodeOutput
-   * *   PassThrough
+   * - System
+   * 
+   * - Constant
+   * 
+   * - NodeOutput
+   * 
+   * - PassThrough
    * 
    * @example
    * Constant
@@ -502,8 +505,9 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod

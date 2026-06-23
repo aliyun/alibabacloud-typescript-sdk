@@ -8,7 +8,7 @@ export class UpdateFunctionResponseBody extends $dara.Model {
    * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
-   * 12123960-CB2C-5086-868E-C6C1D024XXXX
+   * 12123960-CB2C-5086-868E-C6C1D024****
    */
   requestId?: string;
   /**

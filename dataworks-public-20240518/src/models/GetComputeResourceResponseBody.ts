@@ -7,8 +7,9 @@ export class GetComputeResourceResponseBodyComputeResource extends $dara.Model {
    * @remarks
    * The specific connection configuration details for the computing resource, including the connection address, access identity, and environment information. envType, which specifies the computing resource environment, is a property of this object. Valid values:
    * 
-   * *   Dev
-   * *   Prod Different types of computing resources have different attribute specifications under various configuration modes (ConnectionPropertiesMode).
+   * - Dev
+   * 
+   * - Prod Different types of computing resources have different attribute specifications under various configuration modes (ConnectionPropertiesMode).
    * 
    * @example
    * {
@@ -26,9 +27,11 @@ export class GetComputeResourceResponseBodyComputeResource extends $dara.Model {
    * @remarks
    * The addition category of the computing resource. Different types will have different subtypes, each with corresponding parameter constraints. For instance:
    * 
-   * *   InstanceMode: Instance mode
-   * *   UrlMode: Connection String Mode
-   * *   CdhMode: CDH mode
+   * - InstanceMode: Instance mode
+   * 
+   * - UrlMode: Connection String Mode
+   * 
+   * - CdhMode: CDH mode
    * 
    * @example
    * InstanceMode

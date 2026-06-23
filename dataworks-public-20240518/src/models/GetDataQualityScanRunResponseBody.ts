@@ -63,10 +63,13 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails e
    * @remarks
    * The final comparison result status.
    * 
-   * *   Pass
-   * *   Error
-   * *   Warn
-   * *   Fail
+   * - Pass
+   * 
+   * - Error
+   * 
+   * - Warn
+   * 
+   * - Fail
    * 
    * @example
    * Fail
@@ -139,11 +142,15 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends 
    * @remarks
    * The validation result status.
    * 
-   * *   Pass
-   * *   Running
-   * *   Error
-   * *   Warn
-   * *   Fail
+   * - Pass
+   * 
+   * - Running
+   * 
+   * - Error
+   * 
+   * - Warn
+   * 
+   * - Fail
    * 
    * @example
    * Fail
@@ -186,9 +193,11 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
    * @remarks
    * The type of the compute engine. Only EMR compute engines support these settings.
    * 
-   * *   Hive
-   * *   Spark
-   * *   Kyuubi
+   * - Hive
+   * 
+   * - Spark
+   * 
+   * - Kyuubi
    * 
    * @example
    * Hive
@@ -246,8 +255,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
    * @remarks
    * The workspace environment to which the compute engine belongs.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Dev
@@ -299,7 +309,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanHooks extend
    * @remarks
    * The hook trigger condition. Currently, only one type of expression syntax is supported:
    * 
-   * *   Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
+   * - Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
    * 
    * @example
    * results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
@@ -309,7 +319,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanHooks extend
    * @remarks
    * The type of the hook.
    * 
-   * *   BlockTaskInstance
+   * - BlockTaskInstance
    * 
    * @example
    * BlockTaskInstance
@@ -438,8 +448,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanTrigger exte
    * @remarks
    * The trigger method of the data quality monitor.
    * 
-   * *   ByManual
-   * *   BySchedule
+   * - ByManual
+   * 
+   * - BySchedule
    * 
    * @example
    * BySchedule
@@ -710,11 +721,15 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.M
    * @remarks
    * The current running status.
    * 
-   * *   Pass
-   * *   Running
-   * *   Error
-   * *   Warn
-   * *   Fail
+   * - Pass
+   * 
+   * - Running
+   * 
+   * - Error
+   * 
+   * - Warn
+   * 
+   * - Fail
    * 
    * @example
    * Fail

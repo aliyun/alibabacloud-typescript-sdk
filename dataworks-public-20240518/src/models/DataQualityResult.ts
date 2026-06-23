@@ -524,6 +524,9 @@ export class DataQualityResultRule extends $dara.Model {
   /**
    * @remarks
    * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * 表不能为空
    */
   name?: string;
   /**

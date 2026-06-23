@@ -84,8 +84,9 @@ export class GetFolderResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

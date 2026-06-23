@@ -172,8 +172,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -239,8 +240,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -260,9 +262,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -298,14 +302,21 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
+   * - NotRun: The instance is not run.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - WaitTime: The instance is waiting for the scheduling time to arrive.
+   * 
+   * - CheckingCondition: Branch conditions are being checked for the instance.
+   * 
+   * - WaitResource: The instance is waiting for resources.
+   * 
+   * - Failure: The instance fails to be run.
+   * 
+   * - Success: The instance is successfully run.
+   * 
+   * - Checking: Data quality is being checked for the instance.
    * 
    * @example
    * Success
@@ -315,8 +326,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   Normal: same-cycle scheduling dependency
-   * *   CrossCycle: cross-cycle scheduling dependency
+   * - Normal: same-cycle scheduling dependency
+   * 
+   * - CrossCycle: cross-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -351,16 +363,18 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
-   * 1
+   * 3600
    */
   timeout?: number;
   /**
    * @remarks
    * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -378,8 +392,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -405,12 +420,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SmokeTest
-   * *   SupplementData
-   * *   Manual
-   * *   ManualWorkflow
-   * *   Normal
-   * *   ManualFlow
+   * - SmokeTest
+   * 
+   * - SupplementData
+   * 
+   * - Manual
+   * 
+   * - ManualWorkflow
+   * 
+   * - Normal
+   * 
+   * - ManualFlow
    * 
    * @example
    * Normal
@@ -690,8 +710,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The environment in which the data source is used. Valid values:
    * 
-   * *   Dev
-   * *   Prod
+   * - Dev
+   * 
+   * - Prod
    * 
    * @example
    * Prod
@@ -799,15 +820,23 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
-   * *   WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
+   * - NotRun: The instance is not run.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - WaitTime: The instance is waiting for the scheduling time to arrive.
+   * 
+   * - CheckingCondition: Branch conditions are being checked for the instance.
+   * 
+   * - WaitResource: The instance is waiting for resources.
+   * 
+   * - Failure: The instance fails to be run.
+   * 
+   * - Success: The instance is successfully run.
+   * 
+   * - Checking: Data quality is being checked for the instance.
+   * 
+   * - WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
    * 
    * @example
    * Success
@@ -851,9 +880,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -871,8 +902,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -898,11 +930,15 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   Normal
-   * *   Manual
-   * *   SmokeTest
-   * *   SupplementData
-   * *   ManualWorkflow
+   * - Normal
+   * 
+   * - Manual
+   * 
+   * - SmokeTest
+   * 
+   * - SupplementData
+   * 
+   * - ManualWorkflow
    * 
    * @example
    * Normal
@@ -1013,8 +1049,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   Normal
-   * *   CrossCycle
+   * - Normal
+   * 
+   * - CrossCycle
    * 
    * @example
    * Normal

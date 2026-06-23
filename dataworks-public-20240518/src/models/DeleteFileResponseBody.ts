@@ -49,8 +49,9 @@ export class DeleteFileResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * *   true: success.
-   * *   false: failure.
+   * - true: success.
+   * 
+   * - false: failure.
    * 
    * @example
    * true

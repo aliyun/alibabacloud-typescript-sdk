@@ -8,6 +8,9 @@ export class Dataset extends $dara.Model {
   /**
    * @remarks
    * The description of the dataset. The length cannot exceed 1024 characters.
+   * 
+   * @example
+   * 测试数据集
    */
   comment?: string;
   /**

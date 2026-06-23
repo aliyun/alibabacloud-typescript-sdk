@@ -4,16 +4,23 @@ import { MetaEntityDef } from "./MetaEntityDef";
 
 
 export class GetMetaEntityDefResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The custom entity definition.
+   */
   metaEntityDef?: MetaEntityDef;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C636A747-7E4E-594D-94CD-2B4F8A9A9A63
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

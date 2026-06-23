@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the resource group.
    * 
    * This parameter is required.
    * 

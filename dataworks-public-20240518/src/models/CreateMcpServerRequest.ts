@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMcpServerRequestConfig extends $dara.Model {
   /**
+   * @remarks
+   * The custom request headers, specified as key-value pairs. You cannot override reserved headers.
+   * 
    * @example
    * {}
    */
   customHeaders?: { [key: string]: any };
   /**
+   * @remarks
+   * The transport protocol.
+   * 
    * @example
    * SSE
    */
   transport?: string;
   /**
+   * @remarks
+   * The service address of the MCP Server. It must start with `https://`.
+   * 
    * @example
    * https://example.com/mcp/sse
    */
@@ -47,7 +56,15 @@ export class CreateMcpServerRequestConfig extends $dara.Model {
 }
 
 export class CreateMcpServerRequestVisibilityScope extends $dara.Model {
+  /**
+   * @remarks
+   * The project IDs to which the MCP Server is visible. This parameter is required only when `Visibility` is set to `PROJECT`.
+   */
   projectIds?: string[];
+  /**
+   * @remarks
+   * The user IDs to which the MCP Server is visible. This parameter is required only when `Visibility` is set to `USER`.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -80,12 +97,17 @@ export class CreateMcpServerRequestVisibilityScope extends $dara.Model {
 
 export class CreateMcpServerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The connection configuration for the MCP Server.
+   * 
    * @example
    * -
    */
   config?: CreateMcpServerRequestConfig;
   /**
    * @remarks
+   * The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and contain only characters from `a-z`, `0-9`, `_`, and `-`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,10 +115,17 @@ export class CreateMcpServerRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The visibility level.
+   * 
    * @example
    * TENANT
    */
   visibility?: string;
+  /**
+   * @remarks
+   * The visibility scope. The required fields depend on the value of the `Visibility` parameter.
+   */
   visibilityScope?: CreateMcpServerRequestVisibilityScope;
   static names(): { [key: string]: string } {
     return {

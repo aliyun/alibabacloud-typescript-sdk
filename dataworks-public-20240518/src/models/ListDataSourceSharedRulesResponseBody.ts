@@ -16,7 +16,7 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The ID of the user who creates the rule.
    * 
    * @example
-   * 1
+   * 1107550****
    */
   createUser?: string;
   /**
@@ -24,13 +24,15 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
    * 
    * @example
-   * 1
+   * 265133
    */
   dataSourceId?: number;
   /**
    * @remarks
    * The environment to which the target data source belongs. The values are as follows:
+   * 
    * - Dev: the development environment.
+   * 
    * - Prod: the production environment.
    * 
    * @example
@@ -42,7 +44,7 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The rule ID.
    * 
    * @example
-   * 1
+   * 101412
    */
   id?: number;
   /**
@@ -58,7 +60,7 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The user in the workspace to which the data source is shared. If the data source is shared to the entire workspace, this parameter is left empty.
    * 
    * @example
-   * 1
+   * 1107550004253538
    */
   sharedUser?: string;
   /**
@@ -66,7 +68,7 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The ID of the workspace with which the data source is associated.
    * 
    * @example
-   * 1
+   * 106560
    */
   sourceProjectId?: number;
   /**
@@ -74,7 +76,7 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    * The ID of the workspace to which the data source is shared.
    * 
    * @example
-   * 1
+   * 106561
    */
   targetProjectId?: number;
   static names(): { [key: string]: string } {

@@ -39,9 +39,11 @@ export class GetJobStatusResponseBodyJobStatus extends $dara.Model {
    * @remarks
    * The type of the asynchronous task. Valid values:
    * 
-   * *   **Create**: The asynchronous task is used to create an object.
-   * *   **Update**: The asynchronous task is used to update an object.
-   * *   **Cancel**: The asynchronous task is used to cancel an operation.
+   * - **Create**: The asynchronous task is used to create an object.
+   * 
+   * - **Update**: The asynchronous task is used to update an object.
+   * 
+   * - **Cancel**: The asynchronous task is used to cancel an operation.
    * 
    * @example
    * Create
@@ -51,10 +53,13 @@ export class GetJobStatusResponseBodyJobStatus extends $dara.Model {
    * @remarks
    * The status of the asynchronous task. Valid values:
    * 
-   * *   **Success**
-   * *   **Fail**
-   * *   **Cancel**
-   * *   **Running**
+   * - **Success**
+   * 
+   * - **Fail**
+   * 
+   * - **Cancel**
+   * 
+   * - **Running**
    * 
    * @example
    * Success

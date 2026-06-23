@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityEvaluationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * Request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1

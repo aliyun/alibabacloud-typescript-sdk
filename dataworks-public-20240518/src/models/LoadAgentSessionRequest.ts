@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
+  /**
+   * @remarks
+   * In a resumable transfer scenario, this specifies the offset from which to resume fetching the SSE output.
+   * 
+   * @example
+   * 10000
+   */
   beginLogOffset?: number;
+  /**
+   * @remarks
+   * Specifies whether to use resumable transfer. If the SSE stream is interrupted due to issues like an unstable network connection, you can set this parameter to `true` to re-fetch the stream data from the point of failure.
+   * 
+   * @example
+   * true or false
+   */
   isReload?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,15 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
 }
 
 export class LoadAgentSessionRequestParams extends $dara.Model {
+  /**
+   * @remarks
+   * DataWorks-specific extended parameters for ACP.
+   */
   meta?: LoadAgentSessionRequestParamsMeta;
   /**
+   * @remarks
+   * The ID of the target session. If the session does not exist, an SSE error frame is returned.
+   * 
    * @example
    * sess_0f12abc34
    */
@@ -63,15 +84,25 @@ export class LoadAgentSessionRequestParams extends $dara.Model {
 
 export class LoadAgentSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client-generated request ID, which is returned in the response.
+   * 
    * @example
    * 4as3dasf654a
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. The value must be `2.0`.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * Business parameters.
+   */
   params?: LoadAgentSessionRequestParams;
   static names(): { [key: string]: string } {
     return {

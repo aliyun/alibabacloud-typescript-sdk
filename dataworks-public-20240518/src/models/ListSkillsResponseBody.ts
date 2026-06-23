@@ -4,13 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
   /**
+   * @remarks
+   * **The creator ID.**
+   * 
    * @example
    * 123456
    */
   creatorId?: string;
+  /**
+   * @remarks
+   * **The Skill description.**
+   * 
+   * @example
+   * 数据分析技能
+   */
   description?: string;
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -18,16 +30,25 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * **The modifier ID.**
+   * 
    * @example
    * 123456
    */
   modifierId?: string;
   /**
+   * @remarks
+   * **The Skill name.**
+   * 
    * @example
    * my-skill
    */
   name?: string;
   /**
+   * @remarks
+   * **The visibility level.**
+   * 
    * @example
    * TENANT
    */
@@ -65,17 +86,30 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
 
 export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results returned in this response.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results. This parameter is null or empty if all results have been returned.
+   * 
    * @example
    * 5
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of Skills.
+   */
   skills?: ListSkillsResponseBodyPagingInfoSkills[];
   /**
+   * @remarks
+   * The total number of results that match the query.
+   * 
    * @example
    * 100
    */
@@ -111,8 +145,15 @@ export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListSkillsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListSkillsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */

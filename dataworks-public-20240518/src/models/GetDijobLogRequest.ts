@@ -41,8 +41,9 @@ export class GetDIJobLogRequest extends $dara.Model {
    * @remarks
    * The type of the node. This parameter is applicable only to the tasks that are run on serverless resource groups. Valid values:
    * 
-   * *   **MASTER**: the master node, which is used to query the logs of JobManagers.
-   * *   **WORKER**: the worker node, which is used to query the logs of TaskManagers.
+   * - **MASTER**: the master node, which is used to query the logs of JobManagers.
+   * 
+   * - **WORKER**: the worker node, which is used to query the logs of TaskManagers.
    * 
    * @example
    * MASTER

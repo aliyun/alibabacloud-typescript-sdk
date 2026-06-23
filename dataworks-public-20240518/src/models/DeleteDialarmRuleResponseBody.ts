@@ -8,15 +8,16 @@ export class DeleteDIAlarmRuleResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+   * C99E2BE6-9DEA-5C2E-8F51-1DDCFE****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

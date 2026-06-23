@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataQualityRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * 校验表达式
+   * 
    * @example
    * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
    */
@@ -58,6 +61,9 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $dara.Model
 
 export class DataQualityRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * 阈值表达式
+   * 
    * @example
    * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
    */
@@ -112,6 +118,9 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $dara.Model
 
 export class DataQualityRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * 阈值表达式
+   * 
    * @example
    * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
    */
@@ -497,6 +506,9 @@ export class DataQualityRule extends $dara.Model {
   /**
    * @remarks
    * The rule name. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * 表不能为空
    */
   name?: string;
   /**

@@ -5,17 +5,30 @@ import { MetaEntity } from "./MetaEntity";
 
 export class ListMetaEntitiesResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * A list of metadata entities.
+   */
   metaEntities?: MetaEntity[];
   /**
+   * @remarks
+   * The token used to retrieve the next page of results. If this parameter is empty, no more results are available.
+   * 
    * @example
    * AAAAAdEdsXbwG2ZlbWCzN4wTTg6NmTbhyvglcoMCJsiEdngaTov15YaMyduvjIHYeTOIcEeXqCevM1qffZkwCkUTUYc=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
@@ -51,16 +64,23 @@ export class ListMetaEntitiesResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListMetaEntitiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Pagination information.
+   */
   pagingInfo?: ListMetaEntitiesResponseBodyPagingInfo;
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    * 
    * @example
    * ADFASDFASDFA-ADFASDF-ASDFADSDF-AFFADS
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

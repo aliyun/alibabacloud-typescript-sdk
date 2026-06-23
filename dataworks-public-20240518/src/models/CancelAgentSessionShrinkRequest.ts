@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelAgentSessionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID passed by the requester. The value is returned as-is in the response.
+   * 
    * @example
    * 676303114031776
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. Fixed value: 2.0.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * The business parameters of the request.
+   */
   paramsShrink?: string;
   static names(): { [key: string]: string } {
     return {

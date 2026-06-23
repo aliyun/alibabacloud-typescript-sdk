@@ -47,8 +47,9 @@ export class SubmitFileResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful.
    * 
-   * *   true: success.
-   * *   false: failure.
+   * - true: success.
+   * 
+   * - false: failure.
    * 
    * @example
    * true

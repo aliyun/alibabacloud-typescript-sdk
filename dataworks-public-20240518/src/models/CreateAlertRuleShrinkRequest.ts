@@ -35,7 +35,7 @@ export class CreateAlertRuleShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 279114181716147735
+   * 279114181****
    */
   owner?: string;
   /**

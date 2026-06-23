@@ -32,7 +32,7 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends 
    * The ID of the entity. Currently, only the Table type is supported. If the entity is deleted, this field is empty.
    * 
    * @example
-   * dlf-table:123456789:test_catalog:test_database::test_table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   id?: string;
   /**
@@ -56,7 +56,7 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends 
    * The entity type.
    * 
    * @example
-   * dlf-table
+   * maxcompute-table
    */
   type?: string;
   static names(): { [key: string]: string } {

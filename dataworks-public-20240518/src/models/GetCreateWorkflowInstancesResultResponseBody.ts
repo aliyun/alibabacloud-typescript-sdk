@@ -15,14 +15,20 @@ export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Mo
    * @remarks
    * The creation status. Valid values:
    * 
-   * *   Creating
-   * *   Created
-   * *   CreateFailure
+   * - Creating
+   * 
+   * - Created
+   * 
+   * - CreateFailure
    * 
    * @example
    * Created
    */
   status?: string;
+  /**
+   * @remarks
+   * Unified workflow instance ID. For all task instances triggered under the same data timestamp in a single trigger, the value of this field is identical. This field is returned after successful creation.
+   */
   unifiedWorkflowInstanceIds?: number[];
   /**
    * @remarks

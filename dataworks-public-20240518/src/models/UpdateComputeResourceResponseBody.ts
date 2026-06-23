@@ -12,6 +12,13 @@ export class UpdateComputeResourceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the computing resource was modified successfully:
+   * 
+   * - true: Yes
+   * 
+   * - false: No
+   * 
    * @example
    * true
    */

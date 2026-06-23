@@ -10,12 +10,12 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 860438872620113XXXX
+   * 860438872620****
    */
   id?: string;
   /**
    * @remarks
-   * 查询结果是否包含工作流内部节点的脚本内容（对于内容较多的节点，可能存在较长的网络传输延时）。
+   * Specifies whether the query result includes the script content of internal nodes in the workflow definition. For nodes with large content, this may cause high network transmission latency.
    * 
    * @example
    * false

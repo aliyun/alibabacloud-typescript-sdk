@@ -7,9 +7,11 @@ export class ListDataQualityScansResponseBodyPageInfoDataQualityScansComputeReso
    * @remarks
    * The engine type. These settings are only supported for the EMR compute engine. Valid values:
    * 
-   * *   Hive: Hive SQL
-   * *   Spark: Spark SQL
-   * *   Kyuubi
+   * - Hive: Hive SQL
+   * 
+   * - Spark: Spark SQL
+   * 
+   * - Kyuubi
    * 
    * @example
    * Hive
@@ -61,8 +63,9 @@ export class ListDataQualityScansResponseBodyPageInfoDataQualityScansComputeReso
    * @remarks
    * Workspace environment of the compute engine. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -124,7 +127,7 @@ export class ListDataQualityScansResponseBodyPageInfoDataQualityScansHooks exten
    * @remarks
    * The type of the hook. Valid values:
    * 
-   * *   BlockTaskInstance: Blocks the scheduling of the task instance.
+   * - BlockTaskInstance: Blocks the scheduling of the task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -253,8 +256,9 @@ export class ListDataQualityScansResponseBodyPageInfoDataQualityScansTrigger ext
    * @remarks
    * The trigger mode of the data quality monitor. Valid values:
    * 
-   * *   ByManual: Manually triggered. Default setting.
-   * *   BySchedule: Triggered by a scheduled task instance.
+   * - ByManual: Manually triggered. Default setting.
+   * 
+   * - BySchedule: Triggered by a scheduled task instance.
    * 
    * @example
    * BySchedule

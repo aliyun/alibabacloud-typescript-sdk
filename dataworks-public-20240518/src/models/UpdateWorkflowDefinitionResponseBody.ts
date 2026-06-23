@@ -8,15 +8,16 @@ export class UpdateWorkflowDefinitionResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 20BF7E80-668A-5620-8AD8-879B8FEAXXXX
+   * 20BF7E80-668A-5620-8AD8-879B8FEA****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

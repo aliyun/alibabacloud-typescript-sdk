@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityScanRunRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter. The only supported value is:
+   * 
+   * - triggerTime
+   * 
+   * No other scheduling parameters are currently supported.
    * 
    * @example
-   * regiondt
+   * triggerTime
    */
   name?: string;
   /**
    * @remarks
-   * The parameter value. You can use a scheduling time expression.
+   * The parameter value.
+   * 
+   * - If the parameter name is triggerTime, this value must be the trigger time as a timestamp.
    * 
    * @example
-   * cn-shanghai$[yyyy-mm-dd-1]
+   * 1775812636
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +51,7 @@ export class CreateDataQualityScanRunRequestParameters extends $dara.Model {
 export class CreateDataQualityScanRunRequestRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The Compute Resources (CUs) reserved for running the data quality monitor in the resource group.
+   * The number of compute units (CUs) to reserve from the resource group for the data quality scan.
    * 
    * @example
    * 0.25
@@ -61,7 +67,7 @@ export class CreateDataQualityScanRunRequestRuntimeResource extends $dara.Model 
   id?: string;
   /**
    * @remarks
-   * The image settings used when running the data quality monitor in the resource group.
+   * The image configuration for running the data quality scan on the resource group.
    * 
    * @example
    * i-xxxxxx
@@ -95,7 +101,7 @@ export class CreateDataQualityScanRunRequestRuntimeResource extends $dara.Model 
 export class CreateDataQualityScanRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data quality monitor.
+   * The data quality scan ID.
    * 
    * @example
    * 20000001
@@ -103,7 +109,7 @@ export class CreateDataQualityScanRunRequest extends $dara.Model {
   dataQualityScanId?: number;
   /**
    * @remarks
-   * The parameter settings used during the actual run. The `triggerTime` parameter is required.
+   * The parameters for the run. The `triggerTime` parameter is required.
    */
   parameters?: CreateDataQualityScanRunRequestParameters[];
   /**
@@ -116,7 +122,7 @@ export class CreateDataQualityScanRunRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The scheduling resource group used when running the data quality monitor. This resource group uses the same data structure as in the scheduling API.
+   * Specifies the scheduling resource group used to run the data quality scan. This object uses the same data structure as the scheduling API.
    */
   runtimeResource?: CreateDataQualityScanRunRequestRuntimeResource;
   static names(): { [key: string]: string } {

@@ -51,7 +51,6 @@ export class CreateWorkflowDefinitionRequest extends $dara.Model {
    *                     "failureStrategy": "Break"
    *                 },
    *                 "name": "OpenAPITestWorkflowDemo",
-   *                 "inputs": {},
    *                 "outputs": {
    *                     "nodeOutputs": [
    *                         {
@@ -61,7 +60,6 @@ export class CreateWorkflowDefinitionRequest extends $dara.Model {
    *                         }
    *                     ]
    *                 },
-   *                 "nodes": [],
    *                 "dependencies": []
    *             }
    *         ]

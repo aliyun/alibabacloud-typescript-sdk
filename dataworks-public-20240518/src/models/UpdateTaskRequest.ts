@@ -37,10 +37,13 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
    * @remarks
    * The dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * *   CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * *   Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+   * 
+   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
+   * 
+   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+   * 
+   * - Normal: Depends on nodes in the same cycle.
    * 
    * This parameter is required.
    * 
@@ -102,10 +105,13 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant value.
-   * *   PassThrough: node output.
-   * *   System: variable.
-   * *   NodeOutput: script output.
+   * - Constant: constant value.
+   * 
+   * - PassThrough: node output.
+   * 
+   * - System: variable.
+   * 
+   * - NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -219,10 +225,13 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant value.
-   * *   PassThrough: node output.
-   * *   System: variable.
-   * *   NodeOutput: script output.
+   * - Constant: constant value.
+   * 
+   * - PassThrough: node output.
+   * 
+   * - System: variable.
+   * 
+   * - NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -450,8 +459,9 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
    * @remarks
    * Cycle type. This parameter takes effect only when Type is set to Scheduler and the cron expression specifies hourly scheduling. Default value: Daily
    * 
-   * *   Daily: Schedules jobs on a daily basis.
-   * *   NotDaily: Schedules jobs on an hourly basis.
+   * - Daily: Schedules jobs on a daily basis.
+   * 
+   * - NotDaily: Schedules jobs on an hourly basis.
    * 
    * @example
    * Daily
@@ -469,9 +479,11 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -489,8 +501,9 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
    * @remarks
    * The triggering type. Valid values:
    * 
-   * *   Scheduler: periodically triggered
-   * *   Manual
+   * - Scheduler: periodically triggered
+   * 
+   * - Manual
    * 
    * @example
    * Scheduler
@@ -558,8 +571,9 @@ export class UpdateTaskRequest extends $dara.Model {
    * @remarks
    * The project environment.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -584,8 +598,9 @@ export class UpdateTaskRequest extends $dara.Model {
    * @remarks
    * The instance generation mode.
    * 
-   * *   T+1: the next day
-   * *   Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+   * - T+1: the next day
+   * 
+   * - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
    * 
    * @example
    * T+1
@@ -617,16 +632,18 @@ export class UpdateTaskRequest extends $dara.Model {
    * The rerun interval. Unit: milliseconds. Must not exceed 1800000.
    * 
    * @example
-   * 60
+   * 60000
    */
   rerunInterval?: number;
   /**
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun.
-   * *   FailureAllowed: The task can be rerun only after it fails.
-   * *   AllAllowed: The task can always be rerun.
+   * - AllDenied: The task cannot be rerun.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails.
+   * 
+   * - AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique name of the Skill.
+   * 
    * This parameter is required.
    * 
    * @example

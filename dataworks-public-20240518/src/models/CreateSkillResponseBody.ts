@@ -45,6 +45,10 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
    * 123456
    */
   creatorId?: string;
+  /**
+   * @example
+   * 数据分析技能
+   */
   description?: string;
   /**
    * @remarks
@@ -57,6 +61,9 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 12345678901
    */
   gmtModifiedTime?: string;
   /**

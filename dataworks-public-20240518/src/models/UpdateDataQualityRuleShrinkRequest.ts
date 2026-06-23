@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * The sample verification settings.
    */
   checkingConfigShrink?: string;
   /**
    * @remarks
-   * The description of the rule. The description can be up to 500 characters in length.
+   * The rule description. The maximum length is 500 characters.
    * 
    * @example
    * this is a odps _sql task
@@ -18,7 +18,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Specifies whether the rule is enabled.
    * 
    * @example
    * true
@@ -26,7 +26,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check fails.
+   * The list of issue handlers for data quality rule verification.
    */
   errorHandlersShrink?: string;
   /**
@@ -41,7 +41,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * The rule name. The name can be a combination of digits, English letters, Chinese characters, and half-width or full-width punctuation. The maximum length is 255 characters.
    * 
    * @example
    * The table cannot be empty.
@@ -49,7 +49,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace ID.
    * 
    * This parameter is required.
    * 
@@ -59,15 +59,14 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The sampling settings.
+   * The settings required for sample collection.
    */
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
-   * 
-   * *   Normal
-   * *   High
+   * The severity level of the rule for the business (corresponding to strong/weak rules on the page). Valid values:
+   * - Normal
+   * - High
    * 
    * @example
    * High
@@ -75,10 +74,10 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The ID of the template used by the rule.
+   * The unique identifier of the rule template referenced by the rule.
    * 
    * @example
-   * system::user_defined
+   * SYSTEM:table:table_count:fixed
    */
   templateCode?: string;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CloneDataSourceResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * FCD583B9-346B-5E75-82C1-4A7C192C48DB

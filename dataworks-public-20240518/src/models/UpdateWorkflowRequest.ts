@@ -7,10 +7,13 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
    * @remarks
    * The dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * *   CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * *   Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+   * 
+   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
+   * 
+   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+   * 
+   * - Normal: Depends on nodes in the same cycle.
    * 
    * This parameter is required.
    * 
@@ -196,10 +199,13 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
    * @remarks
    * The dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * *   CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * *   Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+   * 
+   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
+   * 
+   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+   * 
+   * - Normal: Depends on nodes in the same cycle.
    * 
    * This parameter is required.
    * 
@@ -261,10 +267,13 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant value.
-   * *   PassThrough: node output.
-   * *   System: variable.
-   * *   NodeOutput: script output.
+   * - Constant: constant value.
+   * 
+   * - PassThrough: node output.
+   * 
+   * - System: variable.
+   * 
+   * - NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -378,10 +387,13 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant value.
-   * *   PassThrough: node output.
-   * *   System: variable.
-   * *   NodeOutput: script output.
+   * - Constant: constant value.
+   * 
+   * - PassThrough: node output.
+   * 
+   * - System: variable.
+   * 
+   * - NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -601,9 +613,11 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * This parameter is required.
    * 
@@ -615,8 +629,9 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodically triggered
-   * *   Manual
+   * - Scheduler: periodically triggered
+   * 
+   * - Manual
    * 
    * @example
    * Scheduler
@@ -684,8 +699,9 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
    * @remarks
    * The project environment.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -741,9 +757,11 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
    * @remarks
    * Configuration for whether the task can be rerun.
    * 
-   * *   AllDenied: The task cannot be rerun.
-   * *   FailureAllowed: The task can be rerun only after it fails.
-   * *   AllAllowed: The task can always be rerun.
+   * - AllDenied: The task cannot be rerun.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails.
+   * 
+   * - AllAllowed: The task can always be rerun.
    * 
    * This parameter is required.
    * 
@@ -913,8 +931,9 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodically triggered
-   * *   Manual
+   * - Scheduler: periodically triggered
+   * 
+   * - Manual
    * 
    * This parameter is required.
    * 
@@ -975,8 +994,9 @@ export class UpdateWorkflowRequest extends $dara.Model {
    * @remarks
    * The project environment.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -996,8 +1016,9 @@ export class UpdateWorkflowRequest extends $dara.Model {
    * @remarks
    * The instance generation mode.
    * 
-   * *   T+1: the next day
-   * *   Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
+   * - T+1: the next day
+   * 
+   * - Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
    * 
    * @example
    * T+1

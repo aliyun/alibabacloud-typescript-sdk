@@ -5,18 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDIJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
-   * AAC30B35-820D-5F3E-A42C-E96BB6379325
+   * AAC30B35-820D-5F3E-A42C-E96BB****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

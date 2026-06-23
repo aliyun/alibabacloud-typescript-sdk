@@ -10,7 +10,7 @@ export class DeleteLineageRelationshipRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
+   * 4as3dasf654a
    */
   id?: string;
   static names(): { [key: string]: string } {

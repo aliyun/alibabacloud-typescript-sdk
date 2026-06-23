@@ -10,7 +10,7 @@ export class ListDataSourceSharedRulesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 135123
    */
   dataSourceId?: number;
   /**
@@ -18,7 +18,7 @@ export class ListDataSourceSharedRulesRequest extends $dara.Model {
    * The ID of the workspace to which the data source is shared. You cannot share the data source to the workspace with which the data source is associated.
    * 
    * @example
-   * 1
+   * 106565
    */
   targetProjectId?: number;
   static names(): { [key: string]: string } {

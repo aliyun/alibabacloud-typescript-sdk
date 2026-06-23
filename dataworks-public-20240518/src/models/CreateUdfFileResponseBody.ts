@@ -47,8 +47,9 @@ export class CreateUdfFileResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request succeeded.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

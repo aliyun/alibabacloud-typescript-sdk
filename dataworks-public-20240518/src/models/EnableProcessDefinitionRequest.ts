@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableProcessDefinitionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The idempotence token. A UUID is recommended.
+   * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * **process definition ID**
+   * 
    * @example
    * f0d6d578-a305-40ac-ba1e-0a09f64cbc69
    */

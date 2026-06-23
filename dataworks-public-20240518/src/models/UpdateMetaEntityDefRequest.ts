@@ -5,17 +5,25 @@ import { MetaEntityAttributeDef } from "./MetaEntityAttributeDef";
 
 export class UpdateMetaEntityDefRequest extends $dara.Model {
   /**
+   * @remarks
+   * The new description.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * The new display name. The maximum length is 32 characters.
+   * 
    * @example
    * Business API
    */
   displayName?: string;
   /**
    * @remarks
+   * The entity type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,11 +31,17 @@ export class UpdateMetaEntityDefRequest extends $dara.Model {
    */
   entityType?: string;
   /**
+   * @remarks
+   * The new attribute definitions. New attributes must be optional.
+   * 
    * @example
    * []
    */
   newAttributeDefs?: MetaEntityAttributeDef[];
   /**
+   * @remarks
+   * The updates to existing attribute definitions. You can modify only the display name and description. You can also add enumerated values for attributes of the ENUM type.
+   * 
    * @example
    * []
    */

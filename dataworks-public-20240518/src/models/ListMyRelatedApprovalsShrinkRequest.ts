@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions.
+   */
   accessTypesShrink?: string;
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,24 +19,43 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The end of the application time range, specified as a millisecond timestamp.
+   * 
    * @example
    * 1779724799999
    */
   endTime?: number;
+  /**
+   * @remarks
+   * Filters approvals by the specified principal.
+   */
   granteeShrink?: string;
   /**
+   * @remarks
+   * The pagination token that acts as a cursor to retrieve the next page of results.
+   * 
    * @example
    * eyJpZCI6MTIzfQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The resource declaration.
+   */
   resourceShrink?: string;
   /**
    * @remarks
+   * The resource type, specified as a leaf node name. Multiple values are supported because a single business semantic can be mapped to multiple leaf node names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,11 +63,31 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
    */
   resourceTypeShrink?: string;
   /**
+   * @remarks
+   * The start of the application time range, specified as a millisecond timestamp.
+   * 
    * @example
    * 1771948800000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Filters the results by approval status. Valid values:
+   * 
+   * - `WaitApproval`: Pending approval
+   * 
+   * - `Confirmed`: Pending authorization
+   * 
+   * - `RejectApproval`: Approval rejected
+   * 
+   * - `AuthorizeSucceed`: Authorization succeeded
+   * 
+   * - `AuthorizeFailed`: Authorization failed
+   * 
+   * - `Deleted`: Deleted
+   * 
+   * - `Canceled`: Withdrawn
+   * 
    * @example
    * WAIT_APPROVAL
    */

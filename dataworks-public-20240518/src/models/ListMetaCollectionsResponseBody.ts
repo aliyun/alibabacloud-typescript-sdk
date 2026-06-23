@@ -27,6 +27,9 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   /**
    * @remarks
    * The collection description.
+   * 
+   * @example
+   * Test category
    */
   description?: string;
   /**
@@ -34,7 +37,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
    * The collection name.
    * 
    * @example
-   * category.123
+   * 7a65sd7aasd
    */
   id?: string;
   /**
@@ -58,16 +61,18 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
    * The ID of the parent collection. Can be empty.
    * 
    * @example
-   * category.1
+   * as78d756asd
    */
   parentId?: string;
   /**
    * @remarks
    * The collection type. Valid values:
    * 
-   * *   Category
-   * *   Album
-   * *   AlbumCategory: Album subcategory
+   * - Category
+   * 
+   * - Album
+   * 
+   * - AlbumCategory: Album subcategory
    * 
    * @example
    * Category
@@ -184,7 +189,7 @@ export class ListMetaCollectionsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E25887B7-579C-54A5-9C4F-83A0DE367DDE
+   * E25887B7-XXXX-54A5-9C4F-83A0DE367DDE
    */
   requestId?: string;
   static names(): { [key: string]: string } {

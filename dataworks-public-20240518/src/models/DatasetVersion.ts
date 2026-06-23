@@ -7,6 +7,9 @@ export class DatasetVersion extends $dara.Model {
   /**
    * @remarks
    * The dataset version description.
+   * 
+   * @example
+   * 初始版本
    */
   comment?: string;
   /**

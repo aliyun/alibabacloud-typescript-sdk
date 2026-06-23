@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6B56C4A2-C7F3-52AF-8417-6DFF7447011B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the update operation was successful.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * 
    * @example
    * true
    */

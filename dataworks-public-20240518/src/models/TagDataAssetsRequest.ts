@@ -64,8 +64,9 @@ export class TagDataAssetsRequest extends $dara.Model {
    * @remarks
    * The type of the data asset. Valid values:
    * 
-   * *   ACS::DataWorks::Table
-   * *   ACS::DataWorks::Task
+   * - ACS::DataWorks::Table
+   * 
+   * - ACS::DataWorks::Task
    * 
    * This parameter is required.
    * 
@@ -77,8 +78,9 @@ export class TagDataAssetsRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace to which the data asset belongs. Valid values:
    * 
-   * *   Dev: development environment
-   * *   Prod: production environment
+   * - Dev: development environment
+   * 
+   * - Prod: production environment
    * 
    * @example
    * Prod

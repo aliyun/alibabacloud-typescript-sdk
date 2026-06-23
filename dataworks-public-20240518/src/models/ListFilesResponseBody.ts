@@ -15,8 +15,9 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
    * @remarks
    * Specifies whether automatic parsing is enabled for the file. Valid values:
    * 
-   * *   true: The file automatically parses code.
-   * *   false: The file does not automatically parse code.
+   * - true: The file automatically parses code.
+   * 
+   * - false: The file does not automatically parse code.
    * 
    * This parameter corresponds to Analyze Code when you set Dependencies to Same Cycle in the scheduling configuration of a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
@@ -182,12 +183,17 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
    * @remarks
    * The functional module to which the file belongs. Valid values:
    * 
-   * *   NORMAL: Data Studio
-   * *   MANUAL: Manually triggered node
-   * *   MANUAL_BIZ: Manually triggered workflow
-   * *   SKIP: Dry-run scheduling in Data Studio
-   * *   ADHOCQUERY: Ad hoc query
-   * *   COMPONENT: Component management
+   * - NORMAL: Data Studio
+   * 
+   * - MANUAL: Manually triggered node
+   * 
+   * - MANUAL_BIZ: Manually triggered workflow
+   * 
+   * - SKIP: Dry-run scheduling in Data Studio
+   * 
+   * - ADHOCQUERY: Ad hoc query
+   * 
+   * - COMPONENT: Component management
    * 
    * @example
    * NORMAL
@@ -358,8 +364,9 @@ export class ListFilesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

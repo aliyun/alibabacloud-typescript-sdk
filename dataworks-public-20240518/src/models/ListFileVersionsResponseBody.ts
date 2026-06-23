@@ -71,8 +71,9 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
    * @remarks
    * Indicates whether this file version is the latest version in the production environment.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -257,8 +258,9 @@ export class ListFileVersionsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

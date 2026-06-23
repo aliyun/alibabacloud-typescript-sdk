@@ -37,10 +37,13 @@ export class GetTaskResponseBodyTaskDependencies extends $dara.Model {
    * @remarks
    * The dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
-   * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-   * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-   * *   Normal: same-cycle scheduling dependency
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
+   * 
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * 
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * 
+   * - Normal: same-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -100,10 +103,13 @@ export class GetTaskResponseBodyTaskInputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * - Constant: constant
+   * 
+   * - PassThrough: node output
+   * 
+   * - System: variable
+   * 
+   * - NodeOutput: script output
    * 
    * @example
    * Constant
@@ -215,10 +221,13 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * - Constant: constant
+   * 
+   * - PassThrough: node output
+   * 
+   * - System: variable
+   * 
+   * - NodeOutput: script output
    * 
    * @example
    * Constant
@@ -488,9 +497,11 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $dara.Model 
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -508,8 +519,9 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $dara.Model 
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * - Scheduler: periodic scheduling
+   * 
+   * - Manual: manual scheduling
    * 
    * @example
    * Scheduler
@@ -586,8 +598,9 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -645,8 +658,9 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
    * @remarks
    * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -674,9 +688,11 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
-   * *   FailureAllowed: The task can be rerun only after it fails to be run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to be run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
    * 
    * @example
    * AllAllowed
@@ -806,9 +822,11 @@ export class GetTaskResponseBodyTaskSubTasks extends $dara.Model {
    * @remarks
    * The type of the subtask. Valid values:
    * 
-   * *   DoWhile: do-while node
-   * *   Combined: node group
-   * *   ForEach: for-each node
+   * - DoWhile: do-while node
+   * 
+   * - Combined: node group
+   * 
+   * - ForEach: for-each node
    * 
    * @example
    * Combined
@@ -901,9 +919,11 @@ export class GetTaskResponseBodyTaskTrigger extends $dara.Model {
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -921,8 +941,9 @@ export class GetTaskResponseBodyTaskTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * - Scheduler: periodic scheduling
+   * 
+   * - Manual: manual scheduling
    * 
    * @example
    * Scheduler
@@ -1004,8 +1025,9 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -1031,8 +1053,9 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
-   * *   Immediately
+   * - T+1
+   * 
+   * - Immediately
    * 
    * @example
    * T+1
@@ -1087,8 +1110,9 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -1116,9 +1140,11 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
-   * *   FailureAllowed: The task can be rerun only after it fails to be run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to be run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
    * 
    * @example
    * AllAllowed

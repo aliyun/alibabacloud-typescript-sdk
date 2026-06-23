@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp. The value of this parameter is 00:00:00 of the day before the scheduling time of the instance. The value is a UNIX timestamp. Unit: milliseconds. Example: 1743350400000.
+   * The business date. This is generally 00:00:00 of the day before the scheduled instance trigger time, in millisecond-level timestamp format, such as 1743350400000.
    * 
    * This parameter is required.
    * 
@@ -19,6 +19,9 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    */
   envType?: string;
   /**
+   * @remarks
+   * The filter. In JSON format, multiple filter conditions have an AND relationship. Currently supported fields are: `status, executionDate`.
+   * 
    * @example
    * {   
    *     "status": "Success",
@@ -28,12 +31,12 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
+   * The list of workflow instance IDs. You can use this parameter to query multiple workflow instances at a time.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * The instance name. Fuzzy match is supported.
+   * The name. Fuzzy match is supported.
    * 
    * @example
    * WorkflowInstance1
@@ -41,7 +44,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID of the workflow instance owner.
+   * The account ID of the owner.
    * 
    * @example
    * 1000
@@ -49,7 +52,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -65,7 +68,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -75,37 +78,53 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * The list of sort fields. Sorting by trigger time, start time, and other fields is supported. The format is "sort field + sort order (Desc/Asc)" (Asc can be omitted). Valid values of the sort field:
    * 
-   * *   TriggerTime (Desc/Asc)
-   * *   StartedTime (Desc/Asc)
-   * *   FinishedTime (Desc/Asc)
-   * *   CreateTime (Desc/Asc)
-   * *   Id (Desc/Asc)
+   * - TriggerTime (Desc/Asc)
    * 
-   * Default value: Id Desc.
+   * - StartedTime (Desc/Asc)
+   * 
+   * - FinishedTime (Desc/Asc)
+   * 
+   * - CreateTime (Desc/Asc)
+   * 
+   * - Id (Desc/Asc)
+   * 
+   * Default value: Id Desc
    * 
    * @example
    * Id Desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The list of tags. Results are returned if any one of the specified tags is matched.
+   */
   tagsShrink?: string;
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
+   * The type of the workflow instance.
    * 
-   * *   Normal: Scheduled execution
-   * *   Manual: Manually triggered node
-   * *   SmokeTest: Smoke test
-   * *   SupplementData: Data backfill
-   * *   ManualWorkflow: Manually triggered workflow
-   * *   TriggerWorkflow: Triggered Workflow
+   * - Normal: Periodic scheduling
+   * 
+   * - Manual: Manual task
+   * 
+   * - SmokeTest: Testing
+   * 
+   * - SupplementData: Backfill data
+   * 
+   * - ManualWorkflow: Manual workflow
+   * 
+   * - TriggerWorkflow: Trigger-based workflow
    * 
    * @example
    * Normal
    */
   type?: string;
   /**
+   * @remarks
+   * The unified workflow instance ID. All workflow instances within the same business date of a single trigger share the same value for this field.
+   * 
    * @example
    * 1234
    */

@@ -63,9 +63,11 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
    * @remarks
    * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -83,8 +85,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -156,8 +159,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod

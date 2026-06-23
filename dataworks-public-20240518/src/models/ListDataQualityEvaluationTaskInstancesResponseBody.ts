@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * The trigger configuration of the callback event.
+   * The trigger condition of the Hook.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -13,9 +13,8 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   condition?: string;
   /**
    * @remarks
-   * The type of the callback event. Valid values:
-   * 
-   * *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+   * The type of the subsequent processing action.
+   * - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -47,7 +46,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+   * The extension information, in JSON format. For example, a DingTalk bot supports at-all.
    * 
    * @example
    * {"atAll":"true"}
@@ -55,13 +54,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   extension?: string;
   /**
    * @remarks
-   * The type of the alert recipient. Valid values:
-   * 
-   * *   AliUid: Alibaba Cloud account ID
-   * *   WebhookUrl: URL of a custom webhook
-   * *   DingdingUrl: DingTalk chatbot URL
-   * *   FeishuUrl: Lark chatbot URL
-   * *   WeixinUrl: WeCom chatbot URL
+   * The type of the alert recipient.
+   * - AliUid - The UID of the Alibaba Cloud account
+   * - WebhookUrl - A custom webhook URL
+   * - DingdingUrl - The URL of a DingTalk bot
+   * - FeishuUrl - The URL of a Lark bot
+   * - WeixinUrl - The URL of a WeCom bot
    * 
    * @example
    * AliUid
@@ -69,7 +67,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   receiverType?: string;
   /**
    * @remarks
-   * The alert recipients.
+   * The alert recipient.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -103,7 +101,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert method.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -133,12 +131,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert recipients.
+   * The alert recipient settings.
    */
   nofiticationReceivers?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers[];
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert method.
    */
   notificationChannels?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels[];
   static names(): { [key: string]: string } {
@@ -173,7 +171,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The trigger condition of the alert notification.
+   * The trigger condition of the notification.
    * 
    * @example
    * ${severity} == "High"
@@ -181,7 +179,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   condition?: string;
   /**
    * @remarks
-   * The configurations for the alert notification.
+   * The notification settings.
    */
   notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -213,15 +211,14 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   emr
-   * *   cdh
-   * *   hologres
-   * *   analyticdb_for_postgresql
-   * *   analyticdb_for_mysql
-   * *   starrocks
+   * For a dataset of table type, the database type to which the table belongs.
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
    * 
    * @example
    * maxcompute
@@ -229,7 +226,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   databaseType?: string;
   /**
    * @remarks
-   * The configuration of the partitioned table.
+   * The partition settings of the partitioned table.
    * 
    * @example
    * ds=$[yyyymmdd-1]
@@ -237,7 +234,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   partitionSpec?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * The unique ID of the table in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -245,9 +242,8 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitored object. Valid values:
-   * 
-   * *   Table
+   * The type of the monitoring object.
+   * - Table
    * 
    * @example
    * Table
@@ -283,14 +279,13 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the auto triggered nodes of which the instances are successfully run.
+   * The IDs of scheduled task nodes.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger condition of the task. Valid values:
-   * 
-   * *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+   * The type of event that can trigger the execution of the quality evaluation task.
+   * - ByScheduledTaskInstance: A scheduled instance runs successfully.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -325,7 +320,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask extends $dara.Model {
   /**
    * @remarks
-   * The description of the task.
+   * The description of the quality monitoring task.
    * 
    * @example
    * This is a daily run data quality evaluation plan.
@@ -333,12 +328,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   description?: string;
   /**
    * @remarks
-   * The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+   * The callback settings in the lifecycle of the data quality evaluation task instance. Currently, only one Hook for blocking scheduled tasks is supported.
    */
   hooks?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks[];
   /**
    * @remarks
-   * The task ID.
+   * The ID of the data quality evaluation task.
    * 
    * @example
    * 10001
@@ -346,7 +341,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   id?: number;
   /**
    * @remarks
-   * The name of the monitor.
+   * The name of the quality monitoring task.
    * 
    * This parameter is required.
    * 
@@ -356,12 +351,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   name?: string;
   /**
    * @remarks
-   * The configurations for alert notifications.
+   * The notification subscription configuration.
    */
   notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the project workspace.
    * 
    * @example
    * 100
@@ -369,20 +364,20 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   projectId?: number;
   /**
    * @remarks
-   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+   * Settings used when accessing data sources. Currently, only specifying the YARN queue of EMR and specifying the SQL engine as SPARK_SQL|KYUUBI|PRESTO_SQL|HIVE_SQL when collecting EMR tables are supported.
    * 
    * @example
-   * { "queue": "default", "sqlEngine": "SPARK-SQL" }
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
    */
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the task.
+   * The monitoring object of the data quality evaluation task.
    */
   target?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget;
   /**
    * @remarks
-   * The trigger configuration of the task.
+   * The trigger configuration of the data quality evaluation task.
    */
   trigger?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger;
   static names(): { [key: string]: string } {
@@ -437,7 +432,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The time at which the instance was generated.
+   * The creation time of the task instance.
    * 
    * @example
    * 1710239005403
@@ -445,7 +440,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   createTime?: number;
   /**
    * @remarks
-   * The time at which the instance finished running.
+   * The end time of the task instance.
    * 
    * @example
    * 1710239005403
@@ -453,7 +448,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   finishTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the quality check task instance.
    * 
    * @example
    * 10001
@@ -461,7 +456,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   id?: number;
   /**
    * @remarks
-   * The parameters configured for the instance.
+   * The parameter settings used during the actual runtime.
    * 
    * @example
    * {
@@ -472,7 +467,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   parameters?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks project workspace.
    * 
    * @example
    * 100
@@ -480,13 +475,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   projectId?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   Running
-   * *   Error
-   * *   Passed
-   * *   Warned
-   * *   Critical
+   * The current running status.
+   * - Running
+   * - Error
+   * - Passed
+   * - Warned
+   * - Critical
    * 
    * @example
    * Critical
@@ -494,12 +488,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   status?: string;
   /**
    * @remarks
-   * The snapshot of the configurations for the task when the task starts.
+   * The snapshot of the data quality evaluation task when the evaluation starts.
    */
   task?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask;
   /**
    * @remarks
-   * The information about the trigger module of the instance.
+   * The context information when the instance is triggered.
    * 
    * @example
    * {
@@ -549,7 +543,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The instances generated by the task.
+   * The successfully triggered TaskInstance.
    */
   dataQualityEvaluationTaskInstances?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances[];
   /**
@@ -562,7 +556,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extend
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -570,7 +564,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extend
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 294
@@ -609,15 +603,15 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extend
 export class ListDataQualityEvaluationTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination query result of quality evaluation task instances.
    */
   pagingInfo?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The API request ID.
    * 
    * @example
-   * 691CA452-D37A-4ED0-9441
+   * 691CA452-D37A-4ED****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

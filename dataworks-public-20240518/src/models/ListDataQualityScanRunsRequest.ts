@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityScanRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The earliest time when the data quality monitor starts to run.
+   * The earliest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710239005403
@@ -13,7 +13,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   createTimeFrom?: number;
   /**
    * @remarks
-   * The latest time when the data quality monitor starts to run.
+   * The latest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710239005403
@@ -21,7 +21,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   createTimeTo?: number;
   /**
    * @remarks
-   * The ID of the data quality monitor.
+   * The ID of the data quality scan.
    * 
    * @example
    * 10001
@@ -29,19 +29,22 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   dataQualityScanId?: number;
   /**
    * @remarks
-   * The extended query filter. Supported parameters:
+   * An object with advanced filter conditions. The following parameters are supported:
    * 
-   * *   TaskInstanceId
+   * - `TaskInstanceId`: The ID of the task instance.
+   * 
+   * - `RunNumber`: The run number of the instance.
    * 
    * @example
    * {
-   *     "TaskInstanceId": 111L
+   *     "TaskInstanceId": "111",
+   *     "RunNumber": "1"
    * }
    */
   filter?: { [key: string]: any };
   /**
    * @remarks
-   * The page number of the results. Default value: 1.
+   * The page number to return. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +52,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 20
@@ -67,10 +70,11 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The list of sorting fields. Supports fields such as last modified time and creation time. Format: "SortField+SortOrder (Desc/Asc)", where Asc is the default. Valid values:
+   * The sort field and order for the results. The format is `FieldName Order`. The default order is ascending (Asc). Supported fields:
    * 
-   * *   CreateTime (Desc/Asc)
-   * *   Id (Desc/Asc)
+   * - CreateTime (Desc/Asc)
+   * 
+   * - Id (Desc/Asc)
    * 
    * @example
    * CreateTime Desc
@@ -78,13 +82,17 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The status of the data quality check result.
+   * The status of the data quality scan run. Valid values:
    * 
-   * *   Pass
-   * *   Running
-   * *   Error
-   * *   Fail
-   * *   Warn
+   * - Pass
+   * 
+   * - Running
+   * 
+   * - Error
+   * 
+   * - Fail
+   * 
+   * - Warn
    * 
    * @example
    * Fail

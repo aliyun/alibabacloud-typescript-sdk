@@ -9,9 +9,9 @@ export class GetColumnRequest extends $dara.Model {
    * 
    * The format: `${EntityType}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Schema name}:${Table name}:${Column name}`. Use empty strings as placeholders for levels that do not exist.
    * 
-   * >  For the MaxCompute and DLF types, use an empty string as the placeholder for the instance ID. For MaxCompute, the database name refers to the MaxCompute project name. If the project has schema enabled, you must specify the schema name. Otherwise, use an empty string as the placeholder for the schema name.
+   * > For the MaxCompute and DLF types, use an empty string as the placeholder for the instance ID. For MaxCompute, the database name refers to the MaxCompute project name. If the project has schema enabled, you must specify the schema name. Otherwise, use an empty string as the placeholder for the schema name.
    * 
-   * >  The catalog identifier of the StarRocks is the catalog name, and the catalog identifier of the DLF type is the catalog ID. Other types do not support catalog levels. Use empty strings as placeholders.
+   * > The catalog identifier of the StarRocks is the catalog name, and the catalog identifier of the DLF type is the catalog ID. Other types do not support catalog levels. Use empty strings as placeholders.
    * 
    * Examples of common ID formats
    * 
@@ -25,20 +25,19 @@ export class GetColumnRequest extends $dara.Model {
    * 
    * `mysql-column:(instance_id|encoded_jdbc_url)::database_name::table_name:column_name`
    * 
-   * > \\
-   * `instance_id`: the ID of the instance, which is required when the data source is registered in instance mode.\\
-   * `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered via a connection string.\\
-   * `catalog_id`: The DLF catalog ID.\\
-   * `project_name`: The MaxCompute project name.\\
-   * `database_name`: The database name.\\
-   * `schema_name`: The schema name. For the MaxCompute type, this is required only if the project has enabled schema; otherwise, use an empty string as a placeholder.\\
-   * `table_name`: The table name.\\
-   * `column_name`: The field name.
+   * > <br>`instance_id`: the ID of the instance, which is required when the data source is registered in instance mode.<br>
+   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered via a connection string.<br>
+   * > `catalog_id`: The DLF catalog ID.<br>
+   * > `project_name`: The MaxCompute project name.<br>
+   * > `database_name`: The database name.<br>
+   * > `schema_name`: The schema name. For the MaxCompute type, this is required only if the project has enabled schema; otherwise, use an empty string as a placeholder.<br>
+   * > `table_name`: The table name.<br>
+   * > `column_name`: The field name.
    * 
    * This parameter is required.
    * 
    * @example
-   * maxcompute-column:11075xxxx::test_project:test_schema:test_table:test_column
+   * maxcompute-column:::project_name:[schema_name]:table_name:column_name
    */
   id?: string;
   static names(): { [key: string]: string } {

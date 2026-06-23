@@ -18,7 +18,7 @@ export class CreateResourceResponseBody extends $dara.Model {
    * A5B97987-66EA-5563-9599-A2752292XXXX
    * 
    * @example
-   * The ID of the file resource.
+   * A5B97987-66EA-5563-9599-A2752292****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

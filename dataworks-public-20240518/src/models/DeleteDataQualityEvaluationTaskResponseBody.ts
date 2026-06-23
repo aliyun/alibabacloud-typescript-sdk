@@ -13,9 +13,9 @@ export class DeleteDataQualityEvaluationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the deletion is successful.
-   * - true: Successful
-   * - false: Failed
+   * Indicates whether the deletion was successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

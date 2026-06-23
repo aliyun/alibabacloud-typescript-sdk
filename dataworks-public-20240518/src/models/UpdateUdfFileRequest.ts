@@ -63,9 +63,11 @@ export class UpdateUdfFileRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ALL_ALLOWD
-   * *   FAILURE_ALLOWED
-   * *   ALL_DENIED
+   * - ALL_ALLOWD
+   * 
+   * - FAILURE_ALLOWED
+   * 
+   * - ALL_DENIED
    * 
    * @example
    * List of strings to be connected

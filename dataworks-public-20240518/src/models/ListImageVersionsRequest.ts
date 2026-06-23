@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageVersionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListImageVersionsRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

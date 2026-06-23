@@ -71,8 +71,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -146,14 +147,21 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The status of the workflow instance. Valid values:
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
+   * - NotRun: The instance is not run.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - WaitTime: The instance is waiting for the scheduling time to arrive.
+   * 
+   * - CheckingCondition: Branch conditions are being checked for the instance.
+   * 
+   * - WaitResource: The instance is waiting for resources.
+   * 
+   * - Failure: The instance fails to be run.
+   * 
+   * - Success: The instance is successfully run.
+   * 
+   * - Checking: Data quality is being checked for the instance.
    * 
    * @example
    * Success
@@ -168,18 +176,26 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   Normal: Scheduled execution
-   * *   Manual: Manually triggered node
-   * *   SmokeTest: Testing
-   * *   SupplementData: Data backfill
-   * *   ManualWorkflow: Manually triggered workflow
-   * *   TriggerWorkflow: Triggered Workflow
+   * - Normal: Scheduled execution
+   * 
+   * - Manual: Manually triggered node
+   * 
+   * - SmokeTest: Testing
+   * 
+   * - SupplementData: Data backfill
+   * 
+   * - ManualWorkflow: Manually triggered workflow
+   * 
+   * - TriggerWorkflow: Triggered Workflow
    * 
    * @example
    * Normal
    */
   type?: string;
   /**
+   * @remarks
+   * The unified pipeline instance ID. For all pipeline instances triggered under the same data timestamp in a single trigger, this field value is identical.
+   * 
    * @example
    * 1234
    */
@@ -195,6 +211,12 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
   /**
    * @remarks
    * The workflow parameters.
+   * 
+   * @example
+   * 周期工作流：
+   * key1=value1 key2=value2
+   * 手动业务流程：
+   * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;
   /**

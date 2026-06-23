@@ -4,16 +4,23 @@ import { CustomAttribute } from "./CustomAttribute";
 
 
 export class GetCustomAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The custom attribute definition.
+   */
   customAttribute?: CustomAttribute;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * BA51C9E6-0CBC-5BB9-92BD-0C4FE66E1717
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

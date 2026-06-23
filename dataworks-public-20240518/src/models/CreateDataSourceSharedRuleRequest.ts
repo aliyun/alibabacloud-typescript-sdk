@@ -15,9 +15,11 @@ export class CreateDataSourceSharedRuleRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * Share data sources to the target project environment, including
-   * - Dev (Development Environment)
-   * - Prod (production environment)
+   * The environment of the target workspace to which the data source is shared. Valid values:
+   * 
+   * - Dev: development environment
+   * 
+   * - Prod: production environment
    * 
    * This parameter is required.
    * 
@@ -30,7 +32,7 @@ export class CreateDataSourceSharedRuleRequest extends $dara.Model {
    * The user with which you want to share the data source. If you do not configure this parameter, the data source is shared to an entire workspace.
    * 
    * @example
-   * 1107550004253538
+   * 110755000****
    */
   sharedUser?: string;
   /**

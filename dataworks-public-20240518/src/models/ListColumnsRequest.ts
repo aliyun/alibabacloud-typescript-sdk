@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The comment. Fuzzy match is supported.
+   * The column comment. Supports fuzzy match.
    * 
    * @example
    * test comment
@@ -13,7 +13,7 @@ export class ListColumnsRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name. Fuzzy match is supported.
+   * The column name. Supports fuzzy match.
    * 
    * @example
    * test_table
@@ -21,10 +21,11 @@ export class ListColumnsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order. Default value: Asc. Valid values:
+   * The sort order. Default: Asc. Valid values:
    * 
-   * *   Asc
-   * *   Desc
+   * - Asc
+   * 
+   * - Desc
    * 
    * @example
    * Asc
@@ -32,7 +33,7 @@ export class ListColumnsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. Default: 1.
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class ListColumnsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 10. Maximum value: 100.
+   * The page size. Default: 10. Maximum: 100.
    * 
    * @example
    * 10
@@ -48,10 +49,11 @@ export class ListColumnsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. Default value: Position. Valid values:
+   * The sort field. Default: Position. Valid values:
    * 
-   * *   Name
-   * *   Position
+   * - Name
+   * 
+   * - Position
    * 
    * @example
    * Position
@@ -59,12 +61,12 @@ export class ListColumnsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The table ID. You can refer to the return result of the ListTables operation. and the [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+   * The table ID. Call the ListTables operation or refer to [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html) to obtain this value.
    * 
    * This parameter is required.
    * 
    * @example
-   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   tableId?: string;
   static names(): { [key: string]: string } {

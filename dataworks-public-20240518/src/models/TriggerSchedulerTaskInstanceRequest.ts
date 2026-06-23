@@ -7,8 +7,9 @@ export class TriggerSchedulerTaskInstanceRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod

@@ -15,13 +15,19 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
    * @remarks
    * The data type. Multiple selections are allowed. Valid values:
    * 
-   * *   COMMON
-   * *   PIC
-   * *   TEXT
-   * *   TABLE
-   * *   VIDEO
-   * *   AUDIO
-   * *   INDEX
+   * - COMMON
+   * 
+   * - PIC
+   * 
+   * - TEXT
+   * 
+   * - TABLE
+   * 
+   * - VIDEO
+   * 
+   * - AUDIO
+   * 
+   * - INDEX
    */
   dataTypeListShrink?: string;
   /**
@@ -38,8 +44,9 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Asc: Ascending.
-   * *   Desc: Descending.
+   * - Asc: Ascending.
+   * 
+   * - Desc: Descending.
    * 
    * @example
    * Asc
@@ -49,8 +56,9 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
    * @remarks
    * The dataset source. Valid values:
    * 
-   * *   DataWorks
-   * *   PAI
+   * - DataWorks
+   * 
+   * - PAI
    * 
    * @example
    * DataWorks
@@ -86,9 +94,11 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ModifyTime: Modification time.
-   * *   CreateTime: Creation time.
-   * *   Name
+   * - ModifyTime: Modification time.
+   * 
+   * - CreateTime: Creation time.
+   * 
+   * - Name
    * 
    * @example
    * CreateTime
@@ -98,13 +108,19 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
    * @remarks
    * The storage type. Multiple selections are allowed. Supported values:
    * 
-   * *   OSS
-   * *   NAS: General-purpose NAS file systems
-   * *   EXTREMENAS: Extreme NAS file systems
-   * *   DLF_LANCE: Data Lake Formation
-   * *   CPFS: Cloud Parallel File Storage
-   * *   BMCPFS: CPFS for Lingjun
-   * *   MAXCOMPUTE: MaxCompute table
+   * - OSS
+   * 
+   * - NAS: General-purpose NAS file systems
+   * 
+   * - EXTREMENAS: Extreme NAS file systems
+   * 
+   * - DLF_LANCE: Data Lake Formation
+   * 
+   * - CPFS: Cloud Parallel File Storage
+   * 
+   * - BMCPFS: CPFS for Lingjun
+   * 
+   * - MAXCOMPUTE: MaxCompute table
    */
   storageTypeListShrink?: string;
   static names(): { [key: string]: string } {

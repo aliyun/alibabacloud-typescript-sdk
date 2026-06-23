@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteProcessDefinitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **The unique ID of the request.**
+   * 
    * @example
    * 0bc5df3a17***903790e8e8a
    */

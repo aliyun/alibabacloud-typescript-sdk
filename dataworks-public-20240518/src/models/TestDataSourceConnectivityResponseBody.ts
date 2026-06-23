@@ -22,6 +22,9 @@ export class TestDataSourceConnectivityResponseBodyConnectivityDetailLogs extend
   /**
    * @remarks
    * The name of the step.
+   * 
+   * @example
+   * Validate input parameters
    */
   message?: string;
   /**
@@ -63,6 +66,9 @@ export class TestDataSourceConnectivityResponseBodyConnectivity extends $dara.Mo
   /**
    * @remarks
    * The error message returned if the connectivity test fails. No such a message is returned if the connectivity test is successful.
+   * 
+   * @example
+   * 连接数据库失败
    */
   connectMessage?: string;
   /**

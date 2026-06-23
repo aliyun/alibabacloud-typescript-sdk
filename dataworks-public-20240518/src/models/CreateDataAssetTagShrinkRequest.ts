@@ -30,10 +30,13 @@ export class CreateDataAssetTagShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the tag value. Valid values:
    * 
-   * *   Boolean
-   * *   Int
-   * *   String
-   * *   Double
+   * - Boolean
+   * 
+   * - Int
+   * 
+   * - String
+   * 
+   * - Double
    * 
    * @example
    * String

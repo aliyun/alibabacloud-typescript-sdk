@@ -7,8 +7,9 @@ export class ListDataAssetTagsRequest extends $dara.Model {
    * @remarks
    * The type of the tag. Valid values:
    * 
-   * *   Normal
-   * *   System
+   * - Normal
+   * 
+   * - System
    * 
    * @example
    * Normal

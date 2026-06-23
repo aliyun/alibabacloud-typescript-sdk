@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupsRequestAliyunResourceTags extends $dara.Model {
   /**
    * @remarks
-   * Tag Key
+   * The tag key.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class ListResourceGroupsRequestAliyunResourceTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag Value
+   * The tag value.
    * 
    * @example
    * value
@@ -45,7 +45,7 @@ export class ListResourceGroupsRequestAliyunResourceTags extends $dara.Model {
 export class ListResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Alibaba Cloud Resource Group ID
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-aek2kqofrgXXXXX
@@ -53,12 +53,12 @@ export class ListResourceGroupsRequest extends $dara.Model {
   aliyunResourceGroupId?: string;
   /**
    * @remarks
-   * Alibaba Cloud tag list
+   * The list of Alibaba Cloud tags.
    */
   aliyunResourceTags?: ListResourceGroupsRequestAliyunResourceTags[];
   /**
    * @remarks
-   * The name of a resource group, which is used for fuzzy match.
+   * The name of the resource group. Fuzzy search is supported.
    * 
    * @example
    * Resource
@@ -74,7 +74,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 100
@@ -82,10 +82,11 @@ export class ListResourceGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The billing method of resource groups. Valid values:
+   * The billing method of the resource group. Valid values include:
    * 
-   * *   PrePaid
-   * *   PostPaid
+   * - `PrePaid`: subscription.
+   * 
+   * - `PostPaid`: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -93,7 +94,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * The ID of the workspace.
    * 
    * @example
    * 1000
@@ -101,23 +102,30 @@ export class ListResourceGroupsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+   * The types of the resource groups to query. **If this parameter is not specified, general-purpose resource groups are queried by default.**
    */
   resourceGroupTypes?: string[];
   /**
    * @remarks
-   * The list of fields used for sorting. Fields such as TriggerTime and StartedTime are supported. You must configure this parameter in the Sorting field + Sort by (Desc/Asc). By default, results are sorted in ascending order. Valid values:
+   * The sorting criterion for the results. The format is `FieldName SortOrder`. `SortOrder` can be `Asc` (ascending) or `Desc` (descending). If you do not specify `SortOrder`, the default is `Asc`. The following fields are supported:
    * 
-   * *   Id (Desc/Asc): the resource group ID
-   * *   Name (Desc/Asc): the name of the resource group
-   * *   Remark (Desc/Asc): the remarks of the resource group
-   * *   Type (Desc/Asc): the type of the resource group
-   * *   Status (Desc/Asc): the status of the resource group
-   * *   Spec (Desc/Asc): the specifications of the resource group
-   * *   CreateUser (Desc/Asc): the creator of the resource group
-   * *   CreateTime (Desc/Asc): the time when the resource group is created
+   * - `Id`: Resource group ID
    * 
-   * Default value: CreateTime Asc
+   * - `Name`: Resource group name
+   * 
+   * - `Remark`: Resource group remarks
+   * 
+   * - `Type`: Resource group type
+   * 
+   * - `Status`: Resource group status
+   * 
+   * - `Spec`: Resource group specifications
+   * 
+   * - `CreateUser`: The user who created the resource group
+   * 
+   * - `CreateTime`: The time when the resource group was created
+   * 
+   * Default value: `CreateTime Asc`
    * 
    * @example
    * CreateTime Asc
@@ -125,7 +133,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The statuses of resource groups.
+   * The statuses of the resource groups to query.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

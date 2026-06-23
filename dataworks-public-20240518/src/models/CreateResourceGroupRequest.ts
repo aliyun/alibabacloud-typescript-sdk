@@ -53,17 +53,17 @@ export class CreateResourceGroupRequest extends $dara.Model {
   aliyunResourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of Alibaba Cloud tags.
    */
   aliyunResourceTags?: CreateResourceGroupRequestAliyunResourceTags[];
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal.
+   * Specifies whether to enable auto-renewal for the subscription.
    */
   autoRenewEnabled?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token to ensure the idempotence of the request.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the serverless resource group. The name can be a maximum of 128 characters in length and can contain letters, digits, and underscores (_). The name must start with a letter.
+   * The name of the general-purpose resource group. It must be up to 128 characters long, start with a letter, and contain only letters, digits, and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentDuration?: number;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values: Month and Year.
+   * The unit of the subscription duration. Valid values: `Month` and `Year`.
    * 
    * @example
    * Month
@@ -99,7 +99,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The billing method of the serverless resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * The billing method of the resource group. `PrePaid` indicates subscription, and `PostPaid` indicates pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -109,7 +109,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The description of the serverless resource group. The description can be a maximum of 128 characters in length and can contain letters, digits, and underscores (_).
+   * The remark for the general-purpose resource group. It can be up to 128 characters long and can contain letters, Chinese characters, digits, and underscores (_).
    * 
    * @example
    * Create a serverless resource group for common tasks
@@ -117,7 +117,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The specifications of the serverless resource group. Unit: CU. This parameter is required only if you set the PaymentType parameter to PrePaid.
+   * The specification of the resource group, in CUs. This parameter is required when `PaymentType` is set to `PrePaid`.
    * 
    * @example
    * 2
@@ -125,22 +125,22 @@ export class CreateResourceGroupRequest extends $dara.Model {
   spec?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) with which the serverless resource group is associated by default.
+   * The ID of the VPC to be bound by default.
    * 
    * This parameter is required.
    * 
    * @example
-   * vpc-m2et4f3oc8msfbccXXXXX
+   * vpc-m2et4f3oc8m****
    */
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the serverless resource group is associated by default.
+   * The ID of the vSwitch to be bound by default.
    * 
    * This parameter is required.
    * 
    * @example
-   * vsw-uf8usrhs7hjd9amsXXXXX
+   * vsw-uf8usrhs7hjd9****
    */
   vswitchId?: string;
   static names(): { [key: string]: string } {

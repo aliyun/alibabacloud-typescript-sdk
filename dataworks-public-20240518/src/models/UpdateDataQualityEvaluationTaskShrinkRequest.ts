@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of monitoring rules that are associated with the monitor.
+   * List of data quality rules associated with the data quality monitoring.
    */
   dataQualityRulesShrink?: string;
   /**
    * @remarks
-   * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+   * Data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
    * 
    * @example
    * 358750
@@ -18,7 +18,7 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the monitor.
+   * Description of the quality monitoring task
    * 
    * @example
    * OpenAPI data quality monitoring test.
@@ -26,12 +26,12 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The hook.
+   * Callback settings
    */
   hooksShrink?: string;
   /**
    * @remarks
-   * The ID of the monitor.
+   * Data quality monitoring ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the monitor.
+   * Name of the quality monitoring task
    * 
    * @example
    * OpenAPI data quality monitoring test.
@@ -49,12 +49,12 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * Notification subscription configuration
    */
   notificationsShrink?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * Workspace ID
    * 
    * This parameter is required.
    * 
@@ -64,14 +64,12 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The extended configurations in JSON-formatted strings. You can use this parameter only for monitors that are used to monitor the quality of E-MapReduce (EMR) data.
+   * Extended configuration. A JSON-formatted string. Takes effect only for EMR-type data quality monitoring.
    * 
-   * *   queue: The Yarn queue used when a monitor checks the quality of EMR data. By default, the queue configured for the current workspace is used.
-   * 
-   * *   sqlEngine: The SQL engine used when a monitor checks the quality of EMR data.
-   * 
-   *     *   HIVE_SQL
-   *     *   SPARK_SQL
+   * - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
+   * - sqlEngine: The SQL engine used when executing EMR data validation.
+   *   + HIVE_SQL
+   *   + SPARK_SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -79,12 +77,12 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the data quality monitoring task.
+   * Data quality monitoring object
    */
   targetShrink?: string;
   /**
    * @remarks
-   * The trigger configuration of the monitor.
+   * Trigger configuration of the data quality validation task
    */
   triggerShrink?: string;
   static names(): { [key: string]: string } {

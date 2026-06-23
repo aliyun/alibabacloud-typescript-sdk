@@ -145,9 +145,11 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -165,8 +167,9 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodically triggered
-   * *   Manual
+   * - Scheduler: periodically triggered
+   * 
+   * - Manual
    * 
    * @example
    * Scheduler
@@ -219,8 +222,9 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
    * @remarks
    * The project environment.
    * 
-   * *   Prod: Production
-   * *   Dev: Development
+   * - Prod: Production
+   * 
+   * - Dev: Development
    * 
    * @example
    * Prod
@@ -264,9 +268,11 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun.
-   * *   FailureAllowed: The task can be rerun only after it fails.
-   * *   AllAllowed: The task can always be rerun.
+   * - AllDenied: The task cannot be rerun.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails.
+   * 
+   * - AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed

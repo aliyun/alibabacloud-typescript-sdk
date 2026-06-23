@@ -8,12 +8,12 @@ export class UpdateDataQualityRuleTemplateResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 691CA452-D37A-4ED0-9441
+   * 691CA452-D37A-4ED0-****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the update was successful.
    * 
    * @example
    * true

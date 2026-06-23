@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityRuleTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The code for the template.
+   * The code of the rule template.
    * 
    * This parameter is required.
    * 

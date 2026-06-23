@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteParameterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * 
    * @example
    * true
    */

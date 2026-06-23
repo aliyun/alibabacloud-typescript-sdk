@@ -4,22 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionApprovalNodes extends $dara.Model {
   /**
+   * @remarks
+   * The type of the approver for the node. Valid values:
+   * 
+   * - `DataWorksProjectRole`: A workspace role
+   * 
+   * - `DataWorksProjectMember`: A workspace member
+   * 
+   * - `TableAdministrator`: A table administrator
+   * 
+   * - `TableOrProjectAdministrator`: A table or workspace administrator
+   * 
+   * - `AliyunResourceOwner`: An Alibaba Cloud account
+   * 
+   * - `MaxComputeRole`: A MaxCompute role
+   * 
+   * - `DLFAdmin`: A DlfLegacy administrator
+   * 
+   * - `DLFNextAdmin`: A DLFNext administrator
+   * 
+   * - `TenantRole`: A tenant role
+   * 
+   * - `EmrAdministrator`: An Emr administrator
+   * 
+   * - `LindormAdministrator`: A Lindorm administrator
+   * 
+   * - `AliyunRamUser`: A RAM user
+   * 
    * @example
    * DataWorksProjectRole
    */
   accountType?: string;
+  /**
+   * @remarks
+   * The specified approvers.
+   * 
+   * The contents of this parameter depend on the `AccountType` value:
+   * 
+   * - If `AccountType` is `DataWorksProjectMember`, this parameter contains the user IDs of workspace members.
+   * 
+   * - If `AccountType` is `DataWorksProjectRole`, this parameter contains the codes of workspace roles.
+   * 
+   * - If `AccountType` is `MaxComputeRole`, this parameter contains the MaxCompute roles.
+   * 
+   * - If `AccountType` is `TenantRole`, this parameter contains the codes of tenant roles.
+   * 
+   * - If `AccountType` is `AliyunRamUser`, this parameter contains the user IDs of RAM users.
+   */
   assignees?: string[];
   /**
+   * @remarks
+   * The extended description of the approval node.
+   * 
    * @example
    * none
    */
   extensionProperties?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * 7a809b6a-2a62-4c6c-9c23-c2a145e3877d
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * default-name
    */
@@ -58,16 +110,33 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinit
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionNotificationServices extends $dara.Model {
   /**
+   * @remarks
+   * The notification channel. Valid values:
+   * 
+   * - `Mail`
+   * 
+   * - `Sms`
+   * 
+   * - `DingRobot`
+   * 
+   * - `Weixin`
+   * 
    * @example
    * Mail
    */
   channel?: string;
   /**
+   * @remarks
+   * Additional information in JSON format. For example, `{"atAll":"true"}` indicates whether to @all members.
+   * 
    * @example
    * {"atAll":"true"}
    */
   extension?: string;
   /**
+   * @remarks
+   * If `Channel` is set to `DingRobot` or `Weixin`, the value of this parameter must be the webhook URL.
+   * 
    * @example
    * https://dingtalk
    */
@@ -99,16 +168,39 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinit
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionRuleConditions extends $dara.Model {
   /**
+   * @remarks
+   * The expression of the rule condition. Format: `((#type==\\"typeValue\\"))`.
+   * 
    * @example
    * ((#odpsProject==\\"PX_BEIJING_TEST\\"))
    */
   expression?: string;
   /**
+   * @remarks
+   * The rule scope. Valid values:
+   * 
+   * - `Deployment`: Determines whether the policy applies when a request is submitted.
+   * 
+   * - `Running`: Determines whether to skip approval while the process instance runs. This value is supported only for MaxCompute approval policies.
+   * 
    * @example
    * Deployment
    */
   scope?: string;
   /**
+   * @remarks
+   * The type of the rule condition. Valid values:
+   * 
+   * - `odpsProject`: Applies to a specific MaxCompute project.
+   * 
+   * - `hologresInstanceId`: Applies to a specific Hologres instance.
+   * 
+   * - `sensibleLevel`: Applies to a specific security level.
+   * 
+   * - `tableGuid`: Applies to a specific table.
+   * 
+   * - `projectId`: Applies to a specific workspace.
+   * 
    * @example
    * odpsProject
    */
@@ -139,31 +231,97 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinit
 }
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * The approval nodes.
+   */
   approvalNodes?: GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionApprovalNodes[];
+  /**
+   * @remarks
+   * The description of the approval policy.
+   * 
+   * @example
+   * 流程定义描述
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the policy is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The approval policy ID.
+   * 
    * @example
    * 323861511451222099
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the approval policy.
+   * 
    * @example
    * SYSTEM_GENERATE_DEFAULT
    */
   name?: string;
+  /**
+   * @remarks
+   * The notification services.
+   */
   notificationServices?: GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionNotificationServices[];
+  /**
+   * @remarks
+   * The rules that determine when the approval policy takes effect.
+   */
   ruleConditions?: GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinitionRuleConditions[];
   /**
+   * @remarks
+   * The subtype of the approval policy. Valid values:
+   * 
+   * - `Table`
+   * 
+   * - `Column`
+   * 
+   * - `Database`
+   * 
+   * - `Schema`
+   * 
+   * - `Default`
+   * 
    * @example
    * Table
    */
   subType?: string;
   /**
+   * @remarks
+   * The type of the approval policy. Valid values:
+   * 
+   * - `MaxCompute`
+   * 
+   * - `DataService`
+   * 
+   * - `DlfV1` (Custom creation is not supported)
+   * 
+   * - `Extension`
+   * 
+   * - `Hologres`
+   * 
+   * - `Emr` (Custom creation is not supported)
+   * 
+   * - `DataAssetGovernance` (Custom creation is not supported)
+   * 
+   * - `Lindorm` (Custom creation is not supported)
+   * 
+   * - `StarRocks` (Custom creation is not supported)
+   * 
+   * - `DlfNext` (Custom creation is not supported)
+   * 
+   * - `DataWorks` (Custom creation is not supported)
+   * 
    * @example
    * MaxCompute
    */
@@ -216,17 +374,66 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinit
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasksApprovalNode extends $dara.Model {
   /**
+   * @remarks
+   * The type of the approver for the node. Valid values:
+   * 
+   * - `DataWorksProjectRole`: A workspace role
+   * 
+   * - `DataWorksProjectMember`: A workspace member
+   * 
+   * - `TableAdministrator`: A table administrator
+   * 
+   * - `TableOrProjectAdministrator`: A table or workspace administrator
+   * 
+   * - `AliyunResourceOwner`: An Alibaba Cloud account
+   * 
+   * - `MaxComputeRole`: A MaxCompute role
+   * 
+   * - `DLFAdmin`: A DlfLegacy administrator
+   * 
+   * - `DLFNextAdmin`: A DLFNext administrator
+   * 
+   * - `TenantRole`: A tenant role
+   * 
+   * - `EmrAdministrator`: An Emr administrator
+   * 
+   * - `LindormAdministrator`: A Lindorm administrator
+   * 
+   * - `AliyunRamUser`: A RAM user
+   * 
    * @example
    * DataWorksProjectRole
    */
   accountType?: string;
+  /**
+   * @remarks
+   * The specified approvers.
+   * 
+   * The contents of this parameter depend on the `AccountType` value:
+   * 
+   * - If `AccountType` is `DataWorksProjectMember`, this parameter contains the user IDs of workspace members.
+   * 
+   * - If `AccountType` is `DataWorksProjectRole`, this parameter contains the codes of workspace roles.
+   * 
+   * - If `AccountType` is `MaxComputeRole`, this parameter contains the MaxCompute roles.
+   * 
+   * - If `AccountType` is `TenantRole`, this parameter contains the codes of tenant roles.
+   * 
+   * - If `AccountType` is `AliyunRamUser`, this parameter contains the user IDs of RAM users.
+   */
   assignees?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * 7a809b6a-2a62-4c6c-9c23-c2a145e3877d
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * default-name
    */
@@ -262,8 +469,18 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasksApprovalN
 }
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasksTaskCandidates extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the approver.
+   * 
+   * @example
+   * 李四
+   */
   memberName?: string;
   /**
+   * @remarks
+   * The user ID of the approver.
+   * 
    * @example
    * 207947397776614297
    */
@@ -292,39 +509,89 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasksTaskCandi
 }
 
 export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The approval comment.
+   * 
+   * @example
+   * 同意
+   */
   approvalComment?: string;
   /**
+   * @remarks
+   * The approval decision. Valid values:
+   * 
+   * - `Agree`
+   * 
+   * - `Deny`
+   * 
    * @example
-   * deny
+   * Deny
    */
   approvalDecision?: string;
+  /**
+   * @remarks
+   * The approval node from the corresponding approval policy.
+   */
   approvalNode?: GetProcessInstanceResponseBodyProcessInstanceApprovalTasksApprovalNode;
   /**
+   * @remarks
+   * The user ID of the actual approver.
+   * 
    * @example
    * 207947399706614297
    */
   assignee?: string;
+  /**
+   * @remarks
+   * The name of the actual approver.
+   * 
+   * @example
+   * 李四
+   */
   assigneeName?: string;
   /**
+   * @remarks
+   * The time when the task was completed.
+   * 
    * @example
    * 1715590800000
    */
   completeTime?: number;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 1715587200000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The approval task ID.
+   * 
    * @example
    * task_001
    */
   id?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * - `Completed`: The task is complete.
+   * 
+   * - `Pending`: The task is pending.
+   * 
+   * - `Aborted`: The task is aborted.
+   * 
    * @example
    * Aborted
    */
   status?: string;
+  /**
+   * @remarks
+   * The candidate approvers for the task.
+   */
   taskCandidates?: GetProcessInstanceResponseBodyProcessInstanceApprovalTasksTaskCandidates[];
   static names(): { [key: string]: string } {
     return {
@@ -373,38 +640,86 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasks extends 
 
 export class GetProcessInstanceResponseBodyProcessInstance extends $dara.Model {
   /**
+   * @remarks
+   * The user ID of the applicant.
+   * 
    * @example
    * 1107558004253538
    */
   applicator?: string;
   /**
+   * @remarks
+   * The username of the applicant\\"s Alibaba Cloud account.
+   * 
    * @example
    * test_account
    */
   applicatorName?: string;
+  /**
+   * @remarks
+   * The approval policy applied to this process instance.
+   */
   approvalProcessDefinition?: GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinition;
+  /**
+   * @remarks
+   * The approval tasks.
+   */
   approvalTasks?: GetProcessInstanceResponseBodyProcessInstanceApprovalTasks[];
   /**
+   * @remarks
+   * The authorization failure message.
+   * 
+   * **Note**: This parameter is returned only if the authorization fails.
+   * 
    * @example
    * S-400007:ODPS acl auth failed. odps table acl auth failed
    */
   authErrorMessage?: string;
   /**
+   * @remarks
+   * The process instance ID.
+   * 
    * @example
    * 332066440109224007
    */
   id?: string;
+  /**
+   * @remarks
+   * The reason for the request.
+   * 
+   * @example
+   * 业务需要
+   */
   reason?: string;
   /**
+   * @remarks
+   * The time when the approval process started.
+   * 
    * @example
    * 2026-05-25 10:20:18 CST
    */
   startTime?: any;
   /**
+   * @remarks
+   * The status of the process instance. Valid values:
+   * 
+   * - `Completed`: The request is approved.
+   * 
+   * - `Running`: The request is in the approval process.
+   * 
+   * - `Aborted`: The request is withdrawn.
+   * 
    * @example
    * completed
    */
   status?: string;
+  /**
+   * @remarks
+   * The name of the process instance.
+   * 
+   * @example
+   * MaxCompute表权限申请
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -452,8 +767,15 @@ export class GetProcessInstanceResponseBodyProcessInstance extends $dara.Model {
 }
 
 export class GetProcessInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the approval process instance.
+   */
   processInstance?: GetProcessInstanceResponseBodyProcessInstance;
   /**
+   * @remarks
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0bc5df3a17****903790e8e8a
    */

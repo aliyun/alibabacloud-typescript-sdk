@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetParameterRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the parameter.
+   * 
    * This parameter is required.
    * 
    * @example

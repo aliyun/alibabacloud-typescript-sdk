@@ -45,10 +45,13 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $dar
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * - Constant: constant
+   * 
+   * - PassThrough: node output
+   * 
+   * - System: variable
+   * 
+   * - NodeOutput: script output
    * 
    * @example
    * Constant
@@ -160,10 +163,13 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $da
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * - Constant: constant
+   * 
+   * - PassThrough: node output
+   * 
+   * - System: variable
+   * 
+   * - NodeOutput: script output
    * 
    * @example
    * Constant
@@ -528,8 +534,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -547,9 +554,11 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
    * 
    * @example
    * AllAllowed
@@ -590,14 +599,21 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
+   * - NotRun: The instance is not run.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - WaitTime: The instance is waiting for the scheduling time to arrive.
+   * 
+   * - CheckingCondition: Branch conditions are being checked for the instance.
+   * 
+   * - WaitResource: The instance is waiting for resources.
+   * 
+   * - Failure: The instance fails to be run.
+   * 
+   * - Success: The instance is successfully run.
+   * 
+   * - Checking: Data quality is being checked for the instance.
    * 
    * @example
    * Success
@@ -639,16 +655,18 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * Note: The value of this parameter is rounded up by hour.
    * 
    * @example
-   * 1
+   * 3600
    */
   timeout?: number;
   /**
    * @remarks
    * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -666,14 +684,18 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The method to trigger instance scheduling. The value of the Trigger.Type parameter in the response of the GetTask operation is used. Valid values:
    * 
-   * *   Scheduler
-   * *   Manual
+   * - Scheduler
+   * 
+   * - Manual
    * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
+   * 
    * @example
    * 1234
    */
@@ -714,12 +736,17 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SmokeTest
-   * *   SupplementData
-   * *   Manual
-   * *   ManualWorkflow
-   * *   Normal
-   * *   ManualFlow
+   * - SmokeTest
+   * 
+   * - SupplementData
+   * 
+   * - Manual
+   * 
+   * - ManualWorkflow
+   * 
+   * - Normal
+   * 
+   * - ManualFlow
    * 
    * @example
    * Normal
@@ -857,7 +884,7 @@ export class GetTaskInstanceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   * 22C97E95-F023-56B5-8852-B1A77****
    */
   requestId?: string;
   /**

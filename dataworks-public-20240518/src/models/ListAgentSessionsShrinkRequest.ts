@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentSessionsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID provided by the caller. The value is returned as-is.
+   * 
    * @example
    * 676303114031776
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. The value must be `2.0`.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * Business parameters.
+   */
   paramsShrink?: string;
   static names(): { [key: string]: string } {
     return {

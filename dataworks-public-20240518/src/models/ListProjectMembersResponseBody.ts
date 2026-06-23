@@ -21,10 +21,11 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
   name?: string;
   /**
    * @remarks
-   * The type of the role. Valid values:
+   * The type of the role.
    * 
-   * *   UserCustom: user-defined role
-   * *   System: system role
+   * - `UserCustom`: A user-defined role.
+   * 
+   * - `System`: A system role.
    * 
    * @example
    * System
@@ -58,7 +59,7 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
 export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * The ID of the DataWorks Workspace.
    * 
    * @example
    * 62136
@@ -66,15 +67,16 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
   projectId?: number;
   /**
    * @remarks
-   * The roles that are assigned to the member.
+   * The roles assigned to the Workspace member.
    */
   roles?: ListProjectMembersResponseBodyPagingInfoProjectMembersRoles[];
   /**
    * @remarks
-   * The status of the member. Valid values:
+   * The status of the Workspace member.
    * 
-   * *   Normal
-   * *   Forbidden
+   * - `Normal`: The member is active.
+   * 
+   * - `Forbidden`: The member is disabled.
    * 
    * @example
    * Normal
@@ -82,12 +84,16 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
   status?: string;
   /**
    * @remarks
-   * The ID of the account used by the member.
+   * The ID of the DataWorks user.
    * 
    * @example
    * 123422344899
    */
   userId?: string;
+  /**
+   * @remarks
+   * The name of the DataWorks user.
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,7 +138,7 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -140,12 +146,12 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The members in the workspace.
+   * The list of Workspace members.
    */
   projectMembers?: ListProjectMembersResponseBodyPagingInfoProjectMembers[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of matching entries.
    * 
    * @example
    * 12
@@ -184,12 +190,12 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
 export class ListProjectMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paging information.
    */
   pagingInfo?: ListProjectMembersResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The unique ID of the request, used to track logs and troubleshoot issues.
    * 
    * @example
    * 9FBBBB1F-DD5E-5D8E-8F50-37F77460F056

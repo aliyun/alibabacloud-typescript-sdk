@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate file.
+   * The unique ID of the certificate file.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCertificateRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the workspace to which the certificate file belongs.
+   * The ID of the project to which the certificate file belongs.
    * 
    * This parameter is required.
    * 

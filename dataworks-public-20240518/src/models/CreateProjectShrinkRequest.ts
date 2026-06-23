@@ -10,7 +10,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * You must configure this parameter to specify an Alibaba Cloud resource group for the workspace that you want to create.
    * 
    * @example
-   * rg-acfmzbn7pti3zff
+   * rg-acfmzbn7****
    */
   aliyunResourceGroupId?: string;
   /**
@@ -30,8 +30,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the development environment. Valid values:
    * 
-   * *   true : enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
-   * *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+   * - true : enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+   * 
+   * - false: disables the development environment. In this case, only the production environment is used in the workspace.
    * 
    * @example
    * false
@@ -41,8 +42,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to disable the Develop role. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default)
+   * 
+   * - true
    * 
    * @example
    * true
@@ -64,9 +66,11 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The workspace name must be unqiue in a region.
-   * *   The workspace name can contain letters, digits, and underscores (_), and must start with a letter.
-   * *   The workspace name must be 3 to 28 characters in length.
+   * - The workspace name must be unqiue in a region.
+   * 
+   * - The workspace name can contain letters, digits, and underscores (_), and must start with a letter.
+   * 
+   * - The workspace name must be 3 to 28 characters in length.
    * 
    * This parameter is required.
    * 
@@ -78,8 +82,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
    * 
-   * *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
-   * *   false: disables scheduling of PAI tasks.
+   * - true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * 
+   * - false: disables scheduling of PAI tasks.
    * 
    * @example
    * true

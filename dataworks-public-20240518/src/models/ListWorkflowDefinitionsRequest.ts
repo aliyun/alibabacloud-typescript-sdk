@@ -17,8 +17,9 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CycleWorkflow
-   * *   ManualWorkflow
+   * - CycleWorkflow
+   * 
+   * - ManualWorkflow
    * 
    * @example
    * 110755000425XXXX
@@ -58,8 +59,9 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CycleWorkflow
-   * *   ManualWorkflow
+   * - CycleWorkflow
+   * 
+   * - ManualWorkflow
    * 
    * @example
    * CycleWorkflow

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDIJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and is replaced by the Id parameter.
+   * This field is deprecated. Use the `Id` field instead.
    * 
    * @example
    * 11792
@@ -15,7 +15,7 @@ export class CreateDIJobResponseBody extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The data integration job ID.
    * 
    * @example
    * 11792
@@ -23,7 +23,7 @@ export class CreateDIJobResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 4F6AB6B3-41FB-5EBB-AFB2-0C98D49DA2BB

@@ -4,26 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTableBusinessMetadataRequest extends $dara.Model {
   /**
+   * @remarks
+   * The values of custom attributes. The key specifies the identifier of a custom attribute, and the value is an array that can contain at most one item. To delete the value for an attribute, pass an empty array. To update only custom attributes, omit the `Readme` parameter to prevent its existing value from being cleared. To leave the custom attributes unchanged, pass an empty object `{}`.
+   * 
    * @example
    * {"biz_owner":["张三"]}
    */
   customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
-   * The table ID. You can refer to the format of the table ID returned by the ListTables operation.
+   * The table ID. For the required format, see the response of the `ListTables` operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * maxcompute-table:123456XXX::test_project::test_tbl
-   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
-   * hms-table:c-abc123xxx::test_db::test_tbl
-   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   id?: string;
   /**
    * @remarks
-   * The usage notes. The rich text format is supported.
+   * The Readme of the table, which supports rich text format.
    * 
    * @example
    * ## introduction

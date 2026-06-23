@@ -40,6 +40,10 @@ export class CreateSkillRequest extends $dara.Model {
    * https://example.com/skill.zip
    */
   bundleUrl?: string;
+  /**
+   * @example
+   * 数据分析技能
+   */
   description?: string;
   /**
    * @example
@@ -59,6 +63,10 @@ export class CreateSkillRequest extends $dara.Model {
    * -
    */
   skillMdOverride?: string;
+  /**
+   * @example
+   * 初版
+   */
   versionNote?: string;
   /**
    * @example

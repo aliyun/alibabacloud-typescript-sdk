@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceFileAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The code for the file. The code format varies based on the file type. To view the code format for a specific file type, go to Operation Center, open the directed acyclic graph (DAG) of a node of the file type, right-click the node, and then select View Code.
+   * The code content of the file. The code format varies depending on the code type (fileType). You can locate a job of the corresponding type in the Operation Center, right-click it, and select View Code to check the specific code format.
    * 
    * @example
    * SHOW TABLES;
@@ -42,9 +42,10 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The type of the code for the file.
+   * The code type of the file.
    * 
-   * The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html). You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
+   * Different file types correspond to different code types. For more information, see [DataWorks Node Types](https://help.aliyun.com/document_detail/600169.html).<br>
+   * You can also invoke the [ListFileType](https://help.aliyun.com/document_detail/212428.html) API to query the code types of files.
    * 
    * This parameter is required.
    * 
@@ -64,7 +65,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   originResourceName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the file owner. If this parameter is not configured, the ID of the Alibaba Cloud account of the user who calls the operation is used by default.
+   * The Alibaba Cloud User ID of the file owner. If this parameter is empty, the Alibaba Cloud User ID of the caller is used by default.
    * 
    * @example
    * 1000000000001
@@ -72,7 +73,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
+   * The ID of the DataWorks workspace. You can log on to the DataWorks console, go to the workspace configuration page, and obtain the workspace ID. This parameter is required to identify the DataWorks workspace for this API call.
    * 
    * This parameter is required.
    * 
@@ -82,7 +83,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Specifies whether to upload the resource file to a desired compute engine.
+   * Indicates whether to synchronize and upload the resource to the compute engine.
    * 
    * This parameter is required.
    * 
@@ -92,7 +93,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   registerToCalcEngine?: boolean;
   /**
    * @remarks
-   * The URL of the Object Storage Service (OSS) bucket to which you upload the file. The URL is provided by the POP platform.
+   * The OSS URL for file upload provided by POP.
    * 
    * @example
    * http://bucketname1.oss-cn-shanghai.aliyuncs.com/example
@@ -100,7 +101,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   resourceFileObject?: Readable;
   /**
    * @remarks
-   * The storage path of the resource file in a desired compute engine. This parameter takes effect only for E-MapReduce (EMR) and Cloudera\\"s Distribution including Apache Hadoop (CDH) compute engines. In an EMR compute engine, this parameter is configured in the [osshdfs]://path/to/object format. In a CDH compute engine, this parameter is set to /user/admin/lib by default.
+   * The Storage Path of the resource file on the compute engine. This field is currently used only by EMR and CDH. The EMR format is [osshdfs]://path/to/object, and for CDH, the default value must be /user/admin/lib.
    * 
    * @example
    * oss://oss-cn-shanghai.aliyuncs.com/emr-test
@@ -108,10 +109,11 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
   storageURL?: string;
   /**
    * @remarks
-   * The upload mode of MaxCompute file resources. This parameter takes effect only for MaxCompute file resources. Valid values:
+   * The upload mode for the resource file. This parameter currently applies only to File-type files in MaxCompute. Valid values:
    * 
-   * *   true: indicates the resource upload and download mode.
-   * *   false: indicates the online editing mode.
+   * - true: Downloadable resource mode.
+   * 
+   * - false: Online-editable text mode.
    * 
    * @example
    * false

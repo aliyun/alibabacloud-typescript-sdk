@@ -26,16 +26,18 @@ export class CreateMetaCollectionRequest extends $dara.Model {
    * The parent collection ID.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   parentId?: string;
   /**
    * @remarks
    * The collection name.
    * 
-   * *   Category
-   * *   Album
-   * *   AlbumCategory: Album subcategory.
+   * - Category
+   * 
+   * - Album
+   * 
+   * - AlbumCategory: Album subcategory.
    * 
    * This parameter is required.
    * 

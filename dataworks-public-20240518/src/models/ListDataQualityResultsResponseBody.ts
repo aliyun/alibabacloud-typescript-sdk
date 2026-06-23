@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails extends $dara.Model {
   /**
    * @remarks
-   * The value that is used for comparison with the threshold.
+   * 最终用来与阈值比较的值。
    * 
    * @example
    * 100.0
@@ -13,7 +13,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
   checkedValue?: string;
   /**
    * @remarks
-   * The value that is calculated based on sample data. The value serves as a baseline value during the calculation of the value of the CheckedValue parameter.
+   * 使用引用的样本，用来参与CheckedValue计算的基准值。
    * 
    * @example
    * 0.0
@@ -21,15 +21,14 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
   referencedValue?: string;
   /**
    * @remarks
-   * The comparison result between the value of CheckedValue and the threshold. Valid values:
-   * 
-   * *   Error
-   * *   Passed
-   * *   Warned
-   * *   Critical
+   * 最终的比较结果状态：
+   * - Error
+   * - Passed
+   * - Warned
+   * - Critical
    * 
    * @example
-   * PASSED
+   * Passed
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -60,15 +59,15 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * 阈值表达式。
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
    * 
    * @example
    * $checkValue > 0.01
@@ -76,14 +75,13 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * 比较符：
+   * - \\>
+   * - \\>=
+   * - \\<
+   * - \\<=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -91,7 +89,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * 阈值数值。
    * 
    * @example
    * 100.0
@@ -125,15 +123,15 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * 阈值表达式。
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
    * 
    * @example
    * $checkValue > 0.01
@@ -141,14 +139,13 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * 比较符：
+   * - \\>
+   * - \\>=
+   * - \\<
+   * - \\<=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -156,7 +153,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * 阈值数值。
    * 
    * @example
    * 100.0
@@ -190,15 +187,15 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * 阈值表达式。
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value。
    * 
    * @example
    * $checkValue > 0.01
@@ -206,14 +203,13 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * 比较符：
+   * - \\>
+   * - \\>=
+   * - \\<
+   * - \\<=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -221,7 +217,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * 阈值数值。
    * 
    * @example
    * 100.0
@@ -255,17 +251,17 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds extends $dara.Model {
   /**
    * @remarks
-   * The threshold settings for critical alerts.
+   * 严重警告的阈值设置。
    */
   critical?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical;
   /**
    * @remarks
-   * The expected threshold setting.
+   * 期望的阈值设置。
    */
   expected?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected;
   /**
    * @remarks
-   * The threshold settings for normal alerts.
+   * 普通警告的阈值设置。
    */
   warned?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
@@ -305,7 +301,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * 有些类型的阈值需要查询出一些参考样本，然后对参考样本的值进行汇总得出进行比较的阈值，这里使用一个表达式来表示参考样本的查询方式。
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -313,22 +309,21 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   referencedSamplesFilter?: string;
   /**
    * @remarks
-   * The threshold settings.
+   * 阈值设置。
    */
   thresholds?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds;
   /**
    * @remarks
-   * The threshold calculation method. Valid values:
-   * 
-   * *   Fixed
-   * *   Fluctation
-   * *   FluctationDiscreate
-   * *   Auto
-   * *   Average
-   * *   Variance
+   * 阈值计算方式：
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
    * 
    * @example
-   * FIXED
+   * Fixed
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -362,7 +357,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 如果是自定义SQL规则，需要用户指定SQL来过滤问题数据。
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -370,12 +365,11 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleE
   errorDataFilter?: string;
   /**
    * @remarks
-   * The type of the operation. Valid values:
-   * 
-   * *   SaveErrorData
+   * 处理器类型。
+   * - SaveErrorData
    * 
    * @example
-   * SAVE_ERROR_DATA
+   * SaveErrorData
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -404,31 +398,30 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleE
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The metrics used for sampling. Valid values:
-   * 
-   * *   Count: the number of rows in the table.
-   * *   Min: the minimum value of the field.
-   * *   Max: the maximum value of the field.
-   * *   Avg: the average value of the field.
-   * *   DistinctCount: the number of unique values of the field after deduplication.
-   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
-   * *   DuplicatedCount: the number of duplicated values of the field.
-   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
-   * *   TableSize: the table size.
-   * *   NullValueCount: the number of rows in which the field value is null.
-   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
-   * *   GroupCount: the field value and the number of rows for each field value.
-   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 采样的指标名称：
+   * - Count：表行数
+   * - Min：字段最小值
+   * - Max：字段最大值
+   * - Avg：字段均值
+   * - DistinctCount：字段唯一值个数
+   * - DistinctPercent：字段唯一值个数与数据行数占比
+   * - DuplicatedCount：字段重复值个数
+   * - DuplicatedPercent：字段重复值个数与数据行数占比
+   * - TableSize：表大小
+   * - NullValueCount：字段为空的行数
+   * - NullValuePercent：字段为空的比例
+   * - GroupCount：按字段值聚合后每个值与对应的数据行数
+   * - CountNotIn：枚举值不匹配行数
+   * - CountDistinctNotIn：枚举值不匹配唯一值个数
+   * - UserDefinedSql：通过自定义SQL做样本采集
    * 
    * @example
-   * COUNT
+   * Count
    */
   metric?: string;
   /**
    * @remarks
-   * The parameters required for sampling.
+   * 样本采集时，所需的参数。
    * 
    * @example
    * { "columns": [ "id", "name" ] }
@@ -436,7 +429,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleS
   metricParameters?: string;
   /**
    * @remarks
-   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 采样时，对不关注的数据进行二次过滤的条件，最多16777215个字符。
    * 
    * @example
    * id IS NULL
@@ -444,7 +437,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleS
   samplingFilter?: string;
   /**
    * @remarks
-   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 具体执行采样语句前，插入执行的一些运行时参数设置语句，最长1000个字符。目前只支持MaxCompute。
    * 
    * @example
    * SET odps.sql.udf.timeout=600s;
@@ -480,23 +473,22 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleS
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   emr
-   * *   cdh
-   * *   hologres
-   * *   analyticdb_for_postgresql
-   * *   analyticdb_for_mysql
-   * *   starrocks
+   * 表类型的数据集，表所属的数据库类型：
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
    * 
    * @example
-   * MAX_COMPUTE
+   * maxcompute
    */
   databaseType?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * 表在数据地图中的唯一ID。
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -504,12 +496,11 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitored object. Valid values:
-   * 
-   * *   Table
+   * 监控对象类型：
+   * - Table
    * 
    * @example
-   * TABLE
+   * Table
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -540,12 +531,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * 样本校验设置。
    */
   checkingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig;
   /**
    * @remarks
-   * The description of the rule. The description can be up to 500 characters in length.
+   * 规则描述信息，最长500个字符。
    * 
    * @example
    * this is a odps _sql task
@@ -553,7 +544,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
   description?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled.
+   * 规则是否启用。
    * 
    * @example
    * true
@@ -561,12 +552,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check fails.
+   * 质量规则校验问题处理器。
    */
   errorHandlers?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers[];
   /**
    * @remarks
-   * The rule ID.
+   * 规则ID。
    * 
    * @example
    * 100001
@@ -574,7 +565,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
   id?: number;
   /**
    * @remarks
-   * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 规则名称，数字、英文字母、汉字、半角全角标点符号组合，最长255个字符。
    * 
    * @example
    * The table cannot be empty.
@@ -582,7 +573,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * DataWorks项目空间ID。
    * 
    * @example
    * 100
@@ -590,31 +581,30 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
   projectId?: number;
   /**
    * @remarks
-   * The sampling settings.
+   * 样本采集所需的设置。
    */
   samplingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
-   * 
-   * *   High
-   * *   Normal
+   * 规则对于业务的等级（对应页面上的强弱规则）：
+   * - High
+   * - Normal
    * 
    * @example
-   * NORMAL
+   * Normal
    */
   severity?: string;
   /**
    * @remarks
-   * The monitored object of the rule.
+   * 规则所监控的对象。
    */
   target?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget;
   /**
    * @remarks
-   * The code of the template that is referenced when you create a rule.
+   * 创建规则时所引用的规则模板Code。
    * 
    * @example
-   * system::user_defined
+   * SYSTEM:user_defined_sql
    */
   templateCode?: string;
   static names(): { [key: string]: string } {
@@ -673,7 +663,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults extends $dara.Model {
   /**
    * @remarks
-   * The time when the data quality check result was generated.
+   * 校验结果生成时间。
    * 
    * @example
    * 1708284916414
@@ -681,12 +671,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
   createTime?: number;
   /**
    * @remarks
-   * The information about the data quality check.
+   * 本次校验的详情。
    */
   details?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails[];
   /**
    * @remarks
-   * The ID of the check result.
+   * 校验结果ID。
    * 
    * @example
    * 16033
@@ -694,12 +684,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
   id?: number;
   /**
    * @remarks
-   * The snapshot of the rule configuration when the check starts.
+   * 校验开始时，规则配置快照。
    */
   rule?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule;
   /**
    * @remarks
-   * The sample values used for the check.
+   * 本次校验所使用的样本值。
    * 
    * @example
    * [
@@ -715,21 +705,20 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
   sample?: string;
   /**
    * @remarks
-   * The status of the check result. Valid values:
-   * 
-   * *   Running
-   * *   Error
-   * *   Passed
-   * *   Warned
-   * *   Critical
+   * 校验结果状态：
+   * - Running
+   * - Error
+   * - Passed
+   * - Warned
+   * - Critical
    * 
    * @example
-   * PASSED
+   * Passed
    */
   status?: string;
   /**
    * @remarks
-   * The ID of the instance generated by the check.
+   * 校验任务实例ID。
    * 
    * @example
    * 200001
@@ -777,12 +766,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
 export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The data quality check results.
+   * 质量校验结果列表。
    */
   dataQualityResults?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResults[];
   /**
    * @remarks
-   * The page number.
+   * 页码。
    * 
    * @example
    * 1
@@ -790,7 +779,7 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * 页大小。
    * 
    * @example
    * 10
@@ -798,7 +787,7 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * 总条数。
    * 
    * @example
    * 219
@@ -837,15 +826,15 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
 export class ListDataQualityResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * 数据质量校验结果分页查询结果。
    */
   pagingInfo?: ListDataQualityResultsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * API请求ID。
    * 
    * @example
-   * 691CA452-D37A-4ED0-9441
+   * 691CA452-D37A-****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

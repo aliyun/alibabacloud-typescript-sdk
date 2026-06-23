@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * The Request ID. Use this ID to troubleshoot issues.
    * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX

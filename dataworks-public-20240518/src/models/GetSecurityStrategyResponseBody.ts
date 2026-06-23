@@ -4,51 +4,101 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSecurityStrategyResponseBodySecurityStrategyContentControllers extends $dara.Model {
   /**
+   * @remarks
+   * The default value for Basic Edition.
+   * 
    * @example
    * 10000
    */
   basicEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value range for Basic Edition, specified as an array `[min, max]`.
+   */
   basicEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The identifier for the controller. For valid values, see the documentation for the relevant schema.
+   * 
    * @example
    * viewCount
    */
   controller?: string;
   /**
+   * @remarks
+   * The value type of the controller. Valid values are `Boolean`, `Integer`, `Long`, and `String`.
+   * 
    * @example
    * Integer
    */
   controllerValueType?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 查询结果-单次展示记录值上限
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The display name in English.
+   * 
    * @example
    * Query Results - Single Display Record Limit
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * Whether the controller is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The default value for Enterprise Edition.
+   * 
    * @example
    * 10000
    */
   enterpriseEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value range for Enterprise Edition, specified as an array `[min, max]`.
+   */
   enterpriseEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for Professional Edition.
+   * 
    * @example
    * 10000
    */
   professionalEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value range for Professional Edition, specified as an array `[min, max]`.
+   */
   professionalEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for Standard Edition.
+   * 
    * @example
    * 10000
    */
   standardEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The valid value range for Standard Edition, specified as an array `[min, max]`.
+   */
   standardEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The value configured by the user. The data type of this value is specified by the `ControllerValueType` parameter.
+   * 
    * @example
    * 10
    */
@@ -114,38 +164,72 @@ export class GetSecurityStrategyResponseBodySecurityStrategyContentControllers e
 
 export class GetSecurityStrategyResponseBodySecurityStrategyContent extends $dara.Model {
   /**
+   * @remarks
+   * The scope where the policy is effective. Valid values:
+   * 
    * @example
    * Tenant
    */
   controlDwScope?: string;
   /**
+   * @remarks
+   * The control module. This value corresponds to `controlModule` in the associated `SecurityStrategySchema`.
+   * 
    * @example
    * DataQuery
    */
   controlModule?: string;
   /**
+   * @remarks
+   * The control submodule. This value corresponds to `controlSubModule` in the associated `SecurityStrategySchema`.
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
+  /**
+   * @remarks
+   * A list of controllers.
+   * 
+   * **Note:** The available controllers depend on the selected schema. See the documentation for your schema for a list of valid controllers.
+   */
   controllers?: GetSecurityStrategyResponseBodySecurityStrategyContentControllers[];
+  /**
+   * @remarks
+   * The `displayName` field from the associated `SecurityStrategySchema`.
+   * 
+   * @example
+   * 数据分析
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The `displayNameEn` field from the associated `SecurityStrategySchema`.
+   * 
    * @example
    * Data Query
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * The `name` field from the associated `SecurityStrategySchema`.
+   * 
    * @example
    * DataQuerySecurityStrategySchema
    */
   name?: string;
   /**
+   * @remarks
+   * The display name of the system policy.
+   * 
    * @example
    * Default system generate data query policy
    */
   systemPolicyDisplayName?: string;
   /**
+   * @remarks
+   * The name of the system policy. If specified, a default policy is automatically created.
+   * 
    * @example
    * SYSTEM_GENERATE_DEFAULT_DATA_QUERY
    */
@@ -191,64 +275,119 @@ export class GetSecurityStrategyResponseBodySecurityStrategyContent extends $dar
 }
 
 export class GetSecurityStrategyResponseBodySecurityStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the security policy. Its structure is defined by the `SecurityStrategySchema`.
+   */
   content?: GetSecurityStrategyResponseBodySecurityStrategyContent;
   /**
+   * @remarks
+   * The scope where the policy is effective. Valid values: `Workspace` or `Tenant`.
+   * 
    * @example
    * Tenant
    */
   controlDwScope?: string;
   /**
+   * @remarks
+   * The control module.
+   * 
    * @example
    * DataQuery
    */
   controlModule?: string;
   /**
+   * @remarks
+   * The control submodule.
+   * 
    * @example
    * MyCatalog
    */
   controlSubModule?: string;
   /**
+   * @remarks
+   * The time when the security policy was created.
+   * 
    * @example
    * 2026-05-25T20:46:19
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 203322746501002787
    */
   creator?: string;
+  /**
+   * @remarks
+   * The policy description.
+   * 
+   * @example
+   * 控制数据分析模块的查询结果安全行为
+   */
   description?: string;
   /**
+   * @remarks
+   * Whether the security policy is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 13
    */
   id?: number;
+  /**
+   * @remarks
+   * The policy name.
+   * 
+   * @example
+   * 默认数据分析策略
+   */
   name?: string;
   /**
+   * @remarks
+   * The source ID of the default system policy.
+   * 
    * @example
    * 12
    */
   originPolicyId?: number;
   /**
+   * @remarks
+   * The name of the schema template.
+   * 
    * @example
    * DataQuerySecurityStrategySchema
    */
   schemaName?: string;
   /**
+   * @remarks
+   * The time when the security policy was last updated.
+   * 
    * @example
    * 2026-05-25T20:46:19
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The ID of the last updater.
+   * 
    * @example
    * 203322746501002787
    */
   updater?: string;
+  /**
+   * @remarks
+   * The list of associated workspace IDs.
+   */
   workspaces?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -307,10 +446,17 @@ export class GetSecurityStrategyResponseBodySecurityStrategy extends $dara.Model
 
 export class GetSecurityStrategyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc5df3a17****903790e8e8a
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
   securityStrategy?: GetSecurityStrategyResponseBodySecurityStrategy;
   static names(): { [key: string]: string } {
     return {

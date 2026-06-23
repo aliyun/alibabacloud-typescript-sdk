@@ -59,6 +59,7 @@ export { CreateAgentResponseBodyAgent } from './CreateAgentResponseBody';
 export { CreateAgentSessionRequestParamsMetaAgent } from './CreateAgentSessionRequest';
 export { CreateAgentSessionRequestParamsMetaConfigSessionTags } from './CreateAgentSessionRequest';
 export { CreateAgentSessionRequestParamsMetaConfig } from './CreateAgentSessionRequest';
+export { CreateAgentSessionRequestParamsMetaInitialConfigOptions } from './CreateAgentSessionRequest';
 export { CreateAgentSessionRequestParamsMeta } from './CreateAgentSessionRequest';
 export { CreateAgentSessionRequestParams } from './CreateAgentSessionRequest';
 export { CreateAgentSessionResponseBodyJsonRpcResponseResult } from './CreateAgentSessionResponseBody';

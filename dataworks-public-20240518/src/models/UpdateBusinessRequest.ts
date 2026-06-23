@@ -12,7 +12,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 300000
+   * 300001
    */
   businessId?: number;
   /**
@@ -22,7 +22,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the name.
    * 
    * @example
-   * MyBusiness
+   * firstBusiness
    */
   businessName?: string;
   /**
@@ -30,7 +30,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * The description of the workflow.
    * 
    * @example
-   * modified from my first business
+   * modified from first business
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the owner.
    * 
    * @example
-   * 348428****
+   * 34842****
    */
   owner?: string;
   /**
@@ -48,7 +48,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to obtain the workspace ID. You must configure either this parameter or the `ProjectIdentifier` parameter to determine the DataWorks workspace to which the operation is applied.
    * 
    * @example
-   * 10000
+   * 10001
    */
   projectId?: number;
   /**
@@ -56,7 +56,7 @@ export class UpdateBusinessRequest extends $dara.Model {
    * The name of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to obtain the name. You must configure either this parameter or the `ProjectId` parameter to determine the DataWorks workspace to which the operation is applied.
    * 
    * @example
-   * dw_project
+   * project_dw
    */
   projectIdentifier?: string;
   static names(): { [key: string]: string } {

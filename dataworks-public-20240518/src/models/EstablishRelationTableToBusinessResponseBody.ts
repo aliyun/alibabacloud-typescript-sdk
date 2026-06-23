@@ -39,8 +39,9 @@ export class EstablishRelationTableToBusinessResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

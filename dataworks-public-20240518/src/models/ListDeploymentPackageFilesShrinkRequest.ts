@@ -15,9 +15,11 @@ export class ListDeploymentPackageFilesShrinkRequest extends $dara.Model {
    * @remarks
    * The change type. Valid values:
    * 
-   * *   0: addition
-   * *   1: update
-   * *   2: deletion
+   * - 0: addition
+   * 
+   * - 1: update
+   * 
+   * - 2: deletion
    * 
    * @example
    * 0

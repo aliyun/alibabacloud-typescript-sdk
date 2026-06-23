@@ -77,7 +77,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $dara.Mo
    * @remarks
    * The ID of the script.
    * 
-   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 123348864897630XXXX
@@ -142,7 +142,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * @remarks
    * The unique identifier of the file resource.
    * 
-   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 631478864897630XXXX
@@ -199,11 +199,12 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Local
-   * *   OSS
+   * - Local
+   * 
+   * - OSS
    * 
    * @example
-   * local
+   * Local
    */
   sourceType?: string;
   /**
@@ -220,12 +221,14 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Gateway
-   * *   OSS
-   * *   HDFS
+   * - Gateway
+   * 
+   * - OSS
+   * 
+   * - HDFS
    * 
    * @example
-   * oss
+   * Oss
    */
   targetType?: string;
   /**
@@ -234,13 +237,16 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Python
-   * *   Jar
-   * *   Archive
-   * *   File
+   * - Python
+   * 
+   * - Jar
+   * 
+   * - Archive
+   * 
+   * - File
    * 
    * @example
-   * jar
+   * Jar
    */
   type?: string;
   static names(): { [key: string]: string } {

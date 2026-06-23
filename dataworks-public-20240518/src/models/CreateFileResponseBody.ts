@@ -47,8 +47,9 @@ export class CreateFileResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call succeeded. Valid values:
    * 
-   * *   true: The call succeeded.
-   * *   false: The call failed.
+   * - true: The call succeeded.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

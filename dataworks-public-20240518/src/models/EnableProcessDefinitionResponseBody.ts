@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableProcessDefinitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **request ID**
+   * 
    * @example
    * 0bc5df3a17***903790e8e8a
    */

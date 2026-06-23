@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateResponseBodyCertificate extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate file was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the file was created. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730217600000
@@ -29,7 +29,7 @@ export class GetCertificateResponseBodyCertificate extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The size of the certificate file, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 77549
@@ -37,7 +37,7 @@ export class GetCertificateResponseBodyCertificate extends $dara.Model {
   fileSizeInBytes?: number;
   /**
    * @remarks
-   * The ID of the certificate file.
+   * The unique ID of the certificate file.
    * 
    * @example
    * 676303114031776
@@ -45,7 +45,7 @@ export class GetCertificateResponseBodyCertificate extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the certificate file.
+   * The file name.
    * 
    * @example
    * ca1.crt
@@ -53,7 +53,7 @@ export class GetCertificateResponseBodyCertificate extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the certificate file belongs.
+   * The ID of the project to which the certificate file belongs.
    * 
    * @example
    * 177161
@@ -95,12 +95,12 @@ export class GetCertificateResponseBodyCertificate extends $dara.Model {
 export class GetCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the certificate file.
+   * The details of the certificate.
    */
   certificate?: GetCertificateResponseBodyCertificate;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity ID.
+   * 
    * This parameter is required.
    * 
    * @example

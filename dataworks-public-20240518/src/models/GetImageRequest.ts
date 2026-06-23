@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetImageRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The image version. If you do not specify this parameter, the latest version is returned.
+   * 
    * @example
    * 1
    */

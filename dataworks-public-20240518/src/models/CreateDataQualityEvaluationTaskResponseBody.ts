@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityEvaluationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new monitor.
+   * The ID of the newly created data quality monitor.
    * 
    * @example
    * 10001

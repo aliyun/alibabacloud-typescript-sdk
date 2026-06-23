@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentSessionArtifactMetaResponseBodyJsonRpcResponseResult extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the artifact.
+   * 
+   * @example
+   * This is md content
+   */
   artifactContent?: string;
   /**
+   * @remarks
+   * The name of the artifact.
+   * 
    * @example
    * mock_report.md
    */
   artifactName?: string;
   /**
+   * @remarks
+   * The path of the artifact.
+   * 
    * @example
    * mock/mock_report.md
    */
@@ -41,15 +54,25 @@ export class GetAgentSessionArtifactMetaResponseBodyJsonRpcResponseResult extend
 
 export class GetAgentSessionArtifactMetaResponseBodyJsonRpcResponse extends $dara.Model {
   /**
+   * @remarks
+   * The ID from the original request.
+   * 
    * @example
    * 300010555
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. The value is `2.0`.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * Contains the metadata and content of the artifact.
+   */
   result?: GetAgentSessionArtifactMetaResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
     return {
@@ -80,8 +103,15 @@ export class GetAgentSessionArtifactMetaResponseBodyJsonRpcResponse extends $dar
 }
 
 export class GetAgentSessionArtifactMetaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON-RPC response object.
+   */
   jsonRpcResponse?: GetAgentSessionArtifactMetaResponseBodyJsonRpcResponse;
   /**
+   * @remarks
+   * The ID of the request. You can use it to trace the request in logs.
+   * 
    * @example
    * CE70C54F-A3BD-5C19-88EF-2A7D3451C449
    */

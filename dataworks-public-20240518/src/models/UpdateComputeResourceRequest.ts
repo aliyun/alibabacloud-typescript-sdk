@@ -32,6 +32,9 @@ export class UpdateComputeResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the computing resource. The maximum length is 3000 characters.
+   * 
+   * @example
+   * Level description
    */
   description?: string;
   /**

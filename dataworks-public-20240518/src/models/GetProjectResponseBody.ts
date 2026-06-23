@@ -68,8 +68,9 @@ export class GetProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * Indicates whether the development environment is enabled. Valid values:
    * 
-   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in the workspace.
-   * *   false: The development environment is disabled. In this case, only the production environment is used in the workspace.
+   * - true: The development environment is enabled. In this case, the development environment is isolated from the production environment in the workspace.
+   * 
+   * - false: The development environment is disabled. In this case, only the production environment is used in the workspace.
    * 
    * @example
    * true
@@ -79,8 +80,9 @@ export class GetProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * Indicates whether the Develop role is disabled. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false
+   * 
+   * - true
    * 
    * @example
    * false
@@ -122,8 +124,9 @@ export class GetProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * Indicates whether scheduling of PAI tasks is enabled. Valid values:
    * 
-   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
-   * *   false: Scheduling of PAI tasks is disabled.
+   * - true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * 
+   * - false: Scheduling of PAI tasks is disabled.
    * 
    * @example
    * true
@@ -133,15 +136,23 @@ export class GetProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * The status of the workspace. Valid values:
    * 
-   * *   Available
-   * *   Initializing
-   * *   InitFailed
-   * *   Forbidden
-   * *   Deleting
-   * *   DeleteFailed
-   * *   Frozen
-   * *   Updating
-   * *   UpdateFailed
+   * - Available
+   * 
+   * - Initializing
+   * 
+   * - InitFailed
+   * 
+   * - Forbidden
+   * 
+   * - Deleting
+   * 
+   * - DeleteFailed
+   * 
+   * - Frozen
+   * 
+   * - Updating
+   * 
+   * - UpdateFailed
    * 
    * @example
    * Available
@@ -202,7 +213,7 @@ export class GetProjectResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   * 22C97E95-F023-56B5-8852-B1A77A1****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

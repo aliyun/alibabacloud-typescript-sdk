@@ -352,6 +352,9 @@ export class DataQualityEvaluationTask extends $dara.Model {
   /**
    * @remarks
    * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * 质量校验任务
    */
   name?: string;
   /**

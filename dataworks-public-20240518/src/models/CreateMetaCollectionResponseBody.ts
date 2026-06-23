@@ -8,7 +8,7 @@ export class CreateMetaCollectionResponseBody extends $dara.Model {
    * The collection ID returned after a successful creation.
    * 
    * @example
-   * category.123
+   * 4as3dasf654a
    */
   id?: string;
   /**

@@ -20,7 +20,7 @@ export class CreateRouteRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1000
+   * 10001
    */
   networkId?: number;
   /**

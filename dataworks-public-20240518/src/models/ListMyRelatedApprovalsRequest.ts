@@ -4,11 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMyRelatedApprovalsRequestGrantee extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the principal. The format varies based on the value of `PrincipalType`.
+   * 
+   * - If `PrincipalType` is `RamUser`, this parameter is the Dataworks user ID.
+   * 
+   * - If `PrincipalType` is `RamRole`, this parameter is a Dataworks user ID that starts with `ROLE_`.
+   * 
+   * - If `PrincipalType` is `DataworksTenantMember`, this parameter is the Dataworks user ID.
+   * 
+   * - If `PrincipalType` is `DataworksTenantRole`, this parameter is the Dataworks tenant `roleCode`.
+   * 
+   * - If `PrincipalType` is `DataworksProjectRole`, this parameter is the Dataworks workspace `roleCode`.
+   * 
+   * - If `PrincipalType` is `DataworksProjectMember`, this parameter is the Dataworks user ID.
+   * 
+   * - If `PrincipalType` is `DlfRole`, this parameter is the DlfNext role name.
+   * 
    * @example
    * ROLE_3133343434
    */
   principalId?: string;
   /**
+   * @remarks
+   * The type of the principal. Valid values:
+   * 
+   * - `RamRole`
+   * 
+   * - `RamUser`
+   * 
+   * - `DataworksTenantMember`
+   * 
+   * - `DataworksTenantRole`
+   * 
+   * - `DataworksProjectMember`
+   * 
+   * - `DataworksProjectRole`
+   * 
+   * - `DlfRole`
+   * 
    * @example
    * RamRole
    */
@@ -38,15 +72,25 @@ export class ListMyRelatedApprovalsRequestGrantee extends $dara.Model {
 
 export class ListMyRelatedApprovalsRequestResource extends $dara.Model {
   /**
+   * @remarks
+   * The `name` of the `ResourceSchema` used to parse the resource.
+   * 
    * @example
    * MaxCompute
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The `version` of the `ResourceSchema` used to parse the resource.
+   * 
    * @example
    * v1.0.0
    */
   defVersion?: string;
+  /**
+   * @remarks
+   * The resource metadata. The `ResourceSchema` defines its content.
+   */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -77,9 +121,15 @@ export class ListMyRelatedApprovalsRequestResource extends $dara.Model {
 }
 
 export class ListMyRelatedApprovalsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions.
+   */
   accessTypes?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,24 +137,43 @@ export class ListMyRelatedApprovalsRequest extends $dara.Model {
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The end of the application time range, specified as a millisecond timestamp.
+   * 
    * @example
    * 1779724799999
    */
   endTime?: number;
+  /**
+   * @remarks
+   * Filters approvals by the specified principal.
+   */
   grantee?: ListMyRelatedApprovalsRequestGrantee;
   /**
+   * @remarks
+   * The pagination token that acts as a cursor to retrieve the next page of results.
+   * 
    * @example
    * eyJpZCI6MTIzfQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The resource declaration.
+   */
   resource?: ListMyRelatedApprovalsRequestResource;
   /**
    * @remarks
+   * The resource type, specified as a leaf node name. Multiple values are supported because a single business semantic can be mapped to multiple leaf node names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,11 +181,31 @@ export class ListMyRelatedApprovalsRequest extends $dara.Model {
    */
   resourceType?: string[];
   /**
+   * @remarks
+   * The start of the application time range, specified as a millisecond timestamp.
+   * 
    * @example
    * 1771948800000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Filters the results by approval status. Valid values:
+   * 
+   * - `WaitApproval`: Pending approval
+   * 
+   * - `Confirmed`: Pending authorization
+   * 
+   * - `RejectApproval`: Approval rejected
+   * 
+   * - `AuthorizeSucceed`: Authorization succeeded
+   * 
+   * - `AuthorizeFailed`: Authorization failed
+   * 
+   * - `Deleted`: Deleted
+   * 
+   * - `Canceled`: Withdrawn
+   * 
    * @example
    * WAIT_APPROVAL
    */

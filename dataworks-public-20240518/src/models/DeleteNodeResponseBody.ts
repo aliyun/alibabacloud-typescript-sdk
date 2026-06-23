@@ -15,7 +15,7 @@ export class DeleteNodeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true\\
+   * true<br>
    * false
    * 
    * @example

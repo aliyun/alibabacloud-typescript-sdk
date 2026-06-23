@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file that is created.
+   * The ID of the file after successful creation.
    * 
    * @example
    * 1000001
@@ -13,7 +13,7 @@ export class CreateResourceFileResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of this request. If an error occurs, you can use this ID to troubleshoot the issue.
    * 
    * @example
    * 0000-ABCD-EFG

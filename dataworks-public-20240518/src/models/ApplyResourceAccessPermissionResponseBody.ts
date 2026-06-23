@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyResourceAccessPermissionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of application IDs.
+   */
   data?: string[];
   /**
+   * @remarks
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0bc5df3a17***903790e8e8a
    */

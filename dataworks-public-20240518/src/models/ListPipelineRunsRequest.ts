@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelineRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user who creates the processes. This parameter specifies a filter condition.
+   * Filters the results by the creator of the pipeline.
    * 
    * @example
    * 110755000425****
    */
   creator?: string;
+  /**
+   * @remarks
+   * The ID of the artifact.
+   * 
+   * @example
+   * 860438872620113XXXX
+   */
   objectId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -30,9 +37,9 @@ export class ListPipelineRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. You can obtain this ID from the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
-   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * This parameter specifies the DataWorks workspace to use for the API call.
    * 
    * This parameter is required.
    * 
@@ -42,16 +49,21 @@ export class ListPipelineRunsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The status of the processes. This parameter specifies a filter condition.
+   * Filters the results by the current status of the pipeline.
    * 
    * Valid values:
    * 
-   * *   Init
-   * *   Running
-   * *   Success
-   * *   Fail
-   * *   Termination
-   * *   Cancel
+   * - `Init`: initializing
+   * 
+   * - `Running`: running
+   * 
+   * - `Success`: succeeded
+   * 
+   * - `Fail`: failed
+   * 
+   * - `Termination`: terminated
+   * 
+   * - `Cancel`: canceled
    * 
    * @example
    * Running

@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMetaEntityDefResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E08F38AB-3BA0-5047-8E9E-9AA4839263EA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

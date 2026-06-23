@@ -105,9 +105,11 @@ export class ListTasksResponseBodyPagingInfoTasksTrigger extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -127,8 +129,9 @@ export class ListTasksResponseBodyPagingInfoTasksTrigger extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -213,8 +216,9 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
-   * *   Immediately
+   * - T+1
+   * 
+   * - Immediately
    * 
    * @example
    * T+1
@@ -266,8 +270,9 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -295,9 +300,11 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
    * 
    * @example
    * AllAllowed

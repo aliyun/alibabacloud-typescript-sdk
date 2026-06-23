@@ -4,51 +4,101 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSecurityStrategyRequestContentControllers extends $dara.Model {
   /**
+   * @remarks
+   * The default value for the Basic edition.
+   * 
    * @example
    * 10000
    */
   basicEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The value range for the Basic edition, specified as `[min, max]`.
+   */
   basicEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The controller identifier. For valid values, see the list of controllers for each schema.
+   * 
    * @example
    * viewCount
    */
   controller?: string;
   /**
+   * @remarks
+   * The data type of the controller\\"s value. Valid values: `Boolean`, `Integer`, `Long`, and `String`.
+   * 
    * @example
    * Integer
    */
   controllerValueType?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 查询结果-单次展示记录值上限
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The English display name.
+   * 
    * @example
    * Query Results - Single Display Record Limit
    */
   displayNameEn?: string;
   /**
+   * @remarks
+   * Indicates whether the controller is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The default value for the Enterprise edition.
+   * 
    * @example
    * 10000
    */
   enterpriseEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The value range for the Enterprise edition, specified as `[min, max]`.
+   */
   enterpriseEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for the Professional edition.
+   * 
    * @example
    * 10000
    */
   professionalEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The value range for the Professional edition, specified as `[min, max]`.
+   */
   professionalEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The default value for the Standard edition.
+   * 
    * @example
    * 10000
    */
   standardEditionDefaultValue?: any;
+  /**
+   * @remarks
+   * The value range for the Standard edition, specified as `[min, max]`.
+   */
   standardEditionIntervalValue?: number[];
   /**
+   * @remarks
+   * The user-configured value. The type of this value is determined by the `ControllerValueType` parameter.
+   * 
    * @example
    * 20
    */
@@ -115,6 +165,10 @@ export class UpdateSecurityStrategyRequestContentControllers extends $dara.Model
 export class UpdateSecurityStrategyRequestContent extends $dara.Model {
   /**
    * @remarks
+   * A list of controllers.
+   * 
+   * Note: The valid controllers depend on the selected schema. For more information, see the controller definition and the list of controllers for each schema.
+   * 
    * This parameter is required.
    */
   controllers?: UpdateSecurityStrategyRequestContentControllers[];
@@ -144,25 +198,50 @@ export class UpdateSecurityStrategyRequestContent extends $dara.Model {
 
 export class UpdateSecurityStrategyRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client token to ensure request idempotence.
+   * 
    * @example
    * 1AFAE64E-D1BE-432B-A9*****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The policy content, which is constrained by the `SecurityStrategySchema`.
+   * 
    * This parameter is required.
    */
   content?: UpdateSecurityStrategyRequestContent;
+  /**
+   * @remarks
+   * **The policy description.**
+   * 
+   * @example
+   * 控制数据分析模块的查询结果安全行为
+   */
   description?: string;
   /**
    * @remarks
+   * **The policy ID.**
+   * 
    * This parameter is required.
    * 
    * @example
    * 13
    */
   id?: number;
+  /**
+   * @remarks
+   * **The policy name.**
+   * 
+   * @example
+   * 默认数据分析策略
+   */
   name?: string;
+  /**
+   * @remarks
+   * **A list of associated workspace IDs.**
+   */
   workspaces?: number[];
   static names(): { [key: string]: string } {
     return {

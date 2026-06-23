@@ -13,7 +13,7 @@ export class CreateDataQualityRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the API request.
    * 
    * @example
    * 691CA452-D37A-4ED0-9441

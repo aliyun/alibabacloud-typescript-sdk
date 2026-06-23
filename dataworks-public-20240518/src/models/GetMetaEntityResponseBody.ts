@@ -4,16 +4,23 @@ import { MetaEntity } from "./MetaEntity";
 
 
 export class GetMetaEntityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The custom entity object.
+   */
   metaEntity?: MetaEntity;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0A04C673-BEFA-5803-94E5-89E2D9F8C567
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

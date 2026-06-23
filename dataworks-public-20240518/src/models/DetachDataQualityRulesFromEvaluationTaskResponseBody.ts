@@ -8,14 +8,14 @@ export class DetachDataQualityRulesFromEvaluationTaskResponseBody extends $dara.
    * Id of the request
    * 
    * @example
-   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   * 8abcb91f-d266-4073-b907-2ed6****
    */
   requestId?: string;
   /**
    * @remarks
-   * Whether the call is successful. The values are as follows:
-   * - true: The call is successful.
-   * - false: the call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

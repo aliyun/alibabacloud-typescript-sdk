@@ -32,7 +32,7 @@ export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $dara.Model
    * The alert details.
    * 
    * @example
-   * aggregator:avg [**] for 5 minutes, service maybe abnormal
+   * Data integration sync task exception: Level: WARNING, DataWorks project name:** [Region: cn-shanghai], Task name:**, Alert rule: Business delay, aggregator:avg [**] for 5 minutes, service maybe abnormal.
    */
   detail?: string;
   /**
@@ -105,11 +105,15 @@ export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $dara.Model
    * @remarks
    * The type of the alert event.
    * 
-   * *   Heartbeat
-   * *   Delay
-   * *   FailoverCount
-   * *   DdlReport
-   * *   ResourceUtilization
+   * - Heartbeat
+   * 
+   * - Delay
+   * 
+   * - FailoverCount
+   * 
+   * - DdlReport
+   * 
+   * - ResourceUtilization
    * 
    * @example
    * Delay
@@ -231,7 +235,7 @@ export class ListDIJobEventsResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 645F6D68-9C29-5961-80B1-BDD4B794C22D
+   * 645F6D68-9C29-5961-80B1-BDD4****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

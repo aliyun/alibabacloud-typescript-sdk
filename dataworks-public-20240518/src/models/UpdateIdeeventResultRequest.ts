@@ -7,9 +7,11 @@ export class UpdateIDEEventResultRequest extends $dara.Model {
    * @remarks
    * The check status of the extension for this extension point event. Valid values:
    * 
-   * *   OK: The extension passed the check for this event.
-   * *   FAIL: The extension failed the check for this event. You need to review and resolve the error promptly to avoid affecting subsequent program execution.
-   * *   WARN: The extension passed the check for this event, but with warnings.
+   * - OK: The extension passed the check for this event.
+   * 
+   * - FAIL: The extension failed the check for this event. You need to review and resolve the error promptly to avoid affecting subsequent program execution.
+   * 
+   * - WARN: The extension passed the check for this event, but with warnings.
    * 
    * @example
    * OK

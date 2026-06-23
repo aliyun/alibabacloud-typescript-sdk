@@ -37,7 +37,7 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
    * The collection ID.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   id?: string;
   /**
@@ -61,16 +61,18 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
    * The parent collection ID. This parameter can be empty.
    * 
    * @example
-   * category.12
+   * 4as3dasf654a
    */
   parentId?: string;
   /**
    * @remarks
    * The collection type. Valid values:
    * 
-   * *   Category
-   * *   Album
-   * *   AlbumCategory: Album subcategory.
+   * - Category
+   * 
+   * - Album
+   * 
+   * - AlbumCategory: Album subcategory.
    * 
    * @example
    * Category

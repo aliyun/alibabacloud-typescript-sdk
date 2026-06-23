@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created session.
+   * 
    * @example
    * sess_0f12abc34
    */
@@ -31,15 +34,25 @@ export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.M
 
 export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   /**
+   * @remarks
+   * The request ID provided by the client. This ID is returned in the response without modification.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. The value is fixed at `2.0`.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * The business data. This field is `null` if an error occurs.
+   */
   result?: CreateAgentSessionResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
     return {
@@ -70,10 +83,14 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
 }
 
 export class CreateAgentSessionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON-RPC response.
+   */
   jsonRpcResponse?: CreateAgentSessionResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 8A9D5E6C-5817-5837-9715-6E3967EC6123

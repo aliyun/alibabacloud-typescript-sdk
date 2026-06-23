@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityStrategyRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the security strategy.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234
    */
   id?: number;
   static names(): { [key: string]: string } {

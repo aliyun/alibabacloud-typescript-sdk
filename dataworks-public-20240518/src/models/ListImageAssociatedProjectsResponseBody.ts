@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListImageAssociatedProjectsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of project IDs for the associated workspaces.
+   */
   data?: number[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -45,7 +45,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRunsParam
 export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns extends $dara.Model {
   /**
    * @remarks
-   * The time when the data quality monitor starts running.
+   * The start time of the data quality scan run.
    * 
    * @example
    * 1710239005403
@@ -53,7 +53,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns exte
   createTime?: number;
   /**
    * @remarks
-   * The time when the data quality monitor stops.
+   * The end time of the data quality scan run.
    * 
    * @example
    * 1710239005403
@@ -61,7 +61,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns exte
   finishTime?: number;
   /**
    * @remarks
-   * The ID of the data quality monitor running record.
+   * The ID of the data quality scan run.
    * 
    * @example
    * 3155
@@ -69,18 +69,22 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns exte
   id?: number;
   /**
    * @remarks
-   * The parameters configured for the instance.
+   * The parameters used for the run.
    */
   parameters?: ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRunsParameters[];
   /**
    * @remarks
-   * The status of the instance.
+   * The status of the data quality scan run. Valid values:
    * 
-   * *   Pass
-   * *   Running
-   * *   Error
-   * *   Warn
-   * *   Fail
+   * - Pass
+   * 
+   * - Running
+   * 
+   * - Error
+   * 
+   * - Warn
+   * 
+   * - Fail
    * 
    * @example
    * Fail
@@ -121,12 +125,12 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns exte
 export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of data quality monitor run records.
+   * The list of data quality scan runs.
    */
   dataQualityScanRuns?: ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns[];
   /**
    * @remarks
-   * The page number of the results. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -134,7 +138,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 10.
+   * The number of entries per page. The default value is 10.
    * 
    * @example
    * 10
@@ -142,7 +146,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records returned.
+   * The total number of entries.
    * 
    * @example
    * 324
@@ -181,7 +185,7 @@ export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
 export class ListDataQualityScanRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page information.
+   * The pagination information.
    */
   pageInfo?: ListDataQualityScanRunsResponseBodyPageInfo;
   /**

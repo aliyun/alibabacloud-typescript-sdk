@@ -9,6 +9,9 @@ export class UpdateMetaCollectionRequest extends $dara.Model {
    */
   administrators?: string[];
   /**
+   * @remarks
+   * Updated collection description
+   * 
    * @example
    * new comment
    */
@@ -20,10 +23,13 @@ export class UpdateMetaCollectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   id?: string;
   /**
+   * @remarks
+   * Updated collection name
+   * 
    * @example
    * new_name
    */

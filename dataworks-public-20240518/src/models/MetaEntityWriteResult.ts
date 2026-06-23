@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MetaEntityWriteResult extends $dara.Model {
+  /**
+   * @remarks
+   * The entity type.
+   * 
+   * @example
+   * custom_entity-demo
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * The error message if the operation fails for the entity.
+   * 
+   * @example
+   * The specified parameters are invalid.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The entity ID.
+   * 
+   * @example
+   * custom_entity-demo:entity_01
+   */
   id?: string;
+  /**
+   * @remarks
+   * The entity name.
+   * 
+   * @example
+   * entity_01
+   */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation succeeded for the entity.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

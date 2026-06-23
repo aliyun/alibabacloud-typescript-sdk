@@ -8,7 +8,7 @@ export class UpdateDataAssetTagResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0bc1ec92159376
+   * 0bc1ec921****
    */
   requestId?: string;
   /**

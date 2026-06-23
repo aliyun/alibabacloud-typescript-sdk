@@ -7,9 +7,11 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
    * @remarks
    * The alert notification method. Valid values:
    * 
-   * *   Sms: SMS only.
-   * *   Mail: Mail only.
-   * *   SmsMail: SMS and mail.
+   * - Sms: SMS only.
+   * 
+   * - Mail: Mail only.
+   * 
+   * - SmsMail: SMS and mail.
    * 
    * @example
    * Sms
@@ -19,9 +21,11 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
    * @remarks
    * The alerting policy. Valid values:
    * 
-   * *   Success: Alerts on success.
-   * *   Failure: Alerts on failure.
-   * *   SuccessFailure: Alerts on both success and failure.
+   * - Success: Alerts on success.
+   * 
+   * - Failure: Alerts on failure.
+   * 
+   * - SuccessFailure: Alerts on both success and failure.
    * 
    * @example
    * Succes
@@ -119,8 +123,9 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
    * @remarks
    * The time period type. This parameter is required if you configure the RunPolicy parameter. Valid values:
    * 
-   * *   Daily
-   * *   Weekend
+   * - Daily
+   * 
+   * - Weekend
    * 
    * @example
    * Daily
@@ -188,10 +193,13 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
    * @remarks
    * The data backfill mode. Default value: ManualSelection. Required when Type is set to SupplementData.
    * 
-   * *   General: You can specify only one value for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it\\"s not specified, it defaults to including `RootTaskIds`.
-   * *   ManualSelection: You can specify multiple values for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it is not specified, it defaults to including `RootTaskIds`.
-   * *   Chain: If you set the Mode parameter to Chain, leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
-   * *   AllDownstream: Only one `RootTaskId` can be specified.
+   * - General: You can specify only one value for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it\\"s not specified, it defaults to including `RootTaskIds`.
+   * 
+   * - ManualSelection: You can specify multiple values for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it is not specified, it defaults to including `RootTaskIds`.
+   * 
+   * - Chain: If you set the Mode parameter to Chain, leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
+   * 
+   * - AllDownstream: Only one `RootTaskId` can be specified.
    * 
    * @example
    * ManualSelection
@@ -201,8 +209,9 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
    * @remarks
    * The execution order. Default value: Asc.
    * 
-   * *   Asc: ascending by business date.
-   * *   Desc: descending by business date.
+   * - Asc: ascending by business date.
+   * 
+   * - Desc: descending by business date.
    * 
    * @example
    * Asc
@@ -228,8 +237,9 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
    * @remarks
    * The priority weighting policy.
    * 
-   * *   `Disable` (default): Do not enable.
-   * *   `Upstream`: The priority is based on the total weight of upstream nodes. The deeper the hierarchy, the higher the weight.
+   * - `Disable` (default): Do not enable.
+   * 
+   * - `Upstream`: The priority is based on the total weight of upstream nodes. The deeper the hierarchy, the higher the weight.
    * 
    * @example
    * Upstream
@@ -239,10 +249,13 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
    * @remarks
    * The list of root task IDs.
    * 
-   * *   When Type is set to SupplementData, RootTaskIds is required unless Mode is set to Chain.
-   * *   When Type is set to ManualWorkflow, RootTaskIds is optional. If it is not specified, the default root nodes of the manual workflow are used.
-   * *   When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to run.
-   * *   When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to run.
+   * - When Type is set to SupplementData, RootTaskIds is required unless Mode is set to Chain.
+   * 
+   * - When Type is set to ManualWorkflow, RootTaskIds is optional. If it is not specified, the default root nodes of the manual workflow are used.
+   * 
+   * - When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to run.
+   * 
+   * - When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to run.
    */
   rootTaskIds?: number[];
   /**
@@ -495,8 +508,9 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The project environment. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -531,8 +545,9 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The tag creation policy. Valid values:
    * 
-   * *   Append: New tags are added on top of the existing tags of the manual workflow.
-   * *   Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+   * - Append: New tags are added on top of the existing tags of the manual workflow.
+   * 
+   * - Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
    * 
    * @example
    * Append
@@ -558,11 +573,15 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
-   * *   ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
-   * *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
-   * *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
-   * *   TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
+   * - SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
+   * 
+   * - ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+   * 
+   * - Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
+   * 
+   * - SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
+   * 
+   * - TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
    * 
    * This parameter is required.
    * 
@@ -585,10 +604,10 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * The workflow parameters. This parameter takes effect when a specific workflow is specified (`WorkflowId != 1`). For scheduled workflows and triggered workflows, the format is key=value, and these parameters have lower priority than task parameters. For manual workflows, the format is JSON, and these parameters have higher priority than task parameters.
    * 
    * @example
-   * { 
-   *   "key1": "value1", 
-   *   "key2": "value2" 
-   * }
+   * "key=value" format:
+   * key1=value1 key2=value2
+   * JSON format:
+   * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;
   static names(): { [key: string]: string } {

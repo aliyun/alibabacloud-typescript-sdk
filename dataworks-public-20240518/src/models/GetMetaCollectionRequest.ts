@@ -10,7 +10,7 @@ export class GetMetaCollectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   id?: string;
   static names(): { [key: string]: string } {

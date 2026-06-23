@@ -14,6 +14,9 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The filter. It is in JSON format, and multiple filter conditions are combined with a logical AND. Currently supported fields include: `startedTimeStart`, `startedTimeEnd`, `finishedTimeStart`, `finishedTimeEnd`, `createTimeStart`, `createTimeEnd`.
+   * 
    * @example
    * {
    *     "startedTimeStart": "1763481600000",
@@ -66,8 +69,9 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -95,17 +99,17 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
    * 
-   * *   `TriggerTime (Desc/Asc)`
+   * - `TriggerTime (Desc/Asc)`
    * 
-   * *   `StartedTime (Desc/Asc)`
+   * - `StartedTime (Desc/Asc)`
    * 
-   * *   `FinishedTime (Desc/Asc)`
+   * - `FinishedTime (Desc/Asc)`
    * 
-   * *   `CreateTime (Desc/Asc)`
+   * - `CreateTime (Desc/Asc)`
    * 
-   * *   `Id (Desc/Asc)`
+   * - `Id (Desc/Asc)`
    * 
-   *     Default value: `Id Desc`.
+   *   Default value: `Id Desc`.
    * 
    * @example
    * Id Desc
@@ -115,12 +119,17 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The status of the task instance.
    * 
-   * *   `NotRun`: Not started
-   * *   `Running`
-   * *   `Failure`
-   * *   `Success`
-   * *   `WaitTime`: Awaiting scheduled time
-   * *   `WaitResource`: Awaiting resources
+   * - `NotRun`: Not started
+   * 
+   * - `Running`
+   * 
+   * - `Failure`
+   * 
+   * - `Success`
+   * 
+   * - `WaitTime`: Awaiting scheduled time
+   * 
+   * - `WaitResource`: Awaiting resources
    * 
    * @example
    * Success
@@ -159,9 +168,11 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -171,14 +182,18 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Normal
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The unified workflow instance ID. For all task instances under a specific data timestamp within a single trigger, this field has the same value.
+   * 
    * @example
    * 1234
    */
@@ -203,12 +218,17 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SmokeTest: Testing
-   * *   Manual: Manually triggered node
-   * *   SupplementData: Data backfill
-   * *   ManualWorkflow: Manually triggered workflow
-   * *   Normal: Scheduled execution
-   * *   TriggerWorkflow: Triggered Workflow
+   * - SmokeTest: Testing
+   * 
+   * - Manual: Manually triggered node
+   * 
+   * - SupplementData: Data backfill
+   * 
+   * - ManualWorkflow: Manually triggered workflow
+   * 
+   * - Normal: Scheduled execution
+   * 
+   * - TriggerWorkflow: Triggered Workflow
    * 
    * @example
    * Normal

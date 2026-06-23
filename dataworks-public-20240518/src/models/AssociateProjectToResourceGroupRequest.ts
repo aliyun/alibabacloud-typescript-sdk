@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateProjectToResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataWorks workspace with which you want to associate the resource group.
+   * The ID of the workspace to associate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AssociateProjectToResourceGroupRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the resource group.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag.
+   * The tag key.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags ex
   key?: string;
   /**
    * @remarks
-   * The value of a tag.
+   * The tag value.
    * 
    * @example
    * value1
@@ -44,6 +44,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags ex
 
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extends $dara.Model {
   /**
+   * @remarks
+   * The business date.
+   * 
    * @example
    * 1710239005403
    */
@@ -58,7 +61,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the instance.
    * 
    * @example
    * 100
@@ -66,10 +69,11 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   createUser?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod (production)
+   * 
+   * - Dev (development)
    * 
    * @example
    * Prod
@@ -85,7 +89,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   finishedTime?: number;
   /**
    * @remarks
-   * The workflow instance ID.
+   * The unique identifier of the workflow instance.
    * 
    * @example
    * 1234
@@ -101,7 +105,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who last modified the instance.
    * 
    * @example
    * 100
@@ -109,7 +113,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the workflow instance.
+   * The name.
    * 
    * @example
    * WorkflowInstance1
@@ -125,7 +129,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   owner?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -133,7 +137,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   projectId?: number;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The time when the instance started running.
    * 
    * @example
    * 1710239005403
@@ -141,16 +145,23 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   startedTime?: number;
   /**
    * @remarks
-   * The status of the workflow instance. Valid values:
+   * The running status of the workflow instance.
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
+   * - NotRun: Not run
+   * 
+   * - Running: Running
+   * 
+   * - WaitTime: Waiting for TriggerTime
+   * 
+   * - CheckingCondition: Checking branch conditions
+   * 
+   * - WaitResource: Waiting for resources
+   * 
+   * - Failure: Failed
+   * 
+   * - Success: Succeeded
+   * 
+   * - Checking: Submitted for Data Quality check
    * 
    * @example
    * Success
@@ -158,25 +169,33 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   status?: string;
   /**
    * @remarks
-   * The task tag.
+   * The task tags.
    */
   tags?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags[];
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
+   * The type of the workflow instance.
    * 
-   * *   Normal: Scheduled execution
-   * *   Manual: Manually triggered node
-   * *   SmokeTest: Smoke test
-   * *   SupplementData: Data backfill
-   * *   ManualWorkflow: Manually triggered workflow
-   * *   TriggerWorkflow: Triggered Workflow
+   * - Normal: Periodic scheduling
+   * 
+   * - Manual: Manual task
+   * 
+   * - SmokeTest: Testing
+   * 
+   * - SupplementData: Backfill data
+   * 
+   * - ManualWorkflow: Manual workflow
+   * 
+   * - TriggerWorkflow: Trigger-based workflow
    * 
    * @example
    * Normal
    */
   type?: string;
   /**
+   * @remarks
+   * The unified workflow instance ID. All workflow instances within the same business date of a single trigger share the same value for this field.
+   * 
    * @example
    * 1234
    */
@@ -192,6 +211,12 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   /**
    * @remarks
    * The workflow parameters.
+   * 
+   * @example
+   * 周期工作流：
+   * key1=value1 key2=value2
+   * 手动业务流程：
+   * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;
   /**
@@ -281,7 +306,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -289,7 +314,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The workflow instances.
+   * The list of workflow instances.
    */
   workflowInstances?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances[];
   static names(): { [key: string]: string } {
@@ -325,12 +350,12 @@ export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListWorkflowInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pagingInfo?: ListWorkflowInstancesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

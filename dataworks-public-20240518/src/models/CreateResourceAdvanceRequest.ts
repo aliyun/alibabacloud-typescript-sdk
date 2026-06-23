@@ -18,7 +18,7 @@ export class CreateResourceAdvanceRequest extends $dara.Model {
    * @remarks
    * The specific file stream or OSS download link contained in the resource.
    * 
-   * >  This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
+   * > This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
    * 
    * @example
    * http://bucketname1.oss-cn-shanghai.aliyuncs.com/example

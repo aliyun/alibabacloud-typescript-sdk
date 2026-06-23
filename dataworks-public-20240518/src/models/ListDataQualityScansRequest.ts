@@ -45,9 +45,11 @@ export class ListDataQualityScansRequest extends $dara.Model {
    * @remarks
    * The list of sorting fields. Supports fields such as last modified time and creation time. Format: "SortField+SortOrder (Desc/Asc)", where Asc is the default. Valid values:
    * 
-   * *   ModifyTime (Desc/Asc)
-   * *   CreateTime (Desc/Asc)
-   * *   Id (Desc/Asc)
+   * - ModifyTime (Desc/Asc)
+   * 
+   * - CreateTime (Desc/Asc)
+   * 
+   * - Id (Desc/Asc)
    * 
    * @example
    * ModifyTime Desc

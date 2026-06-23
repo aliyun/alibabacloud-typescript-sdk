@@ -4,18 +4,31 @@ import { MetaEntityDef } from "./MetaEntityDef";
 
 
 export class ListMetaEntityDefsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom entity definitions.
+   */
   metaEntityDefs?: MetaEntityDef[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -51,16 +64,23 @@ export class ListMetaEntityDefsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListMetaEntityDefsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListMetaEntityDefsResponseBodyPagingInfo;
   /**
    * @remarks
-   * RequestId
+   * The ID of the request.
    * 
    * @example
    * ADFASDFASDFA-ADFASDF-ASDFADSDF-AFFADS
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

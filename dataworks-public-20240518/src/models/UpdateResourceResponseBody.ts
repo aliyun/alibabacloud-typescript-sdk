@@ -8,15 +8,16 @@ export class UpdateResourceResponseBody extends $dara.Model {
    * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
-   * 4CDF7B72-020B-542A-8465-21CFFA81XXXX
+   * 4CDF7B72-020B-542A-8465-21CFFA81****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

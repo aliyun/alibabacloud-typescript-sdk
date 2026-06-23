@@ -4,11 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMyRelatedApprovalsResponseBodyDataDataContentsGrantee extends $dara.Model {
   /**
+   * @remarks
+   * The principal ID.
+   * 
+   * Note: The format of this ID depends on the PrincipalType:
+   * 
+   * - RamUser: The user ID.
+   * 
+   * - RamRole: The user ID, prefixed with `ROLE_`.
+   * 
+   * - DataworksTenantMember: The user ID.
+   * 
+   * - DataworksTenantRole: The role code in the Dataworks tenant.
+   * 
+   * - DataworksProjectRole: The role code in the Dataworks workspace.
+   * 
+   * - DataworksProjectMember: The user ID.
+   * 
+   * - DlfRole: The name of the DlfNext role.
+   * 
    * @example
    * ROLE_3133343434
    */
   principalId?: string;
   /**
+   * @remarks
+   * The principal type. Valid values:
+   * 
+   * - RamRole
+   * 
+   * - RamUser
+   * 
+   * - DataworksTenantMember
+   * 
+   * - DataworksTenantRole
+   * 
+   * - DataworksProjectMember
+   * 
+   * - DataworksProjectRole
+   * 
+   * - DlfRole
+   * 
    * @example
    * RamRole
    */
@@ -38,15 +74,25 @@ export class ListMyRelatedApprovalsResponseBodyDataDataContentsGrantee extends $
 
 export class ListMyRelatedApprovalsResponseBodyDataDataContentsResource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the ResourceSchema required to parse the resource.
+   * 
    * @example
    * MaxCompute
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The version of the ResourceSchema required to parse the resource.
+   * 
    * @example
    * v1.0.0
    */
   defVersion?: string;
+  /**
+   * @remarks
+   * The resource metadata. The content is constrained by the ResourceSchema.
+   */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -77,56 +123,116 @@ export class ListMyRelatedApprovalsResponseBodyDataDataContentsResource extends 
 }
 
 export class ListMyRelatedApprovalsResponseBodyDataDataContents extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions requested for the resource.
+   */
   accessTypes?: string[];
   /**
+   * @remarks
+   * The authorization method.
+   * 
    * @example
    * default
    */
   authMethod?: string;
   /**
+   * @remarks
+   * The time when the entry was created, in milliseconds since the Unix epoch.
+   * 
    * @example
    * 2025-09-11 10:13:21
    */
   createTime?: number;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
-   * MAXCOMPUTE
+   * MaxCompute
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The permission\\"s expiration time, in milliseconds since the Unix epoch.
+   * 
    * @example
    * 1779695088000
    */
   expirationTime?: number;
+  /**
+   * @remarks
+   * The permissions granted for the resource after the final approval.
+   */
   finalAccessTypes?: string[];
+  /**
+   * @remarks
+   * The grantee.
+   */
   grantee?: ListMyRelatedApprovalsResponseBodyDataDataContentsGrantee;
   /**
+   * @remarks
+   * The unique ID of the request content.
+   * 
    * @example
    * 1009516415
    */
   id?: string;
   /**
+   * @remarks
+   * The ID of the approval process instance for the request.
+   * 
    * @example
    * 777799223
    */
   processInstanceId?: string;
+  /**
+   * @remarks
+   * The resource declaration.
+   */
   resource?: ListMyRelatedApprovalsResponseBodyDataDataContentsResource;
   /**
+   * @remarks
+   * The name of the resource type at the leaf-node level.
+   * 
    * @example
    * table
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The approval status. Valid values:
+   * 
+   * - WaitApproval: Waiting for approval.
+   * 
+   * - Confirmed: Pending authorization.
+   * 
+   * - RejectApproval: Approval rejected.
+   * 
+   * - AuthorizeSucceed: Authorization succeeded.
+   * 
+   * - AuthorizeFailed: Authorization failed.
+   * 
+   * - Deleted: Deleted.
+   * 
+   * - Canceled: Canceled.
+   * 
    * @example
-   * WAIT_APPROVAL
+   * Deleted
    */
   status?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 69973837489
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The time when the entry was last updated, in milliseconds since the Unix epoch.
+   * 
    * @example
    * 2024-03-05 18:24:13
    */
@@ -192,25 +298,62 @@ export class ListMyRelatedApprovalsResponseBodyDataDataContents extends $dara.Mo
 
 export class ListMyRelatedApprovalsResponseBodyDataData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the request was submitted, in milliseconds since the Unix epoch.
+   * 
    * @example
    * 1779695088000
    */
   applicationTime?: number;
+  /**
+   * @remarks
+   * The content of the request.
+   */
   contents?: ListMyRelatedApprovalsResponseBodyDataDataContents[];
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * MaxCompute
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The process instance ID.
+   * 
    * @example
    * 176906667488145
    */
   processInstanceId?: string;
+  /**
+   * @remarks
+   * The reason for the request.
+   * 
+   * @example
+   * 业务需要
+   */
   reason?: string;
   /**
+   * @remarks
+   * The approval status. Valid values:
+   * 
+   * - WaitApproval: Waiting for approval.
+   * 
+   * - Confirmed: Pending authorization.
+   * 
+   * - RejectApproval: Approval rejected.
+   * 
+   * - AuthorizeSucceed: Authorization succeeded.
+   * 
+   * - AuthorizeFailed: Authorization failed.
+   * 
+   * - Deleted: Deleted.
+   * 
+   * - Canceled: Canceled.
+   * 
    * @example
-   * WAIT_APPROVAL
+   * Deleted
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -248,18 +391,31 @@ export class ListMyRelatedApprovalsResponseBodyDataData extends $dara.Model {
 }
 
 export class ListMyRelatedApprovalsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the approval requests.
+   */
   data?: ListMyRelatedApprovalsResponseBodyDataData[];
   /**
+   * @remarks
+   * Indicates whether more results are available.
+   * 
    * @example
    * false
    */
   hasMore?: boolean;
   /**
+   * @remarks
+   * The token to use to retrieve the next page of results.
+   * 
    * @example
    * eyJpZCI6NDU2fQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default: 10. Maximum: 200.
+   * 
    * @example
    * 10
    */
@@ -295,8 +451,15 @@ export class ListMyRelatedApprovalsResponseBodyData extends $dara.Model {
 }
 
 export class ListMyRelatedApprovalsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The paginated results.
+   */
   data?: ListMyRelatedApprovalsResponseBodyData;
   /**
+   * @remarks
+   * The request ID, a universally unique identifier (UUID).
+   * 
    * @example
    * 0bc5df3a17****903790e8e8a
    */

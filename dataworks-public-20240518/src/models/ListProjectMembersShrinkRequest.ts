@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number. Pages start from page 1.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. To obtain this ID, log in to the [DataWorks Console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page.
    * 
-   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * This parameter specifies the DataWorks workspace for the API call.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,12 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2853930.html) operation to query the codes of all roles in the workspace.
+   * A list of role codes for the workspace to filter the results. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2853930.html) operation to obtain the role codes.
    */
   roleCodesShrink?: string;
   /**
    * @remarks
-   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * A list of DataWorks user IDs to filter the results. You can find these IDs on the [Tenant Members and Roles](https://dataworks.console.aliyun.com/product/ms_menu) page in the Management Center.
    */
   userIdsShrink?: string;
   static names(): { [key: string]: string } {

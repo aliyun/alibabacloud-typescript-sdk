@@ -20,7 +20,7 @@ export class CloneDataSourceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 16036
+   * 1603612
    */
   id?: number;
   static names(): { [key: string]: string } {

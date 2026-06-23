@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
+   * Hook trigger condition. When this condition is met, the hook action is triggered. Currently, only two types of conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single group of rule severity type and rule validation status, e.g., `${severity} == "High" AND ${status} == "Critical"`, which means the condition is met if any executed rule with severity High has a validation result of Critical.
+   * - Specify multiple groups of rule severity types and rule validation statuses, e.g., `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`, which means the condition is met if any executed rule has severity High with validation result Critical, or severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the conditional expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -16,9 +16,9 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHo
   condition?: string;
   /**
    * @remarks
-   * The hook type. Only one hook type is supported.
+   * Hook type. Currently, only one type is supported:
    * 
-   * *   BlockTaskInstance: Blocks the running of scheduling tasks. A monitor is triggered by scheduling tasks. After a monitor finishes running, the monitor determines whether to block the running of scheduling tasks based on the hook condition.
+   * - BlockTaskInstance: Blocks the scheduled task from continuing to run. When data quality monitoring is triggered by a scheduled task, after the data quality monitoring completes, Hook.Condition is used to determine whether to block the scheduled task from continuing to run.
    * 
    * @example
    * BlockTaskInstance
@@ -50,7 +50,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * Notification method.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -80,7 +80,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The extended information.
+   * Extended information.
    * 
    * @example
    * {  "atAll": true }
@@ -88,17 +88,9 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
   extension?: string;
   /**
    * @remarks
-   * The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+   * Additional parameter settings when sending alerts. JSON format. Supported keys are as follows:
    * 
-   * *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
-   * 
-   * Valid values:
-   * 
-   * *   WebhookUrl
-   * *   FeishuUrl
-   * *   DingdingUrl
-   * *   WeixinUrl
-   * *   AliUid
+   * - atAll: Whether to @everyone in the group when sending DingTalk alerts. Takes effect when ReceiverType is DingdingUrl.
    * 
    * @example
    * DingdingUrl
@@ -106,7 +98,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
   receiverType?: string;
   /**
    * @remarks
-   * The alert recipients.
+   * Alert receiver.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -140,12 +132,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * Notification method.
    */
   notificationChannels?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The configurations of alert recipients.
+   * Alert receiver settings.
    */
   notificationReceivers?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -180,10 +172,10 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
+   * Notification trigger condition. When this condition is met, the message notification is triggered. Currently, only two types of conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single group of rule severity type and rule validation status, e.g., `${severity} == "High" AND ${status} == "Critical"`, which means the condition is met if any executed rule with severity High has a validation result of Critical.
+   * - Specify multiple groups of rule severity types and rule validation statuses, e.g., `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`, which means the condition is met if any executed rule has severity High with validation result Critical, or severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the conditional expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -191,7 +183,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
   condition?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * Notification settings.
    */
   notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -223,15 +215,14 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   hologres
-   * *   cdh
-   * *   analyticdb_for_mysql
-   * *   starrocks
-   * *   emr
-   * *   analyticdb_for_postgresql
+   * Database type to which the table belongs:
+   * - maxcompute
+   * - hologres
+   * - cdh
+   * - analyticdb_for_mysql
+   * - starrocks
+   * - emr
+   * - analyticdb_for_postgresql
    * 
    * @example
    * maxcompute
@@ -239,7 +230,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
   databaseType?: string;
   /**
    * @remarks
-   * Data quality monitoring partition range settings.
+   * Partition range setting for data quality monitoring.
    * 
    * @example
    * pt=$[yyyymmdd-1]
@@ -247,7 +238,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
   partitionSpec?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * Unique ID of the table in Data Map.
    * 
    * @example
    * odps.meta_open_api_test_sz.test_partition_tbl
@@ -255,8 +246,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitoring object.
-   * 
+   * Monitoring object type.
    * - Table: Table.
    * 
    * @example
@@ -293,16 +283,16 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
+   * List of scheduled task IDs. Valid when Type is ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the monitor. Valid values:
+   * Quality monitoring trigger type:
    * 
-   * *   ByManual: The monitor is manually triggered.
-   * *   ByScheduledTaskInstance: The monitor is triggered by associated scheduling tasks.
-   * *   ByQualityNode: The monitor is triggered by created data quality monitoring nodes.
+   * - ByManual: Manual trigger
+   * - ByScheduledTaskInstance: Scheduled task trigger
+   * - ByQualityNode: Quality node trigger
    * 
    * @example
    * ByScheduledTaskInstance
@@ -337,7 +327,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTr
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data source used for the monitor.
+   * Data source ID used by the quality monitoring task.
    * 
    * @example
    * 45238
@@ -345,7 +335,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the monitor.
+   * Description of the quality monitoring task.
    * 
    * @example
    * The description of the quality monitoring task.
@@ -353,12 +343,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   description?: string;
   /**
    * @remarks
-   * The hook.
+   * Callback settings.
    */
   hooks?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks[];
   /**
    * @remarks
-   * The ID of the data quality monitor.
+   * Data quality monitoring ID.
    * 
    * @example
    * 2178
@@ -366,7 +356,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   id?: number;
   /**
    * @remarks
-   * The name of the monitor.
+   * Name of the quality monitoring task.
    * 
    * This parameter is required.
    * 
@@ -376,12 +366,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   name?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * Notification subscription configuration.
    */
   notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications;
   /**
    * @remarks
-   * The workspace ID.
+   * Workspace ID.
    * 
    * @example
    * 2626
@@ -389,12 +379,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   projectId?: number;
   /**
    * @remarks
-   * Extended configuration, JSON-formatted string, takes effect only for EMR-type data quality monitoring.
+   * Extended configuration. A JSON-formatted string. Only takes effect for EMR-type data quality monitoring.
    * 
-   * - queue: the yarn queue used when performing EMR data quality verification. The default queue is the queue configured for this project.
-   * - sqlEngine: SQL engine used when performing EMR data verification
-   *     - HIVE_ SQL
-   *     - SPARK_ SQL
+   * - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
+   * - sqlEngine: The SQL engine used when executing EMR data validation.
+   *   + HIVE_SQL
+   *   + SPARK_SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -402,12 +392,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the monitor.
+   * Data quality monitoring object.
    */
   target?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget;
   /**
    * @remarks
-   * The trigger configuration of the monitor.
+   * Trigger configuration of the data quality validation task.
    */
   trigger?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger;
   static names(): { [key: string]: string } {
@@ -464,7 +454,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
 export class GetDataQualityEvaluationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the monitor.
+   * Data quality monitoring details.
    */
   dataQualityEvaluationTask?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask;
   /**

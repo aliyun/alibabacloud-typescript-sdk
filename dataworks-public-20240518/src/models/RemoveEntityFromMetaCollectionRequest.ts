@@ -8,7 +8,7 @@ export class RemoveEntityFromMetaCollectionRequest extends $dara.Model {
    * The entity ID. Currently, entities can only be tables. You can call the ListTables operation to query the ID.
    * 
    * @example
-   * dlf-table:123456789:test_catalog:test_database::test_table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   id?: string;
   /**
@@ -16,7 +16,7 @@ export class RemoveEntityFromMetaCollectionRequest extends $dara.Model {
    * The collection ID. You can call the ListMetaCollections operation to query the ID.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   metaCollectionId?: string;
   static names(): { [key: string]: string } {

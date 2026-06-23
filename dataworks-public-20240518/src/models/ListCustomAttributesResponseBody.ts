@@ -4,18 +4,31 @@ import { CustomAttribute } from "./CustomAttribute";
 
 
 export class ListCustomAttributesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom attribute objects.
+   */
   customAttributes?: CustomAttribute[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
@@ -51,16 +64,23 @@ export class ListCustomAttributesResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListCustomAttributesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The paging information.
+   */
   pagingInfo?: ListCustomAttributesResponseBodyPagingInfo;
   /**
    * @remarks
-   * RequestId
+   * The ID of the request.
    * 
    * @example
    * 54594ACA-7976-5273-958B-02E15E9B867C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

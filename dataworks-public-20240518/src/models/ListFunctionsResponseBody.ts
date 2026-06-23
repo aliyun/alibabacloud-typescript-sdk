@@ -107,7 +107,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $dara.Mo
    * @remarks
    * The ID of the script.
    * 
-   * >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 652567824470354XXXX
@@ -197,7 +197,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * The database name. This parameter is used only when the function type is EMR Function.
    * 
    * @example
-   * odps_first
+   * EMR_lake
    */
   databaseName?: string;
   /**
@@ -222,11 +222,15 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Python2
-   * *   Python3
-   * *   Java8
-   * *   Java11
-   * *   Java17
+   * - Python2
+   * 
+   * - Python3
+   * 
+   * - Java8
+   * 
+   * - Java11
+   * 
+   * - Java17
    * 
    * @example
    * Python2
@@ -238,8 +242,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   File: General resource file.
-   * *   Embedded: Embedded resource.
+   * - File: General resource file.
+   * 
+   * - Embedded: Embedded resource.
    * 
    * @example
    * File
@@ -266,7 +271,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * @remarks
    * The unique identifier of the UDF.
    * 
-   * >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
    * 
    * @example
    * 580667964888595XXXX
@@ -337,15 +342,20 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Math: Mathematical operation functions
-   * *   Aggregate: Aggregation functions
-   * *   String: String processing functions
-   * *   Date: Date functions
-   * *   Analytic: Window functions
-   * *   Other: Other functions
+   * - Math: Mathematical operation functions
+   * 
+   * - Aggregate: Aggregation functions
+   * 
+   * - String: String processing functions
+   * 
+   * - Date: Date functions
+   * 
+   * - Analytic: Window functions
+   * 
+   * - Other: Other functions
    * 
    * @example
-   * MATH
+   * Math
    */
   type?: string;
   static names(): { [key: string]: string } {

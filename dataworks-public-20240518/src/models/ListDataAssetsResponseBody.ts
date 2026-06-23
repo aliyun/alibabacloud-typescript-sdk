@@ -39,8 +39,9 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
    * @remarks
    * The way in which the mapping between the data asset and the tag is created. Valid values:
    * 
-   * *   System
-   * *   UserDefined
+   * - System
+   * 
+   * - UserDefined
    * 
    * @example
    * UserDefined
@@ -95,8 +96,9 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
    * @remarks
    * The environment of the workspace to which the data asset belongs. Valid values:
    * 
-   * *   Dev: development environment
-   * *   Prod: production environment
+   * - Dev: development environment
+   * 
+   * - Prod: production environment
    * 
    * @example
    * Prod
@@ -130,8 +132,9 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
    * @remarks
    * The type of the data asset. Valid values:
    * 
-   * *   ACS::DataWorks::Table
-   * *   ACS::DataWorks::Task
+   * - ACS::DataWorks::Table
+   * 
+   * - ACS::DataWorks::Task
    * 
    * @example
    * ACS::DataWorks::Task

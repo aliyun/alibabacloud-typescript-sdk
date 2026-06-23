@@ -7,10 +7,13 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
-   * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-   * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-   * *   Normal: same-cycle scheduling dependency
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
+   * 
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * 
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * 
+   * - Normal: same-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -287,8 +290,9 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -362,9 +366,11 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -395,9 +401,11 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
    * @remarks
    * The running mode of the task after it is triggered. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -509,9 +517,11 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
    * @remarks
    * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -529,8 +539,9 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -607,8 +618,9 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod

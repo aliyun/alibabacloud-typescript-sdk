@@ -5,18 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model {
   /**
    * @remarks
-   * The code of the role. Valid values:
+   * The code of the Workspace role.
    * 
-   * *   role_project_admin: Workspace Administrator
-   * *   role_project_dev: Develop
-   * *   role_project_dg_admin: Data Governance Administrator
-   * *   role_project_guest: Visitor
-   * *   role_project_security: Security Administrator
-   * *   role_project_deploy: Deploy
-   * *   role_project_owner: Workspace Owner
-   * *   role_project_data_analyst: Data Analyst
-   * *   role_project_pe: O\\&M
-   * *   role_project_erd: Model Designer
+   * The built-in system roles in a DataWorks Workspace include:
+   * 
+   * - role_project_admin: Workspace Administrator
+   * 
+   * - role_project_dev: Developer
+   * 
+   * - role_project_dg_admin: Data Governance Administrator
+   * 
+   * - role_project_guest: Guest
+   * 
+   * - role_project_security: Security Administrator
+   * 
+   * - role_project_deploy: Deployment
+   * 
+   * - role_project_owner: Workspace Owner
+   * 
+   * - role_project_data_analyst: Data Analyst
+   * 
+   * - role_project_pe: O\\&M (Operations & Maintenance)
+   * 
+   * - role_project_erd: Model Designer
    * 
    * @example
    * role_project_guest
@@ -24,7 +35,7 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The name of the role.
+   * The name of the Workspace role.
    * 
    * @example
    * Visitors
@@ -32,10 +43,11 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The type of the role. Valid values:
+   * The type of the Workspace role.
    * 
-   * *   UserCustom: custom role
-   * *   System: built-in role
+   * - UserCustom: A user-defined role.
+   * 
+   * - System: A built-in System Role.
    * 
    * @example
    * System
@@ -69,7 +81,7 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
 export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the Workspace.
    * 
    * @example
    * 88757
@@ -77,15 +89,16 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The roles that are assigned to the member in the workspace.
+   * Roles assigned to the Workspace member.
    */
   roles?: GetProjectMemberResponseBodyProjectMemberRoles[];
   /**
    * @remarks
-   * The status of the member.
+   * The status of the Workspace member.
    * 
-   * *   Normal
-   * *   Forbidden
+   * - Normal: The member is active.
+   * 
+   * - Disabled: The member is disabled.
    * 
    * @example
    * Normal
@@ -93,12 +106,16 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the account used by the member in the workspace.
+   * The ID of the user.
    * 
    * @example
    * 123422344899
    */
   userId?: string;
+  /**
+   * @remarks
+   * The name of the user.
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,12 +152,12 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
 export class GetProjectMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the member in the workspace.
+   * The details of the Workspace member.
    */
   projectMember?: GetProjectMemberResponseBodyProjectMember;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1

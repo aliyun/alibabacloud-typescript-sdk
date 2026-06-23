@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the workspace.
+   * An optional description of the workspace.
    * 
    * @example
    * Financial analysis group project data development
@@ -15,8 +15,11 @@ export class UpdateProjectRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the development environment. Valid values:
    * 
-   * *   true: enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
-   * *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+   * - `true`: Enables the development environment for the workspace and isolates it from the production environment.
+   * 
+   * - `false`: Uses only the production environment.
+   * 
+   * **Important**: You cannot disable the development environment after you enable it.
    * 
    * @example
    * true
@@ -24,12 +27,13 @@ export class UpdateProjectRequest extends $dara.Model {
   devEnvironmentEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable the Develop role. Valid values:
+   * Specifies whether to disable the development role, which grants permissions for workflow and code editing. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - `false`: Enables the development role. This is the default value.
    * 
-   * Note: If you disable the Develop role, you cannot assume the Develop role to develop nodes in workflows and edit node code. The Develop role cannot be enabled again after it is disabled.
+   * - `true`: Disables the development role.
+   * 
+   * **Important**: After you enable the development role (by setting this parameter to `false`), you cannot disable it.
    * 
    * @example
    * true
@@ -45,9 +49,9 @@ export class UpdateProjectRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the workspace management page to obtain the ID.
+   * The ID of the DataWorks workspace. To find the workspace ID, log in to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace Management page.
    * 
-   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * This parameter specifies the DataWorks workspace to use for the API call.
    * 
    * This parameter is required.
    * 
@@ -57,10 +61,11 @@ export class UpdateProjectRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+   * Specifies whether to enable task scheduling for Machine Learning Platform for AI (PAI). Valid values:
    * 
-   * *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
-   * *   false: disables scheduling of PAI tasks.
+   * - `true`: You can create PAI nodes in the DataWorks workspace and run them on a schedule.
+   * 
+   * - `false`: Disables task scheduling for PAI.
    * 
    * @example
    * true
@@ -68,10 +73,11 @@ export class UpdateProjectRequest extends $dara.Model {
   paiTaskEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable or enable the workspace. Valid values:
+   * Specifies whether to enable or disable the workspace. Valid values:
    * 
-   * *   Available: enables the workspace.
-   * *   Forbidden: disables the workspace.
+   * - `Available`: Enables the workspace.
+   * 
+   * - `Forbidden`: Disables the workspace.
    * 
    * @example
    * Forbidden

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMcpServerRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the MCP Server to delete.
+   * 
    * This parameter is required.
    * 
    * @example

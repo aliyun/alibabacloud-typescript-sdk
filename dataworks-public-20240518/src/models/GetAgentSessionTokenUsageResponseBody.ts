@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAgentSessionTokenUsageResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
+   * @remarks
+   * The cumulative number of cache-hit tokens.
+   * 
    * @example
    * 4000
    */
   cachedTokens?: number;
   /**
+   * @remarks
+   * **Cumulative number of completion tokens generated.**
+   * 
    * @example
    * 2000
    */
   completionTokens?: number;
   /**
+   * @remarks
+   * **Cumulative number of prompt tokens consumed.**
+   * 
    * @example
    * 1000
    */
   promptTokens?: number;
   /**
+   * @remarks
+   * Cumulative number of tokens used for thoughts.
+   * 
    * @example
    * 3000
    */
   thoughtsTokens?: number;
   /**
+   * @remarks
+   * The cumulative number of all tokens.
+   * 
    * @example
    * 2000
    */
@@ -59,15 +74,25 @@ export class GetAgentSessionTokenUsageResponseBodyJsonRpcResponseResult extends 
 
 export class GetAgentSessionTokenUsageResponseBodyJsonRpcResponse extends $dara.Model {
   /**
+   * @remarks
+   * The ID provided by the requester, which is echoed in the response.
+   * 
    * @example
    * 8212598228302533855
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC version. The value is always 2.0.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * Token usage result.
+   */
   result?: GetAgentSessionTokenUsageResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
     return {
@@ -98,10 +123,14 @@ export class GetAgentSessionTokenUsageResponseBodyJsonRpcResponse extends $dara.
 }
 
 export class GetAgentSessionTokenUsageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON-RPC result.
+   */
   jsonRpcResponse?: GetAgentSessionTokenUsageResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * B313938A-4475-599B-98EB-A0875019FD5B

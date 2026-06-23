@@ -7,9 +7,11 @@ export class UpdateDataQualityScanRequestComputeResourceRuntime extends $dara.Mo
    * @remarks
    * The engine type. These settings are only supported for the EMR compute engine.This setting? Valid values:
    * 
-   * *   Hive: Hive SQL
-   * *   Spark: Spark SQL
-   * *   Kyuubi
+   * - Hive: Hive SQL
+   * 
+   * - Spark: Spark SQL
+   * 
+   * - Kyuubi
    * 
    * @example
    * Hive
@@ -67,8 +69,9 @@ export class UpdateDataQualityScanRequestComputeResource extends $dara.Model {
    * @remarks
    * Workspace environment of the compute engine. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -130,7 +133,7 @@ export class UpdateDataQualityScanRequestHooks extends $dara.Model {
    * @remarks
    * The type of the hook. Valid values:
    * 
-   * *   BlockTaskInstance: Block the scheduling of the task instance.
+   * - BlockTaskInstance: Block the scheduling of the task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -259,8 +262,9 @@ export class UpdateDataQualityScanRequestTrigger extends $dara.Model {
    * @remarks
    * The trigger mode of the data quality monitor. Valid values:
    * 
-   * *   ByManual: Manually triggered. Default setting.
-   * *   BySchedule: Triggered by a scheduled task instance.
+   * - ByManual: Manually triggered. Default setting.
+   * 
+   * - BySchedule: Triggered by a scheduled task instance.
    * 
    * @example
    * BySchedule

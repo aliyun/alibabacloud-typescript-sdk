@@ -103,9 +103,11 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
    * @remarks
    * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -131,8 +133,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -211,8 +214,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -230,8 +234,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
-   * *   Immediately
+   * - T+1
+   * 
+   * - Immediately
    * 
    * @example
    * T+1
@@ -297,9 +302,11 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -424,8 +431,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks extends $d
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   Normal: same-cycle scheduling dependency
-   * *   CrossCycle: cross-cycle scheduling dependency
+   * - Normal: same-cycle scheduling dependency
+   * 
+   * - CrossCycle: cross-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -565,9 +573,11 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
    * 
    * Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -595,8 +605,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
    * 
    * Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -675,8 +686,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -694,8 +706,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
-   * *   Immediately
+   * - T+1
+   * 
+   * - Immediately
    * 
    * @example
    * T+1
@@ -747,8 +760,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   Prod
-   * *   Dev
+   * - Prod
+   * 
+   * - Dev
    * 
    * @example
    * Prod
@@ -778,9 +792,11 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -803,8 +819,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   Normal: same-cycle scheduling dependency
-   * *   CrossCycle: cross-cycle scheduling dependency
+   * - Normal: same-cycle scheduling dependency
+   * 
+   * - CrossCycle: cross-cycle scheduling dependency
    * 
    * @example
    * Normal

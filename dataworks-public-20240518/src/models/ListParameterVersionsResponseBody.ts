@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParameterVersionsResponseBodyPagingInfoParameterVersionProperties extends $dara.Model {
   /**
+   * @remarks
+   * The environment type. Valid values:
+   * 
+   * - `Prod`: production environment
+   * 
+   * - `Dev`: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * value123
    */
@@ -38,62 +48,108 @@ export class ListParameterVersionsResponseBodyPagingInfoParameterVersionProperti
 
 export class ListParameterVersionsResponseBodyPagingInfoParameterVersion extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1640000000000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 123456789
    */
   createUser?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
-   * 这是一个测试参数
+   * This is a test parameter.
    */
   description?: string;
   /**
+   * @remarks
+   * The parameter ID.
+   * 
    * @example
    * 12345
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1640000000000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The ID of the modifier.
+   * 
    * @example
    * 123456789
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * workspace.para
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the owner.
+   * 
    * @example
    * 123456789
    */
   owner?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The environment-specific configurations of the parameter value.
+   */
   properties?: ListParameterVersionsResponseBodyPagingInfoParameterVersionProperties[];
   /**
+   * @remarks
+   * The scope of the parameter.
+   * 
    * @example
    * Project
    */
   scope?: string;
   /**
+   * @remarks
+   * The type of the parameter. Valid values:
+   * 
+   * - `PlainConstant`: a plaintext constant.
+   * 
+   * - `SecretConstant`: a secret constant.
+   * 
+   * - `Variable`: a variable.
+   * 
    * @example
    * PlainConstant
    */
   type?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -148,17 +204,30 @@ export class ListParameterVersionsResponseBodyPagingInfoParameterVersion extends
 
 export class ListParameterVersionsResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of parameter versions.
+   */
   parameterVersion?: ListParameterVersionsResponseBodyPagingInfoParameterVersion[];
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -194,8 +263,15 @@ export class ListParameterVersionsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListParameterVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListParameterVersionsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */

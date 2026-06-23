@@ -47,7 +47,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * @remarks
    * The response.
    * 
-   * >  The workflow ID is returned.
+   * > The workflow ID is returned.
    * 
    * @example
    * 632647691239009XXXX
@@ -59,10 +59,13 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Running: The asynchronous task is running.
-   * *   Success: The asynchronous task is complete.
-   * *   Fail: The asynchronous task fails.
-   * *   Cancel: The asynchronous task is canceled.
+   * - Running: The asynchronous task is running.
+   * 
+   * - Success: The asynchronous task is complete.
+   * 
+   * - Fail: The asynchronous task fails.
+   * 
+   * - Cancel: The asynchronous task is canceled.
    * 
    * @example
    * Running
@@ -74,8 +77,9 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Create: The asynchronous task is used to create an object.
-   * *   Cancel: The asynchronous task is used to cancel an operation.
+   * - Create: The asynchronous task is used to create an object.
+   * 
+   * - Cancel: The asynchronous task is used to cancel an operation.
    * 
    * @example
    * Create

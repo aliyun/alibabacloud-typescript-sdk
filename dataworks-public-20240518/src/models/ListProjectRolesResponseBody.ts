@@ -46,7 +46,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions
 export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Model {
   /**
    * @remarks
-   * The code of the role in the DataWorks workspace.
+   * The code of the workspace role.
    * 
    * @example
    * role_project_guest
@@ -55,7 +55,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   modulePermissions?: ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions[];
   /**
    * @remarks
-   * The name of the role.
+   * The name of the workspace role.
    * 
    * @example
    * Visitors
@@ -63,7 +63,9 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
+   * 
+   * Note: For system-defined roles, this parameter returns -1.
    * 
    * @example
    * 21229
@@ -71,7 +73,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   projectId?: number;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace.
+   * The type of the workspace role.
    * 
    * @example
    * System
@@ -112,7 +114,7 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
 export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -128,12 +130,12 @@ export class ListProjectRolesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The roles in the DataWorks workspace.
+   * A list of workspace roles.
    */
   projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of matching entries.
    * 
    * @example
    * 42
@@ -177,7 +179,7 @@ export class ListProjectRolesResponseBody extends $dara.Model {
   pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 61649187-0BCF-5E75-8D4B-64FDBEBBB447

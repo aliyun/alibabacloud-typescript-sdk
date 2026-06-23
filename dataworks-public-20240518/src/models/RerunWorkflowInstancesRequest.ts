@@ -141,8 +141,9 @@ export class RerunWorkflowInstancesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Success
-   * *   Failure
+   * - Success
+   * 
+   * - Failure
    * 
    * @example
    * Failure

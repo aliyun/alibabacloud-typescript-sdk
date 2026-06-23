@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * Threshold expression.
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - Fluctuation rises above 0.01: $checkValue > 0.01
+   * - Fluctuation drops below 0.01: $checkValue < -0.01
+   * - Absolute fluctuation rate: abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -21,14 +21,13 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * Comparison operator
+   * - \\>
+   * - \\>=
+   * - <
+   * - <=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -36,7 +35,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * Threshold value.
    * 
    * @example
    * 0.01
@@ -70,15 +69,15 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * Threshold expression.
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - Fluctuation rises above 0.01: $checkValue > 0.01
+   * - Fluctuation drops below 0.01: $checkValue < -0.01
+   * - Absolute fluctuation rate: abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -86,14 +85,13 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * Comparison operator
+   * - \\>
+   * - \\>=
+   * - <
+   * - <=
+   * - !=
+   * - =
    * 
    * @example
    * =
@@ -101,7 +99,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * Threshold value
    * 
    * @example
    * 0
@@ -135,15 +133,15 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
   /**
    * @remarks
-   * The threshold expression.
+   * Threshold expression.
    * 
-   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
    * 
-   * *   $checkValue > 0.01
-   * *   $checkValue < -0.01
-   * *   abs($checkValue) > 0.01
+   * - Fluctuation rises above 0.01: $checkValue > 0.01
+   * - Fluctuation drops below 0.01: $checkValue < -0.01
+   * - Absolute fluctuation rate: abs($checkValue) > 0.01
    * 
-   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -151,14 +149,13 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   expression?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values:
-   * 
-   * *   \\>
-   * *   \\>=
-   * *   <
-   * *   <=
-   * *   !=
-   * *   \\=
+   * Comparison operator
+   * - \\>
+   * - \\>=
+   * - \\<
+   * - \\<=
+   * - !=
+   * - =
    * 
    * @example
    * >
@@ -166,7 +163,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   operator?: string;
   /**
    * @remarks
-   * The threshold value.
+   * Threshold value
    * 
    * @example
    * 0.001
@@ -200,17 +197,17 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds extends $dara.Model {
   /**
    * @remarks
-   * The threshold settings for critical alerts.
+   * Threshold settings for critical warnings
    */
   critical?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical;
   /**
    * @remarks
-   * The expected threshold setting.
+   * Expected threshold settings
    */
   expected?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected;
   /**
    * @remarks
-   * The threshold settings for normal alerts.
+   * Threshold settings for normal warnings
    */
   warned?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
@@ -250,7 +247,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to query the referenced samples. To obtain specific types of thresholds, you must query reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * Some threshold types require querying reference samples and then aggregating their values to derive the comparison threshold. An expression is used here to indicate how the reference samples are queried.
    * 
    * @example
    * {"bizdate": ["-1"]}
@@ -258,18 +255,18 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   referencedSamplesFilter?: string;
   /**
    * @remarks
-   * The threshold settings.
+   * Validation threshold settings.
    */
   thresholds?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds;
   /**
    * @remarks
-   * The threshold calculation method. Valid values:
+   * Threshold calculation method
    * 
-   * *   Fluctation
-   * *   Auto
-   * *   FluctationDiscreate
-   * *   Average
-   * *   Fixed
+   * - Fluctation: Fluctuation range validation
+   * - Auto: Intelligent threshold validation
+   * - FluctationDiscreate: Discrete value fluctuation range validation
+   * - Average: Mean fluctuation range validation
+   * - Fixed: Fixed value validation
    * 
    * @example
    * Fixed
@@ -306,7 +303,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to filter failed tasks. If you define the rule by using custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * For custom SQL rules, the user must specify the SQL to filter problematic data.
    * 
    * @example
    * SELECT * FROM ods_d_openapi_log WHERE status = \\"Error\\"
@@ -314,9 +311,9 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers
   errorDataFilter?: string;
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * Handler type:
    * 
-   * *   SaveErrorData
+   * - SaveErrorData: Retain problematic data
    * 
    * @example
    * SaveErrorData
@@ -348,23 +345,22 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The metrics used for sampling. Valid values:
-   * 
-   * *   Count: the number of rows in the table.
-   * *   Min: the minimum value of the field.
-   * *   Max: the maximum value of the field.
-   * *   Avg: the average value of the field.
-   * *   DistinctCount: the number of unique values of the field after deduplication.
-   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
-   * *   DuplicatedCount: the number of duplicated values of the field.
-   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
-   * *   TableSize: the table size.
-   * *   NullValueCount: the number of rows in which the field value is null.
-   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
-   * *   GroupCount: the field value and the number of rows for each field value.
-   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
-   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-   * *   UserDefinedSql: specifies that data is sampled by executing custom SQL statements.
+   * Name of the sampling metric
+   * - Count: Number of rows in the table
+   * - Min: Minimum value of the field
+   * - Max: Maximum value of the field
+   * - Avg: Average value of the field
+   * - DistinctCount: Number of distinct values of the field
+   * - DistinctPercent: Ratio of the number of distinct field values to the total number of rows
+   * - DuplicatedCount: Number of duplicate values of the field
+   * - DuplicatedPercent: Ratio of the number of duplicate field values to the total number of rows
+   * - TableSize: Size of the table
+   * - NullValueCount: Number of rows where the field is null
+   * - NullValuePercent: Proportion of rows where the field is null
+   * - GroupCount: After aggregating by field value, each value and its corresponding number of rows
+   * - CountNotIn: Number of rows whose enum values do not match
+   * - CountDistinctNotIn: Number of distinct values whose enum values do not match
+   * - UserDefinedSql: Sample collection via custom SQL
    * 
    * @example
    * CountNotIn
@@ -372,7 +368,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfi
   metric?: string;
   /**
    * @remarks
-   * The parameters required for sampling.
+   * Parameters required for sample collection
    * 
    * @example
    * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
@@ -380,7 +376,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfi
   metricParameters?: string;
   /**
    * @remarks
-   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * Conditions for further filtering of data not of concern during sampling. Maximum 16777215 characters.
    * 
    * @example
    * status != \\"Succeeded\\"
@@ -388,7 +384,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfi
   samplingFilter?: string;
   /**
    * @remarks
-   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * Runtime parameter setting statements to be inserted and executed before the actual sampling statement. Maximum 1000 characters. Currently only MaxCompute is supported.
    * 
    * @example
    * odps.sql.type.system.odps2=True,odps.sql.hive.compatible=True
@@ -424,12 +420,12 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfi
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * Sample validation settings
    */
   checkingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig;
   /**
    * @remarks
-   * The description of the rule.
+   * Description of the data quality rule.
    * 
    * @example
    * OpenAPI test rules
@@ -437,7 +433,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Whether the data quality rule is enabled.
    * 
    * @example
    * true
@@ -445,12 +441,12 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check fails.
+   * Quality rule validation issue handler
    */
   errorHandlers?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers[];
   /**
    * @remarks
-   * The rule ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID of the monitoring rule.
+   * ID of the validation rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the rule ID.
    * 
    * @example
    * 1022171560
@@ -458,7 +454,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   id?: number;
   /**
    * @remarks
-   * The name of the monitoring rule.
+   * Name of the data quality rule.
    * 
    * @example
    * OpenAPI test rules
@@ -466,15 +462,14 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   name?: string;
   /**
    * @remarks
-   * The parameters required for sampling.
+   * Parameters required for sample collection
    */
   samplingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
-   * 
-   * *   Normal
-   * *   High
+   * Severity level of the rule for the business (corresponds to strong/weak rules on the page). Optional enum values:
+   * - Normal
+   * - High
    * 
    * @example
    * Normal
@@ -482,7 +477,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   severity?: string;
   /**
    * @remarks
-   * The ID of the template used by the rule.
+   * Unique identifier of the rule template referenced by the rule.
    * 
    * @example
    * SYSTEM:field:null_value:fixed:0
@@ -537,10 +532,10 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
 export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
   /**
    * @remarks
-   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
+   * Hook trigger condition. When this condition is met, the hook action is triggered. Currently, only two types of condition expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single group of rule severity type and rule validation status, such as `${severity} == "High" AND ${status} == "Critical"`. This means the condition is met when any executed rule with severity High has a validation result of Critical.
+   * - Specify multiple groups of rule severity type and rule validation status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means the condition is met when any executed rule satisfies one of the following: severity High with validation result Critical, severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the condition expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -548,9 +543,9 @@ export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The hook type. Valid values:
+   * Hook actions executed after data quality validation completes.
    * 
-   * *   BlockTaskInstance: Blocks the running of scheduling tasks.
+   * - BlockTaskInstance: Block the scheduling task.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -582,7 +577,7 @@ export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
 export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * Notification method
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -612,9 +607,9 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
 export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+   * Additional parameter settings when sending alerts. JSON format. The supported keys are as follows:
    * 
-   * *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
+   * - atAll: Whether to @all members in the group when sending DingTalk alerts. Takes effect when ReceiverType is DingdingUrl.
    * 
    * @example
    * {  "atAll": true }
@@ -622,15 +617,7 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
   extension?: string;
   /**
    * @remarks
-   * The type of the alert recipient.
-   * 
-   * Valid values:
-   * 
-   * *   WebhookUrl
-   * *   FeishuUrl
-   * *   DingdingUrl
-   * *   WeixinUrl
-   * *   AliUid
+   * Alert recipient type
    * 
    * @example
    * DingdingUrl
@@ -638,7 +625,7 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
   receiverType?: string;
   /**
    * @remarks
-   * The alert recipient.
+   * Alert recipients
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -672,12 +659,12 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
 export class UpdateDataQualityEvaluationTaskRequestNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * Notification method
    */
   notificationChannels?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The configurations of alert recipients.
+   * Alert recipient settings
    */
   notificationReceivers?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -712,10 +699,10 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotifications ex
 export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
+   * Notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two types of condition expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single group of rule severity type and rule validation status, such as `${severity} == "High" AND ${status} == "Critical"`. This means the condition is met when any executed rule with severity High has a validation result of Critical.
+   * - Specify multiple groups of rule severity type and rule validation status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means the condition is met when any executed rule satisfies one of the following: severity High with validation result Critical, severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the condition expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -723,7 +710,7 @@ export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.M
   condition?: string;
   /**
    * @remarks
-   * The configurations of the alert notification.
+   * Notification settings
    */
   notifications?: UpdateDataQualityEvaluationTaskRequestNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -755,15 +742,14 @@ export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.M
 export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   hologres
-   * *   cdh
-   * *   analyticdb_for_mysql
-   * *   starrocks
-   * *   emr
-   * *   analyticdb_for_postgresql
+   * Database type to which the table belongs
+   * - maxcompute
+   * - hologres
+   * - cdh
+   * - analyticdb_for_mysql
+   * - starrocks
+   * - emr
+   * - analyticdb_for_postgresql
    * 
    * @example
    * maxcompute
@@ -771,7 +757,7 @@ export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The configuration of the partitioned table.
+   * Partition settings of the partitioned table
    * 
    * @example
    * dt=$[yyyymmdd-1]
@@ -779,7 +765,7 @@ export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   partitionSpec?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * Unique ID of the table in Data Map
    * 
    * @example
    * odsp.openapi.ods_d_openapi_log
@@ -813,15 +799,14 @@ export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
 export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
   /**
    * @remarks
-   * The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
+   * List of scheduling task IDs. Valid when Type is ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the monitor. Valid values:
-   * 
-   * *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
-   * *   ByManual: The monitor is manually triggered.
+   * Trigger type of the quality monitoring task.
+   * - ByScheduledTaskInstance: Triggered by an associated scheduling task.
+   * - ByManual: Triggered manually.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -856,12 +841,12 @@ export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
 export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of monitoring rules that are associated with the monitor.
+   * List of data quality rules associated with the data quality monitoring.
    */
   dataQualityRules?: UpdateDataQualityEvaluationTaskRequestDataQualityRules[];
   /**
    * @remarks
-   * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+   * Data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
    * 
    * @example
    * 358750
@@ -869,7 +854,7 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the monitor.
+   * Description of the quality monitoring task
    * 
    * @example
    * OpenAPI data quality monitoring test.
@@ -877,12 +862,12 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The hook.
+   * Callback settings
    */
   hooks?: UpdateDataQualityEvaluationTaskRequestHooks[];
   /**
    * @remarks
-   * The ID of the monitor.
+   * Data quality monitoring ID.
    * 
    * This parameter is required.
    * 
@@ -892,7 +877,7 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the monitor.
+   * Name of the quality monitoring task
    * 
    * @example
    * OpenAPI data quality monitoring test.
@@ -900,12 +885,12 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * Notification subscription configuration
    */
   notifications?: UpdateDataQualityEvaluationTaskRequestNotifications;
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * Workspace ID
    * 
    * This parameter is required.
    * 
@@ -915,14 +900,12 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The extended configurations in JSON-formatted strings. You can use this parameter only for monitors that are used to monitor the quality of E-MapReduce (EMR) data.
+   * Extended configuration. A JSON-formatted string. Takes effect only for EMR-type data quality monitoring.
    * 
-   * *   queue: The Yarn queue used when a monitor checks the quality of EMR data. By default, the queue configured for the current workspace is used.
-   * 
-   * *   sqlEngine: The SQL engine used when a monitor checks the quality of EMR data.
-   * 
-   *     *   HIVE_SQL
-   *     *   SPARK_SQL
+   * - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
+   * - sqlEngine: The SQL engine used when executing EMR data validation.
+   *   + HIVE_SQL
+   *   + SPARK_SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -930,12 +913,12 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the data quality monitoring task.
+   * Data quality monitoring object
    */
   target?: UpdateDataQualityEvaluationTaskRequestTarget;
   /**
    * @remarks
-   * The trigger configuration of the monitor.
+   * Trigger configuration of the data quality validation task
    */
   trigger?: UpdateDataQualityEvaluationTaskRequestTrigger;
   static names(): { [key: string]: string } {

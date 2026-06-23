@@ -3,13 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
+  /**
+   * @remarks
+   * The sub-agent display name.
+   * 
+   * @example
+   * 子助手
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The sub-agent name.
+   * 
    * @example
    * sub-agent
    */
   name?: string;
+  /**
+   * @remarks
+   * The sub-agent source.
+   * 
+   * @example
+   * custom
+   */
   source?: string;
+  /**
+   * @remarks
+   * The sub-agent version.
+   * 
+   * @example
+   * -
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -39,15 +63,53 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
 }
 
 export class GetAgentResponseBodyAgentModel extends $dara.Model {
+  /**
+   * @remarks
+   * Additional configuration for the model.
+   * 
+   * @example
+   * {}
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The maximum number of tokens to generate in one response.
+   * 
+   * @example
+   * 8192
+   */
   maxTokens?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * qwen3-max
    */
   modelName?: string;
+  /**
+   * @remarks
+   * Indicates whether streaming output is enabled.
+   * 
+   * @example
+   * true
+   */
   stream?: boolean;
+  /**
+   * @remarks
+   * The temperature.
+   * 
+   * @example
+   * 1
+   */
   temperature?: number;
+  /**
+   * @remarks
+   * The top-p.
+   * 
+   * @example
+   * 1
+   */
   topP?: number;
   static names(): { [key: string]: string } {
     return {
@@ -85,10 +147,20 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
 
 export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   /**
+   * @remarks
+   * The skill name.
+   * 
    * @example
    * my-skill
    */
   name?: string;
+  /**
+   * @remarks
+   * The skill version.
+   * 
+   * @example
+   * -
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -114,13 +186,34 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
 }
 
 export class GetAgentResponseBodyAgentTools extends $dara.Model {
+  /**
+   * @remarks
+   * **The name of the built-in tool. This parameter applies only when `Kind` is set to `builtin`.**
+   * 
+   * @example
+   * builtin_sql
+   */
   builtinName?: string;
   /**
+   * @remarks
+   * **The tool type.**
+   * 
    * @example
    * builtin
    */
   kind?: string;
+  /**
+   * @remarks
+   * **The selected MCP tool items. This parameter applies only when `Kind` is set to `mcp`.**
+   */
   mcpItems?: string[];
+  /**
+   * @remarks
+   * **The name of the associated MCP server. This parameter applies only when `Kind` is set to `mcp`.**
+   * 
+   * @example
+   * server-name
+   */
   mcpServerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,7 +246,15 @@ export class GetAgentResponseBodyAgentTools extends $dara.Model {
 }
 
 export class GetAgentResponseBodyAgentVisibilityScope extends $dara.Model {
+  /**
+   * @remarks
+   * A list of project IDs that can view the agent.
+   */
   projectIds?: string[];
+  /**
+   * @remarks
+   * A list of user IDs that can view the agent.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -185,48 +286,119 @@ export class GetAgentResponseBodyAgentVisibilityScope extends $dara.Model {
 }
 
 export class GetAgentResponseBodyAgent extends $dara.Model {
+  /**
+   * @remarks
+   * A list of callable sub-agents.
+   */
   callableAgents?: GetAgentResponseBodyAgentCallableAgents[];
   /**
+   * @remarks
+   * The creator ID.
+   * 
    * @example
    * 123456
    */
   creatorId?: string;
+  /**
+   * @remarks
+   * **The description.**
+   * 
+   * @example
+   * 数据分析助手
+   */
   description?: string;
+  /**
+   * @remarks
+   * **The display name.**
+   * 
+   * @example
+   * 我的助手
+   */
   displayName?: string;
   /**
    * @remarks
+   * The creation time, as a Unix timestamp in milliseconds.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 1780555634000
    */
   gmtCreateTime?: string;
   /**
    * @remarks
+   * The last modification time, as a Unix timestamp in milliseconds.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
    * 1780555634000
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * **Additional metadata.**
+   * 
+   * @example
+   * {}
+   */
   metadata?: { [key: string]: any };
+  /**
+   * @remarks
+   * **The model configuration.**
+   */
   model?: GetAgentResponseBodyAgentModel;
   /**
+   * @remarks
+   * The ID of the last modifier.
+   * 
    * @example
    * 123456
    */
   modifierId?: string;
   /**
+   * @remarks
+   * **The agent name.**
+   * 
    * @example
    * my-agent
    */
   name?: string;
+  /**
+   * @remarks
+   * The runtime dependencies.
+   */
   requiredRuntime?: string[];
+  /**
+   * @remarks
+   * A list of skills.
+   */
   skills?: GetAgentResponseBodyAgentSkills[];
+  /**
+   * @remarks
+   * **The system prompt.**
+   * 
+   * @example
+   * 你是一个数据分析助手。
+   */
   systemPrompt?: string;
+  /**
+   * @remarks
+   * **A list of tools.**
+   */
   tools?: GetAgentResponseBodyAgentTools[];
   /**
+   * @remarks
+   * **The visibility level.**
+   * 
    * @example
    * TENANT
    */
   visibility?: string;
+  /**
+   * @remarks
+   * The visibility scope.
+   */
   visibilityScope?: GetAgentResponseBodyAgentVisibilityScope;
   static names(): { [key: string]: string } {
     return {
@@ -301,8 +473,15 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
 }
 
 export class GetAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The agent details.
+   */
   agent?: GetAgentResponseBodyAgent;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */

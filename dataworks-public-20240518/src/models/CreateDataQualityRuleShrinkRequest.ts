@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * The sample check settings.
    */
   checkingConfigShrink?: string;
   /**
    * @remarks
-   * The description of the rule. The description can be up to 500 characters in length.
+   * The description of the rule. The maximum length is 500 characters.
    * 
    * @example
    * this is a odps _sql task
@@ -18,7 +18,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the monitoring rule.
+   * Specifies whether to enable the data quality rule.
    * 
    * @example
    * true
@@ -26,7 +26,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check fails.
+   * The list of issue handlers for the data quality rule check.
    */
   errorHandlersShrink?: string;
   /**
@@ -41,7 +41,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * This parameter is required.
    * 
@@ -51,15 +51,14 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The sampling settings.
+   * The settings required for sample collection.
    */
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
-   * 
-   * *   Normal
-   * *   High
+   * The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+   * - Normal
+   * - High
    * 
    * @example
    * Normal
@@ -67,15 +66,15 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The monitored object of the rule.
+   * The object monitored by the rule.
    */
   targetShrink?: string;
   /**
    * @remarks
-   * The ID of the template used by the rule.
+   * The unique identifier of the rule template that the rule references.
    * 
    * @example
-   * system::user_defined
+   * SYSTEM:table:table_count:fixed
    */
   templateCode?: string;
   static names(): { [key: string]: string } {

@@ -56,8 +56,9 @@ export class ListDataAssetsRequest extends $dara.Model {
    * @remarks
    * The type of the data asset. Valid values:
    * 
-   * *   ACS::DataWorks::Table
-   * *   ACS::DataWorks::Task
+   * - ACS::DataWorks::Table
+   * 
+   * - ACS::DataWorks::Task
    * 
    * @example
    * ACS::DataWorks::Task
@@ -67,8 +68,9 @@ export class ListDataAssetsRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace to which the data asset belongs. Valid values:
    * 
-   * *   Dev: development environment
-   * *   Prod: production environment
+   * - Dev: development environment
+   * 
+   * - Prod: production environment
    * 
    * @example
    * Prod
@@ -102,8 +104,9 @@ export class ListDataAssetsRequest extends $dara.Model {
    * @remarks
    * The tags that are added to data assets. This parameter specifies a filter condition.
    * 
-   * *   You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
-   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * - You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
+   * 
+   * - If you do not configure this parameter, tag-based filtering is not performed.
    * 
    * This parameter is required.
    */

@@ -15,8 +15,9 @@ export class DeleteComputeResourceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call succeeded.
    * 
-   * *   true: The call is successful.
-   * *   false: The call failed.
+   * - true: The call is successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -35,8 +35,9 @@ export class ListDownstreamTasksRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod

@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMyApplicationsRequestResource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the resource schema (`ResourceSchema.name`) required for resource parsing.
+   * 
    * @example
    * MaxCompute
    */
   defSchema?: string;
   /**
+   * @remarks
+   * The version of the resource schema (`ResourceSchema.version`) required for resource parsing.
+   * 
    * @example
    * v1.0.0
    */
   defVersion?: string;
+  /**
+   * @remarks
+   * The resource metadata. The content is constrained by the `ResourceSchema`.
+   */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -45,6 +55,8 @@ export class ListMyApplicationsRequestResource extends $dara.Model {
 export class ListMyApplicationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +65,8 @@ export class ListMyApplicationsRequest extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
+   * The end time of the application, specified as a Unix timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,29 +74,61 @@ export class ListMyApplicationsRequest extends $dara.Model {
    */
   endTime?: number;
   /**
+   * @remarks
+   * A token that you can use in a subsequent request to retrieve the next page of results.
+   * 
    * @example
    * eyJpZCI6MTIzfQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search criteria for the resource.
+   */
   resource?: ListMyApplicationsRequestResource;
   /**
    * @remarks
+   * The name of the leaf node that specifies the resource type. You can specify multiple resource types. Note that different leaf node names can map to the same business logic.
+   * 
    * This parameter is required.
    */
   resourceType?: string[];
   /**
    * @remarks
+   * The start time of the application, specified as a Unix timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1771948800000
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The approval statuses for filtering. Valid values:
+   * 
+   * - `WaitApproval`: Pending approval
+   * 
+   * - `Confirmed`: Pending authorization
+   * 
+   * - `RejectApproval`: Approval rejected
+   * 
+   * - `AuthorizeSucceed`: Authorization succeeded
+   * 
+   * - `AuthorizeFailed`: Authorization failed
+   * 
+   * - `Deleted`: The application was deleted.
+   * 
+   * - `Canceled`: The application was canceled.
+   */
   statuses?: string[];
   static names(): { [key: string]: string } {
     return {

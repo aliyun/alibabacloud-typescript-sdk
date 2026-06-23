@@ -13,9 +13,9 @@ export class AttachDataQualityRulesToEvaluationTaskResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The value of the association is as follows:
+   * Indicates whether the association is successful. Valid values:
    * - true: The call is successful.
-   * - false: the call failed.
+   * - false: The call fails.
    * 
    * @example
    * true

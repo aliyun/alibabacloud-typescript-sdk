@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data quality monitoring task.
+   * The ID of the data quality evaluation task.
    * 
    * This parameter is required.
    * 
    * @example
-   * 200001
+   * 2000011
    */
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
-   * Data quality verification execution parameters in JSON format. The available keys are as follows:
-   * - triggerTime: the millisecond timestamp of the trigger time. The baseline time of the $[yyyymmdd] expression in the data range of data quality monitoring. Required.
+   * The execution parameters of the data quality evaluation in the JSON format. The following keys are available:
+   * - triggerTime: the millisecond timestamp of the trigger time. This is the base time for the $[yyyymmdd] expression in the data range of data quality monitoring. This key is required.
    * 
    * This parameter is required.
    * 
@@ -26,9 +26,9 @@ export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.
   parameters?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the ID.
    * 
-   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * This parameter specifies the DataWorks workspace in which this API operation is performed.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.
   projectId?: number;
   /**
    * @remarks
-   * Resource Group information, which must be filled in when running non-MaxCompute data quality verification.
+   * The resource group information. This parameter is required when you run a data quality evaluation on a non-MaxCompute data source.
    */
   runtimeResourceShrink?: string;
   static names(): { [key: string]: string } {

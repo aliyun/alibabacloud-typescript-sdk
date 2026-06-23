@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateProjectFromResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workspace from which you want to disassociate the resource group.
+   * The ID of the workspace to disassociate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DissociateProjectFromResourceGroupRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the resource group.
    * 
    * This parameter is required.
    * 

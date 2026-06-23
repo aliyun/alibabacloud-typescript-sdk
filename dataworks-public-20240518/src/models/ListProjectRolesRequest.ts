@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * The codes of roles in the DataWorks workspace.
+   * An array of workspace role codes.
    */
   codes?: string[];
   /**
    * @remarks
-   * The names of roles in the DataWorks workspace.
+   * An array of workspace role names.
    */
   names?: string[];
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListProjectRolesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries to return per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -31,9 +31,9 @@ export class ListProjectRolesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. You can find the ID on the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
-   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * This parameter specifies the DataWorks workspace for which you want to list roles.
    * 
    * This parameter is required.
    * 
@@ -43,10 +43,11 @@ export class ListProjectRolesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the role. Valid values:
+   * The type of the workspace role.
    * 
-   * *   UserCustom: user-defined role
-   * *   System: system role
+   * - `UserCustom`: Custom Role
+   * 
+   * - `System`: System Role
    * 
    * @example
    * System

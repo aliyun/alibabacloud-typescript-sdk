@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetProjectRoleResponseBodyProjectRoleModulePermissions extends $dara.Model {
   /**
+   * @remarks
+   * The module ID.
+   * 
    * @example
    * 2
    */
   moduleId?: number;
   /**
+   * @remarks
+   * The module name.
+   * 
    * @example
    * HoloStudio
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The permission type.
+   * 
    * @example
    * Read
    */
@@ -46,16 +55,20 @@ export class GetProjectRoleResponseBodyProjectRoleModulePermissions extends $dar
 export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   /**
    * @remarks
-   * The code of the role in the DataWorks workspace.
+   * The code of the workspace role.
    * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The permissions for the modules in the workspace.
+   */
   modulePermissions?: GetProjectRoleResponseBodyProjectRoleModulePermissions[];
   /**
    * @remarks
-   * The name of the role in the DataWorks workspace.
+   * The name of the workspace role.
    * 
    * @example
    * Visitors
@@ -63,7 +76,9 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
+   * 
+   * Note: A fixed value of -1 is returned for a system role.
    * 
    * @example
    * 10002
@@ -71,10 +86,11 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace. Valid values:
+   * The type of the workspace role. Valid values:
    * 
-   * *   UserCustom: user-defined role
-   * *   System: system role
+   * - UserCustom: a custom role
+   * 
+   * - System: a system role
    * 
    * @example
    * System
@@ -115,7 +131,7 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
 export class GetProjectRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The role in the DataWorks workspace.
+   * The details of the workspace role.
    */
   projectRole?: GetProjectRoleResponseBodyProjectRole;
   /**

@@ -12,11 +12,17 @@ export class DeleteCustomAttributeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the deletion.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

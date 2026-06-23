@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetLineageRelationshipRequest extends $dara.Model {
   /**
    * @remarks
-   * The lineage ID. You can refer to the return result of the ListLineageRelationships operation.
+   * The lineage relationship ID. You can get this ID from the response to the ListLineageRelationships operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
+   * 4as3dasf654a
    */
   id?: string;
   static names(): { [key: string]: string } {

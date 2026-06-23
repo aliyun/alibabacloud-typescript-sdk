@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The check settings for sample data.
+   * The sample validation settings.
    */
   checkingConfigShrink?: string;
   /**
    * @remarks
-   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   * The category directory where the custom template is stored. Hierarchy levels are separated by slashes. Each level name can be up to 1024 characters long and cannot contain whitespace characters or slashes.
    * 
    * @example
    * /ods/order_data
@@ -18,7 +18,7 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
   directoryPath?: string;
   /**
    * @remarks
-   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   * The name of the rule template. It can be a combination of digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The maximum length is 512 characters.
    * 
    * This parameter is required.
    * 
@@ -38,15 +38,14 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The sampling settings.
+   * The settings required for sample collection.
    */
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The applicable scope of the template. Valid values:
-   * 
-   * *   Tenant: The template is available in all workspaces in the current tenant.
-   * *   Project: The template is available only in the current workspace.
+   * The visibility scope of the template:
+   * - Tenant: available to the entire tenant
+   * - Project: available only in the current project
    * 
    * @example
    * Project

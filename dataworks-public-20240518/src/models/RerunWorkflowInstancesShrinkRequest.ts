@@ -71,8 +71,9 @@ export class RerunWorkflowInstancesShrinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Success
-   * *   Failure
+   * - Success
+   * 
+   * - Failure
    * 
    * @example
    * Failure

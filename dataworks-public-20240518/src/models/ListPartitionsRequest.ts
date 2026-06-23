@@ -15,8 +15,9 @@ export class ListPartitionsRequest extends $dara.Model {
    * @remarks
    * The sort order. Default: Asc. Valid values:
    * 
-   * *   Asc: Ascending order.
-   * *   Desc: Descending order.
+   * - Asc: Ascending order.
+   * 
+   * - Desc: Descending order.
    * 
    * @example
    * Asc
@@ -42,11 +43,15 @@ export class ListPartitionsRequest extends $dara.Model {
    * @remarks
    * The sort field. Default value: CreateTime. Valid values:
    * 
-   * *   CreateTime: Creation time. Supported only for MaxCompute tables.
-   * *   ModifyTime: Modification time. Supported only for MaxCompute tables.
-   * *   Name: Name. Used for HMS-type tables.
-   * *   RecordCount: Record count. Supported only for MaxCompute tables.
-   * *   DataSize: Storage size. Supported only for MaxCompute tables.
+   * - CreateTime: Creation time. Supported only for MaxCompute tables.
+   * 
+   * - ModifyTime: Modification time. Supported only for MaxCompute tables.
+   * 
+   * - Name: Name. Used for HMS-type tables.
+   * 
+   * - RecordCount: Record count. Supported only for MaxCompute tables.
+   * 
+   * - DataSize: Storage size. Supported only for MaxCompute tables.
    * 
    * @example
    * CreateTime
@@ -59,7 +64,7 @@ export class ListPartitionsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   tableId?: string;
   static names(): { [key: string]: string } {

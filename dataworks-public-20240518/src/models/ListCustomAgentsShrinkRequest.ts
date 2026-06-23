@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAgentsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return on a single page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. Omit this parameter for the first request. For subsequent requests, use the `NextToken` value from the previous response to retrieve the next page.
+   * 
    * @example
    * 12345
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The search keyword for a fuzzy match by agent name.
+   * 
    * @example
    * analysis
    */
   q?: string;
   /**
+   * @remarks
+   * Filters the results by visibility level. You can specify multiple levels.
+   * 
    * @example
    * -
    */

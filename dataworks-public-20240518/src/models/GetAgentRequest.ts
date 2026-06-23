@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the skill to retrieve.
+   * 
    * This parameter is required.
    * 
    * @example

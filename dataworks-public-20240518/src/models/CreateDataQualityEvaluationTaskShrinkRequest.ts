@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of monitoring rules that are associated with the monitor. If you configure the ID of a monitoring rule by using the DataQualityRule.Id parameter, the system associates the rule with a created monitor. If you do not configure the ID of a monitoring rule, the system creates a new monitoring rule by using other fields and associates the rule with a created monitor.
+   * The list of data quality rules associated with the data quality monitor. If DataQualityRule.Id is specified, the rule corresponding to that ID is associated with the newly created quality monitor. If not specified, a new rule is created from the other fields and associated with the newly created quality monitor.
    */
   dataQualityRulesShrink?: string;
   /**
    * @remarks
-   * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+   * The ID of the data source. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the ID of the data source.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the monitor.
+   * The description of the quality monitoring task.
    * 
    * @example
    * OpenAPI create a data quality monitoring test
@@ -28,12 +28,12 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The hook.
+   * The hook settings.
    */
   hooksShrink?: string;
   /**
    * @remarks
-   * The name of the monitor.
+   * The name of the quality monitoring task.
    * 
    * This parameter is required.
    * 
@@ -43,14 +43,14 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * The notification subscription configuration.
    */
   notificationsShrink?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the ID.
    * 
-   * You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
+   * This parameter specifies the DataWorks workspace used by this API call.
    * 
    * This parameter is required.
    * 
@@ -60,14 +60,11 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The extended configurations in JSON-formatted strings. You can use this parameter only for monitors that are used to monitor the quality of E-MapReduce (EMR) data.
-   * 
-   * *   queue: The Yarn queue used when a monitor checks the quality of EMR data. By default, the queue configured for the current workspace is used.
-   * 
-   * *   sqlEngine: The SQL engine used when a monitor checks the quality of EMR data.
-   * 
-   *     *   HIVE_SQL
-   *     *   SPARK_SQL
+   * The extended configuration, a JSON-formatted string. This setting takes effect only for EMR-type data quality monitors.
+   * - queue: The YARN queue used when running EMR data quality validation. The default is the queue configured for the current project.
+   * - sqlEngine: The SQL engine used when running EMR data validation.
+   *     + HIVE_SQL
+   *     + SPARK_SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -75,14 +72,14 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the monitor.
+   * The data quality monitoring object.
    * 
    * This parameter is required.
    */
   targetShrink?: string;
   /**
    * @remarks
-   * The trigger configuration of the monitor.
+   * The trigger configuration of the data quality validation task.
    */
   triggerShrink?: string;
   static names(): { [key: string]: string } {

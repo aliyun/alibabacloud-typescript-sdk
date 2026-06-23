@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateProjectFromImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DissociateProjectFromImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

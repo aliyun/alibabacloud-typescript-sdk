@@ -4,14 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the user who created the agent.
+   * 
    * @example
    * 123456
    */
   creatorId?: string;
+  /**
+   * @remarks
+   * A description of the custom agent.
+   * 
+   * @example
+   * 数据分析助手
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the custom agent.
+   * 
+   * @example
+   * 我的助手
+   */
   displayName?: string;
   /**
    * @remarks
+   * The time when the agent was created, provided in milliseconds since the Unix epoch.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -20,6 +39,8 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * The time when the agent was last modified, provided in milliseconds since the Unix epoch.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -27,16 +48,25 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the user who last modified the agent.
+   * 
    * @example
    * 123456
    */
   modifierId?: string;
   /**
+   * @remarks
+   * The name of the custom agent.
+   * 
    * @example
    * my-agent
    */
   name?: string;
   /**
+   * @remarks
+   * The visibility level of the custom agent.
+   * 
    * @example
    * TENANT
    */
@@ -77,18 +107,31 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
 }
 
 export class ListCustomAgentsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of custom agents.
+   */
   agents?: ListCustomAgentsResponseBodyPagingInfoAgents[];
   /**
+   * @remarks
+   * The maximum number of entries returned in this response.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. This parameter is empty when there are no more results to return.
+   * 
    * @example
    * 5
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The total number of entries that meet the filter criteria.
+   * 
    * @example
    * 100
    */
@@ -124,8 +167,15 @@ export class ListCustomAgentsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListCustomAgentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The paging information.
+   */
   pagingInfo?: ListCustomAgentsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */

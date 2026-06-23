@@ -20,7 +20,7 @@ export class GetPartitionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   tableId?: string;
   static names(): { [key: string]: string } {

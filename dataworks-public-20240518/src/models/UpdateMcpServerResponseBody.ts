@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
   /**
    * @remarks
+   * The creation time. This value is a millisecond timestamp.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * **The last modification time. This value is a millisecond timestamp.**
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -20,6 +24,9 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * **The name of the MCP Server.**
+   * 
    * @example
    * my-mcp-server
    */
@@ -50,8 +57,15 @@ export class UpdateMcpServerResponseBodyMcpServer extends $dara.Model {
 }
 
 export class UpdateMcpServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * - The details of the updated MCP Server.
+   */
   mcpServer?: UpdateMcpServerResponseBodyMcpServer;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */

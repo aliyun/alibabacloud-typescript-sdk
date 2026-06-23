@@ -10,7 +10,7 @@ export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * maxcompute-table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   id?: string;
   /**
@@ -20,7 +20,7 @@ export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   metaCollectionId?: string;
   /**

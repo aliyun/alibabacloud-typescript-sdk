@@ -230,8 +230,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * - Prod: production environment
+   * 
+   * - Dev: development environment
    * 
    * @example
    * Prod
@@ -251,9 +252,11 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * 
+   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -299,14 +302,21 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   NotRun: The instance is not run.
-   * *   Running: The instance is running.
-   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
-   * *   CheckingCondition: Branch conditions are being checked for the instance.
-   * *   WaitResource: The instance is waiting for resources.
-   * *   Failure: The instance fails to be run.
-   * *   Success: The instance is successfully run.
-   * *   Checking: Data quality is being checked for the instance.
+   * - NotRun: The instance is not run.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - WaitTime: The instance is waiting for the scheduling time to arrive.
+   * 
+   * - CheckingCondition: Branch conditions are being checked for the instance.
+   * 
+   * - WaitResource: The instance is waiting for resources.
+   * 
+   * - Failure: The instance fails to be run.
+   * 
+   * - Success: The instance is successfully run.
+   * 
+   * - Checking: Data quality is being checked for the instance.
    * 
    * @example
    * Success
@@ -343,7 +353,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * Note: The value of this parameter is rounded up by hour.
    * 
    * @example
-   * 1
+   * 3600
    */
   timeout?: number;
   /**
@@ -352,9 +362,11 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   Pause
-   * *   Skip
-   * *   Normal
+   * - Pause
+   * 
+   * - Skip
+   * 
+   * - Normal
    * 
    * @example
    * Normal
@@ -374,14 +386,18 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * - Scheduler: scheduling cycle-based trigger
+   * 
+   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
+   * 
    * @example
    * 1234
    */
@@ -424,12 +440,17 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * 
    * Valid values:
    * 
-   * *   SmokeTest
-   * *   SupplementData
-   * *   Manual
-   * *   ManualWorkflow
-   * *   Normal
-   * *   ManualFlow
+   * - SmokeTest
+   * 
+   * - SupplementData
+   * 
+   * - Manual
+   * 
+   * - ManualWorkflow
+   * 
+   * - Normal
+   * 
+   * - ManualFlow
    * 
    * @example
    * Normal

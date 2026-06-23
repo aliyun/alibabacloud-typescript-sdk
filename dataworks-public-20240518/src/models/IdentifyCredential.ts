@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IdentifyCredentialDataSource extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the data source.
+   * The data source instance ID.
    * 
    * @example
    * 710007423244
@@ -13,7 +13,7 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the data source.
+   * The data source instance name.
    * 
    * @example
    * rm-2zez82ho69yex7s7g
@@ -21,7 +21,7 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The password for the data source.
+   * The data source password.
    * 
    * @example
    * ***
@@ -29,15 +29,11 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The user type of the data source.
+   * The user role for the data source. Valid values are:
    * 
-   * *   Admin
-   * *   RegularUser
+   * - `Admin`
    * 
-   * Valid values:
-   * 
-   * *   RegularUser: Normal user.
-   * *   Admin: Administrator.
+   * - `RegularUser`
    * 
    * @example
    * admin
@@ -45,11 +41,13 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The type of the data source. Supported types:
+   * The data source type. Supported values are:
    * 
-   * *   hive
-   * *   lindorm_for_engine
-   * *   starrocks
+   * - `hive`
+   * 
+   * - `lindorm_for_engine`
+   * 
+   * - `starrocks`
    * 
    * @example
    * hologres
@@ -57,7 +55,7 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The username for the data source.
+   * The data source user name.
    * 
    * @example
    * tom
@@ -102,7 +100,7 @@ export class IdentifyCredential extends $dara.Model {
   dataSource?: IdentifyCredentialDataSource;
   /**
    * @remarks
-   * The workspace ID (optional).
+   * The project ID. This parameter is optional.
    * 
    * @example
    * 10000
@@ -110,7 +108,7 @@ export class IdentifyCredential extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The user ID. If it is a role, the ROLE_ prefix must be added.
+   * The user UID. If the `UserType` is `Role`, you must prefix this value with `ROLE_`.
    * 
    * @example
    * ROLE_300888674340307309
@@ -118,9 +116,13 @@ export class IdentifyCredential extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * *   Alibaba Cloud account
-   * *   RAM user
-   * *   Role
+   * The user type. Supported values are:
+   * 
+   * - primary account: `PrimaryAccount`
+   * 
+   * - subaccount: `SubAccount`
+   * 
+   * - role: `Role`
    * 
    * @example
    * primaryAccount

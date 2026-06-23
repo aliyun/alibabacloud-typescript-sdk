@@ -390,10 +390,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
+   * The cause that triggers the hook action. When this condition is met, the hook action is triggered. Only two types of conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single combination of rule severity and rule check status. For example, `${severity} == "High" AND ${status} == "Critical"` means that the condition is met if any rule with a severity of High has a check result of Critical.
+   * - Specify multiple combinations of rule severity and rule check status. For example, `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")` means that the condition is met if any rule with a severity of High has a check result of Critical, or any rule with a severity of Normal has a check result of Critical, or any rule with a severity of Normal has a check result of Error. The severity enumeration values in the conditional expression are consistent with the severity enumeration values in DataQualityRule, and the status enumeration values are consistent with the status values in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -401,9 +401,9 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   condition?: string;
   /**
    * @remarks
-   * Hook type. Currently, only one type is supported:
+   * The hook type. Only one type is supported:
    * 
-   * - BlockTaskInstance: the blocking scheduling task continues to run. Data quality monitoring is triggered by the scheduling task. After the data quality monitoring is completed, the Hook.Condition is used to determine whether the blocking scheduling task continues to run.
+   * - BlockTaskInstance: Blocks the scheduling node from continuing to run. If the data quality monitoring task is triggered by a scheduling node, after the data quality monitoring task is completed, the system determines whether to block the scheduling node from continuing to run based on Hook.Condition.
    * 
    * @example
    * BlockTaskInstance
@@ -435,7 +435,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The notification method.
+   * The notification channels.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -465,9 +465,9 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * Additional parameter settings for sending alerts in json format. The supported keys are as follows:
+   * The additional parameter settings for sending alerts, in JSON format. The following keys are supported:
    * 
-   * - atAll: when sending DingTalk alerts, do you need to @ everyone in the group. It takes effect when ReceiverType is DingdingUrl.
+   * - atAll: Specifies whether to @everyone in the group when sending a DingTalk alert. This parameter takes effect only when ReceiverType is set to DingdingUrl.
    * 
    * @example
    * { "atAll": true }
@@ -475,7 +475,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   extension?: string;
   /**
    * @remarks
-   * The type of alert recipient.
+   * The type of the alert recipient.
    * 
    * @example
    * DingdingUrl
@@ -483,7 +483,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   receiverType?: string;
   /**
    * @remarks
-   * The recipient of the alert.
+   * The alert recipients.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -517,12 +517,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification method.
+   * The notification channels.
    */
   notificationChannels?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The value of the receiver.
+   * The notification recipients.
    */
   notificationReceivers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -557,10 +557,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
+   * The cause that triggers a notification. When this condition is met, a message notification is sent. Only two types of conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * - Specify a single combination of rule severity and rule check status. For example, `${severity} == "High" AND ${status} == "Critical"` means that the condition is met if any rule with a severity of High has a check result of Critical. 
+   * - Specify multiple combinations of rule severity and rule check status. For example, `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")` means that the condition is met if any rule with a severity of High has a check result of Critical, or any rule with a severity of Normal has a check result of Critical, or any rule with a severity of Normal has a check result of Error. The severity enumeration values in the conditional expression are consistent with the severity enumeration values in DataQualityRule, and the status enumeration values are consistent with the status values in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -568,7 +568,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   condition?: string;
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert methods.
    */
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -608,7 +608,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   databaseType?: string;
   /**
    * @remarks
-   * The partition range monitored.
+   * The partition range to monitor.
    * 
    * @example
    * pt=$[yyyymmdd-1]
@@ -616,7 +616,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   partitionSpec?: string;
   /**
    * @remarks
-   * The unique ID of the table in the data map.
+   * The unique ID of the table in DataWorks Data Map.
    * 
    * @example
    * odps.api_trace.ods_d_api_log
@@ -624,8 +624,8 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitoring object.
-   * - Table: Table
+   * The monitored object type. Valid values:
+   * - Table: table.
    * 
    * @example
    * Table
@@ -661,15 +661,14 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The Id list of the scheduled task, which is valid when the Type is ByScheduledTaskInstance.
+   * The list of scheduling node IDs. This parameter is valid only when Type is set to ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the monitor. Valid values:
-   * 
-   * *   ByManual (default): The monitor is manually triggered.
-   * *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
+   * The trigger type of the quality monitoring task. Valid values:
+   * - ByManual: Manual trigger. This is the default value.
+   * - ByScheduledTaskInstance: Triggered by an associated scheduling node.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -704,7 +703,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask extends $dara.Model {
   /**
    * @remarks
-   * The description of the monitor.
+   * The description of the data quality monitoring task.
    * 
    * @example
    * OpenAPI quality monitoring test
@@ -712,12 +711,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   description?: string;
   /**
    * @remarks
-   * The hook.
+   * The callback settings.
    */
   hooks?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks[];
   /**
    * @remarks
-   * The ID of the data quality monitor.
+   * The ID of the data quality monitoring task.
    * 
    * @example
    * 28544990
@@ -725,7 +724,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   id?: number;
   /**
    * @remarks
-   * The name of the monitor.
+   * The name of the data quality monitoring task.
    * 
    * @example
    * Data quality OpenAPI monitoring test
@@ -733,12 +732,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   name?: string;
   /**
    * @remarks
-   * The configurations of alert notifications.
+   * The notification settings.
    */
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 20629
@@ -746,12 +745,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   projectId?: number;
   /**
    * @remarks
-   * Extended configuration, JSON-formatted string, takes effect only for EMR-type data quality monitoring.
+   * The extension configuration, a JSON-formatted character string. This parameter takes effect only for EMR-type data quality monitoring tasks.
    * 
-   * - queue: the yarn queue used when performing EMR data quality verification. The default queue is the queue configured for this project.
-   * - sqlEngine: SQL engine used when performing EMR data verification
-   *   - HIVE_ SQL
-   *   - SPARK_ SQL
+   * - queue: The YARN queue used to execute EMR data validation. The default value is the queue configured for the current project.
+   * - sqlEngine: The SQL engine used to execute EMR data validation. Valid values:
+   *   - HIVE_SQL
+   *   - SPARK_SQL.
    * 
    * @example
    * { "queue": "default" }
@@ -759,12 +758,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the monitor.
+   * The monitored object of the data quality check task. Refer to the DataQualityTarget example.
    */
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget;
   /**
    * @remarks
-   * The trigger configuration of the monitor.
+   * The trigger configuration of the data quality check task.
    */
   trigger?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger;
   static names(): { [key: string]: string } {
@@ -827,7 +826,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   createTime?: number;
   /**
    * @remarks
-   * The end time of the instance.
+   * The end time of the instance execution.
    * 
    * @example
    * 1716344665000
@@ -835,7 +834,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   finishTime?: number;
   /**
    * @remarks
-   * The ID of the data quality monitoring instance.
+   * The data quality monitoring instance ID.
    * 
    * @example
    * 7234231689
@@ -843,8 +842,8 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   id?: number;
   /**
    * @remarks
-   * Data quality verification execution parameters in JSON format. The available keys are as follows:
-   * - triggerTime: the millisecond timestamp of the trigger time. The baseline time of the $[yyyymmdd] expression in the data range of data quality monitoring. Required.
+   * The execution parameters for the data quality check, in JSON format. The following keys are available:
+   * - triggerTime: the millisecond-level timestamp of the trigger time. This is the base time for the $[yyyymmdd] expression in the data range of the data quality monitoring task. This key is required.
    * 
    * @example
    * { "triggerTime": 1733284062000 }
@@ -852,7 +851,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   parameters?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 98330
@@ -861,12 +860,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   results?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults[];
   /**
    * @remarks
-   * The status of the data quality monitoring instance.
-   * - Running: Verifying
-   * - Error: A rule verification Error occurred.
-   * - Passed: all rules are verified
-   * - Warned: normal alarm threshold triggered by rules
-   * - Critical: Threshold for serious alerts triggered by rules
+   * The instance status of the data quality monitoring task. Valid values:
+   * - Running: The check is in progress.
+   * - Error: A rule check encountered an error.
+   * - Passed: All rule checks passed.
+   * - Warned: A rule triggered a normal alert threshold.
+   * - Critical: A rule triggered a critical alert threshold.
    * 
    * @example
    * Passed
@@ -874,14 +873,14 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   status?: string;
   /**
    * @remarks
-   * The monitor.
+   * The data quality monitoring task.
    */
   task?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask;
   /**
    * @remarks
-   * The context information when the instance is triggered, in JSON format. The possible keys are as follows:
-   * - TriggerClient: the trigger source of the data quality monitoring instance, such as CWF2 (scheduling system), may be added later.
-   * - TriggerClientId: associated with a specific business resource in the source system. For example, if TriggerClient is CWF2, the ID of the scheduling task is recorded here.
+   * The context information when the instance is triggered, in JSON format. The following keys may be included:
+   * - TriggerClient: the trigger source of the data quality monitoring instance, such as CWF2 (scheduling system). More values may be added in the future.
+   * - TriggerClientId: the ID of a specific business resource in the source system. For example, when TriggerClient is CWF2, this field records the scheduling task ID.
    * 
    * @example
    * { "triggerClient": "CWF2", "triggerClientId": 70001238945 }
@@ -933,15 +932,15 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the monitor instance.
+   * The details of the data quality monitoring instance.
    */
   dataQualityEvaluationTaskInstance?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
-   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   * 8abcb91f-d266-4073-b907-2ed67****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

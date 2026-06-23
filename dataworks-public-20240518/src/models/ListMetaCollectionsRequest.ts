@@ -22,6 +22,9 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   /**
    * @remarks
    * The collection description. Supports fuzzy matching.
+   * 
+   * @example
+   * Test collection
    */
   description?: string;
   /**
@@ -36,8 +39,9 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * *   Asc (default): Ascending order
-   * *   Desc
+   * - Asc (default): Ascending order
+   * 
+   * - Desc
    * 
    * @example
    * Asc
@@ -64,18 +68,22 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * The ID of the parent collection.
    * 
    * @example
-   * category.123
+   * as78d756asd
    */
   parentId?: string;
   /**
    * @remarks
    * The sort field. Valid values:
    * 
-   * *   Id (default)
-   * *   Name
-   * *   CreateUser: Creator ID
-   * *   CreateTime: Creation time
-   * *   ModifyTime: Modification time
+   * - Id (default)
+   * 
+   * - Name
+   * 
+   * - CreateUser: Creator ID
+   * 
+   * - CreateTime: Creation time
+   * 
+   * - ModifyTime: Modification time
    * 
    * @example
    * Name
@@ -85,9 +93,11 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * @remarks
    * The collection type. Valid values:
    * 
-   * *   Category
-   * *   Album
-   * *   AlbumCategory: Album subcategory
+   * - Category
+   * 
+   * - Album
+   * 
+   * - AlbumCategory: Album subcategory
    * 
    * This parameter is required.
    * 

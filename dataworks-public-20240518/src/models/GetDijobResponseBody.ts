@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The name of the destination data source.
    * 
    * @example
    * dw_mysql
@@ -35,7 +35,7 @@ export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends
 export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings extends $dara.Model {
   /**
    * @remarks
-   * The data type of the destination field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
+   * The data type in the destination, such as `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, and `binary`. Data types vary depending on the data source.
    * 
    * @example
    * text
@@ -43,7 +43,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings ext
   destinationDataType?: string;
   /**
    * @remarks
-   * The data type of the source field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
+   * The data type in the source, such as `bigint`, `boolean`, `string`, `text`, `datetime`, `timestamp`, `decimal`, and `binary`. Data types vary depending on the data source.
    * 
    * @example
    * bigint
@@ -75,10 +75,11 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings ext
 export class GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings extends $dara.Model {
   /**
    * @remarks
-   * The synchronization type that requires periodic scheduling. Valid values:
+   * The synchronization type for periodic scheduling. Valid values:
    * 
-   * *   Full: full synchronization
-   * *   OfflineIncremental: batch incremental synchronization
+   * - `Full`: full
+   * 
+   * - `OfflineIncremental`: offline incremental
    * 
    * @example
    * Full
@@ -118,11 +119,13 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings exte
 export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extends $dara.Model {
   /**
    * @remarks
-   * The processing policy for a specific type of DDL message. Valid values:
+   * The handling action. Valid values:
    * 
-   * *   Ignore: ignores a DDL message.
-   * *   Critical: reports an error for a DDL message.
-   * *   Normal: normally processes a DDL message.
+   * - `Ignore`: Ignores the DDL message.
+   * 
+   * - `Critical`: Reports an error.
+   * 
+   * - `Normal`: Processes the DDL message.
    * 
    * @example
    * Ignore
@@ -130,13 +133,17 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extend
   action?: string;
   /**
    * @remarks
-   * The DDL operation type. Valid values:
+   * The DDL message type. Valid values:
    * 
-   * *   RenameColumn
-   * *   ModifyColumn
-   * *   CreateTable
-   * *   TruncateTable
-   * *   DropTable
+   * - `RenameColumn`
+   * 
+   * - `ModifyColumn`
+   * 
+   * - `CreateTable`
+   * 
+   * - `TruncateTable`
+   * 
+   * - `DropTable`
    * 
    * @example
    * CreateTable
@@ -168,16 +175,23 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extend
 export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration item. Valid values:
+   * The name of the setting. Valid values:
    * 
-   * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
-   * *   dst.offline.truncate: indicates whether to clear the destination table before data writing.
-   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
-   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
-   * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
-   * *   runtime.realtime.failover.minute.dataxcdc: indicates the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
-   * *   runtime.realtime.failover.times.dataxcdc: indicates the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
+   * - `src.offline.datasource.max.connection`: the maximum number of connections to the source for an offline batch job.
+   * 
+   * - `dst.offline.truncate`: Whether to truncate the destination table before the offline batch job starts.
+   * 
+   * - `runtime.offline.speed.limit.enable`: Whether to enable throttling for an offline batch job.
+   * 
+   * - `runtime.offline.concurrent`: the concurrency level for an offline batch synchronization job.
+   * 
+   * - `runtime.enable.auto.create.schema`: Whether to automatically create a schema at the destination.
+   * 
+   * - `runtime.realtime.concurrent`: the concurrency level for a real-time job.
+   * 
+   * - `runtime.realtime.failover.minute.dataxcdc`: The wait duration (in minutes) before restarting a failed instance.
+   * 
+   * - `runtime.realtime.failover.times.dataxcdc`: The maximum number of retries for a failed instance.
    * 
    * @example
    * runtime.offline.concurrent
@@ -185,7 +199,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $d
   name?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The value of the setting.
    * 
    * @example
    * 1
@@ -217,21 +231,27 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $d
 export class GetDIJobResponseBodyPagingInfoJobSettings extends $dara.Model {
   /**
    * @remarks
-   * The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
+   * The settings for channel-related jobs. You can configure special settings for specific channels. The following channels are supported: Holo2Holo (data synchronization from Hologres to Hologres) and Holo2Kafka (data synchronization from Hologres to Kafka).
    * 
-   * 1.  Holo2Kafka
+   * 1. Holo2Kafka
    * 
-   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
-   * *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you write data to a Kafka data source.
-   * *   keyColumns: the names of Kafka columns to which data is written.
-   * *   writeMode: the writing format. Valid values: json and canal.
+   * - Example: `{"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}`
    * 
-   * 2.  Holo2Holo
+   * - `kafkaClientProperties`: The parameters for the Kafka producer, used when writing data to Kafka.
    * 
-   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
-   * *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
-   * *   writeMode: the mode in which data is written to Hologres. Valid values: replay and insert.
-   * *   dynamicColumnAction: the mode in which data is written to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
+   * - `keyColumns`: The columns whose values are used as the key for Kafka records.
+   * 
+   * - `writeMode`: The format for writing data to Kafka. Valid values: `json` and `canal`.
+   * 
+   * 2. Holo2Holo
+   * 
+   * - Example: `{"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}`
+   * 
+   * - `conflictMode`: The conflict handling policy for writing data to Hologres. Valid values: `replace` (overwrite) and `ignore` (ignore).
+   * 
+   * - `writeMode`: The method for writing data to Hologres. Valid values: `replay` and `insert`.
+   * 
+   * - `dynamicColumnAction`: The method for handling dynamic columns when writing data to Hologres. Valid values: `replay`, `insert`, and `ignore`.
    * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
@@ -239,7 +259,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettings extends $dara.Model {
   channelSettings?: string;
   /**
    * @remarks
-   * The data type mappings between source fields and destination fields.
+   * The column data type mappings.
    */
   columnDataTypeSettings?: GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings[];
   /**
@@ -249,15 +269,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettings extends $dara.Model {
   cycleScheduleSettings?: GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings;
   /**
    * @remarks
-   * The DDL operation types. Valid values:
-   * 
-   * *   RenameColumn
-   * *   ModifyColumn
-   * *   CreateTable
-   * *   TruncateTable
-   * *   DropTable
-   * *   DropColumn
-   * *   AddColumn
+   * An array of settings for handling DDL messages. Each element specifies a DDL message type and the corresponding handling rule.
    */
   ddlHandlingSettings?: GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings[];
   /**
@@ -309,7 +321,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettings extends $dara.Model {
 export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The number of compute units (CUs) in the resource group for scheduling that are used for batch synchronization.
+   * The number of CUs from the data integration resource group for the offline synchronization job.
    * 
    * @example
    * 2.0
@@ -317,10 +329,10 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettin
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * The name of the data integration resource group used by the offline synchronization job.
    * 
    * @example
-   * S_res_group_7708_1667792816832
+   * di_resourcegroup_v1
    */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
@@ -349,7 +361,7 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettin
 export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs in the resource group for Data Integration that are used for real-time synchronization.
+   * The number of CUs from the data integration resource group for the real-time synchronization job.
    * 
    * @example
    * 2.0
@@ -357,10 +369,10 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSetti
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * The name of the data integration resource group used by the real-time job.
    * 
    * @example
-   * S_res_group_235454102432001_1579085295030
+   * di_resourcegroup_v1
    */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
@@ -389,7 +401,7 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSetti
 export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs in the resource group for Data Integration that are used for scheduling.
+   * The number of CUs from the scheduling resource group for the offline scheduling job.
    * 
    * @example
    * 2.0
@@ -397,10 +409,10 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSetti
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for scheduling used by the synchronization task.
+   * The name of the scheduling resource group used by the offline scheduling job.
    * 
    * @example
-   * S_res_group_235454102432001_1718359176885
+   * schedual_resourcegroup_v1
    */
   resourceGroupIdentifier?: string;
   static names(): { [key: string]: string } {
@@ -429,17 +441,17 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSetti
 export class GetDIJobResponseBodyPagingInfoResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The resource used for batch synchronization.
+   * The resource settings for the offline synchronization job.
    */
   offlineResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings;
   /**
    * @remarks
-   * The resource used for real-time synchronization.
+   * The resource settings for the real-time synchronization job.
    */
   realtimeResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings;
   /**
    * @remarks
-   * The resource used for scheduling.
+   * The scheduling resource settings.
    */
   scheduleResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
@@ -479,7 +491,7 @@ export class GetDIJobResponseBodyPagingInfoResourceSettings extends $dara.Model 
 export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties extends $dara.Model {
   /**
    * @remarks
-   * The encoding format of the database.
+   * The encoding of the database.
    * 
    * @example
    * UTF-8
@@ -559,7 +571,7 @@ export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettings extends $dar
 export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules extends $dara.Model {
   /**
    * @remarks
-   * The operation that is performed to select objects. Valid values: Include and Exclude.
+   * The selection action. Valid values: `Include` and `Exclude`.
    * 
    * @example
    * Include
@@ -575,7 +587,7 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRul
   expression?: string;
   /**
    * @remarks
-   * The expression type. Valid values: Exact and Regex.
+   * The expression type. Valid values: `Exact` and `Regex`.
    * 
    * @example
    * Exact
@@ -585,9 +597,11 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRul
    * @remarks
    * The object type. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table`
+   * 
+   * - `Schema`
+   * 
+   * - `Database`
    * 
    * @example
    * Table
@@ -625,10 +639,13 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
    * @remarks
    * The action type. Valid values:
    * 
-   * *   DefinePrimaryKey
-   * *   Rename
-   * *   AddColumn
-   * *   HandleDml
+   * - `DefinePrimaryKey`
+   * 
+   * - `Rename`
+   * 
+   * - `AddColumn`
+   * 
+   * - `HandleDml`
    * 
    * @example
    * AddColumn
@@ -636,7 +653,7 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
   ruleActionType?: string;
   /**
    * @remarks
-   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * The name of the rule. The rule name must be unique for a specific action type (`RuleActionType`) and target type (`RuleTargetType`).
    * 
    * @example
    * rename_rule_1
@@ -644,11 +661,13 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
   ruleName?: string;
   /**
    * @remarks
-   * The type of the object on which the action is performed. Valid values:
+   * The target object type of the action. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table`
+   * 
+   * - `Schema`
+   * 
+   * - `Database`
    * 
    * @example
    * Table
@@ -682,12 +701,12 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
 export class GetDIJobResponseBodyPagingInfoTableMappings extends $dara.Model {
   /**
    * @remarks
-   * The list of rules used to select synchronization objects in the source.
+   * Each rule selects a set of source objects to be synchronized. A combination of multiple rules selects one table.
    */
   sourceObjectSelectionRules?: GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules[];
   /**
    * @remarks
-   * The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   * An array of object transformation rule definitions.
    */
   transformationRules?: GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
@@ -724,13 +743,19 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
    * @remarks
    * The action type. Valid values:
    * 
-   * *   DefinePrimaryKey
-   * *   Rename
-   * *   AddColumn
-   * *   HandleDml
-   * *   DefineIncrementalCondition
-   * *   DefineCycleScheduleSettings
-   * *   DefinePartitionKey
+   * - `DefinePrimaryKey`
+   * 
+   * - `Rename`
+   * 
+   * - `AddColumn`
+   * 
+   * - `HandleDml`
+   * 
+   * - `DefineIncrementalCondition`
+   * 
+   * - `DefineCycleScheduleSettings`
+   * 
+   * - `DefinePartitionKey`
    * 
    * @example
    * Rename
@@ -738,50 +763,65 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
   ruleActionType?: string;
   /**
    * @remarks
-   * The expression of the rule. The expression is a JSON string.
+   * The rule expression, in JSON string format.
    * 
-   * 1.  Example of a renaming rule
+   * 1. Rename rule (`Rename`)
    * 
-   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
-   * *   expression: the expression of the renaming rule. You can use the following variables in an expression: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table.
+   * - Example: `{"expression":"${srcDatasourceName}_${srcDatabaseName}_0922"}`
    * 
-   * 2.  Example of a column addition rule
+   * - `expression`: The expression for the rename transformation rule. The expression supports the following variables: `${srcDatasourceName}` (source data source name), `${srcDatabaseName}` (source database name), and `${srcTableName}` (source table name).
    * 
-   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
-   * *   If no rule of this type is configured, no fields are added to the destination and no values are assigned by default.
-   * *   columnName: the name of the field that is added.
-   * *   columnValueType: the value type of the field. Valid values: Constant and Variable.
-   * *   columnValue: the value of the field. If the columnValueType parameter is set to Constant, the value of the columnValue parameter is a constant of the STRING data type. If the columnValueType parameter is set to Variable, the value of the columnValue parameter is a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME indicates the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC indicates the name of the source. TABLE_NAME_SRC indicates the name of a source table. DB_NAME_DEST indicates the name of a destination database. DATASOURCE_NAME_DEST indicates the name of the destination. TABLE_NAME_DEST indicates the name of a destination table. DB_NAME_SRC_TRANSED indicates the database name obtained after a transformation.
+   * 2. Add column rule (`AddColumn`)
    * 
-   * 3.  Example of a rule used to specify primary key fields for a destination table
+   * - Example: `{"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}`
    * 
-   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
-   * *   If no rule of this type is configured, the primary key fields in the mapped source table are used for the destination table by default.
-   * *   If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
-   * *   If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * - If you do not specify this parameter, no columns are added or copied by default.
    * 
-   * 4.  Example of a rule used to process DML messages
+   * - `columnName`: The name of the column to add.
    * 
-   * *   Example: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
-   * *   If no rule of this type is configured, the default processing policy for messages generated for insert, update, and delete operations is Normal.
-   * *   dmlType: the DML operation. Valid values: Insert, Update, and Delete.
-   * *   dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. The value Filter is returned for the dmlAction parameter only when the value of the dmlType parameter is Update or Delete.
-   * *   filterCondition: the condition used to filter DML messages. This parameter is returned only when the value of the dmlAction parameter is Filter.
+   * - `columnValueType`: The value type of the added column. Valid values: `Constant` and `Variable`.
    * 
-   * 5.  Example of a rule used to perform incremental synchronization
+   * - `columnValue`: The value of the added column. If `columnValueType` is `Constant`, the value is a custom string constant. If `columnValueType` is `Variable`, the value is a built-in variable. Valid built-in variables: `EXECUTE_TIME` (execution time, Long), `DB_NAME_SRC` (source database name, String), `DATASOURCE_NAME_SRC` (source data source name, String), `TABLE_NAME_SRC` (source table name, String), `DB_NAME_DEST` (destination database name, String), `DATASOURCE_NAME_DEST` (destination data source name, String), `TABLE_NAME_DEST` (destination table name, String), and `DB_NAME_SRC_TRANSED` (converted database name, String).
    * 
-   * *   Example: {"where":"id > 0"}
-   * *   The rule used to perform incremental synchronization is returned.
+   * 3. Define primary key rule (`DefinePrimaryKey`)
    * 
-   * 6.  Example of a rule used to configure scheduling parameters for an auto triggered task
+   * - Example: `{"columns":["ukcolumn1","ukcolumn2"]}`
    * 
-   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
-   * *   The rule used to configure scheduling parameters for an auto triggered task is returned.
+   * - By default, the primary key columns from the source table are used.
    * 
-   * 7.  Example of a rule used to specify a partition key
+   * - If the destination table already exists, the data integration system does not modify the table schema. If the specified primary key columns are not in the destination table, the job fails to start.
    * 
-   * *   Example: {"columns":["id"]}
-   * *   The rule used to specify a partition key is returned.
+   * - If the destination table is automatically created, the data integration system automatically creates the table schema that includes the defined primary key columns. If the specified primary key columns are not in the destination table, the job fails to start.
+   * 
+   * 4. DML handling rule (`HandleDml`)
+   * 
+   * - Example: `{"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}`
+   * 
+   * - If you do not specify this parameter, the default value `Normal` is used for Insert, Update, and Delete operations.
+   * 
+   * - `dmlType`: The DML operation type. Valid values: `Insert`, `Update`, and `Delete`.
+   * 
+   * - `dmlAction`: The DML handling policy. Valid values: `Normal` (process normally), `Ignore` (ignore), `Filter` (process conditionally, used when `dmlType` is `Update` or `Delete`), and `LogicalDelete` (logically delete).
+   * 
+   * - `filterCondition`: The DML filter condition. This parameter is used when `dmlAction` is `Filter`.
+   * 
+   * 5. Define incremental condition rule (`DefineIncrementalCondition`)
+   * 
+   * - Example: `{"where":"id > 0"}`
+   * 
+   * - Specifies the filter condition for incremental synchronization.
+   * 
+   * 6. Define cycle schedule settings rule (`DefineCycleScheduleSettings`)
+   * 
+   * - Example: `{"cronExpress":" * * * * * *", "cycleType":"1"}`
+   * 
+   * - Specifies the scheduling parameters for a periodic job.
+   * 
+   * 7. Define partition key rule (`DefinePartitionKey`)
+   * 
+   * - Example: `{"columns":["id"]}`
+   * 
+   * - Specifies the partition key.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -789,7 +829,7 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
   ruleExpression?: string;
   /**
    * @remarks
-   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * The name of the rule. The rule name must be unique for a specific action type (`RuleActionType`) and target type (`RuleTargetType`).
    * 
    * @example
    * rename_rule_1
@@ -797,11 +837,13 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * The type of the object on which the action is performed. Valid values:
+   * The target object type of the action. Valid values:
    * 
-   * *   Table
-   * *   Schema
-   * *   Database
+   * - `Table`
+   * 
+   * - `Schema`
+   * 
+   * - `Database`
    * 
    * @example
    * Table
@@ -837,7 +879,7 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
 export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use the Id parameter instead.
+   * This field is deprecated. Use the `Id` field instead.
    * 
    * @example
    * 32601
@@ -847,7 +889,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   DIJobId?: string;
   /**
    * @remarks
-   * The description of the synchronization task.
+   * The description of the job.
    * 
    * @example
    * description
@@ -855,12 +897,12 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The properties of the destination.
+   * The settings for the destination data source.
    */
   destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
   /**
    * @remarks
-   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB_For_MySQL, Kafka, Hive.
+   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB for MySQL`, `Kafka`, and `Hive`.
    * 
    * @example
    * Hologres
@@ -868,7 +910,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The job ID.
    * 
    * @example
    * 32601
@@ -876,7 +918,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the synchronization task.
+   * The name of the job.
    * 
    * @example
    * imp_ods_dms_det_dealer_info_df
@@ -884,12 +926,24 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The runtime settings.
+   * The job settings.
    */
   jobSettings?: GetDIJobResponseBodyPagingInfoJobSettings;
   /**
    * @remarks
-   * The status of the job.
+   * The status of the job. Valid values:
+   * 
+   * - `Finished`: The job is complete.
+   * 
+   * - `Failed`: The job failed.
+   * 
+   * - `Running`: The job is running.
+   * 
+   * - `Initialized`: The job is initialized but has not started.
+   * 
+   * - `Stopping`: The job is being stopped.
+   * 
+   * - `Stop`: The job is stopped.
    * 
    * @example
    * Running
@@ -897,13 +951,13 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   jobStatus?: string;
   /**
    * @remarks
-   * 任务类型
+   * The job type.
    * 
-   * - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
+   * - `DatabaseRealtimeMigration`: real-time synchronization of multiple tables from multiple source databases. This type supports full, incremental, or both full and incremental synchronization.
    * 
-   * - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
+   * - `DatabaseOfflineMigration`: batch synchronization of multiple tables from multiple source databases. This type supports full, incremental, or both full and incremental synchronization.
    * 
-   * - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步。
+   * - `SingleTableRealtimeMigration`: real-time synchronization of a single source table.
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -913,11 +967,15 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: full synchronization and real-time incremental synchronization of data in an entire database
-   * *   RealtimeIncremental: real-time incremental synchronization of data in a single table
-   * *   Full: full batch synchronization of data in an entire database
-   * *   OfflineIncremental: batch incremental synchronization of data in an entire database
-   * *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
+   * - `FullAndRealtimeIncremental`: one-time full synchronization and real-time incremental synchronization (for an entire database).
+   * 
+   * - `RealtimeIncremental`: real-time incremental synchronization (for a single table).
+   * 
+   * - `Full`: one-time full synchronization (for an entire database).
+   * 
+   * - `OfflineIncremental`: offline incremental synchronization (for an entire database).
+   * 
+   * - `FullAndOfflineIncremental`: one-time full synchronization and offline incremental synchronization (for an entire database).
    * 
    * @example
    * FullAndRealtimeIncremental
@@ -926,9 +984,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
-   * 
-   * This parameter indicates the DataWorks workspace to which the API operation is applied.
+   * The ID of the DataWorks workspace for the API call. You can obtain the workspace ID from the Workspace Configuration page in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 98330
@@ -941,12 +997,12 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   resourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettings;
   /**
    * @remarks
-   * The settings of the source. Only a single source is supported.
+   * The settings for the source data source.
    */
   sourceDataSourceSettings?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettings[];
   /**
    * @remarks
-   * The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SQLServer, Doris, ClickHouse.
+   * The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
    * 
    * @example
    * Mysql
@@ -954,16 +1010,53 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
-   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * A list of mappings for object transformation. Each element in the list describes a set of selection rules for source objects and a set of transformation rules that apply to the selected objects.
    * 
-   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * > [
+   * > {
+   * > "SourceObjectSelectionRules":[
+   * > {
+   * > "ObjectType":"Database",
+   * > "Action":"Include",
+   * > "ExpressionType":"Exact",
+   * > "Expression":"biz_db"
+   * > },
+   * > {
+   * > "ObjectType":"Schema",
+   * > "Action":"Include",
+   * > "ExpressionType":"Exact",
+   * > "Expression":"s1"
+   * > },
+   * > {
+   * > "ObjectType":"Table",
+   * > "Action":"Include",
+   * > "ExpressionType":"Exact",
+   * > "Expression":"table1"
+   * > }
+   * > ],
+   * > "TransformationRuleNames":[
+   * > {
+   * > "RuleName":"my_database_rename_rule",
+   * > "RuleActionType":"Rename",
+   * > "RuleTargetType":"Schema"
+   * > }
+   * > ]
+   * > }
+   * > ]
    */
   tableMappings?: GetDIJobResponseBodyPagingInfoTableMappings[];
   /**
    * @remarks
-   * The list of transformation rules that are applied to the synchronization objects selected from the source.
+   * A list of definitions for object transformation rules.
    * 
-   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
+   * > [
+   * > {
+   * > "RuleName":"my_database_rename_rule",
+   * > "RuleActionType":"Rename",
+   * > "RuleTargetType":"Schema",
+   * > "RuleExpression":"{\\\\"expression\\\\":\\\\"${srcDatasoureName}_${srcDatabaseName}\\\\"}"
+   * > }
+   * > ]
    */
   transformationRules?: GetDIJobResponseBodyPagingInfoTransformationRules[];
   static names(): { [key: string]: string } {
@@ -1040,12 +1133,12 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
 export class GetDIJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The details of the data integration job.
    */
   pagingInfo?: GetDIJobResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490

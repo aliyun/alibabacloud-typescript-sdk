@@ -23,8 +23,9 @@ export class ListDatabasesRequest extends $dara.Model {
    * @remarks
    * The sort order. Default value: Asc. Valid values:
    * 
-   * *   Asc: ascending.
-   * *   Desc: descending.
+   * - Asc: ascending.
+   * 
+   * - Desc: descending.
    * 
    * @example
    * Asc
@@ -52,35 +53,41 @@ export class ListDatabasesRequest extends $dara.Model {
    * 
    * You can refer to the ListCrawlerTypes operation for the parent entity type.
    * 
-   * *   If the parent entity is a catalog, the format of `ParentMetaEntityId` follows the response of the ListCatalogs API.
-   * *   If the parent entity is a metadata crawler, the format of `ParentMetaEntityId` is `${CrawlerType}:${Instance ID or encoded URL}`.
+   * - If the parent entity is a catalog, the format of `ParentMetaEntityId` follows the response of the ListCatalogs API.
+   * 
+   * - If the parent entity is a metadata crawler, the format of `ParentMetaEntityId` is `${CrawlerType}:${Instance ID or encoded URL}`.
    * 
    * ParentMetaEntityId format examples
    * 
-   * *   `dlf-catalog::catalog_id`
-   * *   `holo:instance_id`
-   * *   `mysql:(instance_id|encoded_jdbc_url)`
+   * - `dlf-catalog::catalog_id`
    * 
-   * > 
+   * - `holo:instance_id`
    * 
-   * *   `catalog_id`: The ID of the DLF catalog.
-   * *   `instance_id`: The instance ID. Required when the data source is registered in instance mode.
-   * *   `encoded_jdbc_url`: The URL-encoded JDBC connection string. Required when the data source is registered by connection string.
+   * - `mysql:(instance_id|encoded_jdbc_url)`
+   * 
+   * >
+   * 
+   * - `catalog_id`: The ID of the DLF catalog.
+   * 
+   * - `instance_id`: The instance ID. Required when the data source is registered in instance mode.
+   * 
+   * - `encoded_jdbc_url`: The URL-encoded JDBC connection string. Required when the data source is registered by connection string.
    * 
    * This parameter is required.
    * 
    * @example
-   * mysql:rm-abc123xxx
-   * dlf-catalog:123456XXX:test_catalog
+   * holo:instance_id
    */
   parentMetaEntityId?: string;
   /**
    * @remarks
    * The sort field. Default value: CreateTime. Valid values:
    * 
-   * *   CreateTime
-   * *   ModifyTime
-   * *   Name
+   * - CreateTime
+   * 
+   * - ModifyTime
+   * 
+   * - Name
    * 
    * @example
    * CreateTime
