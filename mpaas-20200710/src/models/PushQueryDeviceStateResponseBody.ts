@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PushQueryDeviceStateResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * ad-000f18w8vmqtzhvbopge-854
-   */
   deliveryToken?: string;
-  /**
-   * @example
-   * ad-000f18w8vmqtzhvbopge-854
-   */
   deviceId?: string;
-  /**
-   * @example
-   * miui
-   */
   manufacturer?: string;
-  /**
-   * @example
-   * android
-   */
   platform?: string;
-  /**
-   * @example
-   * ONLINE
-   */
   statue?: string;
-  /**
-   * @example
-   * IQAAAACy0f7tAABYiMwLEENtr0TKYJEsv7wyu4Ubt9XXwTJAlknnCb1LAzB3wJvoZIcT_nJdaMhEoXJaqQrObAGHLGoU1GOexlTcLWzja-0HfGHKBw
-   */
   thirdToken?: string;
-  /**
-   * @example
-   * push_test
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,29 +44,10 @@ export class PushQueryDeviceStateResponseBodyData extends $dara.Model {
 }
 
 export class PushQueryDeviceStateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   code?: string;
   data?: PushQueryDeviceStateResponseBodyData;
-  /**
-   * @example
-   * SUCCESS
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

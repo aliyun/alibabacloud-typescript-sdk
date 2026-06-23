@@ -3,59 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTemplateResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   action?: string;
   content?: string;
   descInfo?: string;
-  /**
-   * @example
-   * 1740479834
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 1745337419999
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * /
-   */
   iconUrls?: string;
-  /**
-   * @example
-   * 123
-   */
   id?: string;
-  /**
-   * @example
-   * /
-   */
   imageUrls?: string;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   pushStyle?: string;
-  /**
-   * @example
-   * 0
-   */
   showStyle?: string;
   title?: string;
-  /**
-   * @example
-   * /
-   */
   uri?: string;
-  /**
-   * @example
-   * title,content
-   */
   variables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,29 +65,10 @@ export class GetTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetTemplateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   code?: string;
   data?: GetTemplateResponseBodyData;
-  /**
-   * @example
-   * success
-   */
   msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

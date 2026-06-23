@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTemplateRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * 146552
-   */
   templateId?: string;
   templateName?: string;
-  /**
-   * @example
-   * CGAKLRCS
-   */
   tenantId?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

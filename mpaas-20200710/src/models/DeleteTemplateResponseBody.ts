@@ -3,28 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTemplateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   code?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAnalysisCoreIndexRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * miui
-   */
   channel?: string;
-  /**
-   * @example
-   * 1756051200000
-   */
   endTime?: number;
-  /**
-   * @example
-   * Android
-   */
   platform?: string;
-  /**
-   * @example
-   * 1756051200000
-   */
   startTime?: number;
-  /**
-   * @example
-   * 546797740032
-   */
   taskId?: string;
-  /**
-   * @example
-   * CGAKLRCS
-   */
   tenantId?: string;
-  /**
-   * @example
-   * 2
-   */
   type?: string;
-  /**
-   * @example
-   * dev
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
