@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host account whose information you want to modify.
+   * Specifies the ID of the host account to be modified.
    * 
-   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyHostAccountRequest extends $dara.Model {
   hostAccountId?: string;
   /**
    * @remarks
-   * The new name of the host account. The name can be up to 128 characters in length.
+   * Specifies the modified host account name, which can contain up to 128 characters.
    * 
    * @example
    * abc
@@ -25,9 +25,9 @@ export class ModifyHostAccountRequest extends $dara.Model {
   hostAccountName?: string;
   /**
    * @remarks
-   * The ID of the shared key that is associated with the host.
+   * The host shared key ID.
    * 
-   * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * > You can obtain this ID by calling the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation.
    * 
    * @example
    * 1
@@ -35,9 +35,9 @@ export class ModifyHostAccountRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The ID of the bastion host in which you want to modify the information about the host account.
+   * Specifies the ID of the Bastionhost instance where the host account to be modified resides.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
    * 
    * This parameter is required.
    * 
@@ -47,43 +47,71 @@ export class ModifyHostAccountRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The passphrase for the new private key of the host account.
+   * Specifies the modified security token of the host account\\"s private key.
    * 
-   * >  This parameter is valid only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP).
+   * > This parameter takes effect when the host account protocol is SSH. This parameter is not required when the host account protocol is RDP.
    * 
    * @example
-   * ****
+   * 123456
    */
   passPhrase?: string;
   /**
    * @remarks
-   * The new password of the host account.
+   * Specifies the modified password of the host account.
    * 
    * @example
-   * ****
+   * 123456
    */
   password?: string;
   /**
    * @remarks
-   * The new private key of the host account. Specify a Base64-encoded string.
+   * Specifies the modified private key of the host account, which is a Base64-encoded string.
    * 
-   * >  This parameter takes effect only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP). You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+   * > This parameter takes effect when the host account protocol is SSH. This parameter is not required when the host account protocol is RDP. You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host account. You can configure both a password and a private key for a host account. When connecting to an asset, Bastionhost preferentially uses the private key for connection.
    * 
    * @example
-   * ****
+   * -----BEGIN RSA PRIVATE KEY-----
+   * ......
+   * -----END RSA PRIVATE KEY-----
    */
   privateKey?: string;
+  /**
+   * @remarks
+   * Account permission type. Valid values:
+   * 
+   * - **Privileged**: privileged account
+   * 
+   * - **Normal**: regular account
+   * 
+   * > This parameter is supported only in V3.2.47 and later versions.
+   * 
+   * @example
+   * Normal
+   */
   privilegeType?: string;
   /**
    * @remarks
-   * The region ID of the bastion host in which you want to query the details of the host account.
+   * Specifies the region ID of the Bastionhost instance where the host account to be queried resides.
    * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Account password rotation mode. Valid values:
+   * 
+   * - **Privileged**: Use a privileged account to change the password
+   * 
+   * - **Self**: Do not use a privileged account to change the password
+   * 
+   * > This parameter is supported only in V3.2.47 and later versions.
+   * 
+   * @example
+   * Self
+   */
   rotationMode?: string;
   static names(): { [key: string]: string } {
     return {

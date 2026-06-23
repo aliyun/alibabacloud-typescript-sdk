@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddInstanceRdMemberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4F6C075F-FC86-476E-943B-097BD4E12948
    */

@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetExportConfigJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Bastionhost instance.
+   * 
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class GetExportConfigJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the configuration backup export job.
+   * 
+   * > This parameter is the JobId returned after you successfully call the CreateExportConfigJob operation to create a configuration backup export job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +28,11 @@ export class GetExportConfigJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The region ID of the Bastionhost instance.
+   * 
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
    * @example
    * cn-hangzhou
    */

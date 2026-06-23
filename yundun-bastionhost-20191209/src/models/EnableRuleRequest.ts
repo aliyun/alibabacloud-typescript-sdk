@@ -7,7 +7,7 @@ export class EnableRuleRequest extends $dara.Model {
    * @remarks
    * The bastion host ID.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class EnableRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the authorization rule that you want to enable.
    * 
-   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
    * 
    * This parameter is required.
    * 

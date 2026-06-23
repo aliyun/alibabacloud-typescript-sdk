@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfigInstanceWhiteListRequestWhiteListPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The description of this whitelist rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The IP addresses to add to the whitelist. You can specify up to 50 IP addresses, separated by a comma.
+   * 
+   * @example
+   * 10.162.XX.XX,192.168.XX.XX
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,9 +42,9 @@ export class ConfigInstanceWhiteListRequestWhiteListPolicies extends $dara.Model
 export class ConfigInstanceWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
+   * The ID of the Bastionhost instance to configure.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > To obtain the instance ID, call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation.
    * 
    * This parameter is required.
    * 
@@ -43,7 +54,7 @@ export class ConfigInstanceWhiteListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
    * @example
    * cn-hangzhou
@@ -51,12 +62,16 @@ export class ConfigInstanceWhiteListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP address whitelist that you want to configure.
+   * The list of IP addresses to add to the whitelist.
    * 
    * @example
    * 10.162.XX.XX
    */
   whiteList?: string[];
+  /**
+   * @remarks
+   * The policies for the public IP address whitelist.
+   */
   whiteListPolicies?: ConfigInstanceWhiteListRequestWhiteListPolicies[];
   static names(): { [key: string]: string } {
     return {

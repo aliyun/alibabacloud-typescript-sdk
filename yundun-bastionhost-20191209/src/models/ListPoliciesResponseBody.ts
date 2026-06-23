@@ -6,6 +6,9 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
    * The remarks of the control policy.
+   * 
+   * @example
+   * Comment
    */
   comment?: string;
   /**

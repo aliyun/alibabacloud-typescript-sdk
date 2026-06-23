@@ -37,6 +37,7 @@ export class MoveDatabasesToNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the bastion host.
+   * 
    * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example

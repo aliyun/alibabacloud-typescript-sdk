@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ResetHostAccountCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the logon credential that you want to delete. Valid values:
+   * The type of logon credential to clear. Valid values:
    * 
-   * *   **Password**
-   * *   **PrivateKey**
+   * - **Password**: The password.
+   * 
+   * - **PrivateKey**: The SSH private key.
    * 
    * This parameter is required.
    * 
@@ -18,9 +19,9 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The ID of the host account for which the logon credential is to be deleted.
+   * The ID of the host account. The logon credential of this account will be cleared.
    * 
-   * >  You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * > Call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -30,21 +31,21 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
   hostAccountId?: string;
   /**
    * @remarks
-   * The ID of the bastion host from which you want to delete the logon credential for the host account.
+   * The ID of the Bastionhost instance. The instance contains the host account.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * bastionhost-cn-st220aw****
+   * bastionhost-cn-rp640dg****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host from which you want to delete the logon credential for the host account.
+   * The region ID of the Bastionhost instance.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For information about region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

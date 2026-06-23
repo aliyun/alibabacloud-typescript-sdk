@@ -13,11 +13,7 @@ export class CreateRuleRequestDatabases extends $dara.Model {
    * The database ID.
    * 
    * @example
-   * [
-   *     {
-   *         "DatabaseId": "1"
-   *     }
-   * ]
+   * 2
    */
   databaseId?: string;
   static names(): { [key: string]: string } {
@@ -57,7 +53,7 @@ export class CreateRuleRequestHostGroups extends $dara.Model {
    * The asset group ID.
    * 
    * @example
-   * [{"HostGroupId":"1"}]
+   * 3
    */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +93,7 @@ export class CreateRuleRequestHosts extends $dara.Model {
    * The host ID.
    * 
    * @example
-   * [{"HostId":"1"}]
+   * 1
    */
   hostId?: string;
   static names(): { [key: string]: string } {
@@ -170,7 +166,7 @@ export class CreateRuleRequest extends $dara.Model {
    * @remarks
    * The bastion host ID.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 

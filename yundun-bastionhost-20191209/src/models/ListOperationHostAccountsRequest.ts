@@ -15,7 +15,7 @@ export class ListOperationHostAccountsRequest extends $dara.Model {
    * @remarks
    * The ID of the host whose accounts you want to query.
    * 
-   * >  You can call the [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to query the host ID.
+   * > You can call the [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to query the host ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ListOperationHostAccountsRequest extends $dara.Model {
    * @remarks
    * The bastion host ID.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -45,10 +45,9 @@ export class ListOperationHostAccountsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.\\
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The number of entries per page.<br> Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > We recommend that you do not leave this parameter empty.
    * 
    * @example
    * 20
@@ -58,7 +57,7 @@ export class ListOperationHostAccountsRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

@@ -39,8 +39,9 @@ export class ListDatabaseAccountsResponseBodyDatabaseAccounts extends $dara.Mode
    * @remarks
    * Indicates whether the database account has a password. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

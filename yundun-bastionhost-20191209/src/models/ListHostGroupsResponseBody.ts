@@ -8,7 +8,7 @@ export class ListHostGroupsResponseBodyHostGroups extends $dara.Model {
    * The remarks of the asset group.
    * 
    * @example
-   * Description
+   * Comment
    */
   comment?: string;
   /**
@@ -24,7 +24,7 @@ export class ListHostGroupsResponseBodyHostGroups extends $dara.Model {
    * The name of the asset group.
    * 
    * @example
-   * Host group 1
+   * HostGroup1
    */
   hostGroupName?: string;
   /**

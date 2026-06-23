@@ -7,8 +7,9 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
    * @remarks
    * The address type of the host. Valid values:
    * 
-   * *   **Public**: a public address
-   * *   **Private**: a private address
+   * - **Public**: a public address
+   * 
+   * - **Private**: a private address
    * 
    * @example
    * Public
@@ -66,8 +67,9 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
    * @remarks
    * The operating system of the host. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -77,9 +79,11 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
    * @remarks
    * The source of the host. Valid values:
    * 
-   * *   **Local**: a host in a data center
-   * *   **Ecs**: an ECS instance
-   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * - **Local**: a host in a data center
+   * 
+   * - **Ecs**: an ECS instance
+   * 
+   * - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
    * 
    * @example
    * Local
@@ -99,8 +103,9 @@ export class ListHostsResponseBodyHosts extends $dara.Model {
    * @remarks
    * The status of the host. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **Release**: released
+   * - **Normal**: normal
+   * 
+   * - **Release**: released
    * 
    * @example
    * Normal

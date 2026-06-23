@@ -16,7 +16,7 @@ export class ListUserGroupsResponseBodyUserGroups extends $dara.Model {
    * The number of users in the user group.
    * 
    * @example
-   * 5
+   * 6
    */
   memberCount?: number;
   /**

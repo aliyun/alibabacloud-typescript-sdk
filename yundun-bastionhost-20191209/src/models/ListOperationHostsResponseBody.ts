@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   /**
    * @remarks
-   * The address type of the host. Valid values:
+   * The address type of the host.
    * 
-   * *   **Public**
-   * *   **Private**
+   * - **Public**: The public endpoint is used.
+   * 
+   * - **Private**: The private endpoint is used.
    * 
    * @example
    * Public
@@ -16,7 +17,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The remarks of the host.
+   * The comments on the host.
    * 
    * @example
    * comment
@@ -24,7 +25,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The host ID.
+   * The ID of the host.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The host name.
+   * The name of the host.
    * 
    * @example
    * host1
@@ -40,7 +41,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The private IP address of the host.
+   * The private address of the host.
    * 
    * @example
    * 192.168.XX.XX
@@ -48,7 +49,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public IP address of the host.
+   * The public address of the host.
    * 
    * @example
    * 10.158.XX.XX
@@ -56,10 +57,11 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   hostPublicAddress?: string;
   /**
    * @remarks
-   * The host OS.
+   * The operating system of the host.
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -67,10 +69,11 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The host type. Valid values:
+   * The source of the host.
    * 
-   * *   **Local**: on-premises host.
-   * *   **Ecs**: Elastic Compute Service (ECS) instance.
+   * - **Local**: a local host
+   * 
+   * - **Ecs**: an ECS instance
    * 
    * @example
    * Local
@@ -78,7 +81,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ECS instance ID.
+   * The ID of the ECS instance.
    * 
    * @example
    * i-bp19ienyt0yax748****
@@ -86,10 +89,11 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
   sourceInstanceId?: string;
   /**
    * @remarks
-   * The host status. Valid values:
+   * The state of the host.
    * 
-   * *   **Normal**
-   * *   **Release**
+   * - **Normal**: The host is running.
+   * 
+   * - **Release**: The host is released.
    * 
    * @example
    * Normal
@@ -137,12 +141,12 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
 export class ListOperationHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hosts returned.
+   * A list of the hosts.
    */
   hosts?: ListOperationHostsResponseBodyHosts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4F6C075F-FC86-476E-943B-097BD4E12948
@@ -150,7 +154,7 @@ export class ListOperationHostsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of hosts returned.
+   * The total number of hosts.
    * 
    * @example
    * 5

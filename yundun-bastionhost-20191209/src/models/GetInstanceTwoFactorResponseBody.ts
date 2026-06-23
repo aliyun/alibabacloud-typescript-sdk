@@ -7,8 +7,9 @@ export class GetInstanceTwoFactorResponseBodyConfig extends $dara.Model {
    * @remarks
    * Indicates whether two-factor authentication is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

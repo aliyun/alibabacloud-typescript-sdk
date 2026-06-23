@@ -31,7 +31,7 @@ export class GetPolicyUserScopeRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host to which the control policy to query belongs.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

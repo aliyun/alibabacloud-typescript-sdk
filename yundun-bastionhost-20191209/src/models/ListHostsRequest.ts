@@ -45,8 +45,9 @@ export class ListHostsRequest extends $dara.Model {
    * @remarks
    * The operating system of the host that you want to query. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -84,9 +85,11 @@ export class ListHostsRequest extends $dara.Model {
    * @remarks
    * The source of the host that you want to query. Valid values:
    * 
-   * *   **Local**: a host in a data center
-   * *   **Ecs**: an Elastic Compute Service (ECS) instance
-   * *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+   * - **Local**: a host in a data center
+   * 
+   * - **Ecs**: an Elastic Compute Service (ECS) instance
+   * 
+   * - **Rds**: a host in an ApsaraDB MyBase dedicated cluster
    * 
    * @example
    * Local
@@ -104,8 +107,9 @@ export class ListHostsRequest extends $dara.Model {
    * @remarks
    * The status of the host that you want to query. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **Release**: released
+   * - **Normal**: normal
+   * 
+   * - **Release**: released
    * 
    * @example
    * Normal

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOperationTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the O\\&M ticket.
+   * 
    * @example
    * 2
    */
   operationTicketId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0ECCC399-4D35-48A7-8379-5C6180E66235
    */

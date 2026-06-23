@@ -55,12 +55,12 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about regions where you can create bastion hosts.
+   * The regions that support Bastionhost instances.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of request.
+   * The ID of the request.
    * 
    * @example
    * B7281856-F27D-4ECE-B4F1-50511E550xxx

@@ -7,7 +7,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the asset group from which you want to remove hosts.
    * 
-   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * @remarks
    * The IDs of the hosts that you want to remove from the host group. Specify a JSON string. You can specify up to 100 host IDs.
    * 
-   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the bastion host whose asset group you want to manage.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host whose asset group you want to manage.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

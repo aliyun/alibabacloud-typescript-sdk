@@ -24,6 +24,9 @@ export class MoveHostsToNetworkDomainResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The error message that is returned.
+   * 
+   * @example
+   * None
    */
   message?: string;
   static names(): { [key: string]: string } {

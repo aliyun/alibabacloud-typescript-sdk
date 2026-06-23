@@ -31,8 +31,9 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
    * @remarks
    * Indicates whether the user group is authorized to manage the host account. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -42,8 +43,9 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $dara.
    * @remarks
    * The protocol that is used by the host. Valid values:
    * 
-   * *   **SSH**
-   * *   **RDP**
+   * - **SSH**
+   * 
+   * - **RDP**
    * 
    * @example
    * SSH

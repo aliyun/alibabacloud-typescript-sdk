@@ -15,7 +15,7 @@ export class ModifyHostGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the asset group that you want to modify.
    * 
-   * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyHostGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host whose asset group you want to modify.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

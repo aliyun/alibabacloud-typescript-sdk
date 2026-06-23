@@ -6,6 +6,9 @@ export class ModifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The new remarks of the control policy.
+   * 
+   * @example
+   * test
    */
   comment?: string;
   /**

@@ -31,8 +31,10 @@ export class GetDatabaseAccountResponseBodyDatabaseAccount extends $dara.Model {
    * @remarks
    * Indicates whether the database account has a password.
    * Valid values:
-   * * true
-   * * false
+   * 
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -42,8 +44,9 @@ export class GetDatabaseAccountResponseBodyDatabaseAccount extends $dara.Model {
    * @remarks
    * The logon attribute. A value is returned for this parameter if the database engine is Oracle. Valid values:
    * 
-   * *   SERVICENAME
-   * *   SID
+   * - SERVICENAME
+   * 
+   * - SID
    * 
    * @example
    * SID

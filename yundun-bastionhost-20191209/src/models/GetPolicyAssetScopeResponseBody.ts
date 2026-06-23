@@ -7,8 +7,9 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeDatabases extends $dara.Mo
    * @remarks
    * The scope of database accounts to which the control policy applies. Valid values:
    * 
-   * *   **All**: The control policy applies to all database accounts of the database.
-   * *   **AccountId**: The control policy applies to specified database accounts of the database.
+   * - **All**: The control policy applies to all database accounts of the database.
+   * 
+   * - **AccountId**: The control policy applies to specified database accounts of the database.
    * 
    * @example
    * AccountId
@@ -65,8 +66,9 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeHostGroups extends $dara.M
    * @remarks
    * The scope of asset accounts to which the control policy applies. Valid values:
    * 
-   * *   **All**: The control policy applies to all accounts in the asset group.
-   * *   **AccountName**: The control policy applies to specified accounts in the asset group.
+   * - **All**: The control policy applies to all accounts in the asset group.
+   * 
+   * - **AccountName**: The control policy applies to specified accounts in the asset group.
    * 
    * @example
    * All
@@ -113,8 +115,9 @@ export class GetPolicyAssetScopeResponseBodyAssetScopeHosts extends $dara.Model 
    * @remarks
    * The scope of host accounts to which the control policy applies. Valid values:
    * 
-   * *   **All**: The control policy applies to all accounts of the host.
-   * *   **AccountId**: The control policy applies to specified accounts of the host.
+   * - **All**: The control policy applies to all accounts of the host.
+   * 
+   * - **AccountId**: The control policy applies to specified accounts of the host.
    * 
    * @example
    * All
@@ -181,9 +184,9 @@ export class GetPolicyAssetScopeResponseBodyAssetScope extends $dara.Model {
    * @remarks
    * The scope of assets to which the control policy applies.
    * 
-   * *   If **All** is returned for this parameter, the control policy applies to all assets.
+   * - If **All** is returned for this parameter, the control policy applies to all assets.
    * 
-   * *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
+   * - If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
    * 
    * @example
    * All

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key.
    * 
    * Valid values of N: 1 to 20.
    * 
@@ -15,7 +15,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
    * Valid values of N: 1 to 20.
    * 
@@ -49,7 +49,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token for starting the next query.
+   * The token to start the next query.
    * 
    * @example
    * 6EwFJmScBXFFC3nf.9Rq7HzA7APx7GWLbkZbjHrR6Pq39w
@@ -68,7 +68,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The IDs of instances.
+   * The resource ID.
    * 
    * @example
    * bastionhost-cn-78v1gcxxxxx
@@ -76,9 +76,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource.
+   * The type of resource.
    * 
-   * Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
+   * The only valid value is INSTANCE, which indicates a Bastionhost instance.
    * 
    * This parameter is required.
    * 
@@ -88,7 +88,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

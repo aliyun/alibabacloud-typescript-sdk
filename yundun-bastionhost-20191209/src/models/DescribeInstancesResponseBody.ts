@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesResponseBodyInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The default bandwidth of the instance, in Mbit/s.
+   * 
+   * @example
+   * 60M
+   */
   bandWidth?: number;
   /**
    * @remarks
-   * The remarks of the bastion host.
+   * The custom description of the Bastionhost instance.
    * 
    * @example
    * Test API
@@ -14,7 +21,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The timestamp when the bastion host expires. Unit: milliseconds.
+   * The expiration time of the Bastionhost instance, specified as a timestamp in milliseconds.
    * 
    * @example
    * 1578326400000
@@ -22,15 +29,15 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The image version of the bastion host.
+   * The image version of the Bastionhost instance.
    * 
    * @example
-   * 3.0.0
+   * 3.2.41
    */
   imageVersion?: string;
   /**
    * @remarks
-   * The bastion host ID.
+   * The ID of the Bastionhost instance.
    * 
    * @example
    * bastionhost-cn-78v1gh****
@@ -38,15 +45,21 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of the bastion host. Valid values:
+   * The status of the Bastionhost instance. Valid values:
    * 
-   * *   **PENDING**: The bastion host is not initialized.
-   * *   **CREATING**: The bastion host is being created.
-   * *   **RUNNING**: The bastion host is running.
-   * *   **EXPIRED**: The bastion host expired.
-   * *   **CREATE_FAILED**: The bastion host fails to be created.
-   * *   **UPGRADING**: The configurations of the bastion host are being changed.
-   * *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+   * - **PENDING**: Not initialized
+   * 
+   * - **CREATING**: The instance is being created.
+   * 
+   * - **RUNNING**: The instance is running.
+   * 
+   * - **EXPIRED**: The instance has expired.
+   * 
+   * - **CREATE_FAILED**: Instance creation failed.
+   * 
+   * - **UPGRADING**: The instance is being upgraded.
+   * 
+   * - **UPGRADE_FAILED**: Instance upgrade failed.
    * 
    * @example
    * RUNNING
@@ -54,26 +67,27 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The public O\\&M address of the bastion host.
+   * The public domain name of the Bastionhost instance.
    * 
    * @example
-   * drawvxalwb-public.bastionhost.aliyuncs.com
+   * ******lwb-public.bastionhost.aliyuncs.com
    */
   internetEndpoint?: string;
   /**
    * @remarks
-   * The private O\\&M address of the bastion host.
+   * The private domain name of the Bastionhost instance.
    * 
    * @example
-   * drawvxalwb.bastionhost.aliyuncs.com
+   * ******lwb.bastionhost.aliyuncs.com
    */
   intranetEndpoint?: string;
   /**
    * @remarks
-   * Indicates whether the bastion host runs an earlier version. Valid values:
+   * Indicates whether the Bastionhost instance is a legacy instance. Valid values:
    * 
-   * *   **true**: The bastion host runs V2 or V3.1.
-   * *   **false**: The bastion host runs V3.2.
+   * - **true**: The instance is of the V2 or V3.1 series.
+   * 
+   * - **false**: The instance is of the V3.2 series.
    * 
    * @example
    * false
@@ -81,7 +95,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   legacy?: boolean;
   /**
    * @remarks
-   * The license code of the bastion host.
+   * The license code of the Bastionhost instance.
    * 
    * @example
    * bhah_ent_50_asset
@@ -89,10 +103,11 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   licenseCode?: string;
   /**
    * @remarks
-   * The edition of the bastion host. Valid values:
+   * The edition of the Bastionhost instance. Valid values:
    * 
-   * *   **cloudbastion**: Basic Edition.
-   * *   **cloudbastion_ha**: Enterprise Edition.
+   * - **cloudbastion**: Basic Edition
+   * 
+   * - **cloudbastion_ha**: Enterprise Edition
    * 
    * @example
    * cloudbastion_ha
@@ -100,10 +115,11 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   planCode?: string;
   /**
    * @remarks
-   * Indicates whether the bastion host can be accessed from the Internet. Valid values:
+   * Indicates whether the Bastionhost instance is accessible over the Internet. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is accessible over the Internet.
+   * 
+   * - **false**: The instance is not accessible over the Internet.
    * 
    * @example
    * true
@@ -111,7 +127,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   publicNetworkAccess?: boolean;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
    * @example
    * cn-hangzhou
@@ -119,16 +135,23 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the bastion host belongs.
+   * The ID of the resource group to which the Bastionhost instance belongs.
    * 
    * @example
    * g-acfm26ougi****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the standby vSwitch to which the Bastionhost instance is attached.
+   * 
+   * @example
+   * vsw-uf6j0u49poi8qr****
+   */
   slaveVswitchId?: string;
   /**
    * @remarks
-   * The timestamp when the bastion host is purchased or renewed. Unit: milliseconds.
+   * The purchase or renewal time of the Bastionhost instance, specified as a timestamp in milliseconds.
    * 
    * @example
    * 1577681345000
@@ -136,7 +159,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the bastion host belongs.
+   * The ID of the VPC to which the Bastionhost instance is attached.
    * 
    * @example
    * vpc-bp1c85tzgqu1bf5b****
@@ -144,7 +167,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the bastion host belongs.
+   * The ID of the vSwitch to which the Bastionhost instance is attached.
    * 
    * @example
    * vsw-bp1xfwzzfti0kjbf****
@@ -208,12 +231,12 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the bastion hosts returned.
+   * An array of Bastionhost instances.
    */
   instances?: DescribeInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates this unique ID for troubleshooting purposes.
    * 
    * @example
    * 61D36C55-AAFC-4678-8FAD-34FEF9E7182E
@@ -221,7 +244,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of bastion hosts that are queried.
+   * The total number of Bastionhost instances returned.
    * 
    * @example
    * 4

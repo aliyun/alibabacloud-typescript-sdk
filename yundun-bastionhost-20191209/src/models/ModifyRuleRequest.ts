@@ -13,11 +13,7 @@ export class ModifyRuleRequestDatabases extends $dara.Model {
    * The database ID.
    * 
    * @example
-   * [
-   *     {
-   *         "DatabaseId": "1"
-   *     }
-   * ]
+   * 2
    */
   databaseId?: string;
   static names(): { [key: string]: string } {
@@ -57,7 +53,7 @@ export class ModifyRuleRequestHostGroups extends $dara.Model {
    * The asset group ID.
    * 
    * @example
-   * [{"HostGroupId":"1"}]
+   * 1
    */
   hostGroupId?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +93,7 @@ export class ModifyRuleRequestHosts extends $dara.Model {
    * The host ID.
    * 
    * @example
-   * [{"HostId":"1"}]
+   * 1
    */
   hostId?: string;
   static names(): { [key: string]: string } {
@@ -130,6 +126,9 @@ export class ModifyRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The new remarks of the authorization rule. It can be up to 500 characters in length.
+   * 
+   * @example
+   * TEST
    */
   comment?: string;
   /**

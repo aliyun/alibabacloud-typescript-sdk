@@ -31,8 +31,9 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
    * @remarks
    * Indicates whether the user is authorized to manage the host account. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -42,8 +43,9 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $dara.Model
    * @remarks
    * The protocol that is used by the host. Valid values:
    * 
-   * *   **SSH**
-   * *   **RDP**
+   * - **SSH**
+   * 
+   * - **RDP**
    * 
    * @example
    * SSH

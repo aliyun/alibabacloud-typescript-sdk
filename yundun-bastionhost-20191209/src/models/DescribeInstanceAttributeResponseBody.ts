@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends $dara.Model {
   /**
    * @remarks
-   * The custom port.
+   * The custom O\\&M port.
    * 
-   * > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
+   * > Only SSH and RDP ports can be customized. If no custom port is set, this parameter returns the value of the `StandardPort` parameter.
    * 
    * @example
    * 600xx
@@ -15,11 +15,13 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
   customPort?: number;
   /**
    * @remarks
-   * The standard port of the bastion host. Valid values:
+   * The standard O\\&M port number. The following are the default standard ports for specific protocols:
    * 
-   * *   **SSH**: 60022.
-   * *   **RDP**: 63389.
-   * *   **HTTPS**: 443.
+   * - **SSH**: 60022
+   * 
+   * - **RDP**: 63389
+   * 
+   * - **HTTPS**: 443
    * 
    * @example
    * 60022
@@ -49,7 +51,21 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
 }
 
 export class DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the whitelist rule.
+   * 
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * An IP address or CIDR block in the whitelist.
+   * 
+   * @example
+   * 94.74.xx.xx/32
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,15 +91,22 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPoli
 }
 
 export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the application O\\&M module is enabled. Valid values are `Enable` and `Disable`.
+   * 
+   * @example
+   * Enable
+   */
   appOperationModule?: string;
   /**
    * @remarks
-   * The IDs of authorized security groups.
+   * A list of authorized security group IDs.
    */
   authorizedSecurityGroups?: string[];
   /**
    * @remarks
-   * The total bandwidth of the bastion host.
+   * The total bandwidth of the Bastionhost instance, in Mbit/s.
    * 
    * @example
    * 30
@@ -91,7 +114,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   bandwidth?: string;
   /**
    * @remarks
-   * The bandwidth plan ID.
+   * The extra bandwidth package of the Bastionhost instance, in Mbit/s.
    * 
    * @example
    * 5
@@ -99,7 +122,11 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   bandwidthPackage?: string;
   /**
    * @remarks
-   * The status of the database O&M feature.
+   * The status of the database O\\&M feature.
+   * 
+   * - **Enable**: The database O\\&M feature is enabled.
+   * 
+   * - **Disable**: The database O\\&M feature is disabled.
    * 
    * @example
    * Disable
@@ -108,11 +135,14 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   /**
    * @remarks
    * The description of the instance.
+   * 
+   * @example
+   * Test API
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the Elastic Network Interface (ENI).
+   * The ID of the elastic network interface (ENI).
    * 
    * @example
    * eni-bp1455jrzwm7moaxxxxx
@@ -120,13 +150,24 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   eniInstanceId?: string;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The expiration timestamp, in milliseconds, of the Bastionhost instance.
    * 
    * @example
    * 1578326400000
    */
   expireTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the Bastionhost instance is integrated with a Hardware Security Module (HSM).
+   */
   HSMModule?: string;
+  /**
+   * @remarks
+   * Indicates whether the IDaaS integration module is enabled. Valid values are `Enable` and `Disable`.
+   * 
+   * @example
+   * Enable
+   */
   IDaaSModule?: string;
   /**
    * @remarks
@@ -140,13 +181,19 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   PENDING: The instance is not initialized.
-   * *   CREATING: The instance is being created.
-   * *   RUNNING: The instance is running.
-   * *   EXPIRED: The instance expired.
-   * *   CREATE_FAILED: The instance fails to be created.
-   * *   UPGRADING: The configurations of the instance are being changed.
-   * *   UPGRADE_FAILED: The configurations of the instance fail to be changed.
+   * - **PENDING**: The instance is being initialized.
+   * 
+   * - **CREATING**: The instance is being created.
+   * 
+   * - **RUNNING**: The instance is running.
+   * 
+   * - **EXPIRED**: The instance has expired.
+   * 
+   * - **CREATE_FAILED**: Instance creation failed.
+   * 
+   * - **UPGRADING**: The instance is being upgraded.
+   * 
+   * - **UPGRADE_FAILED**: Instance upgrade failed.
    * 
    * @example
    * RUNNING
@@ -154,20 +201,27 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   instanceStatus?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public domain name of the instance.
    * 
    * @example
-   * drawvxalwb-public.bastionhost.aliyuncs.com
+   * ******lwb-public.bastionhost.aliyuncs.com
    */
   internetEndpoint?: string;
   /**
    * @remarks
-   * The private endpoint.
+   * The internal endpoint of the instance.
    * 
    * @example
-   * drawvxalwb.bastionhost.aliyuncs.com
+   * ******xalwb.bastionhost.aliyuncs.com
    */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is integrated with Key Management Service (KMS) and Secrets Manager. Valid values are `Enable` and `Disable`.
+   * 
+   * @example
+   * Enable
+   */
   kmsSecretModule?: string;
   /**
    * @remarks
@@ -179,10 +233,11 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   licenseCode?: string;
   /**
    * @remarks
-   * The status of the automatic password change feature.
+   * The status of the password change feature.
    * 
-   * - **Enable**
-   * - **Disable**
+   * - **Enable**: The feature is enabled.
+   * 
+   * - **Disable**: The feature is disabled.
    * 
    * @example
    * Enable
@@ -190,10 +245,11 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   modifyPasswordModule?: string;
   /**
    * @remarks
-   * The status of the network domain feature.
+   * The status of the network domain proxy feature.
    * 
-   * - **Enable**
-   * - **Disable**
+   * - **Enable**: The network domain proxy feature is enabled.
+   * 
+   * - **Disable**: The network domain proxy feature is disabled.
    * 
    * @example
    * Enable
@@ -201,32 +257,36 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   networkProxyModule?: string;
   /**
    * @remarks
-   * An array that consists of the O&M ports of the bastion host.
+   * The O\\&M ports of the Bastionhost instance.
    */
   ports?: DescribeInstanceAttributeResponseBodyInstanceAttributePorts[];
   /**
    * @remarks
-   * An array that consists of the egress private IP addresses of the bastion host.
+   * A list of private egress IP addresses of the Bastionhost instance.
    */
   privateExportIps?: string[];
   /**
    * @remarks
-   * The private IP addresses that are allowed to access the instance.
+   * The private whitelist of the instance.
    */
   privateWhiteList?: string[];
   /**
    * @remarks
-   * An array that consists of the egress public IP addresses of the bastion host.
+   * A list of public egress IP addresses of the Bastionhost instance.
    */
   publicExportIps?: string[];
   /**
    * @remarks
-   * The public IP address.
+   * A list of public IP addresses of the Bastionhost instance.
    */
   publicIps?: string[];
   /**
    * @remarks
-   * Indicates whether the Bastionhost instance can be accessed over the Internet.
+   * Indicates whether the Bastionhost instance is accessible over the public network. Valid values:
+   * 
+   * - **true**: The Bastionhost instance is accessible over the public network.
+   * 
+   * - **false**: The Bastionhost instance is not accessible over the public network.
    * 
    * @example
    * true
@@ -234,13 +294,20 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   publicNetworkAccess?: boolean;
   /**
    * @remarks
-   * The public IP addresses that are allowed to access the instance.
+   * The public whitelist of the Bastionhost instance.
    */
   publicWhiteList?: string[];
+  /**
+   * @remarks
+   * Indicates whether the multi-account module is enabled. Valid values are `Enable` and `Disable`.
+   * 
+   * @example
+   * Enable
+   */
   RDModule?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the Bastionhost instance is located.
    * 
    * @example
    * cn-hangzhou
@@ -248,23 +315,41 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the instance\\"s resource group.
    * 
    * @example
-   * rg-aekzc427dbl2shy
+   * rg-aekzc427db******
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * A list of routing rules for the Bastionhost instance.
+   */
   routerRules?: string[];
+  /**
+   * @remarks
+   * Indicates whether the script-based O\\&M module is enabled. Valid values are `Enable` and `Disable`.
+   * 
+   * @example
+   * Enable
+   */
   scriptDeliverModule?: string;
   /**
    * @remarks
-   * The IDs of the security groups to which the instance belongs.
+   * A list of the instance\\"s security group IDs.
    */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the standby VSwitch for the Bastionhost instance.
+   * 
+   * @example
+   * vsw-uf6cmnae7hu5****
+   */
   slaveVswitchId?: string;
   /**
    * @remarks
-   * The time when the instance started.
+   * The timestamp, in milliseconds, when the Bastionhost instance was purchased or renewed.
    * 
    * @example
    * 1577681345000
@@ -272,7 +357,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   startTime?: number;
   /**
    * @remarks
-   * The storage capacity of the bastion host. Unit: bytes.
+   * The total storage capacity of the Bastionhost instance, in bytes.
    * 
    * @example
    * 2199023255552
@@ -280,7 +365,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   storage?: number;
   /**
    * @remarks
-   * The ID of the VPC to which the instance belongs.
+   * The ID of the instance\\"s Virtual Private Cloud (VPC).
    * 
    * @example
    * vpc-bp1c85tzgqu1bf5bxxxxx
@@ -288,7 +373,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance connects.
+   * The ID of the instance\\"s VSwitch.
    * 
    * @example
    * vsw-bp1xfwzzfti0kjbfxxxxx
@@ -298,13 +383,18 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
    * @remarks
    * The status of the web terminal.
    * 
-   * - **Enable**
-   * - **Disable**
+   * - **Enable**: Supports web-based remote connections.
+   * 
+   * - **Disable**: Does not support web-based remote connections.
    * 
    * @example
    * Enable
    */
   webTerminalModule?: string;
+  /**
+   * @remarks
+   * The configured IP address whitelist policies.
+   */
   whiteListPolicies?: DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPolicies[];
   static names(): { [key: string]: string } {
     return {
@@ -434,12 +524,12 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
 export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The attribute information about the bastion host.
+   * The attributes of the instance.
    */
   instanceAttribute?: DescribeInstanceAttributeResponseBodyInstanceAttribute;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 082FAB35-6AB9-4FD5-8750-D36673548E76

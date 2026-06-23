@@ -16,6 +16,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
    * The node type of the proxy server. Valid values:
    * 
    * - **Master**: primary proxy server.
+   * 
    * - **Slave**: secondary proxy server.
    * 
    * @example
@@ -27,7 +28,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
    * The Base64-encoded password of the proxy server.
    * 
    * @example
-   * ***
+   * UWdi******Ng==
    */
   password?: string;
   /**
@@ -43,7 +44,9 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
    * The proxy type. Valid values:
    * 
    * - **SSHProxy**
+   * 
    * - **HTTPProxy**
+   * 
    * - **Socks5Proxy**
    * 
    * @example
@@ -115,14 +118,18 @@ export class CreateNetworkDomainRequest extends $dara.Model {
    * The name of the network domain that you want to create. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * SSH Proxy
    */
   networkDomainName?: string;
   /**
    * @remarks
    * The connection mode of the network domain to be created. Valid values:
    * 
-   * *   Direct
-   * *   Proxy
+   * - Direct
+   * 
+   * - Proxy
    * 
    * This parameter is required.
    * 

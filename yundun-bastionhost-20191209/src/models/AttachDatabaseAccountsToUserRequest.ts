@@ -47,14 +47,14 @@ export class AttachDatabaseAccountsToUserRequest extends $dara.Model {
    * @remarks
    * An array that consists of database objects.
    * 
-   * >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
+   * > You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
    */
   databases?: AttachDatabaseAccountsToUserRequestDatabases[];
   /**
    * @remarks
    * The ID of the bastion host whose user you want to grant permissions.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class AttachDatabaseAccountsToUserRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -76,7 +76,7 @@ export class AttachDatabaseAccountsToUserRequest extends $dara.Model {
    * @remarks
    * The ID of the user to be authorized.
    * 
-   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
    * 
    * This parameter is required.
    * 

@@ -15,19 +15,19 @@ export class ModifyUserPublicKeyRequest extends $dara.Model {
    * @remarks
    * The ID of the bastion host on which you want to modify the public key of a user.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * bastionhost-cn-nif236pmc1u
+   * bastionhost-cn-nif23******
    */
   instanceId?: string;
   /**
    * @remarks
    * The new public key.
    * 
-   * >  Specify a Base64-encoded string.
+   * > Specify a Base64-encoded string.
    * 
    * @example
    * c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhVcjY4UENFYWFzZjFYRVpNYTVsMlNBQytHV3FpeXVsRVpndkV4dmlPM28gcm9vdEA5NjBkMmNhOTcwYjU=
@@ -37,7 +37,7 @@ export class ModifyUserPublicKeyRequest extends $dara.Model {
    * @remarks
    * The ID of the public key that you want to modify.
    * 
-   * >  You can call the [ListUserPublicKeys](https://help.aliyun.com/document_detail/477555.html) operation to query the public key ID.
+   * > You can call the [ListUserPublicKeys](https://help.aliyun.com/document_detail/477555.html) operation to query the public key ID.
    * 
    * This parameter is required.
    * 

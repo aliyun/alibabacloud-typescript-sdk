@@ -7,7 +7,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
    * @remarks
    * The ID of the bastion host.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,9 @@ export class ListApproveCommandsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.\\
-   * Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The number of entries per page.<br> Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > We recommend that you do not leave this parameter empty.
    * 
    * This parameter is required.
    * 
@@ -42,7 +41,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-beijing

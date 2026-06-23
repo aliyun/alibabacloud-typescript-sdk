@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DisableInstancePublicAccessRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host whose Internet access you want to disable.
+   * The ID of the Bastionhost instance for which you want to disable public network access.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the ID of the Bastionhost instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DisableInstancePublicAccessRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
    * @example
    * cn-hangzhou

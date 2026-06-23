@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host that you enable.
+   * The ID of the bastion host that is enabled.
    * 
    * @example
    * bastionhost-cn-78v1gh****

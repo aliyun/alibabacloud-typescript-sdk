@@ -47,8 +47,9 @@ export class ListRulesResponseBodyRules extends $dara.Model {
    * @remarks
    * The state of the authorization rule.
    * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**
+   * 
+   * - **Disabled**
    * 
    * @example
    * Enabled

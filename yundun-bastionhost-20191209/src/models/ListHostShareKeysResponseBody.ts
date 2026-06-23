@@ -40,7 +40,7 @@ export class ListHostShareKeysResponseBodyHostShareKeys extends $dara.Model {
    * The fingerprint of the private key.
    * 
    * @example
-   * ****
+   * aa:10:f5:21:7f:8b:3e:86:b0:8b:f0:e0******
    */
   privateKeyFingerPrint?: string;
   static names(): { [key: string]: string } {

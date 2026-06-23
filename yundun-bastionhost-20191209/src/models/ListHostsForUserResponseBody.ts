@@ -7,8 +7,9 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
    * @remarks
    * The endpoint type of the host. Valid values:
    * 
-   * *   **Public**: public endpoint
-   * *   **Private**: internal endpoint
+   * - **Public**: public endpoint
+   * 
+   * - **Private**: internal endpoint
    * 
    * @example
    * Public
@@ -58,8 +59,9 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
    * @remarks
    * The operating system of the host. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux

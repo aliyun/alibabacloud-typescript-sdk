@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the host account. The name can be up to 128 characters in length.
+   * The name of the new host account. The name can be up to 128 characters long.
    * 
    * This parameter is required.
    * 
    * @example
-   * abc
+   * accountname
    */
   hostAccountName?: string;
   /**
    * @remarks
-   * The ID of the host to which you want to add a host account.
+   * The ID of the host for which you want to create a host account.
    * 
-   * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * > Call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain the host ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreateHostAccountRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The ID of the shared key.
+   * The ID of the shared key for the host.
    * 
    * @example
    * 1
@@ -35,9 +35,9 @@ export class CreateHostAccountRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The ID of the bastion host in which you want to add a host account to the host.
+   * The ID of the Bastionhost instance where you want to create the host account.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -47,41 +47,53 @@ export class CreateHostAccountRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The passphrase for the private key of the host account.
+   * The passphrase for the private key of the new host account.
    * 
-   * > You can configure this parameter only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP.
+   * > You can set this parameter only when ProtocolName is set to SSH. You do not need to set this parameter if ProtocolName is set to RDP.
    * 
    * @example
-   * ****
+   * 123456
    */
   passPhrase?: string;
   /**
    * @remarks
-   * The password of the host account.
+   * The password of the new host account.
    * 
    * @example
-   * ****
+   * 123456
    */
   password?: string;
   /**
    * @remarks
-   * The private key of the host account. Specify a Base64-encoded string.
+   * The private key of the new host account. The value is a Base64-encoded string.
    * 
-   * > This parameter is valid only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+   * > This parameter is used only when ProtocolName is set to SSH. You do not need to set this parameter if ProtocolName is set to RDP. You can set both a password and a private key for the host account. When connecting to the asset, Bastionhost prioritizes the private key for the connection.
    * 
    * @example
-   * ****
+   * LS0tLS1******RCBSU0tLQ==
    */
   privateKey?: string;
+  /**
+   * @remarks
+   * The permission type of the account. If you do not set this parameter, the default value is Normal.
+   * 
+   * - **Privileged**: privileged account
+   * 
+   * - **Normal**: normal account
+   * 
+   * > This parameter is supported only in Bastionhost V3.2.47 and later.
+   * 
+   * @example
+   * Normal
+   */
   privilegeType?: string;
   /**
    * @remarks
-   * The protocol of the host to which you want to add a host account.
+   * The protocol of the new host account. <br>Valid values:<br>
    * 
-   * Valid values:
+   * - SSH
    * 
-   * *   SSH
-   * *   RDP
+   * - RDP
    * 
    * This parameter is required.
    * 
@@ -91,14 +103,27 @@ export class CreateHostAccountRequest extends $dara.Model {
   protocolName?: string;
   /**
    * @remarks
-   * The region ID of the bastion host in which you want to add a host account to the host.
+   * The region ID of the Bastionhost instance where you want to create the host account.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The password change mode for the account. If you do not set this parameter, the default value is Self.
+   * 
+   * - **Privileged**: Use a privileged account to change the password.
+   * 
+   * - **Self**: Do not use a privileged account to change the password.
+   * 
+   * > This parameter is supported only in Bastionhost V3.2.47 and later.
+   * 
+   * @example
+   * Self
+   */
   rotationMode?: string;
   static names(): { [key: string]: string } {
     return {

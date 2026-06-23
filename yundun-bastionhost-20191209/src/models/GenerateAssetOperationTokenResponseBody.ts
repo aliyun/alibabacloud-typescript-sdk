@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends $dara.Model {
   /**
    * @remarks
-   * The remaining number of times that you can use the O\\&M token.
+   * The number of remaining uses for the token.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   countLeft?: number;
   /**
    * @remarks
-   * The time when the O\\&M token expires. The value is a UNIX timestamp.
+   * The expiration time of the token. This value is a UNIX timestamp.
    * 
    * @example
    * 1709110797
@@ -21,7 +21,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   expireTime?: number;
   /**
    * @remarks
-   * Indicates whether the number of times that you can use the O\\&M token is limited.
+   * Indicates whether the token has a use limit.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   hasCountLimit?: boolean;
   /**
    * @remarks
-   * The maximum number of renewals. A value of 0 indicates that renewal is not supported.
+   * The maximum number of times the token can be renewed. A value of 0 indicates that the token cannot be renewed.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   maxRenewCount?: number;
   /**
    * @remarks
-   * The number of times the O\\&M token is renewed.
+   * The number of times the token has been renewed.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
   ssoUrl?: string;
   /**
    * @remarks
-   * The O\\&M token that you apply for.
+   * The O\\&M token that is requested.
    * 
    * @example
    * NmYyMmEzNmMwYzljNGY******
@@ -105,12 +105,12 @@ export class GenerateAssetOperationTokenResponseBodyAssetOperationToken extends 
 export class GenerateAssetOperationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The asset operation token.
    */
   assetOperationToken?: GenerateAssetOperationTokenResponseBodyAssetOperationToken;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

@@ -32,6 +32,9 @@ export class AddDatabasesToGroupResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The error message returned.
+   * 
+   * @example
+   * None
    */
   message?: string;
   static names(): { [key: string]: string } {

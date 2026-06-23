@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListTagKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListTagKeysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The type of the resource.
    * 
-   * Set the value to INSTANCE, which indicates that the resource is a bastion host.
+   * The only valid value is INSTANCE, which represents a Bastionhost instance.
    * 
    * This parameter is required.
    * 

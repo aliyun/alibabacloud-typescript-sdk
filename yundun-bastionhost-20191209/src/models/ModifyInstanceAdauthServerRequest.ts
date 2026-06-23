@@ -53,7 +53,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * @remarks
    * The bastion host ID.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -65,8 +65,9 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * @remarks
    * Specifies whether SSL is supported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * This parameter is required.
    * 
@@ -112,7 +113,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

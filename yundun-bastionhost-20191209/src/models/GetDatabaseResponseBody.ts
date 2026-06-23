@@ -7,8 +7,9 @@ export class GetDatabaseResponseBodyDatabase extends $dara.Model {
    * @remarks
    * The address type of the database. Valid values:
    * 
-   * *   Public
-   * *   Private
+   * - Public
+   * 
+   * - Private
    * 
    * @example
    * Public
@@ -66,10 +67,13 @@ export class GetDatabaseResponseBodyDatabase extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **mysql**
-   * *   **sqlserver**
-   * *   **postgresql**
-   * *   **oracle**
+   * - **mysql**
+   * 
+   * - **sqlserver**
+   * 
+   * - **postgresql**
+   * 
+   * - **oracle**
    * 
    * @example
    * MySQL
@@ -87,9 +91,11 @@ export class GetDatabaseResponseBodyDatabase extends $dara.Model {
    * @remarks
    * The database type. Valid values:
    * 
-   * *   **Local**: on-premises database.
-   * *   **Rds**: ApsaraDB RDS instance.
-   * *   **PolarDB**: PolarDB cluster.
+   * - **Local**: on-premises database.
+   * 
+   * - **Rds**: ApsaraDB RDS instance.
+   * 
+   * - **PolarDB**: PolarDB cluster.
    * 
    * @example
    * Local
@@ -117,8 +123,9 @@ export class GetDatabaseResponseBodyDatabase extends $dara.Model {
    * @remarks
    * The status of the database. Valid values:
    * 
-   * *   **Normal**
-   * *   **Release**
+   * - **Normal**
+   * 
+   * - **Release**
    * 
    * @example
    * Normal

@@ -12,7 +12,7 @@ export class DeleteHostGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 2
    */
   hostGroupId?: string;
   /**

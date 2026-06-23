@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccounts extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * The error code. If the value is \\`OK\\`, the authorization was successful. Other values indicate that the authorization failed.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccount
   code?: string;
   /**
    * @remarks
-   * The database account ID.
+   * The ID of the database account.
    * 
    * @example
    * 8
@@ -21,7 +21,10 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccount
   databaseAccountId?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
+   * 
+   * @example
+   * NULL
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -52,7 +55,7 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccount
 export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+   * The error code. If the value is \\`OK\\`, the authorization was successful. Other values indicate that the authorization failed.
    * 
    * @example
    * OK
@@ -60,12 +63,12 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $dara.
   code?: string;
   /**
    * @remarks
-   * A list that shows the authorization results of the database accounts.
+   * A list of database account information.
    */
   databaseAccounts?: AttachDatabaseAccountsToUserGroupResponseBodyResultsDatabaseAccounts[];
   /**
    * @remarks
-   * The database ID.
+   * The ID of the database instance.
    * 
    * @example
    * 2
@@ -73,12 +76,15 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $dara.
   databaseId?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
+   * 
+   * @example
+   * NULL
    */
   message?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * 1
@@ -119,7 +125,7 @@ export class AttachDatabaseAccountsToUserGroupResponseBodyResults extends $dara.
 export class AttachDatabaseAccountsToUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5D0EB759-CB0A-537D-A2CC-13A9854FA08D
@@ -127,7 +133,7 @@ export class AttachDatabaseAccountsToUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the call.
+   * The results of the call.
    */
   results?: AttachDatabaseAccountsToUserGroupResponseBodyResults[];
   static names(): { [key: string]: string } {

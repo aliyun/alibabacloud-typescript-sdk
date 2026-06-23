@@ -8,18 +8,20 @@ export class AcceptOperationTicketRequest extends $dara.Model {
    * The review description.
    * 
    * @example
-   * O\\&M allowed
+   * Comment
    */
   comment?: string;
   /**
    * @remarks
    * The maximum number of logons allowed. Valid values:
    * 
-   * *   **0**: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for unlimited times during the validity period.
-   * *   **1**: The O\\&M engineer can log on to the specified asset only once during the validity period.
+   * - **0**: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for unlimited times during the validity period.
    * 
-   * > *   You can set this parameter only to 0 if you review an O\\&M application on a database.
-   * > *   If you do not specify this parameter, the default value 0 is used.
+   * - **1**: The O\\&M engineer can log on to the specified asset only once during the validity period.
+   * 
+   * > * You can set this parameter only to 0 if you review an O\\&M application on a database.
+   * >
+   * > * If you do not specify this parameter, the default value 0 is used.
    * 
    * @example
    * 1
@@ -67,7 +69,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

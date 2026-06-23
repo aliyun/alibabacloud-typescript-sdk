@@ -31,8 +31,9 @@ export class ListDatabaseAccountsForUserGroupResponseBodyDatabaseAccounts extend
    * @remarks
    * Indicates whether the user group is authorized to manage the database account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -42,10 +43,13 @@ export class ListDatabaseAccountsForUserGroupResponseBodyDatabaseAccounts extend
    * @remarks
    * The protocol used by the database account. Valid values:
    * 
-   * *   **MySQL**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL

@@ -73,8 +73,9 @@ export class ModifyHostRequest extends $dara.Model {
    * @remarks
    * The new operating system of the host. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -84,10 +85,13 @@ export class ModifyHostRequest extends $dara.Model {
    * @remarks
    * The preferred key exchange algorithm of the host. If you set OSType to Linux, you can modify this parameter. Valid values:
    * 
-   * *   **default**
-   * *   **diffie-hellman-group1-sha1**
-   * *   **diffie-hellman-group14-sha1**
-   * *   **diffie-hellman-group-exchange-sha1**
+   * - **default**
+   * 
+   * - **diffie-hellman-group1-sha1**
+   * 
+   * - **diffie-hellman-group14-sha1**
+   * 
+   * - **diffie-hellman-group-exchange-sha1**
    * 
    * @example
    * default

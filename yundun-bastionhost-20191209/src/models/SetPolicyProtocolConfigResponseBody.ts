@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolicyProtocolConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 81500666-d7f5-4143-8329-0223cc738105

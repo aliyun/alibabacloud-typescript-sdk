@@ -41,8 +41,9 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
    * @remarks
    * Indicates whether a password is configured for the host account.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -92,8 +93,9 @@ export class ListOperationHostAccountsResponseBodyHostAccounts extends $dara.Mod
    * @remarks
    * The protocol that is used by the host account.
    * 
-   * *   **SSH**
-   * *   **RDP**
+   * - **SSH**
+   * 
+   * - **RDP**
    * 
    * @example
    * SSH

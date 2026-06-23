@@ -31,8 +31,9 @@ export class ListDatabaseAccountsForUserResponseBodyDatabaseAccounts extends $da
    * @remarks
    * Indicates whether the user is authorized to manage the database account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -42,10 +43,13 @@ export class ListDatabaseAccountsForUserResponseBodyDatabaseAccounts extends $da
    * @remarks
    * The protocol used by the database account. Valid values:
    * 
-   * *   **MySQL**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL

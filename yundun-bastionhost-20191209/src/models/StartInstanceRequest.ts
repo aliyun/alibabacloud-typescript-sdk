@@ -3,11 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the security groups for the endpoint that is used to access the bastion host over a private network.
+   */
   clientSecurityGroupIds?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable the O\\&M portal of the bastion host to be accessed over a private network.
+   * 
+   * @example
+   * true
+   */
   enablePortalPrivateAccess?: boolean;
   /**
    * @remarks
-   * The ID of the bastion host that you want to enable.
+   * The ID of the bastion host to start.
    * 
    * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
    * 
@@ -27,7 +38,7 @@ export class StartInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * An array consisting of the IDs of security groups to which the bastion host is added.
+   * The IDs of the security groups to which the bastion host is bound.
    * 
    * This parameter is required.
    * 
@@ -35,10 +46,17 @@ export class StartInstanceRequest extends $dara.Model {
    * sg-bp1aiupc4yjqgmm****
    */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the secondary vSwitch to which the bastion host is bound.
+   * 
+   * @example
+   * vsw-9dpspfku7gita****
+   */
   slaveVswitchId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the bastion host belongs.
+   * The ID of the vSwitch to which the bastion host is bound.
    * 
    * @example
    * vsw-bp1xfwzzfti0kjbf****

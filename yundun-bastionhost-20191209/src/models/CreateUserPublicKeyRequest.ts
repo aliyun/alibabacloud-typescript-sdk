@@ -40,7 +40,7 @@ export class CreateUserPublicKeyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Public key of a user
+   * KeyName
    */
   publicKeyName?: string;
   /**
@@ -57,7 +57,7 @@ export class CreateUserPublicKeyRequest extends $dara.Model {
    * @remarks
    * The ID of the user for whom you want to create a public key.
    * 
-   * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+   * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
    * 
    * This parameter is required.
    * 

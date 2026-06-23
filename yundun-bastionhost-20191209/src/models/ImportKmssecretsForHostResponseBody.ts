@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportKMSSecretsForHostResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The result message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The name of the secret.
+   * 
    * @example
    * test1
    */
@@ -46,14 +55,21 @@ export class ImportKMSSecretsForHostResponseBodyResults extends $dara.Model {
 export class ImportKMSSecretsForHostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The import result for each secret.
+   */
   results?: ImportKMSSecretsForHostResponseBodyResults[];
   /**
+   * @remarks
+   * The number of secrets that were successfully imported.
+   * 
    * @example
    * 1
    */

@@ -7,8 +7,9 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
    * @remarks
    * The address type of the host. Valid values:
    * 
-   * *   **Public**: public endpoint
-   * *   **Private**: internal endpoint
+   * - **Public**: a public IP address
+   * 
+   * - **Private**: a private IP address
    * 
    * @example
    * Public
@@ -16,7 +17,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The description of the host.
+   * The remarks of the host.
    * 
    * @example
    * comment
@@ -40,7 +41,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The internal endpoint of the host. The value is a domain name or an IP address.
+   * The private IP address of the host. This can be a domain name or an IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -48,7 +49,7 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public endpoint of the host. The value is a domain name or an IP address.
+   * The public IP address of the host. This can be a domain name or an IP address.
    * 
    * @example
    * 10.158.XX.XX
@@ -56,10 +57,11 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
   hostPublicAddress?: string;
   /**
    * @remarks
-   * The operating system of the host. Valid values:
+   * The OS type of the host. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -101,12 +103,12 @@ export class ListHostsForUserGroupResponseBodyHosts extends $dara.Model {
 export class ListHostsForUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hosts returned.
+   * A list of hosts.
    */
   hosts?: ListHostsForUserGroupResponseBodyHosts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -114,7 +116,7 @@ export class ListHostsForUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of hosts returned.
+   * The total number of hosts.
    * 
    * @example
    * 10

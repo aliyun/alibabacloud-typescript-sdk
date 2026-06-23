@@ -7,8 +7,9 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * @remarks
    * The address type of the database. Valid values:
    * 
-   * *   **Public**
-   * *   **Private**
+   * - **Public**
+   * 
+   * - **Private**
    * 
    * @example
    * Private
@@ -51,7 +52,7 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * The internal endpoint of the database. The value is a domain name or an IP address.
    * 
    * @example
-   * rm-wz97******
+   * 192.168.XX.XX
    */
   databasePrivateAddress?: string;
   /**
@@ -59,17 +60,20 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * The public endpoint of the database. The value is a domain name or an IP address.
    * 
    * @example
-   * rm-uf65******
+   * www.example.com
    */
   databasePublicAddress?: string;
   /**
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -87,9 +91,11 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * @remarks
    * The database type. Valid values:
    * 
-   * *   **Local**: on-premises database.
-   * *   **Rds**: ApsaraDB RDS instance.
-   * *   **PolarDB**: PolarDB cluster.
+   * - **Local**: on-premises database.
+   * 
+   * - **Rds**: ApsaraDB RDS instance.
+   * 
+   * - **PolarDB**: PolarDB cluster.
    * 
    * @example
    * Local
@@ -99,10 +105,10 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * @remarks
    * The ID of the ApsaraDB RDS instance or PolarDB cluster.
    * 
-   * >  No value is returned for this parameter if **Source** is set to **Local**.
+   * > No value is returned for this parameter if **Source** is set to **Local**.
    * 
    * @example
-   * i-wz9fv2hwux78x9h1pmje
+   * i-wz9fv2hwux78x9******
    */
   sourceInstanceId?: string;
   static names(): { [key: string]: string } {

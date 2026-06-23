@@ -45,7 +45,7 @@ export class DescribeInstancesRequestTag extends $dara.Model {
 export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the IDs of the bastion hosts.
+   * The IDs of the bastion host instances.
    * 
    * @example
    * bastionhost-cn-78v1ghxxxxx
@@ -53,15 +53,21 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The status of the bastion host. Valid values:
+   * The status of the bastion host instance. Valid values:
    * 
-   * *   **PENDING**: The bastion host is not initialized.
-   * *   **CREATING**: The bastion host is being created.
-   * *   **RUNNING**: The bastion host is running.
-   * *   **EXPIRED**: The bastion host expired.
-   * *   **CREATE_FAILED**: The bastion host fails to be created.
-   * *   **UPGRADING**: The configurations of the bastion host are being changed.
-   * *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+   * - **PENDING**: The instance is not initialized.
+   * 
+   * - **CREATING**: The instance is being created.
+   * 
+   * - **RUNNING**: The instance is running.
+   * 
+   * - **EXPIRED**: The instance is expired.
+   * 
+   * - **CREATE_FAILED**: The instance creation failed.
+   * 
+   * - **UPGRADING**: The instance is being upgraded.
+   * 
+   * - **UPGRADE_FAILED**: The instance upgrade failed.
    * 
    * @example
    * RUNNING
@@ -69,7 +75,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -77,7 +83,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of bastion host instances to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -85,7 +91,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The ID of the region in which the bastion host instances reside.
    * 
    * @example
    * cn-hangzhou
@@ -93,7 +99,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the bastion host belongs.
+   * The ID of the resource group to which the bastion host instance belongs.
    * 
    * @example
    * rg-acfm26ougi****
@@ -101,7 +107,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * An array consisting of the tags that are added to the bastion hosts.
+   * The tags attached to the bastion host instances.
    */
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {

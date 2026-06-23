@@ -35,8 +35,9 @@ export class ListHostsForUserRequest extends $dara.Model {
    * @remarks
    * Specifies the category of the hosts that you want to query. Valid values:
    * 
-   * *   **Authorized**: queries the hosts that the user is authorized to manage. This is the default value.
-   * *   **Unauthorized**: queries the hosts that the user is not authorized to manage.
+   * - **Authorized**: queries the hosts that the user is authorized to manage. This is the default value.
+   * 
+   * - **Unauthorized**: queries the hosts that the user is not authorized to manage.
    * 
    * @example
    * Authorized
@@ -46,8 +47,9 @@ export class ListHostsForUserRequest extends $dara.Model {
    * @remarks
    * The operating system of the host that you want to query. Valid values:
    * 
-   * *   **Linux**
-   * *   **Windows**
+   * - **Linux**
+   * 
+   * - **Windows**
    * 
    * @example
    * Linux
@@ -63,7 +65,7 @@ export class ListHostsForUserRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.\\
+   * The number of entries per page.<br>
    * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
    * 
    * > We recommend that you do not leave this parameter empty.

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
+   * The ID of the Bastionhost instance.
    * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -18,14 +18,18 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the network domain.
+   * 
+   * @example
+   * SSH Proxy
    */
   networkDomainName?: string;
   /**
    * @remarks
-   * The connection mode of the network domain. Valid values:
+   * The type of the network domain. Valid values:
    * 
-   * *   **Direct**
-   * *   **Proxy**
+   * - **Direct**: direct connection
+   * 
+   * - **Proxy**: proxy connection
    * 
    * @example
    * Proxy
@@ -33,7 +37,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   networkDomainType?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -41,10 +45,9 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.\\
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The number of entries to return on each page.<br> The maximum value is 100. The default value is 20. If you do not specify this parameter, 20 entries are returned on each page.<br>
    * 
-   * > We recommend that you do not leave this parameter empty.
+   * > Do not leave the PageSize value empty.
    * 
    * @example
    * 20
@@ -52,9 +55,9 @@ export class ListNetworkDomainsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region ID of the bastion host.
+   * The region ID of the Bastionhost instance.
    * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

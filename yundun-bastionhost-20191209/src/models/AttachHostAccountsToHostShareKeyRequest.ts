@@ -7,7 +7,7 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
    * @remarks
    * The host account IDs.
    * 
-   * >  You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
+   * > You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
    * 
    * @example
    * ["1","2","3"]
@@ -17,7 +17,7 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
    * @remarks
    * The shared key ID.
    * 
-   * >  You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * > You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
    * 
    * @example
    * 10267

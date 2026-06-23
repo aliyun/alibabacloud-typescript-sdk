@@ -39,8 +39,9 @@ export class GetInstanceLDAPAuthServerResponseBodyLDAP extends $dara.Model {
    * @remarks
    * Indicates whether passwords are required. Valid values:
    * 
-   * *   **true**: required
-   * *   **false**: not required
+   * - **true**: required
+   * 
+   * - **false**: not required
    * 
    * @example
    * true
@@ -50,8 +51,9 @@ export class GetInstanceLDAPAuthServerResponseBodyLDAP extends $dara.Model {
    * @remarks
    * Indicates whether SSL is supported. Valid values:
    * 
-   * *   **true**: supported
-   * *   **false**: not supported
+   * - **true**: supported
+   * 
+   * - **false**: not supported
    * 
    * @example
    * true

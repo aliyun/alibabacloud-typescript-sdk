@@ -7,7 +7,7 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
    * @remarks
    * The bastion host ID.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
    * @remarks
    * The ID of the control policy that you want to modify.
    * 
-   * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
    * 
    * This parameter is required.
    * 
@@ -41,9 +41,11 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
    * @remarks
    * The scope of users to whom the control policy applies. Valid values:
    * 
-   * * **All**: The control policy applies to all users.
-   * * **User**: The control policy applies to specified users.
-   * * **UserGroup**: The control policy applies to specified user groups.
+   * - **All**: The control policy applies to all users.
+   * 
+   * - **User**: The control policy applies to specified users.
+   * 
+   * - **UserGroup**: The control policy applies to specified user groups.
    * 
    * This parameter is required.
    * 

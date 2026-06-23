@@ -8,7 +8,7 @@ export class CreateHostGroupRequest extends $dara.Model {
    * The remarks of the asset group. The remarks can be up to 500 characters in length.
    * 
    * @example
-   * Local host group.
+   * Local host group
    */
   comment?: string;
   /**
@@ -25,7 +25,7 @@ export class CreateHostGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the bastion host on which you want to create an asset group.
    * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateHostGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host on which you want to create an asset group.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

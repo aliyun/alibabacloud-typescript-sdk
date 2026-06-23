@@ -7,8 +7,9 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $d
    * @remarks
    * The node type of the proxy server. Valid values:
    * 
-   * *   **Master**: primary proxy server.
-   * *   **Slave**: secondary proxy server.
+   * - **Master**: the master proxy server
+   * 
+   * - **Slave**: the slave proxy server
    * 
    * @example
    * Master
@@ -16,10 +17,11 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $d
   nodeType?: string;
   /**
    * @remarks
-   * The status of the proxy server.
+   * The status of the proxy server. Valid values:
    * 
-   * *   **Available**
-   * *   **Unavailable**
+   * - **Available**
+   * 
+   * - **Unavailable**
    * 
    * @example
    * Available
@@ -51,7 +53,7 @@ export class ListNetworkDomainsResponseBodyNetworkDomainsProxiesState extends $d
 export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the network domain.
+   * The comments on the network domain.
    * 
    * @example
    * comment
@@ -59,10 +61,11 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Indicates whether the network domain is built-in.
+   * Indicates whether the network domain is a built-in domain.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -70,7 +73,7 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * The network domain ID.
+   * The ID of the network domain.
    * 
    * @example
    * 2
@@ -86,15 +89,20 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
   networkDomainName?: string;
   /**
    * @remarks
-   * The connection mode of the network domain. Valid values:
+   * The type of the network domain. Valid values:
    * 
-   * *   **Direct**
-   * *   **Proxy**
+   * - **Direct**: direct connection
+   * 
+   * - **Proxy**: proxy connection
    * 
    * @example
    * Proxy
    */
   networkDomainType?: string;
+  /**
+   * @remarks
+   * The information about the proxy servers.
+   */
   proxiesState?: ListNetworkDomainsResponseBodyNetworkDomainsProxiesState[];
   static names(): { [key: string]: string } {
     return {
@@ -133,12 +141,12 @@ export class ListNetworkDomainsResponseBodyNetworkDomains extends $dara.Model {
 export class ListNetworkDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The network domains that are returned.
+   * The list of network domains.
    */
   networkDomains?: ListNetworkDomainsResponseBodyNetworkDomains[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -146,7 +154,7 @@ export class ListNetworkDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of network domains that are returned.
+   * The total number of network domains.
    * 
    * @example
    * 5

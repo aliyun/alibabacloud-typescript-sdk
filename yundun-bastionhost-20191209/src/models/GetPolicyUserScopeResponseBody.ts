@@ -6,9 +6,10 @@ export class GetPolicyUserScopeResponseBodyUserScope extends $dara.Model {
   /**
    * @remarks
    * The scope of users to whom the control policy applies.
-   * *   If **All** is returned for this parameter, the control policy applies to all users.
    * 
-   * *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
+   * - If **All** is returned for this parameter, the control policy applies to all users.
+   * 
+   * - If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
    * 
    * @example
    * All

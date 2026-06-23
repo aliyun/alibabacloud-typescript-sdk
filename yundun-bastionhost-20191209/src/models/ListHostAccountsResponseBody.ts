@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListHostAccountsResponseBodyHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a password is configured for the host account.
+   * Indicates whether a password is set for the host account.<br> Valid values:
    * 
-   * Valid values:
+   * - **true**: A password is set.
    * 
-   * *   true: A password is configured for the host account.
-   * *   false: No passwords are configured for the host account.
+   * - **false**: No password is set.
    * 
    * @example
    * true
@@ -42,7 +41,7 @@ export class ListHostAccountsResponseBodyHostAccounts extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The ID of the shared key.
+   * The ID of the shared key of the host.
    * 
    * @example
    * 1
@@ -50,7 +49,7 @@ export class ListHostAccountsResponseBodyHostAccounts extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The name of the shared key.
+   * The name of the shared key of the host.
    * 
    * @example
    * name
@@ -58,26 +57,51 @@ export class ListHostAccountsResponseBodyHostAccounts extends $dara.Model {
   hostShareKeyName?: string;
   /**
    * @remarks
-   * The fingerprint of the private key for the host account.
+   * The fingerprint of the private key of the host account.
    * 
    * @example
    * fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
    */
   privateKeyFingerprint?: string;
+  /**
+   * @remarks
+   * The permission type of the account.
+   * 
+   * - **Privileged**: privileged account
+   * 
+   * - **Normal**: regular account
+   * 
+   * > This parameter is available only for Bastionhost instances of V3.2.47 or later.
+   * 
+   * @example
+   * Normal
+   */
   privilegeType?: string;
   /**
    * @remarks
-   * The protocol that is used by the host.
+   * The protocol of the host account.<br> Valid values:
    * 
-   * Valid values:
+   * - SSH
    * 
-   * *   SSH
-   * *   RDP
+   * - RDP
    * 
    * @example
    * SSH
    */
   protocolName?: string;
+  /**
+   * @remarks
+   * The password change mode of the account.
+   * 
+   * - **Privileged**: The password is changed using a privileged account.
+   * 
+   * - **Self**: The password is changed without using a privileged account.
+   * 
+   * > This parameter is available only for Bastionhost instances of V3.2.47 or later.
+   * 
+   * @example
+   * Privileged
+   */
   rotationMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,7 +145,7 @@ export class ListHostAccountsResponseBodyHostAccounts extends $dara.Model {
 export class ListHostAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the queried host accounts.
+   * The list of the returned host accounts.
    */
   hostAccounts?: ListHostAccountsResponseBodyHostAccounts[];
   /**
@@ -134,7 +158,7 @@ export class ListHostAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of host accounts that are queried.
+   * The total number of returned host accounts.
    * 
    * @example
    * 1

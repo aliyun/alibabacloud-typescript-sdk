@@ -26,7 +26,7 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
    * @remarks
    * The ID of the network domain to which you want to add hosts.
    * 
-   * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
    * 
    * This parameter is required.
    * 

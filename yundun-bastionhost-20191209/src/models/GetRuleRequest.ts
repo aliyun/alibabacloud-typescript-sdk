@@ -29,7 +29,7 @@ export class GetRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the authorization rule to query.
    * 
-   * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
    * 
    * This parameter is required.
    * 

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceRdMembersResponseBodyMembers extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 1197234496852779
    */
@@ -31,17 +34,30 @@ export class ListInstanceRdMembersResponseBodyMembers extends $dara.Model {
 
 export class ListInstanceRdMembersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The value of MaxResults in the request. If you did not specify MaxResults, the default value is returned.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * A list of member accounts.
+   */
   members?: ListInstanceRdMembersResponseBodyMembers[];
   /**
+   * @remarks
+   * The token for the next page of results. If the response is truncated, this parameter is returned. Use this token in your next request to retrieve the next page. If this parameter is empty, all results have been returned.
+   * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
    */

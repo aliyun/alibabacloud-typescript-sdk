@@ -25,7 +25,7 @@ export class ListRulesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.\\
+   * The number of entries per page.<br>
    * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
    * 
    * > We recommend that you do not leave this parameter empty.
@@ -38,7 +38,7 @@ export class ListRulesRequest extends $dara.Model {
    * @remarks
    * The region ID of the bastion host.
    * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -56,8 +56,9 @@ export class ListRulesRequest extends $dara.Model {
    * @remarks
    * The state of the authorization rule to query.
    * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**
+   * 
+   * - **Disabled**
    * 
    * @example
    * Enabled

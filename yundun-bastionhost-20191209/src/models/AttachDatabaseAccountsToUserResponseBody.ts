@@ -77,6 +77,9 @@ export class AttachDatabaseAccountsToUserResponseBodyResults extends $dara.Model
   /**
    * @remarks
    * The error message that is returned.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**

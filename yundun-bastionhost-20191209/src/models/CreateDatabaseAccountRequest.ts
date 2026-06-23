@@ -17,7 +17,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
    * @remarks
    * The ID of the database for which you want to create a database account.
    * 
-   * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
    * 
    * This parameter is required.
    * 
@@ -49,8 +49,9 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
    * @remarks
    * The logon attribute. This parameter is required for Oracle databases. Valid values:
    * 
-   * *   SERVICENAME
-   * *   SID
+   * - SERVICENAME
+   * 
+   * - SID
    * 
    * @example
    * SID

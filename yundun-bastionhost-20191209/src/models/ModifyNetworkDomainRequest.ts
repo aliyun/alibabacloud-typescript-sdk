@@ -15,8 +15,9 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
    * @remarks
    * The node type of the proxy server to modify. Valid values:
    * 
-   * *   **Master**: primary proxy server.
-   * *   **Slave**: secondary proxy server.
+   * - **Master**: primary proxy server.
+   * 
+   * - **Slave**: secondary proxy server.
    * 
    * @example
    * Slave
@@ -42,9 +43,11 @@ export class ModifyNetworkDomainRequestProxies extends $dara.Model {
    * @remarks
    * The new proxy mode. Valid values:
    * 
-   * *   **SSHProxy**
-   * *   **HTTPProxy**
-   * *   **Socks5Proxy**
+   * - **SSHProxy**
+   * 
+   * - **HTTPProxy**
+   * 
+   * - **Socks5Proxy**
    * 
    * @example
    * HTTPProxy
@@ -132,8 +135,9 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
    * @remarks
    * The new connection mode of the network domain. Valid values:
    * 
-   * *   **Direct**
-   * *   **Proxy**
+   * - **Direct**
+   * 
+   * - **Proxy**
    * 
    * @example
    * Proxy

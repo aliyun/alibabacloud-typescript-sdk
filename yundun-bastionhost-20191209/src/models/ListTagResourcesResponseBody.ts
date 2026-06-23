@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * bastionhost-cn-78v1gc****
@@ -13,9 +13,9 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
-   * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+   * The only valid value is INSTANCE, which indicates a Bastionhost instance.
    * 
    * @example
    * INSTANCE
@@ -23,7 +23,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * test
@@ -31,7 +31,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * testapi
@@ -67,7 +67,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for starting the next query.
+   * The token to start the next query.
    * 
    * @example
    * 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
@@ -83,9 +83,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about Bastionhost instances and the tags bound to Bastionhost instances.
+   * A list of Bastionhost instances and their tags.
    * 
-   * The following information is included: instance ID, resource type, tag key, and tag value.
+   * This list includes the instance ID, resource type, tag key, and tag value.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **CreateHostAccount**.
+   * The ID of the host account.
    * 
    * @example
    * 1

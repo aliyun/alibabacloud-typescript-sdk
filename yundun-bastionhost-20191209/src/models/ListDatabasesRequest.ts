@@ -7,10 +7,13 @@ export class ListDatabasesRequest extends $dara.Model {
    * @remarks
    * The engine of the database to query. Valid values:
    * 
-   * *   **MySQL**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -79,9 +82,11 @@ export class ListDatabasesRequest extends $dara.Model {
    * @remarks
    * The type of the database to query. Valid values:
    * 
-   * * **Local**: on-premises database.
-   * * **Rds**: ApsaraDB for RDS instance.
-   * * **PolarDB**: PolarDB cluster
+   * - **Local**: on-premises database.
+   * 
+   * - **Rds**: ApsaraDB for RDS instance.
+   * 
+   * - **PolarDB**: PolarDB cluster
    * 
    * @example
    * Local

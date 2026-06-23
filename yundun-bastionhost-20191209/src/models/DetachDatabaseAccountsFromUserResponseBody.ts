@@ -22,6 +22,9 @@ export class DetachDatabaseAccountsFromUserResponseBodyResultsDatabaseAccounts e
   /**
    * @remarks
    * The error message that is returned.
+   * 
+   * @example
+   * None
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -74,6 +77,9 @@ export class DetachDatabaseAccountsFromUserResponseBodyResults extends $dara.Mod
   /**
    * @remarks
    * The error message that is returned.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**

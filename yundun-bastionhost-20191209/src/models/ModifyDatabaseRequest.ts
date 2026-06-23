@@ -7,8 +7,9 @@ export class ModifyDatabaseRequest extends $dara.Model {
    * @remarks
    * The new address type of the database. Valid values:
    * 
-   * *   **Public**
-   * *   **Private**
+   * - **Public**
+   * 
+   * - **Private**
    * 
    * @example
    * Public
@@ -53,7 +54,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
    * The new internal address of the database. Specify an IPv4 address or a domain name.
    * 
    * @example
-   * pc-bp169******
+   * 192.168.XX.XX
    */
   databasePrivateAddress?: string;
   /**
@@ -61,7 +62,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
    * The new public address of the database. Specify an IPv4 address or a domain name.
    * 
    * @example
-   * pgm-uf6c******
+   * www.example.com
    */
   databasePublicAddress?: string;
   /**
@@ -80,7 +81,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
    * @remarks
    * The ID of the new network domain for the database.
    * 
-   * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+   * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
    * 
    * @example
    * 2

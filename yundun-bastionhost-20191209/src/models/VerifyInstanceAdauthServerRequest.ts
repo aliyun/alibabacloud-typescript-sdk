@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   /**
    * @remarks
+   * The account of the server.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The Base DN.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   baseDN?: string;
   /**
    * @remarks
+   * The domain on the Active Directory server.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +34,17 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    */
   domain?: string;
   /**
+   * @remarks
+   * The filter condition for users.
+   * 
    * @example
    * (objectClass=top)
    */
   filter?: string;
   /**
    * @remarks
+   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,12 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Specifies whether SSL is supported. Valid values:
+   * 
+   * - **true**: supported
+   * 
+   * - **false**: not supported
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,12 +66,17 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    */
   isSSL?: string;
   /**
+   * @remarks
+   * The password of the server account.
+   * 
    * @example
    * ******
    */
   password?: string;
   /**
    * @remarks
+   * The port.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,12 +84,17 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    */
   port?: string;
   /**
+   * @remarks
+   * The region ID of the Bastionhost instance. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The address of the server.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,6 +102,9 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    */
   server?: string;
   /**
+   * @remarks
+   * The address of the standby server.
+   * 
    * @example
    * 192.168.XX.XX
    */
