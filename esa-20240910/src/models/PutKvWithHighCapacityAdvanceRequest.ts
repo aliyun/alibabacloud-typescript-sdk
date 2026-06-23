@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutKvWithHighCapacityAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the key to set. It cannot exceed 512 characters and cannot contain spaces or backslashes (/).
+   * The key name to set. The key name can be up to 512 characters in length and cannot contain spaces or backslashes (/).
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class PutKvWithHighCapacityAdvanceRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name specified when calling [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
+   * The name specified when you called the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
    * 
    * This parameter is required.
    * 
@@ -26,12 +26,18 @@ export class PutKvWithHighCapacityAdvanceRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The download link for the key-value pair to set. This parameter is automatically generated when you call the SDK. Use the SDK to call it.
+   * A publicly accessible HTTP or HTTPS URL that points to a JSON file containing the key-value pair to set. The server actively downloads the content from this URL.
+   * 
+   * - If you use an SDK, the SDK automatically uploads the file and generates the URL.
+   * 
+   * - In non-SDK scenarios, upload the JSON payload to any publicly accessible HTTP service and specify the URL.
+   * 
+   * The file content pointed to by the URL must be in the following JSON format: {"Namespace":"<namespace>","Key":"<key>","Value":"<value>"}.
    * 
    * This parameter is required.
    * 
    * @example
-   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   * https://xxxobject.oss-cn-region.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
    */
   urlObject?: Readable;
   static names(): { [key: string]: string } {

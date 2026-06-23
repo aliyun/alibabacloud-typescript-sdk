@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The logs.
+   * The log list.
    */
   items?: string[];
   /**

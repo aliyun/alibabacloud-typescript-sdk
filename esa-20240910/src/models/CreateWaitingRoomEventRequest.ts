@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWaitingRoomEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must use Base64 encoding.
+   * The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
    * 
    * @example
    * SGVsbG8gd29ybGQ=
@@ -16,15 +16,15 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * The description of the waiting room.
    * 
    * @example
-   * 测试等候室
+   * test
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -34,8 +34,8 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The waiting room switch. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * This parameter is required.
    * 
@@ -57,8 +57,8 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable JSON response. When enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -66,7 +66,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   jsonResponseEnable?: string;
   /**
    * @remarks
-   * The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
+   * The language of the waiting room page. This parameter is required when the waiting room type is set to default. Valid values:
    * 
    * - **enus**: English.
    * - **zhcn**: Simplified Chinese.
@@ -100,8 +100,8 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable pre-queuing. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -148,8 +148,8 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable random pre-queuing. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -205,7 +205,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   waitingRoomId?: string;
   /**
    * @remarks
-   * The waiting room type. Valid values:
+   * The type of the waiting room. Valid values:
    * 
    * - **default**: default type.
    * - **custom**: custom type.

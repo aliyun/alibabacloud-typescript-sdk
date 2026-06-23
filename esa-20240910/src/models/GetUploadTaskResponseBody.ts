@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the file upload task failed.
+   * The error message returned when the file upload task fails.
    * 
    * @example
    * invalid url
@@ -21,14 +21,14 @@ export class GetUploadTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status.
+   * The task status. Valid values:
    * 
-   * *   **INIT**: The task is being initialized.
-   * *   **activacted**: The task is activated.
-   * *   **running**: The task is running.
-   * *   **success**: The task is successful.
-   * *   **partial**: The task is partially successful.
-   * *   **fail**: The task failed.
+   * - **init**: The task is being initialized.
+   * - **activacted**: The task is activated.
+   * - **running**: The task is running.
+   * - **success**: The task succeeded.
+   * - **partial**: The task partially succeeded.
+   * - **fail**: The task failed.
    * 
    * @example
    * running

@@ -5,18 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of objects, where each object defines a modification to a request header.
+   * The request header modifications. Three operations are supported: add, delete, and modify.
    * 
    * This parameter is required.
    */
   requestHeaderModificationShrink?: string;
   /**
    * @remarks
-   * The conditional expression that the Rule uses to match incoming requests. This parameter is not required for a Global configuration. There are two use cases:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, use a custom expression. For example: `(http.host eq "video.example.com")`
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -24,11 +22,9 @@ export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extend
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the Rule is enabled. This parameter is not required for a Global configuration. Valid values:
-   * 
-   * - `on`: The Rule is enabled.
-   * 
-   * - `off`: The Rule is disabled.
+   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -36,7 +32,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extend
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the Rule. This parameter is not required for a Global configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -44,7 +40,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extend
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the Rule. A lower value indicates a higher priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -52,7 +48,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extend
   sequence?: number;
   /**
    * @remarks
-   * The ID of the Site. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -62,7 +58,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest extend
   siteId?: number;
   /**
    * @remarks
-   * The Version of the Site configuration. For Sites with configuration versioning enabled, this parameter specifies the Version to which the Rule applies. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
    * 
    * @example
    * 0

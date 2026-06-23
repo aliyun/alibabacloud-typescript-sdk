@@ -136,7 +136,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * Creation time. Format: yyyy-MM-dd HH:mm:ss, timezone: +08:00.
+   * Creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: +08:00.
    * 
    * @example
    * 2024-03-11T01:23:21Z
@@ -184,7 +184,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * Remaining available diagnosis count.
+   * Remaining available diagnostic attempts.
    * 
    * @example
    * 10
@@ -197,7 +197,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   report?: DescribeTraceDiagnoseReportResponseBodyReport;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -207,9 +207,9 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
    * @remarks
    * Report generation status.
    * 
-   * 0: Success.
-   * 1: Failure.
-   * 2: Timeout.
+   * 0: Successful.
+   * 1: Failed.
+   * 2: Timed out.
    * 3: Running.
    * 4: Waiting.
    * 

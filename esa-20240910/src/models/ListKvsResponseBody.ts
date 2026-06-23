@@ -13,7 +13,7 @@ export class ListKvsResponseBodyKeys extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the key was last updated.
+   * The time when the key was last updated, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2021-12-13T07:46:03Z
@@ -45,7 +45,7 @@ export class ListKvsResponseBodyKeys extends $dara.Model {
 export class ListKvsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of key-value pairs returned by this traversal.
+   * The list of key-value pairs retrieved in this traversal.
    */
   keys?: ListKvsResponseBodyKeys[];
   /**
@@ -58,7 +58,7 @@ export class ListKvsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page.
+   * The number of records per page.
    * 
    * @example
    * 50

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteKvWithHighCapacityRequest extends $dara.Model {
   /**
    * @remarks
-   * The name specified when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * The namespace name specified when you called [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class BatchDeleteKvWithHighCapacityRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The download URL that stores the key-value pairs to be batch deleted, such as an OSS download URL with read permission.
+   * The download URL that contains the key-value pairs to be batch deleted, such as an OSS download URL with read permissions.
    * 
-   * - When you call this operation by using an SDK, the SDK automatically uploads the submitted content to OSS and passes in the corresponding URL.
+   * - When you call this operation by using the SDK, the SDK automatically uploads the content to OSS and passes the corresponding URL.
    * 
-   * - To call this operation directly, you must upload the JSON payload (in the same format as the BatchDeleteKv body: {"Namespace":"...","Keys":[...]}) to an OSS bucket and generate a signed HTTPS GET URL.
+   * - To call this operation directly, upload the JSON payload (in the same format as the BatchDeleteKv body: {"Namespace":"...","Keys":[...]}) to an OSS bucket and generate a signed HTTPS GET URL.
    * 
    * This parameter is required.
    * 

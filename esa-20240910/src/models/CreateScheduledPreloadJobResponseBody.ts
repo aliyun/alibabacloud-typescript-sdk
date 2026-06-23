@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 15685865xxx14622
@@ -13,7 +13,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time the task was created.
+   * The time when the task was created, in ISO 8601 format (for example, 2024-01-01T00:00:00+08:00).
    * 
    * @example
    * 2023-06-05T10:04:20+0800
@@ -21,7 +21,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of domains to preload.
+   * The list of prefetch domains.
    * 
    * @example
    * testurl.com
@@ -29,14 +29,10 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error message. Multiple error codes are separated by commas.
-   * 
+   * The error information. Multiple errors are separated by commas:
    * - **InvalidUrl**: The URL format is invalid.
-   * 
-   * - **InvalidDomain**: Domain ownership verification failed.
-   * 
-   * - **QuotaExcess**: The quota is exceeded.
-   * 
+   * - **InvalidDomain**: The domain ownership verification failed.
+   * - **QuotaExcess**: The quota limit has been exceeded.
    * - **OtherErrors**: Other errors.
    * 
    * @example
@@ -45,7 +41,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   errorInfo?: string;
   /**
    * @remarks
-   * The OSS URL for the file that lists the failed URLs.
+   * The OSS address of the failed file.
    * 
    * @example
    * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
@@ -53,7 +49,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The ID of the file containing the list of URLs. Use this ID to download the file.
+   * The URL list file ID, used for downloading.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -69,7 +65,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The URL submission method.
+   * The URL insertion method.
    * 
    * @example
    * oss
@@ -101,7 +97,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of tasks submitted. A value of 1 indicates that the task was created.
+   * The number of URLs that have been submitted to the system for prefetch tasks.
    * 
    * @example
    * 1
@@ -109,7 +105,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type. Valid values are refresh or preload.
+   * The task type (refresh/prefetch).
    * 
    * @example
    * preload
@@ -117,7 +113,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of URLs provided in the request.
+   * The total number of URLs.
    * 
    * @example
    * 2
@@ -125,7 +121,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   urlCount?: number;
   /**
    * @remarks
-   * The number of URLs accepted for preloading.
+   * The number of submitted URLs.
    * 
    * @example
    * 1

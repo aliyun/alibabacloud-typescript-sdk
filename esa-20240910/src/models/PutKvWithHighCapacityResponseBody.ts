@@ -21,7 +21,7 @@ export class PutKvWithHighCapacityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The content of the key. If the length exceeds 256 characters, the first 100 and last 100 characters are displayed, with the middle omitted.
+   * The content of the key. If the content exceeds 256 characters, the first 100 and last 100 characters are returned with the middle portion omitted.
    * 
    * @example
    * test

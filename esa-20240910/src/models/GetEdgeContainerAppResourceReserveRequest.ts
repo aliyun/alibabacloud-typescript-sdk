@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppResourceReserveRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
+   * >Notice: This parameter is required. If this parameter is not specified, the service returns InvalidParameter.Appid (400).
+   * If no applications exist under your account, call CreateEdgeContainerApp to create an application first, and then call ListEdgeContainerApps to obtain the AppId.
+   * </notice>.
    * 
    * @example
    * app-88068867578379****

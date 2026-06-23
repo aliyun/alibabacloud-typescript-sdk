@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends $dara.Model {
   /**
    * @remarks
-   * Name of the image secret.
+   * The name of the image secret.
    * 
    * @example
    * reg-123****
@@ -13,7 +13,7 @@ export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends
   name?: string;
   /**
    * @remarks
-   * Registry address.
+   * The image repository address.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
@@ -21,7 +21,7 @@ export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends
   registry?: string;
   /**
    * @remarks
-   * Username for the image repository
+   * The username of the image repository.
    * 
    * @example
    * admin
@@ -55,12 +55,12 @@ export class ListEdgeContainerAppImageSecretsResponseBodyImageSecretList extends
 export class ListEdgeContainerAppImageSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of image secrets.
+   * The list of image secrets.
    */
   imageSecretList?: ListEdgeContainerAppImageSecretsResponseBodyImageSecretList[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3558df77-8a7a-4060-a900-2d7949403836

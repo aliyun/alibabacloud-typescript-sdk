@@ -12,7 +12,7 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   contentShrink?: string;
   /**
    * @remarks
-   * The effective period of the block, in seconds. Specify this parameter when Type is set to block.
+   * The effective period of the block, in seconds. This parameter is required when the type is set to block.
    * 
    * @example
    * 864000
@@ -20,7 +20,7 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   maxage?: number;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -32,9 +32,8 @@ export class BlockObjectShrinkRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - **block**: Blocks access.
-   * 
-   * - **unblock**: Unblocks access.
+   * - **block**: blocks the URLs.
+   * - **unblock**: unblocks the URLs.
    * 
    * This parameter is required.
    * 

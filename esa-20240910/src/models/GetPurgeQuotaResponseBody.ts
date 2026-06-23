@@ -13,7 +13,7 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
   quota?: string;
   /**
    * @remarks
-   * The total quota available in a 30-day period. A value of 0 indicates that this quota is not configured.
+   * The total quota at 30-day granularity. A value of 0 indicates that this quota is not configured.
    * 
    * @example
    * 200000
@@ -37,7 +37,7 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
   usage?: string;
   /**
    * @remarks
-   * The quota used within the 30-day period.
+   * The used quota at 30-day granularity.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The purged content.
+   * The refresh object.
    * 
    * @example
    * http://a.com/1.jpg?b=1
@@ -13,7 +13,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2023-07-26T01:56:15Z
@@ -21,7 +21,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error description returned when the purge task failed.
+   * The error description returned when the refresh task fails.
    * 
    * @example
    * Internal Error
@@ -29,7 +29,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The progress of the task, in percentage.
+   * The task completion progress in percentage.
    * 
    * @example
    * 100%
@@ -37,7 +37,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   process?: string;
   /**
    * @remarks
-   * The task status.
+   * The task status. Valid values:
    * 
    * - **Complete**: The task is complete.
    * 
@@ -59,19 +59,13 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the purge task. Valid values:
-   * 
-   * - **file** (default): purges the cache by file.
-   * 
-   * - **cachetag**: purges the cache by cache tag.
-   * 
-   * - **directory**: purges the cache by directory.
-   * 
-   * - **ignoreParams**: purges the cache by URL with specified parameters ignored.
-   * 
-   * - **hostname**: purges the cache by hostname.
-   * 
-   * - **purgeall**: purges all cache.
+   * The refresh task type. Valid values:
+   * - **file** (default): file refresh.
+   * - **cachetag**: cache tag refresh.
+   * - **directory**: directory refresh.
+   * - **ignoreParams**: parameter-stripped refresh.
+   * - **hostname**: hostname refresh.
+   * - **purgeall**: refresh all cached content of the site.
    * 
    * @example
    * file
@@ -137,12 +131,12 @@ export class DescribePurgeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tasks.
+   * The task list.
    */
   tasks?: DescribePurgeTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 15

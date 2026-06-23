@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PurgeCachesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
@@ -13,7 +13,7 @@ export class PurgeCachesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID, which is returned when you create a refresh or preheat task.
+   * The task ID. This ID is returned when you create a refresh or prefetch task.
    * 
    * @example
    * 15940956620

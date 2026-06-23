@@ -11,10 +11,17 @@ export class CommitRoutineStagingCodeRequest extends $dara.Model {
    * description of this code ver
    */
   codeDescription?: string;
+  /**
+   * @remarks
+   * The deployment environment whose environment variable configuration is used. If you do not specify this parameter, environment variables are not used.
+   * 
+   * @example
+   * production
+   */
   deployEnv?: string;
   /**
    * @remarks
-   * The name of the edge function (Routine).
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 

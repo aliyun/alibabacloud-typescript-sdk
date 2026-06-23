@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetEdgeContainerLogsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of log entries to output.
+   * The number of log lines to output.>Notice: Valid values: 1 to 5000. If the value exceeds the upper limit, an error is returned.</notice>.
    * 
    * This parameter is required.
    * 

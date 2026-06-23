@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadFileAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -16,12 +16,11 @@ export class UploadFileAdvanceRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The type of the purge or prefetch task. Valid values:
-   * 
-   * *   **file** (default): purges the cache by file.
-   * *   **preload**: prefetches the file.
-   * *   **directory**: purges the cache by directory.
-   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * The type of the refresh or prefetch task. Valid values:
+   * - **file** (default): file refresh.
+   * - **preload**: file prefetch.
+   * - **directory**: directory refresh.
+   * - **ignoreParams**: parameter-ignored refresh.
    * 
    * This parameter is required.
    * 
@@ -41,12 +40,16 @@ export class UploadFileAdvanceRequest extends $dara.Model {
   uploadTaskName?: string;
   /**
    * @remarks
-   * The OSS URL of the file that contains resources to be purged or prefetched.
+   * The URL of the refresh or prefetch file stored in OSS. The Url parameter accepts URLs in two formats:
+   * 
+   * - Transit URL (recommended): automatically generated through the file transfer feature of the ESA console or SDK.
+   * 
+   * - OSS pre-signed HTTPS URL: generated after you upload the file to an authorized OSS bucket. The isFileTransferUrl field specifies whether to use the transit URL mode.
    * 
    * This parameter is required.
    * 
    * @example
-   * https://xxxxx.oss-cn-shenzhen.aliyuncs.com/test_oss_file?Expires=1708659191&OSSAccessKeyId=**********&Signature=**********
+   * https://XXXXXX.oss-cn-hangzhou.aliyuncs.com/{prefix}_{account_uid}_{hash}
    */
   urlObject?: Readable;
   static names(): { [key: string]: string } {

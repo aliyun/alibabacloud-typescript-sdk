@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerDeployRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * The list of regions.
    */
   regions?: string[];
   /**

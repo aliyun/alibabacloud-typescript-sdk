@@ -13,7 +13,7 @@ export class PreloadCachesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The prefetch task ID.
+   * The task ID. A task ID is returned when you create a prefetch task.
    * 
    * @example
    * 16401427840

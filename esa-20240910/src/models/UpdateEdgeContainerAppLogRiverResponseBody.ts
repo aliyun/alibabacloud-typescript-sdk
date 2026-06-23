@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEdgeContainerAppLogRiverResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log path of the container.
+   * The log file of the container.
    * 
    * @example
    * /root/hello.log
@@ -21,7 +21,7 @@ export class UpdateEdgeContainerAppLogRiverResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the standard output of the container is collected.
+   * Specifies whether to enable standard output collection for the container.
    * 
    * @example
    * true

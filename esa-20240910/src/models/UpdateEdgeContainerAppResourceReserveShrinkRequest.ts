@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
+   * >Notice: The AppId format is the app- prefix followed by a numeric suffix, with a total length of 20 to 64 characters (example: app-8806886***83794688). Call ListEdgeContainerApps to obtain an existing AppId, or call CreateEdgeContainerApp to create an application first.</notice>.
    * 
    * @example
    * app-88068867578379****
@@ -13,7 +14,7 @@ export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Mo
   appId?: string;
   /**
    * @remarks
-   * The end time of the reservation. The input time is UTC. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05, you need to enter "2006-01-02T14:04:05Z".
+   * The reservation end time. This parameter uses UTC time. To convert from UTC+8, add 8 hours. For example, if the current time is 2006-01-02 06:04:05 in UTC+8, enter "2006-01-02T14:04:05Z".
    * 
    * @example
    * 2006-01-02T15:04:05Z
@@ -21,7 +22,7 @@ export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Mo
   durationTime?: string;
   /**
    * @remarks
-   * Whether to enable resource reservation.
+   * Specifies whether to enable resource reservation.
    * 
    * @example
    * true
@@ -29,7 +30,7 @@ export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Mo
   enable?: boolean;
   /**
    * @remarks
-   * Whether to permanently enable the reservation. Once it is enabled, you are not allowed to set the reservation deadline.
+   * Specifies whether to permanently enable reservation. Once enabled, you cannot set a reservation end time.
    * 
    * @example
    * true
@@ -37,7 +38,7 @@ export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Mo
   forever?: boolean;
   /**
    * @remarks
-   * Reserved resource list.
+   * The list of reserved resources.
    */
   reserveSetShrink?: string;
   static names(): { [key: string]: string } {

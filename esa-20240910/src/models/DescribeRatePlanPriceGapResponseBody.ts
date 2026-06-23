@@ -68,7 +68,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   currency?: string;
   /**
    * @remarks
-   * The discount amount of the order.
+   * The order discount amount.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   targetPlanCode?: string;
   /**
    * @remarks
-   * The original order price, which equals the actual transaction price plus the discount amount.
+   * The original order price. Original order price = actual transaction price + discount amount.
    * 
    * @example
    * 2

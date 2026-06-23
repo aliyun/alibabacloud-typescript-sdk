@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 15685865xxx14622
@@ -13,7 +13,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the scheduled preload plan.
+   * The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -21,7 +21,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the preload plan.
+   * The prefetch plan ID.
    * 
    * @example
    * 66599bd7397885b43804901c
@@ -29,7 +29,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The execution interval for each batch in the scheduled preload plan, in seconds.
+   * The execution interval between each batch of the scheduled prefetch plan, in seconds.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The ID of the preload task.
+   * The prefetch task ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -53,7 +53,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of URLs in each scheduled preload batch.
+   * The number of URLs to prefetch per batch.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the scheduled preload plan.
+   * The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00
@@ -69,17 +69,12 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the scheduled preload plan. Valid values:
-   * 
-   * - **waiting**: The plan is waiting to be executed.
-   * 
-   * - **running**: The plan is being executed.
-   * 
-   * - **finished**: The plan is executed.
-   * 
-   * - **failed**: The execution failed.
-   * 
-   * - **stopped**: The execution is paused.
+   * The status of the scheduled prefetch plan. Valid values:
+   * - **waiting**: Waiting to be executed.
+   * - **running**: Being executed.
+   * - **finished**: Execution completed.
+   * - **failed**: Execution failed.
+   * - **stopped**: Execution paused.
    * 
    * @example
    * running

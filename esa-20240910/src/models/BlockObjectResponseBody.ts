@@ -13,7 +13,7 @@ export class BlockObjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task. A task ID is returned when you create a block task.
+   * The task ID. This ID is returned when you create a block task.
    * 
    * @example
    * 15940956620

@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetPerformanceDataCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Data Quality collection is enabled. Valid values: `true` and `false`.
+   * Indicates whether quality data collection is enabled. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * on
    */
   enable?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */
   requestId?: string;
   static names(): { [key: string]: string } {

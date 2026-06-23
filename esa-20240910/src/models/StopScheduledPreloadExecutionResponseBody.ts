@@ -13,7 +13,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the scheduled prefetch plan.
+   * The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -29,7 +29,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The execution interval between batches in the scheduled prefetch plan. Unit: seconds.
+   * The interval between each batch execution of the scheduled prefetch plan, in seconds.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The prefetch task ID.
+   * The prefetch job ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -61,7 +61,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the scheduled prefetch plan.
+   * The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00

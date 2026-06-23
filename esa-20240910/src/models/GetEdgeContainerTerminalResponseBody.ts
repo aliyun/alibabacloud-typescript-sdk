@@ -21,7 +21,7 @@ export class GetEdgeContainerTerminalResponseBody extends $dara.Model {
   container?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * ns1
@@ -29,7 +29,7 @@ export class GetEdgeContainerTerminalResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the container group.
+   * The pod name.
    * 
    * @example
    * 1775b9e0-8463-457e-89e8-fb7b6d125b2e
@@ -53,7 +53,7 @@ export class GetEdgeContainerTerminalResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The information about the shared token.
+   * The sharing token information.
    * 
    * @example
    * af22f4-xxxxx-xxxx-xxxx-xxxx

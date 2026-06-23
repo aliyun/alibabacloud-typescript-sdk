@@ -64,7 +64,7 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
   confOptions?: ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions;
   /**
    * @remarks
-   * The time when the code version was created.
+   * The time when the code version was created, in RFC 3339 format in the UTC time zone.
    * 
    * @example
    * 2024-04-16T09:42:47Z

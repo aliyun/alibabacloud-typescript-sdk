@@ -13,7 +13,7 @@ export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState exte
   lastTerminatedReason?: string;
   /**
    * @remarks
-   * The number of times that the container restarted.
+   * The number of restarts.
    * 
    * @example
    * 1
@@ -45,10 +45,11 @@ export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState exte
 export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the container is ready.
+   * Indicates whether the container status is ready. Valid values:
    * 
-   * *   ok
-   * *   unready
+   * - **ok**: Ready.
+   * 
+   * - **unready**: Not ready.
    * 
    * @example
    * ok
@@ -56,7 +57,7 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   containersReady?: string;
   /**
    * @remarks
-   * The time when the container was created. The value is a timestamp.
+   * The creation time (UNIX timestamp).
    * 
    * @example
    * 2024-09-24T06:46:35Z
@@ -64,10 +65,11 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   creationTimestamp?: string;
   /**
    * @remarks
-   * The initialization status of the container.
+   * The container initialization status. Valid values:
    * 
-   * *   ok
-   * *   unready
+   * - **ok**: Succeeded.
+   * 
+   * - **unready**: Not completed.
    * 
    * @example
    * ok
@@ -75,11 +77,16 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   initialized?: string;
   /**
    * @remarks
-   * The status of the container in the staging environment.
-   * 
-   * *   NoContainer: created.
-   * *   Running: running.
-   * *   Failed: abnormal.
+   * The status of the container in the staging environment. Valid values:
+   * - NoContainer: no container.
+   * - Pending: pending deployment.
+   * - ContainerCreating: the container is being created.
+   * - Running: running.
+   * - Succeeded: completed.
+   * - ImagePullBackOff: image pull failed.
+   * - CrashLoopBackOff: abnormal container startup.
+   * - Failed: failed.
+   * - Unknown: unknown.
    * 
    * @example
    * Running
@@ -87,15 +94,16 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   phase?: string;
   /**
    * @remarks
-   * The details of container restart.
+   * The container restart status.
    */
   podRestartState?: GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState;
   /**
    * @remarks
-   * Indicates whether domain names are associated with the container.
+   * Indicates whether the container is ready to receive traffic. Valid values:
    * 
-   * *   ok
-   * *   unready
+   * - **ok**: Ready.
+   * 
+   * - **unready**: Not ready.
    * 
    * @example
    * ok
@@ -111,10 +119,11 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The scheduling status of the container.
+   * The container scheduling status. Valid values:
    * 
-   * *   ok
-   * *   unready
+   * - **ok**: Succeeded.
+   * 
+   * - **unready**: Not completed.
    * 
    * @example
    * ok
@@ -122,7 +131,7 @@ export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model
   scheduled?: string;
   /**
    * @remarks
-   * The virtual IP addresses.
+   * The list of VIPs.
    */
   VIPs?: string[];
   static names(): { [key: string]: string } {

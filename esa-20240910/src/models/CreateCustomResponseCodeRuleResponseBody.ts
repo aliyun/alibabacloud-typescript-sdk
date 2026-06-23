@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomResponseCodeRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 3528160969****
@@ -13,7 +13,7 @@ export class CreateCustomResponseCodeRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C2B2F8CF-3074-5BBC-891A-AAD292E2624F

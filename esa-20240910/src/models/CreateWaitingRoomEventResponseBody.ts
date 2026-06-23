@@ -13,7 +13,7 @@ export class CreateWaitingRoomEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting room event ID. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the ID.
+   * The waiting room event ID. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the waiting room event ID.
    * 
    * @example
    * 433277746085888

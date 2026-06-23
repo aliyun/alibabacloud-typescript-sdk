@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppResourceReserveResponseBodyReserveSet extends $dara.Model {
   /**
    * @remarks
-   * The following ISPs are supported. You do not need to enter this field for overseas and special administrative regions. ISP:
-   * 
-   * *   China Mobile: cmcc
-   * *   China Telecom: chinanet
-   * *   China Unicom: unicom
+   * The following Internet service providers (ISPs) are supported. This parameter is not required for regions outside the Chinese mainland.
+   * Valid values:
+   * - cmcc: China Mobile
+   * - chinanet: China Telecom
+   * - unicom: China Unicom.
    * 
    * @example
    * cmcc
@@ -17,47 +17,45 @@ export class GetEdgeContainerAppResourceReserveResponseBodyReserveSet extends $d
   isp?: string;
   /**
    * @remarks
-   * Chinese mainland:
+   * The Chinese mainland:
+   * - East China: huadong
+   * - South China: huanan
+   * - Central China: huazhong
+   * - North China: huabei
+   * - Northwest China: xibei
+   * - Southwest China: xinan
+   * - Northeast China: dongbei
    * 
-   * *   East China: huadong
-   * *   South China: huanan
-   * *   Central China: huazhong
-   * *   North China: huabei
-   * *   Northwest: xibei
-   * *   Southwest: xinan
-   * *   Northeast China: dongbei
-   * 
-   * Special Administrative Regions and Overseas:
-   * 
-   * *   Taiwan, China: tw
-   * *   Macau China: mo
-   * *   Hong Kong, China: hk
-   * *   Japan: jp
-   * *   United States: us
-   * *   Thailand: th
-   * *   Korea: kr
-   * *   Russia: ru
-   * *   Singapore: sg
-   * *   France: fr
-   * *   Spain: es
-   * *   Italy: it
-   * *   Sweden: se
-   * *   UAE: ae
-   * *   Indonesia: id
-   * *   Chile: cl
-   * *   Philippines: ph
-   * *   Malaysia: my
-   * *   Vietnam: vn
-   * *   Argentina: ar
-   * *   Australia: au
-   * *   Brazil: br
-   * *   Colombia: co
-   * *   Germany: de
-   * *   UK: gb
-   * *   Peru: pe
-   * *   Saudi Arabia: sa
-   * *   Netherlands: nl
-   * *   South Africa: za
+   * Special administrative regions and outside China:
+   * - Taiwan (China): tw
+   * - Macao (China): mo
+   * - Hong Kong (China): hk
+   * - Japan: jp
+   * - United States: us
+   * - Thailand: th
+   * - South Korea: kr
+   * - Russia: ru
+   * - Singapore: sg
+   * - France: fr
+   * - Spain: es
+   * - Italy: it
+   * - Sweden: se
+   * - United Arab Emirates: ae
+   * - Indonesia: id
+   * - Chile: cl
+   * - Philippines: ph
+   * - Malaysia: my
+   * - Vietnam: vn
+   * - Argentina: ar
+   * - Australia: au
+   * - Brazil: br
+   * - Colombia: co
+   * - Germany: de
+   * - United Kingdom: gb
+   * - Peru: pe
+   * - Saudi Arabia: sa
+   * - Netherlands: nl
+   * - South Africa: za.
    * 
    * @example
    * huazhong
@@ -99,7 +97,7 @@ export class GetEdgeContainerAppResourceReserveResponseBodyReserveSet extends $d
 export class GetEdgeContainerAppResourceReserveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time of the reservation. The input is UTC time. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05 , you need to enter "2006-01-02T14:04:05Z".
+   * The reservation expiration time. This parameter uses UTC time. To convert from UTC+8, add 8 hours. For example, if the current UTC+8 time is 2006-01-02 06:04:05, enter "2006-01-02T14:04:05Z".
    * 
    * @example
    * 2006-01-02T15:04:05Z
@@ -107,7 +105,7 @@ export class GetEdgeContainerAppResourceReserveResponseBody extends $dara.Model 
   durationTime?: string;
   /**
    * @remarks
-   * Whether to enable resource reservation.
+   * Indicates whether resource reservation is enabled.
    * 
    * @example
    * true
@@ -115,7 +113,7 @@ export class GetEdgeContainerAppResourceReserveResponseBody extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * Whether to enable resource reservation permanently.
+   * Indicates whether the reservation is permanently enabled.
    * 
    * @example
    * true
@@ -131,7 +129,7 @@ export class GetEdgeContainerAppResourceReserveResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Reserved resource list.
+   * The list of reserved resources.
    */
   reserveSet?: GetEdgeContainerAppResourceReserveResponseBodyReserveSet[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCompressionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the configuration.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,7 +13,7 @@ export class CreateCompressionRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D248E

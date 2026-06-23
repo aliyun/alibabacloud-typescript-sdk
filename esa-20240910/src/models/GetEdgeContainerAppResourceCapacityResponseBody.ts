@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppResourceCapacityResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The carrier. This parameter is returned only for regions in the Chinese mainland. Valid values:
+   * The following Internet service providers (ISPs) are supported. This field is not returned for regions outside the Chinese mainland.
+   * ISPs:
    * 
-   * - cmcc: China Mobile
-   * 
-   * - chinanet: China Telecom
-   * 
-   * - unicom: China Unicom
+   * - China Mobile: cmcc
+   * - China Telecom: chinanet
+   * - China Unicom: unicom
    * 
    * @example
    * unicom
@@ -19,81 +18,46 @@ export class GetEdgeContainerAppResourceCapacityResponseBodyRegions extends $dar
   isp?: string;
   /**
    * @remarks
-   * The Chinese mainland:
+   * Chinese mainland:
+   * - East China: huadong
+   * - South China: huanan
+   * - Central China: huazhong
+   * - North China: huabei
+   * - Northwest China: xibei
+   * - Southwest China: xinan
+   * - Northeast China: dongbei
    * 
-   * - huadong: East China
+   * Special administrative regions and overseas:
    * 
-   * - huanan: South China
-   * 
-   * - huazhong: Central China
-   * 
-   * - huabei: North China
-   * 
-   * - xibei: Northwest China
-   * 
-   * - xinan: Southwest China
-   * 
-   * - dongbei: Northeast China
-   * 
-   * Special administrative regions and regions outside the Chinese mainland:
-   * 
-   * - tw: Taiwan (China)
-   * 
-   * - mo: Macao (China)
-   * 
-   * - hk: Hong Kong (China)
-   * 
-   * - jp: Japan
-   * 
-   * - us: US
-   * 
-   * - th: Thailand
-   * 
-   * - kr: South Korea
-   * 
-   * - ru: Russia
-   * 
-   * - sg: Singapore
-   * 
-   * - fr: France
-   * 
-   * - es: Spain
-   * 
-   * - it: Italy
-   * 
-   * - se: Sweden
-   * 
-   * - ae: UAE
-   * 
-   * - id: Indonesia
-   * 
-   * - cl: Chile
-   * 
-   * - ph: Philippines
-   * 
-   * - my: Malaysia
-   * 
-   * - vn: Vietnam
-   * 
-   * - ar: Argentina
-   * 
-   * - au: Australia
-   * 
-   * - br: Brazil
-   * 
-   * - co: Colombia
-   * 
-   * - de: Germany
-   * 
-   * - gb: UK
-   * 
-   * - pe: Peru
-   * 
-   * - sa: Saudi Arabia
-   * 
-   * - nl: Netherlands
-   * 
-   * - za: South Africa
+   * - Taiwan (China): tw
+   * - Macao (China): mo
+   * - Hong Kong (China): hk
+   * - Japan: jp
+   * - United States: us
+   * - Thailand: th
+   * - South Korea: kr
+   * - Russia: ru
+   * - Singapore: sg
+   * - France: fr
+   * - Spain: es
+   * - Italy: it
+   * - Sweden: se
+   * - United Arab Emirates: ae
+   * - Indonesia: id
+   * - Chile: cl
+   * - Philippines: ph
+   * - Malaysia: my
+   * - Vietnam: vn
+   * - Argentina: ar
+   * - Australia: au
+   * - Brazil: br
+   * - Colombia: co
+   * - Germany: de
+   * - United Kingdom: gb
+   * - Peru: pe
+   * - Saudi Arabia: sa
+   * - Netherlands: nl
+   * - South Africa: za
    * 
    * @example
    * huadong
@@ -140,7 +104,7 @@ export class GetEdgeContainerAppResourceCapacityResponseBody extends $dara.Model
   regions?: GetEdgeContainerAppResourceCapacityResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 50423A7F-A83D-1E24-B80E-86DD25790759

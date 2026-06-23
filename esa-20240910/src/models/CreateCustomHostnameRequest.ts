@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomHostnameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
+   * The SSL Certificates Service certificate ID. This parameter is required when CertType is set to cas.
    * 
    * @example
    * 30000478
@@ -13,11 +13,9 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   casId?: number;
   /**
    * @remarks
-   * The region of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
-   * 
-   * - For accounts on the China site, set this parameter to `cn-hangzhou`.
-   * 
-   * - For accounts on the International site, set this parameter to `ap-southeast-1`.
+   * The region of the SSL Certificates Service certificate. This parameter is required when CertType is set to cas.
+   * - For Chinese site accounts, set this parameter to cn-hangzhou.
+   * - For International site accounts, set this parameter to ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -25,13 +23,10 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   casRegion?: string;
   /**
    * @remarks
-   * The certificate type. This parameter is required if `SslFlag` is set to `on`. Valid values:
-   * 
-   * - **free**: A free certificate.
-   * 
-   * - **upload**: A user-uploaded certificate.
-   * 
-   * - **cas**: A CAS certificate.
+   * The certificate type. This parameter is required when SslFlag is set to on. Valid values:
+   * - **free**: free certificate.
+   * - **upload**: uploaded certificate.
+   * - **cas**: SSL Certificates Service certificate.
    * 
    * @example
    * free
@@ -39,7 +34,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The content of the certificate. This parameter is required if `CertType` is set to `upload`.
+   * The certificate content. This parameter is required when CertType is set to upload.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -47,7 +42,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The custom hostname.
+   * The SaaS domain name.
    * 
    * This parameter is required.
    * 
@@ -57,7 +52,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The private key of the certificate. This parameter is required if `CertType` is set to `upload`.
+   * The certificate private key. This parameter is required when CertType is set to upload.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -65,7 +60,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * The ID of the record to bind. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
+   * The ID of the record to bind. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the record ID.
    * 
    * This parameter is required.
    * 
@@ -75,7 +70,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get this ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -86,9 +81,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable SSL. Valid values:
-   * 
    * - **on**: Enable SSL.
-   * 
    * - **off**: Disable SSL.
    * 
    * This parameter is required.
