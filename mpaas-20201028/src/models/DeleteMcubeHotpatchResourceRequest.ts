@@ -6,38 +6,22 @@ export class DeleteMcubeHotpatchResourceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ALIPUBE5C3F6D091419-default
    */
   appCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ALIPUBE5C3F6D091419
    */
   appId?: string;
-  /**
-   * @example
-   * 321594
-   */
   id?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ZXCXMAHQ
    */
   tenantId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * default
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

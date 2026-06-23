@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMscpRiskInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * ApdidToken
-   * 
-   * @example
-   * ApdidToken
-   */
   apdidToken?: string;
-  /**
-   * @remarks
-   * AppId
-   * 
-   * @example
-   * AppId
-   */
   appId?: string;
-  /**
-   * @remarks
-   * TenantId
-   * 
-   * @example
-   * TenantId
-   */
   tenantId?: string;
-  /**
-   * @remarks
-   * TerminalType
-   * 
-   * @example
-   * TerminalType
-   */
   terminalType?: string;
-  /**
-   * @remarks
-   * WorkspaceId
-   * 
-   * @example
-   * WorkspaceId
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

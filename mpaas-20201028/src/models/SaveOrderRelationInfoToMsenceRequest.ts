@@ -3,57 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   amount?: number;
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * 3929520
-   */
   bizOrderId?: string;
-  /**
-   * @example
-   * 2
-   */
   bizOrderStatus?: number;
   clientType?: string;
   cpExtra?: string;
-  /**
-   * @example
-   * test_custom_id
-   */
   customId?: string;
-  /**
-   * @example
-   * 123321
-   */
+  itemId?: string;
+  itemTitle?: string;
   miniProgramId?: string;
-  /**
-   * @example
-   * 123456
-   */
   openUid?: string;
-  /**
-   * @example
-   * mPaaS_Goosefish
-   */
   platformId?: string;
-  /**
-   * @example
-   * NPHTGKNR
-   */
   tenantId?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,6 +26,8 @@ export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
       clientType: 'ClientType',
       cpExtra: 'CpExtra',
       customId: 'CustomId',
+      itemId: 'ItemId',
+      itemTitle: 'ItemTitle',
       miniProgramId: 'MiniProgramId',
       openUid: 'OpenUid',
       platformId: 'PlatformId',
@@ -81,6 +45,8 @@ export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
       clientType: 'string',
       cpExtra: 'string',
       customId: 'string',
+      itemId: 'string',
+      itemTitle: 'string',
       miniProgramId: 'string',
       openUid: 'string',
       platformId: 'string',

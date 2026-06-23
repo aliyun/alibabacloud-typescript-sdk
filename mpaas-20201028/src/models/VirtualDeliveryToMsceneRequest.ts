@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VirtualDeliveryToMsceneRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * test_custom_id
-   */
   customId?: string;
-  /**
-   * @example
-   * 1000001221323232
-   */
   miniProgramId?: string;
-  /**
-   * @example
-   * mPaaS_Goosefish
-   */
   platformId?: string;
-  /**
-   * @example
-   * IDUKCGEB
-   */
   tenantId?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

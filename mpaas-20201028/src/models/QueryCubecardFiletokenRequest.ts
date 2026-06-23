@@ -3,28 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCubecardFiletokenRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * true
    */
   onexFlag?: boolean;
-  /**
-   * @example
-   * ZXCXMAHQ-zh_CN
-   */
   tenantId?: string;
-  /**
-   * @example
-   * dev
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

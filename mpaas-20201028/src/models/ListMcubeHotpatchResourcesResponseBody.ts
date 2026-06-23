@@ -3,91 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResultHotpatchResourceInfo extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419-default
-   */
   appCode?: string;
-  /**
-   * @example
-   * xxx
-   */
   creator?: string;
-  /**
-   * @example
-   * https://xxxxx.jar
-   */
   downloadUrl?: string;
-  /**
-   * @example
-   * 528
-   */
   fileSize?: string;
-  /**
-   * @example
-   * 1745892911000
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 1574261514000
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 81c90a2cafdc6dfc54201e70845b5708
-   */
   hotpatchVersion?: string;
-  /**
-   * @example
-   * 1358
-   */
   id?: number;
-  /**
-   * @example
-   * E268154063D1256B4E60FE82B48E0811
-   */
   md5?: string;
   memo?: string;
-  /**
-   * @example
-   * modifier
-   */
   modifier?: string;
-  /**
-   * @example
-   * 0
-   */
   packageId?: number;
-  /**
-   * @example
-   * iOS,Android
-   */
   platform?: string;
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419_Android-default
-   */
   productId?: string;
-  /**
-   * @example
-   * 1.0.0
-   */
   productVersion?: string;
-  /**
-   * @example
-   * 0
-   */
   publishPeriod?: number;
-  /**
-   * @example
-   * 81c90a2cafdc6dfc54201e70845b5708
-   */
   releaseVersion?: string;
-  /**
-   * @example
-   * mpaas.jar
-   */
   sourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,46 +77,14 @@ export class ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResultHot
 }
 
 export class ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResult extends $dara.Model {
-  /**
-   * @example
-   * 3
-   */
   currentPage?: number;
-  /**
-   * @example
-   * 200
-   */
   errorCode?: string;
-  /**
-   * @example
-   * False
-   */
   hasMore?: boolean;
   hotpatchResourceInfo?: ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResultHotpatchResourceInfo[];
-  /**
-   * @example
-   * 200
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 1C23E812-217E-5065-B778-D34586E2105E
-   */
   requestId?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 71
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -228,20 +128,8 @@ export class ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResult ex
 
 export class ListMcubeHotpatchResourcesResponseBody extends $dara.Model {
   listHotpatchResourceResult?: ListMcubeHotpatchResourcesResponseBodyListHotpatchResourceResult;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

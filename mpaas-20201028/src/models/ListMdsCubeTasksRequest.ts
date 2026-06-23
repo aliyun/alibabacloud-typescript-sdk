@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMdsCubeTasksRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNum?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 1
-   */
   templateResourceId?: number;
-  /**
-   * @example
-   * ZXCXMAHQ-zh_CN
-   */
   tenantId?: string;
-  /**
-   * @example
-   * dev
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

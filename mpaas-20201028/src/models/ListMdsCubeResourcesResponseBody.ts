@@ -3,125 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMdsCubeResourcesResponseBodyResultContentDataContentList extends $dara.Model {
-  /**
-   * @example
-   * 0.0.0.1
-   */
   androidMaxVersion?: string;
-  /**
-   * @example
-   * 0.0.0.1
-   */
   androidMinVersion?: string;
-  /**
-   * @example
-   * 570DA89281533-default
-   */
   appCode?: string;
-  /**
-   * @example
-   * 1fbfd6c422762c7083f3bb01c638e48e
-   */
   binFileMd5?: string;
-  /**
-   * @example
-   * url
-   */
   binPrivateFileUrl?: string;
-  /**
-   * @example
-   * url
-   */
   binPublicFileUrl?: string;
-  /**
-   * @example
-   * ""
-   */
   extendInfo?: string;
-  /**
-   * @example
-   * 2025-10-24 16:42:45
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2025-10-24 16:42:45
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @example
-   * 0.0.0.1
-   */
   iosMaxVersion?: string;
-  /**
-   * @example
-   * 0.0.0.1
-   */
   iosMinVersion?: string;
-  /**
-   * @example
-   * url
-   */
   jsonPrivateFileUrl?: string;
-  /**
-   * @example
-   * url
-   */
   jsonPublicFileUrl?: string;
-  /**
-   * @example
-   * ""
-   */
   minCubeSdkVersion?: string;
-  /**
-   * @example
-   * url
-   */
   mockDataDownloadUrl?: string;
-  /**
-   * @example
-   * default
-   */
   operator?: string;
-  /**
-   * @example
-   * Android
-   */
   platform?: string;
-  /**
-   * @example
-   * url
-   */
   previewPictureUrl?: string;
-  /**
-   * @example
-   * 3
-   */
   resourceStatus?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * test_template
-   */
   templateId?: string;
-  /**
-   * @example
-   * resource desc
-   */
   templateResourceDesc?: string;
-  /**
-   * @example
-   * 0.0.0.1
-   */
   templateResourceVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,56 +95,16 @@ export class ListMdsCubeResourcesResponseBodyResultContentDataContentList extend
 }
 
 export class ListMdsCubeResourcesResponseBodyResultContentDataContent extends $dara.Model {
-  /**
-   * @example
-   * 0.0.0.1
-   */
   currentMaxAndroidVersion?: string;
-  /**
-   * @example
-   * 0.0.0.1
-   */
   currentMaxIosVersion?: string;
-  /**
-   * @example
-   * true
-   */
   firstPage?: boolean;
-  /**
-   * @example
-   * 0
-   */
   firstResult?: number;
-  /**
-   * @example
-   * true
-   */
   lastPage?: boolean;
   list?: ListMdsCubeResourcesResponseBodyResultContentDataContentList[];
-  /**
-   * @example
-   * 1
-   */
   nextPage?: number;
-  /**
-   * @example
-   * 1
-   */
   pageNo?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 1
-   */
   prePage?: number;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -288,25 +152,9 @@ export class ListMdsCubeResourcesResponseBodyResultContentDataContent extends $d
 
 export class ListMdsCubeResourcesResponseBodyResultContentData extends $dara.Model {
   content?: ListMdsCubeResourcesResponseBodyResultContentDataContent;
-  /**
-   * @example
-   * NONE
-   */
   errorCode?: string;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -342,10 +190,6 @@ export class ListMdsCubeResourcesResponseBodyResultContentData extends $dara.Mod
 
 export class ListMdsCubeResourcesResponseBodyResultContent extends $dara.Model {
   data?: ListMdsCubeResourcesResponseBodyResultContentData;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -374,21 +218,9 @@ export class ListMdsCubeResourcesResponseBodyResultContent extends $dara.Model {
 }
 
 export class ListMdsCubeResourcesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
   resultContent?: ListMdsCubeResourcesResponseBodyResultContent;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

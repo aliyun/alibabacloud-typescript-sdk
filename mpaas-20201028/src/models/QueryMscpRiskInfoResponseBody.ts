@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMscpRiskInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Code
-   * 
-   * @example
-   * Code
-   */
   code?: string;
-  /**
-   * @remarks
-   * Data
-   * 
-   * @example
-   * Data
-   */
   data?: { [key: string]: any };
-  /**
-   * @remarks
-   * Msg
-   * 
-   * @example
-   * Msg
-   */
   msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * RequestId
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Success
-   * 
-   * @example
-   * Success
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

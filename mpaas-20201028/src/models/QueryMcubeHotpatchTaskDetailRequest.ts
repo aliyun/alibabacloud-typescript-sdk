@@ -6,33 +6,21 @@ export class QueryMcubeHotpatchTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ALIPUBE5C3F6D091419
    */
   appId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 6071959
    */
   taskId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ZXCXMAHQ
    */
   tenantId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * default
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

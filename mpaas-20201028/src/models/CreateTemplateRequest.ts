@@ -3,59 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
   content?: string;
   descInfo?: string;
-  /**
-   * @example
-   * /
-   */
   iconUrls?: string;
-  /**
-   * @example
-   * /
-   */
   imageUrls?: string;
-  /**
-   * @example
-   * 1
-   */
   jumpAction?: number;
-  /**
-   * @example
-   * 0
-   */
   pushStyle?: number;
-  /**
-   * @example
-   * 0
-   */
   showStyle?: number;
   templateName?: string;
-  /**
-   * @example
-   * GKDDZPFH
-   */
   tenantId?: string;
   title?: string;
-  /**
-   * @example
-   * /
-   */
   uri?: string;
-  /**
-   * @example
-   * title,content
-   */
   variables?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

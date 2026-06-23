@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePayOrderToMsenceShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   amount?: number;
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * NPHTGKNR
-   */
   authToken?: string;
-  /**
-   * @example
-   * test_custom_id
-   */
   customId?: string;
-  /**
-   * @example
-   * {}
-   */
   extraInfoShrink?: string;
-  /**
-   * @example
-   * 123321
-   */
   miniProgramId?: string;
-  /**
-   * @example
-   * mPaaS_Goosefish
-   */
   platformId?: string;
-  /**
-   * @example
-   * NPHTGKNR
-   */
   tenantId?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

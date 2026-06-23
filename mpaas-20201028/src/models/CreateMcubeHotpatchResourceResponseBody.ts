@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMcubeHotpatchResourceResponseBodyCreateHotpatchResourceResult extends $dara.Model {
-  /**
-   * @example
-   * OK
-   */
   errorCode?: string;
-  /**
-   * @example
-   * 1768
-   */
   hotpatchResourceId?: string;
-  /**
-   * @example
-   * EA606F90-F758-5EDC-A70F-939F089CA496
-   */
   requestId?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -59,20 +39,8 @@ export class CreateMcubeHotpatchResourceResponseBodyCreateHotpatchResourceResult
 
 export class CreateMcubeHotpatchResourceResponseBody extends $dara.Model {
   createHotpatchResourceResult?: CreateMcubeHotpatchResourceResponseBodyCreateHotpatchResourceResult;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

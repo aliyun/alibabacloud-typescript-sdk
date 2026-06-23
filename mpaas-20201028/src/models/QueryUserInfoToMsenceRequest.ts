@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUserInfoToMsenceRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * NPHTGKNR
-   */
   authToken?: string;
-  /**
-   * @example
-   * 123321
-   */
   miniProgramId?: string;
-  /**
-   * @example
-   * mPaaS_Goosefish
-   */
   platformId?: string;
-  /**
-   * @example
-   * JGBGDUWU
-   */
   tenantId?: string;
-  /**
-   * @example
-   * preProd
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

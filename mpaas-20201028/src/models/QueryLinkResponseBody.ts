@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryLinkResponseBodyResultContent extends $dara.Model {
-  /**
-   * @example
-   * {
-   *             "Modified": "2024-04-29 16:35:55",
-   *             "NeedRenderEvent": false,
-   *             "WorkspaceId": "default",
-   *             "Cors": false,
-   *             "Url": "https://xxx/xxx",
-   *             "Created": "2024-04-29 16:35:55",
-   *             "LastModified": "2024-04-29 16:35:55",
-   *             "Target": "http://xxx/test.html",
-   *             "Dynamictarget": "",
-   *             "AppId": "BB5953C300957",
-   *             "Version": 0,
-   *             "Traceid": "f6c95f06891a19ff2d896ea309581883",
-   *             "Domain": "u.aliyuncs.com"
-   *         }
-   */
   data?: any;
-  /**
-   * @example
-   * https://xxx/xxx/xxx
-   */
   target?: string;
-  /**
-   * @example
-   * 0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,24 +32,9 @@ export class QueryLinkResponseBodyResultContent extends $dara.Model {
 }
 
 export class QueryLinkResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * D9B3C4E7-BEC7-1E2C-86A3-EA985B4FFD73
-   */
   requestId?: string;
-  /**
-   * @example
-   * 100
-   */
   resultCode?: string;
   resultContent?: QueryLinkResponseBodyResultContent;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

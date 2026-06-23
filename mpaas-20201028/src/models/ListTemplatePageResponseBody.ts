@@ -3,59 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTemplatePageResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   action?: string;
   content?: string;
   descInfo?: string;
-  /**
-   * @example
-   * 1727180119
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 1722564835000
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * /
-   */
   iconUrls?: string;
-  /**
-   * @example
-   * 10029984
-   */
   id?: string;
-  /**
-   * @example
-   * /
-   */
   imageUrls?: string;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   pushStyle?: string;
-  /**
-   * @example
-   * 0
-   */
   showStyle?: string;
   title?: string;
-  /**
-   * @example
-   * /
-   */
   uri?: string;
-  /**
-   * @example
-   * title,content
-   */
   variables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,44 +65,13 @@ export class ListTemplatePageResponseBodyData extends $dara.Model {
 }
 
 export class ListTemplatePageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 1
-   */
   currentPage?: number;
   data?: ListTemplatePageResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
   msg?: string;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 6
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {

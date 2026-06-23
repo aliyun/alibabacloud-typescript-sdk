@@ -7656,6 +7656,14 @@ export default class Client extends OpenApi {
       body["CustomId"] = request.customId;
     }
 
+    if (!$dara.isNull(request.itemId)) {
+      body["ItemId"] = request.itemId;
+    }
+
+    if (!$dara.isNull(request.itemTitle)) {
+      body["ItemTitle"] = request.itemTitle;
+    }
+
     if (!$dara.isNull(request.miniProgramId)) {
       body["MiniProgramId"] = request.miniProgramId;
     }

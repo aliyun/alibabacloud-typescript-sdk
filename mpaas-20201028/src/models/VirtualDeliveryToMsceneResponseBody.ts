@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtualdeliveryResponse extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -31,28 +27,9 @@ export class VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtua
 
 export class VirtualDeliveryToMsceneResponseBody extends $dara.Model {
   mpaasUserGamecenterPaymentVirtualdeliveryResponse?: VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtualdeliveryResponse;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * ac1f0083177615939018778261913
-   */
   requestId?: string;
-  /**
-   * @example
-   * 200
-   */
   resultCode?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

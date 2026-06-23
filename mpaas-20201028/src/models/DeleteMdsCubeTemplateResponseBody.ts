@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMdsCubeTemplateResponseBodyResultContentData extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
   content?: string;
-  /**
-   * @example
-   * NONE
-   */
   errorCode?: string;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +39,6 @@ export class DeleteMdsCubeTemplateResponseBodyResultContentData extends $dara.Mo
 
 export class DeleteMdsCubeTemplateResponseBodyResultContent extends $dara.Model {
   data?: DeleteMdsCubeTemplateResponseBodyResultContentData;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,21 +67,9 @@ export class DeleteMdsCubeTemplateResponseBodyResultContent extends $dara.Model 
 }
 
 export class DeleteMdsCubeTemplateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
   resultContent?: DeleteMdsCubeTemplateResponseBodyResultContent;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

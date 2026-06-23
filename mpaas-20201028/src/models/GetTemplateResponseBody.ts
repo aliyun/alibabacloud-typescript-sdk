@@ -68,10 +68,6 @@ export class GetTemplateResponseBody extends $dara.Model {
   code?: string;
   data?: GetTemplateResponseBodyData;
   msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   */
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {

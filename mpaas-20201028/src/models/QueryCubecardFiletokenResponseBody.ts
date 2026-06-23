@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCubecardFiletokenResponseBodyResultContentDataContent extends $dara.Model {
-  /**
-   * @example
-   * LTAI5tFgfNzJFDn4Y4BhoRnc
-   */
   accessid?: string;
-  /**
-   * @example
-   * /home/ecs-assist-user/proof/alert
-   */
   dir?: string;
-  /**
-   * @example
-   * 1760583447
-   */
   expire?: string;
-  /**
-   * @example
-   * 172.23.129.55
-   */
   host?: string;
-  /**
-   * @example
-   * Permit
-   */
   policy?: string;
-  /**
-   * @example
-   * yKplu9LQwgKBTDhxp0YozAeCy9c=
-   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,20 +42,8 @@ export class QueryCubecardFiletokenResponseBodyResultContentDataContent extends 
 
 export class QueryCubecardFiletokenResponseBodyResultContentData extends $dara.Model {
   content?: QueryCubecardFiletokenResponseBodyResultContentDataContent;
-  /**
-   * @example
-   * NONE
-   */
   errorCode?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -113,10 +77,6 @@ export class QueryCubecardFiletokenResponseBodyResultContentData extends $dara.M
 
 export class QueryCubecardFiletokenResponseBodyResultContent extends $dara.Model {
   data?: QueryCubecardFiletokenResponseBodyResultContentData;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,21 +105,9 @@ export class QueryCubecardFiletokenResponseBodyResultContent extends $dara.Model
 }
 
 export class QueryCubecardFiletokenResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
   resultContent?: QueryCubecardFiletokenResponseBodyResultContent;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

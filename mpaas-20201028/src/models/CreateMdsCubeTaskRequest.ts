@@ -3,60 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMdsCubeTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * ""
-   */
   greyConfigInfo?: string;
-  /**
-   * @example
-   * ""
-   */
   greyEndtimeData?: string;
-  /**
-   * @example
-   * 1
-   */
   greyNum?: number;
-  /**
-   * @example
-   * 0
-   */
   publishMode?: number;
-  /**
-   * @example
-   * 3
-   */
   publishType?: number;
-  /**
-   * @example
-   * task_test
-   */
   taskDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   templateResourceId?: number;
-  /**
-   * @example
-   * ZXCXMAHQ-zh_CN
-   */
   tenantId?: string;
-  /**
-   * @example
-   * test1,test2
-   */
   whitelistIds?: string;
-  /**
-   * @example
-   * dev
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

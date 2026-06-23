@@ -6,41 +6,20 @@ export class QueryInfoFromMdpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ALIPUBE5C3F6D091419
    */
   appId?: string;
-  /**
-   * @example
-   * 13178195662
-   */
   mobile?: string;
-  /**
-   * @example
-   * 2fe6e5fa754be73d1721b9bd2c6cf821
-   */
   mobileMd5?: string;
-  /**
-   * @example
-   * db0797452ccafce84d7c151eb81596099bda3f097693d1e18b588804e6742ced
-   */
   mobileSha256?: string;
   mobileSm3?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1000
    */
   riskScene?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * default
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

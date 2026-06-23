@@ -3,103 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResultHotpatchTaskInfo extends $dara.Model {
-  /**
-   * @example
-   * ALIPUB40DB571101207-default
-   */
   appCode?: string;
-  /**
-   * @example
-   * ***
-   */
   creator?: string;
-  /**
-   * @example
-   * 1751594649000
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2024-10-29 18:01:32
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 2024-10-29 18:01:32
-   */
   gmtModifiedStr?: string;
   greyConfigInfo?: string;
-  /**
-   * @example
-   * 2020-03-18 20:12:26
-   */
   greyEndtime?: string;
   greyEndtimeData?: string;
-  /**
-   * @example
-   * 10
-   */
   greyNum?: number;
-  /**
-   * @example
-   * 1486
-   */
   id?: number;
   memo?: string;
-  /**
-   * @example
-   * xxxx
-   */
   modifier?: string;
-  /**
-   * @example
-   * 1664552
-   */
   packageId?: number;
-  /**
-   * @example
-   * iOS
-   */
   platform?: string;
-  /**
-   * @example
-   * ALIPUB40DB571101207_ANDROID-default
-   */
   productId?: string;
-  /**
-   * @example
-   * 1.0.0
-   */
   productVersion?: string;
-  /**
-   * @example
-   * 1
-   */
   publishMode?: number;
-  /**
-   * @example
-   * 3
-   */
   publishType?: number;
-  /**
-   * @example
-   * 81c90a2cafdc6dfc54201e70845b5708
-   */
   releaseVersion?: string;
-  /**
-   * @example
-   * 1786
-   */
   resIds?: string;
-  /**
-   * @example
-   * 1
-   */
   taskStatus?: number;
-  /**
-   * @example
-   * 825827
-   */
   whitelistIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -165,26 +89,10 @@ export class ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResultHotpatchTa
 }
 
 export class ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResult extends $dara.Model {
-  /**
-   * @example
-   * OK
-   */
   errorCode?: string;
   hotpatchTaskInfo?: ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResultHotpatchTaskInfo[];
-  /**
-   * @example
-   * 6BD4C876-47B4-56CF-84C5-57389EE1EDFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * success
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -220,20 +128,8 @@ export class ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResult extends $
 
 export class ListMcubeHotpatchTasksResponseBody extends $dara.Model {
   listHotpatchTasksResult?: ListMcubeHotpatchTasksResponseBodyListHotpatchTasksResult;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * 100
-   */
   resultCode?: string;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {

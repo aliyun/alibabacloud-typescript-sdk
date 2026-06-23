@@ -6,41 +6,20 @@ export class UploadBitcodeToMsaRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ALIPUBE5C3F6D091419
    */
   appId?: string;
-  /**
-   * @example
-   * 3sAXCwAAAAAUAAAACHoAAP
-   */
   bitcode?: string;
-  /**
-   * @example
-   * xcode14
-   */
   codeVersion?: string;
-  /**
-   * @example
-   * {}
-   */
   license?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ZXCXMAHQ-zh_CN
    */
   tenantId?: string;
   type?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dev
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

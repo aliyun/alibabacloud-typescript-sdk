@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTemplateRequest extends $dara.Model {
-  /**
-   * @example
-   * ALIPUBE5C3F6D091419
-   */
   appId?: string;
-  /**
-   * @example
-   * 1587
-   */
   templateId?: string;
   templateName?: string;
-  /**
-   * @example
-   * GHLGRTLG
-   */
   tenantId?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

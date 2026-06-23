@@ -5,25 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MTRSOCRServiceResponseBody extends $dara.Model {
   code?: string;
   msg?: string;
-  /**
-   * @example
-   * D9B3C4E7-BEC7-1E2C-86A3-EA985B4FFD73
-   */
   requestId?: string;
-  /**
-   * @example
-   * {"aa":"ss"}
-   */
   result?: string;
-  /**
-   * @example
-   * true/false
-   */
   status?: boolean;
-  /**
-   * @example
-   * 777799aa
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

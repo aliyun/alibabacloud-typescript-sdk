@@ -3,33 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 1234
-   */
   data?: string;
-  /**
-   * @example
-   * success
-   */
   msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 0CC8A9CB-9BA3-13FD-A404-6E2E7461881A
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

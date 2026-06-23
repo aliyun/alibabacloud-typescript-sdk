@@ -3,37 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MTRSOCRServiceRequest extends $dara.Model {
-  /**
-   * @example
-   * ONEX8C7E7FA161089
-   */
   appId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xydasf==ac
    */
   imageRaw?: string;
   mask?: boolean;
-  /**
-   * @example
-   * tabcaa
-   */
   tenantId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ID_CARD_OCR
    */
   type?: string;
-  /**
-   * @example
-   * default
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

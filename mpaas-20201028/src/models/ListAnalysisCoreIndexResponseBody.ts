@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAnalysisCoreIndexResponseBodyResultContentData extends $dara.Model {
-  /**
-   * @remarks
-   * 0
-   */
   arrivalNum?: string;
-  /**
-   * @remarks
-   * 0
-   */
   arrivalRate?: string;
-  /**
-   * @remarks
-   * 0
-   */
   ignoreNum?: string;
-  /**
-   * @remarks
-   * 0
-   */
   ignoreRate?: string;
-  /**
-   * @remarks
-   * 0
-   */
   openNum?: string;
-  /**
-   * @remarks
-   * 0
-   */
   openRate?: string;
-  /**
-   * @remarks
-   * 0
-   */
   pushNum?: string;
-  /**
-   * @remarks
-   * 0
-   */
   pushTotalNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,15 +48,7 @@ export class ListAnalysisCoreIndexResponseBodyResultContentData extends $dara.Mo
 
 export class ListAnalysisCoreIndexResponseBodyResultContent extends $dara.Model {
   data?: ListAnalysisCoreIndexResponseBodyResultContentData;
-  /**
-   * @example
-   * “”
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -119,26 +79,10 @@ export class ListAnalysisCoreIndexResponseBodyResultContent extends $dara.Model 
 }
 
 export class ListAnalysisCoreIndexResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
   resultContent?: ListAnalysisCoreIndexResponseBodyResultContent;
-  /**
-   * @example
-   * success
-   */
   resultMessage?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

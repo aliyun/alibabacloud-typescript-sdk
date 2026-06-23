@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUserInfoToMsenceResponseBodyMpaasUserInfoShareResponse extends $dara.Model {
-  /**
-   * @example
-   * -
-   */
   avatar?: string;
-  /**
-   * @example
-   * 0
-   */
   gender?: string;
-  /**
-   * @example
-   * -
-   */
   nickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,25 +33,9 @@ export class QueryUserInfoToMsenceResponseBodyMpaasUserInfoShareResponse extends
 
 export class QueryUserInfoToMsenceResponseBody extends $dara.Model {
   mpaasUserInfoShareResponse?: QueryUserInfoToMsenceResponseBodyMpaasUserInfoShareResponse;
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * 200
-   */
   resultCode?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   resultMsg?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

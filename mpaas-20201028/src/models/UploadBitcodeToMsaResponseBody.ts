@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadBitcodeToMsaResponseBodyResultContent extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 1234
-   */
   data?: string;
-  /**
-   * @example
-   * Normal
-   */
   message?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -51,21 +35,9 @@ export class UploadBitcodeToMsaResponseBodyResultContent extends $dara.Model {
 }
 
 export class UploadBitcodeToMsaResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
-   */
   requestId?: string;
-  /**
-   * @example
-   * OK
-   */
   resultCode?: string;
   resultContent?: UploadBitcodeToMsaResponseBodyResultContent;
-  /**
-   * @example
-   * SYSTEM_ERROR
-   */
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
