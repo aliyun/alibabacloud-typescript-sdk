@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountAuthorityRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account name.
    * 
    * @example
    * test
@@ -25,7 +25,7 @@ export class DescribeAccountAuthorityRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the latest region list.
    * 
    * @example
    * cn-hangzhou

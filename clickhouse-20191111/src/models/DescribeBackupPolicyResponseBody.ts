@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The retention period for the backup data. By default, the backup data is retained for seven days. Valid values: 7 to 730. Unit: day.
+   * The backup retention period. Default value: 7. Valid values: 7 to 730. Unit: day.
    * 
    * @example
    * 7
@@ -13,7 +13,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * The size of the backup data. Unit: MB.
+   * The backup size. Unit: MB.
    * 
    * @example
    * 123124
@@ -21,15 +21,21 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupSize?: string;
   /**
    * @remarks
-   * The day of a week when the system regularly backs up data. Valid values:
+   * The backup cycle. Valid values:
    * 
-   * *   **Monday**
-   * *   **Tuesday**
-   * *   **Wednesday**
-   * *   **Thursday**
-   * *   **Friday**
-   * *   **Saturday**
-   * *   **Sunday**
+   * - **Monday**
+   * 
+   * - **Tuesday**
+   * 
+   * - **Wednesday**
+   * 
+   * - **Thursday**
+   * 
+   * - **Friday**
+   * 
+   * - **Saturday**
+   * 
+   * - **Sunday**
    * 
    * @example
    * Monday
@@ -37,7 +43,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The backup window. The time is displayed in Coordinated Universal Time (UTC).
+   * The backup time in UTC.
    * 
    * @example
    * 15:00Z-16:00Z
@@ -55,8 +61,9 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the backup feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The backup feature is enabled.
+   * 
+   * - **false**: The backup feature is disabled.
    * 
    * @example
    * true

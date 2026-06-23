@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEventMetaInfoResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The code of the O\\&M task.
+   * 
    * @example
    * Running
    */
   code?: string;
   /**
+   * @remarks
+   * The type of the O\\&M task.
+   * 
    * @example
    * Task.TaskStatus
    */
@@ -37,13 +43,23 @@ export class DescribeEventMetaInfoResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeEventMetaInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata of O\\&M tasks.
+   */
   items?: DescribeEventMetaInfoResponseBodyItems[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 94F92113-FF63-5E57-8401-6FE123AD11DD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

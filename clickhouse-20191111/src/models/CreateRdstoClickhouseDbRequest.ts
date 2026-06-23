@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The password for the database account of the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   ckPassword?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The database account of the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The maximum number of rows that can be synchronized per second.
+   * The maximum number of rows to sync per second.
    * 
    * @example
    * 50000
@@ -63,7 +63,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password of the account that is used to log on to the ApsaraDB RDS for MySQL instance.
+   * The password for the database account of the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsPort?: number;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+   * The database account of the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsUserName?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the ApsaraDB RDS for MySQL instance belongs.
+   * The VPC ID of the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * vpc-2zen93xryil99jsfy****
@@ -99,7 +99,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsVpcId?: string;
   /**
    * @remarks
-   * The private endpoint of the ApsaraDB RDS for MySQL instance.
+   * The internal endpoint of the ApsaraDB RDS instance.
    * 
    * @example
    * rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
@@ -109,10 +109,11 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to ignore the table schemas that do not support synchronization. Valid values:
+   * Specifies whether to skip unsupported table schemas. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Skip.
+   * 
+   * - **false**: Do not skip.
    * 
    * This parameter is required.
    * 
@@ -122,7 +123,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   skipUnsupported?: boolean;
   /**
    * @remarks
-   * The tables whose data you want to synchronize.
+   * The tables to sync.
    * 
    * This parameter is required.
    * 

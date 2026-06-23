@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup task ID.
+   * The data backup task ID.
    * 
    * @example
    * 117403****
@@ -23,7 +23,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -45,9 +45,11 @@ export class DescribeBackupsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -57,7 +59,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

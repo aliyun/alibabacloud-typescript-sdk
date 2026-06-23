@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBClusterStatusSetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DE309AA1-BD83-5E1F-9945-8A4D336E0829
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The set of instance statuses.
+   */
   statusSet?: string[];
   static names(): { [key: string]: string } {
     return {

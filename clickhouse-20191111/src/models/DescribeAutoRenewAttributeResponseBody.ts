@@ -69,21 +69,33 @@ export class DescribeAutoRenewAttributeResponseBodyItems extends $dara.Model {
 export class DescribeAutoRenewAttributeResponseBody extends $dara.Model {
   items?: DescribeAutoRenewAttributeResponseBodyItems;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 5
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E*******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 51
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the pay-as-you-go ApsaraDB for ClickHouse cluster.
+   * The ID of the pay-as-you-go cluster.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+   * The ID of the cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in a specific region. This information includes the cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The reason for the change.
+   * The reason for the modification.
    * 
    * @example
    * test
@@ -25,7 +25,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
    * 
    * @example
    * cn-hangzhou
@@ -35,9 +35,9 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The names of the parameters and the new values that you want to specify for the parameters.
+   * The configuration parameters to modify.
    * 
-   * >  You can change the value of a single parameter. The values of parameters that are not specified will not be changed.
+   * > You can modify a single configuration parameter. Parameters that are not specified in the request are not affected.
    * 
    * This parameter is required.
    * 

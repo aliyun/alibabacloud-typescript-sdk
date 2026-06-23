@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The values of a metric.
+   * The value of the performance metric.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues ex
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * The name of the list of performance metric values.
+   * The name of the time series.
    * 
    * @example
    * cc-bp125e3uu94wo1s0k16****
@@ -43,7 +43,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   name?: string;
   /**
    * @remarks
-   * The values of the performance parameter. Each value of the performance parameter is collected at a point in time.
+   * The values of the performance metrics, each associated with a sampling timestamp.
    */
   values?: DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues[];
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   key?: string;
   /**
    * @remarks
-   * The name of the performance metric value.
+   * The name of the performance metric.
    * 
    * @example
    * mem_usage
@@ -91,12 +91,12 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   name?: string;
   /**
    * @remarks
-   * The queried performance pamaters.
+   * The time series data for the metric.
    */
   series?: DescribeDBClusterPerformanceResponseBodyPerformancesSeries[];
   /**
    * @remarks
-   * The unit of the performance metric.
+   * The unit of the metric.
    * 
    * @example
    * %
@@ -143,7 +143,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in Coordinated Universal Time (UTC).
+   * The end of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
    * 
    * @example
    * 2021-11-27T16:38Z
@@ -151,7 +151,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The values of the queried performance metrics of the cluster.
+   * The list of performance metrics for the cluster.
    */
   performances?: DescribeDBClusterPerformanceResponseBodyPerformances[];
   /**
@@ -164,7 +164,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+   * The beginning of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
    * 
    * @example
    * 2021-11-27T16:37Z

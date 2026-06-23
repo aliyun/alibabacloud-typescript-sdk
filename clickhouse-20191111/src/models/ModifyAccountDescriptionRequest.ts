@@ -7,8 +7,9 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * @remarks
    * The new description of the database account.
    * 
-   * *   The value cannot start with http:// or https://.
-   * *   The value must be 0 to 256 characters in length.
+   * - The description cannot start with http\\:// or https\\://.
+   * 
+   * - The description must be 0 to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
    * This parameter is required.
    * 

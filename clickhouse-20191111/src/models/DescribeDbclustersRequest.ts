@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag name.
+   * The key of the tag.
    * 
    * @example
    * department
@@ -13,7 +13,7 @@ export class DescribeDBClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * it
@@ -45,7 +45,7 @@ export class DescribeDBClustersRequestTag extends $dara.Model {
 export class DescribeDBClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * cc-bp108z124a8o7****
@@ -55,7 +55,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  If you do not specify this parameter, the information about all clusters is queried.
+   * > If you do not specify this parameter, information about all clusters is queried by default.
    * 
    * @example
    * cc-bp108z124a8o7****
@@ -65,11 +65,15 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * @remarks
    * The state of the cluster. Valid values:
    * 
-   * *   **Preparing**: The cluster is being prepared.
-   * *   **Creating**: The cluster is being created.
-   * *   **Running**: The cluster is running.
-   * *   **Deleting**: The cluster is being deleted.
-   * *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+   * - **Preparing**: The cluster is being prepared.
+   * 
+   * - **Creating**: The cluster is being created.
+   * 
+   * - **Running**: The cluster is running.
+   * 
+   * - **Deleting**: The cluster is being deleted.
+   * 
+   * - **SCALING_OUT**: The cluster is being scaled out.
    * 
    * @example
    * Running
@@ -87,11 +91,13 @@ export class DescribeDBClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -99,7 +105,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

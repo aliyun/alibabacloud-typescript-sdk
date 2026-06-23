@@ -235,7 +235,7 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
   DBClusters?: DescribeDBClustersResponseBodyDBClusters;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The page number.
    * 
    * @example
    * 1
@@ -245,9 +245,11 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
    * @remarks
    * The number of entries returned per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -263,7 +265,7 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigInXMLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The values of the configuration parameters.
+   * The configuration parameters.
    * 
    * @example
    * <?xml version="1.0"?>

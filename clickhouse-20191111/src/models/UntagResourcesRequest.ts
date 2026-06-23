@@ -7,10 +7,11 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove all tags from the cluster. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**
    * 
-   * >  This parameter is valid only when **TagKey.N** is left empty.
+   * - **false** (default)
+   * 
+   * > This parameter is valid only when the **TagKey.N** parameter is empty.
    * 
    * @example
    * false
@@ -22,7 +23,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -32,6 +33,8 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource ID.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
@@ -39,14 +42,18 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **CLUSTER**.
+   * The resource type. Set the value to **DBCLUSTER**.
    * 
    * This parameter is required.
    * 
    * @example
-   * CLUSTER
+   * DBCLUSTER
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {

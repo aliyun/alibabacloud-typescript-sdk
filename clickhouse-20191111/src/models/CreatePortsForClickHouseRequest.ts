@@ -17,7 +17,7 @@ export class CreatePortsForClickHouseRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The port type. Set the value to mysql_port.
+   * The port type. The value must be \\`mysql_port\\`.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreatePortsForClickHouseRequest extends $dara.Model {
   portType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the available region IDs.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountAuthorityRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The databases to which you want to grant permissions. Separate databases with commas (,).
+   * The list of databases to authorize. Separate multiple database names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   allowDatabases?: string;
   /**
    * @remarks
-   * The dictionaries to which you want to grant permissions. Separate dictionaries with commas (,).
+   * The list of dictionaries to authorize. Separate multiple dictionary names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -47,8 +47,9 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
    * @remarks
    * Specifies whether to grant DDL permissions to the database account. Valid values:
    * 
-   * *   **true**: grants DDL permissions to the database account.
-   * *   **false**: does not grant DDL permissions to the database account.
+   * - **true**: Allows DDL operations.
+   * 
+   * - **false**: Denies DDL operations.
    * 
    * This parameter is required.
    * 
@@ -58,10 +59,11 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * Specifies whether to grant DML permissions to the database account. Valid values:
+   * The DML permissions granted to the database account. Valid values:
    * 
-   * *   **all**
-   * *   **readonly,modify**
+   * - **all**: Grants read, write, and modify permissions.
+   * 
+   * - **readonly,modify**: Grants read and modify permissions.
    * 
    * This parameter is required.
    * 
@@ -83,7 +85,7 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * All databases. Separate databases with commas (,).
+   * All databases in the cluster. Separate multiple database names with commas (,).
    * 
    * @example
    * db1,db2
@@ -91,7 +93,7 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   totalDatabases?: string;
   /**
    * @remarks
-   * All dictionaries. Separate dictionaries with commas (,).
+   * All dictionaries in the cluster. Separate multiple dictionary names with commas (,).
    * 
    * @example
    * dt1,dt2

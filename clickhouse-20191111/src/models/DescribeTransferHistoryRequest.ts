@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransferHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 

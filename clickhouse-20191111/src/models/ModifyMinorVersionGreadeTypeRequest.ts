@@ -15,7 +15,7 @@ export class ModifyMinorVersionGreadeTypeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The update type. If you set the parameter to **false**, you perform the manual update.
+   * The upgrade type. Set this parameter to **false** for manual upgrades.
    * 
    * This parameter is required.
    * 

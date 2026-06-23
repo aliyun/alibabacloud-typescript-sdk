@@ -13,7 +13,7 @@ export class DescribeSynDbTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried tables.
+   * The tables.
    */
   tables?: string[];
   static names(): { [key: string]: string } {

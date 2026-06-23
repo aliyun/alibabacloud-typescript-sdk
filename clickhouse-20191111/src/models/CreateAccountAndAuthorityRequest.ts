@@ -7,8 +7,9 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
    * @remarks
    * The description of the database account.
    * 
-   * *   The description cannot start with http:// or https://.
-   * *   The description must be 0 to 256 characters in length.
+   * - Cannot start with `http://` or `https://`.
+   * 
+   * - Must be 0 to 256 characters in length.
    * 
    * @example
    * ceshi
@@ -16,12 +17,15 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The database account.
+   * The name of the database account.
    * 
-   * *   The name must be unique within the cluster.
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must start with a lowercase letter and end with a lowercase letter or digit.
-   * *   The name must be 2 to 64 characters in length.
+   * - Must be unique within the cluster.
+   * 
+   * - Can contain only lowercase letters, digits, and underscores (_).
+   * 
+   * - Must start with a lowercase letter and end with a lowercase letter or a digit.
+   * 
+   * - Must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -31,14 +35,13 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of your database account.
+   * The password for the database account.
    * 
-   * > 
+   * > - Must contain characters from at least three of the following types: uppercase letters, lowercase letters, digits, and special characters.
    * 
-   * *   The password contains at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+   * - The supported special characters are `!@#$%^&*()_+-=`.
    * 
-   * *   The password can contain the following special characters: ! @ # $ % ^ & \\* ( ) _ + - =
-   * *   The password must be 8 to 32 characters in length.
+   * - Must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -48,7 +51,7 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The databases to which you want to grant permissions. Separate databases with commas (,).
+   * The databases to which the account has permissions. Separate multiple database names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -58,7 +61,7 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   allowDatabases?: string;
   /**
    * @remarks
-   * The dictionaries to which you want to grant permissions. Separate dictionaries with commas (,).
+   * The dictionaries to which the account has permissions. Separate multiple dictionary names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -78,10 +81,11 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to grant the DDL permissions to the database account. Valid values:
+   * Specifies whether to grant DDL permissions to the database account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: DDL operations are allowed.
+   * 
+   * - **false**: DDL operations are denied.
    * 
    * This parameter is required.
    * 
@@ -91,10 +95,11 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * Specifies whether to grant DML permissions to the database account. Valid values:
+   * Specifies the DML permissions for the database account. Valid values:
    * 
-   * *   **all**
-   * *   **readOnly,modify**
+   * - **all**: read, write, and settings permissions.
+   * 
+   * - **readOnly,modify**: read and settings permissions.
    * 
    * This parameter is required.
    * 
@@ -106,7 +111,7 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -116,7 +121,7 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * All databases. Separate databases with commas (,).
+   * All databases in the cluster. Separate multiple database names with commas (,).
    * 
    * @example
    * db1,db2
@@ -124,7 +129,7 @@ export class CreateAccountAndAuthorityRequest extends $dara.Model {
   totalDatabases?: string;
   /**
    * @remarks
-   * All dictionaries. Separate dictionaries with commas (,).
+   * All dictionaries in the cluster. Separate multiple dictionary names with commas (,).
    * 
    * @example
    * dt1,dt2

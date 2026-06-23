@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The O\\&M task IDs. Separate multiple IDs with a comma (,).
+   * 
    * This parameter is required.
    * 
    * @example

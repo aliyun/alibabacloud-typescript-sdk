@@ -17,7 +17,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of pages to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -25,11 +25,10 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: 30. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * - **30** (default)
+   * - **50**
+   * - **100**.
    * 
    * @example
    * 30
@@ -37,7 +36,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -47,6 +46,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  scalingType?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -57,6 +57,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      scalingType: 'ScalingType',
     };
   }
 
@@ -70,6 +71,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      scalingType: 'string',
     };
   }
 

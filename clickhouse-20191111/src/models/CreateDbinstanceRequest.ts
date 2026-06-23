@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDBInstanceRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * user123
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
-   * 示例字符串
+   * Example string
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -41,7 +47,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal.
    * 
-   * >  This parameter is valid only if the value of PayType is set to Prepaid.
+   * > This parameter applies only when `PayType` is set to `Prepaid`.
    * 
    * @example
    * false
@@ -49,9 +55,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/360339.html) operation to query the backup sets.
+   * The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/360339.html) API to query backup set IDs.
    * 
-   * >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
+   * > This parameter is required when restoring data to an ApsaraDB for ClickHouse cluster.
    * 
    * @example
    * b-12af23adsf
@@ -59,7 +65,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   backupSetID?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. The value is a string and can be up to 64 ASCII characters in length.
+   * A client token used to ensure request idempotence. The value must be a string of no more than 64 ASCII characters.
    * 
    * @example
    * AB
@@ -67,10 +73,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The edition of the cluster. Valid values:
+   * The replica configuration. Valid values:
    * 
-   * *   **Basic**: Single-replica Edition
-   * *   **HighAvailability**: Double-replica Edition
+   * - **Basic**: single-replica
+   * 
+   * - **HighAvailability**: high availability (dual-replica)
    * 
    * This parameter is required.
    * 
@@ -80,23 +87,73 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBClusterCategory?: string;
   /**
    * @remarks
-   * The specifications of the cluster.
+   * The instance type.<props="china">
    * 
-   * *   Valid values for a Single-replica Edition cluster:
+   * - For single-replica clusters, valid values are:
    * 
-   *     *   **S8**: 8 cores and 32 GB of memory
-   *     *   **S16**: 16 cores and 64 GB of memory
-   *     *   **S32**: 32 cores and 128 GB of memory
-   *     *   **S64**: 64 cores and 256 GB of memory
-   *     *   **S104**: 104 cores and 384 GB of memory
+   *   - **LS20**: Large-storage, 20 cores, 88 GB
    * 
-   * *   Valid values for a Double-replica Edition cluster:
+   *   - **LS40**: Large-storage, 40 cores, 176 GB
    * 
-   *     *   **C8**: 8 cores and 32 GB of memory
-   *     *   **C16**: 16 cores and 64 GB of memory
-   *     *   **C32**: 32 cores and 128 GB of memory
-   *     *   **C64**: 64 cores and 256 GB of memory
-   *     *   **C104**: 104 cores and 384 GB of memory
+   *   - **LS80**: Large-storage, 80 cores, 352 GB
+   * 
+   *   - **S8**: Standard, 8 cores, 32 GB
+   * 
+   *   - **S16**: Standard, 16 cores, 64 GB
+   * 
+   *   - **S32**: Standard, 32 cores, 128 GB
+   * 
+   *   - **S64**: Standard, 64 cores, 256 GB
+   * 
+   *   - **S80**: Standard, 80 cores, 384 GB
+   * 
+   *   - **S104**: Standard, 104 cores, 384 GB
+   * 
+   * - For high availability clusters, valid values are:
+   * 
+   *   - **LC20**: Large-storage, 20 cores, 88 GB
+   * 
+   *   - **LC40**: Large-storage, 40 cores, 176 GB
+   * 
+   *   - **LC80**: Large-storage, 80 cores, 352 GB
+   * 
+   *   - **C8**: Standard, 8 cores, 32 GB
+   * 
+   *   - **C16**: Standard, 16 cores, 64 GB
+   * 
+   *   - **C32**: Standard, 32 cores, 128 GB
+   * 
+   *   - **C64**: Standard, 64 cores, 256 GB
+   * 
+   *   - **C80**: Standard, 80 cores, 384 GB
+   * 
+   *   - **C104**: Standard, 104 cores, 384 GB
+   * 
+   * <props="intl">
+   * 
+   * - For single-replica clusters, valid values are:
+   * 
+   *   - **S8**: 8 cores, 32 GB
+   * 
+   *   - **S16**: 16 cores, 64 GB
+   * 
+   *   - **S32**: 32 cores, 128 GB
+   * 
+   *   - **S64**: 64 cores, 256 GB
+   * 
+   *   - **S104**: 104 cores, 384 GB
+   * 
+   * - For high availability clusters, valid values are:
+   * 
+   *   - **C8**: 8 cores, 32 GB
+   * 
+   *   - **C16**: 16 cores, 64 GB
+   * 
+   *   - **C32**: 32 cores, 128 GB
+   * 
+   *   - **C64**: 64 cores, 256 GB
+   * 
+   *   - **C104**: 104 cores, 384 GB
    * 
    * This parameter is required.
    * 
@@ -106,7 +163,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBClusterClass?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * test
@@ -114,7 +171,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The network type of the cluster. Only Virtual Private Cloud (VPC) is supported.
+   * The network type. Currently, only VPC is supported.
    * 
    * This parameter is required.
    * 
@@ -124,23 +181,25 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The kernel version. Valid values:
+   * The engine version. Valid values:
    * 
-   * *   **21.8.10.19**
-   * *   **22.8.5.29**
+   * - **21.8.10.19**
+   * 
+   * - **22.8.5.29**
    * 
    * This parameter is required.
    * 
    * @example
-   * 21.8.10.19
+   * 22.8.5.29
    */
   DBClusterVersion?: string;
   /**
    * @remarks
    * The number of nodes.
    * 
-   * *   Valid values when the cluster is of Single-replica Edition: 1 to 48.
-   * *   Valid values when the cluster is of Double-replica Edition: 1 to 24.
+   * - For single-replica clusters, the valid range is 1–48.
+   * 
+   * - For high availability clusters, the valid range is 1–24.
    * 
    * This parameter is required.
    * 
@@ -150,9 +209,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBNodeGroupCount?: string;
   /**
    * @remarks
-   * The storage capacity of a single node. Valid values: 100 to 32000. Unit: GB.
+   * The storage capacity per node, in GB. The valid range is 100–32,000.
    * 
-   * >  This value is a multiple of 100.
+   * > The value must be a multiple of 100.
    * 
    * This parameter is required.
    * 
@@ -162,12 +221,22 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBNodeStorage?: string;
   /**
    * @remarks
-   * The storage type of the cluster. Valid values:
+   * The storage type. Valid values:
    * 
-   * *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level 1 (PL1).
-   * *   **CloudESSD_PL2**: The cluster uses an ESSD of PL2.
-   * *   **CloudESSD_PL3**: The cluster uses an ESSD of PL3.
-   * *   **CloudEfficiency**: The cluster uses an ultra disk.
+   * <props="china">
+   * 
+   * - **CloudESSD_PL0**: ESSD PL0 cloud disk
+   * 
+   * 
+   * 
+   * 
+   * - **CloudESSD**: ESSD PL1 cloud disk
+   * 
+   * - **CloudESSD_PL2**: ESSD PL2 cloud disk
+   * 
+   * - **CloudESSD_PL3**: ESSD PL3 cloud disk
+   * 
+   * - **CloudEfficiency**: Ultra Disk
    * 
    * This parameter is required.
    * 
@@ -177,11 +246,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   dbNodeStorageType?: string;
   /**
    * @remarks
-   * You must specify this parameter when EncryptionType is set to CloudDisk.
+   * This parameter is required when `EncryptionType` is set to `CloudDisk`.
    * 
-   * The ID of the key that is used to encrypt data on disks. You can obtain the ID of the key from the Key Management Service (KMS) console. You can also create a key.
+   * The ID of the cloud disk encryption key. You can create and manage keys in the Key Management Service console.
    * 
-   * >  If EncryptionType is empty, you do not need to specify this parameter.
+   * > If `EncryptionType` is not specified, you do not need to specify this parameter.
    * 
    * @example
    * 0d2470df-da7b-4786-b981-9a164dae****
@@ -189,9 +258,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The encryption type. Set the value to **CloudDisk**, which indicates that only disk encryption is supported.
+   * The encryption type. Only cloud disk encryption is supported. Set this value to **CloudDisk**.
    * 
-   * >  If this parameter is not specified, data is not encrypted.
+   * > If you do not specify this parameter, encryption is disabled.
    * 
    * @example
    * CloudDisk
@@ -201,10 +270,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **Postpaid**: The cluster uses the pay-as-you-go billing method.
-   * *   **Prepaid**: The cluster uses the subscription billing method.
+   * - **Postpaid**: pay-as-you-go
+   * 
+   * - **Prepaid**: subscription
    * 
    * This parameter is required.
    * 
@@ -214,12 +284,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration for the cluster. Valid values:
+   * The subscription duration unit.
+   * >Notice: This parameter is required only when `PayType` is set to `Prepaid`.
    * 
-   * >  This parameter is required only when PayType is set to Prepaid.
+   * - **Year**: Measured in years.
    * 
-   * *   **Year**
-   * *   **Month**
+   * - **Month**: Measured in months.
    * 
    * @example
    * Month
@@ -227,7 +297,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) API to query the latest region list.
    * 
    * This parameter is required.
    * 
@@ -237,7 +307,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the cluster belongs.
+   * The ID of the resource group that contains the cluster.
    * 
    * @example
    * rg-4690g37929****
@@ -247,23 +317,27 @@ export class CreateDBInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the source cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query backup set IDs.
+   * The ID of the source cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) API to query cluster IDs.
    * 
-   * >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
+   * > This parameter is required when restoring data to an ApsaraDB for ClickHouse cluster.
    * 
    * @example
    * cc-bp1lxbo89u950****
    */
   sourceDBClusterId?: string;
+  /**
+   * @remarks
+   * The tags to add to the cluster.
+   */
   tags?: CreateDBInstanceRequestTags[];
   /**
    * @remarks
-   * The subscription duration of the subscription cluster.
+   * The subscription duration.
+   * >Notice: This parameter is required only when `PayType` is set to `Prepaid`.
    * 
-   * >  This parameter is required only when PayType is set to Prepaid.
+   * - If `Period` is `Year`, the valid range is 1–3.
    * 
-   * *   Valid values when Period is set to Year: 1 to 3 (integer)
-   * *   Valid values when Period is set to Month: 1 to 9 (integer)
+   * - If `Period` is `Month`, the valid range is 1–9.
    * 
    * @example
    * 1
@@ -281,7 +355,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch in the secondary zone for the VPC.
+   * The ID of the secondary VSwitch.
    * 
    * @example
    * vsw-bp1gzt31twhlo0sa5****
@@ -289,7 +363,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchBak?: string;
   /**
    * @remarks
-   * The vSwitch in secondary zone 2 for the VPC.
+   * The ID of the second standby VSwitch.
    * 
    * @example
    * vsw-bp1gzt31twhlo0sa5****
@@ -297,7 +371,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchBak2?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The VSwitch ID.
    * 
    * This parameter is required.
    * 
@@ -307,7 +381,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The secondary zone 2 of the instance.
+   * The ID of the second standby availability zone.
    * 
    * @example
    * cn-hangzhou-j
@@ -315,7 +389,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   zondIdBak2?: string;
   /**
    * @remarks
-   * The zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent zone list.
+   * The availability zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) API to query the latest availability zone list.
    * 
    * @example
    * cn-hangzhou-h
@@ -323,7 +397,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The secondary zone.
+   * The ID of the secondary availability zone.
    * 
    * @example
    * cn-hangzhou-k

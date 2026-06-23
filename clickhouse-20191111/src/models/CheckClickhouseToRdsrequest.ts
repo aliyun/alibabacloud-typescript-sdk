@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckClickhouseToRDSRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The password for the ApsaraDB for ClickHouse database account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   ckPassword?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The database account for the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   clickhousePort?: number;
   /**
    * @remarks
-   * The ID of the ApsaraDB for ClickHouse cluster.
+   * The ID of the community-compatible ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS for MySQL instance.
+   * The ID of the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+   * The password for the ApsaraDB RDS database account.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsPassword?: string;
   /**
    * @remarks
-   * The port number of the ApsaraDB RDS for MySQL instance.
+   * The port number of the ApsaraDB RDS instance.
    * 
    * @example
    * 3306
@@ -73,7 +73,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsPort?: number;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+   * The database account for the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsUserName?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the ApsaraDB RDS for MySQL instance is deployed.
+   * The VPC ID of the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsVpcId?: string;
   /**
    * @remarks
-   * The internal endpoint of the ApsaraDB RDS for MySQL instance.
+   * The internal endpoint of the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 

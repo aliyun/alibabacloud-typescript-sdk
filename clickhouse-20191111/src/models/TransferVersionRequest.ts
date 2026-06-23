@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransferVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source ApsaraDB for ClickHouse cluster.
+   * The ID of the source cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class TransferVersionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The time window during which write operations are stopped.
+   * The time windows during which writes are disabled.
    * 
    * @example
    * 2025-02-08T00:00:00+08:00,2025-02-12T00:00:00+08:00
@@ -33,11 +33,13 @@ export class TransferVersionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -45,7 +47,7 @@ export class TransferVersionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The ID of the region. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
    * 
    * This parameter is required.
    * 
@@ -57,7 +59,7 @@ export class TransferVersionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The database account that is used to log on to the database in the source ApsaraDB for ClickHouse cluster.
+   * The source account.
    * 
    * This parameter is required.
    * 
@@ -67,7 +69,8 @@ export class TransferVersionRequest extends $dara.Model {
   sourceAccount?: string;
   /**
    * @remarks
-   * The name of the self-managed ClickHouse cluster. You can execute the `SELECT * FROM system.clusters` statement to query the cluster name.
+   * The name of the self-managed ClickHouse cluster.
+   * To obtain the name, execute `SELECT * FROM system.clusters`.
    * 
    * @example
    * default
@@ -75,7 +78,7 @@ export class TransferVersionRequest extends $dara.Model {
   sourceClusterName?: string;
   /**
    * @remarks
-   * The password that corresponds to the database account for logging on to the database in the source ApsaraDB for ClickHouse cluster.
+   * The password of the source account.
    * 
    * This parameter is required.
    * 
@@ -85,7 +88,7 @@ export class TransferVersionRequest extends $dara.Model {
   sourcePassword?: string;
   /**
    * @remarks
-   * The endpoint and TCP port of the self-managed ClickHouse cluster.
+   * The addresses and TCP ports of the shards in the self-managed ClickHouse cluster.
    * 
    * @example
    * 192.168.0.4:9000,192.168.0.5:9000,192.168.0.6:9000
@@ -93,7 +96,7 @@ export class TransferVersionRequest extends $dara.Model {
   sourceShards?: string;
   /**
    * @remarks
-   * The database account that is used to log on to the database in the destination ApsaraDB for ClickHouse cluster.
+   * The destination account.
    * 
    * This parameter is required.
    * 
@@ -103,7 +106,7 @@ export class TransferVersionRequest extends $dara.Model {
   targetAccount?: string;
   /**
    * @remarks
-   * The ID of the destination ApsaraDB for ClickHouse cluster.
+   * The ID of the destination cluster.
    * 
    * This parameter is required.
    * 
@@ -113,7 +116,7 @@ export class TransferVersionRequest extends $dara.Model {
   targetDbClusterId?: string;
   /**
    * @remarks
-   * The password that corresponds to the database account for logging on to the database in the destination ApsaraDB for ClickHouse cluster.
+   * The password of the destination account.
    * 
    * This parameter is required.
    * 

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserEncryptionKeyListResponseBodyKmsKeys extends $dara.Model {
   /**
+   * @remarks
+   * The key ID.
+   * 
    * @example
    * 0275bd3f-fdbb-4d8c-846b-71b211******
    */
@@ -30,8 +33,15 @@ export class DescribeUserEncryptionKeyListResponseBodyKmsKeys extends $dara.Mode
 }
 
 export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of KMS keys.
+   */
   kmsKeys?: DescribeUserEncryptionKeyListResponseBodyKmsKeys[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
    */

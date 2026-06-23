@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigVersionDifferenceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The values of the configuration parameters after the values of the configuration parameters are changed.
+   * The configuration parameters after the change.
    * 
    * @example
    * "<?xml version="1.0"?>
@@ -33,7 +33,7 @@ export class DescribeConfigVersionDifferenceResponseBody extends $dara.Model {
   newConfigXML?: string;
   /**
    * @remarks
-   * The values of the configuration parameters before the values of the configuration parameters are changed.
+   * The configuration parameters before the change.
    * 
    * @example
    * "<?xml version="1.0"?>

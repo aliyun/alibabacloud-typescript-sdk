@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The password of the ApsaraDB for ClickHouse database account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   ckPassword?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+   * The database account of the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The maximum number of rows that can be synchronized per second.
+   * The maximum number of rows to sync per second.
    * 
    * @example
    * 50000
@@ -53,7 +53,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS for MySQL instance.
+   * The instance ID of the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+   * The password of the ApsaraDB RDS for MySQL database account.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsSynDb?: string;
   /**
    * @remarks
-   * The table in the ApsaraDB RDS for MySQL instance.
+   * The tables in the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsSynTables?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+   * The database account of the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsUserName?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the ApsaraDB RDS for MySQL instance belongs.
+   * The VPC ID of the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * vpc-bp1v9dtwmqqjhwwg****
@@ -123,8 +123,9 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
    * @remarks
    * Specifies whether to ignore databases that do not support synchronization. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Ignore the databases.
+   * 
+   * - **false**: Do not ignore the databases.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account name.
    * 
    * @example
    * test
@@ -13,20 +13,21 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Databases to which permissions have been granted.
+   * The list of authorized databases.
    */
   allowDatabases?: string[];
   /**
    * @remarks
-   * Dictionaries to which permissions have been granted.
+   * The list of authorized dictionaries.
    */
   allowDictionaries?: string[];
   /**
    * @remarks
-   * Indicates whether the database account has DDL permissions. Valid values:
+   * Indicates whether the account has DDL permissions. Valid values:
    * 
-   * *   **true**: has DDL permissions.
-   * *   **false**: does not have DDL permissions.
+   * - **true**: DDL permissions are granted.
+   * 
+   * - **false**: DDL permissions are denied.
    * 
    * @example
    * true
@@ -34,10 +35,11 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * Indicates whether the database account has DML permissions. Valid values:
+   * The DML permission level for the account. Valid values:
    * 
-   * *   **all**
-   * *   **readOnly,modify**
+   * - **all**: read, write, and settings permissions.
+   * 
+   * - **readOnly,modify**: read and settings permissions.
    * 
    * @example
    * all
@@ -53,12 +55,12 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * All databases.
+   * A list of all databases in the cluster.
    */
   totalDatabases?: string[];
   /**
    * @remarks
-   * All dictionaries.
+   * A list of all dictionaries in the cluster.
    */
   totalDictionaries?: string[];
   static names(): { [key: string]: string } {

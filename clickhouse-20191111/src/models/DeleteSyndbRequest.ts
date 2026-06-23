@@ -19,7 +19,7 @@ export class DeleteSyndbRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the database in the ApsaraDB RDS for MySQL instance. The database is used for data synchronization.
+   * The ApsaraDB RDS for MySQL database.
    * 
    * This parameter is required.
    * 

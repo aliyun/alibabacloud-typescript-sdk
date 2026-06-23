@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to add to the resource. You can add N tag keys. N is an integer. Valid values of N: **1 to 20**.
+   * The tag key. You can add up to **20** tag keys.
    * 
    * @example
    * testkey1
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag to add to the resource. You can add N tag values. N is an integer. Valid values of N: **1 to 20**.
+   * The value of the tag key. You can add up to **20** tag values.
    * 
    * @example
    * testvalue1
@@ -47,9 +47,9 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -59,6 +59,8 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource ID.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
@@ -66,16 +68,18 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **CLUSTER**.
+   * The resource type. The value must be **DBCLUSTER**.
    * 
    * This parameter is required.
    * 
    * @example
-   * CLUSTER
+   * DBCLUSTER
    */
   resourceType?: string;
   /**
    * @remarks
+   * The list of tags.
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];

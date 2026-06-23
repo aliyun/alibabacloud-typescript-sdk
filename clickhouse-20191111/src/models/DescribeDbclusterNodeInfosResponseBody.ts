@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBClusterNodeInfosResponseBodyNodeInfos extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether a disaster recovery test is in progress.
+   * 
    * @example
    * true
    */
   failoverTesting?: boolean;
   /**
+   * @remarks
+   * The IP address of the node.
+   * 
    * @example
    * 172.168.0.1
    */
   nodeIp?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * ck-bp108z124a8****
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * 1
    */
   replicaId?: string;
   /**
+   * @remarks
+   * The shard ID.
+   * 
    * @example
    * 2
    */
@@ -59,16 +74,25 @@ export class DescribeDBClusterNodeInfosResponseBodyNodeInfos extends $dara.Model
 
 export class DescribeDBClusterNodeInfosResponseBodyZkNodeInfos extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether a disaster recovery test is in progress.
+   * 
    * @example
    * true
    */
   failoverTesting?: boolean;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * ck-bp108z124a8****
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The ZooKeeper node ID.
+   * 
    * @example
    * 1
    */
@@ -99,27 +123,53 @@ export class DescribeDBClusterNodeInfosResponseBodyZkNodeInfos extends $dara.Mod
 }
 
 export class DescribeDBClusterNodeInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the ClickHouse nodes.
+   */
   nodeInfos?: DescribeDBClusterNodeInfosResponseBodyNodeInfos[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 746CD303-0B82-5E8D-886D-93A9FAF3A876
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of nodes.
+   * 
    * @example
    * 1
    */
   totalNodeCount?: number;
+  /**
+   * @remarks
+   * The information about the ZooKeeper nodes.
+   */
   zkNodeInfos?: DescribeDBClusterNodeInfosResponseBodyZkNodeInfos[];
   static names(): { [key: string]: string } {
     return {

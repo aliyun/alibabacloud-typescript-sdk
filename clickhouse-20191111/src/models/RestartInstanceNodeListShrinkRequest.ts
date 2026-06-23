@@ -5,26 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceNodeListShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cc-bp108z124a8o7****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The list of nodes to restart.
+   */
   nodeListShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. Valid values:
+   * 
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -32,6 +53,11 @@ export class RestartInstanceNodeListShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The scheduled restart time. The time is in the yyyy-MM-ddTHH:mmZ format and is in UTC.
+   * 
+   * > If this parameter is left empty or set to a time earlier than the current time, the cluster restarts immediately.
+   * 
    * @example
    * 2023-03-22T00:00:50Z
    */

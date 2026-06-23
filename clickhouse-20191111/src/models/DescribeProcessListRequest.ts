@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessListRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to find information about all clusters in the destination region, including the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the query statement.
+   * The ID of the query.
    * 
    * @example
    * 6c69d508-f05f-4c74-857c-d982b7e7e79f
@@ -23,7 +23,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   initialQueryId?: string;
   /**
    * @remarks
-   * The account that is used to log on to the database.
+   * The database account.
    * 
    * @example
    * user
@@ -31,7 +31,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   initialUser?: string;
   /**
    * @remarks
-   * The keyword that is used to query.
+   * The keyword for the query.
    * 
    * @example
    * join
@@ -39,12 +39,15 @@ export class DescribeProcessListRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Sorting by the specified column name. Valid values:
+   * The column to use for sorting. Valid values:
    * 
-   * *   elapsed: the cumulative execution time
-   * *   written_rows: the number of written rows
-   * *   read_rows: the number of read rows
-   * *   memory_usage: the memory usage
+   * - elapsed: The total running time.
+   * 
+   * - written_rows: The number of rows written.
+   * 
+   * - read_rows: The number of rows read.
+   * 
+   * - memory_usage: The amount of memory used.
    * 
    * @example
    * elapsed
@@ -54,7 +57,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. The default value is 1.
    * 
    * @example
    * 1
@@ -62,11 +65,13 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: 30. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -74,7 +79,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The minimum query duration. The minimum value is **1000**, and the default value is **1000**. Unit: milliseconds. Queries that last longer than this duration are returned in response parameters.
+   * The shortest query duration. The minimum value is **1000**. The default value is **1000**. The unit is milliseconds. The response returns queries that run longer than this duration.
    * 
    * @example
    * 500
@@ -82,7 +87,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   queryDurationMs?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to find the region ID.
    * 
    * @example
    * cn-hangzhou

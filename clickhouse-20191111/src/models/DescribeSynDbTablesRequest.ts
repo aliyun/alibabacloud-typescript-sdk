@@ -19,7 +19,7 @@ export class DescribeSynDbTablesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the ApsaraDB RDS for MySQL instance.
+   * The name of the ApsaraDB RDS for MySQL database.
    * 
    * This parameter is required.
    * 

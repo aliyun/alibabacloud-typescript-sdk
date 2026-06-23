@@ -7,10 +7,10 @@ export class DescribeAccountsRequest extends $dara.Model {
    * @remarks
    * The name of the database account.
    * 
-   * >  If you do not specify this parameter, the information about all database accounts in the ApsaraDB for ClickHouse cluster is queried by default.
+   * > If this parameter is not specified, the operation queries information about all database accounts.
    * 
    * @example
-   * test
+   * testAccount
    */
   accountName?: string;
   /**
@@ -27,7 +27,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -35,11 +35,13 @@ export class DescribeAccountsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30

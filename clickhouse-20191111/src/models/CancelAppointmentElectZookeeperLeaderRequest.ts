@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAppointmentElectZookeeperLeaderRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,16 +16,31 @@ export class CancelAppointmentElectZookeeperLeaderRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. Valid values:
+   * 
+   * - 30 (default)
+   * 
+   * - 50
+   * 
+   * - 100
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

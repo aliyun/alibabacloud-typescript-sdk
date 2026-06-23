@@ -45,7 +45,7 @@ export class ModifyDBClusterResponseBodyDBCluster extends $dara.Model {
 export class ModifyDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The clusters.
+   * The cluster.
    */
   DBCluster?: ModifyDBClusterResponseBodyDBCluster;
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventMetaInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class DescribeEventMetaInfoRequest extends $dara.Model {
   regionId?: string;
   securityToken?: string;
   /**
+   * @remarks
+   * The codes of O\\&M event types. Separate multiple codes with commas.
+   * 
    * @example
    * Event.EventCode
    */

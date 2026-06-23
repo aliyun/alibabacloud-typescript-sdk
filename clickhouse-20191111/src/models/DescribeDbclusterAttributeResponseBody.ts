@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus extends $dara.Model {
   /**
    * @remarks
-   * The progress of the data migration task in percentage.
+   * The data migration progress, as a percentage.
    * 
-   * >  This parameter is returned only when the cluster is in the SCALING_OUT state.
+   * > This parameter is returned only when the cluster is in the `SCALING_OUT` state.
    * 
    * @example
    * 0
@@ -15,9 +15,9 @@ export class DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus exten
   progress?: string;
   /**
    * @remarks
-   * The progress of the data migration task. This value is displayed in the following format: Data volume that has been migrated/Total data volume.
+   * The data migration progress, displayed as `Amount of data migrated/Total data amount`.
    * 
-   * >  This parameter is returned only when the cluster is in the SCALING_OUT state.
+   * > This parameter is returned only when the cluster is in the `SCALING_OUT` state.
    * 
    * @example
    * 0MB/60469MB
@@ -101,19 +101,51 @@ export class DescribeDBClusterAttributeResponseBodyDBClusterTags extends $dara.M
 export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 140692647406****
    */
   aliUid?: string;
+  /**
+   * @remarks
+   * Specifies whether to stop write operations during a primary/secondary switchover. Valid values:
+   * 
+   * - `true`: Write operations are stopped for the instance during the switchover.
+   * 
+   * - `false`: Write operations are not stopped for the instance during the switchover.
+   * 
+   * @example
+   * true
+   */
   appointmentElectZookeeperDisableWrite?: boolean;
+  /**
+   * @remarks
+   * The scheduled time for a primary/secondary switchover. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
+   * 
+   * @example
+   * 2023-11-06T12:00:00Z
+   */
   appointmentElectZookeeperTime?: string;
+  /**
+   * @remarks
+   * A list of nodes that are scheduled for a restart.
+   * 
+   * @example
+   * ck-k1a976p3n********-****-clickhouse-s-0-r-0,ck-k1a976p3n********-****-clickhouse-s-0-r-1
+   */
   appointmentRestartNodeList?: string;
+  /**
+   * @remarks
+   * The scheduled time to restart specific nodes. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
+   * 
+   * @example
+   * 2023-11-06T12:00:00Z
+   */
   appointmentRestartNodeTime?: string;
   /**
    * @remarks
-   * The scheduled restart time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+   * The scheduled restart time. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
    * 
    * @example
    * 2023-11-06T12:00:00Z
@@ -121,7 +153,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   appointmentRestartTime?: string;
   /**
    * @remarks
-   * The major engine versions available for upgrades.
+   * The available major versions to which the cluster can be upgraded, and their latest minor versions.
    * 
    * @example
    * {"MajorVersion":"MinorVersion"}
@@ -131,8 +163,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * @remarks
    * The site ID. Valid values:
    * 
-   * *   **26842**: the China site (aliyun.com)
-   * *   **26888**: the international site (alibabacloud.com)
+   * - `26842`: China site (aliyun.com).
+   * 
+   * - `26888`: international site (alibabacloud.com).
    * 
    * @example
    * 26842
@@ -142,8 +175,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * @remarks
    * The edition of the cluster. Valid values:
    * 
-   * *   **Basic**: Single-replica Edition
-   * *   **HighAvailability**: Double-replica Edition
+   * - `Basic`: single-replica edition.
+   * 
+   * - `HighAvailability`: dual-replica edition.
    * 
    * @example
    * HighAvailability
@@ -151,7 +185,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   category?: string;
   /**
    * @remarks
-   * The commodity code of the cluster.
+   * The commodity code.
    * 
    * @example
    * clickhouse_go_public_cn
@@ -159,7 +193,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   commodityCode?: string;
   /**
    * @remarks
-   * The VPC endpoint of the cluster.
+   * The VPC endpoint.
    * 
    * @example
    * cc-bp1qx68m06981****.ads.rds.aliyuncs.com
@@ -167,10 +201,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   connectionString?: string;
   /**
    * @remarks
-   * The version of the ApsaraDB for ClickHouse console that is used to manage the cluster. Valid values:
+   * The version of the backend management system. Valid values:
    * 
-   * *   **v1**
-   * *   **v2**
+   * - `v1`
+   * 
+   * - `v2`
    * 
    * @example
    * v1
@@ -178,7 +213,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   controlVersion?: string;
   /**
    * @remarks
-   * The time when the cluster was created. The value is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time of the cluster, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2021-12-13T11:33:11Z
@@ -186,7 +221,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * cc-bp108z124a8o7****
@@ -202,7 +237,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBClusterId?: string;
   /**
    * @remarks
-   * The network type of the cluster. Only VPC is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -210,13 +245,17 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The cluster state. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   **Preparing**: The cluster is being prepared.
-   * *   **Creating**: The cluster is being created.
-   * *   **Running**: The cluster is running.
-   * *   **Deleting**: The cluster is being deleted.
-   * *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+   * - `Preparing`: The cluster is being prepared.
+   * 
+   * - `Creating`: The cluster is being created.
+   * 
+   * - `Running`: The cluster is running.
+   * 
+   * - `Deleting`: The cluster is being deleted.
+   * 
+   * - `SCALING_OUT`: The cluster is being scaled out.
    * 
    * @example
    * Running
@@ -224,11 +263,13 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
+   * The cluster type. Valid values:
    * 
-   * *   **Common**: a common cluster
-   * *   **Readonly**: a read-only cluster
-   * *   **Guard**: a disaster recovery cluster
+   * - `Common`: a standard cluster.
+   * 
+   * - `Readonly`: a read-only cluster.
+   * 
+   * - `Guard`: a disaster recovery cluster.
    * 
    * @example
    * Common
@@ -236,25 +277,35 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBClusterType?: string;
   /**
    * @remarks
-   * The specifications of the cluster.
+   * The instance type of the cluster nodes.
    * 
-   * *   Valid values when the cluster is of Single-replica Edition:
+   * - Valid values for a single-replica edition:
    * 
-   *     *   **S4-NEW**
-   *     *   **S8**
-   *     *   **S16**
-   *     *   **S32**
-   *     *   **S64**
-   *     *   **S104**
+   *   - `S4-NEW`
    * 
-   * *   Valid values when the cluster is of Double-replica Edition:
+   *   - `S8`
    * 
-   *     *   **C4-NEW**
-   *     *   **C8**
-   *     *   **C16**
-   *     *   **C32**
-   *     *   **C64**
-   *     *   **C104**
+   *   - `S16`
+   * 
+   *   - `S32`
+   * 
+   *   - `S64`
+   * 
+   *   - `S104`
+   * 
+   * - Valid values for a dual-replica edition:
+   * 
+   *   - `C4-NEW`
+   * 
+   *   - `C8`
+   * 
+   *   - `C16`
+   * 
+   *   - `C32`
+   * 
+   *   - `C64`
+   * 
+   *   - `C104`
    * 
    * @example
    * C8
@@ -262,10 +313,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBNodeClass?: string;
   /**
    * @remarks
-   * The number of nodes.
+   * The number of nodes in the cluster.
    * 
-   * *   Valid values when the cluster is of Single-replica Edition: 1 to 48.
-   * *   Valid values when the cluster is of Double-replica Edition: 1 to 24.
+   * - For a single-replica edition, the value range is 1 to 48.
+   * 
+   * - For a dual-replica edition, the value range is 1 to 24.
    * 
    * @example
    * 1
@@ -273,11 +325,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBNodeCount?: number;
   /**
    * @remarks
-   * The storage capacity of a single node of the cluster. Unit: GB.
+   * The storage capacity per node, in GB.
    * 
-   * Valid values: 100 to 32000.
+   * The value can range from 100 to 32000.
    * 
-   * >  This value is a multiple of 100.
+   * > The value must be a multiple of 100.
    * 
    * @example
    * 100
@@ -285,9 +337,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   DBNodeStorage?: number;
   /**
    * @remarks
-   * The Key Management Service (KMS) key that is used to encrypt data.
+   * The Key Management Service (KMS) key ID.
    * 
-   * >  If the value of the EncryptionType parameter is off, an empty string is returned for this parameter.
+   * > This parameter is empty if `EncryptionType` is set to `off`.
    * 
    * @example
    * 685f416f-87c9-4554-8d3a-75b6ce25****
@@ -297,8 +349,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * @remarks
    * The encryption type. Valid values:
    * 
-   * *   **CloudDisk**: Disk encryption is enabled.
-   * *   **off**: Data is not encrypted.
+   * - `CloudDisk`: disk encryption.
+   * 
+   * - `off`: Encryption is disabled.
    * 
    * @example
    * CloudDisk
@@ -306,7 +359,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   encryptionType?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine.
    * 
    * @example
    * ClickHouse
@@ -314,7 +367,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   engine?: string;
   /**
    * @remarks
-   * The latest minor version to which the cluster can be updated.
+   * The latest minor version to which the cluster can be upgraded.
    * 
    * @example
    * 1.34.0
@@ -322,7 +375,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   engineLatestMinorVersion?: string;
   /**
    * @remarks
-   * The current minor version.
+   * The engine\\"s current minor version.
    * 
    * @example
    * 1.6.0
@@ -338,9 +391,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   engineVersion?: string;
   /**
    * @remarks
-   * The time when the cluster expired. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The expiration time of the cluster, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
-   * >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
+   * > This parameter is empty for pay-as-you-go clusters.
    * 
    * @example
    * 2022-11-11T16:00:00Z
@@ -348,7 +401,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   expireTime?: string;
   /**
    * @remarks
-   * The extended storage space. Unit: GB.
+   * The extended storage capacity, in GB.
    * 
    * @example
    * 500
@@ -358,10 +411,20 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * @remarks
    * The extended storage type. Valid values:
    * 
-   * *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
-   * *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
-   * *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
-   * *   **CloudEfficiency**: The cluster uses an ultra disk.
+   * <props="china">
+   * 
+   * - `CloudESSD_PL0`: ESSD PL0 disk.
+   * 
+   * 
+   * 
+   * 
+   * - `CloudESSD`: ESSD PL1 disk.
+   * 
+   * - `CloudESSD_PL2`: ESSD PL2 disk.
+   * 
+   * - `CloudESSD_PL3`: ESSD PL3 disk.
+   * 
+   * - `CloudEfficiency`: Ultra disk.
    * 
    * @example
    * CloudESSD
@@ -369,25 +432,37 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   extStorageType?: string;
   /**
    * @remarks
-   * Indicates whether the cluster has expired. Valid values:
+   * Whether the cluster has expired. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - `true`: The cluster has expired.
+   * 
+   * - `false`: The cluster has not expired.
    * 
    * @example
    * false
    */
   isExpired?: string;
+  /**
+   * @remarks
+   * The type of the load balancer.
+   * 
+   * @example
+   * clb
+   */
   lbKind?: string;
   /**
    * @remarks
    * The lock mode of the cluster. Valid values:
    * 
-   * *   **Unlock**: The cluster is not locked.
-   * *   **ManualLock**: The cluster is manually locked.
-   * *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
-   * *   **LockByRestoration**: The cluster is automatically locked because the cluster is about to be rolled back.
-   * *   **LockByDiskQuota**: The cluster is automatically locked because the disk space is exhausted.
+   * - `Unlock`: The cluster is not locked.
+   * 
+   * - `ManualLock`: The cluster is manually locked.
+   * 
+   * - `LockByExpiration`: The cluster is automatically locked upon expiration.
+   * 
+   * - `LockByRestoration`: The cluster is automatically locked before a rollback.
+   * 
+   * - `LockByDiskQuota`: The cluster is automatically locked because the storage is full.
    * 
    * @example
    * Unlock
@@ -395,9 +470,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   lockMode?: string;
   /**
    * @remarks
-   * The cause why the cluster was locked.
+   * The reason the cluster was locked.
    * 
-   * >  If the value of the LockMode parameter is Unlock, an empty string is returned for this parameter.
+   * > This parameter is empty if `LockMode` is set to `Unlock`.
    * 
    * @example
    * DISK_FULL
@@ -405,7 +480,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   lockReason?: string;
   /**
    * @remarks
-   * The update type. If the value of the parameter is **false**, it indicates a manual update.
+   * The upgrade method. A value of `false` indicates that upgrades must be performed manually.
    * 
    * @example
    * false
@@ -413,9 +488,9 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   maintainAutoType?: boolean;
   /**
    * @remarks
-   * The maintenance window of the cluster. The value is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+   * The maintenance window of the cluster. The time is in the `HH:mmZ-HH:mmZ` format and is in UTC.
    * 
-   * For example, if you set the maintenance window to 00:00Z-01:00Z, the cluster can be maintained from 08:00 (UTC+8) to 09:00 (UTC+8).
+   * For example, `00:00Z-01:00Z` indicates that the maintenance window is from 00:00 to 01:00 (UTC), which corresponds to 08:00 to 09:00 in Beijing time (UTC+8).
    * 
    * @example
    * 00:00Z-01:00Z
@@ -423,10 +498,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   maintainTime?: string;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **Postpaid**: indicates the pay-as-you-go billing method.
-   * *   **Prepaid**: indicates the subscription billing method.
+   * - `Postpaid`: pay-as-you-go.
+   * 
+   * - `Prepaid`: subscription.
    * 
    * @example
    * Prepaid
@@ -434,7 +510,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   payType?: string;
   /**
    * @remarks
-   * The HTTP port number.
+   * The HTTP port.
    * 
    * @example
    * 8123
@@ -450,7 +526,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   publicConnectionString?: string;
   /**
    * @remarks
-   * The IP address that is used to connect to the cluster over the Internet.
+   * The IP address of the public endpoint.
    * 
    * @example
    * 121.40.xx.xx
@@ -458,7 +534,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   publicIpAddr?: string;
   /**
    * @remarks
-   * The TCP port number in the public endpoint.
+   * The public TCP port.
    * 
    * @example
    * 3306
@@ -482,17 +558,27 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the data migration task.
+   * The data migration status.
    */
   scaleOutStatus?: DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus;
   /**
    * @remarks
-   * The storage type of the cluster. Valid values:
+   * The storage type. Valid values:
    * 
-   * *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
-   * *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
-   * *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
-   * *   **CloudEfficiency**: The cluster uses an ultra disk.
+   * <props="china">
+   * 
+   * - `CloudESSD_PL0`: ESSD PL0 disk.
+   * 
+   * 
+   * 
+   * 
+   * - `CloudESSD`: ESSD PL1 disk.
+   * 
+   * - `CloudESSD_PL2`: ESSD PL2 disk.
+   * 
+   * - `CloudESSD_PL3`: ESSD PL3 disk.
+   * 
+   * - `CloudEfficiency`: Ultra disk.
    * 
    * @example
    * CloudESSD
@@ -500,10 +586,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   storageType?: string;
   /**
    * @remarks
-   * Indicates whether data backup is supported. Valid values:
+   * Whether the cluster supports data backup. Valid values:
    * 
-   * *   **1**: Data backup is supported.
-   * *   **2**: Data backup is not supported.
+   * - `1`: Supported.
+   * 
+   * - `2`: Not supported.
    * 
    * @example
    * 1
@@ -511,10 +598,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   supportBackup?: number;
   /**
    * @remarks
-   * Indicates whether HTTPS ports are supported. Valid values:
+   * Whether the HTTPS port is supported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - `true`: Supported.
+   * 
+   * - `false`: Not supported.
    * 
    * @example
    * false
@@ -522,10 +610,11 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   supportHttpsPort?: boolean;
   /**
    * @remarks
-   * Indicates whether the cluster supports a MySQL port. Valid values:
+   * Whether the MySQL port is supported. Valid values:
    * 
-   * *   **true**: A MySQL port is supported.
-   * *   **false**: A MySQL port is not supported.
+   * - `true`: Supported.
+   * 
+   * - `false`: Not supported.
    * 
    * @example
    * false
@@ -533,15 +622,20 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   supportMysqlPort?: boolean;
   /**
    * @remarks
-   * Indicates whether tiered storage of hot data and cold data is supported. Valid values:
+   * Whether the cluster supports tiered storage for hot and cold data. Valid values:
    * 
-   * *   **1**: Tiered storage of hot data and cold data is supported.
-   * *   **2**: Tiered storage of hot data and cold data is not supported.
+   * - `1`: Supported.
+   * 
+   * - `2`: Not supported.
    * 
    * @example
    * 1
    */
   supportOss?: number;
+  /**
+   * @remarks
+   * The tags of the cluster.
+   */
   tags?: DescribeDBClusterAttributeResponseBodyDBClusterTags;
   /**
    * @remarks
@@ -553,7 +647,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the cluster is deployed.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp10tr8k9qasioaty****
@@ -561,7 +655,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   vpcCloudInstanceId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp10tr8k9qasioaty****
@@ -569,7 +663,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   vpcId?: string;
   /**
    * @remarks
-   * The IP address that is used to connect to the cluster over the VPC.
+   * The IP address of the VPC endpoint.
    * 
    * @example
    * 192.168.xx.xx
@@ -595,7 +689,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   zoneId?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs in multi-zone clusters.
+   * A map of zone IDs to vSwitch IDs for a multi-zone cluster.
    * 
    * @example
    * cn-shanghai-f: vsw-zm0n42d5vvuo****
@@ -603,7 +697,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
   zoneIdVswitchMap?: { [key: string]: any };
   /**
    * @remarks
-   * The ZooKeeper specifications.
+   * The specifications of the ZooKeeper nodes.
    * 
    * @example
    * 4 Core 8 GB
@@ -761,7 +855,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
 export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the cluster.
+   * Details about the cluster.
    */
   DBCluster?: DescribeDBClusterAttributeResponseBodyDBCluster;
   /**

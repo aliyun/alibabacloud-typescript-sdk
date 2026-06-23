@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSLBRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to view cluster IDs.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to view the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class DeleteSLBRequest extends $dara.Model {
    * cc-uf6bnitmve5n0****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The product code.
+   * 
+   * @example
+   * clickhouse
+   */
   product?: string;
   static names(): { [key: string]: string } {
     return {

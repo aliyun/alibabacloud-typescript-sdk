@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The O\\&M task IDs. Separate multiple IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
    */
   ids?: string;
   /**
+   * @remarks
+   * Specifies whether to immediately execute the O\\&M task. Valid values:
+   * 
+   * - **1**: Execute immediately.
+   * 
+   * - **0**: Execute at the specified time.
+   * 
    * @example
    * 0
    */
@@ -23,6 +32,8 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
+   * The time to initiate the switch operation. The time is in UTC and the format is YYYY-MM-DDTHH:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example

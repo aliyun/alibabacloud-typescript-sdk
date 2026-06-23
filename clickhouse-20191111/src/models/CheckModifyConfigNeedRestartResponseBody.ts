@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckModifyConfigNeedRestartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cluster was restarted after you modified the configuration parameters. Valid values:
+   * 变更配置参数后是否重启。取值说明：
    * 
-   * *   **true**: The cluster was restarted.
-   * *   **false**: The cluster was not restarted.
+   * - **true**：重启。
+   * 
+   * - **false**：不重启。
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class CheckModifyConfigNeedRestartResponseBody extends $dara.Model {
   needRestart?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * 请求 ID。
    * 
    * @example
    * 06798FEE-BEF2-5FAF-A30D-728973BBE97C

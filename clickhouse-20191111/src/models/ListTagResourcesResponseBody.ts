@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
+   * <props="china">
+   * 
    * The cluster ID.
+   * 
+   * 
+   * 
+   * <props="intl">
    * 
    * @example
    * cc-bp1t9lbb7a4z7****
@@ -13,15 +19,15 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Only **CLUSTER** is returned.
+   * The resource type. The value is **DBCLUSTER**.
    * 
    * @example
-   * CLUSTER
+   * DBCLUSTER
    */
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag that is added to the resource.
+   * The tag key.
    * 
    * @example
    * testkey1
@@ -29,7 +35,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag that is added to the resource.
+   * The value of the tag.
    * 
    * @example
    * testvalue1
@@ -65,7 +71,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If not all results are returned in one query, you can pass in the NextToken value returned for the query to perform the next query.
+   * The token that is used to retrieve the next page of results. This parameter is returned only if the results are not fully returned in the current request. You can use this token in a subsequent request to retrieve the next page of results.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec21345
@@ -81,7 +87,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags that are added to clusters.
+   * Information about the clusters and their tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

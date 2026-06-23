@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   /**
    * @remarks
-   * *   When the value **true** is returned for the **SynStatus** parameter, the system does not return the ErrorMsg parameter.
-   * *   When the value **false** is returned for the **SynStatus** parameter, the system returns for the ErrorMsg parameter the cause why the data synchronization failed.
+   * - This parameter is not returned if **SynStatus** is **true**.
+   * 
+   * - If **SynStatus** is **false**, this parameter indicates the reason for the synchronization failure.
    * 
    * @example
    * ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
@@ -14,7 +15,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS for MySQL instance.
+   * The instance ID of the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * rm-wz9d11qg1j0h4****
@@ -22,7 +23,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The database account that is used to log on to the ApsaraDB RDS for MySQL instance.
+   * The database account for the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * test
@@ -38,7 +39,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   rdsVpcUrl?: string;
   /**
    * @remarks
-   * The name of the database in the ApsaraDB RDS for MySQL instance.
+   * The database in the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * database
@@ -46,10 +47,11 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   synDb?: string;
   /**
    * @remarks
-   * Indicates whether the data synchronization succeeded. Valid values:
+   * Indicates whether the synchronization was successful. Valid values:
    * 
-   * *   **true**: The data synchronization succeeded.
-   * *   **false**: The data synchronization failed.
+   * - **true**: The synchronization was successful.
+   * 
+   * - **false**: The synchronization failed.
    * 
    * @example
    * true
@@ -89,7 +91,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
 export class DescribeSynDbsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -97,7 +99,7 @@ export class DescribeSynDbsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records on each page.
    * 
    * @example
    * 20
@@ -113,12 +115,12 @@ export class DescribeSynDbsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about data synchronization between the ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+   * The synchronized data.
    */
   synDbs?: DescribeSynDbsResponseBodySynDbs[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 0

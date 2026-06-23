@@ -65,16 +65,25 @@ export class DescribeSlowLogTrendResponseBodySlowLogTrendData extends $dara.Mode
 
 export class DescribeSlowLogTrendResponseBodySlowLogTrendStatistics extends $dara.Model {
   /**
+   * @remarks
+   * The amount of data read. Unit: bytes.
+   * 
    * @example
    * 697899
    */
   bytesRead?: number;
   /**
+   * @remarks
+   * The query execution duration. Unit: seconds.
+   * 
    * @example
    * 0.001703578
    */
   elapsedTime?: number;
   /**
+   * @remarks
+   * The number of rows read.
+   * 
    * @example
    * 14721
    */
@@ -159,15 +168,25 @@ export class DescribeSlowLogTrendResponseBodySlowLogTrendTableSchema extends $da
 export class DescribeSlowLogTrendResponseBodySlowLogTrend extends $dara.Model {
   data?: DescribeSlowLogTrendResponseBodySlowLogTrendData;
   /**
+   * @remarks
+   * The number of rows in the result set.
+   * 
    * @example
    * 1
    */
   rows?: string;
   /**
+   * @remarks
+   * The minimum number of rows that are returned before the \\`LIMIT\\` clause is applied.
+   * 
    * @example
    * 1
    */
   rowsBeforeLimitAtLeast?: string;
+  /**
+   * @remarks
+   * The statistics of the query results.
+   */
   statistics?: DescribeSlowLogTrendResponseBodySlowLogTrendStatistics;
   tableSchema?: DescribeSlowLogTrendResponseBodySlowLogTrendTableSchema;
   static names(): { [key: string]: string } {
@@ -210,10 +229,17 @@ export class DescribeSlowLogTrendResponseBodySlowLogTrend extends $dara.Model {
 
 export class DescribeSlowLogTrendResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result set of the slow SQL queries.
+   */
   slowLogTrend?: DescribeSlowLogTrendResponseBodySlowLogTrend;
   static names(): { [key: string]: string } {
     return {

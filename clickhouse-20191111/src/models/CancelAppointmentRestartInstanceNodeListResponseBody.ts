@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelAppointmentRestartInstanceNodeListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1F488A93-83FD-540F-9B67-0333AF64E6A0
    */

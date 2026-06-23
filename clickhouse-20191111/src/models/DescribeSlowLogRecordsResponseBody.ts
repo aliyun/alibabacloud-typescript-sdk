@@ -84,7 +84,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsData extends $dara.
 export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends $dara.Model {
   /**
    * @remarks
-   * The total size of data that were read. Unit: bytes.
+   * The amount of data read, in bytes.
    * 
    * @example
    * 123456
@@ -92,7 +92,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends 
   bytesRead?: number;
   /**
    * @remarks
-   * The time consumed by the slow query. Unit: milliseconds.
+   * The time elapsed for the slow query, in milliseconds.
    * 
    * @example
    * 21.35
@@ -100,7 +100,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends 
   elapsedTime?: number;
   /**
    * @remarks
-   * The total number of rows that were read.
+   * The number of rows read.
    * 
    * @example
    * 2016722
@@ -195,7 +195,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecords extends $dara.Mode
   rows?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on each page.
    * 
    * @example
    * 1
@@ -203,7 +203,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecords extends $dara.Mode
   rowsBeforeLimitAtLeast?: string;
   /**
    * @remarks
-   * The statistics of the results.
+   * The statistics of the query results.
    */
   statistics?: DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics;
   tableSchema?: DescribeSlowLogRecordsResponseBodySlowLogRecordsTableSchema;
@@ -256,7 +256,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the slow query logs.
+   * The details of the slow query logs.
    */
   slowLogRecords?: DescribeSlowLogRecordsResponseBodySlowLogRecords;
   static names(): { [key: string]: string } {

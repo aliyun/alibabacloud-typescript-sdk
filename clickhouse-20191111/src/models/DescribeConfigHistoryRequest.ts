@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+   * The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the information about all clusters in a specific region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeConfigHistoryRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in Coordinated Universal Time (UTC).
+   * The start of the time range to query. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * This parameter is required.
    * 

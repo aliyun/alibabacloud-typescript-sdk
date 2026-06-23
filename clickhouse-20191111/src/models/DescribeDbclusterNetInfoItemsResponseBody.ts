@@ -78,7 +78,7 @@ export class DescribeDBClusterNetInfoItemsResponseBodyNetInfoItems extends $dara
 export class DescribeDBClusterNetInfoItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The network type of the cluster. Only VPC is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * VPC
@@ -86,10 +86,11 @@ export class DescribeDBClusterNetInfoItemsResponseBody extends $dara.Model {
   clusterNetworkType?: string;
   /**
    * @remarks
-   * Indicates whether Server Load Balancer (SLB) is activated in the VPC. Valid values:
+   * Indicates whether Server Load Balancer (SLB) is enabled in the VPC. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: enabled.
+   * 
+   * - false: disabled.
    * 
    * This parameter is required.
    * 

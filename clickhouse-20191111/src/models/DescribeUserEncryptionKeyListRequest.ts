@@ -4,17 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestartInstanceNodeListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36E3AB2E-E0DA-5C7B-8E29-89EE44926515
    */

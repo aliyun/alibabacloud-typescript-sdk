@@ -66,9 +66,8 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   /**
    * @remarks
    * The check result. Valid values:
-   * 
-   * *   **400**: The cluster failed the check.
-   * *   **200**: The cluster passed the check.
+   * - **400**: The check failed.
+   * - **200**: The check succeeded.
    * 
    * @example
    * 400
@@ -76,7 +75,7 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   checkCode?: string;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The page number.
    * 
    * @example
    * 1
@@ -84,11 +83,10 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * - **30** (default)
+   * - **50**
+   * - **100**.
    * 
    * @example
    * 30
@@ -105,7 +103,7 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   tableDetails?: CheckScaleOutBalancedResponseBodyTableDetails;
   /**
    * @remarks
-   * The amount of time that is required for the migration and scale-out. Unit: minutes.
+   * The time required for the migration scale-out. Unit: minutes.
    * 
    * @example
    * 21
@@ -113,7 +111,7 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   timeDuration?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 1

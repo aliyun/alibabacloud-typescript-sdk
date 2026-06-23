@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ElectZookeeperLeaderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
    */
