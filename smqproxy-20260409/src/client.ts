@@ -168,6 +168,14 @@ export default class Client extends OpenApi {
   /**
    * 批量发送消息
    * 
+   * @remarks
+   * ## 请求说明
+   * - 一次 Batch 请求的消息总大小不得超过 64 KB。
+   * - `BatchSendMessage` 与 `SendMessage` 使用相同的 URL 路径，通过 Body 结构区分：包含 `Messages` 数组即为批量发送，否则为单条发送。
+   * - 批量操作的返回结果可能同时包含成功和失败的子消息。
+   * - 每次请求中可以包含多个消息对象，每个消息对象可以设置不同的延迟时间和优先级。
+   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 参数来指定消息分组 ID。
+   * 
    * @param request - BatchSendMessageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -200,6 +208,14 @@ export default class Client extends OpenApi {
 
   /**
    * 批量发送消息
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 一次 Batch 请求的消息总大小不得超过 64 KB。
+   * - `BatchSendMessage` 与 `SendMessage` 使用相同的 URL 路径，通过 Body 结构区分：包含 `Messages` 数组即为批量发送，否则为单条发送。
+   * - 批量操作的返回结果可能同时包含成功和失败的子消息。
+   * - 每次请求中可以包含多个消息对象，每个消息对象可以设置不同的延迟时间和优先级。
+   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 参数来指定消息分组 ID。
    * 
    * @param request - BatchSendMessageRequest
    * @returns BatchSendMessageResponse
@@ -352,6 +368,13 @@ export default class Client extends OpenApi {
   /**
    * 发布消息
    * 
+   * @remarks
+   * ## 请求说明
+   * - 消息发布后会被推送到该 Topic 下所有 Subscription 的 Endpoint。
+   * - 推送到 Queue 和 HTTP Endpoint 时不需要设置 `MessageAttributes`。
+   * - 推送到邮件、短信或移动推送时需要设置对应的 `MessageAttributes` 子属性。
+   * - 消息内容建议事先进行 Base64 编码以避免特殊字符问题。
+   * 
    * @param request - PublishMessageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -392,6 +415,13 @@ export default class Client extends OpenApi {
 
   /**
    * 发布消息
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 消息发布后会被推送到该 Topic 下所有 Subscription 的 Endpoint。
+   * - 推送到 Queue 和 HTTP Endpoint 时不需要设置 `MessageAttributes`。
+   * - 推送到邮件、短信或移动推送时需要设置对应的 `MessageAttributes` 子属性。
+   * - 消息内容建议事先进行 Base64 编码以避免特殊字符问题。
    * 
    * @param request - PublishMessageRequest
    * @returns PublishMessageResponse
@@ -450,6 +480,15 @@ export default class Client extends OpenApi {
   /**
    * 发送消息
    * 
+   * @remarks
+   * ## 请求说明
+   * - **SendMessage** 接口用于将消息发送至指定队列。
+   * - 消息可以立即被消费或通过设置 `DelaySeconds` 参数来延迟消费。
+   * - 发送的消息可以指定优先级，数值越小表示优先级越高。
+   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 来保证同一分组内消息的顺序投递。
+   * - 用户还可以自定义属性 `UserProperties`，以 JSON 格式字符串形式提供额外信息。
+   * - 当 `DelaySeconds` 大于 0 时，API 返回的 `ReceiptHandle` 可用来在消息变为 Active 状态前删除该延迟消息。
+   * 
    * @param request - SendMessageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -498,6 +537,15 @@ export default class Client extends OpenApi {
 
   /**
    * 发送消息
+   * 
+   * @remarks
+   * ## 请求说明
+   * - **SendMessage** 接口用于将消息发送至指定队列。
+   * - 消息可以立即被消费或通过设置 `DelaySeconds` 参数来延迟消费。
+   * - 发送的消息可以指定优先级，数值越小表示优先级越高。
+   * - 对于 FIFO 队列，可以通过 `MessageGroupId` 来保证同一分组内消息的顺序投递。
+   * - 用户还可以自定义属性 `UserProperties`，以 JSON 格式字符串形式提供额外信息。
+   * - 当 `DelaySeconds` 大于 0 时，API 返回的 `ReceiptHandle` 可用来在消息变为 Active 状态前删除该延迟消息。
    * 
    * @param request - SendMessageRequest
    * @returns SendMessageResponse

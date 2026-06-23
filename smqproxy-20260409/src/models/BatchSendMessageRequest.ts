@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchSendMessageRequestMessages extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
   delaySeconds?: number;
+  /**
+   * @example
+   * This is test message 1.
+   */
   messageBody?: string;
+  /**
+   * @example
+   * group1
+   */
   messageGroupId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {

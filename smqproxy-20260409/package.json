@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/smqproxy20260409",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublishMessageRequestMessageAttributes extends $dara.Model {
+  /**
+   * @example
+   * 详见 https://help.aliyun.com/zh/direct-mail/singlesendmail
+   */
   directMail?: string;
+  /**
+   * @example
+   * {"FreeSignName":"阿里云","TemplateCode":"SMS_123456","Type":"singleContent","Receiver":"13800000000","SmsParams":"{\\"code\\":\\"1234\\"}"}
+   */
   directSMS?: string;
+  /**
+   * @example
+   * 移动推送属性示例值
+   */
   push?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +45,15 @@ export class PublishMessageRequestMessageAttributes extends $dara.Model {
 
 export class PublishMessageRequest extends $dara.Model {
   messageAttributes?: PublishMessageRequestMessageAttributes;
+  /**
+   * @example
+   * hello topic
+   */
   messageBody?: string;
+  /**
+   * @example
+   * order-event
+   */
   messageTag?: string;
   static names(): { [key: string]: string } {
     return {

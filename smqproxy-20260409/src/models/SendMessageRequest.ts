@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendMessageRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   delaySeconds?: number;
+  /**
+   * @example
+   * "Hello MNS"
+   */
   messageBody?: string;
+  /**
+   * @example
+   * group-123
+   */
   messageGroupId?: string;
+  /**
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @example
+   * {"key1":"value1", "key2":"value2"}
+   */
   userProperties?: string;
   static names(): { [key: string]: string } {
     return {
