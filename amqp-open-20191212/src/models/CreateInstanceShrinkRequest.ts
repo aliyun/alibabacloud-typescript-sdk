@@ -10,20 +10,21 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   authModel?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Valid values:
+   * The renewal method. Valid values:
    * 
-   * *   true: enables auto-renewal.
-   * *   false: disables auto-renewal. If you select this value, you must manually renew the instance.
+   * - `true`: Enables auto-renewal.
+   * 
+   * - `false`: Disables auto-renewal.
    * 
    * @example
-   * AutoRenewal
+   * false
    */
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. The unit of the auto-renewal period is specified by RenewalDurationUnit. Default value: Month.
+   * The auto-renewal duration. The `RenewalDurationUnit` parameter specifies the unit, which defaults to month.
    * 
-   * >  This parameter takes effect only if you set AutoRenew to true. Default value: 1.
+   * > This parameter is required if you set `AutoRenew` to `true`. The default value is 1.
    * 
    * @example
    * 1
@@ -31,16 +32,27 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The client token.
+   * The client token used to ensure request idempotence.
    * 
    * @example
    * c2c5d1274axxxxxxxx
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The deployment architecture for the serverless instance. Valid values:
+   * 
+   * - `shared`: The shared architecture, which is applicable to reserved and elastic (shared) instances and pay-as-you-go instances.
+   * 
+   * - `dedicated`: The dedicated architecture, which is applicable to reserved and elastic (dedicated) instances.
+   * 
+   * @example
+   * shared
+   */
   edition?: string;
   /**
    * @remarks
-   * Specifies whether to enable storage encryption for the instance. This parameter is available only for exclusive instances.
+   * This parameter is applicable only to dedicated instances. Specifies whether to enable data-at-rest encryption for the instance.
    * 
    * @example
    * false
@@ -48,7 +60,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   encryptedInstance?: boolean;
   /**
    * @remarks
-   * The name of the instance. We recommend that you specify a name that does not exceed 64 characters in length.
+   * The name of the instance. The name can be up to 64 characters long.
    * 
    * @example
    * amqp-xxxxx
@@ -56,13 +68,16 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance edition. Valid values if you create a subscription instance:
+   * The instance type.
+   * This parameter is required for subscription instances. Valid values:
    * 
-   * *   professional: Professional Edition.
-   * *   enterprise: Enterprise Edition
-   * *   vip: Enterprise Platinum Edition
+   * - `professional`: Professional Edition
    * 
-   * If you create a serverless instance, you do not need to specify this parameter.
+   * - `enterprise`: Enterprise Edition
+   * 
+   * - `vip`: Platinum Edition
+   * 
+   * You do not need to specify this parameter for serverless instances.
    * 
    * @example
    * professional
@@ -70,28 +85,35 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS)-managed key used for storage encryption. This parameter is available only for exclusive instances and required only if you set EncryptedInstance to true. The key must meet the following conditions:
+   * This parameter applies only to dedicated instances and is required if `EncryptedInstance` is set to `true`. It specifies the ID of the KMS key used for data-at-rest encryption. The key must meet the following requirements:
    * 
-   * *   The key cannot be a service key.
-   * *   The key must be in the Enabled state.
-   * *   The key must be a symmetric key.
-   * *   The key must be used for encryption and decryption.
-   * *   After the key is expired or deleted, you cannot read or write data and exceptions can occur in the ApsaraMQ for RabbitMQ instance.
+   * - The key cannot be a service key.
+   * 
+   * - The key must be in the Enabled state.
+   * 
+   * - The key must be a symmetric key, not an asymmetric key.
+   * 
+   * - The key usage must be for encryption and decryption.
+   * 
+   * - If the KMS key expires or is deleted, data reads and writes will become unavailable, and the ApsaraMQ for RabbitMQ instance may become inoperable.
    * 
    * @example
    * key-xxx
    */
   kmsKeyId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable only the TLS-encrypted port. This parameter applies only to reserved and elastic (dedicated) instances, and Platinum Edition instances.
+   * 
    * @example
    * tcp_and_ssl
    */
   listenerMode?: string;
   /**
    * @remarks
-   * The maximum number of connections that can be established to the instance.
+   * The maximum number of connections.
    * 
-   * Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * For information about the valid values, see the instance specifications on the [ApsaraMQ for RabbitMQ](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre) product page.
    * 
    * @example
    * 50000
@@ -99,9 +121,9 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * The maximum number of Internet-based TPS on the instance.
+   * The peak transactions per second (TPS) of the instance over the public network.
    * 
-   * Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * For information about the valid values, see the instance specifications on the [ApsaraMQ for RabbitMQ](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre) product page.
    * 
    * @example
    * 128
@@ -109,9 +131,9 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   maxEipTps?: number;
   /**
    * @remarks
-   * The maximum number of virtual private cloud (VPC)-based transactions per second (TPS) on the instance.
+   * The peak transactions per second (TPS) of the instance over a private network.
    * 
-   * Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * For information about the valid values, see the instance specifications on the [ApsaraMQ for RabbitMQ](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre) product page.
    * 
    * @example
    * 1000
@@ -121,8 +143,9 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   Subscription: subscription instance
-   * *   PayAsYouGo: serverless instance
+   * - `Subscription`: The subscription-based billing method.
+   * 
+   * - `PayAsYouGo`: The pay-as-you-go method for serverless instances.
    * 
    * This parameter is required.
    * 
@@ -132,9 +155,9 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The subscription period. The unit of the subscription period is specified by periodCycle.
+   * The subscription duration. The `PeriodCycle` parameter specifies the unit.
    * 
-   * >  This parameter takes effect only if you set PaymentType to Subscription. Default value: 1.
+   * > This parameter is required if you set `PaymentType` to `Subscription`. The default value is 1.
    * 
    * @example
    * 1
@@ -142,23 +165,31 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription period. Valid values:
+   * The unit of the subscription duration. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - `Month`: month
    * 
-   * This parameter is valid only if you set PaymentType to Subscription. Default value: Month.
+   * - `Year`: year
+   * 
+   * This parameter is required if you set `PaymentType` to `Subscription`. The default value is `Month`.
    * 
    * @example
    * Month
    */
   periodCycle?: string;
+  /**
+   * @remarks
+   * The provisioned TPS capacity for a reserved and elastic instance.
+   * 
+   * @example
+   * 2000
+   */
   provisionedCapacity?: number;
   /**
    * @remarks
-   * The number of queues on the instance.
+   * The queue capacity of the instance.
    * 
-   * Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+   * For information about the valid values, see the instance specifications on the [ApsaraMQ for RabbitMQ](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre) product page.
    * 
    * @example
    * 1000
@@ -166,11 +197,11 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   queueCapacity?: number;
   /**
    * @remarks
-   * The renewal status. This parameter is the same as AutoRenew. You can configure one of these parameters. Valid value:
+   * The renewal status. This parameter is equivalent to `AutoRenew`. Valid value:
    * 
-   * *   AutoRenewal
+   * - `AutoRenewal`: Enables auto-renewal.
    * 
-   * >  If you configure both this parameter and AutoRenew, the value of this parameter is used.
+   * > Both `AutoRenew` and `RenewStatus` specify the renewal method. If you specify both parameters, the value of `RenewStatus` takes precedence.
    * 
    * @example
    * false
@@ -178,10 +209,11 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   renewStatus?: string;
   /**
    * @remarks
-   * The unit of the auto-renewal period. Valid values:
+   * The unit of the auto-renewal duration. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - `Month`: month
+   * 
+   * - `Year`: year
    * 
    * @example
    * Month
@@ -197,6 +229,14 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * The ID of the security group. This security group is used for the PrivateLink-based endpoint. The security group must meet the following requirements:
+   * 
+   * 1. Add an inbound rule to allow traffic on TCP ports 5672 and 5671.
+   * 
+   * 2. Managed security groups are not supported.
+   * 
+   * 3. The security group must belong to the specified VPC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -205,9 +245,9 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The billing method of the serverless instance. Valid value:
+   * The billing type of the serverless instance. Valid value:
    * 
-   * *   onDemand: You are charged based on your actual usage.
+   * - `onDemand`: pay-as-you-go
    * 
    * @example
    * onDemand
@@ -216,13 +256,13 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   serverlessSwitch?: boolean;
   /**
    * @remarks
-   * The storage capacity. Unit: GB. Valid values:
+   * The message storage space. Unit: GB. Valid values:
    * 
-   * *   Professional Edition and Enterprise Edition instances: Set the value to 0.
+   * - Professional Edition and Enterprise Edition instances: The value is fixed at 0.
    * 
-   * >  The value 0 specifies that storage space is available for Professional Edition and Enterprise Edition instances, but no storage fees are generated.
+   * > A value of 0 means storage is not charged for Professional Edition and Enterprise Edition instances; it does not mean the instances lack storage space.
    * 
-   * *   Enterprise Platinum Edition instances: Set the value to m × 100, where m is an integer that ranges from 7 to 28.
+   * - Platinum Edition instances: m × 100, where m is an integer from 7 to 28.
    * 
    * @example
    * 7
@@ -230,10 +270,11 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * Specifies whether elastic IP addresses (EIPs) are supported. Valid values:
+   * Specifies whether to enable access over the public network. Valid values:
    * 
-   * *   True
-   * *   False
+   * - `true`: Enables access over the public network.
+   * 
+   * - `false`: Disables access over the public network.
    * 
    * @example
    * true
@@ -243,29 +284,34 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the message trace feature. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Enables the message trace feature.
    * 
-   * > 
+   * - `false`: Disables the message trace feature.
    * 
-   * *   Enterprise Platinum Edition instances allow you to retain message traces for 15 days free of charge. If you create an Enterprise Platinum Edition instance, you can set this parameter only to true and TracingStorageTime only to 15.
+   * > * The message trace feature is included for 15 days at no charge on Platinum Edition instances. For these instances, you must enable this feature and set the retention period to 15 days.
    * 
-   * *   For instances of other editions, you can set this parameter to true or false.
+   * - For other instance types, you can enable or disable this feature.
    * 
    * @example
    * true
    */
   supportTracing?: boolean;
+  /**
+   * @remarks
+   * The resource tags.
+   */
   tagsShrink?: string;
   /**
    * @remarks
-   * The retention period of messages. Unit: days. Valid values:
+   * The retention period of message traces. Unit: days. Valid values:
    * 
-   * *   3
-   * *   7
-   * *   15
+   * - `3`
    * 
-   * This parameter is valid only if you set SupportTracing to true.
+   * - `7`
+   * 
+   * - `15`
+   * 
+   * This parameter is required if you set `SupportTracing` to `true`.
    * 
    * @example
    * 3
@@ -273,6 +319,8 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   tracingStorageTime?: number;
   /**
    * @remarks
+   * The ID of the VPC. This parameter is used to create a PrivateLink-based endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -281,6 +329,18 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The vSwitch IDs used to create a PrivateLink-based endpoint when you create the instance. The vSwitches must meet the following requirements:
+   * 
+   * 1. You must specify two vSwitches that reside in different availability zones, except for regions that have only a single availability zone.
+   * 
+   * 2. The vSwitches must belong to the specified VPC.
+   * 
+   * 3. The vSwitches must be in the Available state.
+   * 
+   * 4. Each vSwitch must have at least 20 available IP addresses.
+   * 
+   * 5. The availability zones for the specified vSwitches must support NLB instance creation.
+   * 
    * This parameter is required.
    */
   vswitchIdsShrink?: string;

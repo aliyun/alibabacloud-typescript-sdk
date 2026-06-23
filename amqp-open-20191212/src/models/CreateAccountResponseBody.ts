@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID that is used to create the password.
+   * The AccessKey ID that is used to create the username and password.
    * 
    * @example
    * LTAI****************
@@ -15,7 +15,7 @@ export class CreateAccountResponseBodyData extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the password was created. Unit: milliseconds.
+   * The timestamp when the username and password were created. Unit: milliseconds.
    * 
    * @example
    * 1671175303522
@@ -31,10 +31,10 @@ export class CreateAccountResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID or RAM user to which the AccessKey pair that is used to create the static username and password belongs.
+   * The ID of the Alibaba Cloud account or RAM user that owns the AccessKey. The AccessKey is used to create the static username and password.
    * 
    * @example
-   * 15657*********01
+   * 1565***********01
    */
   masterUId?: number;
   /**
@@ -42,12 +42,15 @@ export class CreateAccountResponseBodyData extends $dara.Model {
    * The created static password.
    * 
    * @example
-   * NEMxQTYzNjdDRTVDNDI1NUU5NjE3**************1MzNGODoxNjcxMTc1MzEzNTIy
+   * OUYwQzM2QjZBRkUxNDRFM***************MzZCNzdDQzoxNjcxNDMwMzkyODI1
    */
   password?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
-   * ***环境
+   * *** environment
    */
   remark?: string;
   /**
@@ -94,7 +97,7 @@ export class CreateAccountResponseBodyData extends $dara.Model {
 export class CreateAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -118,12 +121,12 @@ export class CreateAccountResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 92385FD2-624A-48C9-8FB5-753F2AFA***
+   * FEBA5E0C-50D0-4FA6-A794-4901E5465***
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

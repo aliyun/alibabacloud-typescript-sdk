@@ -12,6 +12,32 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "amqp-open.us-west-1.aliyuncs.com",
+      'us-east-1': "amqp-open.us-east-1.aliyuncs.com",
+      'me-central-1': "amqp-open.me-central-1.aliyuncs.com",
+      'eu-central-1': "amqp-open.eu-central-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "amqp-open.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "amqp-open.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "amqp-open.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "amqp-open.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "amqp-open.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "amqp-open.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "amqp-open.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "amqp-open.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "amqp-open.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "amqp-open.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "amqp-open.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "amqp-open.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "amqp-open.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "amqp-open.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "amqp-open.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "amqp-open.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "amqp-open.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "amqp-open.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "amqp-open.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "amqp-open.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("amqp-open", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加实例白名单
+   * Adds an entry to the whitelist of an instance.
    * 
    * @param tmpReq - AddInstanceWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加实例白名单
+   * Adds an entry to the whitelist of an instance.
    * 
    * @param request - AddInstanceWhiteListRequest
    * @returns AddInstanceWhiteListResponse
@@ -86,7 +112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+   * When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -141,7 +167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+   * When an open-source client accesses an ApsaraMQ for RabbitMQ server, it must provide a username and password for authentication. ApsaraMQ for RabbitMQ lets you generate a username and password from an AccessKey ID and AccessKey secret provided by Resource Access Management (RAM).
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -152,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+   * A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
    * 
    * @param request - CreateBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -207,7 +233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+   * A producer sends a message to an exchange, which then routes the message to a specified queue or another exchange based on the binding and routing rules.
    * 
    * @param request - CreateBindingRequest
    * @returns CreateBindingResponse
@@ -218,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+   * A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
    * 
    * @param request - CreateExchangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+   * A producer sends a message to an exchange. The exchange then routes the message to one or more queues based on the routing key and the binding key, or discards the message.
    * 
    * @param request - CreateExchangeRequest
    * @returns CreateExchangeResponse
@@ -289,9 +315,6 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an ApsaraMQ for RabbitMQ instance.
-   * 
-   * @remarks
-   * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
    * 
    * @param tmpReq - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -454,9 +477,6 @@ export default class Client extends OpenApi {
   /**
    * Creates an ApsaraMQ for RabbitMQ instance.
    * 
-   * @remarks
-   * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
-   * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
    */
@@ -466,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+   * A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
    * 
    * @param request - CreateQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -537,7 +557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+   * A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
    * 
    * @param request - CreateQueueRequest
    * @returns CreateQueueResponse
@@ -594,7 +614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a pair of username and password.
+   * Deletes a static username and password.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -629,7 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a pair of username and password.
+   * Deletes a static username and password.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -640,7 +660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a binding to unbind a queue or an exchange from a source exchange.
+   * The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
    * 
    * @param request - DeleteBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -691,7 +711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a binding to unbind a queue or an exchange from a source exchange.
+   * The DeleteBinding operation detaches a source exchange from a target queue or another exchange.
    * 
    * @param request - DeleteBindingRequest
    * @returns DeleteBindingResponse
@@ -705,9 +725,9 @@ export default class Client extends OpenApi {
    * Deletes an exchange.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+   * ## Usage notes
+   * - You cannot delete exchanges with the type **headers**.
+   * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
    * 
    * @param request - DeleteExchangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -749,9 +769,9 @@ export default class Client extends OpenApi {
    * Deletes an exchange.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+   * ## Usage notes
+   * - You cannot delete exchanges with the type **headers**.
+   * - You cannot delete the three built-in exchanges in a vhost: amq.direct, amq.topic, or amq.fanout.
    * 
    * @param request - DeleteExchangeRequest
    * @returns DeleteExchangeResponse
@@ -815,7 +835,7 @@ export default class Client extends OpenApi {
    * Deletes a virtual host (vhost).
    * 
    * @remarks
-   * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+   * Before you delete a vhost, you must delete all exchanges and queues in it.
    * 
    * @param request - DeleteVirtualHostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -853,7 +873,7 @@ export default class Client extends OpenApi {
    * Deletes a virtual host (vhost).
    * 
    * @remarks
-   * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+   * Before you delete a vhost, you must delete all exchanges and queues in it.
    * 
    * @param request - DeleteVirtualHostRequest
    * @returns DeleteVirtualHostResponse
@@ -864,7 +884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -891,7 +911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Retrieves the details of an ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
@@ -902,7 +922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+   * Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - GetMetadataAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -929,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+   * Queries the current and maximum numbers of vhosts, exchanges, and queues for a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - GetMetadataAmountRequest
    * @returns GetMetadataAmountResponse
@@ -940,7 +960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the static username and password of an ApsaraMQ for RabbitMQ.
+   * Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -971,7 +991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the static username and password of an ApsaraMQ for RabbitMQ.
+   * Lists the usernames and passwords for a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListAccountsRequest
    * @returns ListAccountsResponse
@@ -982,7 +1002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+   * Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1009,7 +1029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+   * Queries all bindings that are created in a vhost of a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListBindingsRequest
    * @returns ListBindingsResponse
@@ -1020,7 +1040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all exchanges or queues to which an exchange is bound.
+   * Queries the exchanges or queues that are bound to a specified exchange.
    * 
    * @param request - ListDownStreamBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1047,7 +1067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all exchanges or queues to which an exchange is bound.
+   * Queries the exchanges or queues that are bound to a specified exchange.
    * 
    * @param request - ListDownStreamBindingsRequest
    * @returns ListDownStreamBindingsResponse
@@ -1058,7 +1078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues or exchanges that are bound to an exchange.
+   * Queries the queues or other exchanges that are bound to a specified exchange.
    * 
    * @param request - ListExchangeUpStreamBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,7 +1105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues or exchanges that are bound to an exchange.
+   * Queries the queues or other exchanges that are bound to a specified exchange.
    * 
    * @param request - ListExchangeUpStreamBindingsRequest
    * @returns ListExchangeUpStreamBindingsResponse
@@ -1096,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all exchanges that are created in a virtual host (vhost).
+   * Lists all exchanges in a specified vhost of an instance.
    * 
    * @param request - ListExchangesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all exchanges that are created in a virtual host (vhost).
+   * Lists all exchanges in a specified vhost of an instance.
    * 
    * @param request - ListExchangesRequest
    * @returns ListExchangesResponse
@@ -1134,7 +1154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例ip/vpc白名单
+   * Queries the IP or VPC whitelist for an instance.
    * 
    * @param request - ListInstanceWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1169,7 +1189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例ip/vpc白名单
+   * Queries the IP or VPC whitelist for an instance.
    * 
    * @param request - ListInstanceWhiteListRequest
    * @returns ListInstanceWhiteListResponse
@@ -1180,7 +1200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+   * Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1207,7 +1227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+   * Queries a list of ApsaraMQ for RabbitMQ instances in a specified region and returns basic information about each instance, such as its endpoints and specification limits.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -1218,10 +1238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the online consumers of a queue.
+   * Queries the online consumer clients of a specified queue.
    * 
    * @remarks
-   * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+   * ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
    * 
    * @param request - ListQueueConsumersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1248,10 +1268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the online consumers of a queue.
+   * Queries the online consumer clients of a specified queue.
    * 
    * @remarks
-   * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+   * ApsaraMQ for RabbitMQ lets you query only online consumer clients. You cannot query offline consumer clients.
    * 
    * @param request - ListQueueConsumersRequest
    * @returns ListQueueConsumersResponse
@@ -1262,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the exchanges that are bound to a queue.
+   * Queries the exchanges that are bound to a specified queue.
    * 
    * @param request - ListQueueUpStreamBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1289,7 +1309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the exchanges that are bound to a queue.
+   * Queries the exchanges that are bound to a specified queue.
    * 
    * @param request - ListQueueUpStreamBindingsRequest
    * @returns ListQueueUpStreamBindingsResponse
@@ -1300,7 +1320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+   * Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListQueuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1327,7 +1347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+   * Queries information about all queues in a vhost on a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListQueuesRequest
    * @returns ListQueuesResponse
@@ -1338,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+   * Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListVirtualHostsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1365,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+   * Lists all vhosts in a specified ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - ListVirtualHostsRequest
    * @returns ListVirtualHostsResponse
@@ -1376,7 +1396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例ip/vpc白名单
+   * Removes an IP address or a VPC from an instance\\"s whitelist.
    * 
    * @param request - RemoveInstanceWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1415,7 +1435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例ip/vpc白名单
+   * Removes an IP address or a VPC from an instance\\"s whitelist.
    * 
    * @param request - RemoveInstanceWhiteListRequest
    * @returns RemoveInstanceWhiteListResponse
@@ -1426,7 +1446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+   * Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - UpdateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,7 +1541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.
+   * Upgrades or downgrades the specifications of an ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -1532,7 +1552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+   * An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
    * 
    * @param request - UpdateInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1567,7 +1587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+   * An ApsaraMQ for RabbitMQ instance is named after its instance ID by default. You can change the name for easier identification.
    * 
    * @param request - UpdateInstanceNameRequest
    * @returns UpdateInstanceNameResponse
@@ -1575,6 +1595,56 @@ export default class Client extends OpenApi {
   async updateInstanceName(request: $_model.UpdateInstanceNameRequest): Promise<$_model.UpdateInstanceNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceNameWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the elastic scaling switch of a serverless instance.
+   * 
+   * @param request - UpdateInstanceServerlessSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceServerlessSwitchResponse
+   */
+  async updateInstanceServerlessSwitchWithOptions(request: $_model.UpdateInstanceServerlessSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceServerlessSwitchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.serverlessSwitch)) {
+      query["ServerlessSwitch"] = request.serverlessSwitch;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstanceServerlessSwitch",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstanceServerlessSwitchResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceServerlessSwitchResponse({}));
+  }
+
+  /**
+   * Updates the elastic scaling switch of a serverless instance.
+   * 
+   * @param request - UpdateInstanceServerlessSwitchRequest
+   * @returns UpdateInstanceServerlessSwitchResponse
+   */
+  async updateInstanceServerlessSwitch(request: $_model.UpdateInstanceServerlessSwitchRequest): Promise<$_model.UpdateInstanceServerlessSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstanceServerlessSwitchWithOptions(request, runtime);
   }
 
 }

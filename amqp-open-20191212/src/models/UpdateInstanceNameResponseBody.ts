@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message that is returned when an error occurs during the update of the instance name.
+   * The error message returned if the request fails.
    * 
    * @example
    * InstanceNotExist
@@ -37,7 +37,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned message that indicates the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

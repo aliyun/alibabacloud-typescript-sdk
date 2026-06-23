@@ -2,53 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddInstanceWhiteListResponseBody extends $dara.Model {
+export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of `200` indicates a successful request.
+   * The status code.
    * 
    * @example
    * 200
    */
-  code?: string;
+  code?: number;
   /**
    * @remarks
-   * Data returned by the operation.
-   * 
-   * @example
-   * true
+   * The returned data.
    */
-  data?: any;
+  data?: boolean;
   /**
    * @remarks
-   * The message returned with the response. This is typically an error message if the request fails.
+   * The returned message.
    * 
    * @example
-   * The specified parameter \\"[\\"vpc-xxx\\"]\\" is not valid
+   * operation success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 8BFB1C9D-08A2-4859-A47C-403C9EFA2***
+   * CCBB1225-C392-480E-8C7F-D09AB2CD2***
    */
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code for the response. A value of `200` indicates success.
+   * The request result.
    * 
    * @example
-   * 200
-   */
-  statusCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -57,18 +46,16 @@ export class AddInstanceWhiteListResponseBody extends $dara.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      statusCode: 'StatusCode',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      data: 'any',
+      code: 'number',
+      data: 'boolean',
       message: 'string',
       requestId: 'string',
-      statusCode: 'string',
       success: 'boolean',
     };
   }

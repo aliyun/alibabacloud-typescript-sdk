@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -32,12 +32,12 @@ export class DeleteAccountResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 021788F6-E50C-4BD6-9F80-66B0A19A6***
+   * 021788F6-E50C-4BD6-9F80-66B0A1******
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

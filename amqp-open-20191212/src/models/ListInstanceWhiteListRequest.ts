@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceWhiteListRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance whose whitelist to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class ListInstanceWhiteListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The type of whitelist to query.
+   * 
+   * VPC whitelists apply only to instances whose VPC endpoint is of the `anytunnel` type. The latest instance versions use a `PrivateLink` VPC endpoint and do not support VPC whitelists.
+   * 
    * This parameter is required.
    * 
    * @example

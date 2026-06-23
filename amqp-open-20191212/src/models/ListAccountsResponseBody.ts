@@ -6,7 +6,7 @@ import { DataValue } from "./DataValue";
 export class ListAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -30,15 +30,15 @@ export class ListAccountsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 549A5A97-FE61-5A23-8126-3A11929C1EC4
+   * 549A5A97-FE61-5A23-8126-3A1192*****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
-   * True
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

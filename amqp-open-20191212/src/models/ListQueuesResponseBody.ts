@@ -13,7 +13,7 @@ export class ListQueuesResponseBodyDataQueues extends $dara.Model {
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the queue was automatically deleted.
+   * The auto-delete status.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class ListQueuesResponseBodyDataQueues extends $dara.Model {
   exclusiveState?: boolean;
   /**
    * @remarks
-   * The time when messages in the queue were last consumed.
+   * The last time a message was consumed from the queue.
    * 
    * @example
    * 1680887085240
@@ -53,10 +53,10 @@ export class ListQueuesResponseBodyDataQueues extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the ApsaraMQ for RabbitMQ instance to which the queue belongs.
+   * The ID of the instance to which the queue belongs.
    * 
    * @example
-   * 1880770869023***
+   * amqp-cn-5yd3aw******
    */
   ownerId?: string;
   /**
@@ -108,7 +108,7 @@ export class ListQueuesResponseBodyDataQueues extends $dara.Model {
 export class ListQueuesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 1
@@ -116,7 +116,7 @@ export class ListQueuesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+   * The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * @example
    * caebacccb2be03f84eb48b699f0a****

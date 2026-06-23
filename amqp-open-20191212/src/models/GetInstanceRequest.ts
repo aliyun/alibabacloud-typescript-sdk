@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Message Queue for RabbitMQ instance.
+   * 
    * This parameter is required.
    * 
    * @example

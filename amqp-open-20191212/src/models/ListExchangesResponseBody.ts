@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
   /**
    * @remarks
-   * The attributes. This parameter is unavailable in the current version.
+   * The attributes of the exchange. This parameter is not supported.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the exchange was automatically deleted.
+   * Indicates whether the exchange is an auto-delete exchange.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
   autoDeleteState?: boolean;
   /**
    * @remarks
-   * The timestamp that indicates when the exchange was created. Unit: milliseconds.
+   * The time when the exchange was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1580886216000
@@ -29,16 +29,20 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The exchange type.
+   * The type of the exchange.
    * 
    * @example
    * DIRECT
    */
   exchangeType?: string;
+  /**
+   * @remarks
+   * Indicates whether the exchange is an internal exchange.
+   */
   internal?: boolean;
   /**
    * @remarks
-   * The exchange name.
+   * The name of the exchange.
    * 
    * @example
    * amq.direct
@@ -46,7 +50,7 @@ export class ListExchangesResponseBodyDataExchanges extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The vhost name.
+   * The name of the vhost to which the exchange belongs.
    * 
    * @example
    * test
@@ -104,10 +108,11 @@ export class ListExchangesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the end of the current returned page.``
+   * The token that marks the start of the next query.
    * 
-   * *   If the value of this parameter is empty, the next query is not required and the token used to start the next query is unavailable.``
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.``
+   * - If this parameter is empty, no more data is available.
+   * 
+   * - If a value is returned, use the value as the `NextToken` value in the next call to continue the query.
    * 
    * @example
    * AAAANDQBYW1xcC1jbi03cHAybXdiY3AwMGEBdmhvc3QBAXNkZndhYWJhATE2NDkzMTM4OTU5NDIB4o3z1pPwWzk4aYuiRffi8R6-****

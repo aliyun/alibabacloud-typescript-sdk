@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraMQ for RabbitMQ instance for which you want to query the static username and password.
+   * The ID of the ApsaraMQ for RabbitMQ instance whose static usernames and passwords you want to list.
    * 
    * @example
    * amqp-cn-20p****04

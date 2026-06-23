@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataValue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID or Resource Access Management (RAM) user to which the AccessKey pair that is used to create the static username and password belongs.
+   * The ID of the Alibaba Cloud account or RAM user that created the static username and password.
    * 
    * @example
    * 1565************1
@@ -21,7 +21,7 @@ export class DataValue extends $dara.Model {
   cInstanceId?: string;
   /**
    * @remarks
-   * The AccessKey ID that is used to create the static username and password.
+   * The AccessKey ID that was used to create the static username and password.
    * 
    * @example
    * LTAI****************
@@ -45,23 +45,26 @@ export class DataValue extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the static username and password were deleted. Unit: milliseconds.
+   * The UNIX timestamp when the static username and password were deleted. Unit: milliseconds.
    * 
    * @example
-   * 1671175303522
+   * 0
    */
   deleted?: number;
   /**
    * @remarks
-   * The timestamp that indicates when the static username and password were created. Unit: milliseconds.
+   * The UNIX timestamp when the static username and password were created. Unit: milliseconds.
    * 
    * @example
    * 1671175303522
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
-   * ***环境
+   * *** environment
    */
   remark?: string;
   static names(): { [key: string]: string } {

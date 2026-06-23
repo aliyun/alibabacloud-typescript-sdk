@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownStreamBindingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The exchange name.
+   * The name of the exchange.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListDownStreamBindingsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of results to return.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListDownStreamBindingsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+   * The token that is used to retrieve the next page of results. If this is your first call, or if you have retrieved all results, leave this parameter empty.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

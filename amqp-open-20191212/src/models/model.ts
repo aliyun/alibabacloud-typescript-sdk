@@ -109,3 +109,6 @@ export { UpdateInstanceResponse } from './UpdateInstanceResponse';
 export { UpdateInstanceNameRequest } from './UpdateInstanceNameRequest';
 export { UpdateInstanceNameResponseBody } from './UpdateInstanceNameResponseBody';
 export { UpdateInstanceNameResponse } from './UpdateInstanceNameResponse';
+export { UpdateInstanceServerlessSwitchRequest } from './UpdateInstanceServerlessSwitchRequest';
+export { UpdateInstanceServerlessSwitchResponseBody } from './UpdateInstanceServerlessSwitchResponseBody';
+export { UpdateInstanceServerlessSwitchResponse } from './UpdateInstanceServerlessSwitchResponse';

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirtualHostsResponseBodyDataVirtualHosts extends $dara.Model {
   /**
    * @remarks
-   * The vhost name.
+   * The name of the vhost.
    * 
    * @example
    * test
@@ -35,7 +35,7 @@ export class ListVirtualHostsResponseBodyDataVirtualHosts extends $dara.Model {
 export class ListVirtualHostsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 2
@@ -43,7 +43,7 @@ export class ListVirtualHostsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+   * The token that is used to retrieve the next page of results. If this parameter is not returned, all data has been returned.
    * 
    * @example
    * caebacccb2be03f84eb48b699f0a****
@@ -51,7 +51,7 @@ export class ListVirtualHostsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The vhosts.
+   * The list of vhosts.
    */
   virtualHosts?: ListVirtualHostsResponseBodyDataVirtualHosts[];
   static names(): { [key: string]: string } {

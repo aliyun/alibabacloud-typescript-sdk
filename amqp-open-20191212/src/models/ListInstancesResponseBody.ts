@@ -45,7 +45,7 @@ export class ListInstancesResponseBodyDataInstancesTags extends $dara.Model {
 export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance is automatically renewed.
+   * Indicates whether auto-renewal is enabled for the instance.
    * 
    * @example
    * false
@@ -53,16 +53,27 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   autoRenewInstance?: boolean;
   /**
    * @remarks
-   * The endpoint that is used to access the instance over the classic network. This parameter is no longer available.
+   * The classic network endpoint. This parameter is deprecated.
    * 
    * @example
    * amqp-cn-st21x7kv****.not-support
    */
   classicEndpoint?: string;
+  /**
+   * @remarks
+   * The deployment architecture, which is applicable only to Serverless Edition instances. Valid values:
+   * 
+   * - shared: A shared architecture, used for reserved, elastic (shared), and pay-as-you-go instances.
+   * 
+   * - dedicated: A dedicated architecture, used for reserved and elastic (dedicated) instances.
+   * 
+   * @example
+   * shared
+   */
   edition?: string;
   /**
    * @remarks
-   * Indicates whether the encryption at rest feature is enabled for the instance.
+   * Indicates whether storage encryption is enabled for the instance.
    * 
    * @example
    * false
@@ -70,7 +81,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   encryptedInstance?: boolean;
   /**
    * @remarks
-   * The timestamp that indicates when the instance expires. Unit: milliseconds.
+   * The expiration timestamp of the instance, in milliseconds.
    * 
    * @example
    * 1651507200000
@@ -78,7 +89,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The instance ID
+   * The instance ID.
    * 
    * @example
    * amqp-cn-st21x7kv****
@@ -94,11 +105,17 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance type.
+   * The instance type. Valid values:
    * 
-   * *   PROFESSIONAL: Professional Edition
-   * *   ENTERPRISE: Enterprise Edition
-   * *   VIP: Enterprise Platinum Edition
+   * - professional: Professional Edition
+   * 
+   * - enterprise: Enterprise Edition
+   * 
+   * - vip: Platinum Edition
+   * 
+   * <props="china">
+   * 
+   * - serverless: Serverless Edition
    * 
    * @example
    * professional
@@ -106,20 +123,23 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used for the data disk.
+   * The ID of the KMS key used for data disk encryption.
    * 
    * @example
    * key-bjj66c2a893vmhawtq5fd
    */
   kmsKeyId?: string;
   /**
+   * @remarks
+   * The port listener mode of the instance. `tcp_and_ssl` enables both port `5672` and port `5671`, while `ssl_only` enables only port `5671`.
+   * 
    * @example
    * tcp_and_ssl
    */
   listenerMode?: string;
   /**
    * @remarks
-   * The maximum number of Internet-based transactions per second (TPS) for the instance.
+   * The peak transactions per second (TPS) of the instance over the public network.
    * 
    * @example
    * 24832
@@ -127,7 +147,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   maxEipTps?: number;
   /**
    * @remarks
-   * The maximum number of queues on the instance.
+   * The maximum number of queues for the instance.
    * 
    * @example
    * 50
@@ -135,7 +155,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   maxQueue?: number;
   /**
    * @remarks
-   * The maximum number of VPC-based TPS for the instance.
+   * The peak transactions per second (TPS) of the instance over the private network.
    * 
    * @example
    * 5000
@@ -143,7 +163,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   maxTps?: number;
   /**
    * @remarks
-   * The maximum number of vhosts on the instance.
+   * The maximum number of vhosts for the instance.
    * 
    * @example
    * 50
@@ -151,7 +171,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   maxVhost?: number;
   /**
    * @remarks
-   * The timestamp that indicates when the order was created. Unit: milliseconds.
+   * The creation timestamp of the order, in milliseconds.
    * 
    * @example
    * 1572441939000
@@ -161,8 +181,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PrePaid: the subscription billing method.
-   * *   POST_PAID: the pay-as-you-go billing method.
+   * - PRE_PAID: The instance uses the subscription billing method.
+   * 
+   * - POST_PAID: The instance uses the pay-as-you-go billing method.
    * 
    * @example
    * PRE_PAID
@@ -170,12 +191,19 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) endpoint of the instance.
+   * The VPC endpoint of the instance.
    * 
    * @example
    * amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
    */
   privateEndpoint?: string;
+  /**
+   * @remarks
+   * The reserved TPS capacity for reserved and elastic instances.
+   * 
+   * @example
+   * 2000
+   */
   provisionedCapacity?: number;
   /**
    * @remarks
@@ -187,13 +215,16 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   publicEndpoint?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-aek3axfj2w4czrq
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the security group to which the instance belongs. This security group is used for PrivateLink endpoint creation.
+   * 
    * @example
    * sg-xxx
    */
@@ -203,10 +234,13 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * *   DEPLOYING: The instance is being deployed.
-   * *   EXPIRED: The instance is expired.
-   * *   SERVING: The instance is running.
-   * *   RELEASED: The instance is released.
+   * - DEPLOYING: The instance is being deployed.
+   * 
+   * - EXPIRED: The instance has expired.
+   * 
+   * - SERVING: The instance is running.
+   * 
+   * - RELEASED: The instance is released.
    * 
    * @example
    * SERVING
@@ -214,9 +248,9 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The disk size. Unit: GB.
+   * The storage capacity of the disk. Unit: GB.
    * 
-   * >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \\*\\*-1\\*\\* is returned.
+   * > This parameter returns a value of **-1** for Professional Edition and Enterprise Edition instances, to which it does not apply.
    * 
    * @example
    * 200
@@ -224,7 +258,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * Indicates whether the instance supports elastic IP addresses (EIPs).
+   * Indicates whether the instance supports EIPs.
    * 
    * @example
    * true
@@ -232,14 +266,21 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   supportEIP?: boolean;
   /**
    * @remarks
-   * The tags that are added to the instance.
+   * The tags attached to the instance.
    */
   tags?: ListInstancesResponseBodyDataInstancesTags[];
   /**
+   * @remarks
+   * The ID of the VPC in which the instance resides. This VPC is used for PrivateLink endpoint creation.
+   * 
    * @example
    * vpc-xxx
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The IDs of the VSwitches to which the instance is connected. These VSwitches are used for PrivateLink endpoint creation.
+   */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -325,12 +366,12 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * A list of instances.
    */
   instances?: ListInstancesResponseBodyDataInstances[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 1
@@ -338,7 +379,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+   * The token for the next page of results. If this field is empty, it means all results have been returned.
    * 
    * @example
    * caebacccb2be03f84eb48b699f0a****
@@ -375,7 +416,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListInstancesResponseBodyData;
   /**

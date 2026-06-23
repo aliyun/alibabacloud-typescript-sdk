@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data, which includes orderId and instanceId. Sample returned data:
+   * The returned data. It includes the order ID and instance ID. For example:
    * 
    * ```json
    * "Data": {
@@ -23,7 +23,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
    * ```
    * 
    * @example
-   * {“instanceId”: “amqp-cn-jtexxxxx”, “orderId”: 2222222}
+   * {\\"instanceId\\": \\"rabbitmq-serverless-cn-lf63qsjlf06\\", \\"orderId\\": 234170302080010}
    */
   data?: any;
   /**
@@ -36,7 +36,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Each request has a unique ID. Use this ID to troubleshoot issues.
    * 
    * @example
    * 628705FD-03EE-4ABE-BB21-E1672960***
@@ -44,7 +44,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response code.
+   * The status code.
    * 
    * @example
    * 200

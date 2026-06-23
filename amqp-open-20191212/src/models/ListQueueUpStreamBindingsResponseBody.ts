@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListQueueUpStreamBindingsResponseBodyDataBindings extends $dara.Model {
   /**
    * @remarks
-   * The x-match attribute. Valid values:
+   * The x-match property. Valid values:
    * 
-   * *   **all:** A headers exchange routes a message to a queue only if all binding attributes of the queue except for x-match match the headers attributes of the message. This value is the default value.
-   * *   **any:** A headers exchange routes a message to a queue if one or more binding attributes of the queue except for x-match match the headers attributes of the message.
+   * - **all**: This is the default value. All key-value pairs in the message header must match.
    * 
-   * This parameter is available for only headers exchanges.
+   * - **any**: At least one key-value pair in the message header must match.
+   * 
+   * This parameter is valid only for headers exchanges. It is invalid for other types of exchanges.
    * 
    * @example
    * all
@@ -20,16 +21,19 @@ export class ListQueueUpStreamBindingsResponseBodyDataBindings extends $dara.Mod
    * @remarks
    * The binding key.
    * 
-   * *   If the source exchange is not a topic exchange, the binding key must meet the following conventions:
+   * - If the source exchange is not a topic exchange:
    * 
-   *     *   The binding key can contain only letters, digits, hyphens (-), underscores (_), periods (.), forward slashes (/), and at signs (@).
-   *     *   The binding key must be 1 to 255 characters in length.
+   *   - The binding key can contain only letters, digits, hyphens (-), underscores (_), periods (.), forward slashes (/), and at signs (@).
    * 
-   * *   If the source exchange is a topic exchange, the binding key must meet the following conventions:
+   *   - The binding key must be 1 to 255 characters in length.
    * 
-   *     *   The binding key can contain letters, digits, hyphens (-), underscores (_), periods (.), number signs (#), forward slashes (/), and at signs (@).
-   *     *   The binding key cannot start or end with a period (.). If a binding key starts with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be followed by a period (.). If the binding key ends with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be preceded by a period (.). If a number sign (#) or an asterisk (\\*) is used in the middle of a binding key, the number sign (#) or asterisk (\\*) must be preceded and followed by a period (.).
-   *     *   The binding key must be 1 to 255 characters in length.
+   * - If the source exchange is a topic exchange:
+   * 
+   *   - The binding key can contain letters, digits, hyphens (-), underscores (_), periods (.), number signs (#), forward slashes (/), and at signs (@).
+   * 
+   *   - The binding key cannot start or end with a period (.). If a number sign (#) or an asterisk (\\*) is at the beginning of the key, it must be followed by a period (.). If it is at the end of the key, it must be preceded by a period (.). If it is in the middle of the key, it must be enclosed by periods (.).
+   * 
+   *   - The binding key must be 1 to 255 characters in length.
    * 
    * @example
    * amq.test
@@ -37,10 +41,11 @@ export class ListQueueUpStreamBindingsResponseBodyDataBindings extends $dara.Mod
   bindingKey?: string;
   /**
    * @remarks
-   * The type of the object to which the source exchange is bound. Valid values:
+   * The type of the destination object. Valid values:
    * 
-   * *   **QUEUE**
-   * *   **EXCHANGE**
+   * - **QUEUE**
+   * 
+   * - **EXCHANGE**
    * 
    * @example
    * QUEUE
@@ -48,7 +53,7 @@ export class ListQueueUpStreamBindingsResponseBodyDataBindings extends $dara.Mod
   bindingType?: string;
   /**
    * @remarks
-   * The name of the object to which the source exchange is bound.
+   * The name of the destination.
    * 
    * @example
    * QueueTest
@@ -99,7 +104,7 @@ export class ListQueueUpStreamBindingsResponseBodyData extends $dara.Model {
   bindings?: ListQueueUpStreamBindingsResponseBodyDataBindings[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 1
@@ -107,7 +112,7 @@ export class ListQueueUpStreamBindingsResponseBodyData extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+   * The token that marks the end of the current results. An empty value indicates that all results have been returned.
    * 
    * @example
    * caebacccb2be03f84eb48b699f0a****

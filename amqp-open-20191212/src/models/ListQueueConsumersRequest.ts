@@ -10,12 +10,12 @@ export class ListQueueConsumersRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 188077086902***
+   * amqp-cn-5yd3aw******
    */
   instanceId?: string;
   /**
    * @remarks
-   * The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+   * The token that marks the end of the current page of results. To retrieve the next page, include this token in the next request. If this is your first request or the last page is returned, the value is an empty string.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -23,7 +23,7 @@ export class ListQueueConsumersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of data entries to return. If you do not configure this parameter, the default value 1 is used.
+   * The number of entries to return. If you do not set this parameter, the default value is 1.
    * 
    * Valid values: 1 to 100.
    * 
@@ -33,7 +33,7 @@ export class ListQueueConsumersRequest extends $dara.Model {
   queryCount?: number;
   /**
    * @remarks
-   * The name of the queue for which you want to query online consumers.
+   * The queue name.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ListQueueConsumersRequest extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The virtual host (vhost) name.
+   * The vhost name.
    * 
    * This parameter is required.
    * 

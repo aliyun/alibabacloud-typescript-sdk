@@ -13,10 +13,11 @@ export class DeleteBindingRequest extends $dara.Model {
   bindingKey?: string;
   /**
    * @remarks
-   * The type of the object that you want to unbind from the source exchange. Valid values:
+   * The type of the destination object. Valid values:
    * 
-   * *   **QUEUE**
-   * *   **EXCHANGE**
+   * - **QUEUE**
+   * 
+   * - **EXCHANGE**
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class DeleteBindingRequest extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * The name of the object that you want to unbind from the source exchange.
+   * The name of the destination object.
    * 
    * This parameter is required.
    * 
