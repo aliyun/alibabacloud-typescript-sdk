@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveVpnResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource.
+   * The instance ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class MoveVpnResourceGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the new resource group.
+   * The ID of the new resource group to which the resource belongs.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class MoveVpnResourceGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -41,17 +41,15 @@ export class MoveVpnResourceGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of resource.
+   * The resource type. Valid values:
    * 
-   * *   **VpnGateway**: VPN gateway
+   * - **VpnGateway**: VPN gateway instance.
    * 
-   *     After you move a VPN gateway to a new resource group, the following associated resources are also moved to the new resource group: IPsec servers, SSL servers, SSL client certificates, and IPsec-VPN connections.
-   * 
-   * *   **CustomerGateway**: customer gateway
-   * 
-   * *   **VpnAttachment**: IPsec-VPN connection
-   * 
-   *     An IPsec-VPN connection associated with a transit router or not associate with a resource.
+   *   After you change the resource group of a VPN gateway instance, the resource group of the IPsec server, SSL server, SSL client certificate, and IPsec-VPN connections (IPsec-VPN connections associated with the VPN gateway instance) under the VPN gateway instance is also changed.
+   * - **CustomerGateway**: customer gateway instance.
+   * - **VpnAttachment**: IPsec-VPN connection instance.
+   *     
+   *   This refers to IPsec-VPN connections associated with a transit router instance or IPsec-VPN connections that are not associated with any resource.
    * 
    * This parameter is required.
    * 

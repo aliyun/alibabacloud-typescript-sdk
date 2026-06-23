@@ -85,7 +85,7 @@ export class DescribeForwardTableEntriesRequest extends $dara.Model {
    * *   **Any**
    * 
    * @example
-   * TCP
+   * tcp
    */
   ipProtocol?: string;
   /**

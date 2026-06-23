@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatGatewaysRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag keys of the NAT gateway. You can specify up to 20 tag keys.
+   * The tag key of the NAT gateway instance. You can specify up to 20 tag keys.
    * 
-   * Each tag key cannot exceed 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * KeyTest
@@ -15,9 +15,9 @@ export class DescribeNatGatewaysRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag values of the NAT gateway. You can specify up to 20 tag values.
+   * The tag value of the NAT gateway instance. You can specify up to 20 tag values.
    * 
-   * The tag value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * valueTest
@@ -52,8 +52,9 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without querying resource status. The check items include whether the AccessKey pair is valid, whether the RAM user is authorized, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * 
+   * - **false** (default): performs a normal request. After the check succeeds, a 2xx HTTP status code is returned and the resource status is queried directly.
    * 
    * @example
    * false
@@ -61,7 +62,15 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The billing method of the NAT gateway. Set the value to **PostPaid**, which specifies the pay-as-you-go billing method.
+   * <props="china">The billing method of the NAT gateway instance to query. Valid values:
+   * 
+   * <props="china">
+   * - **PostPaid**: pay-as-you-go.
+   * - **PrePaid**: the legacy subscription billing method. The subscription billing method is no longer available for new purchases.
+   * 
+   * 
+   * 
+   * <props="intl">The billing method of the NAT gateway instance to query. Valid value: **PostPaid** (pay-as-you-go).
    * 
    * @example
    * PostPaid
@@ -69,11 +78,9 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the NAT gateway. 
+   * The name of the NAT gateway to query.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`. 
-   * 
-   * If this parameter is not set, the system automatically assigns a name to the NAT gateway.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -81,7 +88,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT gateway to query.
    * 
    * @example
    * ngw-bp1uewa15k4iy5770****
@@ -89,7 +96,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The type of NAT gateway. Set the value to **Enhanced** (enhanced NAT gateway).
+   * The type of the NAT gateway. Valid value: **Enhanced** (enhanced NAT gateway).
    * 
    * @example
    * Enhanced
@@ -97,10 +104,10 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   natType?: string;
   /**
    * @remarks
-   * The type of the NAT gateway. Valid values:
+   * The type of the NAT gateway to query. Valid values:
    * 
-   * *   **internet**: an Internet NAT gateway
-   * *   **intranet**: a VPC NAT gateway
+   * - **internet**: Internet NAT gateway.
+   * - **intranet**: VPC NAT gateway.
    * 
    * @example
    * internet
@@ -118,7 +125,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paginated queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 1
@@ -126,9 +133,9 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the NAT gateways that you want to query.
+   * The region ID of the NAT gateway to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -138,7 +145,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the NAT gateway belongs.
+   * The ID of the resource group to which the NAT gateway to query belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -148,21 +155,32 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The size of the NAT gateway. Ignore this parameter.
+   * <props="china">The specification of the Internet NAT gateway. Only when **InstanceChargeType** is **PrePaid** (legacy subscription Internet NAT gateway), creating a NAT gateway by fixed specification is supported. Valid values:
+   * 
+   * <props="china">
+   * - **Small** (default): small.
+   * - **Middle**: medium.
+   * - **Large**: large.
+   * 
+   * 
+   * <props="intl">The specification of the NAT gateway. Leave this parameter empty.
    * 
    * @example
-   * Invalid parameter.
+   * 中国站示例值：Small，国际站示例值：无需填写
    */
   spec?: string;
   /**
    * @remarks
-   * The status of the NAT gateway. Valid values:
+   * The status of the NAT gateway to query. Valid values:
+   * - **Creating**: Creating a NAT gateway is an asynchronous operation. The status is **Creating** before the creation is complete.
    * 
-   * *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the **Creating** state until the operation is completed.
-   * *   **Available**: The NAT gateway remains in a stable state after the NAT gateway is created.
-   * *   **Modifying**: After you send a request to modify a NAT gateway, the system modifies the NAT gateway in the background. The NAT gateway remains in the **Modifying** state until the operation is completed.
-   * *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the **Deleting** state until the operation is completed.
-   * *   **Converting**: After you send a request to upgrade a standard NAT gateway to an enhanced NAT gateway, the system upgrades the NAT gateway in the background. The NAT gateway remains in the **Converting** state until the operation is completed.
+   * - **Available**: The status after the NAT gateway is created. This is a stable status.
+   * 
+   * - **Modifying**: Modifying a NAT gateway is an asynchronous operation. The status is **Modifying** during the modification process.
+   * 
+   * - **Deleting**: Deleting a NAT gateway is an asynchronous operation. The status is **Deleting** during the deletion process.
+   * 
+   * - **Converting**: Converting a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The status is **Converting** during the conversion process.
    * 
    * @example
    * Available
@@ -170,12 +188,12 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeNatGatewaysRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC to which the NAT gateway belongs.
+   * The ID of the VPC to which the NAT gateway to query belongs.
    * 
    * @example
    * vpc-bp15zckdt37pq72z****
@@ -183,7 +201,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the NAT gateway belongs.
+   * The ID of the zone where the NAT gateway is deployed.
    * 
    * @example
    * cn-hangzhou-b

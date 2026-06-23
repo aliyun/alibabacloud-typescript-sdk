@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVpnAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned by the current operation. **200** indicates that the operation is successful.
+   * The status code returned by the current task. A value of **200** indicates that the task is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteVpnAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information returned by the current operation.
+   * The message returned by the current task.
    * 
    * @example
    * successful
@@ -29,10 +29,10 @@ export class DeleteVpnAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current operation is successful.
+   * Indicates whether the current task is successfully executed.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The task is successfully executed.
+   * - **false**: The task failed to be executed.
    * 
    * @example
    * true

@@ -10,7 +10,7 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
    * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * TF-DissociateRouteTablesFromVpcGatewayEndpoint-1634369235-8f****
    */
   clientToken?: string;
   /**
@@ -31,7 +31,7 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
    * This parameter is required.
    * 
    * @example
-   * vpce-m5e371h5clm3uadih****
+   * vpce-bp11cwae3p6z7ftbm****
    */
   endpointId?: string;
   ownerAccount?: string;

@@ -8,7 +8,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones extends $dar
    * The name of the zone.
    * 
    * @example
-   * Dubai Zone A
+   * 中东1 可用区A
    */
   localName?: string;
   /**

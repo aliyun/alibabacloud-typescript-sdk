@@ -45,7 +45,7 @@ export class DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList ext
 export class DescribeVpnGatewayAvailableZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The zones.
+   * The list of zones.
    */
   availableZoneIdList?: DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList[];
   /**

@@ -17,9 +17,9 @@ export class GetNatGatewayAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the NAT gateway is deployed.
+   * The region ID of the NAT gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

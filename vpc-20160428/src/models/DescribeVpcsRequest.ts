@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
    * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -15,9 +15,9 @@ export class DescribeVpcsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -57,10 +57,11 @@ export class DescribeVpcsRequest extends $dara.Model {
   dhcpOptionsSetId?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the resource is queried.
    * 
    * @example
    * false
@@ -68,11 +69,10 @@ export class DescribeVpcsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Query for VPCs in the specified region that have enabled IPv6 CIDR blocks. The value is empty by default, which means no filtering based on IPv6 availability is conducted. Valid values:
+   * Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is performed based on IPv6 enablement. Valid values:
    * 
-   * - false: disabled
-   * 
-   * - true: enabled
+   * - **false**: IPv6 is not enabled.
+   * - **true**: IPv6 is enabled.
    * 
    * @example
    * false
@@ -83,10 +83,11 @@ export class DescribeVpcsRequest extends $dara.Model {
   enableIpv6?: boolean;
   /**
    * @remarks
-   * Specifies whether to query the default VPC in the specified region. Valid values:
+   * Specifies whether to query the default VPC in the specified region. Valid values: 
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): Queries the default VPC in the specified region.  
+   * 
+   * - **false**: Does not query the default VPC.
    * 
    * @example
    * false
@@ -104,7 +105,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -112,9 +113,9 @@ export class DescribeVpcsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The region ID of the VPC. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -124,7 +125,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the VPC to be queried belongs.
+   * The ID of the resource group to which the VPC belongs.
    * 
    * @example
    * rg-acfmxvfvazb4p****
@@ -139,7 +140,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   tag?: DescribeVpcsRequestTag[];
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC. 
    * 
    * You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
    * 
@@ -157,7 +158,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   vpcName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * The Alibaba Cloud account ID of the VPC owner.
    * 
    * @example
    * 253460731706911258

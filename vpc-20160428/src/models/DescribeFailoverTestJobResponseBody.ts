@@ -26,7 +26,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
    * The ID of the failover test.
    * 
    * @example
-   * ftj-xxxxxxxxx
+   * ftj-bp1yh6mvi13aq3g8w****
    */
   jobId?: string;
   /**

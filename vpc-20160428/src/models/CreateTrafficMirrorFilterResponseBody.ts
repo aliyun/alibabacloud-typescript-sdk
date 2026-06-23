@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficMirrorFilterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 28DB147D-217B-43E8-9E94-A3F6837DDC8A
@@ -13,7 +13,7 @@ export class CreateTrafficMirrorFilterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the mirrored traffic belongs.
+   * The ID of the resource group to which the traffic mirror belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -21,7 +21,7 @@ export class CreateTrafficMirrorFilterResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the filter.
+   * The instance ID of the traffic mirror filter.
    * 
    * @example
    * tmf-j6cmls82xnc86vtpe****

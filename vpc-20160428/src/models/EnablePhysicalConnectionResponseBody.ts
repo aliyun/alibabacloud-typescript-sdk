@@ -8,7 +8,7 @@ export class EnablePhysicalConnectionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+   * 20365164-5b0d-460a-83c2-2189972b3349
    */
   requestId?: string;
   static names(): { [key: string]: string } {

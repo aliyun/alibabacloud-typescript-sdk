@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouteEntryListRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR blocks of the routes.
+   * The list of destination CIDR blocks of route entries.
    */
   destCidrBlockList?: string[];
   /**
    * @remarks
-   * The destination CIDR block of the route. IPv4 and IPv6 CIDR blocks are supported.
+   * The destination CIDR block of the route entry. Both IPv4 and IPv6 CIDR blocks are supported.
    * 
    * @example
    * 192.168.2.0/24
@@ -18,18 +18,19 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The version of the IP protocol. Valid values:
    * 
-   * *   **IPv4**
-   * *   **IPv6**
+   * - **ipv4**: IPv4 protocol.
+   * 
+   * - **ipv6**: IPv6 protocol.
    * 
    * @example
-   * IPv4
+   * ipv4
    */
   ipVersion?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * The number of entries to return per page during a paged query. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -37,7 +38,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   maxResult?: number;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop instance.
    * 
    * @example
    * vpn-bp10zyaph5cc8b7c7****
@@ -45,20 +46,26 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The next hop type. Valid values:
+   * The type of the next hop. Valid values:
    * 
-   * *   **Instance**: an Elastic Compute Service (ECS) instance. This is the default value.
-   * *   **HaVip**: a high-availability virtual IP address (HaVip).
-   * *   **VpnGateway**: a VPN gateway.
-   * *   **NatGateway**: a NAT gateway.
-   * *   **NetworkInterface**: a secondary elastic network interface (ENI).
-   * *   **RouterInterface**: a router interface.
-   * *   **IPv6Gateway**: an IPv6 gateway.
-   * *   **Attachment**: a transit router.
-   * *   **Ipv4Gateway**: an IPv4 gateway.
-   * *   **GatewayEndpoint**: a gateway endpoint.
-   * *   **CenBasic**: CEN does not support transit routers.
-   * *   **Ecr**: Express Connect Router (ECR).
+   * - **Instance** (default): ECS instance.
+   * 
+   * - **HaVip**: high-availability virtual IP address (HAVIP).
+   * 
+   * - **VpnGateway**: VPN gateway.
+   * 
+   * - **NatGateway**: NAT gateway.
+   * 
+   * - **NetworkInterface**: secondary elastic network interface.
+   * 
+   * - **RouterInterface**: router interface.
+   * 
+   * - **IPv6Gateway**: IPv6 gateway.
+   * 
+   * - **Attachment**: transit router.
+   * - **Ipv4Gateway**: IPv4 gateway.
+   * - **GatewayEndpoint**: gateway endpoint.
+   * - **Ecr**: Express Connect Router.
    * 
    * @example
    * Instance
@@ -66,10 +73,9 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * Specifies whether a next query token (Token) exists. Valid values:
+   * - You do not need to specify this parameter for the first query or if no next query exists.
+   * - If a next query exists, set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -79,9 +85,9 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the route table.
+   * The region ID of the route table to which the route entry belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -93,7 +99,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route that you want to query.
+   * The ID of the route entry to query.
    * 
    * @example
    * rte-bp1mnnr2al0naomnp****
@@ -111,13 +117,13 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   routeEntryName?: string;
   /**
    * @remarks
-   * The route type. Valid values:
+   * The type of the route. Valid values:
    * 
-   * *   **Custom**: custom routes.
-   * *   **System**: system routes.
-   * *   **BGP**: BGP routes.
-   * *   **CEN**: Cloud Enterprise Network (CEN) routes.
-   * *   **ECR**: Express Connect Router (ECR) routes.
+   * - **Custom**: custom route.
+   * - **System**: system route.
+   * - **BGP**: BGP route.
+   * - **CEN**: Cloud Enterprise Network (CEN) route.
+   * - **ECR**: Express Connect Router route.
    * 
    * @example
    * System
@@ -125,7 +131,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   routeEntryType?: string;
   /**
    * @remarks
-   * The ID of the route table that you want to query.
+   * The ID of the route table to query.
    * 
    * This parameter is required.
    * 
@@ -135,9 +141,9 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * Specifies whether to host the route. If the parameter is empty, the route is not hosted.
+   * The type of route service. If this field is empty, it indicates that the route is not managed.
    * 
-   * Set the value to **TR**, which specifies that the route is hosted by a transit router.
+   * Valid value: **TR**, which indicates that the managed type is transit router.
    * 
    * @example
    * TR

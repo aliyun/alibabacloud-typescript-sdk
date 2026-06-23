@@ -25,6 +25,10 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
    * ruledescription
    */
   description?: string;
+  /**
+   * @remarks
+   * A dry run of the request without actually executing it.
+   */
   dryRun?: boolean;
   /**
    * @remarks

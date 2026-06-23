@@ -13,7 +13,7 @@ export class AllocateIpv6AddressResponseBody extends $dara.Model {
   ipv6Address?: string;
   /**
    * @remarks
-   * The ID of the IPv6 address.
+   * The instance ID of the IPv6 address.
    * 
    * @example
    * ipv6-2zen5j4axcp5l5qyy****
@@ -29,7 +29,7 @@ export class AllocateIpv6AddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazdjdhd****

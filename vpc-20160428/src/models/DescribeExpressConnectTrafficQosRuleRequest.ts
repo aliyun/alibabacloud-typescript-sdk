@@ -22,7 +22,7 @@ export class DescribeExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * The ID of the QoS policy.
    * 
    * @example
-   * qos-2giu0a6vd5x0mv4700
+   * qos-2giu0a6vd5x0mv****
    */
   qosId?: string;
   /**
@@ -30,7 +30,7 @@ export class DescribeExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * The ID of the QoS queue.
    * 
    * @example
-   * qos-queue-9nyx2u7n71s2rcy4n5
+   * qos-queue-9nyx2u7n71s2rc****
    */
   queueId?: string;
   /**

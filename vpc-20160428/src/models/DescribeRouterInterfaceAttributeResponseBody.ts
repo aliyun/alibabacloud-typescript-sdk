@@ -134,7 +134,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * The description of the router interface.
    * 
    * @example
-   * Peer interface.
+   * 对端接口
    */
   description?: string;
   /**
@@ -239,7 +239,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * The name of the router interface.
    * 
    * @example
-   * RouterInterface1
+   * 路由器接口1
    */
   name?: string;
   /**

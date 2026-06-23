@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransformEipSegmentToPublicIpAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The instance ID of the IP address pool.
    * 
    * @example
    * pippool-6wetvn6fumkgycssx****
@@ -21,7 +21,7 @@ export class TransformEipSegmentToPublicIpAddressPoolResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the IP address pool belongs.
+   * The resource group ID of the IP address pool.
    * 
    * @example
    * rg-acfmxazb4pcdvf****

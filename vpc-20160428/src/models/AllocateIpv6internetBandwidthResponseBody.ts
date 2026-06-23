@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateIpv6InternetBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Internet bandwidth that you purchased for the IPv6 gateway.
+   * The instance ID of the Internet bandwidth associated with the IPv6 gateway after Internet bandwidth is allocated.
    * 
    * @example
    * ipv6bw-uf6hcyzu65v98v3du****

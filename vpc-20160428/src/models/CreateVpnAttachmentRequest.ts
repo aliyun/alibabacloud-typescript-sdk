@@ -459,6 +459,16 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * cgw-p0w2jemrcj5u61un8****
    */
   customerGatewayId?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run of the request. Valid values:
+   * 
+   * - **true**: Sends a dry run request without creating the IPsec-VPN connection. The system checks whether required parameters are specified, whether the request format is valid, and whether business limits are met. If the check fails, an error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a normal request. If the check passes, the IPsec-VPN connection is created immediately.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -680,6 +690,15 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
    */
   tags?: CreateVpnAttachmentRequestTags[];
+  /**
+   * @remarks
+   * Specifies the bandwidth specification for a single VPN tunnel. Valid values:
+   * Standard (Default Value): medium, with a default bandwidth of 1 Gbps
+   * Large: large, with a default bandwidth of 3 Gbps
+   * 
+   * @example
+   * Standard
+   */
   tunnelBandwidth?: string;
   /**
    * @remarks

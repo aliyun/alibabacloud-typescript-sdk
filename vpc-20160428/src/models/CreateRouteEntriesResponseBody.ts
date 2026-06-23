@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the custom route entry that failed to be added.
+   * The destination CIDR block of the custom route that failed to be added.
    * 
    * @example
    * 192.168.0.0/24
@@ -29,7 +29,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedMessage?: string;
   /**
    * @remarks
-   * The ID of the next hop of the custom route entry that failed to be added.
+   * The ID of the next hop of the custom route that failed to be added.
    * 
    * @example
    * i-j6c2fp57q8rr4jlu****
@@ -65,7 +65,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
 export class CreateRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of custom route entries that failed to be added.
+   * The number of custom routes that failed to be added.
    * 
    * @example
    * 2
@@ -73,7 +73,7 @@ export class CreateRouteEntriesResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The details about the custom route entry that failed to be added.
+   * The details about the custom routes that failed to be added.
    */
   failedRouteEntries?: CreateRouteEntriesResponseBodyFailedRouteEntries[];
   /**
@@ -86,12 +86,12 @@ export class CreateRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the ID of the custom route entry that was successfully added.
+   * The information about the IDs of the custom routes that are successfully added.
    */
   routeEntryIds?: string[];
   /**
    * @remarks
-   * The number of custom route entries that were successfully added.
+   * The number of custom routes that are successfully added.
    * 
    * @example
    * 2

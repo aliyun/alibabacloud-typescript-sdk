@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of endpoints that can be created.
+   * The number of EPs that can be created.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends $
   quota?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F

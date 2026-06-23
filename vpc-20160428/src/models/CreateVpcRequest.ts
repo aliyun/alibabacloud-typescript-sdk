@@ -51,8 +51,9 @@ export class CreateVpcRequest extends $dara.Model {
    * @remarks
    * VPC CIDR.
    * 
-   * *   We recommend using the private IPv4 address specified in RFC 1918 as the primary IPv4 CIDR block of the VPC with a recommended mask length of 16 to 28 bits. For example, 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
-   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the primary IPv4 CIDR block.
+   * - We recommend using the private IPv4 address specified in RFC 1918 as the primary IPv4 CIDR block of the VPC with a recommended mask length of 16 to 28 bits. For example, 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
+   * 
+   * - You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the primary IPv4 CIDR block.
    * 
    * @example
    * 172.16.0.0/12
@@ -64,7 +65,7 @@ export class CreateVpcRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -84,8 +85,9 @@ export class CreateVpcRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -94,7 +96,9 @@ export class CreateVpcRequest extends $dara.Model {
   /**
    * @remarks
    * Whether to enable the DNS hostname feature. Values:
-   * - **false** (default): Not enabled. 
+   * 
+   * - **false** (default): Not enabled.
+   * 
    * - **true**: Enabled.
    * 
    * @example
@@ -105,8 +109,9 @@ export class CreateVpcRequest extends $dara.Model {
    * @remarks
    * Indicates whether IPv6 is enabled. Valid values:
    * 
-   * *   **false** (default): disabled.
-   * *   **true**: enabled.
+   * - **false** (default): disabled.
+   * 
+   * - **true**: enabled.
    * 
    * @example
    * false
@@ -115,6 +120,7 @@ export class CreateVpcRequest extends $dara.Model {
   /**
    * @remarks
    * Allocate VPC from the IPAM address pool by inputting a mask.
+   * 
    * > When creating a VPC with a specified IPAM address pool, at least one of the parameters CidrBlock or Ipv4CidrMask must be provided.
    * 
    * @example
@@ -157,12 +163,15 @@ export class CreateVpcRequest extends $dara.Model {
    * @remarks
    * The type of the IPv6 CIDR block of the VPC. Valid values:
    * 
-   * *   **BGP** (default)
-   * *   **ChinaMobile**
-   * *   **ChinaUnicom**
-   * *   **ChinaTelecom**
+   * - **BGP** (default)
    * 
-   * >  If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+   * - **ChinaMobile**
+   * 
+   * - **ChinaUnicom**
+   * 
+   * - **ChinaTelecom**
+   * 
+   * > If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
    * 
    * @example
    * BGP
@@ -206,7 +215,7 @@ export class CreateVpcRequest extends $dara.Model {
    * For more information about user CIDR blocks, see the `What is a user CIDR block?` section in [VPC FAQ](https://help.aliyun.com/document_detail/185311.html).
    * 
    * @example
-   * 192.168.0.0/16
+   * 192.168.0.0/12
    */
   userCidr?: string;
   /**

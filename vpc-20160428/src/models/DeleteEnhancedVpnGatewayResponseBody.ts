@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteEnhancedVpnGatewayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E9A8AABE-A84B-4AF2-A68A-8E2EA190E7AE
    */

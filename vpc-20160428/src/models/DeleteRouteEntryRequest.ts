@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRouteEntryRequestNextHopList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the next hop that is configured for ECMP routing. You can specify information about at most 16 next hops.
+   * The ID of the next hop instance of the ECMP route. A maximum of 16 next hop instances are supported.
    * 
    * @example
    * ri-2zeo3xzyf38r43cd****
@@ -13,7 +13,7 @@ export class DeleteRouteEntryRequestNextHopList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The type of the next hop that is configured for ECMP routing. Set the value to **RouterInterface**. You can specify information about at most 16 next hops.
+   * The type of the next hop of the ECMP route. Set the value to **RouterInterface** (router interface). A maximum of 16 next hop instances are supported.
    * 
    * @example
    * RouterInterface
@@ -45,7 +45,8 @@ export class DeleteRouteEntryRequestNextHopList extends $dara.Model {
 export class DeleteRouteEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route. Only IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported.
+   * The destination CIDR block of the route. IPv4 CIDR blocks, IPv6 CIDR blocks, prefix list CIDR blocks, and prefix list instance IDs are supported. This parameter is mutually exclusive with the RouteEntryId parameter.
+   * > If the **RouteEntryId** parameter is not specified, the **DestinationCidrBlock** and **RouteTableId** parameters are required. Configure the **NextHopId** or **NextHopList** parameter as needed.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -53,19 +54,19 @@ export class DeleteRouteEntryRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * **true**: sends a request without deleting the route entry. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * **true**: performs a dry run without deleting the route. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
    * 
-   * **false** (default): performs a dry run and the actual request. If the request passes the check, a 2xx HTTP status code is returned and the route entry is deleted.
+   * **false** (default): sends a normal request. After the check succeeds, a 2xx HTTP status code is returned and the route is deleted.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop instance.
    * 
-   * *   To delete a route other than an equal-cost multi-path (ECMP) route, set the **NextHopId** parameter and ignore the **NextHopList** parameter.
-   * *   To delete an ECMP route, set the **NextHopList** parameter and ignore the **NextHopId** parameter.
+   * - To delete a non-ECMP route, specify **NextHopId**. Do not specify **NextHopList**.
+   * - To delete an ECMP route, specify **NextHopList**. Do not specify **NextHopId**.
    * 
    * @example
    * ri-2zeo3xzyf38r4urzd****
@@ -73,16 +74,16 @@ export class DeleteRouteEntryRequest extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The list of the next hop of the ECMP route.
+   * The information about the next hop instances of the ECMP route. A maximum of 16 next hop instances are supported.
    */
   nextHopList?: DeleteRouteEntryRequestNextHopList[];
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the route table.
+   * The ID of the region where the route table resides.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -92,7 +93,8 @@ export class DeleteRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route that you want to delete.
+   * The ID of the route that you want to delete. This parameter is mutually exclusive with the DestinationCidrBlock parameter.
+   * > If the **DestinationCidrBlock** parameter is not specified, the **RouteEntryId** parameter is required.
    * 
    * @example
    * rte-bp1mnnr2al0naomnpv****
@@ -100,7 +102,8 @@ export class DeleteRouteEntryRequest extends $dara.Model {
   routeEntryId?: string;
   /**
    * @remarks
-   * The ID of the route table to which the route belongs.
+   * The ID of the route table that contains the route.  
+   * > If the **RouteEntryId** parameter is not specified, the **DestinationCidrBlock** and **RouteTableId** parameters are required. Configure the **NextHopId** or **NextHopList** parameter as needed.
    * 
    * @example
    * vtb-2ze3jgygk9bmsj23s****

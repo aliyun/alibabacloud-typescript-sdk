@@ -30,7 +30,7 @@ export class DescribeVpnPbrRouteEntriesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-zhangjiakou
+   * eu-central-1
    */
   regionId?: string;
   resourceOwnerAccount?: string;

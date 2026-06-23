@@ -115,7 +115,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
    * The IKE version.
    * 
    * @example
-   * ikev1
+   * ikev2
    */
   ikeVersion?: string;
   /**
@@ -123,7 +123,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
    * The identifier of the customer gateway. FQDN and IP formats are supported. The default value is the IP address of the customer gateway.
    * 
    * @example
-   * 116.62.XX.XX
+   * 139.196.XX.XX
    */
   localId?: string;
   /**
@@ -139,7 +139,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
    * The identifier of the VPN gateway. FQDN and IP formats are supported. The default value is the IP address of the VPN gateway.
    * 
    * @example
-   * 139.196.XX.XX
+   * 116.62.XX.XX
    */
   remoteId?: string;
   static names(): { [key: string]: string } {

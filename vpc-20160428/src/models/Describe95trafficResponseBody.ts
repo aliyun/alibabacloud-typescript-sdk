@@ -63,7 +63,7 @@ export class Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList ex
 export class Describe95TrafficResponseBodyTraffic95Summary extends $dara.Model {
   /**
    * @remarks
-   * The peak bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
+   * The peak bandwidth of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
    * 
    * @example
    * 20000.0
@@ -71,8 +71,11 @@ export class Describe95TrafficResponseBodyTraffic95Summary extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The daily peak bandwidth. Unit: Mbit/s.
-   * <props="china"> For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
+   * The daily peak bandwidth. Unit: Mbps.
+   * 
+   * <props="china">
+   * 
+   * For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
    * 
    * @example
    * 1064.244837773641
@@ -88,11 +91,13 @@ export class Describe95TrafficResponseBodyTraffic95Summary extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The metering method of the Internet Shared Bandwidth instance. Valid values:
+   * The billing method of the Internet Shared Bandwidth instance on the queried date. Valid values:
    * 
-   * *   PayBy95: pay-by-enhanced-95th-percentile
-   * *   PayByBandwidth: pay-by-bandwidth
-   * *   PayByDominantTraffic: pay-by-dominant-traffic
+   * - **PayBy95**: pay-by-enhanced-95th-percentile
+   * 
+   * - **PayByBandwidth**: pay-by-bandwidth
+   * 
+   * - **PayByDominantTraffic**: pay-by-dominant-traffic
    * 
    * @example
    * PayBy95
@@ -100,7 +105,7 @@ export class Describe95TrafficResponseBodyTraffic95Summary extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The guaranteed bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
+   * The minimum bandwidth commitment of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
    * 
    * @example
    * 0.0
@@ -152,7 +157,7 @@ export class Describe95TrafficResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information returned.
+   * The bandwidth statistics for Internet Shared Bandwidth billed by enhanced 95th percentile.
    */
   traffic95Summary?: Describe95TrafficResponseBodyTraffic95Summary;
   static names(): { [key: string]: string } {

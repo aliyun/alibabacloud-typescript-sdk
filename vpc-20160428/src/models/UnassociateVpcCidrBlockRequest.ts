@@ -25,7 +25,7 @@ export class UnassociateVpcCidrBlockRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * ch-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

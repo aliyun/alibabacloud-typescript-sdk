@@ -14,7 +14,20 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $dara.Model {
    * *   **PhysicalConnectionId**: the ID of the Express Connect circuit.
    * 
    * @example
-   * [   {     "CircuitCode ": "longtel001",     " LocalGatewayIp ": "192.168.XX.XX",     "PeerGatewayIp" : "192.168.XX.XX",     " PeeringSubnetMask ": "255.255.255.252",     " PhysicalConnectionId ": "pc-kojok19****"   } ]
+   * [
+   *   {
+   *     "VlanId": "5",
+   *     "CircuitCode": "longtel001",
+   *     "LocalGatewayIp": "192.168.XX.XX",
+   *     "PeerGatewayIp": "192.168.XX.XX",
+   *     "PeeringSubnetMask": "255.255.255.252",
+   *     "LocalIpv6GatewayIp": "fd00:XXXX:1030:3f41::1",
+   *     "PeerIpv6GatewayIp": "fd00:XXXX:1030:3f41::2",
+   *     "PeeringIpv6SubnetMask": "fd00:0:1030:3f41::/126",
+   *     "ipv6Enable": true,
+   *     "PhysicalConnectionId": "pc-kojok19****"
+   *   }
+   * ]
    */
   associatedPhysicalConnections?: string;
   /**
@@ -112,6 +125,15 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $dara.Model {
    * 300
    */
   minTxInterval?: number;
+  /**
+   * @remarks
+   * The MTU value supported by the VBR. Valid values: 1500 and 8500.
+   * 
+   * This value can be set only when the VBR is attached to an ECR. The value also affects all other VBRs and VPCs in the same ECR.
+   * 
+   * @example
+   * 1500
+   */
   mtu?: number;
   /**
    * @remarks

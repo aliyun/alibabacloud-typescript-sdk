@@ -66,7 +66,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypeP
 export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType extends $dara.Model {
   /**
    * @remarks
-   * The name of the construction company.
+   * The localized name of the company.
    * 
    * @example
    * company
@@ -74,7 +74,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   companyLocalizedName?: string;
   /**
    * @remarks
-   * The name of the organization that requires the Express Connect circuit.
+   * The name of the company that requires the physical connection.
    * 
    * @example
    * test1234
@@ -82,16 +82,20 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   companyName?: string;
   /**
    * @remarks
-   * The time when construction starts.
+   * The time when construction personnel enter the site.
    * 
    * @example
    * 2019-02-26T08:00:00Z
    */
   constructionTime?: string;
+  /**
+   * @remarks
+   * The description of the LOA.
+   */
   description?: string;
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The instance ID of the physical connection.
    * 
    * @example
    * pc-bp1ca4wca27****
@@ -99,7 +103,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   instanceId?: string;
   /**
    * @remarks
-   * The circuit code provided by the connectivity provider.
+   * The line code assigned by the line service provider.
    * 
    * @example
    * aaa111
@@ -107,7 +111,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineCode?: string;
   /**
    * @remarks
-   * The label of the cable in the data center.
+   * The line label for the in-building cable at the data center.
    * 
    * @example
    * bbb222
@@ -115,7 +119,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineLabel?: string;
   /**
    * @remarks
-   * The contact information about line O\\&M.
+   * The contact information of the line O\\&M personnel.
    * 
    * @example
    * 1388888****
@@ -123,25 +127,31 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineSPContactInfo?: string;
   /**
    * @remarks
-   * The ISP. Valid values:
+   * The line service provider. Valid values:
    * 
-   * *   **China Telecom**
-   * *   **China Unicom**
-   * *   **China Mobile**
-   * *   **Other ISPs in China**
+   * - **China Telecom**
+   * 
+   * - **China Unicom**
+   * 
+   * - **China Mobile**
+   * 
+   * - **Other**
    * 
    * @example
-   * Other ISPs in China
+   * 中国其他
    */
   lineServiceProvider?: string;
   /**
    * @remarks
-   * The type of the Express Connect circuit. Valid values:
+   * The line type of the physical connection. Valid values:
    * 
-   * *   **MSTP**
-   * *   **MPLSVPN**
-   * *   **FIBRE**
-   * *   **Other**
+   * - **MSTP**
+   * 
+   * - **MPLSVPN**
+   * 
+   * - **FIBRE**
+   * 
+   * - **Other**
    * 
    * @example
    * FIBRE
@@ -149,16 +159,20 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineType?: string;
   /**
    * @remarks
-   * The download URL of the LOA file.
+   * The URL to download the LOA file.
    * 
    * @example
    * http://******
    */
   loaUrl?: string;
+  /**
+   * @remarks
+   * Information about the construction personnel.
+   */
   PMInfo?: DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInfo;
   /**
    * @remarks
-   * The on-site construction company.
+   * The system integrator (SI).
    * 
    * @example
    * ctcu
@@ -168,13 +182,19 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
    * @remarks
    * The status of the LOA. Valid values:
    * 
-   * *   **Applying**: The LOA is pending for approval.
-   * *   **Accept**: The LOA is approved.
-   * *   **Available**: The LOA is available.
-   * *   **Rejected**: The LOA is rejected.
-   * *   **Completing**: The Express Connect circuit is under construction.
-   * *   **Complete**: The Express Connect circuit is installed.
-   * *   **Deleted**: The LOA is deleted.
+   * - **Applying**: The LOA application is in progress.
+   * 
+   * - **Accept**: The LOA application is approved.
+   * 
+   * - **Available**: The LOA is available.
+   * 
+   * - **Rejected**: The LOA application is rejected.
+   * 
+   * - **Completing**: The construction of the physical connection is in progress.
+   * 
+   * - **Complete**: The construction of the physical connection is complete.
+   * 
+   * - **Deleted**: The LOA is deleted.
    * 
    * @example
    * Available
@@ -233,12 +253,12 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
 export class DescribePhysicalConnectionLOAResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The LOA information about the Express Connect circuit.
+   * Information about the physical connection\\"s LOA.
    */
   physicalConnectionLOAType?: DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 318BB676-0A2B-43A0-9AD8-F1D34E93750F

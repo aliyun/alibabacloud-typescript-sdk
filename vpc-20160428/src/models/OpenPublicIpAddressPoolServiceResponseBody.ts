@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenPublicIpAddressPoolServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OpenPublicIpAddressPoolServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response messages.
+   * The message returned when the IP address pool feature is activated.
    * 
    * @example
    * successful

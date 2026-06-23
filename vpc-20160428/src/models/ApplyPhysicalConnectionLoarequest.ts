@@ -45,7 +45,7 @@ export class ApplyPhysicalConnectionLOARequestPMInfo extends $dara.Model {
    * The name of the construction engineer.
    * 
    * @example
-   * Zhangsan
+   * 张三
    */
   PMName?: string;
   static names(): { [key: string]: string } {
@@ -157,7 +157,7 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
    * The geographic location where the Express Connect circuit is deployed.
    * 
    * @example
-   * cn-hangzhou
+   * 杭州
    */
   peerLocation?: string;
   /**
@@ -181,7 +181,7 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * company
+   * 阿里
    */
   si?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * The CA certificate.
    * 
    * @example
-   * CA certificate
+   * -----BEGIN CERTIFICATE-----
+   * MIID****r4w=
+   * -----END CERTIFICATE-----
    */
   caCert?: string;
   /**
@@ -16,7 +18,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * The client certificate.
    * 
    * @example
-   * Client certificate
+   * -----BEGIN CERTIFICATE-----
+   * MIIDR****A==
+   * -----END CERTIFICATE-----
    */
   clientCert?: string;
   /**
@@ -24,7 +28,20 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * The client configuration.
    * 
    * @example
-   * Client configuration
+   * client
+   * dev tun
+   * proto tcp
+   * remote 120.XX.XX.33 1194
+   * resolv-retry infinite
+   * nobind
+   * persist-key
+   * persist-tun
+   * ca ca.crt
+   * cert vsc-bp15t7****.crt
+   * key vsc-bp15t7****.key
+   * cipher AES-128-CBC
+   * ;comp-lzo
+   * verb 4
    */
   clientConfig?: string;
   /**
@@ -32,7 +49,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * The client key.
    * 
    * @example
-   * The key of the client
+   * -----BEGIN RSA PRIVATE KEY-----
+   * MIIEpAI****ZzNFhuM/za==
+   * -----END RSA PRIVATE KEY-----
    */
   clientKey?: string;
   /**

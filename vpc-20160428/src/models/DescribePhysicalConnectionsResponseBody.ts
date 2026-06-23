@@ -290,7 +290,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSet extend
 export class DescribePhysicalConnectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -298,7 +298,7 @@ export class DescribePhysicalConnectionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -315,7 +315,7 @@ export class DescribePhysicalConnectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

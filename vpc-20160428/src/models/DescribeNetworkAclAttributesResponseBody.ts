@@ -295,7 +295,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * The ID of the Alibaba Cloud account to which the network ACL belongs.
    * 
    * @example
-   * 253460731706911258
+   * 2546073170691****
    */
   ownerId?: number;
   /**

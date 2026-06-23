@@ -70,7 +70,7 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
    * *   **Other ISPs in China**
    * 
    * @example
-   * Other ISPs in China
+   * 中国其他
    */
   lineServiceProvider?: string;
   ownerAccount?: string;

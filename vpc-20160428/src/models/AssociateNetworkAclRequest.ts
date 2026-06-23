@@ -62,7 +62,7 @@ export class AssociateNetworkAclRequest extends $dara.Model {
    * Specifies whether to perform only a dry run, without performing the actual request.
    * 
    * @example
-   * true
+   * false
    */
   dryRun?: boolean;
   /**

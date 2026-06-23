@@ -10,7 +10,7 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
    * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
-   * test
+   * 描述信息
    */
   description?: string;
   ownerAccount?: string;

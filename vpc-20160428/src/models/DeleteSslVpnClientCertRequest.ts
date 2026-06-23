@@ -7,9 +7,9 @@ export class DeleteSslVpnClientCertRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -19,9 +19,9 @@ export class DeleteSslVpnClientCertRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SSL client certificate is created.
+   * The region ID of the SSL-VPN client certificate. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteSslVpnClientCertRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SSL client certificate.
+   * The ID of the SSL-VPN client certificate.
    * 
    * This parameter is required.
    * 

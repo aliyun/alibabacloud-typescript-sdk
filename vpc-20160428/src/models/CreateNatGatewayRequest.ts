@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatGatewayRequestAccessMode extends $dara.Model {
   /**
    * @remarks
-   * Access mode. Valid values:
+   * The access mode. Valid values:
    * 
-   * - **route**: route mode
+   * - **route**
    * 
-   * - **tunnel**: tunnel mode
+   * - **tunnel**
    * 
-   * > If this parameter is specified, you must set **PrivateLinkEnabled** to **true**.
+   * > This parameter is valid only when **PrivateLinkEnabled** is set to **true**.
    * 
    * @example
    * route
@@ -19,11 +19,11 @@ export class CreateNatGatewayRequestAccessMode extends $dara.Model {
   modeValue?: string;
   /**
    * @remarks
-   * Tunnel mode type:
+   * The type of tunnel. Valid value:
    * 
-   * - **geneve**: Geneve type
+   * - **geneve**: Geneve.
    * 
-   * > This value takes effect if the access mode is the tunnel mode.
+   * > This parameter is valid only when the access mode is tunnel.
    * 
    * @example
    * geneve
@@ -55,7 +55,7 @@ export class CreateNatGatewayRequestAccessMode extends $dara.Model {
 export class CreateNatGatewayRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string. The tag key must be 1 to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CreateNatGatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * The tag value. You can specify up to 20 tag values. The tag value can be an empty string. The tag value must be 0 to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -95,7 +95,7 @@ export class CreateNatGatewayRequestTag extends $dara.Model {
 export class CreateNatGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The access mode for reverse access to the VPC NAT gateway.
+   * The access mode of the VPC NAT gateway for reverse endpoint access.
    * 
    * @example
    * MULTI_BINDED
@@ -103,10 +103,10 @@ export class CreateNatGatewayRequest extends $dara.Model {
   accessMode?: CreateNatGatewayRequestAccessMode;
   /**
    * @remarks
-   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * Subscription-based public NAT gateways are no longer available for purchase. This parameter is deprecated.
    * 
    * @example
-   * Invalid parameter.
+   * 无效参数
    */
   autoPay?: boolean;
   availabilityMode?: string;
@@ -114,9 +114,9 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * You can create the token, but you must make sure that the token is unique among different requests.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -126,7 +126,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * @remarks
    * The description of the NAT gateway.
    * 
-   * You can leave this parameter empty or enter a description. If you enter a description, the description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
    * 
    * @example
    * testnat
@@ -134,21 +134,21 @@ export class CreateNatGatewayRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * Subscription-based public NAT gateways are no longer available for purchase. This parameter is deprecated.
    * 
    * @example
-   * Invalid parameter.
+   * 无效参数
    */
   duration?: string;
   /**
    * @remarks
    * The mode in which the EIP is associated with the NAT gateway. Valid values:
    * 
-   * - **MULTI_BINDED**(default): the multi-EIP-to-ENI mode.
+   * - **MULTI_BINDED** (default): the multi-EIP-to-ENI mode.
    * 
-   * - **NAT**: NAT mode, which is compatible with IPv4 addresses.
+   * - **NAT**: the EIP-to-NAT gateway mode. This mode is compatible with IPv4 gateways.
    * 
-   * > If an EIP is associated with a NAT gateway in NAT mode, the EIP occupies a private IP address of the vSwitch where the NAT gateway is deployed. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, EIPs cannot be associated with the NAT gateway. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
+   *   > If the EIP is associated with the NAT gateway in EIP-to-NAT gateway mode, the EIP occupies a private IP address of the vSwitch to which the NAT gateway belongs. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the EIP fails to be associated. In EIP-to-NAT gateway mode, a NAT gateway can be associated with up to 50 EIPs.
    * 
    * @example
    * MULTI_BINDED
@@ -156,10 +156,11 @@ export class CreateNatGatewayRequest extends $dara.Model {
   eipBindMode?: string;
   /**
    * @remarks
-   * Specifies whether to enable ICMP retrieval. Valid values:
+   * Specifies whether to enable ICMP reply. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): enables ICMP reply.
+   * 
+   * - **false**: disables ICMP reply.
    * 
    * @example
    * true
@@ -167,11 +168,11 @@ export class CreateNatGatewayRequest extends $dara.Model {
   icmpReplyEnabled?: boolean;
   /**
    * @remarks
-   * The billing method of the NAT gateway.
+   * The billing method of the NAT gateway. Set the value to:
    * 
-   * Set the value to **PostPaid** (pay-as-you-go), which is the default value.
+   * **PostPaid** (default): pay-as-you-go.
    * 
-   * For more information, see [Internet NAT gateway billing](https://help.aliyun.com/document_detail/48126.html) and [VPC NAT gateway billing](https://help.aliyun.com/document_detail/270913.html).
+   * For more information, see [Billing of public NAT gateways](https://help.aliyun.com/document_detail/48126.html) and [Billing of VPC NAT gateways](https://help.aliyun.com/document_detail/270913.html).
    * 
    * @example
    * PostPaid
@@ -179,7 +180,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The metering method of the NAT gateway. Set the value to **PayByLcu**, which specifies the pay-by-CU metering method.
+   * The billing method of the NAT gateway. Set the value to **PayByLcu**, which indicates that the NAT gateway is a pay-as-you-go NAT gateway and is measured in LCUs.
    * 
    * @example
    * PayByLcu
@@ -187,7 +188,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * Create an IP prefix address segment for batch creation of NAT IPs. Please use the reserved and unallocated network segments in the VSwitch where the NAT is located.
+   * The IP address prefix. NAT IP addresses are created from the prefix. Use a reserved CIDR block that is not allocated in the vSwitch to which the NAT gateway belongs.
    * 
    * @example
    * 192.168.0.0/28
@@ -197,9 +198,9 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * @remarks
    * The name of the NAT gateway.
    * 
-   * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * Must be 2 to 128 characters in length, start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-).
    * 
-   * If this parameter is not set, the system assigns a default name to the NAT gateway.
+   * If you do not specify this parameter, the system automatically specifies a name for the NAT gateway.
    * 
    * @example
    * fortest
@@ -207,15 +208,15 @@ export class CreateNatGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private IP address occupied by the NAT gateway. Please use an unassigned IP from the subnet where the NAT is located. If left empty, an IP address will be randomly assigned.
+   * The private IP address of the NAT gateway. Use an idle IP address from the CIDR block of the vSwitch to which the NAT gateway belongs. If this parameter is left empty, an IP address is randomly assigned.
    * 
    * @example
-   * 192.168.0.x
+   * 192.168.0.2
    */
   natIp?: string;
   /**
    * @remarks
-   * The type of NAT gateway. Set the value to **Enhanced**, which specifies enhanced NAT gateway.
+   * The type of NAT gateway. Set the value to **Enhanced**, which specifies an enhanced NAT gateway.
    * 
    * @example
    * Enhanced
@@ -223,10 +224,11 @@ export class CreateNatGatewayRequest extends $dara.Model {
   natType?: string;
   /**
    * @remarks
-   * The network type of the NAT gateway. Valid values:
+   * The type of the NAT gateway to be created. Valid values:
    * 
-   * *   **internet**: Internet
-   * *   **intranet**: VPC
+   * - **internet**: a public NAT gateway
+   * 
+   * - **intranet**: a VPC NAT gateway
    * 
    * @example
    * internet
@@ -236,15 +238,19 @@ export class CreateNatGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * Subscription-based public NAT gateways are no longer available for purchase. This parameter is no longer used.
    * 
    * @example
-   * Invalid parameter.
+   * 无效参数
    */
   pricingCycle?: string;
   /**
    * @remarks
-   * PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+   * Specifies whether to enable PrivateLink. Valid values:
+   * 
+   * - true: enables PrivateLink.
+   * 
+   * - false (default): disables PrivateLink.
    * 
    * @example
    * false
@@ -252,9 +258,9 @@ export class CreateNatGatewayRequest extends $dara.Model {
   privateLinkEnabled?: boolean;
   /**
    * @remarks
-   * The region ID of the NAT gateway.
+   * The ID of the region in which to create the NAT gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -268,7 +274,11 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the firewall feature. Valid values:
    * 
-   * *   **false** (default)>Notice: This parameter is deprecated.
+   * - **false** (default): disables the firewall feature.
+   * 
+   *   >Notice: 
+   * 
+   *   This parameter is deprecated.
    * 
    * @example
    * false
@@ -278,10 +288,10 @@ export class CreateNatGatewayRequest extends $dara.Model {
   securityProtectionEnabled?: boolean;
   /**
    * @remarks
-   * Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+   * Subscription-based public NAT gateways are no longer available for purchase. This parameter is deprecated.
    * 
    * @example
-   * Invalid parameter.
+   * 无效参数
    */
   spec?: string;
   /**
@@ -294,14 +304,15 @@ export class CreateNatGatewayRequest extends $dara.Model {
   tag?: CreateNatGatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch to which the NAT gateway is attached.
+   * The ID of the vSwitch to which the NAT gateway belongs.
    * 
-   * When you create a NAT gateway, you must specify a vSwitch for the NAT gateway. Then, the system assigns an idle private IP address from the vSwitch to the NAT gateway.
+   * When you create a NAT gateway, you must specify a vSwitch to which the NAT gateway belongs. The system then assigns a private IP address to the NAT gateway from the vSwitch.
    * 
-   * *   To attach the NAT gateway to an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways. In addition, the vSwitch must have idle IP addresses.
-   * *   If no vSwitch exists in the VPC, create a vSwitch in a zone that supports NAT gateways. Then, specify the vSwitch for the NAT gateway.
+   * - To create a NAT gateway in an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways and that the vSwitch has idle IP addresses.
    * 
-   * >  You can call the [ListEnhanhcedNatGatewayAvailableZones](https://help.aliyun.com/document_detail/182292.html) operation to query zones that support NAT gateways. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query idle IP addresses in a vSwitch.
+   * - If you have not created a vSwitch, create a vSwitch in a zone that supports NAT gateways and then specify the vSwitch.
+   * 
+   * > Call the [ListEnhancedNatGatewayAvailableZones](https://help.aliyun.com/document_detail/182292.html) operation to query available zones and [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query the number of idle IP addresses in a vSwitch.
    * 
    * @example
    * vsw-bp1e3se98n9fq8hle****
@@ -309,7 +320,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC where you want to create the NAT gateway.
+   * The ID of the virtual private cloud (VPC) where you want to create the NAT gateway.
    * 
    * This parameter is required.
    * 

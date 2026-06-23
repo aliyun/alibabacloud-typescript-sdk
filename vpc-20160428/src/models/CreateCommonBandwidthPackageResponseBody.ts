@@ -21,7 +21,7 @@ export class CreateCommonBandwidthPackageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazdjdhd****

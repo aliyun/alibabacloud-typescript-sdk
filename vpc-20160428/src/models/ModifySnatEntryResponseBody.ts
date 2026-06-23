@@ -8,7 +8,7 @@ export class ModifySnatEntryResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
+   * 2315DEB7-5E92-423A-91F7-4C1EC9AD****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

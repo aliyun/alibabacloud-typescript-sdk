@@ -13,7 +13,7 @@ export class CreateVirtualPhysicalConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the hosted connection.
+   * The instance ID of the shared Express Connect circuits.
    * 
    * @example
    * pc-bp1mrgfbtmc9brre7****

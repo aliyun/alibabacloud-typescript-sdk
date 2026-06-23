@@ -7,9 +7,9 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends $dara.
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends $dara.
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the VPC NAT gateway.
+   * The ID of the VPC NAT gateway to query.
    * 
    * @example
    * ngw-bp1uewa15k4iy5770****
@@ -27,9 +27,9 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends $dara.
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VPC NAT gateway.
+   * The region ID of the VPC NAT gateway to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends $dara.
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The ID of the Alibaba Cloud account that owns the resource.
    * 
    * @example
    * 132193271328****

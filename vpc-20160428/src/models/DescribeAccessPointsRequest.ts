@@ -7,8 +7,9 @@ export class DescribeAccessPointsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US** (default): English
+   * - **zh-CN**: Chinese.
+   * 
+   * - **en-US** (default): English.
    * 
    * @example
    * zh-CN
@@ -33,9 +34,9 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the access point.
+   * The ID of the region where the access point is located.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

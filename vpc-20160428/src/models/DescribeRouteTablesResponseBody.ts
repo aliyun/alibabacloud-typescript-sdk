@@ -244,7 +244,7 @@ export class DescribeRouteTablesResponseBodyRouteTables extends $dara.Model {
 export class DescribeRouteTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyExpressConnectTrafficQosRequestAddInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance to be associated.
+   * The instance ID of the instance to associate.
    * 
    * @example
    * pc-bp159zj8zujwy3p07****
@@ -13,7 +13,7 @@ export class ModifyExpressConnectTrafficQosRequestAddInstanceList extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance to be associated. Set the value to **PHYSICALCONNECTION**.
+   * The type of the instance to associate. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
    * 
    * @example
    * PHYSICALCONNECTION
@@ -45,7 +45,7 @@ export class ModifyExpressConnectTrafficQosRequestAddInstanceList extends $dara.
 export class ModifyExpressConnectTrafficQosRequestRemoveInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated instance.
+   * The instance ID of the associated instance.
    * 
    * @example
    * pc-bp1j37am632492qzw****
@@ -53,7 +53,7 @@ export class ModifyExpressConnectTrafficQosRequestRemoveInstanceList extends $da
   instanceId?: string;
   /**
    * @remarks
-   * The type of the associated instance. Set the value to **PHYSICALCONNECTION**.
+   * The type of the associated instance. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
    * 
    * @example
    * PHYSICALCONNECTION
@@ -85,7 +85,7 @@ export class ModifyExpressConnectTrafficQosRequestRemoveInstanceList extends $da
 export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
   /**
    * @remarks
-   * The instances to be added. Ignore this parameter if no instances are to be added.
+   * The list of instances to add in this update. You do not need to specify this parameter if no instances need to be added.
    * 
    * **if can be null:**
    * false
@@ -95,9 +95,9 @@ export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -108,6 +108,8 @@ export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the QoS policy.
+   * 
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-test
@@ -120,12 +122,14 @@ export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * qos-2giu0a6vd5x0mv4700
+   * qos-2giu0a6vd5x0mv****
    */
   qosId?: string;
   /**
    * @remarks
    * The name of the QoS policy.
+   * 
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-test
@@ -133,9 +137,9 @@ export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
   qosName?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region ID of the QoS policy.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -145,7 +149,7 @@ export class ModifyExpressConnectTrafficQosRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instances to be removed. Ignore this parameter if no instances are to be removed.
+   * The list of instances to remove in this update. You do not need to specify this parameter if no instances need to be removed.
    */
   removeInstanceList?: ModifyExpressConnectTrafficQosRequestRemoveInstanceList[];
   resourceOwnerAccount?: string;

@@ -22,7 +22,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * > When this parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
    * @example
-   * 1.1.1.0/24
+   * ``1.1.**.**``/24
    */
   dstCidr?: string;
   /**
@@ -32,7 +32,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * > When this parameter is unavailable, specify **SrcCidr** or **DstCidr**.
    * 
    * @example
-   * 2001:0db8:1234:5678::/64
+   * 2001:0db8:1234:****::/64
    */
   dstIPv6Cidr?: string;
   /**
@@ -114,7 +114,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * qos-2giu0a6vd5x0mv4700
+   * qos-2giu0a6vd5x0mv****
    */
   qosId?: string;
   /**
@@ -124,7 +124,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * qos-queue-9nyx2u7n71s2rcy4n5
+   * qos-queue-9nyx2u7n71s2rc****
    */
   queueId?: string;
   /**
@@ -175,7 +175,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * > When this parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
    * @example
-   * 1.1.1.0/24
+   * ``1.1.**.**``/24
    */
   srcCidr?: string;
   /**
@@ -185,7 +185,7 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * > When this parameter is unavailable, specify **SrcCidr** or **DstCidr**.
    * 
    * @example
-   * 2001:0db8:1234:5678::/64
+   * 2001:0db8:1234:****::/64
    */
   srcIPv6Cidr?: string;
   /**

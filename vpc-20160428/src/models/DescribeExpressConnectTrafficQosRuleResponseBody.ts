@@ -10,7 +10,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * > When this parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
    * @example
-   * 1.1.1.0/24
+   * ``1.1.**.**``/24
    */
   dstCidr?: string;
   /**
@@ -20,7 +20,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * > When this parameter is unavailable, specify **SrcCidr** or **DstCidr**.
    * 
    * @example
-   * 2001:0db8:1234:5678::/64
+   * 2001:0db8:1234:****::/64
    */
   dstIPv6Cidr?: string;
   /**
@@ -94,7 +94,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * The ID of the QoS policy.
    * 
    * @example
-   * qos-pksbqfmotl5hzqmhf8
+   * qos-pksbqfmotl5hzq****
    */
   qosId?: string;
   /**
@@ -102,7 +102,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * The ID of the QoS queue.
    * 
    * @example
-   * qos-queue-9nyx2u7n71s2rcy4n5
+   * qos-queue-9nyx2u7n71s2rc****
    */
   queueId?: string;
   /**
@@ -128,7 +128,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * The ID of the QoS rule.
    * 
    * @example
-   * qos-rule-iugg0l9x27f2nocouj
+   * qos-rule-iugg0l9x27f2noc****
    */
   ruleId?: string;
   /**
@@ -148,7 +148,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * > When this parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
    * @example
-   * 1.1.1.0/24
+   * ``1.1.**.**``/24
    */
   srcCidr?: string;
   /**
@@ -158,7 +158,7 @@ export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $d
    * > When this parameter is unavailable, specify **SrcCidr** or **DstCidr**.
    * 
    * @example
-   * 2001:0db8:1234:5678::/64
+   * 2001:0db8:1234:****::/64
    */
   srcIPv6Cidr?: string;
   /**

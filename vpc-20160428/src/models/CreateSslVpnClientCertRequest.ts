@@ -7,9 +7,9 @@ export class CreateSslVpnClientCertRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -17,9 +17,9 @@ export class CreateSslVpnClientCertRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the SSL client certificate.
+   * The name of the client certificate.
    * 
-   * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * SslVpnClientCert1
@@ -29,9 +29,9 @@ export class CreateSslVpnClientCertRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the VPN gateway is created.
+   * The region ID of the VPN gateway. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateSslVpnClientCertRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SSL server.
+   * The ID of the SSL-VPN server.
    * 
    * This parameter is required.
    * 

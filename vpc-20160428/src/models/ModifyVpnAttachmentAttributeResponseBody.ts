@@ -978,7 +978,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $dara.Model {
    * **vpn-not-exist**: The IPsec-VPN connection is not associated with a VPN Gateway.
    * 
    * @example
-   * vpn-p0wa1c1018pmeb6cu****
+   * vpn-not-exist
    */
   vpnGatewayId?: string;
   static names(): { [key: string]: string } {

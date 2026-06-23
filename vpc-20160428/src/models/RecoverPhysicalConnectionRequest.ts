@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RecoverPhysicalConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the request ID is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without recovering access to the Express Connect circuit. The system checks the required parameters, request format, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, the request ID is returned.
+   * - **false** (default): sends the request. After the request passes the check, access to the Express Connect circuit is recovered.
    * 
    * @example
    * false
@@ -16,9 +16,9 @@ export class RecoverPhysicalConnectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The instance ID of the Express Connect circuit.
    * 
-   * >  You can resume only shared Express Connect circuits by calling this API operation.
+   * > Currently, only shared Express Connect circuits can be recovered.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class RecoverPhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The region ID of the Express Connect circuit.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class RecoverPhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client generates the value of this parameter. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * CBCE910E-D396-4944-8****

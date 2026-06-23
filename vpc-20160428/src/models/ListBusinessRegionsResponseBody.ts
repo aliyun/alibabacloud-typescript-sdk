@@ -6,6 +6,9 @@ export class ListBusinessRegionsResponseBodyGeographicSubRegions extends $dara.M
   /**
    * @remarks
    * The name of the region where circuits are available.
+   * 
+   * @example
+   * 华东1(杭州)
    */
   name?: string;
   /**

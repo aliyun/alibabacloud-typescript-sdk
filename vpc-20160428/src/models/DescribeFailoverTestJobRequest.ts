@@ -22,7 +22,7 @@ export class DescribeFailoverTestJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ftj-xxxxxxxxx
+   * ftj-bp1yh6mvi13aq****
    */
   jobId?: string;
   ownerAccount?: string;

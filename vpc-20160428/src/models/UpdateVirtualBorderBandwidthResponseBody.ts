@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVirtualBorderBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The response code.
    * 
    * @example
-   * OK
+   * 200
    */
   code?: string;
   /**
@@ -21,10 +21,10 @@ export class UpdateVirtualBorderBandwidthResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
-   * none
+   * successful
    */
   message?: string;
   /**
@@ -37,10 +37,11 @@ export class UpdateVirtualBorderBandwidthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the modification was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Successful.
+   * 
+   * - **false**: Failed.
    * 
    * @example
    * true

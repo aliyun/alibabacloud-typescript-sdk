@@ -111,7 +111,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * The CIDR block of the vSwitch.
    * 
    * @example
-   * 192.168.0.0/24
+   * 192.168.0.1/24
    */
   cidrBlock?: string;
   /**
@@ -167,7 +167,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * The network access control list (ACL) rules.
    * 
    * @example
-   * nacl-bp1fg655nh68xyz9****
+   * 1
    */
   networkAclId?: string;
   /**

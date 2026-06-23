@@ -79,7 +79,7 @@ export class DescribeEipSegmentResponseBody extends $dara.Model {
   eipSegments?: DescribeEipSegmentResponseBodyEipSegments;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class DescribeEipSegmentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10

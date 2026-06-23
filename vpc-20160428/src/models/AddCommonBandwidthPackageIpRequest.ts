@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Internet Shared Bandwidth instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,13 +14,31 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
    */
   bandwidthPackageId?: string;
   /**
+   * @remarks
+   * The client token used to ensure the idempotence of the request.
+   * 
+   * Generate a unique value for this parameter from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** is different for each API request.
+   * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Performs a dry run without actually executing the operation.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
+   * The ID of the EIP instance.
+   * 
+   * You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) API to query the ID of the EIP instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +46,9 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
    */
   ipInstanceId?: string;
   /**
+   * @remarks
+   * The IP type. Valid value: **EIP**, which indicates that an EIP is added to the Internet Shared Bandwidth instance.
+   * 
    * @example
    * EIP
    */
@@ -34,6 +57,10 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID of the Internet Shared Bandwidth instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) API to obtain the region ID.
+   * 
    * This parameter is required.
    * 
    * @example

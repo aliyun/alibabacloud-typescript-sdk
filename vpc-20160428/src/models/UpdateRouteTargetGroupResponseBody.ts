@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRouteTargetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * Id of the request
    * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC

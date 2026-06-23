@@ -15,7 +15,7 @@ export class DescribeRouteTablesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page during paging. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -25,54 +25,60 @@ export class DescribeRouteTablesRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC to which the route table belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-6
    */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the route table to be queried belongs.
+   * The ID of the resource group to which the route table belongs.
    * 
    * @example
-   * rg-acfmxazccb4ph****
+   * rg-acfmxazb4ph****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route table that you want to query.
+   * The ID of the route table to query.
+   * 
+   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
    * 
    * @example
-   * rtb-bp12mw1f8k3jgygk9****
+   * vtb-bp145q7glnuzdvzu2****
    */
   routeTableId?: string;
   /**
    * @remarks
-   * The name of the route table that you want to query.
+   * The name of the route table to query.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
    * 
    * @example
-   * RouteTable-1
+   * doctest
    */
   routeTableName?: string;
   /**
    * @remarks
    * The ID of the router to which the route table belongs.
    * 
+   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
+   * 
    * @example
-   * vtb-bp1krxxzp0c29fmon****
+   * vrt-bp1lhl0taikrteen8****
    */
   routerId?: string;
   /**
    * @remarks
    * The type of the router to which the route table belongs. Valid values:
    * 
-   * *   **VRouter** (default)
-   * *   **VBR**
+   * - **VRouter** (default): vRouter.
+   * - **VBR**: Virtual Border Router.
    * 
    * @example
    * VRouter
@@ -80,23 +86,26 @@ export class DescribeRouteTablesRequest extends $dara.Model {
   routerType?: string;
   /**
    * @remarks
-   * The route type. Valid values:
+   * The destination type of the route to query. Valid values:
    * 
-   * *   **Custom**
-   * *   **System**
-   * *   **BGP**
-   * *   **CEN**
+   * - **Custom**: custom route.
+   * - **System**: system route.
+   * - **BGP**: BGP route.
+   * - **CEN**: Cloud Enterprise Network (CEN) route.
+   * - **ECR**: Express Connect Router (ECR) route.
    * 
    * @example
-   * custom
+   * Custom
    */
   type?: string;
   /**
    * @remarks
-   * The ID of the vRouter.
+   * The ID of the vRouter to query.
+   * 
+   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
    * 
    * @example
-   * vtb-bp1krxxzp0c29fmon****
+   * vrt-bp1lhl0taikrteen****
    */
   VRouterId?: string;
   static names(): { [key: string]: string } {

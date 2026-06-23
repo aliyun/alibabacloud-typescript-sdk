@@ -7,7 +7,7 @@ export class DescribeSslVpnClientsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeSslVpnClientsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+   * The maximum number of entries per page in a paged query. Valid values: **1** to **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -23,9 +23,9 @@ export class DescribeSslVpnClientsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway.
+   * The region ID of the VPN gateway instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeSslVpnClientsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The VPN gateway instance ID.
    * 
    * This parameter is required.
    * 

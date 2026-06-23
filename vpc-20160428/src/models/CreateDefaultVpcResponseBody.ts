@@ -13,7 +13,7 @@ export class CreateDefaultVpcResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The route table ID that is automatically created by the system after you create a default VPC.
+   * The ID of the route table that the system automatically creates after the default VPC is created.
    * 
    * @example
    * vtb-bp1q1uirugzb1x32m****
@@ -21,7 +21,7 @@ export class CreateDefaultVpcResponseBody extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The vRouter ID that is automatically created by the system after you create a default VPC.
+   * The ID of the vRouter that the system automatically creates after the default VPC is created.
    * 
    * @example
    * vrt-bp1lhl0taikrteen8****
@@ -29,7 +29,7 @@ export class CreateDefaultVpcResponseBody extends $dara.Model {
   VRouterId?: string;
   /**
    * @remarks
-   * The ID of the default VPC.
+   * The ID of the default VPC that is created.
    * 
    * @example
    * vpc-bp15zckdt37pq72zv****

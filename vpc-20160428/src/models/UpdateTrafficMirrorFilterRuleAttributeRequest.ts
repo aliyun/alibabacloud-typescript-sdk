@@ -9,7 +9,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * 
    * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+   * > If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -27,7 +27,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * The new destination port range of the inbound or outbound traffic.
    * 
-   * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
+   * > If you set **Protocol** to **ICMP**, you cannot change the port range.
    * 
    * @example
    * -1/-1
@@ -37,8 +37,9 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to check the request without performing the operation. Valid values:
    * 
-   * *   **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
+   * - **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * 
+   * - **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
    * 
    * @example
    * false
@@ -58,10 +59,13 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * The new protocol that is used by the traffic to be mirrored by the inbound or outbound rule. Valid values:
    * 
-   * *   **ALL**: all protocols
-   * *   **ICMP**: Internet Control Message Protocol (ICMP)
-   * *   **TCP**: TCP
-   * *   **UDP**: User Datagram Protocol (UDP)
+   * - **ALL**: all protocols
+   * 
+   * - **ICMP**: Internet Control Message Protocol (ICMP)
+   * 
+   * - **TCP**: TCP
+   * 
+   * - **UDP**: User Datagram Protocol (UDP)
    * 
    * @example
    * ICMP
@@ -85,8 +89,9 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * The new action of the inbound or outbound rule. Valid values:
    * 
-   * *   **accept**: accepts network traffic.
-   * *   **drop**: drops network traffic.
+   * - **accept**: accepts network traffic.
+   * 
+   * - **drop**: drops network traffic.
    * 
    * @example
    * accept
@@ -104,7 +109,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * The new source port range of the inbound or outbound traffic.
    * 
-   * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
+   * > If you set **Protocol** to **ICMP**, you cannot change the port range.
    * 
    * @example
    * 22/40

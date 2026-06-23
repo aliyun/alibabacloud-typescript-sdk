@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The VBRs that need to acquire permissions on the VPC. Valid values:
+   * The scope of VBR instances that accept the authorization. Valid values:
    * 
-   * *   **All**: Permissions on the VPC are granted to all VBRs that belong to the specified region and Alibaba Cloud account. In this case, you can leave **VbrInstanceIds** empty.
-   * *   **Specify**: Permissions on the VPC are granted to the specified VBRs. **VbrInstanceIds** must be assigned a value.
+   * - **All**: Grants authorization of the VPC instance to all VBR instances in the specified region under the specified Alibaba Cloud account. In this case, the **VbrInstanceIds** parameter can be left empty.
+   * - **Specify**: Grants authorization of the VPC instance to the specified VBR instances. In this case, the **VbrInstanceIds** parameter is required.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   grantType?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the VPC instance for which authorization is to be granted.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,9 @@ export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the VPC is deployed.
+   * The region ID of the VPC instance for which authorization is to be granted.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information about the VBRs.
+   * The list of VBR instances to be granted authorization.
    * 
    * **if can be null:**
    * true
@@ -48,7 +48,7 @@ export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   vbrInstanceIdsShrink?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VBR belongs.
+   * The Alibaba Cloud account ID that owns the VBR instance to be granted authorization.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class GrantInstanceToVbrShrinkRequest extends $dara.Model {
   vbrOwnerUid?: number;
   /**
    * @remarks
-   * The ID of the region where the VBR is deployed.
+   * The region ID of the VBR instance to be granted authorization.
    * 
    * This parameter is required.
    * 

@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that is associated with the IPv6 address to which the egress-only rule is applied.
+   * The ID of the IPv6 address for which the IPv6 egress-only rule is configured.
    * 
    * @example
-   * ipv6gw-bp1rhhs9zjlxukc5e****
+   * ipv6-bp12uzwhac8tv3xx6****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance to which you want to apply the egress-only rule. Valid values:
+   * The type of the instance for which you want to configure an IPv6 egress-only rule. Valid values:
    * 
-   * *   IPv6Address (default)
-   * *   IPv6Prefix
+   * - IPv6Address (default): The instance is a single IPv6 address.
+   * - IPv6Prefix: The instance is an IPv6 CIDR block.
    * 
    * @example
    * Ipv6Address
@@ -24,7 +24,7 @@ export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the egress-only rule that you want to query.
+   * The ID of the IPv6 egress-only rule to query.
    * 
    * @example
    * ipv6py-bp1rr7fq1md8pbb3k****
@@ -52,7 +52,7 @@ export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -60,7 +60,7 @@ export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -68,7 +68,7 @@ export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

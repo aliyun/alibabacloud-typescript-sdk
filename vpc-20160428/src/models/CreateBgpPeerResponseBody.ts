@@ -13,7 +13,7 @@ export class CreateBgpPeerResponseBody extends $dara.Model {
   bgpPeerId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D4B7649A-61BB-4C64-A586-1DFF1EDA6A42

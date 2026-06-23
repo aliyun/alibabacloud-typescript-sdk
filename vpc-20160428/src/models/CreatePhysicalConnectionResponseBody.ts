@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePhysicalConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The instance ID of the Express Connect circuit.
    * 
    * @example
    * pc-bp1ciz7ekd2grn1as****

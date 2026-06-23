@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpv6GatewayRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateIpv6GatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -84,7 +84,7 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the IPv6 gateway. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -96,6 +96,8 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPv6 gateway belongs.
    * 
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
+   * 
    * @example
    * rg-acfmxazb4ph6aiy****
    */
@@ -104,12 +106,12 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tags of the resource.
    */
   tag?: CreateIpv6GatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC in which you want to create the IPv6 gateway.
+   * The ID of the VPC for which you want to enable IPv6 and create the IPv6 gateway.
    * 
    * This parameter is required.
    * 

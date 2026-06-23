@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnConnectionsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key cannot be an empty string.
+   * The tag key. If you specify this parameter, the value cannot be an empty string.
    * 
-   * It can be at most 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys in each call.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -19,9 +19,9 @@ export class DescribeVpnConnectionsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -63,7 +63,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -79,9 +79,9 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the IPsec-VPN connection is created.
+   * The region ID of the IPsec-VPN connection. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -103,11 +103,9 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag value.
+   * The list of tags bound to the IPsec-VPN connection.
    * 
-   * The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-   * 
-   * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
+   * You can specify up to 20 tags at a time.
    */
   tag?: DescribeVpnConnectionsRequestTag[];
   /**
@@ -120,7 +118,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * @example
    * vpn-bp1q8bgx4xnkx****

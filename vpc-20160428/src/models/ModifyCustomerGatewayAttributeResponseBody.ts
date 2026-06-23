@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The timestamp generated when the customer gateway was created.
+   * The timestamp when the customer gateway was created.
    * 
    * @example
    * 1492747187000
@@ -13,7 +13,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the customer gateway.
+   * The instance ID of the customer gateway.
    * 
    * @example
    * cgw-bp1pvpl9r9adju6l5****
@@ -29,7 +29,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The public IP address of the gateway device in the data center.
+   * The public IP address of the on-premises data center gateway device.
    * 
    * @example
    * 139.32.XX.XX
@@ -55,7 +55,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the customer gateway belongs.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****

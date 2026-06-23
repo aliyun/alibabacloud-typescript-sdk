@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesForExpressConnectRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class TagResourcesForExpressConnectRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class TagResourcesForExpressConnectRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the resource is deployed.
+   * The region ID of the resource to which you want to create and bind tags.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class TagResourcesForExpressConnectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 20 resource IDs.
+   * The resource ID. You can specify up to 20 resource IDs.
    * 
    * This parameter is required.
    */
@@ -72,11 +72,11 @@ export class TagResourcesForExpressConnectRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   **PHYSICALCONNECTION**: Express Connect circuit.
-   * *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
-   * *   **ROUTERINTERFACE**: router interface.
+   * The resource type. Valid values:
+   * - **PHYSICALCONNECTION**: Express Connect circuit instance.
+   * - **VIRTUALBORDERROUTER**: Virtual Border Router.
+   * - **ROUTERINTERFACE**: VBR uplink.
+   * - **TRAFFICQOS**: QoS policy.
    * 
    * This parameter is required.
    * 
@@ -86,7 +86,7 @@ export class TagResourcesForExpressConnectRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags to add to the resource.
+   * The list of resource tags.
    * 
    * This parameter is required.
    */

@@ -86,7 +86,7 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
    * *   **true**
    * 
    * @example
-   * false
+   * true
    */
   icmpReplyEnabled?: boolean;
   /**

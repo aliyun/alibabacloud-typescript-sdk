@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the BGP feature is enabled. Valid values:
+   * The enabling status of BGP.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Mode
   enableBgp?: boolean;
   /**
    * @remarks
-   * The local ASN.
+   * The autonomous system number (ASN) of the local end of the tunnel.
    * 
    * @example
    * 65530
@@ -24,7 +25,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Mode
   localAsn?: number;
   /**
    * @remarks
-   * The BGP IP address of the tunnel.
+   * The BGP IP address of the local end of the tunnel.
    * 
    * @example
    * 169.254.11.1
@@ -32,7 +33,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Mode
   localBgpIp?: string;
   /**
    * @remarks
-   * The peer ASN.
+   * The autonomous system number (ASN) of the peer end of the tunnel.
    * 
    * @example
    * 65531
@@ -40,7 +41,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Mode
   peerAsn?: number;
   /**
    * @remarks
-   * The BGP IP address of the peer.
+   * The BGP IP address of the peer end of the tunnel.
    * 
    * @example
    * 169.254.11.2
@@ -48,7 +49,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelBgpConfig extends $dara.Mode
   peerBgpIp?: string;
   /**
    * @remarks
-   * The CIDR block to which the tunnel BGP IP address belongs.
+   * The CIDR block of the tunnel BGP IP address.
    * 
    * @example
    * 169.254.11.0/30
@@ -114,8 +115,8 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
    * @remarks
    * The IKE negotiation mode.
    * 
-   * *   **main:** This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * - **main**: main mode. This mode offers high security during negotiations.
+   * - **aggressive**: aggressive mode. This mode supports fast negotiations and a higher success rate.
    * 
    * @example
    * main
@@ -131,12 +132,12 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
   ikePfs?: string;
   /**
    * @remarks
-   * The IKE version.
+   * The IKE protocol version.
    * 
-   * *   **ikev1**
-   * *   **ikev2**
+   * - **ikev1**
+   * - **ikev2**
    * 
-   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for multi-CIDR-block scenarios.
    * 
    * @example
    * ikev2
@@ -144,7 +145,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
   ikeVersion?: string;
   /**
    * @remarks
-   * The tunnel identifier. The identifier supports FQDNs and IP addresses. The default value is the tunnel IP address.
+   * The identifier of the local end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the current tunnel.
    * 
    * @example
    * 47.XX.XX.87
@@ -160,7 +161,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
   psk?: string;
   /**
    * @remarks
-   * The peer identifier. The identifier supports FQDNs and IP addresses. The default identifier is the IP address of the customer gateway associated with the tunnel.
+   * The identifier of the peer end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
    * 
    * @example
    * 47.XX.XX.207
@@ -266,7 +267,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelIpsecConfig extends $dara.Mo
 export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the customer gateway associated with the customer gateway.
+   * The instance ID of the customer gateway associated with the tunnel.
    * 
    * @example
    * cgw-p0wx48ayhrygitm80****
@@ -274,10 +275,11 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   customerGatewayId?: string;
   /**
    * @remarks
-   * Indicates whether DPD is enabled. Valid values:
+   * Indicates whether the Dead Peer Detection (DPD) feature is enabled.
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: disabled.
+   * 
+   * - **true**: enabled.
    * 
    * @example
    * true
@@ -287,8 +289,9 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether NAT traversal is enabled. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: disabled.
+   * 
+   * - **true**: enabled.
    * 
    * @example
    * true
@@ -296,7 +299,7 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * The tunnel IP address.
+   * The IP address of the tunnel.
    * 
    * @example
    * 47.XX.XX.87
@@ -304,7 +307,7 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The peer CA certificate when a VPN gateway that uses an SM certificate is used to create the IPsec connection.
+   * The CA certificate of the peer when an IPsec-VPN connection is created with a Chinese SM VPN gateway.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -320,10 +323,10 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tunnel role. Valid values:
+   * The role of the tunnel.
    * 
-   * *   **master**
-   * *   **slave**
+   * - **master**: the active tunnel.
+   * - **slave**: the standby tunnel.
    * 
    * @example
    * master
@@ -331,11 +334,11 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The tunnel status. Valid values:
+   * The status of the tunnel.
    * 
-   * *   **active**
-   * *   **updating**
-   * *   **deleting**
+   * - **active**: available.
+   * - **updating**: being updated.
+   * - **deleting**: being deleted.
    * 
    * @example
    * active
@@ -343,7 +346,7 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The BGP configuration.
+   * The BGP configuration of the tunnel.
    */
   tunnelBgpConfig?: ModifyTunnelAttributeResponseBodyTunnelBgpConfig;
   /**
@@ -356,17 +359,17 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   tunnelId?: string;
   /**
    * @remarks
-   * The Phase 1 configuration.
+   * The IKE phase (Phase 1) configuration of the tunnel.
    */
   tunnelIkeConfig?: ModifyTunnelAttributeResponseBodyTunnelIkeConfig;
   /**
    * @remarks
-   * The configurations of IPsec Phase 2.
+   * The IPsec phase (Phase 2) configuration of the tunnel.
    */
   tunnelIpsecConfig?: ModifyTunnelAttributeResponseBodyTunnelIpsecConfig;
   /**
    * @remarks
-   * The tunnel zone.
+   * The zone of the tunnel.
    * 
    * @example
    * cn-hangzhou-h

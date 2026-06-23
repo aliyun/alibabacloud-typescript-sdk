@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values: Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request fails to pass the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: Performs a dry run to check for required parameters, the request format, and the instance status. The VLAN ID of the virtual physical connection is not modified. If the check fails, an error message is returned. If it passes, the request ID is returned.
+   * 
+   * - **false** (default): Sends the request. If the check passes, the VLAN ID of the virtual physical connection is modified.
    * 
    * @example
    * false
@@ -16,13 +17,23 @@ export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The estimated bandwidth value of the hosted connection. The estimated bandwidth value takes effect only after the payment is completed.
+   * The expected bandwidth of the virtual physical connection. The new bandwidth takes effect only after the payment is complete.
    * 
    * Valid values: **50M**, **100M**, **200M**, **300M**, **400M**, **500M**, **1G**, **2G**, **5G**, **8G**, and **10G**.
    * 
-   * >  **2G**, **5G**, **8G**, and **10G** are unavailable by default. If you want to use these bandwidth values, contact your account manager.
+   * <props="china">
    * 
-   * **M** indicates Mbit/s and **G** indicates Gbit/s.
+   * > Bandwidth settings of **2G**, **5G**, **8G**, and **10G** are not enabled by default. To use these settings, contact your account manager.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * > Bandwidth settings of **2G**, **5G**, **8G**, and **10G** are not enabled by default. To use these settings, contact your account manager.
+   * 
+   * 
+   * 
+   * Units: **M** indicates Mbps and **G** indicates Gbps.
    * 
    * @example
    * 50M
@@ -30,7 +41,7 @@ export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   expectSpec?: string;
   /**
    * @remarks
-   * The ID of the hosted connection over Express Connect circuit.
+   * The ID of the virtual physical connection instance.
    * 
    * This parameter is required.
    * 
@@ -40,9 +51,9 @@ export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the hosted connection.
+   * The ID of the region where the virtual physical connection is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain region IDs.
    * 
    * This parameter is required.
    * 
@@ -52,11 +63,11 @@ export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that ensures the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * A client-generated value that must be unique across requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** is different for each request.
    * 
    * @example
    * CBCE910E-D396-4944-8****
@@ -64,10 +75,11 @@ export class UpdateVirtualPhysicalConnectionRequest extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The VLAN ID of the hosted connection over Express Connect circuit. Valid values: **0** to **2999**.
+   * The VLAN ID of the virtual physical connection. Valid values: **0** to **2999**.
    * 
-   * *   If the VLAN ID is set to **0**, it indicates that the switch port of the virtual border router (VBR) is a Layer 3 router interface instead of a VLAN interface. When a Layer 3 router interface is used, each Express Connect circuit corresponds to a VBR.
-   * *   If the VLAN ID is set to a value from **1** to **2999**, the switch port of the VBR is a Layer 3 VLAN subinterface. When a Layer 3 VLAN subinterface is used, each VLAN ID corresponds to one VBR. In this case, the Express Connect circuit with which the VBR is associated can be used to connect to virtual private clouds (VPCs) that belong to different Alibaba Cloud accounts. VBRs in different VLANs are isolated from each other at Layer 2.
+   * - If you set the VLAN ID to **0**, the physical switch port of the Virtual Border Router (VBR) operates in Layer 3 routed interface mode. In this mode, one physical connection corresponds to one VBR.
+   * 
+   * - If you set the VLAN ID to a value from **1** to **2999**, the physical switch port of the VBR uses a VLAN-based Layer 3 subinterface. In this mode, each VLAN ID corresponds to one VBR. The physical connection can be attached to VPCs that belong to different accounts. VBRs in different VLANs are isolated at Layer 2 and cannot communicate with each other.
    * 
    * This parameter is required.
    * 

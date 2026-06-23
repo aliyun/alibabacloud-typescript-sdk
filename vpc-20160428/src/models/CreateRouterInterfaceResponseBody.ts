@@ -8,7 +8,7 @@ export class CreateRouterInterfaceResponseBody extends $dara.Model {
    * The order number. This parameter is returned if InstanceChargeType is set to PrePaid.
    * 
    * @example
-   * 202008594930117
+   * 20210101123456
    */
   orderId?: number;
   /**

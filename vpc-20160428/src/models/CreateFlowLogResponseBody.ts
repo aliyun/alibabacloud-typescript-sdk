@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the flow log.
+   * The flow log ID.
    * 
    * @example
    * fl-m5e8vhz2t21sel1nq****
@@ -13,7 +13,7 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   flowLogId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B457
@@ -29,10 +29,10 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

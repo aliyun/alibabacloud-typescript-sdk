@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
   /**
    * @remarks
-   * Access mode values:
-   * - **route**: Route mode.
-   * - **tunnel**: Tunnel mode.
+   * The access mode. Valid values:
+   * 
+   * - **route**: route mode.
+   * 
+   * - **tunnel**: tunnel mode.
    * 
    * @example
    * route
@@ -15,8 +17,9 @@ export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
   modeValue?: string;
   /**
    * @remarks
-   * Tunnel mode type:
-   * - **geneve**: Geneve type.
+   * The tunnel type. This parameter is returned only when `ModeValue` is set to `tunnel`. Valid value:
+   * 
+   * - **geneve**: Geneve.
    * 
    * @example
    * geneve
@@ -48,12 +51,13 @@ export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
 export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic payment is enabled. If the **InstanceChargeType** parameter is set to **PrePaid**, one of the following values is returned:
+   * Indicates whether auto-payment is enabled. This parameter is returned only if **InstanceChargeType** is set to **PrePaid**. Valid values:
    * 
-   * *   **false**: disabled. After an order is generated, you must go to the Order Center to complete the payment.
-   * *   **true**: enabled. Payments are automatically completed.
+   * - **false**: Auto-payment is disabled. After an order is generated, the payment must be completed in the Orders console.
    * 
-   * The return value of this parameter is empty if **InstanceChargeType** is set to **PostPaid**.
+   * - **true**: Auto-payment is enabled. Payments are automatically completed.
+   * 
+   * If **InstanceChargeType** is set to **PostPaid**, an empty string is returned.
    * 
    * @example
    * false
@@ -61,7 +65,28 @@ export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model
   autoPay?: string;
   /**
    * @remarks
-   * The billing method of the NAT gateway. The value is set to **PostPaid**, which indicates the pay-as-you-go billing method.
+   * <props="china">
+   * 
+   * The billing method of the NAT Gateway instance. Valid values:
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * - **PostPaid**: pay-as-you-go.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * - **PrePaid**: subscription.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * The billing method of the NAT Gateway instance. The value is **PostPaid** (pay-as-you-go).
    * 
    * @example
    * PostPaid
@@ -69,10 +94,11 @@ export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model
   instanceChargeType?: string;
   /**
    * @remarks
-   * The metering method of the NAT gateway. Valid values:
+   * The billing method of the NAT Gateway instance. Valid values:
    * 
-   * *   **PayBySpec**: pay-by-specification
-   * *   **PayByLcu**: pay-by-CU
+   * - **PayBySpec**: billed by specification.
+   * 
+   * - **PayByLcu**: billed by usage.
    * 
    * @example
    * PayBySpec
@@ -80,15 +106,13 @@ export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model
   internetChargeType?: string;
   /**
    * @remarks
-   * The specification of the Internet NAT gateway. If the **InternetChargeType** parameter is set to **PayBySpec**, one of the following values is returned:
+   * The specification of the public NAT gateway instance. This parameter is returned only if **InternetChargeType** is set to **PayBySpec**. Valid values:
    * 
-   * *   **Small**: small
+   * - **Small**
    * 
-   * *   **Middle**: medium
+   * - **Middle**
    * 
-   * *   **Large**: large
-   * 
-   *     The return value of this parameter is empty if **InternetChargeType** is set to **PayByLcu**.
+   * - **Large**
    * 
    * @example
    * Small
@@ -126,8 +150,9 @@ export class GetNatGatewayAttributeResponseBodyDeletionProtectionInfo extends $d
    * @remarks
    * Indicates whether deletion protection is enabled.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -237,7 +262,7 @@ export class GetNatGatewayAttributeResponseBodyFullNatTable extends $dara.Model 
 export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP.
+   * The ID of the EIP instance.
    * 
    * @example
    * eip-bp13e9i2qst4g6jzi****
@@ -245,7 +270,7 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The IP address of the EIP.
+   * The EIP address.
    * 
    * @example
    * 116.33.XX.XX
@@ -253,11 +278,13 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
   ipAddress?: string;
   /**
    * @remarks
-   * The association status of the EIP.
+   * The usage status of the EIP.
    * 
-   * *   **idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
-   * *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
-   * *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+   * - **Idle**: Not associated with an SNAT entry or a DNAT entry.
+   * 
+   * - **UsedBySnat**: Associated with an SNAT entry.
+   * 
+   * - **UsedByForward**: Associated with a DNAT entry.
    * 
    * @example
    * idle
@@ -291,7 +318,7 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
 export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
   /**
    * @remarks
-   * Error message for session log write failure.
+   * The error message that is returned when log delivery fails.
    * 
    * @example
    * LogStoreNotExist: logstore session_log_test does not exist
@@ -299,9 +326,11 @@ export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
   deliverLogsErrorMessage?: string;
   /**
    * @remarks
-   * Session log write status. Values:
-   * - **Success**: Success. 
-   * - **Failure**: Failure.
+   * The status of log delivery. Valid values:
+   * 
+   * - **Success**: The logs are delivered successfully.
+   * 
+   * - **Failure**: The logs failed to be delivered.
    * 
    * @example
    * Failure
@@ -309,7 +338,8 @@ export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
   deliveryStatus?: string;
   /**
    * @remarks
-   * Session log delivery destination type. Value: **sls**, Alibaba Cloud Log Service SLS.
+   * The destination to which session logs are delivered. The value is always
+   * **sls**, which indicates Log Service.
    * 
    * @example
    * sls
@@ -317,7 +347,7 @@ export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
   logDeliveryType?: string;
   /**
    * @remarks
-   * Destination address for session log writing
+   * The Log Service Logstore to which session logs are delivered.
    * 
    * @example
    * acs:log:cn-hangzhou:0000:project/nat_session_log_project/logstore/session_log_test
@@ -353,7 +383,7 @@ export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
 export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI).
+   * The ID of the elastic network interface instance.
    * 
    * @example
    * eni-bp1cmgtoaka8vfyg****
@@ -361,7 +391,7 @@ export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $dara.Model {
   eniInstanceId?: string;
   /**
    * @remarks
-   * The zone where the NAT gateway is deployed.
+   * The ID of the availability zone to which the NAT Gateway instance belongs.
    * 
    * @example
    * cn-qingdao-b
@@ -369,7 +399,7 @@ export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $dara.Model {
   izNo?: string;
   /**
    * @remarks
-   * The maximum bandwidth. Unit: Mbit/s.
+   * The maximum bandwidth, in Mbps.
    * 
    * @example
    * 5120
@@ -385,7 +415,7 @@ export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the NAT gateway belongs.
+   * The ID of the vSwitch to which the NAT Gateway instance belongs.
    * 
    * @example
    * vsw-bp1s2laxhdf9ayjbo***
@@ -463,21 +493,22 @@ export class GetNatGatewayAttributeResponseBodySnatTable extends $dara.Model {
 export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access mode for reverse access to VPC NAT gateway.
+   * The access mode of the VPC NAT Gateway.
    */
   accessMode?: GetNatGatewayAttributeResponseBodyAccessMode;
   availabilityMode?: string;
   /**
    * @remarks
-   * The billing information.
+   * The billing configuration.
    */
   billingConfig?: GetNatGatewayAttributeResponseBodyBillingConfig;
   /**
    * @remarks
-   * The service status of the NAT gateway. Valid values:
+   * The business status of the NAT Gateway instance. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **FinancialLocked**: locked due to overdue payments
+   * - **Normal**: The instance is running normally.
+   * 
+   * - **FinancialLocked**: The instance is suspended due to an overdue payment.
    * 
    * @example
    * Normal
@@ -485,7 +516,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The time when the NAT gateway was created. Format: YYYY-MM-DDThh:mm:ssZ.
+   * The creation time of the NAT Gateway instance. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2021-12-08T12:20:20Z
@@ -493,12 +524,12 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The information about the deletion protection feature.
+   * Information about the deletion protection feature.
    */
   deletionProtectionInfo?: GetNatGatewayAttributeResponseBodyDeletionProtectionInfo;
   /**
    * @remarks
-   * The description of the NAT gateway.
+   * The description of the NAT Gateway instance.
    * 
    * @example
    * NAT
@@ -506,10 +537,11 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the traffic monitoring feature is enabled. Valid values:
+   * Indicates whether the gateway traffic monitoring feature is enabled. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -517,9 +549,11 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   ecsMetricEnabled?: boolean;
   /**
    * @remarks
-   * Whether to enable session log, with values:
-   * - **true**: Session logging is enabled. 
-   * - **false**: Session logging is disabled.
+   * Indicates whether session logging is enabled. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -527,7 +561,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   enableSessionLog?: boolean;
   /**
    * @remarks
-   * The time when the NAT gateway expires.
+   * The expiration time of the NAT Gateway instance.
    * 
    * @example
    * 2021-12-26T12:20:20Z
@@ -535,27 +569,27 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The information about the DNAT table.
+   * Information about the DNAT table.
    */
   forwardTable?: GetNatGatewayAttributeResponseBodyForwardTable;
   /**
    * @remarks
-   * The information about the FULLNAT table.
+   * Information about the FULLNAT table.
    */
   fullNatTable?: GetNatGatewayAttributeResponseBodyFullNatTable;
   /**
    * @remarks
-   * The elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
+   * The Elastic IP Addresses (EIPs) that are associated with the public NAT gateway.
    */
   ipList?: GetNatGatewayAttributeResponseBodyIpList[];
   /**
    * @remarks
-   * Session log configuration information.
+   * The session log delivery settings.
    */
   logDelivery?: GetNatGatewayAttributeResponseBodyLogDelivery;
   /**
    * @remarks
-   * The name of the NAT gateway.
+   * The name of the NAT Gateway instance.
    * 
    * @example
    * abc
@@ -563,7 +597,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT Gateway instance.
    * 
    * @example
    * ngw-bp1047e2d4z7kf2ki****
@@ -571,7 +605,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The type of the Internet NAT gateway. Only **Enhanced** is returned, which indicates an enhanced Internet NAT gateway.
+   * The type of the public NAT gateway. The value **Enhanced** indicates an Enhanced NAT Gateway.
    * 
    * @example
    * Enhanced
@@ -579,10 +613,11 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   natType?: string;
   /**
    * @remarks
-   * The type of the NAT gateway. Valid values:
+   * The type of the NAT Gateway. Valid values:
    * 
-   * *   **internet**: an Internet NAT gateway
-   * *   **intranet**: a VPC NAT gateway
+   * - **internet**: A public NAT gateway.
+   * 
+   * - **intranet**: A VPC NAT Gateway.
    * 
    * @example
    * internet
@@ -590,15 +625,16 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The private network information about the NAT gateway.
+   * The private network information about the NAT Gateway instance.
    */
   privateInfo?: GetNatGatewayAttributeResponseBodyPrivateInfo;
   /**
    * @remarks
-   * Indicates whether the NAT gateway supports PrivateLink. Valid values:
+   * Indicates whether PrivateLink is supported. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: PrivateLink is supported.
+   * 
+   * - **false**: PrivateLink is not supported.
    * 
    * @example
    * true
@@ -606,10 +642,11 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   privateLinkEnabled?: boolean;
   /**
    * @remarks
-   * The mode that is used by PrivateLink. Valid values:
+   * The mode of the PrivateLink service. Valid values:
    * 
-   * *   **FullNat**: the FULLNAT mode
-   * *   **Geneve**: the GENEVE mode
+   * - **FullNat**: FULLNAT mode.
+   * 
+   * - **Geneve**: Geneve mode.
    * 
    * @example
    * FullNat
@@ -617,7 +654,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   privateLinkMode?: string;
   /**
    * @remarks
-   * The ID of the region where the NAT gateway is deployed.
+   * The region ID of the NAT Gateway instance.
    * 
    * @example
    * cn-qingdao
@@ -625,7 +662,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -641,18 +678,22 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The information about the SNAT table.
+   * Information about the SNAT table.
    */
   snatTable?: GetNatGatewayAttributeResponseBodySnatTable;
   /**
    * @remarks
-   * The status of the NAT gateway. Valid values:
+   * The status of the NAT Gateway instance. Valid values:
    * 
-   * *   **Creating**: being created. The operation to create a NAT gateway is asynchronous. The NAT gateway remains in the **Creating** state until it is created.
-   * *   **Available**: available. After a NAT gateway is created, it remains in a stable state.
-   * *   **Modifying**: being modified. The operation to upgrade or downgrade a NAT gateway is asynchronous. The NAT gateway remains in the **Modifying** state until it is upgraded or downgraded.
-   * *   **Deleting**: being deleted. The operation to delete a NAT gateway is asynchronous. The NAT gateway remains in the **Deleting** state until it is deleted.
-   * *   **Converting**: being converted. The operation to convert a standard NAT gateway to an enhanced NAT gateway is asynchronous. The NAT gateway remains in the **Converting** state until it is converted.
+   * - **Creating**: Being created. This is an asynchronous operation.
+   * 
+   * - **Available**: Available. This is the steady state of the NAT Gateway after creation.
+   * 
+   * - **Modifying**: Being modified. This is an asynchronous operation.
+   * 
+   * - **Deleting**: Being deleted. This is an asynchronous operation.
+   * 
+   * - **Converting**: Being converted to an Enhanced NAT Gateway. This is an asynchronous operation.
    * 
    * @example
    * Available
@@ -660,7 +701,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the NAT gateway belongs.
+   * The ID of the VPC to which the NAT Gateway instance belongs.
    * 
    * @example
    * vpc-bp15zckdt37pq72z****

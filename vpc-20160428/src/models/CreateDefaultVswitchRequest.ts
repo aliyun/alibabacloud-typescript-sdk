@@ -9,7 +9,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -17,7 +17,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The last eight bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
+   * The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
    * 
    * @example
    * 12
@@ -27,28 +27,28 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the default vSwitch.
+   * The region ID of the default vSwitch that you want to create.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
    * @example
-   * ap-southeast-1
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The zone ID of the default vSwitch.
+   * The zone ID of the default vSwitch that you want to create.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
    * 
    * This parameter is required.
    * 
    * @example
-   * ap-southeast-1a
+   * cn-hangzhou-b
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry in the gateway route table.
+   * The destination CIDR block of the route entry in the gateway route table that you want to query.
    * 
    * @example
    * 192.168.0.5
@@ -13,7 +13,7 @@ export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the gateway route table that you want to query.
+   * The ID of the gateway route table to query.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   gatewayRouteTableId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -31,10 +31,9 @@ export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+   * The pagination token. Valid values:
+   * - If this is the first query or no subsequent query exists, leave this parameter empty.
+   * - If a subsequent query exists, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -44,9 +43,9 @@ export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway route table.
+   * The region ID of the gateway route table that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent list of regions.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

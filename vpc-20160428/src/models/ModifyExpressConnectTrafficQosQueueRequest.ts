@@ -35,7 +35,7 @@ export class ModifyExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * qos-2giu0a6vd5x0mv4700
+   * qos-2giu0a6vd5x0mv****
    */
   qosId?: string;
   /**
@@ -55,7 +55,7 @@ export class ModifyExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * qos-queue-9nyx2u7n71s2rcy4n5
+   * qos-queue-9nyx2u7n71s2rc****
    */
   queueId?: string;
   /**

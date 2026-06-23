@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteTargetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request.
+   * Id of the request
    * 
    * @example
    * 8AA5CE21-2E6A-4530-BDF5-F055849476E6
@@ -13,7 +13,7 @@ export class CreateRouteTargetGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the route target group instance.
+   * The instance ID of the route target group.
    * 
    * @example
    * rtg-xxxx

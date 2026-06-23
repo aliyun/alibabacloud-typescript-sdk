@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomerGatewaysRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. The tag key cannot be an empty string.
+   * The tag key. If you specify this parameter, the value cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys at a time.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -17,11 +17,11 @@ export class DescribeCustomerGatewaysRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
-   * The tag value can be up to 128 characters in length. It can be an empty string. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -53,9 +53,9 @@ export class DescribeCustomerGatewaysRequestTag extends $dara.Model {
 export class DescribeCustomerGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the customer gateway.
+   * The instance ID of the customer gateway. 
    * 
-   * > If you do not specify a customer gateway ID, the system queries all customer gateways in the current region by default.
+   * > If you do not specify the instance ID of a customer gateway, the system queries information about all customer gateways in the current region by default.
    * 
    * @example
    * cgw-bp1pvpl9r9adju6l5****
@@ -65,7 +65,7 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -81,9 +81,9 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the customer gateway is deployed.
+   * The region ID of the customer gateway. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the customer gateway belongs.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group list.
+   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -105,7 +105,7 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags to be added to the customer gateway.
+   * The list of tags bound to the customer gateway.
    */
   tag?: DescribeCustomerGatewaysRequestTag[];
   static names(): { [key: string]: string } {

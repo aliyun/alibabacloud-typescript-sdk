@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateMacSecKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * The key secret. This parameter accepts only hexadecimal characters. Lowercase letters are automatically converted to uppercase. The cipher suite determines the required length of the key secret: 32 hexadecimal characters for GCM-AES-128 or GCM-AES-XPN-128, and 64 hexadecimal characters for GCM-AES-256 or GCM-AES-XPN-256.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,16 @@ export class AssociateMacSecKeyRequest extends $dara.Model {
   cak?: string;
   /**
    * @remarks
+   * The cipher suite. Valid values:
+   * 
+   * - GCM-AES-128
+   * 
+   * - GCM-AES-XPN-128
+   * 
+   * - GCM-AES-256
+   * 
+   * - GCM-AES-XPN-256
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +33,8 @@ export class AssociateMacSecKeyRequest extends $dara.Model {
   cipherSuite?: string;
   /**
    * @remarks
+   * The key name. This parameter accepts only hexadecimal characters. Lowercase letters are automatically converted to uppercase. The cipher suite determines the required length of the key name: 32 hexadecimal characters for GCM-AES-128 or GCM-AES-XPN-128, and 64 hexadecimal characters for GCM-AES-256 or GCM-AES-XPN-256.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +43,8 @@ export class AssociateMacSecKeyRequest extends $dara.Model {
   ckn?: string;
   /**
    * @remarks
+   * The ID of the Express Connect physical connection.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +53,10 @@ export class AssociateMacSecKeyRequest extends $dara.Model {
   physicalConnectionId?: string;
   /**
    * @remarks
+   * The region ID of the Express Connect physical connection.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -38,7 +38,7 @@ export class CreateExpressCloudConnectionRequest extends $dara.Model {
    * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
-   * ECC
+   * 高速上云服务
    */
   description?: string;
   /**
@@ -76,7 +76,7 @@ export class CreateExpressCloudConnectionRequest extends $dara.Model {
    * The city where the data center is located.
    * 
    * @example
-   * Hangzhou
+   * 杭州
    */
   peerCity?: string;
   /**
@@ -88,7 +88,7 @@ export class CreateExpressCloudConnectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * \\*\\*city\\*\\*district/county\\*\\*road\\*\\*number\\*\\*property or building name\\*\\*building\\*\\*floor\\*\\*room number\\*\\*server rack number\\*\\*server rack name\\*\\*device\\*\\*port
+   * **市**区/县**路**号**物业或楼宇名称**座**楼层**房间号**机柜号**机柜名称**设备**端口
    */
   peerLocation?: string;
   /**

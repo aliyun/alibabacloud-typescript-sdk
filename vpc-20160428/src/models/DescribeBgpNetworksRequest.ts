@@ -40,7 +40,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
    * The ID of the VBR.
    * 
    * @example
-   * vrt-bp1lhl0taikrteen8****
+   * vbr-bp1ctxy813985gkuk****
    */
   routerId?: string;
   static names(): { [key: string]: string } {

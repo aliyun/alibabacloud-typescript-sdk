@@ -8,7 +8,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstan
    * The ID of the instance to which the QoS policy is associated.
    * 
    * @example
-   * pc-bp159zj8zujwy3p07j83e
+   * pc-bp159zj8zujwy3p07****
    */
   instanceId?: string;
   /**
@@ -83,7 +83,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * The ID of the QoS policy.
    * 
    * @example
-   * qos-pksbqfmotl5hzqmhf8
+   * qos-pksbqfmotl5hzq****
    */
   qosId?: string;
   /**
@@ -101,7 +101,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * The ID of the QoS queue.
    * 
    * @example
-   * qos-queue-9nyx2u7n71s2rcy4n5
+   * qos-queue-9nyx2u7n71s2rc****
    */
   queueId?: string;
   /**

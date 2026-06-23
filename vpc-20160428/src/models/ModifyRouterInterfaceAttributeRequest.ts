@@ -21,7 +21,7 @@ export class ModifyRouterInterfaceAttributeRequest extends $dara.Model {
    * The value must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
-   * The description of the router interface.
+   * 路由器接口
    */
   description?: string;
   /**

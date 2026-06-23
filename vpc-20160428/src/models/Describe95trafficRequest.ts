@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class Describe95TrafficRequest extends $dara.Model {
   /**
    * @remarks
-   * The date in UTC+8. Format: year-month-day.
+   * The date to query, in UTC+8. Format: YYYY-MM-DD.
+   * 
+   * > You can query only data from last month or earlier.
    * 
    * This parameter is required.
    * 
@@ -29,7 +31,7 @@ export class Describe95TrafficRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +43,7 @@ export class Describe95TrafficRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. Set the value to cbwp, which specifies Internet Shared Bandwidth.
+   * The resource type. Only **cbwp** is supported, which represents Internet Shared Bandwidth.
    * 
    * This parameter is required.
    * 

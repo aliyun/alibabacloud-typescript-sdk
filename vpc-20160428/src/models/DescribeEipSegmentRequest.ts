@@ -9,7 +9,7 @@ export class DescribeEipSegmentRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001sdfg
@@ -19,7 +19,7 @@ export class DescribeEipSegmentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -27,7 +27,7 @@ export class DescribeEipSegmentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class DescribeEipSegmentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region to which the contiguous EIP group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the contiguous EIP group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,9 @@ export class DescribeEipSegmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the contiguous EIP group that you want to query.
+   * The instance ID of the contiguous EIP group to query.
+   * 
+   * If you do not specify this parameter, information about all contiguous EIP groups in the specified region is returned.
    * 
    * @example
    * eipsg-2zett8ba055tbsxme****

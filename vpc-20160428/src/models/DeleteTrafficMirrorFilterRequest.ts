@@ -7,9 +7,9 @@ export class DeleteTrafficMirrorFilterRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -17,10 +17,10 @@ export class DeleteTrafficMirrorFilterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+   * - **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the check, the traffic mirror filter is deleted.
    * 
    * @example
    * false
@@ -30,7 +30,7 @@ export class DeleteTrafficMirrorFilterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the mirrored traffic belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
+   * The region ID of the traffic mirror. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about the regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class DeleteTrafficMirrorFilterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the filter.
+   * The instance ID of the traffic mirror filter.
    * 
    * This parameter is required.
    * 

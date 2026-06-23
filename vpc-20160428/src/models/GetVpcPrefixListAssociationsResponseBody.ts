@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation extends $dara.Model {
   /**
    * @remarks
-   * List of CIDR addresses where the prefix list is effective in the currently associated resources.
+   * The list of CIDR blocks in the prefix list that are effective for the associated resource.
    * 
    * @example
    * 192.168.0.0/16
@@ -13,7 +13,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   cidrList?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the prefix list belongs.
+   * The ID of the Alibaba Cloud account that owns the prefix list.
    * 
    * @example
    * 153460731706****
@@ -21,7 +21,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   ownerId?: string;
   /**
    * @remarks
-   * The prefix list ID.
+   * The instance ID of the prefix list.
    * 
    * @example
    * pl-0b7hwu67****
@@ -29,7 +29,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   prefixListId?: string;
   /**
    * @remarks
-   * The reason why the association failed.
+   * The reason for the association failure.
    * 
    * @example
    * failed
@@ -55,8 +55,8 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
    * @remarks
    * The type of the associated resource. Valid values:
    * 
-   * *   **vpcRouteTable**: virtual private cloud (VPC) route table.
-   * *   **trRouteTable**: route table of a transit router.
+   * - **vpcRouteTable**: VPC route table.
+   * - **trRouteTable**: transit router route table.
    * 
    * @example
    * vpcRouteTable
@@ -64,7 +64,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource associated with the prefix list belongs.
+   * The ID of the Alibaba Cloud account that owns the resource associated with the prefix list.
    * 
    * @example
    * 132193271328****
@@ -72,14 +72,14 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   resourceUid?: string;
   /**
    * @remarks
-   * The status of the prefix list. Valid values:
+   * The association status of the prefix list. Valid values:
    * 
-   * *   **Created**
-   * *   **ModifyFailed**
-   * *   **Creating**
-   * *   **Modifying**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Created**: The association is created.
+   * - **ModifyFailed**: The association is not updated to the latest version.
+   * - **Creating**: The association is being created.
+   * - **Modifying**: The association is being modified.
+   * - **Deleting**: The association is being deleted.
+   * - **Deleted**: The association is deleted.
    * 
    * @example
    * Success
@@ -125,7 +125,7 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
 export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries.
+   * The number of entries returned.
    * 
    * @example
    * 1
@@ -133,10 +133,9 @@ export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -144,7 +143,7 @@ export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about the network instances that are associated with the prefix list.
+   * The association information of the prefix list.
    */
   prefixListAssociation?: GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation[];
   /**
@@ -157,7 +156,7 @@ export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1

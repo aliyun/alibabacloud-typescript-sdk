@@ -51,7 +51,7 @@ export class UpdateFailoverTestJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ftj-xxxxxxxxx
+   * ftj-bp1yh6mvi13aq3g8w****
    */
   jobId?: string;
   /**

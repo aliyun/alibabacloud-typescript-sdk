@@ -129,7 +129,7 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
    * The Alibaba Cloud account to which the IP address pool belongs.
    * 
    * @example
-   * 121012345612****
+   * 121012345612*****
    */
   ownerId?: number;
   /**

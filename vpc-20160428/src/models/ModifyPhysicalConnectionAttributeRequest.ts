@@ -30,7 +30,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
-   * The description of the Express Connect circuit.
+   * 物理专线的描述信息
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
-   * Name
+   * 物理专线的名称
    */
   name?: string;
   ownerAccount?: string;
@@ -65,7 +65,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The geographical location of the data center.
    * 
    * @example
-   * XX Number, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
+   * 浙江省杭州市XX区XX街道XX号
    */
   peerLocation?: string;
   /**

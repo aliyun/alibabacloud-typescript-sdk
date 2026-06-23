@@ -32,7 +32,7 @@ export class GetVpcRouteEntrySummaryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Custom
+   * custom
    */
   routeEntryType?: string;
   /**

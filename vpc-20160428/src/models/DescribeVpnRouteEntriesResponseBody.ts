@@ -139,7 +139,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntries extends $dara.Mo
 export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -147,7 +147,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -155,7 +155,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BF3995A6-FA4F-4C74-B90F-89ECF4BFF4D5
@@ -163,7 +163,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 1

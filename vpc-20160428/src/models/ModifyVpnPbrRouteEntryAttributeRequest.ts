@@ -7,9 +7,9 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * d7d24a21-f4ba-4454-9173-b3****
@@ -17,13 +17,13 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The new priority of the policy-based route. Valid values: **1** to **100**.
+   * The new policy priority of the policy-based route. Valid values: **1** to **100**.
    * 
    * A smaller value indicates a higher priority.
    * 
-   * If you do not specify this parameter, the priority of the policy-based route is not modified.
+   * If you do not specify this parameter, the policy priority of the policy-based route is not modified.
    * 
-   * >  You must specify at least one of **NewPriority** and **NewWeight**.
+   * > You must specify at least one of the **NewPriority** and **NewWeight** parameters.
    * 
    * @example
    * 10
@@ -33,12 +33,11 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The new weight of the policy-based route. Valid values:
    * 
-   * *   **100**: The IPsec-VPN connection associated with the policy-based route serves as the active connection.
-   * *   **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby connection.
+   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active link.
+   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby link.
    * 
    * If you do not specify this parameter, the weight of the policy-based route is not modified.
-   * 
-   * >  You must specify at least one of **NewPriority** and **NewWeight**.
+   * > You must specify at least one of the **NewPriority** and **NewWeight** parameters.
    * 
    * @example
    * 0
@@ -58,7 +57,7 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The original priority of the policy-based route. Valid values: **1** to **100**.
+   * The original policy priority of the policy-based route. Valid values: **1** to **100**.
    * 
    * A smaller value indicates a higher priority.
    * 
@@ -70,9 +69,9 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway.
+   * The region ID of the VPN gateway instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -104,7 +103,7 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
   routeSource?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * This parameter is required.
    * 
@@ -116,8 +115,8 @@ export class ModifyVpnPbrRouteEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The original weight of the policy-based route. Valid values:
    * 
-   * *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
-   * *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
+   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active link.
+   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby link.
    * 
    * This parameter is required.
    * 

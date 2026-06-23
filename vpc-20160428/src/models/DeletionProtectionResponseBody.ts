@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletionProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BAAEF103-96C4-4454-9210-066F2405F511

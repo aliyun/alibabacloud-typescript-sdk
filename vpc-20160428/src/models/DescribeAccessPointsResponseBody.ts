@@ -131,10 +131,14 @@ export class DescribeAccessPointsResponseBodyAccessPointSet extends $dara.Model 
 }
 
 export class DescribeAccessPointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of access points.
+   */
   accessPointSet?: DescribeAccessPointsResponseBodyAccessPointSet;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. Default: **1**.
    * 
    * @example
    * 1
@@ -142,7 +146,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. Maximum: **50**. Default: **10**.
    * 
    * @example
    * 10
@@ -158,7 +162,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

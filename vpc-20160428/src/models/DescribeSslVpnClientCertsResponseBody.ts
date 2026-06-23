@@ -75,7 +75,7 @@ export class DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeys extends $
 export class DescribeSslVpnClientCertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class DescribeSslVpnClientCertsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. This is used for paging.
    * 
    * @example
    * 10
@@ -100,7 +100,7 @@ export class DescribeSslVpnClientCertsResponseBody extends $dara.Model {
   sslVpnClientCertKeys?: DescribeSslVpnClientCertsResponseBodySslVpnClientCertKeys;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 1

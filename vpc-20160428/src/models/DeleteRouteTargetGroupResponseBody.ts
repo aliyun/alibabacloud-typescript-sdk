@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRouteTargetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF

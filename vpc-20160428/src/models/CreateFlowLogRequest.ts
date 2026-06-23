@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateFlowLogRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class CreateFlowLogRequestTag extends $dara.Model {
 export class CreateFlowLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The sampling interval of the flow log. Unit: seconds. Valid values: **1**, **5**, and **10** (default).
+   * The sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10** (default).
    * 
    * @example
    * 10
@@ -75,14 +75,20 @@ export class CreateFlowLogRequest extends $dara.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @remarks
+   * The IP version of the traffic captured by the flow log.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   /**
    * @remarks
-   * The name of the Logstore that stores the captured traffic data.
-   * 
-   * *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start and end with a lowercase letter or a digit.
-   * *   The name must be 3 to 63 characters in length.
+   * The name of the Logstore that stores the captured traffic.
+   * - The Logstore name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * - The name must start and end with a lowercase letter or digit.
+   * - The name must be 3 to 63 characters in length.
    * 
    * @example
    * FlowLogStore
@@ -92,11 +98,10 @@ export class CreateFlowLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the project that stores the captured traffic data.
-   * 
-   * *   The name can contain only lowercase letters, digits, and hyphens (-).
-   * *   The name must start and end with a lowercase letter or a digit.
-   * *   The name must be 3 to 63 characters in length.
+   * The name of the project that manages the captured traffic.
+   * - The project name can contain only lowercase letters, digits, and hyphens (-).
+   * - The name must start and end with a lowercase letter or digit.
+   * - The name must be 3 to 63 characters in length.
    * 
    * @example
    * FlowLogProject
@@ -104,7 +109,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the region where you want to create the flow log. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the flow log. You can call [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -122,7 +127,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource whose traffic you want to capture.
+   * The ID of the resource from which to capture traffic.
    * 
    * This parameter is required.
    * 
@@ -134,11 +139,13 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource whose traffic you want to capture. Valid values:
+   * The type of resource from which to capture traffic. Valid values:
    * 
-   * *   **NetworkInterface**: elastic network interface (ENI)
-   * *   **VSwitch**: all ENIs in a vSwitch
-   * *   **VPC**: all ENIs in a virtual private cloud (VPC)
+   * - **NetworkInterface**: network interface controller (NIC).
+   *   
+   * - **VSwitch**: all network interface controllers (NICs) in a vSwitch.
+   *   
+   * - **VPC**: all network interface controllers (NICs) in a virtual private cloud (VPC).
    * 
    * This parameter is required.
    * 
@@ -148,24 +155,26 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag of the resource.
+   * The tags of the resource.
    */
   tag?: CreateFlowLogRequestTag[];
   /**
    * @remarks
-   * The scope of the traffic that you want to capture. Valid values:
+   * The traffic path to capture. Valid values:
    * 
-   * *   **all**: all traffic.
-   * *   **internetGateway**: Internet traffic.
+   * - **all**: captures all traffic.
+   * - **internetGateway**: captures Internet traffic.
    */
   trafficPath?: string[];
   /**
    * @remarks
-   * The type of traffic that you want to capture. Valid values:
+   * The traffic type to collect. Valid values:
    * 
-   * *   **All**: all traffic
-   * *   **Allow**: traffic that is allowed
-   * *   **Drop**: traffic that is rejected
+   * - **All**: all traffic.
+   *   
+   * - **Allow**: traffic allowed by access control.
+   *   
+   * - **Drop**: traffic denied by access control.
    * 
    * This parameter is required.
    * 

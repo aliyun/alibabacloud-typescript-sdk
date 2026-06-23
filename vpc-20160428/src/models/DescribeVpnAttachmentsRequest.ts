@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of resource that is associated with the IPsec-VPN connection. Default value: **CEN**.
+   * The type of resource to which the IPsec-VPN connection is attached. Default value: **CEN**.
    * 
-   * Set the value to **CEN**, which specifies to query IPsec-VPN connections associated with the transit router.
+   * The value can only be **CEN**, which indicates that the system queries IPsec-VPN connections that are associated with transit router instances.
    * 
    * @example
    * CEN
@@ -17,7 +17,7 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page when paging is used. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -33,9 +33,9 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the IPsec-VPN connection is established.
+   * The region ID of the IPsec-VPN connection.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
    * @remarks
    * The ID of the IPsec-VPN connection.
    * 
-   * >  If you do not specify an IPsec-VPN connection ID, all IPsec-VPN connections associated with a transit router in the region are queried.
+   * > If you do not specify the IPsec-VPN connection ID, the system queries information about all IPsec-VPN connections that are associated with transit router instances in the current region.
    * 
    * @example
    * vco-p0w2jpkhi2eeop6q6****

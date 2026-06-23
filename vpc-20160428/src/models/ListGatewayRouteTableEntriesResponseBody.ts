@@ -7,8 +7,8 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
    * @remarks
    * Indicates whether the route is available. Valid values:
    * 
-   * *   **0**: unavailable
-   * *   **1**: available
+   * - **0**: unavailable.
+   * - **1**: available.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
   enabled?: string;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The instance ID of the next hop.
    * 
    * @example
    * vpn-bp10zyaph5cc8b7c7****
@@ -24,16 +24,16 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
   nextHopId?: string;
   /**
    * @remarks
-   * The type of the next hop. Valid values:
+   * The next hop type. Valid values:
    * 
-   * *   **Instance** (default): an ECS instance
-   * *   **HaVip**: a high-availability virtual IP address (HaVip).
-   * *   **VpnGateway**: a VPN gateway
-   * *   **NatGateway**: a NAT gateway
-   * *   **NetworkInterface**: a secondary ENI
-   * *   **RouterInterface**: a router interface
-   * *   **IPv6Gateway**: an IPv6 gateway
-   * *   **Attachment**: a transit router
+   * - **Instance** (default): ECS instance.
+   * - **HaVip**: high-availability virtual IP address (HaVip).
+   * - **VpnGateway**: VPN gateway.
+   * - **NatGateway**: NAT gateway.
+   * - **NetworkInterface**: secondary elastic network interfaces (ENIs).
+   * - **RouterInterface**: vRouter interface.
+   * - **IPv6Gateway**: IPv6 gateway.
+   * - **Attachment**: transit router.
    * 
    * @example
    * Instance
@@ -41,7 +41,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
   nextHopType?: string;
   /**
    * @remarks
-   * The weight of the route.
+   * The weight of the route entry.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
 export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels extends $dara.Model {
   /**
    * @remarks
-   * The name of the route entry.
+   * The description of the route entry.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry.
    * 
    * @example
    * 192.168.0.5
@@ -95,7 +95,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
    * @remarks
    * The name of the route entry.
    * 
-   * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * name
@@ -103,7 +103,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   name?: string;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The instance ID of the next hop.
    * 
    * @example
    * i-bp11gcl0sm85t9bi****
@@ -111,11 +111,11 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   nextHopId?: string;
   /**
    * @remarks
-   * The type of the next hop. Valid values:
+   * The next hop type. Valid values:
    * 
-   * *   **EcsInstance**: Elastic Compute Service (ECS) instance
-   * *   **NetworkInterface**: elastic network interfaces (ENIs).
-   * *   **Local**: local next hop
+   * - **EcsInstance**: ECS instance.
+   * - **NetworkInterface**: elastic network interfaces (ENIs).
+   * - **Local**: local.
    * 
    * @example
    * EcsInstance
@@ -123,16 +123,16 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   nextHopType?: string;
   /**
    * @remarks
-   * The information about the next hop.
+   * The next hop information.
    */
   nextHops?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops[];
   /**
    * @remarks
-   * The status of the route entry. Valid values:
+   * The status of the route entry.
    * 
-   * *   **Pending**
-   * *   **Available**
-   * *   **Modifying**
+   * - **Pending**: being configured.
+   * - **Available**: available.
+   * - **Modifying**: being modified.
    * 
    * @example
    * Available
@@ -177,15 +177,14 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
 export class ListGatewayRouteTableEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the routes in the gateway route table.
+   * The details of route entries in the gateway route table.
    */
   gatewayRouteEntryModels?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels[];
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

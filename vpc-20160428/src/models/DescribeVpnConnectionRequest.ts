@@ -7,9 +7,9 @@ export class DescribeVpnConnectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPsec-VPN connection is created.
+   * The CIDR block on the Alibaba Cloud side.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * Multiple CIDR blocks are separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -21,7 +21,7 @@ export class DescribeVpnConnectionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the IPsec-VPN connection.
+   * The request ID.
    * 
    * This parameter is required.
    * 

@@ -605,7 +605,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $dara.Model {
    * The peer CA certificate when a ShangMi (SM) VPN gateway is used to create the IPsec-VPN connection.
    * 
    * @example
-   * c20ycDI1NnYxIENBIChURVNUIFN****
+   * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
    */
   remoteCaCert?: string;
   /**

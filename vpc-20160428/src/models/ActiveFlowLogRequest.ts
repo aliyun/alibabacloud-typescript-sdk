@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActiveFlowLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the flow log.
+   * The flow log ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ActiveFlowLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where you want to create the flow log. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the flow log. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 

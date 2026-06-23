@@ -5,19 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatGatewayAssociateNetworkInterfacesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key.
+   * The key of the filter. Valid values:
    * 
-   * *   ResourceId
-   * 
-   * >  Specify the service resource ID in the Value field.
-   * 
-   * *   NetworkInterfaceId
-   * 
-   * >  Specify the ENI ID in the Value field.
-   * 
-   * *   ResourceOwnerId
-   * 
-   * >  Specify the UID of the account to which the service resource belongs.
+   * - ResourceId
+   * >Set Value to the ID of the EPS resource that you want to query.
+   * - NetworkInterfaceId
+   * >Set Value to the ID of the elastic network interface (ENI) that you want to query.
+   * - ResourceOwnerId
+   * >Set Value to the UID of the user to whom the EPS resource belongs for resource ownership query.
    * 
    * @example
    * ResourceId
@@ -25,7 +20,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequestFilter extends $
   key?: string;
   /**
    * @remarks
-   * Separate multiple values with commas (,).
+   * The filter value. You can specify multiple values separated by commas (,).
    * 
    * @example
    * ep-8psre8c8936596cd****
@@ -57,9 +52,9 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequestFilter extends $
 export class DescribeNatGatewayAssociateNetworkInterfacesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key You can specify at most 20 tag keys. It cannot be an empty string,
+   * The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -67,9 +62,9 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequestTag extends $dar
   key?: string;
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. It cannot be an empty string.
+   * The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -103,9 +98,9 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The **RequestId** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
@@ -113,12 +108,12 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
   clientToken?: string;
   /**
    * @remarks
-   * The filter information. You can specify a filter key and a filter value.
+   * The filter information. You can specify key-value pairs to filter the query results.
    */
   filter?: DescribeNatGatewayAssociateNetworkInterfacesRequestFilter[];
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -126,7 +121,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT gateway to query.
    * 
    * This parameter is required.
    * 
@@ -136,10 +131,11 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
   natGatewayId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid value:
+   * The pagination token. Valid values:
    * 
-   * *   If no value is returned for NetToken, you do not need to specify this parameter.
-   * *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - If this is the first query or no subsequent query is required, you do not need to specify this parameter.
+   * 
+   * - If a subsequent query is required, set the value to the **NextToken** value returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -149,9 +145,9 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Internet NAT gateway.
+   * The region ID of the NAT gateway.
    * 
-   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -171,7 +167,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $dara.M
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about resource tags.
+   * The list of resource tags.
    */
   tag?: DescribeNatGatewayAssociateNetworkInterfacesRequestTag[];
   static names(): { [key: string]: string } {
