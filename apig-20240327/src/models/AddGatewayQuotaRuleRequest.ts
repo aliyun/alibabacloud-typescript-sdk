@@ -11,6 +11,8 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @example
    * group1,group2
+   * 
+   * @deprecated
    */
   consumerGroupIds?: string[];
   /**
@@ -28,6 +30,11 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
    * false
    */
   overwrite?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  periodMultiplier?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -77,6 +84,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
       consumerIds: 'consumerIds',
       dryRun: 'dryRun',
       overwrite: 'overwrite',
+      periodMultiplier: 'periodMultiplier',
       periodType: 'periodType',
       quotaDimension: 'quotaDimension',
       quotaLimit: 'quotaLimit',
@@ -93,6 +101,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
       consumerIds: { 'type': 'array', 'itemType': 'string' },
       dryRun: 'boolean',
       overwrite: 'boolean',
+      periodMultiplier: 'number',
       periodType: 'string',
       quotaDimension: 'string',
       quotaLimit: 'number',

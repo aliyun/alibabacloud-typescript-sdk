@@ -6,11 +6,15 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @example
    * 1
+   * 
+   * @deprecated
    */
   consumerPageNumber?: string;
   /**
    * @example
    * 10
+   * 
+   * @deprecated
    */
   consumerPageSize?: string;
   withConsumers?: boolean;

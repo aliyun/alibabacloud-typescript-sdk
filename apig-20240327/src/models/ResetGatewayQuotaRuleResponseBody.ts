@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
+  conflictPeriodType?: string;
+  conflictType?: string;
   /**
    * @example
    * cs-d82n1g6m1hkm3xxxxxxx
@@ -15,6 +17,8 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   consumerName?: string;
   static names(): { [key: string]: string } {
     return {
+      conflictPeriodType: 'conflictPeriodType',
+      conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
     };
@@ -22,6 +26,8 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
 
   static types(): { [key: string]: any } {
     return {
+      conflictPeriodType: 'string',
+      conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
     };

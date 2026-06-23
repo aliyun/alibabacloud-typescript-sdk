@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -13,6 +39,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
    * 20
    */
   consumerCount?: number;
+  consumers?: GetGatewayQuotaRuleResponseBodyDataConsumers[];
   /**
    * @example
    * day
@@ -57,6 +84,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
     return {
       baseTimestamp: 'baseTimestamp',
       consumerCount: 'consumerCount',
+      consumers: 'consumers',
       periodType: 'periodType',
       quotaDimension: 'quotaDimension',
       quotaLimit: 'quotaLimit',
@@ -72,6 +100,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
     return {
       baseTimestamp: 'number',
       consumerCount: 'number',
+      consumers: { 'type': 'array', 'itemType': GetGatewayQuotaRuleResponseBodyDataConsumers },
       periodType: 'string',
       quotaDimension: 'string',
       quotaLimit: 'number',
@@ -84,6 +113,9 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.consumers)) {
+      $dara.Model.validateArray(this.consumers);
+    }
     super.validate();
   }
 

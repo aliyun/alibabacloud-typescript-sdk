@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
+  conflictPeriodType?: string;
+  conflictType?: string;
   /**
    * @example
    * cs-xxxxxx
@@ -15,6 +17,8 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   consumerName?: string;
   static names(): { [key: string]: string } {
     return {
+      conflictPeriodType: 'conflictPeriodType',
+      conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
     };
@@ -22,6 +26,8 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
 
   static types(): { [key: string]: any } {
     return {
+      conflictPeriodType: 'string',
+      conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
     };
@@ -81,7 +87,7 @@ export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
    * @example
    * true
    */
-  accepted?: string;
+  accepted?: boolean;
   conflictPreview?: AddGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
    * @example
@@ -104,7 +110,7 @@ export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accepted: 'string',
+      accepted: 'boolean',
       conflictPreview: AddGatewayQuotaRuleResponseBodyDataConflictPreview,
       dryRun: 'boolean',
       ruleId: 'string',

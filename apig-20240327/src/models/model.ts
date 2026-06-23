@@ -168,6 +168,7 @@ export { GetGatewayResponseBodyDataVpc } from './GetGatewayResponseBody';
 export { GetGatewayResponseBodyDataZonesVSwitch } from './GetGatewayResponseBody';
 export { GetGatewayResponseBodyDataZones } from './GetGatewayResponseBody';
 export { GetGatewayResponseBodyData } from './GetGatewayResponseBody';
+export { GetGatewayQuotaRuleResponseBodyDataConsumers } from './GetGatewayQuotaRuleResponseBody';
 export { GetGatewayQuotaRuleResponseBodyData } from './GetGatewayQuotaRuleResponseBody';
 export { GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems } from './GetGatewayQuotaRuleSubjectUsageResponseBody';
 export { GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails } from './GetGatewayQuotaRuleSubjectUsageResponseBody';

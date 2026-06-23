@@ -16,6 +16,8 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @example
    * group1,group2
+   * 
+   * @deprecated
    */
   consumerGroupIds?: string[];
   /**
@@ -25,9 +27,6 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   dryRun?: boolean;
   overwrite?: boolean;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 1000
    */
@@ -38,9 +37,6 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
    */
   removeIds?: string[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * team-rule
    */

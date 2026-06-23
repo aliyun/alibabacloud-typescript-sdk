@@ -155,7 +155,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Indicates whether mutual TLS (mTLS) authentication is enabled.
+   * Indicates whether mTLS mutual authentication is enabled.
    * 
    * @example
    * false
@@ -187,10 +187,11 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol type supported by the domain name. Valid values:
+   * The protocol type supported by the domain name.
    * 
-   * - HTTP: only HTTP is supported.
-   * - HTTPS: only HTTPS is supported.
+   * Valid values:
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
    * 
    * @example
    * HTTP

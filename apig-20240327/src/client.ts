@@ -98,6 +98,10 @@ export default class Client extends OpenApi {
       body["overwrite"] = request.overwrite;
     }
 
+    if (!$dara.isNull(request.periodMultiplier)) {
+      body["periodMultiplier"] = request.periodMultiplier;
+    }
+
     if (!$dara.isNull(request.periodType)) {
       body["periodType"] = request.periodType;
     }
@@ -5167,6 +5171,10 @@ export default class Client extends OpenApi {
       body["overwrite"] = request.overwrite;
     }
 
+    if (!$dara.isNull(request.periodMultiplier)) {
+      body["periodMultiplier"] = request.periodMultiplier;
+    }
+
     if (!$dara.isNull(request.periodType)) {
       body["periodType"] = request.periodType;
     }
@@ -5177,6 +5185,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timezone)) {
       body["timezone"] = request.timezone;
+    }
+
+    if (!$dara.isNull(request.windowAlignment)) {
+      body["windowAlignment"] = request.windowAlignment;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

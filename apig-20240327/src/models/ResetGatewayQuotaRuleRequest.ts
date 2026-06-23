@@ -14,15 +14,13 @@ export class ResetGatewayQuotaRuleRequest extends $dara.Model {
    */
   dryRun?: boolean;
   overwrite?: boolean;
+  periodMultiplier?: number;
   /**
    * @example
    * week
    */
   periodType?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 1000
    */
@@ -32,14 +30,17 @@ export class ResetGatewayQuotaRuleRequest extends $dara.Model {
    * UTC+8
    */
   timezone?: string;
+  windowAlignment?: string;
   static names(): { [key: string]: string } {
     return {
       conflictHash: 'conflictHash',
       dryRun: 'dryRun',
       overwrite: 'overwrite',
+      periodMultiplier: 'periodMultiplier',
       periodType: 'periodType',
       quotaLimit: 'quotaLimit',
       timezone: 'timezone',
+      windowAlignment: 'windowAlignment',
     };
   }
 
@@ -48,9 +49,11 @@ export class ResetGatewayQuotaRuleRequest extends $dara.Model {
       conflictHash: 'string',
       dryRun: 'boolean',
       overwrite: 'boolean',
+      periodMultiplier: 'number',
       periodType: 'string',
       quotaLimit: 'number',
       timezone: 'string',
+      windowAlignment: 'string',
     };
   }
 

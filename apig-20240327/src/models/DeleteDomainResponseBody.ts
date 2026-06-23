@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call link.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * A60EE5CA-1294-532A-9775-8D2FD1C6EFBF
