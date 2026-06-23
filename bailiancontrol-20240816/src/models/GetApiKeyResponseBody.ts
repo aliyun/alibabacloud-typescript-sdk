@@ -191,10 +191,6 @@ export class GetApiKeyResponseBody extends $dara.Model {
   code?: string;
   httpStatusCode?: number;
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   */
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {

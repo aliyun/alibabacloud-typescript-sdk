@@ -7,6 +7,8 @@ export class ListApiKeysRequest extends $dara.Model {
   description?: string;
   maxResults?: number;
   nextToken?: string;
+  order?: string;
+  orderBy?: string;
   skip?: number;
   uid?: string;
   workspaceId?: string;
@@ -16,6 +18,8 @@ export class ListApiKeysRequest extends $dara.Model {
       description: 'description',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      order: 'order',
+      orderBy: 'orderBy',
       skip: 'skip',
       uid: 'uid',
       workspaceId: 'workspaceId',
@@ -28,6 +32,8 @@ export class ListApiKeysRequest extends $dara.Model {
       description: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      order: 'string',
+      orderBy: 'string',
       skip: 'number',
       uid: 'string',
       workspaceId: 'string',

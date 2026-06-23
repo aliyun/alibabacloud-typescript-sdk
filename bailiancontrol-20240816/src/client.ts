@@ -101,6 +101,14 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.order)) {
+      query["order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
     if (!$dara.isNull(request.skip)) {
       query["skip"] = request.skip;
     }

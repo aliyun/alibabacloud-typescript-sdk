@@ -88,20 +88,12 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
 }
 
 export class ListApiKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * apiKey
-   */
   apiKeys?: ListApiKeysResponseBodyApiKeys[];
   code?: string;
   httpStatusCode?: number;
   maxResults?: number;
   message?: string;
   nextToken?: string;
-  /**
-   * @remarks
-   * Id of the request
-   */
   requestId?: string;
   success?: boolean;
   totalCount?: number;
