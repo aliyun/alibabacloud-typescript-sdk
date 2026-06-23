@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * The description of the network zone.
+   * The network zone description.
    * 
    * @example
    * test
@@ -21,12 +21,12 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks.
+   * The IPv4 CIDR blocks of the network zone.
    */
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * The IPv6 CIDR blocks.
+   * The IPv6 CIDR blocks of the network zone.
    */
   ipv6Cidrs?: string[];
   /**
@@ -47,7 +47,7 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * The type of the network zone.
+   * The network zone type.
    * 
    * @example
    * arn:alibaba:idaas:network:zone:classic
@@ -110,7 +110,7 @@ export class ListNetworkZonesResponseBody extends $dara.Model {
   networkZones?: ListNetworkZonesResponseBodyNetworkZones[];
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -118,7 +118,7 @@ export class ListNetworkZonesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the previous page of results.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample
@@ -134,7 +134,7 @@ export class ListNetworkZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceModuleStatusResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The status of the module.
+   * The module status.
    * 
    * @example
    * enabled
@@ -35,7 +35,7 @@ export class CheckInstanceModuleStatusResponseBodyModule extends $dara.Model {
 export class CheckInstanceModuleStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status update information.
+   * The module status information.
    */
   module?: CheckInstanceModuleStatusResponseBodyModule;
   /**

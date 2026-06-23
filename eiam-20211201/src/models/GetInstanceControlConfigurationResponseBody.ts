@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig extends $dara.Model {
   /**
    * @remarks
-   * The human verification type.
+   * The CAPTCHA type.
    * 
    * @example
    * urn:alibaba:idaas:humanverification:alibaba-cloud-jigsaw-verification
@@ -35,7 +35,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements extends $dara.Model {
   /**
    * @remarks
-   * The element name.
+   * The name of the instance control item.
    * 
    * @example
    * human_verification
@@ -43,12 +43,12 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
   elementName?: string;
   /**
    * @remarks
-   * The human verification configuration.
+   * The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) authenticate configuration.
    */
   humanVerificationConfig?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig;
   /**
    * @remarks
-   * The status of the control element.
+   * The status of the instance control item.
    * 
    * @example
    * enabled
@@ -85,7 +85,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of control elements.
+   * The instance control configuration.
    */
   controlElements?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements[];
   static names(): { [key: string]: string } {

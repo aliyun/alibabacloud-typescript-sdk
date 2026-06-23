@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the user associated with the conditional access policy.
+   * The user ID associated with the conditional access policy.
    * 
    * This parameter is required.
    * 

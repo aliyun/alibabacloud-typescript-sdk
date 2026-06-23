@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConditionalAccessPolicyRequestConditionsConfigApplications extends $dara.Model {
   /**
    * @remarks
-   * Excluded applications
+   * Excluded applications.
    */
   excludeApplications?: string[];
   /**
    * @remarks
-   * Included applications
+   * Included applications.
    */
   includeApplications?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class CreateConditionalAccessPolicyRequestConditionsConfigApplications ex
 export class CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * Excluded network zones
+   * Excluded network zones.
    */
   excludeNetworkZones?: string[];
   /**
    * @remarks
-   * Included network zones
+   * Included network zones.
    */
   includeNetworkZones?: string[];
   static names(): { [key: string]: string } {
@@ -85,32 +85,32 @@ export class CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones ex
 export class CreateConditionalAccessPolicyRequestConditionsConfigUsers extends $dara.Model {
   /**
    * @remarks
-   * Excluded user groups
+   * Excluded user groups.
    */
   excludeGroups?: string[];
   /**
    * @remarks
-   * Excluded organizations
+   * Excluded organizational units.
    */
   excludeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Excluded users
+   * Excluded users.
    */
   excludeUsers?: string[];
   /**
    * @remarks
-   * Included user groups
+   * Included user groups.
    */
   includeGroups?: string[];
   /**
    * @remarks
-   * Included organizations
+   * Included organizational units.
    */
   includeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Selected user
+   * Included users.
    */
   includeUsers?: string[];
   static names(): { [key: string]: string } {
@@ -165,17 +165,17 @@ export class CreateConditionalAccessPolicyRequestConditionsConfigUsers extends $
 export class CreateConditionalAccessPolicyRequestConditionsConfig extends $dara.Model {
   /**
    * @remarks
-   * Target applications for the conditional access policy
+   * Conditional access policy target applications.
    */
   applications?: CreateConditionalAccessPolicyRequestConditionsConfigApplications;
   /**
    * @remarks
-   * Network zones for conditional access policy
+   * Conditional access policy network zones.
    */
   networkZones?: CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones;
   /**
    * @remarks
-   * Target users of the conditional access policy
+   * Conditional access policy target users.
    */
   users?: CreateConditionalAccessPolicyRequestConditionsConfigUsers;
   static names(): { [key: string]: string } {
@@ -215,7 +215,7 @@ export class CreateConditionalAccessPolicyRequestConditionsConfig extends $dara.
 export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable session reuse
+   * Specifies whether to enable session reuse.
    * 
    * @example
    * enabled
@@ -223,11 +223,10 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * Decision action for the conditional access policy, with the following options:
+   * Conditional access policy decision action. Valid values:
    * 
-   * - allow: Allow.
-   * 
-   * - deny: Deny.
+   * - allow: allow.
+   * - deny: deny.
    * 
    * @example
    * allow or deny
@@ -235,11 +234,10 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   effect?: string;
   /**
    * @remarks
-   * Re-authentication interval (in seconds) for the conditional access policy
+   * Conditional access policy re-authentication interval (seconds).
    * 
-   * - Maximum MFA re-authentication interval: 86400
-   * 
-   * - Minimum MFA re-authentication interval: 300
+   * - Maximum MFA authentication interval: 86400.
+   * - Minimum MFA authentication interval: 300.
    * 
    * @example
    * 500
@@ -247,24 +245,19 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   mfaAuthenticationIntervalSeconds?: number;
   /**
    * @remarks
-   * Allowed MFA types for the conditional access policy, with the following options:
-   * 
-   * - ia_otp_sms: SMS verification code
-   * 
-   * - ia_otp_email: Email verification code
-   * 
-   * - ia_totp: OTP dynamic password
-   * 
-   * - ia_webauthn: WebAuthn
+   * MFA types allowed by the conditional access policy. Valid values:
+   * - ia_otp_sms: SMS verification code.
+   * - ia_otp_email: email verification code.
+   * - ia_totp: OTP dynamic password.
+   * - ia_webauthn: WebAuthn.
    */
   mfaAuthenticationMethods?: string[];
   /**
    * @remarks
-   * MFA type for the conditional access policy, with the following options:
+   * Conditional access policy MFA type. Valid values:
    * 
-   * - directly_access: Direct access
-   * 
-   * - mfa_required: MFA required
+   * - directly_access: direct access.
+   * - mfa_required: MFA required.
    * 
    * @example
    * directly_access
@@ -305,7 +298,7 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
 export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Idempotent token.
+   * Idempotency token.
    * 
    * @example
    * client-token-example
@@ -313,7 +306,7 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Conditional access policy name
+   * Conditional access policy name.
    * 
    * This parameter is required.
    * 
@@ -323,9 +316,9 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   conditionalAccessPolicyName?: string;
   /**
    * @remarks
-   * Type of the conditional access policy, with the following options:
+   * Conditional access policy type. Valid values:
    * 
-   * arn:alibaba:idaas:authn:access:policy:system: System policy.
+   * arn:alibaba:idaas:authn:access:policy:system: system policy.
    * 
    * This parameter is required.
    * 
@@ -335,19 +328,19 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   conditionalAccessPolicyType?: string;
   /**
    * @remarks
-   * Condition content configuration for the conditional access policy
+   * Conditional access policy condition configuration.
    */
   conditionsConfig?: CreateConditionalAccessPolicyRequestConditionsConfig;
   /**
    * @remarks
-   * Action configuration for the conditional access policy
+   * Conditional access policy action configuration.
    */
   decisionConfig?: CreateConditionalAccessPolicyRequestDecisionConfig;
   /**
    * @remarks
-   * Execution type of the conditional access policy, with the following options:
+   * Conditional access policy execution type. Valid values:
    * 
-   * enforcement: Enforce the policy.
+   * enforcement: enforcement policy.
    * 
    * This parameter is required.
    * 
@@ -357,7 +350,7 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   decisionType?: string;
   /**
    * @remarks
-   * Description of the conditional access policy
+   * Conditional access policy description.
    * 
    * @example
    * Test description
@@ -365,9 +358,9 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Execution point of the conditional access policy, with the following options:
+   * Conditional access policy evaluation point. Valid values:
    * 
-   * - arn:alibaba:idaas:authn:access:rule:eval_at:after_step1: Allow.
+   * - arn:alibaba:idaas:authn:access:rule:eval_at:after_step1: allow.
    * 
    * This parameter is required.
    * 
@@ -387,7 +380,9 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Priority of the conditional access policy, lower values indicate higher priority Minimum value: 1 Maximum value: 100
+   * Conditional access policy priority. A smaller value indicates a higher priority.
+   * Minimum value: 1.
+   * Maximum value: 100.
    * 
    * @example
    * 1

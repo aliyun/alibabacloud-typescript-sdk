@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the network domain associated with the application.
+   * The ID of the network zone associated with the application.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * The token used for the next query.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -41,7 +41,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token used to query the previous page.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource entity that is associated with the authorized resource.
+   * The ID of the resource entity associated with the authorized resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,9 +13,9 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity that is associated with the authorized resource. Valid value:
+   * The type of the resource entity associated with the authorized resource. Valid values:
    * 
-   * - cloud_account_role: a cloud role
+   * - cloud_account_role: cloud role.
    * 
    * @example
    * cloud_account_role
@@ -39,7 +39,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource entity that is associated with the authorized resource belongs.
+   * The ID of the cloud account to which the resource entity associated with the authorized resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx

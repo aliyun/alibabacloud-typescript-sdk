@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserToAuthorizationRuleRequestValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704062061000
@@ -13,7 +13,7 @@ export class AddUserToAuthorizationRuleRequestValidityPeriod extends $dara.Model
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -55,7 +55,7 @@ export class AddUserToAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * A client token that you provide to ensure the idempotence of the request. Make sure that the client token is unique for each request. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -85,16 +85,14 @@ export class AddUserToAuthorizationRuleRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter is valid only when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: AddUserToAuthorizationRuleRequestValidityPeriod;
   /**
    * @remarks
-   * The type of the validity period for the relationship. Valid values:
-   * 
-   * - permanent: The authorization is permanent.
-   * 
-   * - time_bound: The authorization is valid for a custom time range.
+   * The validity type of the relationship. Valid values:
+   * - permanent: permanent
+   * - time_bound: custom time range.
    * 
    * This parameter is required.
    * 

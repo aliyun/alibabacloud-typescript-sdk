@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointAvailableZonesResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * The name of the zone.
+   * The zone name.
    * 
    * @example
    * China (Hangzhou) Zone J

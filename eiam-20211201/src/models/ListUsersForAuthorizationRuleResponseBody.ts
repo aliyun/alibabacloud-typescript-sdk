@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. This is a UNIX timestamp in milliseconds.
+   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extend
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. This is a UNIX timestamp in milliseconds.
+   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -61,16 +61,14 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
   userId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
    */
   validityPeriod?: ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod;
   /**
    * @remarks
-   * The type of the validity period for the relationship. Valid values:
-   * 
+   * The validity type of the relationship. Valid values:
    * - permanent: permanent
-   * 
-   * - time_bound: custom time range
+   * - time_bound: custom time range.
    * 
    * @example
    * permanent
@@ -109,7 +107,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
 export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query. This is the paging size.
    * 
    * @example
    * 20
@@ -117,7 +115,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned from the current call. Use this token to start the next paged query.
+   * The token returned for the next page of results. Use this token in the next request to retrieve the next page.
    * 
    * @example
    * NTxxxexample
@@ -133,7 +131,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100
@@ -141,7 +139,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of accounts.
+   * The list of account data.
    */
   users?: ListUsersForAuthorizationRuleResponseBodyUsers[];
   static names(): { [key: string]: string } {

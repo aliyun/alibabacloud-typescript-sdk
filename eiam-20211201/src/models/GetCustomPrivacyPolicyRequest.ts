@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomPrivacyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom privacy policy.
+   * The custom privacy policy ID.
    * 
    * This parameter is required.
    * 

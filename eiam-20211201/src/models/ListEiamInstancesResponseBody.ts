@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
    * Production environment
@@ -13,7 +13,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The private domain name of the instance Developer API.
+   * The private domain name of the developer API for the instance.
    * 
    * @example
    * eiam-developerapi-cn.vpc-proxy.aliyuncs.com
@@ -21,7 +21,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   developerAPIPrivateDomain?: string;
   /**
    * @remarks
-   * The public domain of the instance Developer API.
+   * The public domain name of the developer API for the instance.
    * 
    * @example
    * eiam-developerapi.cn-hangzhou.aliyuncs.com
@@ -47,19 +47,13 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
    * @remarks
    * The instance version.
    * 
-   * Valid values:
-   * 
-   * - EIAM 2.0
-   * 
-   * - EIAM 1.0
-   * 
    * @example
    * EIAM 2.0
    */
   instanceVersion?: string;
   /**
    * @remarks
-   * The private domain of the instance OpenAPI.
+   * The private domain name of the OpenAPI for the instance.
    * 
    * @example
    * eiam-cn.vpc-proxy.aliyuncs.com
@@ -67,7 +61,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   openAPIPrivateDomain?: string;
   /**
    * @remarks
-   * The public domain of the instance OpenAPI.
+   * The public domain name of the OpenAPI for the instance.
    * 
    * @example
    * eiam.cn-hangzhou.aliyuncs.com
@@ -75,7 +69,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   openAPIPublicDomain?: string;
   /**
    * @remarks
-   * The single sign-on (SSO) domain of the instance.
+   * The SSO domain name of the instance.
    * 
    * @example
    * xxxx.aliyunidaas.com
@@ -131,7 +125,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
 export class ListEiamInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance list.
+   * The list of instances.
    */
   instances?: ListEiamInstancesResponseBodyInstances[];
   /**

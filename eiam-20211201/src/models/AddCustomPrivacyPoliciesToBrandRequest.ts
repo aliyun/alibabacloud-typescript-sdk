@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomPrivacyPoliciesToBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the brand.
+   * The brand ID.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,14 @@ export class AddCustomPrivacyPoliciesToBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * A list of custom privacy policy IDs.
+   * The list of term IDs.
    * 
    * This parameter is required.
    */
   customPrivacyPolicyIds?: string[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

@@ -35,7 +35,7 @@ export class SetInstanceControlConfigurationRequestControlElementsHumanVerificat
 export class SetInstanceControlConfigurationRequestControlElements extends $dara.Model {
   /**
    * @remarks
-   * The name of the control item.
+   * The name of the instance control element.
    * 
    * @example
    * human_verification
@@ -43,12 +43,12 @@ export class SetInstanceControlConfigurationRequestControlElements extends $dara
   elementName?: string;
   /**
    * @remarks
-   * The CAPTCHA configuration.
+   * The CAPTCHA authenticate configuration.
    */
   humanVerificationConfig?: SetInstanceControlConfigurationRequestControlElementsHumanVerificationConfig;
   /**
    * @remarks
-   * The status of the control item.
+   * The status of the instance control element.
    * 
    * @example
    * enabled
@@ -85,7 +85,7 @@ export class SetInstanceControlConfigurationRequestControlElements extends $dara
 export class SetInstanceControlConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The control items for the instance.
+   * The instance control elements.
    */
   controlElements?: SetInstanceControlConfigurationRequestControlElements[];
   /**

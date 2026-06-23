@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesForUserResponseBodyAuthorizationRulesValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListAuthorizationRulesForUserResponseBodyAuthorizationRulesValidity
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -61,16 +61,14 @@ export class ListAuthorizationRulesForUserResponseBodyAuthorizationRules extends
   instanceId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
    */
   validityPeriod?: ListAuthorizationRulesForUserResponseBodyAuthorizationRulesValidityPeriod;
   /**
    * @remarks
-   * The type of the validity period of the relationship. Valid values:
-   * 
-   * - permanent: The relationship is permanent.
-   * 
-   * - time_bound: The relationship is valid for a custom time range.
+   * The validity type of the relationship. Valid values:
+   * - permanent: permanent
+   * - time_bound: custom time range.
    * 
    * @example
    * permanent
@@ -114,7 +112,7 @@ export class ListAuthorizationRulesForUserResponseBody extends $dara.Model {
   authorizationRules?: ListAuthorizationRulesForUserResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query. This parameter indicates the paging size.
    * 
    * @example
    * 20
@@ -122,7 +120,7 @@ export class ListAuthorizationRulesForUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is returned in this call and is used to retrieve the next page of results.
+   * The pagination token returned in this call. Use this token to query the next page.
    * 
    * @example
    * NTxxxexample
@@ -138,7 +136,7 @@ export class ListAuthorizationRulesForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

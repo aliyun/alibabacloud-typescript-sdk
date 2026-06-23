@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBrandResponseBodyBrand extends $dara.Model {
   /**
    * @remarks
-   * The brand ID.
+   * Brand ID.
    * 
    * @example
    * brand_xxxx
@@ -13,7 +13,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * The brand name.
+   * Brand name.
    * 
    * @example
    * Custom Brand
@@ -21,7 +21,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandName?: string;
   /**
    * @remarks
-   * The brand type.
+   * Brand type.
    * 
    * @example
    * user_custom
@@ -29,7 +29,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandType?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -37,7 +37,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The brand status.
+   * Brand status.
    * 
    * @example
    * enabled
@@ -75,12 +75,12 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
 export class GetBrandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The brand.
+   * Brand.
    */
   brand?: GetBrandResponseBodyBrand;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

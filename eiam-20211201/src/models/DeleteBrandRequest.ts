@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * The brand ID.
+   * Brand ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 

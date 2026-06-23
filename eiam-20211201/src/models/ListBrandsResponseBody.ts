@@ -75,12 +75,12 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
 export class ListBrandsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of brands.
+   * The list of brand data.
    */
   brands?: ListBrandsResponseBodyBrands[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -88,7 +88,7 @@ export class ListBrandsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -96,7 +96,7 @@ export class ListBrandsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the previous page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * PTxxxexample
@@ -112,7 +112,7 @@ export class ListBrandsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

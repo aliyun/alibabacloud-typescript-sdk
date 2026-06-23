@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomPrivacyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom privacy policy ID.
+   * The custom clause ID.
    * 
    * This parameter is required.
    * 

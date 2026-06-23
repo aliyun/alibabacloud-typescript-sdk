@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForAuthorizationRuleRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The name of the field to filter. Valid values:
+   * The name of the filter field. Valid values:
    * 
-   * - ApplicationId: The application ID.
+   * - ApplicationId: the application ID.
    * 
    * @example
    * ApplicationId
@@ -15,7 +15,7 @@ export class ListApplicationsForAuthorizationRuleRequestFilter extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The list of values for the filter field.
+   * The values of the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -72,11 +72,11 @@ export class ListApplicationsForAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records to return in a paged query.
+   * The maximum number of entries per page.
    * 
-   * - The default value is 20.
+   * - Default value: 20.
    * 
-   * - The maximum value cannot exceed 100.
+   * - Maximum value: 100.
    * 
    * @example
    * 20
@@ -84,9 +84,9 @@ export class ListApplicationsForAuthorizationRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to mark the start of the next page for a paged query.
+   * The pagination token that indicates the start position of the next page.
    * 
-   * - If you do not specify this parameter, the query starts from the first page.
+   * - If this parameter is not specified, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * The branding ID.
+   * The brand ID.
    * 
    * This parameter is required.
    * 

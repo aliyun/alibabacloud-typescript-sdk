@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListEiamInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID list.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region to which the instances belong.
    * 
    * @example
    * cn-hangzhou

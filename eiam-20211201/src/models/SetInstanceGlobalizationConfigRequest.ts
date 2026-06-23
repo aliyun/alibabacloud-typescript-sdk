@@ -15,7 +15,7 @@ export class SetInstanceGlobalizationConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language.
+   * The language type.
    * 
    * This parameter is required.
    * 

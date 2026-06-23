@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationResourcesResponseBodyAuthorizationResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated resource entity.
+   * The resource entity ID associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,9 +13,8 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the associated resource entity. Valid values:
-   * 
-   * - cloud_account_role: A cloud role.
+   * The resource entity type associated with the authorization resource. Valid values:
+   * - cloud_account_role: cloud role.
    * 
    * @example
    * cloud_account_role
@@ -23,7 +22,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityType?: string;
   /**
    * @remarks
-   * The authorized resource ID.
+   * The authorization resource ID.
    * 
    * @example
    * arres_01kgh3jvt7pk093rv6giu0c0qxxxx
@@ -39,7 +38,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the associated resource entity.
+   * The cloud account ID to which the resource entity associated with the authorization resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -87,12 +86,12 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
 export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of authorized resources.
+   * The list of authorization resources.
    */
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in the paged query. This is the paging size.
    * 
    * @example
    * 20
@@ -100,7 +99,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. This parameter is returned when the results are paged.
+   * The pagination token returned in this call. Use this token for the next page query.
    * 
    * @example
    * NTxxxexample
@@ -116,7 +115,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

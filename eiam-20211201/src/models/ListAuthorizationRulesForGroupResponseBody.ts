@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
+   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidit
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
+   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -66,11 +66,9 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRules extend
   validityPeriod?: ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPeriod;
   /**
    * @remarks
-   * The type of the validity period. Valid values:
-   * 
-   * - permanent: The authorization is permanent.
-   * 
-   * - time_bound: The authorization is valid within a custom time range.
+   * The validity type of the relationship. Valid values:
+   * - permanent: permanent
+   * - time_bound: custom time range.
    * 
    * @example
    * permanent
@@ -114,7 +112,7 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   authorizationRules?: ListAuthorizationRulesForGroupResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query. This parameter specifies the paging size.
    * 
    * @example
    * 20
@@ -122,7 +120,7 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next paged query. This token is returned in the response.
+   * The pagination token returned in this call. Use this token to query the next page.
    * 
    * @example
    * NTxxxexample
@@ -138,7 +136,7 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries returned.
    * 
    * @example
    * 100

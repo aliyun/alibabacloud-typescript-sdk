@@ -5,26 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of valid authentication IDs. The default is all ["ia_all"]
+   * The list of effective authentication source IDs. Default value: ["ia_all"].
    * 
-   * ia_all: All. If you fill in this value, you cannot fill in other values
-   * 
-   * ia_password: Account password login
-   * 
-   * ia_otp_sms: SMS verification code login method
-   * 
-   * ia_webauthn: WebAuthn authenticator login method
-   * 
-   * idp_xxx: Specific identity provider authentication method
+   * - ia_all: All authentication sources. If this value is specified, no other values can be specified.
+   * - ia_password: Account password logon.
+   * - ia_otp_sms: SMS verification code logon.
+   * - ia_webauthn: WebAuthn authenticator logon.
+   * - idp_xxx: Authentication method of a specific identity provider.
    */
   effectiveAuthenticationSourceIds?: string[];
   /**
    * @remarks
    * The action to take when a password expires. Valid values:
    * 
-   * *   forbid_login: Prohibit the user from using the password to log on to IDaaS.
-   * *   force_update_password: Force the user to change the password.
-   * *   remind_update_password: Remind the user to change the password.
+   * - forbid_login: Forbid logon.
+   * - force_update_password: Force password change.
+   * - remind_update_password: Remind password change.
    * 
    * @example
    * forbid_login
@@ -32,7 +28,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationAction?: string;
   /**
    * @remarks
-   * The methods for receiving password expiration notifications.
+   * The list of password expiration notification channels.
    * 
    * @example
    * login
@@ -40,7 +36,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationNotificationChannels?: string[];
   /**
    * @remarks
-   * The number of days before the expiration date during which password expiration notifications are sent. Unit: day.
+   * The advance notice period before password expiration. Unit: days.
    * 
    * @example
    * 7
@@ -48,10 +44,10 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationNotificationDuration?: number;
   /**
    * @remarks
-   * Indicates whether the password expiration notification feature is enabled. Valid values:
+   * The status of password expiration notification. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -59,10 +55,10 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationNotificationStatus?: string;
   /**
    * @remarks
-   * Indicates whether the password expiration feature is enabled. Valid values:
+   * The status of the password expiration configuration. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -70,7 +66,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationStatus?: string;
   /**
    * @remarks
-   * The number of days before which users must change the password to prevent password expiration. Unit: day.
+   * The grace period for forced password change after expiration. Unit: days.
    * 
    * @example
    * 3
@@ -78,7 +74,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordForcedUpdateDuration?: number;
   /**
    * @remarks
-   * The validity period of a password. Unit: day.
+   * The maximum validity period of a password. Unit: days.
    * 
    * @example
    * 180
@@ -128,12 +124,12 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
 export class GetPasswordExpirationConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password expiration configurations.
+   * The password expiration configuration.
    */
   passwordExpirationConfiguration?: GetPasswordExpirationConfigurationResponseBodyPasswordExpirationConfiguration;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceModuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier for the secondary module.
+   * The secondary module identifier.
    * 
    * @example
    * urn:alibaba:idaas:license:module:ud:customField
@@ -23,7 +23,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The identifier for the primary module.
+   * The primary module identifier.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   moduleKey?: string;
   /**
    * @remarks
-   * The identifier for the tertiary module.
+   * The tertiary module identifier.
    * 
    * @example
    * urn:alibaba:idaas:license:module:idp:alibaba:dingtalk:pull:advanced_configuration

@@ -85,12 +85,12 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
 export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPoliciesConditionsConfigUsers extends $dara.Model {
   /**
    * @remarks
-   * The excluded groups.
+   * The excluded user groups.
    */
   excludeGroups?: string[];
   /**
    * @remarks
-   * The excluded organizations.
+   * The excluded organizational units.
    */
   excludeOrganizationalUnits?: string[];
   /**
@@ -100,12 +100,12 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   excludeUsers?: string[];
   /**
    * @remarks
-   * The included groups.
+   * The included user groups.
    */
   includeGroups?: string[];
   /**
    * @remarks
-   * The included organizations.
+   * The included organizational units.
    */
   includeOrganizationalUnits?: string[];
   /**
@@ -223,7 +223,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * The action of the conditional access policy.
+   * The decision action of the conditional access policy.
    * 
    * @example
    * allow
@@ -231,7 +231,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   effect?: string;
   /**
    * @remarks
-   * The interval for repeated authentication, in seconds.
+   * The re-authentication interval of the conditional access policy, in seconds.
    * 
    * @example
    * 300
@@ -244,7 +244,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   mfaAuthenticationMethods?: string[];
   /**
    * @remarks
-   * The multi-factor authentication (MFA) type of the conditional access policy.
+   * The MFA type of the conditional access policy.
    * 
    * @example
    * directly_access
@@ -293,7 +293,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * The name of the conditional access policy.
+   * The conditional access policy name.
    * 
    * @example
    * policyName
@@ -309,7 +309,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   conditionalAccessPolicyType?: string;
   /**
    * @remarks
-   * The content of the conditional access policy.
+   * The conditional access policy conditions.
    */
   conditionsConfig?: ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPoliciesConditionsConfig;
   /**
@@ -343,7 +343,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   description?: string;
   /**
    * @remarks
-   * The policy enforcement point.
+   * The evaluation point of the conditional access policy.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
@@ -359,7 +359,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   instanceId?: string;
   /**
    * @remarks
-   * The last update time.
+   * The last updated time.
    * 
    * @example
    * 1741857554000
@@ -375,7 +375,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
   priority?: number;
   /**
    * @remarks
-   * The status of the conditional access policy.
+   * The enabled or disabled status of the conditional access policy.
    * 
    * @example
    * disabled
@@ -435,7 +435,7 @@ export class ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPo
 export class ListConditionalAccessPoliciesForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A collection of conditional access policies.
+   * The collection of conditional access policies.
    */
   conditionalAccessPolicies?: ListConditionalAccessPoliciesForUserResponseBodyConditionalAccessPolicies[];
   /**

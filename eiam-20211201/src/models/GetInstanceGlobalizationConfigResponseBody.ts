@@ -45,7 +45,7 @@ export class GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig exten
 export class GetInstanceGlobalizationConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The language and time zone configuration for the instance.
+   * The language and time zone configuration of the instance.
    */
   globalizationConfig?: GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig;
   /**

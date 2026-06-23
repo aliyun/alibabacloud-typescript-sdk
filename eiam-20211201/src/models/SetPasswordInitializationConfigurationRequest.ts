@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable forcible password change upon first logon. Valid values:
-   * 
-   * *   enabled
-   * *   disabled
+   * The password forced update status. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -26,7 +25,7 @@ export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
   passwordForcedUpdateStatus?: string;
   /**
    * @remarks
-   * The methods for receiving password initialization notifications.
+   * The list of password initialization notification channels.
    * 
    * @example
    * email
@@ -34,10 +33,9 @@ export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
   passwordInitializationNotificationChannels?: string[];
   /**
    * @remarks
-   * Specifies whether to enable password initialization. Valid values:
-   * 
-   * *   enabled
-   * *   disabled
+   * The password initialization configuration status. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * This parameter is required.
    * 
@@ -47,9 +45,8 @@ export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
   passwordInitializationStatus?: string;
   /**
    * @remarks
-   * The password initialization method. This parameter is required when PasswordInitializationStatus is set to enabled. Set the value to random.
-   * 
-   * *   random: A randomly generated password is used.
+   * The password initialization method. This parameter is required when PasswordInitializationStatus is set to enabled. Valid values:
+   * - random: Random.
    * 
    * @example
    * random

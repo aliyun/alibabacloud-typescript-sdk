@@ -10,12 +10,12 @@ export class ListInstancesRequest extends $dara.Model {
   crossRegionReplication?: string;
   /**
    * @remarks
-   * The edition of the license. Valid values:
-   * - free: Free edition.
-   * - trial: Trial edition.
-   * - scalability: Scalability edition.
-   * - standard: Standard edition.
-   * - enterprise: Enterprise edition.
+   * The license edition. Valid values:
+   * - free: Free Edition.
+   * - trial: Trial Edition.
+   * - scalability: Capability Expansion Edition.
+   * - standard: Standard Edition.
+   * - enterprise: Enterprise Edition.
    * 
    * @example
    * free
@@ -23,12 +23,12 @@ export class ListInstancesRequest extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * Instance ID list.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 20
@@ -44,7 +44,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Instance status. Valid values:
+   * The instance status. Valid values:
    * - creating: Being created.
    * - running: Running.
    * 

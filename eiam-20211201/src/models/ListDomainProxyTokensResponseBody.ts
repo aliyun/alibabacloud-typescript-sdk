@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Model {
   /**
    * @remarks
-   * The time when the proxy token for the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time of the domain proxy token, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -21,7 +21,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   domainId?: string;
   /**
    * @remarks
-   * The proxy token for the domain name.
+   * The domain proxy token.
    * 
    * @example
    * PTxxxxxxxx
@@ -29,7 +29,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   domainProxyToken?: string;
   /**
    * @remarks
-   * The ID of the proxy token for the domain name.
+   * The domain proxy token ID.
    * 
    * @example
    * pt_examplexxxx
@@ -45,7 +45,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The time when the proxy token for the domain name was last used. This value is a UNIX timestamp. Unit: milliseconds.
+   * The most recent usage time of the domain proxy token, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -53,8 +53,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * The status of the token. Valid values:
-   * 
+   * The token status. Valid values:
    * - enabled: The token is enabled.
    * 
    * - disabled: The token is disabled.
@@ -65,7 +64,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The time when the proxy token for the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+   * The most recent update time of the domain proxy token, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -109,7 +108,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
 export class ListDomainProxyTokensResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of proxy tokens for the domain name.
+   * A list of domain proxy token objects.
    */
   domainProxyTokens?: ListDomainProxyTokensResponseBodyDomainProxyTokens[];
   /**

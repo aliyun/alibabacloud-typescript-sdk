@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. This is a UNIX timestamp in milliseconds.
+   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidit
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. This is a UNIX timestamp in milliseconds.
+   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -61,16 +61,14 @@ export class ListApplicationsForAuthorizationRuleResponseBodyApplications extend
   instanceId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
    */
   validityPeriod?: ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidityPeriod;
   /**
    * @remarks
-   * The validity type of the relationship. Valid values:
-   * 
-   * - permanent: The relationship is permanent.
-   * 
-   * - time_bound: The relationship has a custom time range.
+   * The validity type of the association. Valid values:
+   * - permanent: permanent
+   * - time_bound: custom time range.
    * 
    * @example
    * permanent
@@ -114,7 +112,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   applications?: ListApplicationsForAuthorizationRuleResponseBodyApplications[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -122,7 +120,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The token returned from this call. Use this token for the next paged query.
+   * The pagination token returned in this call. Use this token for the next paged query.
    * 
    * @example
    * NTxxxexample
@@ -138,7 +136,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

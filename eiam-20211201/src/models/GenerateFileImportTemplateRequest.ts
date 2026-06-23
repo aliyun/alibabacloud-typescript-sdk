@@ -15,7 +15,10 @@ export class GenerateFileImportTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The synchronization target type.
+   * The synchronization target type. Valid values:
+   * - identity_provider: identity provider
+   * - application: application
+   * - eiam_v2_user_import: IDaaS 2.0 user import.
    * 
    * This parameter is required.
    * 

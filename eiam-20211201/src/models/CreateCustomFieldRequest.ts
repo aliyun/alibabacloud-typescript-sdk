@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   /**
    * @remarks
-   * The display name of the configuration item. The display name can be up to 128 characters in length.
+   * The display name of the configuration item.
+   * Maximum length: 128 characters.
    * 
    * @example
    * string
@@ -14,12 +15,10 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   /**
    * @remarks
    * The status of the configuration item. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
-   * - enabled: The configuration item is enabled.
-   * 
-   * - disabled: The configuration item is disabled.
-   * 
-   * If a configuration item is disabled, it is unavailable when you create or update the field value for an entity.
+   * If a configuration item is disabled, it cannot be used when creating or updating entity field values.
    * 
    * @example
    * string
@@ -27,7 +26,8 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The value of the configuration item. The value can be up to 64 characters in length.
+   * The display value of the configuration item.
+   * Maximum length: 64 characters.
    * 
    * @example
    * string
@@ -61,7 +61,7 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
 export class CreateCustomFieldRequestFieldDataConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of field configuration items. The list can contain up to 100 items.
+   * The list of field configuration items. Maximum number of items: 100.
    * 
    * @example
    * string
@@ -94,7 +94,8 @@ export class CreateCustomFieldRequestFieldDataConfig extends $dara.Model {
 export class CreateCustomFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * The default value of the field. If the field has configuration items, the default value must be one of the enabled configuration items. The default value can be up to 1024 characters in length.
+   * The default value of the field.
+   * If configuration items exist for the type, the default value must be one of the configuration items and must be in the enabled state. Maximum length: 1024 characters.
    * 
    * @example
    * string
@@ -102,7 +103,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * The description of the field. The description can be up to 512 characters in length.
+   * The field description.
+   * Maximum length: 512 characters.
    * 
    * @example
    * Field test
@@ -110,7 +112,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether to encrypt the field value. If you set this parameter to true, the system encrypts the data value before storing it.
+   * Specifies whether to encrypt the field.
+   * If this parameter is set to true, the data value is encrypted at the storage layer.
    * 
    * @example
    * false
@@ -118,9 +121,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The entity to which the field belongs. Valid value:
-   * 
-   * - user: an account.
+   * The entity to which the field belongs. Valid values:
+   * - user: account.
    * 
    * This parameter is required.
    * 
@@ -130,18 +132,15 @@ export class CreateCustomFieldRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The configuration items of the field value.
+   * The field value configuration items.
    */
   fieldDataConfig?: CreateCustomFieldRequestFieldDataConfig;
   /**
    * @remarks
    * The data type of the field. Valid values:
-   * 
-   * - string: a string.
-   * 
-   * - number: a number. The number can be up to 32 digits in length and can be a positive integer or a decimal.
-   * 
-   * - boolean: a Boolean value.
+   * - string: string.
+   * - number: number. Maximum length: 32 characters. Positive integers and decimals are supported.
+   * - boolean: Boolean.
    * 
    * This parameter is required.
    * 
@@ -151,7 +150,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   fieldDataType?: string;
   /**
    * @remarks
-   * The display name of the field. The display name can be up to 64 characters in length.
+   * The field display name.
+   * Maximum length: 64 characters.
    * 
    * This parameter is required.
    * 
@@ -161,13 +161,10 @@ export class CreateCustomFieldRequest extends $dara.Model {
   fieldDisplayName?: string;
   /**
    * @remarks
-   * The display type of the field. Valid values:
-   * 
-   * - input: a text box. This display type supports the string and number data types.
-   * 
-   * - select: a drop-down list. This display type supports the string and Boolean data types.
-   * 
-   * - checkbox: a check box. This display type supports the string data type.
+   * The field display type. Valid values:
+   * - input: text input box. Supported data types: string and number.
+   * - select: drop-down list. Supported data types: string and boolean.
+   * - checkbox: multi-select box. Supported data types: string.
    * 
    * This parameter is required.
    * 
@@ -177,7 +174,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   fieldDisplayType?: string;
   /**
    * @remarks
-   * The name of the field. The name can be up to 40 characters in length and can contain lowercase letters and underscores (_). It cannot start with an underscore (_).
+   * The field identifier.
+   * Maximum length: 40 characters. The value can contain lowercase letters and underscores, and cannot start with an underscore.
    * 
    * This parameter is required.
    * 
@@ -197,7 +195,7 @@ export class CreateCustomFieldRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the field is required.
+   * Specifies whether the field is required.
    * 
    * @example
    * false
@@ -205,7 +203,8 @@ export class CreateCustomFieldRequest extends $dara.Model {
   required?: boolean;
   /**
    * @remarks
-   * Indicates whether the field value is unique. If you set this parameter to true, the value of this field must be unique for the specified entity type.
+   * Specifies whether the field value is unique.
+   * If this parameter is set to true, the field value must be unique within the corresponding entity type and cannot be duplicated.
    * 
    * @example
    * false
@@ -213,13 +212,10 @@ export class CreateCustomFieldRequest extends $dara.Model {
   unique?: boolean;
   /**
    * @remarks
-   * The permission on the field in the portal. Valid values:
-   * 
-   * - hide: The field is not visible in the portal.
-   * 
-   * - read_only: The field is visible but cannot be modified in the portal.
-   * 
-   * - read_write: The field is visible and can be modified in the portal.
+   * The field permission on the portal side. Valid values:
+   * - hide: Not visible on the portal side.
+   * - read_only: Visible on the portal side but cannot be edited or updated.
+   * - read_write: Visible and editable on the portal side.
    * 
    * @example
    * false

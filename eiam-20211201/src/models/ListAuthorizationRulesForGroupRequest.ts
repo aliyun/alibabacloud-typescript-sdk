@@ -25,11 +25,11 @@ export class ListAuthorizationRulesForGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records to return on each page.
+   * The maximum number of entries per page.
    * 
-   * - If this parameter is not specified, the default value is 20.
+   * - Default value: 20.
    * 
-   * - The maximum value is 100.
+   * - Maximum value: 100.
    * 
    * @example
    * 20
@@ -37,7 +37,7 @@ export class ListAuthorizationRulesForGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the start of the next page for a paged query.
+   * The token that identifies the start position of the next page.
    * 
    * - If this parameter is not specified, the query starts from the first page.
    * 

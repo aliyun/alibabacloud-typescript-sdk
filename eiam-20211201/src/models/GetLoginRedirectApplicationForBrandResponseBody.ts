@@ -55,7 +55,7 @@ export class GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectAp
 export class GetLoginRedirectApplicationForBrandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the post-logon redirect application for the brand.
+   * The brand logon redirect application information.
    */
   brandLoginRedirectApplication?: GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectApplication;
   /**

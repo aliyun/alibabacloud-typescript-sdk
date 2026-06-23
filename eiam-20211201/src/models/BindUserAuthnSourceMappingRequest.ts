@@ -25,7 +25,7 @@ export class BindUserAuthnSourceMappingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The external mapping ID.
+   * The external association ID.
    * 
    * This parameter is required.
    * 

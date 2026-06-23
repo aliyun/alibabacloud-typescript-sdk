@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainProxyTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the proxy token of the domain name.
+   * The domain proxy token ID.
    * 
    * @example
    * pt_mtohn73423stghoivjmi4jwxxx

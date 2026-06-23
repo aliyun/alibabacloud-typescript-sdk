@@ -15,7 +15,7 @@ export class SetPasswordHistoryConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of recent passwords that can be retained. This parameter must be specified when PasswordHistoryStatus is set to enabled.
+   * The number of recent password records to retain. This parameter is required when PasswordHistoryStatus is set to enabled.
    * 
    * @example
    * 3
@@ -23,10 +23,9 @@ export class SetPasswordHistoryConfigurationRequest extends $dara.Model {
   passwordHistoryMaxRetention?: number;
   /**
    * @remarks
-   * Specifies whether to enable the password history feature. Valid values:
-   * 
-   * *   enabled
-   * *   disabled
+   * The status of the password history configuration. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * This parameter is required.
    * 

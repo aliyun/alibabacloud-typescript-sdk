@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPasswordHistoryConfigurationResponseBodyPasswordHistoryConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of recent passwords that are retained.
+   * The maximum number of recent password records to retain.
    * 
    * @example
    * 3
@@ -13,10 +13,9 @@ export class GetPasswordHistoryConfigurationResponseBodyPasswordHistoryConfigura
   passwordHistoryMaxRetention?: number;
   /**
    * @remarks
-   * Indicates whether the password history feature is enabled. Valid values:
-   * 
-   * *   enabled
-   * *   disabled
+   * The status of the password history configuration. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -48,7 +47,7 @@ export class GetPasswordHistoryConfigurationResponseBodyPasswordHistoryConfigura
 export class GetPasswordHistoryConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password history configurations.
+   * The password history check configuration.
    */
   passwordHistoryConfiguration?: GetPasswordHistoryConfigurationResponseBodyPasswordHistoryConfiguration;
   /**

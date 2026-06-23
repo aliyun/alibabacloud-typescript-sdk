@@ -15,7 +15,7 @@ export class GenerateDownloadUrlForSynchronizationJobRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the sync task.
+   * The synchronization task ID.
    * 
    * This parameter is required.
    * 

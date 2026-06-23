@@ -15,7 +15,7 @@ export class DeleteNetworkAccessEndpointRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Network Access Endpoint ID.
+   * The ID of the dedicated network access endpoint. Only network access endpoints whose NetworkEndpointType is private can be deleted.
    * 
    * This parameter is required.
    * 

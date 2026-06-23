@@ -55,12 +55,12 @@ export class ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsFor
 export class ListApplicationsForNetworkAccessEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of applications for the network access endpoint.
+   * The collection of applications under the network access endpoint.
    */
   applicationsForNetworkAccessEndpoint?: ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsForNetworkAccessEndpoint[];
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * NTxxxexample
@@ -76,7 +76,7 @@ export class ListApplicationsForNetworkAccessEndpointResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

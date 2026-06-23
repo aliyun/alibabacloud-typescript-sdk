@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForNetworkZoneResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -13,7 +13,7 @@ export class ListApplicationsForNetworkZoneResponseBodyApplications extends $dar
   applicationId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * cloudSSO
@@ -21,7 +21,7 @@ export class ListApplicationsForNetworkZoneResponseBodyApplications extends $dar
   applicationName?: string;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The IDaaS EIAM instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -60,7 +60,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   applications?: ListApplicationsForNetworkZoneResponseBodyApplications[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -68,7 +68,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the next query.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -76,7 +76,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token returned for the previous query.
+   * The pagination token returned by this call.
    * 
    * @example
    * PTxxxexample
@@ -84,7 +84,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   previousToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -92,7 +92,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

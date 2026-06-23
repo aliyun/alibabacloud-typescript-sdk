@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableInitDomainAutoRedirectRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 

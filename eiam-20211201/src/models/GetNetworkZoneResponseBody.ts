@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   /**
    * @remarks
-   * The description of the network zone.
+   * The network zone description.
    * 
    * @example
    * test_description
@@ -21,12 +21,12 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks.
+   * The IPv4 CIDR blocks of the network zone.
    */
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * The IPv6 CIDR blocks.
+   * The IPv6 CIDR blocks of the network zone.
    */
   ipv6Cidrs?: string[];
   /**
@@ -39,7 +39,7 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * The name of the network zone.
+   * The network zone name.
    * 
    * @example
    * test4_name
@@ -47,7 +47,7 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * The type of the network zone.
+   * The network zone type.
    * 
    * @example
    * arn:alibaba:idaas:network:zone:classic

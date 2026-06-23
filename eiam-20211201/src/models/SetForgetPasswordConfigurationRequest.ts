@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SetForgetPasswordConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The authentication channels. Valid values: email and sms.
+   * The list of authentication channels. Valid values:
+   * - email: email.
+   * - sms: text message.
    * 
    * @example
    * email
@@ -13,7 +15,9 @@ export class SetForgetPasswordConfigurationRequest extends $dara.Model {
   authenticationChannels?: string[];
   /**
    * @remarks
-   * The status of the forgot password feature. Valid values: enabled and disabled.
+   * The forgot password configuration status. Valid values:
+   * - enabled: enabled.
+   * - disabled: disabled.
    * 
    * This parameter is required.
    * 

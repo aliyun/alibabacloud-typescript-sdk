@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConditionalAccessPoliciesForNetworkZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneRequest extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * Application ID associated with the conditional access policy
+   * The network zone ID associated with the conditional access policy.
    * 
    * This parameter is required.
    * 

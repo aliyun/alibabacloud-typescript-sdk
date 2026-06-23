@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializationConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether forcible password change upon first logon is enabled. Valid values:
+   * The status of forced password update. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -16,7 +16,7 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
   passwordForcedUpdateStatus?: string;
   /**
    * @remarks
-   * The methods for receiving password initialization notifications.
+   * The list of password initialization notification channels.
    * 
    * @example
    * email
@@ -24,10 +24,10 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
   passwordInitializationNotificationChannels?: string[];
   /**
    * @remarks
-   * Indicates whether the password initialization feature is enabled. Valid values:
+   * The status of the password initialization configuration. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -35,9 +35,9 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
   passwordInitializationStatus?: string;
   /**
    * @remarks
-   * The password initialization method. Set the value to random.
+   * The password initialization method. Valid values:
    * 
-   * *   random: A randomly generated password is used.
+   * - random: Random.
    * 
    * @example
    * random
@@ -76,7 +76,7 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
 export class GetPasswordInitializationConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password initialization configurations.
+   * The password initialization configuration.
    */
   passwordInitializationConfiguration?: GetPasswordInitializationConfigurationResponseBodyPasswordInitializationConfiguration;
   /**

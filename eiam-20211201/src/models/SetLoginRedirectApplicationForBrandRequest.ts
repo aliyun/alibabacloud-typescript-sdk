@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLoginRedirectApplicationForBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * Application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetLoginRedirectApplicationForBrandRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The brand ID.
+   * Brand ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SetLoginRedirectApplicationForBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 

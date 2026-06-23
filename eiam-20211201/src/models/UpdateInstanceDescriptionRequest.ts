@@ -13,7 +13,7 @@ export class UpdateInstanceDescriptionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance whose description you want to modify.
+   * The instance ID of the instance whose description you want to modify.
    * 
    * This parameter is required.
    * 

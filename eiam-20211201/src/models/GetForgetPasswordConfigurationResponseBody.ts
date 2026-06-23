@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of authentication channels for the forgot password feature. This parameter is required when ForgetPasswordStatus is set to enabled. Valid values: email, sms, totp (one-time password), and web_authn (WebAuthn).
+   * The list of authentication channels for forgot password. This parameter is required when ForgetPasswordStatus is set to enabled. Valid values: email, sms (SMS), totp (OTP), and web_authn (WebAuthn).
    */
   authenticationChannels?: string[];
   /**
@@ -18,7 +18,7 @@ export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfigu
   enable?: boolean;
   /**
    * @remarks
-   * Indicates whether email is enabled as an authentication method for the forgot password feature. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+   * Indicates whether email is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
    * 
    * @example
    * false
@@ -26,7 +26,7 @@ export class GetForgetPasswordConfigurationResponseBodyOpenForgetPasswordConfigu
   enableEmail?: boolean;
   /**
    * @remarks
-   * Indicates whether SMS is enabled as an authentication method for the forgot password feature. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+   * Indicates whether SMS is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
    * 
    * @example
    * true

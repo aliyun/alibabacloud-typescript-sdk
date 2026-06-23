@@ -55,7 +55,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems extends $
 export class GetCustomFieldResponseBodyCustomFieldFieldDataConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of field configuration items.
+   * The list of field configuration items.
    */
   items?: GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfig extends $dara.
 export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the custom field, in UNIX timestamp format in milliseconds.
+   * The time when the extended field was created, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 17642960730
@@ -101,7 +101,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * The description of the custom field.
+   * The description of the extended field.
    * 
    * @example
    * test
@@ -125,7 +125,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * Field value configuration items.
+   * The field value configuration items.
    */
   fieldDataConfig?: GetCustomFieldResponseBodyCustomFieldFieldDataConfig;
   /**
@@ -186,7 +186,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   required?: boolean;
   /**
    * @remarks
-   * The status of the custom field.
+   * The status of the extended field.
    * 
    * @example
    * enabled
@@ -202,7 +202,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   unique?: boolean;
   /**
    * @remarks
-   * The last update time of the custom field, in UNIX timestamp format in milliseconds.
+   * The time when the extended field was last updated, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 17642960730
@@ -210,7 +210,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * User-side (portal) permissions.
+   * The user-side (portal-side) permission.
    * 
    * @example
    * read_only
@@ -275,7 +275,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
 export class GetCustomFieldResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Custom field information.
+   * The custom field information.
    */
   customField?: GetCustomFieldResponseBodyCustomField;
   /**

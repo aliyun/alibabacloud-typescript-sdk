@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkAccessEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the network access endpoint.
+   * Network access endpoint ID.
    * 
    * @example
    * nae_examplexxxx
@@ -13,7 +13,7 @@ export class CreateNetworkAccessEndpointResponseBody extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

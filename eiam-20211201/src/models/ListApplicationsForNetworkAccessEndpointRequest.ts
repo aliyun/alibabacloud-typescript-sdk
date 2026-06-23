@@ -15,7 +15,7 @@ export class ListApplicationsForNetworkAccessEndpointRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class ListApplicationsForNetworkAccessEndpointRequest extends $dara.Model
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample

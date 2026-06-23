@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Number of items per page in a paginated query.
+   * Number of rows per page in paginated queries.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next page query.
+   * Next page query token.
    * 
    * @example
    * NTxxxxxexample
@@ -31,7 +31,7 @@ export class ListConditionalAccessPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Token for the previous page query.
+   * Previous page query token.
    * 
    * @example
    * PTxxxxxexample

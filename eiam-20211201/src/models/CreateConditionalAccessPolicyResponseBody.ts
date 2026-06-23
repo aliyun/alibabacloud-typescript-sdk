@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConditionalAccessPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Conditional Access Policy ID
+   * Conditional access policy ID.
    * 
    * @example
    * cp_xxxxx

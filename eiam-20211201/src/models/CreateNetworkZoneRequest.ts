@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * Idempotency token.
    * 
    * @example
    * client-token-example
@@ -13,7 +13,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the network zone.
+   * Network zone description.
    * 
    * @example
    * Test description
@@ -21,7 +21,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks of the network zone.
+   * Network zone IPv4 CIDR blocks.
    * 
    * @example
    * 0.0.0.0/0
@@ -39,7 +39,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * The IPv6 CIDR blocks of the network zone.
+   * Network zone IPv6 CIDR blocks.
    * 
    * @example
    * ::/0
@@ -47,7 +47,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   ipv6Cidrs?: string[];
   /**
    * @remarks
-   * The name of the network zone.
+   * Network zone name.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * The type of the network zone.
+   * Network zone type.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   networkZoneType?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * VPC ID.
    * 
    * @example
    * vpc_xxxxx

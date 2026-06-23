@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was created, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1652085686179
@@ -21,7 +21,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -29,7 +29,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the organizational unit.
+   * The organizational unit ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -37,7 +37,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The name of the organization.
+   * The organizational unit name.
    * 
    * @example
    * name001
@@ -45,7 +45,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
   organizationalUnitName?: string;
   /**
    * @remarks
-   * The time when the organizational unit was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was last updated, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1652085686179
@@ -85,12 +85,12 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
 export class GetRootOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object of the organizational unit.
+   * The organizational unit data object.
    */
   organizationalUnit?: GetRootOrganizationalUnitResponseBodyOrganizationalUnit;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

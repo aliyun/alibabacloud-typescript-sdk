@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The endpoint address of the instance.
+   * The domain name of the instance.
    * 
    * @example
    * example-xxx.aliyunidaas.com
@@ -13,7 +13,7 @@ export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model 
   endpoint?: string;
   /**
    * @remarks
-   * The status of the instance endpoint. Valid values:
+   * The status of the instance domain name. Valid values:
    * - resolved: Resolved.
    * - unresolved: Not resolved.
    * 
@@ -47,7 +47,7 @@ export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model 
 export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
   /**
    * @remarks
-   * The default domain of the instance.
+   * The default domain name of the instance.
    * 
    * @example
    * login.example.com
@@ -55,7 +55,7 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
   defaultDomain?: string;
   /**
    * @remarks
-   * The initialization domain of the instance.
+   * The initialization domain name of the instance.
    * 
    * @example
    * rx72nxxx.example.com
@@ -63,7 +63,7 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
   initDomain?: string;
   /**
    * @remarks
-   * The auto-redirect status of the initialization domain. Valid values:
+   * The automatic redirect status of the initialization domain name. Valid values:
    * - enabled: Enabled.
    * 
    * - disabled: Disabled.
@@ -155,7 +155,7 @@ export class GetInstanceResponseBodyInstanceReplicationConfiguration extends $da
 export class GetInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created, in Unix timestamp format, measured in milliseconds.
+   * The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1550115455000
@@ -173,7 +173,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   crossRegionReplicationRole?: string;
   /**
    * @remarks
-   * The default endpoint of the instance. This field is no longer maintained. Use the DomainConfig related fields or refer to the domain list query API instead.
+   * The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the query domain name list operation instead.
    */
   defaultEndpoint?: GetInstanceResponseBodyInstanceDefaultEndpoint;
   /**
@@ -186,12 +186,12 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain-related configuration of the instance.
+   * The domain name configuration of the instance.
    */
   domainConfig?: GetInstanceResponseBodyInstanceDomainConfig;
   /**
    * @remarks
-   * The egress public IP address ranges of the instance. For example, during AD account synchronization, the EIAM instance accesses your AD service through these public IP address ranges.
+   * The public egress CIDR blocks of the instance. For example, during Active Directory (AD) account synchronization, the EIAM instance accesses your AD server through these public CIDR blocks.
    */
   egressAddresses?: string[];
   /**
@@ -209,7 +209,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The service code of the cloud service that manages the instance.
+   * The ServiceCode of the Alibaba Cloud service that manages the instance.
    * 
    * @example
    * sase
@@ -221,7 +221,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   replicationConfiguration?: GetInstanceResponseBodyInstanceReplicationConfiguration;
   /**
    * @remarks
-   * Indicates whether the instance is managed by a cloud service.
+   * Indicates whether the instance is managed by an Alibaba Cloud service.
    * 
    * @example
    * false

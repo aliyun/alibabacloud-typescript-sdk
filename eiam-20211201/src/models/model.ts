@@ -86,6 +86,8 @@ export { GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo } from '.
 export { GetApplicationTemplateResponseBodyApplicationTemplate } from './GetApplicationTemplateResponseBody';
 export { GetAuthorizationResourceResponseBodyAuthorizationResource } from './GetAuthorizationResourceResponseBody';
 export { GetAuthorizationRuleResponseBodyAuthorizationRule } from './GetAuthorizationRuleResponseBody';
+export { GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint } from './GetAuthorizationServerResponseBody';
+export { GetAuthorizationServerResponseBodyAuthorizationServer } from './GetAuthorizationServerResponseBody';
 export { GetBrandResponseBodyBrand } from './GetBrandResponseBody';
 export { GetClientPublicKeyResponseBodyClientPublicKey } from './GetClientPublicKeyResponseBody';
 export { GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason } from './GetCloudAccountResponseBody';
@@ -253,6 +255,7 @@ export { ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPer
 export { ListAuthorizationRulesForGroupResponseBodyAuthorizationRules } from './ListAuthorizationRulesForGroupResponseBody';
 export { ListAuthorizationRulesForUserResponseBodyAuthorizationRulesValidityPeriod } from './ListAuthorizationRulesForUserResponseBody';
 export { ListAuthorizationRulesForUserResponseBodyAuthorizationRules } from './ListAuthorizationRulesForUserResponseBody';
+export { ListAuthorizationServersResponseBodyAuthorizationServers } from './ListAuthorizationServersResponseBody';
 export { ListBrandsResponseBodyBrands } from './ListBrandsResponseBody';
 export { ListClientPublicKeysResponseBodyClientPublicKeys } from './ListClientPublicKeysResponseBody';
 export { ListCloudAccountRolesRequestFilter } from './ListCloudAccountRolesRequest';
@@ -907,6 +910,9 @@ export { GetAuthorizationResourceResponse } from './GetAuthorizationResourceResp
 export { GetAuthorizationRuleRequest } from './GetAuthorizationRuleRequest';
 export { GetAuthorizationRuleResponseBody } from './GetAuthorizationRuleResponseBody';
 export { GetAuthorizationRuleResponse } from './GetAuthorizationRuleResponse';
+export { GetAuthorizationServerRequest } from './GetAuthorizationServerRequest';
+export { GetAuthorizationServerResponseBody } from './GetAuthorizationServerResponseBody';
+export { GetAuthorizationServerResponse } from './GetAuthorizationServerResponse';
 export { GetBrandRequest } from './GetBrandRequest';
 export { GetBrandResponseBody } from './GetBrandResponseBody';
 export { GetBrandResponse } from './GetBrandResponse';
@@ -1087,6 +1093,9 @@ export { ListAuthorizationRulesForGroupResponse } from './ListAuthorizationRules
 export { ListAuthorizationRulesForUserRequest } from './ListAuthorizationRulesForUserRequest';
 export { ListAuthorizationRulesForUserResponseBody } from './ListAuthorizationRulesForUserResponseBody';
 export { ListAuthorizationRulesForUserResponse } from './ListAuthorizationRulesForUserResponse';
+export { ListAuthorizationServersRequest } from './ListAuthorizationServersRequest';
+export { ListAuthorizationServersResponseBody } from './ListAuthorizationServersResponseBody';
+export { ListAuthorizationServersResponse } from './ListAuthorizationServersResponse';
 export { ListBrandsRequest } from './ListBrandsRequest';
 export { ListBrandsResponseBody } from './ListBrandsResponseBody';
 export { ListBrandsResponse } from './ListBrandsResponse';
@@ -1402,6 +1411,12 @@ export { UpdateAuthorizationRuleGroupAttachmentResponse } from './UpdateAuthoriz
 export { UpdateAuthorizationRuleUserAttachmentRequest } from './UpdateAuthorizationRuleUserAttachmentRequest';
 export { UpdateAuthorizationRuleUserAttachmentResponseBody } from './UpdateAuthorizationRuleUserAttachmentResponseBody';
 export { UpdateAuthorizationRuleUserAttachmentResponse } from './UpdateAuthorizationRuleUserAttachmentResponse';
+export { UpdateAuthorizationServerRequest } from './UpdateAuthorizationServerRequest';
+export { UpdateAuthorizationServerResponseBody } from './UpdateAuthorizationServerResponseBody';
+export { UpdateAuthorizationServerResponse } from './UpdateAuthorizationServerResponse';
+export { UpdateAuthorizationServerDescriptionRequest } from './UpdateAuthorizationServerDescriptionRequest';
+export { UpdateAuthorizationServerDescriptionResponseBody } from './UpdateAuthorizationServerDescriptionResponseBody';
+export { UpdateAuthorizationServerDescriptionResponse } from './UpdateAuthorizationServerDescriptionResponse';
 export { UpdateBrandRequest } from './UpdateBrandRequest';
 export { UpdateBrandResponseBody } from './UpdateBrandResponseBody';
 export { UpdateBrandResponse } from './UpdateBrandResponse';

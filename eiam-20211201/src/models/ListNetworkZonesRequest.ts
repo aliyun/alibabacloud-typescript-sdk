@@ -15,7 +15,7 @@ export class ListNetworkZonesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -23,12 +23,12 @@ export class ListNetworkZonesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A collection of network IDs.
+   * The collection of network zone IDs.
    */
   networkZoneIds?: string[];
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -36,7 +36,7 @@ export class ListNetworkZonesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the previous page of results.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample

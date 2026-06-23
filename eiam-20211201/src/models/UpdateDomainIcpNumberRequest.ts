@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDomainIcpNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID.
+   * Domain ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateDomainIcpNumberRequest extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The ICP filing number associated with the domain name.
+   * The ICP filing number associated with the domain.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateDomainIcpNumberRequest extends $dara.Model {
   icpNumber?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 

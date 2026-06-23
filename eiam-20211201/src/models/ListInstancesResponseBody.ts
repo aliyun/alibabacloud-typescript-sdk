@@ -102,7 +102,7 @@ export class ListInstancesResponseBodyInstancesReplicationConfiguration extends 
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the instance, in Unix timestamp format, in milliseconds.
+   * The time when the instance was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1550115455000
@@ -138,7 +138,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceFailoverStatus?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_eypq6ljgyeuwmlw672sulxxxxx
@@ -146,7 +146,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The service code of the cloud service that manages the instance.
+   * The service code of the Alibaba Cloud service that manages the instance.
    * 
    * @example
    * sase
@@ -155,7 +155,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   replicationConfiguration?: ListInstancesResponseBodyInstancesReplicationConfiguration;
   /**
    * @remarks
-   * Indicates whether the instance is managed by a cloud service.
+   * Indicates whether the instance is managed by an Alibaba Cloud service.
    * 
    * @example
    * true
@@ -163,7 +163,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * Instance status. Valid values:
+   * The instance status. Valid values:
    * - creating: Being created.
    * - running: Running.
    * 
@@ -226,7 +226,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   instances?: ListInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -234,7 +234,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The time when the baseline was created.
+   * The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -13,7 +13,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   createTime?: number;
   /**
    * @remarks
-   * Public egress ip address range of the dedicated network endpoint This field is returned only when NetworkEndpointType is set to private.
+   * The private egress IP addresses of the dedicated network access endpoint. This parameter is returned only when NetworkEndpointType is set to private.
    * 
    * @example
    * 172.168.x.x
@@ -21,7 +21,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   egressPrivateIpAddresses?: string[];
   /**
    * @remarks
-   * Public egress ip address range of the shared network endpoint This field is returned only when networkEndpointType is set to shared.
+   * The public egress IP addresses of the shared network access endpoint. This parameter is returned only when NetworkEndpointType is set to shared.
    * 
    * @example
    * 203.0.XX.XX/27
@@ -29,7 +29,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   egressPublicIpAddresses?: string[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -37,7 +37,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   instanceId?: string;
   /**
    * @remarks
-   * The unique identifier of the network access endpoint.
+   * The dedicated network access endpoint ID.
    * 
    * @example
    * nae_examplexxx
@@ -45,7 +45,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * Private network endpoint name.
+   * The name of the dedicated network access endpoint.
    * 
    * @example
    * Xx-business VPC access endpoint
@@ -53,11 +53,10 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   networkAccessEndpointName?: string;
   /**
    * @remarks
-   * Type of the Network Endpoint Possible values:
+   * The type of the network access endpoint. Valid values:
    * 
-   * shared: Shared network endpoint
-   * 
-   * private: Dedicated network endpoint
+   * - shared: shared network access endpoint.
+   * - private: dedicated network access endpoint.
    * 
    * @example
    * private
@@ -65,7 +64,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The ID of the destination security group.
+   * The ID of the security group used by the dedicated network access endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -73,15 +72,12 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   securityGroupId?: string;
   /**
    * @remarks
-   * Status of the Network Endpoint Possible values:
+   * The status of the network access endpoint. Valid values:
    * 
-   * pending: Pending initialization
-   * 
-   * creating: Being created
-   * 
-   * running: Running
-   * 
-   * deleting: Being deleted
+   * - pending: pending initialization.
+   * - creating: being created.
+   * - running: running.
+   * - deleting: being deleted.
    * 
    * @example
    * running
@@ -89,7 +85,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   status?: string;
   /**
    * @remarks
-   * The time when the endpoint was updated.
+   * The time when the dedicated network access endpoint was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -97,7 +93,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   updateTime?: number;
   /**
    * @remarks
-   * List of specified vSwitches associated with the dedicated network endpoint connection.
+   * The list of vSwitches to which the dedicated network access endpoint is connected.
    * 
    * @example
    * vsw-examplexxx
@@ -105,7 +101,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC to which the dedicated network access endpoint is connected.
    * 
    * @example
    * vpc-examplexxx
@@ -113,7 +109,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   vpcId?: string;
   /**
    * @remarks
-   * The region ID of the outbound virtual private cloud (VPC).
+   * The region of the VPC to which the dedicated network access endpoint is connected.
    * 
    * @example
    * cn-hangzhou
@@ -176,12 +172,12 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
 export class GetNetworkAccessEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Network endpoint information.
+   * The network access endpoint information.
    */
   networkAccessEndpoint?: GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
