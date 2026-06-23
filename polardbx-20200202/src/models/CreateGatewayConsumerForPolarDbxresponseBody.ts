@@ -2,48 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeDBInstanceAttributeRequest extends $dara.Model {
+export class CreateGatewayConsumerForPolarDBXResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
-   * 
-   * This parameter is required.
+   * The instance name.
    * 
    * @example
-   * pxc-********
+   * pxc-**************
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
-   * 
-   * This parameter is required.
+   * Id of the request
    * 
    * @example
-   * cn-hangzhou
+   * A501A191-BD70-5E50-98A9-C2A486A82****
    */
-  regionId?: string;
+  requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The backend task ID.
    * 
    * @example
-   * rg-aekzaxhezhs5***
+   * 422922413
    */
-  resourceGroupId?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
+      requestId: 'string',
+      taskId: 'number',
     };
   }
 

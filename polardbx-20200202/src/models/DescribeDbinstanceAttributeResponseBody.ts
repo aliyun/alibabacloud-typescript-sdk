@@ -232,6 +232,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $da
 }
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Model {
+  aiGatewayEnabled?: string;
   /**
    * @remarks
    * Indicates whether the In-Memory Column Index feature is supported.
@@ -304,7 +305,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   cpuType?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 2021-08-31T08:56:25.000+0000
@@ -352,7 +353,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   DBType?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The database version.
    * 
    * @example
    * 5.5
@@ -360,7 +361,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   DBVersion?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * test instance
@@ -410,7 +411,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   dnNodeCount?: number;
   /**
    * @remarks
-   * The disk space of the DN data nodes, in GB.
+   * The disk space of the DN data node, in GB.
    */
   dnStorageSpace?: string;
   /**
@@ -424,7 +425,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time. The time is in the yyyy-MM-ddTHH:mm:ss.sss+0000 format (UTC).
+   * The expiration time. Format: yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
    * 
    * @example
    * 2022-08-31T16:00:00.000+0000
@@ -434,8 +435,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
    * @remarks
    * Indicates whether the instance has expired. Valid values:
    * 
-   * - **true**: The instance has expired.
-   * - **false**: The instance is running normally.
+   * - **true**: Expired.
+   * - **false**: Not expired.
    * 
    * @example
    * false
@@ -454,7 +455,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The instance DPI engine version code. This is an internal parameter.
+   * The engine version of the instance. This is an internal parameter.
    * 
    * @example
    * 18
@@ -467,7 +468,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   LTSVersions?: string[];
   /**
    * @remarks
-   * The latest kernel version supported by the instance.
+   * The latest minor engine version supported by the instance.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -477,12 +478,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
    * @remarks
    * The lock mode of the instance. Valid values:
    * 
-   * - **Unlock**: The instance is running normally.
-   * - **ManualLock**: The instance is manually locked.
-   * - **LockByExpiration**: The instance is automatically locked due to expiration.
-   * - **LockByRestoration**: The instance is automatically locked before a rollback.
-   * - **LockByDiskQuota**: The instance is automatically locked because the storage is full.
-   * - **LockReadInstanceByDiskQuota**: The read-only instance is automatically locked because the storage is full.
+   * - **Unlock**: Normal.
+   * - **ManualLock**: Manually locked.
+   * - **LockByExpiration**: Automatically locked due to instance expiration.
+   * - **LockByRestoration**: Automatically locked before instance rollback.
+   * - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
+   * - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
    * 
    * @example
    * Unlock
@@ -506,7 +507,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   maintainStartTime?: string;
   /**
    * @remarks
-   * The current kernel version.
+   * The current minor engine version.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -514,7 +515,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   minorVersion?: string;
   /**
    * @remarks
-   * The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
+   * The network type of the instance. Only VPC is supported, which indicates Virtual Private Cloud.
    * 
    * @example
    * VPC
@@ -565,7 +566,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-*********
@@ -589,7 +590,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
    * - **disabled**: Disabled.
    * - **enabled**: Enabled.
    * - **processing**: Being processed.
-   * - **unknown**: Unknown. The instance may be disconnected.
+   * - **unknown**: Unknown. This may be caused by the instance being unreachable.
    * 
    * @example
    * disabled
@@ -639,7 +640,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
   /**
    * @remarks
-   * The third zone.
+   * The tertiary zone for Three-zone deployment.
    * 
    * @example
    * cn-shenzhen-e
@@ -695,6 +696,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      aiGatewayEnabled: 'AiGatewayEnabled',
       canNotCreateColumnar: 'CanNotCreateColumnar',
       cnNodeClassCode: 'CnNodeClassCode',
       cnNodeCount: 'CnNodeCount',
@@ -759,6 +761,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      aiGatewayEnabled: 'string',
       canNotCreateColumnar: 'boolean',
       cnNodeClassCode: 'string',
       cnNodeCount: 'number',

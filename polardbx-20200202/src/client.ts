@@ -1161,6 +1161,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an AI gateway consumer for a PolarDB-X instance.
+   * 
+   * @remarks
+   * ***.
+   * 
+   * @param request - CreateGatewayConsumerForPolarDBXRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayConsumerForPolarDBXResponse
+   */
+  async createGatewayConsumerForPolarDBXWithOptions(request: $_model.CreateGatewayConsumerForPolarDBXRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGatewayConsumerForPolarDBXResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGatewayConsumerForPolarDBX",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGatewayConsumerForPolarDBXResponse>(await this.callApi(params, req, runtime), new $_model.CreateGatewayConsumerForPolarDBXResponse({}));
+  }
+
+  /**
+   * Creates an AI gateway consumer for a PolarDB-X instance.
+   * 
+   * @remarks
+   * ***.
+   * 
+   * @param request - CreateGatewayConsumerForPolarDBXRequest
+   * @returns CreateGatewayConsumerForPolarDBXResponse
+   */
+  async createGatewayConsumerForPolarDBX(request: $_model.CreateGatewayConsumerForPolarDBXRequest): Promise<$_model.CreateGatewayConsumerForPolarDBXResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGatewayConsumerForPolarDBXWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Global Database Network (GDN) instance.
    * 
    * @param request - CreateGdnInstanceRequest

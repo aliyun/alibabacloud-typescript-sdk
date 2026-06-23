@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeDBInstanceAttributeRequest extends $dara.Model {
+export class CreateGatewayConsumerForPolarDBXRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance ID. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -23,19 +23,10 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-aekzaxhezhs5***
-   */
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
       regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -43,7 +34,6 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
     return {
       DBInstanceName: 'string',
       regionId: 'string',
-      resourceGroupId: 'string',
     };
   }
 
