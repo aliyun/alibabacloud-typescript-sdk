@@ -7,17 +7,33 @@ import { GlobalSearchInformation } from "./GlobalSearchInformation";
 
 
 export class GlobalSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of web page content.
+   */
   pageItems?: GlobalPageItem[];
+  /**
+   * @remarks
+   * The query context.
+   */
   queryContext?: GlobalQueryContext;
   /**
    * @remarks
-   * requestId
+   * The request ID.
    * 
    * @example
    * 123456
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scenario-specific vertical API recall results.
+   */
   sceneItems?: GlobalSceneItem[];
+  /**
+   * @remarks
+   * The search information.
+   */
   searchInformation?: GlobalSearchInformation;
   static names(): { [key: string]: string } {
     return {

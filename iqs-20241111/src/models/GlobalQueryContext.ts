@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalQueryContextOriginalQuery extends $dara.Model {
   /**
+   * @remarks
+   * 页码
+   * 
    * @example
    * 1
    */
   page?: string;
+  /**
+   * @remarks
+   * 查询关键字
+   * 
+   * @example
+   * 特朗普关税最新消息
+   */
   query?: string;
   /**
+   * @remarks
+   * 时间范围
+   * 
    * @example
    * NoLimit
    */
@@ -40,6 +53,10 @@ export class GlobalQueryContextOriginalQuery extends $dara.Model {
 }
 
 export class GlobalQueryContext extends $dara.Model {
+  /**
+   * @remarks
+   * The initial query condition.
+   */
   originalQuery?: GlobalQueryContextOriginalQuery;
   static names(): { [key: string]: string } {
     return {

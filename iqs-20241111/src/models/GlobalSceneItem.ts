@@ -3,8 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GlobalSceneItem extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed information in JSON format.
+   * 
+   * @example
+   * {
+   * "snippet": "截至2025年3月7日，SpaceX星舰已经发射了8次，并取得4次成功及4次失败。",
+   * "snippetHighlighted": ["8次"],
+   * "title": "星舰发射任务列表"
+   * }
+   */
   detail?: string;
   /**
+   * @remarks
+   * The type of the vertical data.
+   * 
    * @example
    * answerBox
    */

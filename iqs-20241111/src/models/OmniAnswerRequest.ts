@@ -4,6 +4,10 @@ import { OmniSearchQuery } from "./OmniSearchQuery";
 
 
 export class OmniAnswerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Search information
+   */
   body?: OmniSearchQuery;
   static names(): { [key: string]: string } {
     return {

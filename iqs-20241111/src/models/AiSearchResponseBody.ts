@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The industry.
+   */
   industry?: string;
+  /**
+   * @remarks
+   * The page number.
+   */
   page?: number;
+  /**
+   * @remarks
+   * The query condition.
+   */
   query?: string;
+  /**
+   * @remarks
+   * The time range.
+   */
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +51,15 @@ export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $dara.M
 }
 
 export class AiSearchResponseBodyHeaderQueryContextRewrite extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether query rewriting is enabled.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The rewritten time range.
+   */
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,7 +85,15 @@ export class AiSearchResponseBodyHeaderQueryContextRewrite extends $dara.Model {
 }
 
 export class AiSearchResponseBodyHeaderQueryContext extends $dara.Model {
+  /**
+   * @remarks
+   * The original query.
+   */
   originalQuery?: AiSearchResponseBodyHeaderQueryContextOriginalQuery;
+  /**
+   * @remarks
+   * The rewritten query.
+   */
   rewrite?: AiSearchResponseBodyHeaderQueryContextRewrite;
   static names(): { [key: string]: string } {
     return {
@@ -94,17 +126,30 @@ export class AiSearchResponseBodyHeaderQueryContext extends $dara.Model {
 
 export class AiSearchResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The event name.
+   * 
    * @example
    * on_common_search_end
    */
   event?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 988021f0-951a-43d0-ba4d-785359e7e7be
    */
   eventId?: string;
+  /**
+   * @remarks
+   * The query context.
+   */
   queryContext?: AiSearchResponseBodyHeaderQueryContext;
   /**
+   * @remarks
+   * The response time, in milliseconds.
+   * 
    * @example
    * 1293
    */
@@ -140,8 +185,15 @@ export class AiSearchResponseBodyHeader extends $dara.Model {
 }
 
 export class AiSearchResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The header of the response.
+   */
   header?: AiSearchResponseBodyHeader;
   /**
+   * @remarks
+   * The payload of the response. The value is a JSON structure that varies by event type.
+   * 
    * @example
    * {"header":{"eventId":"6f617de0-204f-406f-a9be-34779c06d498","event":"on_common_search_start","responseTime":120},"payload":"","requestId":"715d01a0-de7e-42c3-abca-b901fcd79b39"}
    */

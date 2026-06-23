@@ -4,6 +4,10 @@ import { MultimodalSearchBody } from "./MultimodalSearchBody";
 
 
 export class MultimodalSearchRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query parameters and site blocking parameters
+   */
   body?: MultimodalSearchBody;
   static names(): { [key: string]: string } {
     return {

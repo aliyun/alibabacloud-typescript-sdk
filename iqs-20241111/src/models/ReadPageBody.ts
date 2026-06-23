@@ -4,17 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadPageBodyReadability extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to exclude all images.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   excludeAllImages?: boolean;
   /**
+   * @remarks
+   * Specifies whether to exclude all links.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   excludeAllLinks?: boolean;
+  /**
+   * @remarks
+   * The tags to exclude.
+   */
   excludedTags?: string[];
   /**
+   * @remarks
+   * Valid values:
+   * - none: does not remove any information. Default value: none.
+   * 
+   * - normal: removes irrelevant information from the target page, such as headers, footers, and navigation elements, based on a proprietary algorithm.
+   * 
+   * - article: extracts the main body content of the website based on a proprietary algorithm. This mode is suitable for blogs and news websites, but not for directory or navigation pages.
+   * 
    * @example
    * none
    */
@@ -50,26 +72,66 @@ export class ReadPageBodyReadability extends $dara.Model {
 }
 
 export class ReadPageBody extends $dara.Model {
+  /**
+   * @remarks
+   * The format of the parsing result.
+   * - rawHtml: the HTML of the target website.
+   * - html: the page content processed based on readabilityMode.
+   * - markdown: the Markdown content converted from HTML.
+   * - text: the text content extracted from HTML.
+   */
   formats?: string[];
+  /**
+   * @remarks
+   * You do not need to specify this parameter.
+   * 
+   * @example
+   * null
+   */
   location?: string;
   /**
+   * @remarks
+   * The maximum cache validity period. Unit: seconds. Default value: 1296000.
+   * 
+   * - If the cache duration is less than the value of maxAge, cached content is returned.
+   * 
+   * - If the value of maxAge is 0, caching is not used.
+   * 
    * @example
    * 1296000
    */
   maxAge?: number;
   /**
+   * @remarks
+   * The URL read timeout period. The value of pageTimeout must be less than the value of timeout.
+   * 
+   * Default value: 10000.
+   * 
    * @example
    * 10000
    */
   pageTimeout?: number;
+  /**
+   * @remarks
+   * The readability configuration for the parsing result.
+   */
   readability?: ReadPageBodyReadability;
   /**
+   * @remarks
+   * The end-to-end processing timeout period. Unit: ms.
+   * 
+   * Valid values: [0, 180000].
+   * 
+   * Default value: 60000.
+   * 
    * @example
    * 60000
    */
   timeout?: number;
   /**
    * @remarks
+   * The target URL to parse. The value must start with http:// or https://.
+   * 
    * This parameter is required.
    * 
    * @example

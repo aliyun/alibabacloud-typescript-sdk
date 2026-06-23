@@ -5,7 +5,15 @@ import { ValueAddedCredits } from "./ValueAddedCredits";
 
 
 export class UnifiedCostCredits extends $dara.Model {
+  /**
+   * @remarks
+   * The basic search service metering.
+   */
   search?: SearchCredits;
+  /**
+   * @remarks
+   * The value-added service metering.
+   */
   valueAdded?: ValueAddedCredits;
   static names(): { [key: string]: string } {
     return {

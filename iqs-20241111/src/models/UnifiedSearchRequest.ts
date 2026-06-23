@@ -4,6 +4,10 @@ import { UnifiedSearchInput } from "./UnifiedSearchInput";
 
 
 export class UnifiedSearchRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The search request parameters.
+   */
   body?: UnifiedSearchInput;
   static names(): { [key: string]: string } {
     return {

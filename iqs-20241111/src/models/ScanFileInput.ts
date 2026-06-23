@@ -5,15 +5,25 @@ import { ScanFileInputConfig } from "./ScanFileInputConfig";
 
 export class ScanFileInput extends $dara.Model {
   /**
+   * @remarks
+   * The Base64 encoding of the image.
+   * 
    * @example
    * wrwqr
    */
   imageBase64?: string;
   /**
+   * @remarks
+   * The URL of the image.
+   * 
    * @example
    * https://www.1241.png
    */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The scan parameters.
+   */
   scanFileInputConfig?: ScanFileInputConfig;
   static names(): { [key: string]: string } {
     return {

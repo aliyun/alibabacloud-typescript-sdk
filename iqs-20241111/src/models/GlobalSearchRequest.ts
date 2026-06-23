@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalSearchRequest extends $dara.Model {
   /**
+   * @remarks
+   * Page number, starting from 1
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of items per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * Search query content
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 特朗普最新关税消息
    */
   query?: string;
   /**
+   * @remarks
+   * Web page publish time range
+   * 
    * @example
    * OneWeek
    */

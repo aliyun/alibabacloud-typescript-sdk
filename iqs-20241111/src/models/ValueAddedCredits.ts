@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValueAddedCredits extends $dara.Model {
   /**
+   * @remarks
+   * The value-added package - enhanced search.
+   * 
    * @example
    * 0
    */
   advanced?: number;
   /**
+   * @remarks
+   * The value-added package - enhanced summary.
+   * 
    * @example
    * 1
    */

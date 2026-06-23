@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchCredits extends $dara.Model {
   /**
+   * @remarks
+   * The number of basic edition text search requests.
+   * 
    * @example
    * 1
    */
   genericTextSearch?: number;
+  /**
+   * @remarks
+   * The number of LiteAdvanced search requests.
+   */
   liteAdvancedTextSearch?: number;
   static names(): { [key: string]: string } {
     return {

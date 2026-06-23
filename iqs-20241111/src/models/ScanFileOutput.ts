@@ -6,11 +6,22 @@ import { UnifiedSearchInformation } from "./UnifiedSearchInformation";
 
 export class ScanFileOutput extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ECB2144C-E277-5434-80E6-12D26678D364
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of scan result objects.
+   */
   scanFileInfoList?: ScanFileInfo[];
+  /**
+   * @remarks
+   * The search execution information.
+   */
   searchInformation?: UnifiedSearchInformation;
   static names(): { [key: string]: string } {
     return {

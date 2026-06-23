@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnifiedRewrite extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether rewriting is enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The rewritten timeRange.
+   * 
+   * @example
+   * OneYear
+   */
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {

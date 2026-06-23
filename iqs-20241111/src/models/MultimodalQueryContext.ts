@@ -4,6 +4,10 @@ import { MultimodalOriginalQuery } from "./MultimodalOriginalQuery";
 
 
 export class MultimodalQueryContext extends $dara.Model {
+  /**
+   * @remarks
+   * Alibaba
+   */
   originalQuery?: MultimodalOriginalQuery;
   static names(): { [key: string]: string } {
     return {

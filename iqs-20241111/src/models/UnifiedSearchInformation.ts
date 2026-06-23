@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnifiedSearchInformation extends $dara.Model {
+  /**
+   * @remarks
+   * The search duration, in ms.
+   * 
+   * @example
+   * 1028
+   */
   searchTime?: number;
   static names(): { [key: string]: string } {
     return {

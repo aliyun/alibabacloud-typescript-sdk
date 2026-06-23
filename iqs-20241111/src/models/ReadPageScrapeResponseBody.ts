@@ -4,18 +4,31 @@ import { ReadPageItem } from "./ReadPageItem";
 
 
 export class ReadPageScrapeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Parsing result of the target URL
+   */
   data?: ReadPageItem;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Request ID. Provide this information when troubleshooting issues.
+   * 
    * @example
    * 7cd43c86-731a-4d4c-8385-d070cfc509a4
    */

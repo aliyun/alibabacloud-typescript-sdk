@@ -6,11 +6,22 @@ import { UnifiedRewrite } from "./UnifiedRewrite";
 
 export class UnifiedQueryContext extends $dara.Model {
   /**
+   * @remarks
+   * The search engine used.
+   * 
    * @example
    * Generic
    */
   engineType?: string;
+  /**
+   * @remarks
+   * The initial request.
+   */
   originalQuery?: UnifiedOriginalQuery;
+  /**
+   * @remarks
+   * The rewritten result.
+   */
   rewrite?: UnifiedRewrite;
   static names(): { [key: string]: string } {
     return {

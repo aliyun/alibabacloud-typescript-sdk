@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalSearchInformation extends $dara.Model {
   /**
+   * @remarks
+   * The search time, in milliseconds.
+   * 
    * @example
    * 1200
    */
   searchTime?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10339
    */

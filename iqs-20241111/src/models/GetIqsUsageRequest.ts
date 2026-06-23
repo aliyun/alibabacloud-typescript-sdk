@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetIqsUsageRequest extends $dara.Model {
   callerId?: string;
   /**
+   * @remarks
+   * End Date.
+   * 
    * @example
    * 20241017
    */
   endDate?: string;
   /**
+   * @remarks
+   * Start Date.
+   * 
    * @example
    * 20241011
    */

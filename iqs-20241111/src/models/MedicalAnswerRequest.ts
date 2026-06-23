@@ -4,6 +4,10 @@ import { MedicalAnswerInput } from "./MedicalAnswerInput";
 
 
 export class MedicalAnswerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Search information
+   */
   body?: MedicalAnswerInput;
   static names(): { [key: string]: string } {
     return {

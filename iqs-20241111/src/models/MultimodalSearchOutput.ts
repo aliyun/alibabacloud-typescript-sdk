@@ -6,13 +6,28 @@ import { SearchInformation } from "./SearchInformation";
 
 
 export class MultimodalSearchOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Image List
+   */
   imageItems?: UnifiedImageItem[];
+  /**
+   * @remarks
+   * Query context information
+   */
   queryContext?: MultimodalQueryContext;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * sdfsd234-2vxcg345-345vc
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Search basic information
+   */
   searchInformation?: SearchInformation;
   static names(): { [key: string]: string } {
     return {
