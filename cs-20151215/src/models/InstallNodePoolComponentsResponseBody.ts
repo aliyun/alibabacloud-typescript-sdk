@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallNodePoolComponentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. You can use this ID to track the installation progress.
+   * The cluster ID.
    * 
    * @example
    * c8155823d057948c69a****
@@ -13,7 +13,7 @@ export class InstallNodePoolComponentsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 49511F2D-D56A-5C24-B9AE-C8491E09B***

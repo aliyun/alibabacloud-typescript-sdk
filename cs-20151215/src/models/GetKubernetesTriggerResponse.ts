@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKubernetesTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the trigger.
+   * The trigger ID.
    * 
    * @example
    * 1234
@@ -13,7 +13,7 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the trigger.
+   * The trigger name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the associated cluster.
+   * The cluster ID.
    * 
    * @example
    * c259f563386444ebb8d7**
@@ -29,9 +29,9 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The trigger project name.
    * 
-   * The name consists of the namespace where the application is deployed and the name of the application. The format is `${namespace}/${name}`. Example: default/test-app.
+   * The value consists of the namespace and application name in the format of `${namespace}/${name}`. Example: default/test-app.
    * 
    * @example
    * default/test-app
@@ -39,12 +39,13 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The type of trigger.
+   * The trigger type.
    * 
    * Valid values:
    * 
-   * *   `deployment`: performs actions on Deployments.
-   * *   `application`: performs actions on applications that are deployed in Application Center.
+   * - `deployment`: a trigger for a stateless application. 
+   * 
+   * - `application`: a trigger for an application center application.
    * 
    * Default value: `deployment`.
    * 
@@ -54,9 +55,9 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The action that the trigger performs. The value is set to redeploy.
+   * The trigger action. Valid values:
    * 
-   * `redeploy`: redeploys the resource specified by project_id.
+   * `redeploy`: redeploys the resources defined in project_id.
    * 
    * @example
    * redeploy

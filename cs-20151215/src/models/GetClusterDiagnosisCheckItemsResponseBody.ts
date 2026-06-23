@@ -21,7 +21,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   display?: string;
   /**
    * @remarks
-   * The name of the group to which the check item belongs.
+   * The check item group.
    * 
    * @example
    * Node
@@ -29,13 +29,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   group?: string;
   /**
    * @remarks
-   * The severity level of the check result.
-   * 
-   * Valid values:
-   * 
-   * *   normal
-   * *   warning
-   * *   error
+   * The assessment result of the check item.
    * 
    * @example
    * normal
@@ -43,7 +37,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   level?: string;
   /**
    * @remarks
-   * The check result.
+   * The check result message.
    * 
    * @example
    * success
@@ -51,7 +45,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The name of the check item.
+   * The check item name.
    * 
    * @example
    * HostDNS
@@ -67,7 +61,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
   refer?: string;
   /**
    * @remarks
-   * The value of the check item.
+   * The check item value.
    * 
    * @example
    * True
@@ -111,7 +105,7 @@ export class GetClusterDiagnosisCheckItemsResponseBodyCheckItems extends $dara.M
 export class GetClusterDiagnosisCheckItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The check item.
+   * The check items.
    */
   checkItems?: GetClusterDiagnosisCheckItemsResponseBodyCheckItems[];
   /**

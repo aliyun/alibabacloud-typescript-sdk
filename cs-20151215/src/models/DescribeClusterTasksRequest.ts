@@ -7,7 +7,7 @@ export class DescribeClusterTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

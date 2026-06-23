@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that determines the start point of the next query.
    * 
    * @example
    * ***
@@ -23,7 +23,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of cluster IDs.
+   * The list of resource IDs to query.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,9 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   resourceIdsShrink?: string;
   /**
    * @remarks
-   * The resource type. Set the value to `CLUSTER`.
+   * The resource type.
+   * 
+   * CLUSTER: cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +45,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of labels that you want to query. You can specify up to 20 labels.
+   * The list of tags to query. A maximum of 20 items can be specified.
    * 
    * @example
    * [{\\"key\\":\\"env\\",\\"value\\",\\"dev\\"},{\\"key\\":\\"dev\\", \\"value\\":\\"IT\\"}]

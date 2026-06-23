@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the trigger.
+   * 触发器ID。
    * 
    * @example
    * 75973497486******
@@ -13,7 +13,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the trigger.
+   * 触发器名称。
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the associated cluster.
+   * 集群ID。
    * 
    * @example
    * c259f563386444ebb8d7****
@@ -29,9 +29,9 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the project.
+   * 触发器项目名称。
    * 
-   * The name consists of the namespace where the application is deployed and the name of the application. The format is `${namespace}/${name}`. Example: default/test-app.
+   * 由应用所在命名空间及应用名称组成，格式为`${namespace}/${name}`，取值示例：default/test-app。
    * 
    * @example
    * default/test-app
@@ -39,14 +39,13 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The type of trigger.
+   * 触发器类型。
    * 
-   * Valid values:
+   * 取值：
    * 
-   * *   `deployment`: performs actions on Deployments.
-   * *   `application`: performs actions on applications that are deployed in Application Center.
+   * - `deployment`：针对无状态应用的触发器。 
    * 
-   * Default value: `deployment`.
+   * - `application`：针对应用中心应用的触发器。
    * 
    * @example
    * deployment
@@ -54,9 +53,9 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The action that the trigger performs. The value is set to redeploy.
+   * 触发器行为，取值：
    * 
-   * `redeploy`: redeploys the resource specified by project_id.
+   * `redeploy`: 重新部署应用。
    * 
    * @example
    * redeploy
@@ -64,7 +63,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The token information.
+   * Token信息。
    * 
    * @example
    * eyJhbGci***

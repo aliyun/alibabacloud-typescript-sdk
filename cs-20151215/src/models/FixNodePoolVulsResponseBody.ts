@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FixNodePoolVulsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CVE patching task.
+   * The fix task ID.
    * 
    * @example
    * T-60fea8ad2e277f087900****

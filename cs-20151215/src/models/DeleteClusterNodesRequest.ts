@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all pods from the nodes you want to remove. Valid values:
+   * Whether to automatically drain Pods on the node. Valid values:
+   * - `true`: Automatically drain Pods on the node.
+   * - `false`: Do not automatically drain Pods on the node.
    * 
-   * *   `true`: removes all pods automatically.
-   * *   `false`: skips removing pods.
-   * 
-   * Default value: `false`
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -18,23 +17,21 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   drainNode?: boolean;
   /**
    * @remarks
-   * The list of nodes to remove. You must specify the node names used in the cluster, for example, `cn-hangzhou.192.168.xx.xx`.
+   * List of nodes to remove. The node names must be the names of the nodes in the cluster, for example: `cn-hangzhou.192.168.xx.xx`.
    * 
    * This parameter is required.
    */
   nodes?: string[];
   /**
    * @remarks
-   * Specifies whether to release the ECS instances. Valid values:
+   * Whether to simultaneously remove ECS instances. Valid values:
    * 
-   * *   `true`: releases the ECS instances.
-   * *   `false`: retains the ECS instances.
+   * - `true`: Simultaneously remove ECS instances.
+   * - `false`: Retain ECS instances.
    * 
-   * Default value: `false`
+   * Default value: `false`.
    * 
-   * **
-   * 
-   * **Notes** Unsupported for subscription ECS instances.
+   * > Simultaneous removal of ECS instances is not supported when the nodes are subscription instances.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node pool ID.
+   * Node pool ID.
    * 
    * @example
    * np737c3ac1ac684703b9e10673aa2c****
@@ -13,7 +13,7 @@ export class ModifyClusterNodePoolResponseBody extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 687C5BAA-D103-4993-884B-C35E4314****
@@ -21,7 +21,7 @@ export class ModifyClusterNodePoolResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * Task ID.
    * 
    * @example
    * T-5fd211e924e1d00787000293

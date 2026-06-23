@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Simple Log Service is supported by the component.
+   * Indicates whether the component supports the logging feature.
+   * 
+   * - true: Supported.
+   * 
+   * - false: Not supported.
    * 
    * @example
    * false
@@ -13,7 +17,11 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   capable?: boolean;
   /**
    * @remarks
-   * Indicates whether Simple Log Service is enabled for the component.
+   * Indicates whether the logging feature is enabled for the component.
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
    * 
    * @example
    * false
@@ -21,7 +29,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The Simple Log Service project that is used to collect logs for the component.
+   * The Log Service project used by the logging feature of the component.
    * 
    * @example
    * k8s-log-c02b3e03be10643e8a644a843ffcb****
@@ -29,7 +37,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore that is used to collect logs for the component.
+   * The Log Service Logstore used by the logging feature of the component.
    * 
    * @example
    * my-logstore
@@ -65,7 +73,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
 export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom configurations of the component.
+   * The custom parameter settings of the component.
    * 
    * @example
    * {"sls_project_name":""}
@@ -73,12 +81,12 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The status of Simple Log Service.
+   * The logging feature status of the component.
    */
   logging?: GetClusterAddonInstanceResponseBodyLogging;
   /**
    * @remarks
-   * The name of the component instance.
+   * The component instance name.
    * 
    * @example
    * ack-node-problem-detector
@@ -86,12 +94,11 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the component. Valid values:
-   * 
-   * *   active: The component is installed.
-   * *   updating: The component is being modified.
-   * *   upgrading: The component is being updated.
-   * *   deleting: The component is being uninstalled.
+   * The component status. Valid values:
+   * - active: installed.
+   * - updating: being modified.
+   * - upgrading: being upgraded.
+   * - deleting: being uninstalled.
    * 
    * @example
    * active
@@ -99,7 +106,7 @@ export class GetClusterAddonInstanceResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The version of the component instance.
+   * The component instance version.
    * 
    * @example
    * 1.2.16

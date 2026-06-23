@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success

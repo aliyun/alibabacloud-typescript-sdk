@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterChecksRequest extends $dara.Model {
   /**
    * @remarks
-   * The targets to check.
+   * The check target to filter.
    * 
    * @example
    * ngw-bp19ay6nnvd4cexxxx
@@ -13,7 +13,14 @@ export class ListClusterChecksRequest extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The check method.
+   * The check type. Valid values:
+   * - ClusterMigrate: cluster migration.
+   * 
+   * - MasterUpgrade: cluster control plane upgrade.
+   * 
+   * - NodePoolUpgrade: node pool upgrade.
+   * 
+   * - ClusterUpgrade: cluster upgrade.
    * 
    * @example
    * ClusterUpgrade

@@ -5,12 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class RepairClusterNodePoolRequestOperations extends $dara.Model {
   /**
    * @remarks
-   * The parameters of a repair operation.
+   * The list of repair operation parameters.
    */
   args?: string[];
   /**
    * @remarks
-   * The ID of a repair operation.
+   * The repair operation ID. Valid values:
+   * 
+   * - restart.kubelet: restart kubelet.
+   * - restart.docker: restart Docker.
+   * - restart.containerd: restart Containerd.
+   * - restart.ntp: restart ntpd or chronyd.
+   * - remove.containerdContainerInSandbox: delete a specified sandbox container under Containerd.
+   * - remove.dockerContainerInSandbox: delete a specified sandbox container under Docker.
+   * - remove.containerdContainer: delete a specified container under Containerd.
+   * - remove.dockerContainer: delete a specified container under Docker.
    * 
    * @example
    * remove.containerdContainer
@@ -45,11 +54,7 @@ export class RepairClusterNodePoolRequestOperations extends $dara.Model {
 export class RepairClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic instance restart.
-   * 
-   * **
-   * 
-   * **Warning** This parameter is deprecated. Any configured values will be ignored.
+   * [This field is deprecated] Specifies whether to allow instance restart.
    * 
    * @example
    * null
@@ -59,12 +64,12 @@ export class RepairClusterNodePoolRequest extends $dara.Model {
   autoRestart?: boolean;
   /**
    * @remarks
-   * The list of nodes. If not specified, all nodes in the node pool are selected.
+   * The list of nodes.
    */
   nodes?: string[];
   /**
    * @remarks
-   * The list of repair operations to execute. If not specified, all repair operations are executed. Typically, you do not need to specify this parameter.
+   * The repair operations to perform. If not specified, all repair operations are performed by default. In most scenarios, you do not need to specify this parameter.
    */
   operations?: RepairClusterNodePoolRequestOperations[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the log entry.
+   * 日志ID。
    * 
    * @example
    * 73117232145******
@@ -13,7 +13,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
   ID?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * 集群ID。
    * 
    * @example
    * c23421cfa74454bc8b37163fd19af***
@@ -21,7 +21,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The log content.
+   * 日志内容。
    * 
    * @example
    * start to update cluster status to CREATE_COMPLETE
@@ -29,7 +29,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
   clusterLog?: string;
   /**
    * @remarks
-   * The time when the log entry was generated.
+   * 日志产生时间。
    * 
    * @example
    * 2025-04-10T17:54:26+08:00
@@ -37,7 +37,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The time when the log entry was updated.
+   * 日志更新时间。
    * 
    * @example
    * 2025-04-10T17:54:26+08:00

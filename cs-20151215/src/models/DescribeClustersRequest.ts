@@ -13,7 +13,7 @@ export class DescribeClustersRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The cluster name based on which the system performs fuzzy searches among the clusters that belong to the current Alibaba Cloud account.
+   * Perform a fuzzy match query based on the cluster name.
    * 
    * @example
    * test

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $dara.Model {
   /**
    * @remarks
-   * The type of the policy. For more information about different types of policies and their descriptions, see [Predefined security policies of ACK](https://help.aliyun.com/document_detail/359819.html).
+   * The policy type. For more information about supported policy types and their descriptions, see [Container security policy rule library](https://help.aliyun.com/document_detail/359819.html).
    * 
    * @example
    * compliance
@@ -13,7 +13,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
   policyCategory?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The policy description.
    * 
    * @example
    * Restricts use of the cluster-admin role.
@@ -21,7 +21,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
   policyDescription?: string;
   /**
    * @remarks
-   * The number of policy instances that are deployed. If this parameter is empty, no policy instance is deployed.
+   * The number of deployed policy instances. If this field is empty, no policy instances of this type are deployed.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
   policyInstancesCount?: number;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * ACKRestrictRoleBindings
@@ -37,7 +37,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
   policyName?: string;
   /**
    * @remarks
-   * The severity level of the policy.
+   * The governance level of the policy.
    * 
    * @example
    * medium
@@ -75,7 +75,7 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $d
 export class DescribePolicyInstancesStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of policy instances that are deployed in the cluster at different severity levels.
+   * The number of policy instances deployed in the cluster at different governance levels.
    * 
    * @example
    * { "high": 11,     "medium": 1  }
@@ -83,7 +83,7 @@ export class DescribePolicyInstancesStatusResponseBody extends $dara.Model {
   instancesSeverityCount?: { [key: string]: any };
   /**
    * @remarks
-   * The number of policy instances of each policy type.
+   * The list of policy instance counts for different policy types.
    */
   policyInstances?: DescribePolicyInstancesStatusResponseBodyPolicyInstances[];
   static names(): { [key: string]: string } {

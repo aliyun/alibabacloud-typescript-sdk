@@ -6,12 +6,11 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The category of the inspection item. Valid values:
-   * 
-   * *   security: Security compliance
-   * *   performance: Performance efficiency
-   * *   stability: Business stability
-   * *   limitation: Service limits
-   * *   cost: Cost optimization
+   * - security: security and compliance
+   * - performance: performance and efficiency 
+   * - stability: business stability
+   * - limitation: service limits 
+   * - cost: cost optimization.
    * 
    * @example
    * cost
@@ -19,7 +18,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Inspection results filtering. If this parameter is set to true, only abnormal inspection items are returned.
+   * Specifies whether to filter check items. If set to true, only abnormal check items with result=true are returned.
    * 
    * @example
    * true
@@ -27,10 +26,9 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   enableFilter?: boolean;
   /**
    * @remarks
-   * The query language.
-   * 
-   * *   zh_CN
-   * *   en_US
+   * The query language. Valid values:
+   * - zh_CN
+   * - en_US.
    * 
    * @example
    * zh_CN
@@ -39,11 +37,10 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The level of the inspection item. Valid values:
-   * 
-   * *   advice: Suggestions
-   * *   warning: Low severity
-   * *   error: Medium severity
-   * *   critical: High severity
+   * - advice: suggestion
+   * - warning: low-risk
+   * - error: medium-risk
+   * - critical: high-risk.
    * 
    * @example
    * error
@@ -59,7 +56,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to display the returned tags on multiple pages.
+   * The pagination token.
    * 
    * @example
    * bb41e2bcb47b747389dce6c0d2
@@ -67,7 +64,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of the inspection object. Only items that meet the targetType parameter are returned.
+   * The object type of the inspection target. Only check items that match the specified targetType are returned.
    * 
    * @example
    * NodePool

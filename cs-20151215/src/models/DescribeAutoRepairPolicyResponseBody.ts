@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Model {
   /**
    * @remarks
-   * The incident name.
+   * The fault name.
    * 
    * @example
    * Node.FaultNeedReboot.HOST
@@ -13,7 +13,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The incident type.
+   * The fault type.
    * 
    * @example
    * system
@@ -45,7 +45,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
    * @remarks
-   * The label\\"s `key`.
+   * The key of the label.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -53,7 +53,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
   key?: string;
   /**
    * @remarks
-   * The label\\"s value.
+   * The value of the label.
    * 
    * @example
    * approved
@@ -85,7 +85,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The key of the label.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -93,7 +93,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the label.
    * 
    * @example
    * inquiring
@@ -125,7 +125,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention extends $dara.Model {
   /**
    * @remarks
-   * The label you add to a node to approve a repair action. When ACK detects this label, it proceeds with the current repair step. After the action is complete, ACK automatically removes both the inquiring and approved labels. If you do not add this label promptly, the repair procedure is paused, and the node may remain unhealthy.
+   * The label configuration for authorization approval. When you add the following label to the node, you authorize ACK to perform the action of this stage. After completing the action, ACK automatically removes the authorization inquiry and approval labels for this stage. If you do not add the following label for authorization in a timely manner, ACK will not perform the action of this stage or subsequent actions, and the node may remain in a damaged state.
    */
   approvedLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel;
   /**
@@ -138,12 +138,12 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
   enable?: boolean;
   /**
    * @remarks
-   * When a repair procedure reaches this step, ACK applies this label to the affected node and pauses until you grant approval.
+   * The label configuration for authorization inquiry. When this stage is reached, ACK adds the following label to your node and waits for your authorization to perform the action of this stage.
    */
   inquiringLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel;
   /**
    * @remarks
-   * The manual approval type.
+   * The type of manual approval.
    * 
    * @example
    * label
@@ -185,17 +185,17 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $dara.Model {
   /**
    * @remarks
-   * The configuration parameters for the repair action.
+   * The configuration parameters of the procedure.
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The manual approval configuration.
+   * The configuration for manual intervention in the procedure.
    */
   intervention?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention;
   /**
    * @remarks
-   * The name of the repair action.
+   * The name of the procedure.
    * 
    * @example
    * QuarantineGPU
@@ -235,12 +235,12 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $d
 export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The detected incidents that trigger the rule.
+   * The list of identified faults.
    */
   incidents?: DescribeAutoRepairPolicyResponseBodyRulesIncidents[];
   /**
    * @remarks
-   * The repair procedure, which contains a list of repair actions.
+   * The repair procedure.
    */
   repairProcedure?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure[];
   static names(): { [key: string]: string } {
@@ -275,7 +275,7 @@ export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
 export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the auto-repair rule.
+   * The auto-repair rule ID.
    * 
    * @example
    * r-xxx
@@ -291,12 +291,12 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The IDs of resources affected by the auto-repair rule.
+   * The list of resources associated with the auto-repair rule.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The subtype of the resource affected by the auto-repair rule.
+   * The sub-type of resource associated with the auto-repair rule.
    * 
    * @example
    * ess
@@ -304,7 +304,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   resourceSubType?: string;
   /**
    * @remarks
-   * The resource type affected by the auto-repair rule.
+   * The type of resource associated with the auto-repair rule.
    * 
    * @example
    * nodepool
@@ -312,7 +312,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of rules.
+   * The list of auto-repair sub-rules.
    */
   rules?: DescribeAutoRepairPolicyResponseBodyRules[];
   static names(): { [key: string]: string } {

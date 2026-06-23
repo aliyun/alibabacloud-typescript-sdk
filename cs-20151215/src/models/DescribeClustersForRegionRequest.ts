@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClustersForRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c8155823d057948c69a****
@@ -13,21 +13,17 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The specification of the cluster. Valid values:
+   * Queries clusters of a specified specification. Valid values:
    * 
-   * - `ack.standard`: Standard Edition
-   * 
-   * - `ack.pro.small`: Pro Edition
-   * 
+   * - `ack.standard`: Basic
+   * - `ack.pro.small`: Pro
    * - `ack.pro.xlarge`: Pro XL
-   * 
    * - `ack.pro.2xlarge`: Pro 2XL
+   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to add your account to the whitelist)
    * 
-   * - `ack.pro.4xlarge`: Pro 4XL (To use this specification, you must submit a ticket.)
+   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and Pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
    * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three specifications available for the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These specifications ensure a high and deterministic level of API concurrency and Pod scheduling capabilities by pre-allocating and dedicating control plane resources. They are suitable for AI training and inference, large-scale clusters, and mission-critical workloads.
-   * 
-   * For information about the cluster management fees for Pro Edition and provisioned control plane clusters, see <props="china">[cluster management fee](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[cluster management fee](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+   * For information about cluster management fees for Pro and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.standard
@@ -35,13 +31,10 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
-   * 
-   * - `Kubernetes`: an ACK dedicated cluster.
-   * 
-   * - `ManagedKubernetes`: an ACK managed cluster. This includes ACK managed clusters (Pro and Standard Editions), ACK Serverless clusters (Pro and Standard Editions), ACK Edge clusters (Pro and Standard Editions), and ACK Lingjun clusters (Pro Edition).
-   * 
-   * - `ExternalKubernetes`: a registered cluster.
+   * Queries clusters of a specified type. Valid values:
+   * - Kubernetes: ACK dedicated cluster.
+   * - ManagedKubernetes: ACK managed cluster types, including ACK managed clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
+   * - ExternalKubernetes: registered cluster.
    * 
    * @example
    * Kubernetes
@@ -49,7 +42,7 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The name of the cluster. Fuzzy search is supported.
+   * Fuzzy search by cluster name.
    * 
    * @example
    * test-cluster
@@ -57,7 +50,7 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 10
@@ -65,7 +58,7 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * @example
    * 3
@@ -73,15 +66,11 @@ export class DescribeClustersForRegionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subtype of the cluster. Valid values:
-   * 
-   * - `Default`: ACK managed clusters, including Pro and Standard Editions.
-   * 
-   * - `Edge`: ACK Edge clusters, including Pro and Standard Editions.
-   * 
-   * - `Serverless`: ACK Serverless clusters, including Pro and Standard Editions.
-   * 
-   * - `LingJun`: ACK Lingjun clusters, available in the Pro Edition.
+   * Queries clusters of a specified subtype. Valid values:
+   * - Default: ACK managed cluster, including ACK Pro and ACK Basic.
+   * - Edge: ACK Edge cluster, including ACK Edge Pro and ACK Edge Basic.
+   * - Serverless: ACK Serverless cluster, including ACK Serverless Pro and ACK Serverless Basic.
+   * - LingJun: ACK Lingjun cluster, available in Pro.
    * 
    * @example
    * Serverless

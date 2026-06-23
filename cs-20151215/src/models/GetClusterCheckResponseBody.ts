@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster check task.
+   * The check ID.
    * 
    * @example
    * 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
@@ -13,12 +13,12 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * A list of check items.
+   * The check items.
    */
   checkItems?: { [key: string]: { [key: string]: any }[] };
   /**
    * @remarks
-   * The time when the cluster check task was created.
+   * The creation time.
    * 
    * @example
    * 2023-10-16T08:31:20.292030178Z
@@ -26,7 +26,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The time when the cluster check task was completed.
+   * The completion time.
    * 
    * @example
    * 2023-10-16T08:35:20.292030178Z
@@ -34,7 +34,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * The message that indicates the status of the cluster check task.
+   * The check status message.
    * 
    * @example
    * task succeed
@@ -42,7 +42,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status of the cluster check.
+   * The check status.
    * 
    * @example
    * Succeeded
@@ -50,7 +50,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The check method.
+   * The check type.
    * 
    * @example
    * ClusterUpgrade

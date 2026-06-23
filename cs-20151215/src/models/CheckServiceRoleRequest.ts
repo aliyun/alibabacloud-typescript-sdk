@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceRoleRequestRoles extends $dara.Model {
   /**
    * @remarks
-   * The server role name. For more information about the service roles and their permissions in ACK, see [ACK roles](https://help.aliyun.com/document_detail/86483.html).
+   * Container service role name. For information about container service roles and permission scopes included in ACK, see [ACK service roles](https://help.aliyun.com/document_detail/86483.html).
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CheckServiceRoleRequestRoles extends $dara.Model {
 export class CheckServiceRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of service roles you want to check.
+   * The list of service roles to check.
    * 
    * This parameter is required.
    */

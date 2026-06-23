@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterAddonInstanceResourcesResponseBodyHelmRelease extends $dara.Model {
   /**
    * @remarks
-   * The name of the Helm chart.
+   * The Helm chart name of the component.
    * 
    * @example
    * ack-node-problem-detector
@@ -13,7 +13,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyHelmRelease extends $d
   chartName?: string;
   /**
    * @remarks
-   * The version of the Helm chart.
+   * The Helm chart version of the component.
    * 
    * @example
    * 1.2.28
@@ -21,7 +21,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyHelmRelease extends $d
   chartVersion?: string;
   /**
    * @remarks
-   * The namespace where the Helm release is located.
+   * The namespace.
    * 
    * @example
    * kube-system
@@ -73,7 +73,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
   group?: string;
   /**
    * @remarks
-   * The Kubernetes API type to which the object belongs.
+   * The Kubernetes API kind of the object.
    * 
    * @example
    * ClusterRole
@@ -81,7 +81,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
   kind?: string;
   /**
    * @remarks
-   * The name of the Kubernetes object.
+   * The name of the object.
    * 
    * @example
    * terway-pod-reader
@@ -135,12 +135,12 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
 export class ListClusterAddonInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the Helm release instance corresponding to the add-on.
+   * The Helm release instance information of the component.
    */
   helmRelease?: ListClusterAddonInstanceResourcesResponseBodyHelmRelease;
   /**
    * @remarks
-   * A list of Kubernetes objects associated with the add-on.
+   * The list of Kubernetes objects contained in the component.
    */
   kubernetesObjects?: ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects[];
   static names(): { [key: string]: string } {

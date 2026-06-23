@@ -13,7 +13,7 @@ export class DescribeEventsForRegionResponseBodyEventsData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The event message.
+   * The event details.
    * 
    * @example
    * Start to upgrade NodePool nodePool/nodePool-A
@@ -21,7 +21,7 @@ export class DescribeEventsForRegionResponseBodyEventsData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The reason for the event.
+   * The event status.
    * 
    * @example
    * Started
@@ -63,7 +63,7 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The event data.
+   * The event description.
    */
   data?: DescribeEventsForRegionResponseBodyEventsData;
   /**
@@ -84,7 +84,7 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The event subject.
+   * The object associated with the event.
    * 
    * @example
    * npdd89dc2b76c04f14b06774883b******
@@ -153,7 +153,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The maximum number of results displayed on each page.
    * 
    * @example
    * 50
@@ -161,7 +161,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of results.
    * 
    * @example
    * 3
@@ -195,13 +195,9 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
 export class DescribeEventsForRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of events.
+   * The list of events.
    */
   events?: DescribeEventsForRegionResponseBodyEvents[];
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
-   */
   nextToken?: string;
   /**
    * @remarks

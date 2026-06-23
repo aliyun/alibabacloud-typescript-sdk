@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   /**
    * @remarks
-   * The severity level of the event.
+   * The event level.
    * 
    * @example
    * info
@@ -13,7 +13,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The event message.
+   * The event details.
    * 
    * @example
    * Start to upgrade NodePool nodePool/npdd89dc2b76c04f14b06774883b******
@@ -63,7 +63,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The event data.
+   * The event description.
    */
   data?: DescribeClusterEventsResponseBodyEventsData;
   /**
@@ -92,7 +92,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The time the event occurred.
+   * The time when the event started.
    * 
    * @example
    * 2025-05-14T10:00:56+08:00
@@ -102,37 +102,22 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * - `cluster_create`: Cluster creation.
-   * 
-   * - `cluster_scaleout`: Cluster scale-out.
-   * 
-   * - `cluster_attach`: Attaching existing nodes to a cluster.
-   * 
-   * - `cluster_delete`: Cluster deletion.
-   * 
-   * - `cluster_upgrade`: Cluster upgrade.
-   * 
-   * - `cluster_migrate`: Cluster migration.
-   * 
-   * - `cluster_node_delete`: Node removal.
-   * 
-   * - `cluster_node_drain`: Node drain.
-   * 
-   * - `cluster_modify`: Cluster modification.
-   * 
-   * - `cluster_configuration_modify`: Control plane configuration modification.
-   * 
-   * - `cluster_addon_install`: Add-on installation.
-   * 
-   * - `cluster_addon_upgrade`: Add-on upgrade.
-   * 
-   * - `cluster_addon_uninstall`: Add-on uninstallation.
-   * 
-   * - `runtime_upgrade`: Container runtime upgrade.
-   * 
-   * - `nodepool_upgrade`: Node pool upgrade.
-   * 
-   * - `nodepool_update`: Node pool update.
+   * - cluster_create: creates a cluster.
+   * - cluster_scaleout: scales out a cluster.
+   * - cluster_attach: adds existing nodes.
+   * - cluster_delete: deletes a cluster.
+   * - cluster_upgrade: upgrades a cluster.
+   * - cluster_migrate: migrates a cluster.
+   * - cluster_node_delete: removes nodes.
+   * - cluster_node_drain: drains nodes.
+   * - cluster_modify: modifies a cluster.
+   * - cluster_configuration_modify: modifies cluster management configurations.
+   * - cluster_addon_install: installs a component.
+   * - cluster_addon_upgrade: upgrades a component.
+   * - cluster_addon_uninstall: uninstalls a component.
+   * - runtime_upgrade: upgrades the runtime.
+   * - nodepool_upgrade: upgrades a node pool.
+   * - nodepool_update: updates a node pool.
    * 
    * @example
    * nodepool_update
@@ -185,7 +170,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of results returned per page.
    * 
    * @example
    * 50
@@ -193,7 +178,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The total number of results.
    * 
    * @example
    * 126
@@ -230,10 +215,6 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
    * The list of events.
    */
   events?: DescribeClusterEventsResponseBodyEvents[];
-  /**
-   * @remarks
-   * The token used to retrieve the next page of results. If this parameter is empty, there are no more results to return.
-   */
   nextToken?: string;
   /**
    * @remarks

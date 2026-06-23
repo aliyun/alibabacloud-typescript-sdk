@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
   /**
    * @remarks
-   * The minimum cluster version required by the component version.
+   * The minimum cluster version required by this component version.
    * 
    * @example
    * 1.20.4
@@ -13,10 +13,11 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
   minimumClusterVersion?: string;
   /**
    * @remarks
-   * Indicates whether the component can be updated to the version.
+   * Whether the component can be upgraded to this version.
    * 
-   * *   true: yes
-   * *   false: no
+   * - true: Upgrade is supported.
+   * 
+   * - false: Upgrade is not supported.
    * 
    * @example
    * true
@@ -58,12 +59,12 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
 export class DescribeAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CPU architecture supported by the component.
+   * CPU architectures supported by the component.
    */
   architecture?: string[];
   /**
    * @remarks
-   * The category of the component.
+   * Component category.
    * 
    * @example
    * network
@@ -71,7 +72,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The custom parameter schema of the component.
+   * Custom parameter schema of the component.
    * 
    * @example
    * {}
@@ -79,7 +80,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   configSchema?: string;
   /**
    * @remarks
-   * Indicates whether the component is automatically installed by default.
+   * Whether it is installed by default.
    * 
    * @example
    * true
@@ -87,7 +88,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   installByDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the component is fully managed.
+   * Whether it is a managed component.
    * 
    * @example
    * false
@@ -95,7 +96,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * The name of the component.
+   * Component name.
    * 
    * @example
    * coredns
@@ -103,17 +104,17 @@ export class DescribeAddonResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The latest version information of the component.
+   * Information about the latest component versions.
    */
   newerVersions?: DescribeAddonResponseBodyNewerVersions[];
   /**
    * @remarks
-   * The operations supported by the component.
+   * Operations supported by the component.
    */
   supportedActions?: string[];
   /**
    * @remarks
-   * The version of the component.
+   * Component version.
    * 
    * @example
    * v1.9.3.6-32932850-aliyun

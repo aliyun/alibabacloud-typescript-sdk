@@ -5,18 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   /**
    * @remarks
-   * The CVE list.
+   * The list of CVEs.
    */
   cveList?: string[];
   /**
    * @remarks
-   * The severity level of the vulnerability.
-   * 
-   * Valid values:
-   * 
-   * *   nntf: low
-   * *   later: medium     
-   * *   asap: high
+   * The severity level of the vulnerability. Valid values:
+   * - nntf: low
+   * - later: medium
+   * - asap: high.
    * 
    * @example
    * asap
@@ -24,7 +21,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of nodes that have the vulnerability.
+   * The number of nodes that have this vulnerability.
    * 
    * @example
    * 1
@@ -64,16 +61,13 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
   vulName?: string;
   /**
    * @remarks
-   * The type of vulnerability.
-   * 
-   * Valid values:
-   * 
-   * *   app: application vulnerabilities
-   * *   sca: application vulnerabilities (software component analysis)
-   * *   cve: Linux vulnerabilities
-   * *   cms: Web-CMS vulnerabilities
-   * *   sys: Windows vulnerabilities
-   * *   emg:  emergency vulnerabilities
+   * The type of the vulnerability. Valid values:
+   * - app: application vulnerability
+   * - sca: application vulnerability (Software Composition Analysis)
+   * - cve: Linux vulnerability
+   * - cms: WebCMS vulnerability
+   * - sys: Windows vulnerability
+   * - emg: emergency vulnerability.
    * 
    * @example
    * cve

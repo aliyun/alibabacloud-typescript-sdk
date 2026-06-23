@@ -13,7 +13,7 @@ export class DeleteClusterNodepoolResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * task IDs
+   * The task ID.
    * 
    * @example
    * T-655ace947e0e6603af******

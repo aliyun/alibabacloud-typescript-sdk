@@ -13,7 +13,7 @@ export class ListOperationPlansRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The operation plan type.
+   * The execution plan type.
    * 
    * @example
    * cluster_upgrade

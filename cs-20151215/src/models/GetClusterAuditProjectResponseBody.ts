@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterAuditProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cluster auditing feature is enabled for the cluster. 
+   * Indicates whether the API server audit feature is enabled for the cluster. Valid values:
    * 
-   * * `true`: The cluster auditing feature is enabled for the cluster. 
-   * * `false`: The cluster auditing feature is disabled for the cluster.
+   * - `true`: Enabled.
+   * 
+   * - `false`: Not enabled.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class GetClusterAuditProjectResponseBody extends $dara.Model {
   auditEnabled?: boolean;
   /**
    * @remarks
-   * The SLS project in which the audit logs of the API server are stored.
+   * The SLS project that stores the API server audit logs of the cluster.
    * 
    * @example
    * k8s-log-cad1230511cbb4db4a488e58518******

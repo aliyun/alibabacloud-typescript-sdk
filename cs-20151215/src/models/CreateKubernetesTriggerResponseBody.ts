@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action that the trigger performs. For example, a value of `redeploy` indicates that the trigger redeploys the application.
+   * The trigger action. For example, `redeploy`: redeploy.
    * 
    * @example
    * redeploy
@@ -13,7 +13,7 @@ export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c5cdf7e3938bc4f8eb0e44b21a80f****
@@ -21,7 +21,7 @@ export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the trigger.
+   * The trigger ID.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the trigger project.
+   * The trigger project name.
    * 
    * @example
    * default/test-app
@@ -37,12 +37,13 @@ export class CreateKubernetesTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The type of trigger.
+   * The trigger type.
    * 
    * Valid values:
    * 
-   * *   `deployment`: performs actions on Deployments.
-   * *   `application`: performs actions on applications that are deployed in Application Center.
+   * - `deployment`: a trigger for stateless applications. 
+   * 
+   * - `application`: a trigger for Application Center applications.
    * 
    * @example
    * deployment

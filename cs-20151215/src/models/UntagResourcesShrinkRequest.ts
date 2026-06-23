@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all custom labels. This parameter takes effect only when `tag_keys` is left empty. Valid values:
+   * Specifies whether to delete all custom tags. This parameter takes effect only when `tag_keys` is empty. Valid values:
    * 
-   * *   `true`: Remove all custom labels.
-   * *   `false`: Do not remove all custom labels.
+   * - `true`: Delete all tags.
+   * - `false`: Do not delete all tags.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The region ID of the resources.
+   * The region ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -26,14 +26,16 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs.
+   * The list of resource IDs. You can specify up to 50 resource IDs.
    * 
    * This parameter is required.
    */
   resourceIdsShrink?: string;
   /**
    * @remarks
-   * The type of resource. Set the value to `CLUSTER`.
+   * The resource type.
+   * 
+   * CLUSTER: cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +45,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of keys of the labels that you want to remove.
+   * The list of tag keys for the resource. You can specify up to 20 tag keys.
    * 
    * This parameter is required.
    */

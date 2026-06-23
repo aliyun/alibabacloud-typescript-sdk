@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class FixNodePoolVulsRequestRolloutPolicy extends $dara.Model {
   /**
    * @remarks
-   * The maximum concurrency for batch patching. Minimum value: 1. The maximum value equals the number of nodes in the node pool.
+   * CVE fixes for nodes in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be fixed in parallel per batch.
+   * 
+   * Valid values: minimum value is 1 and maximum value is the total number of nodes in the node pool.
    * 
    * @example
    * 1
@@ -35,7 +37,10 @@ export class FixNodePoolVulsRequestRolloutPolicy extends $dara.Model {
 export class FixNodePoolVulsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the nodes to restart.
+   * Specifies whether to allow node restarts.
+   * 
+   * - true: Node restarts are allowed.
+   * - false: Node restarts are not allowed.
    * 
    * @example
    * true
@@ -43,12 +48,12 @@ export class FixNodePoolVulsRequest extends $dara.Model {
   autoRestart?: boolean;
   /**
    * @remarks
-   * The names of the nodes to be patched.
+   * The list of node names to fix. If this parameter is not specified, all nodes in the node pool are fixed by default.
    */
   nodes?: string[];
   /**
    * @remarks
-   * The batch patching policy.
+   * The rolling fix policy.
    */
   rolloutPolicy?: FixNodePoolVulsRequestRolloutPolicy;
   /**

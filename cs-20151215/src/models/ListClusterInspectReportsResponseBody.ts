@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of items whose result is advice.
+   * The number of check items with a result of advice.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   adviceCount?: number;
   /**
    * @remarks
-   * Aggregated inspection task result code.
+   * The status code of the check task result.
    * 
    * @example
    * warning
@@ -21,7 +21,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The number of items whose result is error.
+   * The number of check items with a result of error.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   errorCount?: number;
   /**
    * @remarks
-   * The number of items whose result is normal.
+   * The number of check items with a result of normal.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
   normalCount?: number;
   /**
    * @remarks
-   * The number of items whose result is warning.
+   * The number of check items with a result of warning.
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.M
 export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The report completion time.
+   * The completion time of the inspection report.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00
@@ -83,7 +83,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * An inspection report ID.
+   * The inspection report ID.
    * 
    * @example
    * 782df89346054a0000562063a6****
@@ -91,7 +91,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The report start time.
+   * The start time of the inspection report.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00
@@ -99,7 +99,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The inspection report status.
+   * The generation status of the inspection report.
    * 
    * @example
    * completed
@@ -107,7 +107,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The inspection summary.
+   * The inspection report summary.
    */
   summary?: ListClusterInspectReportsResponseBodyReportsSummary;
   static names(): { [key: string]: string } {
@@ -153,7 +153,7 @@ export class ListClusterInspectReportsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of inspection reports.
+   * The inspection reports.
    */
   reports?: ListClusterInspectReportsResponseBodyReports[];
   /**

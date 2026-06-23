@@ -7,7 +7,9 @@ export class DescribeExternalAgentRequest extends $dara.Model {
    * @remarks
    * The permission mode of the agent. Valid values:
    * 
-   * admin: the admin mode, which provides full permissions. restricted: the restricted mode, which provides partial permissions. Default value: admin.
+   * admin: administrator mode with full permissions.
+   * restricted: restricted mode with limited permissions.
+   * Default value: admin.
    * 
    * @example
    * admin
@@ -15,10 +17,10 @@ export class DescribeExternalAgentRequest extends $dara.Model {
   agentMode?: string;
   /**
    * @remarks
-   * Specifies whether to obtain the credentials that are used to access the cluster over the internal network.
+   * Specifies whether to obtain internal network access credentials.
    * 
-   * *   `true`: obtains the credentials that are used to access the cluster over the internal network.
-   * *   `false`: obtains the credentials that are used to access the cluster over the Internet.
+   * - `true`: obtains only internal network connection credentials.
+   * - `false`: obtains only public network connection credentials.
    * 
    * Default value: `false`.
    * 

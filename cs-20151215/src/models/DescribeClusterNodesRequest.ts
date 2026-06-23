@@ -5,12 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the nodes that you want to query. Separate multiple node IDs with commas (,).
+   * The instance IDs of nodes. Separate multiple IDs with commas (,).
    * 
    * @example
    * "i-bp11xjhwkj8k966u****,i-bp1dmhc2bu5igkyq****"
    */
   instanceIds?: string;
+  /**
+   * @example
+   * 192.168.0.1
+   */
+  nodeIps?: string;
+  /**
+   * @example
+   * nodeLabels=app=nginx,env=prod
+   */
+  nodeLabels?: string;
+  /**
+   * @example
+   * cn-hangzhou.192.168.0.1
+   */
+  nodeNames?: string;
   /**
    * @remarks
    * The node pool ID.
@@ -21,7 +36,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current query.
    * 
    * Default value: 1.
    * 
@@ -31,7 +46,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The maximum number of records that can be displayed on each page. Valid values: [1, 100].
    * 
    * Default value: 10.
    * 
@@ -41,13 +56,13 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The node state that you want to use to filter nodes. Valid values:
+   * The status of cluster nodes. Used to filter by node running status. Valid values:
    * 
-   * *   `all`: query nodes in the following four states.
-   * *   `running`: query nodes in the running state.
-   * *   `removing`: query nodes that are being removed.
-   * *   `initial`: query nodes that are being initialized.
-   * *   `failed`: query nodes that fail to be created.
+   * - `all`: does not filter by running status. All nodes are returned.
+   * - `running`: running nodes.
+   * - `removing`: nodes that are being removed.
+   * - `initial`: nodes that are being initialized.
+   * - `failed`: nodes that failed to be created.
    * 
    * Default value: `all`.
    * 
@@ -58,6 +73,9 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceIds: 'instanceIds',
+      nodeIps: 'nodeIps',
+      nodeLabels: 'nodeLabels',
+      nodeNames: 'nodeNames',
       nodepoolId: 'nodepool_id',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -68,6 +86,9 @@ export class DescribeClusterNodesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceIds: 'string',
+      nodeIps: 'string',
+      nodeLabels: 'string',
+      nodeNames: 'string',
       nodepoolId: 'string',
       pageNumber: 'string',
       pageSize: 'string',

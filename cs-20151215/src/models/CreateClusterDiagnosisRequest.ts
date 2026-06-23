@@ -5,31 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterDiagnosisRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter used to specify the diagnostic object. Examples of parameters for different types of diagnostic objects:
+   * The parameters that specify the diagnosis target. The following examples show the parameters for different diagnosis types:
    * 
    * node:
-   * 
-   *     {"name": "cn-shanghai.10.10.10.107"}
+   * ```
+   * {"name": "cn-shanghai.10.10.10.107"}
+   * ```
    * 
    * pod
-   * 
-   *     {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}
+   * ```
+   * {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}
+   * ```
    * 
    * network
-   * 
-   *     {"src": "10.10.10.108", "dst": "10.11.247.16", "dport": "80"}
+   * ```
+   * {"src": "10.10.10.108", "dst": "10.11.247.16", "dport": "80"}
+   * ```
    * 
    * ingress
-   * 
-   *     {"url": "https://example.com"}
+   * ```
+   * {"url": "https://example.com"}
+   * ```
    * 
    * memory
-   * 
-   *     {"node":"cn-hangzhou.172.16.9.240"}
+   * ```
+   * {"node":"ap-southeast-1.172.16.9.240"}
+   * ```
    * 
    * service
-   * 
-   *     {"namespace": "kube-system", "name": "nginx-ingress-lb"}
+   * ```
+   * {"namespace": "kube-system", "name": "nginx-ingress-lb"}
+   * ```.
    * 
    * @example
    * {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}
@@ -37,17 +43,7 @@ export class CreateClusterDiagnosisRequest extends $dara.Model {
   target?: { [key: string]: any };
   /**
    * @remarks
-   * The type of the diagnostic.
-   * 
-   * Valid values:
-   * 
-   * *   node
-   * *   ingress
-   * *   cluster
-   * *   memory
-   * *   pod
-   * *   service
-   * *   network
+   * The diagnosis type.
    * 
    * @example
    * node

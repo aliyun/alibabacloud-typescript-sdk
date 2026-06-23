@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service role is assigned to ACK.
-   * 
-   * Valid values:
-   * 
-   * *   true: The role is assigned to ACK.
-   * *   false: The role is not assigned to ACK.
+   * Indicates whether the service role has been granted.
    * 
    * @example
    * true
@@ -18,7 +13,7 @@ export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
   granted?: boolean;
   /**
    * @remarks
-   * The message that is displayed for a role that is not assigned to ACK.
+   * The prompt message returned when the service role is not granted.
    * 
    * @example
    * The role does not exist: AliyunCSManagedAutoScalerRole
@@ -26,7 +21,7 @@ export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the service role.
+   * The service role name.
    * 
    * @example
    * AliyunCSManagedAutoScalerRole
@@ -60,7 +55,7 @@ export class CheckServiceRoleResponseBodyRoles extends $dara.Model {
 export class CheckServiceRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The check results.
+   * The service role check results.
    */
   roles?: CheckServiceRoleResponseBodyRoles[];
   static names(): { [key: string]: string } {

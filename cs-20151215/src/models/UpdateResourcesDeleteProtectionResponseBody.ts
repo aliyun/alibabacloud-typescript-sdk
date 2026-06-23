@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The namespace to which the resource belongs.
+   * The namespace of the resource.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Indicates the status of deletion protection. A value of true indicates that deletion protection is enabled and a value of false indicates that deletion protection is disabled.
+   * The deletion protection status of the resource.
    * 
    * @example
    * enable
@@ -21,7 +21,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   protection?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0527ac9a-c899-4341-a21a-xxxxxxxxx
@@ -29,7 +29,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of resource for which deletion protection is enabled or disabled.
+   * The resource type.
    * 
    * @example
    * namespaces
@@ -37,7 +37,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of resources whose deletion protection status is updated.
+   * The list of resources for which the deletion protection status is updated.
    */
   resources?: string[];
   static names(): { [key: string]: string } {

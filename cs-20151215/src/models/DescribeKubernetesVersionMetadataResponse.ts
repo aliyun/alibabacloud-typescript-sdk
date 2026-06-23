@@ -6,7 +6,7 @@ import { Runtime } from "./Runtime";
 export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20241218.vhd
@@ -22,12 +22,11 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageName?: string;
   /**
    * @remarks
-   * The OS platform. You can obtain the terminal ID by calling one of the following operations:
-   * 
-   * *   `AliyunLinux`
-   * *   `CentOS`
-   * *   `Windows`
-   * *   `WindowsCore`
+   * The operating system platform. Valid values:
+   * - `AliyunLinux`
+   * - `CentOS`
+   * - `Windows`
+   * - `WindowsCore`
    * 
    * @example
    * AliyunLinux
@@ -35,7 +34,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   platform?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * @example
    * 3.2104
@@ -43,17 +42,17 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osVersion?: string;
   /**
    * @remarks
-   * The type of operating system distribution that you want to use. We recommend that you use this parameter to specify the node operating system. You can obtain the terminal ID by calling one of the following operations:
+   * The type of the operating system distribution. We recommend that you use this field to specify the node operating system. Valid values:
    * 
-   * *   `CentOS`
-   * *   `AliyunLinux`
-   * *   `AliyunLinux Qboot`
-   * *   `AliyunLinuxUEFI`
-   * *   `AliyunLinux3`
-   * *   `Windows`
-   * *   `WindowsCore`
-   * *   `AliyunLinux3Arm64`
-   * *   `ContainerOS`
+   * - `CentOS`
+   * - `AliyunLinux`
+   * - `AliyunLinux Qboot`
+   * - `AliyunLinuxUEFI`
+   * - `AliyunLinux3`
+   * - `Windows`
+   * - `WindowsCore`
+   * - `AliyunLinux3Arm64`
+   * - `ContainerOS`
    * 
    * @example
    * AliyunLinux3
@@ -61,10 +60,10 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageType?: string;
   /**
    * @remarks
-   * The type of OS. Examples:
+   * The operating system type. Examples:
    * 
-   * *   `Windows`
-   * *   `Linux`
+   * - `Windows`
+   * - `Linux`
    * 
    * @example
    * Linux
@@ -72,12 +71,12 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osType?: string;
   /**
    * @remarks
-   * The type of image. Valid values:
+   * The image category. Partial valid values:
    * 
-   * *   `system`: public image
-   * *   `self`: custom image
-   * *   `others`: shared image from other Alibaba Cloud accounts
-   * *   `marketplace`: image from the marketplace
+   * - `system`: public image.
+   * - `self`: custom image.
+   * - `others`: shared image from other users.
+   * - `marketplace`: Alibaba Cloud Marketplace image.
    * 
    * @example
    * system
@@ -85,7 +84,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageCategory?: string;
   /**
    * @remarks
-   * The architecture of the image.
+   * The image architecture.
    * 
    * @example
    * x86_64
@@ -129,7 +128,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
 export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Features of the queried Kubernetes version.
+   * The feature capabilities of the Kubernetes version.
    * 
    * @example
    * {
@@ -140,7 +139,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   capabilities?: { [key: string]: any };
   /**
    * @remarks
-   * The OS images that are returned.
+   * The list of system images.
    */
   images?: DescribeKubernetesVersionMetadataResponseBodyImages[];
   /**
@@ -162,7 +161,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   runtimes?: Runtime[];
   /**
    * @remarks
-   * The Kubernetes version supported by ACK. For more information, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * The Kubernetes version released by ACK. For more information about versions, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.31.1-aliyun.1
@@ -186,7 +185,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   expirationDate?: string;
   /**
    * @remarks
-   * Indicates whether you can create clusters that run the Kubernetes version.
+   * Indicates whether the Kubernetes version can be used to create clusters.
    * 
    * @example
    * true
@@ -194,7 +193,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   creatable?: boolean;
   /**
    * @remarks
-   * The list of available Kubernetes versions for updates.
+   * The list of upgradable versions.
    */
   upgradableVersions?: string[];
   static names(): { [key: string]: string } {

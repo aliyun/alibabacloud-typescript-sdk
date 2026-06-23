@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
-   * Architectures supported by the component. Valid values:
-   * 
-   * *   amd64
-   * *   arm64
+   * The CPU architectures supported by the component.
    */
   architecture?: string[];
   /**
    * @remarks
-   * The category of the component.
+   * The component categorization. Valid values:
+   * 
+   * - core: core component.
+   * - network: network type component.
+   * - security: security component.
+   * - storage: storage component.
+   * - monitor: logging and monitoring component.
+   * - application: application component.
+   * 
+   * An empty value indicates that the component belongs to another category.
    * 
    * @example
    * monitor
@@ -21,7 +27,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The schema of the custom parameters of the component.
+   * The schema of custom parameters for the component.
    * 
    * @example
    * {}
@@ -29,7 +35,11 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   configSchema?: string;
   /**
    * @remarks
-   * Indicates whether the component is automatically installed by default.
+   * Indicates whether the component is installed by default. Valid values:
+   * 
+   * - true: The component is installed by default when a cluster is created.
+   * 
+   * - false: The component is not installed by default.
    * 
    * @example
    * false
@@ -37,7 +47,11 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   installByDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the component is fully managed.
+   * Indicates whether the component is managed. Valid values:
+   * 
+   * - true: The component is managed.
+   * 
+   * - false: The component is not managed.
    * 
    * @example
    * false
@@ -53,17 +67,12 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Operations supported by the component. Valid values:
-   * 
-   * *   Install
-   * *   Upgrade
-   * *   Modify
-   * *   Uninstall
+   * The operations supported by the component.
    */
   supportedActions?: string[];
   /**
    * @remarks
-   * The version number.
+   * The component version.
    * 
    * @example
    * 1.1.9

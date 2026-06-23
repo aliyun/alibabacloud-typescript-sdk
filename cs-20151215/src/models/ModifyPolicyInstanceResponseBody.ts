@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of policy instances that are updated.
+   * The list of updated instances.
    */
   instances?: string[];
   static names(): { [key: string]: string } {

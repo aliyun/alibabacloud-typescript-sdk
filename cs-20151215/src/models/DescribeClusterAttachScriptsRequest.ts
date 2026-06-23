@@ -9,7 +9,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
    * 
    * Default value: `amd64`.
    * 
-   * > This parameter is required if the cluster is a managed edge cluster.
+   * > This parameter is required when the cluster type is managed edge cluster.
    * 
    * @example
    * amd64
@@ -17,7 +17,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   arch?: string;
   /**
    * @remarks
-   * The Unix timestamp that indicates when the generated token expires. For example, the timestamp 1739980800 corresponds to 00:00:00 on February 20, 2025 (UTC).
+   * The expiration time of the generated token. The value is a UNIX timestamp. For example, 1739980800 indicates 2025-02-20 00:00:00.
    * 
    * @example
    * 1740037333
@@ -25,19 +25,17 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   expired?: number;
   /**
    * @remarks
-   * Specifies whether to mount a data disk to the instance and store containers and images on the data disk when you manually add an existing instance to the cluster. Valid values:
+   * Specifies whether to mount data disks to the instance when you manually add the existing instance to the cluster. Container and image data is stored on the data disks. Valid values:
    * 
-   * - `true`: Mounts the data disk to the instance. The original data on the data disk will be erased. Back up your data before you proceed.
-   * 
-   * - `false`: Does not mount the data disk to the instance.
+   * - `true`: Mounts data disks to the instance. Existing data on the data disks will be lost. Back up your data before you proceed.
+   * - `false`: Does not mount data disks to the instance.
    * 
    * Default value: `false`.
    * 
    * Data disk mounting rules:
    * 
-   * - If an ECS instance has data disks attached and the last data disk is uninitialized, the system automatically formats that disk to ext4 and uses it to store content for `/var/lib/docker` and `/var/lib/kubelet`.
-   * 
-   * - If no data disk is attached to the ECS instance, the system does not mount a new data disk.
+   * - If data disks are already mounted to the ECS instance and the file system of the last data disk is not initialized, the system automatically formats the data disk as ext4 to store /var/lib/docker and /var/lib/kubelet.
+   * - If no data disks are mounted to the ECS instance, no new data disks are mounted.
    * 
    * @example
    * false
@@ -45,11 +43,10 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   formatDisk?: boolean;
   /**
    * @remarks
-   * Specifies whether to retain the instance name when the instance is added to the cluster. If you do not retain the instance name, the system renames the instance to use the `worker-k8s-for-cs-<clusterid>` format. Valid values:
+   * Specifies whether to retain the instance name when adding an existing instance to the cluster. If the instance name is not retained, the instance name is in the format of `worker-k8s-for-cs-<clusterid>`. Valid values:
    * 
    * - `true`: Retains the instance name.
-   * 
-   * - `false`: Does not retain the instance name. The system renames the instance based on a system rule.
+   * - `false`: Does not retain the instance name. The instance name is replaced based on system rules.
    * 
    * Default value: `true`.
    * 
@@ -59,7 +56,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * The node pool ID. You can add the node to a specific node pool.
+   * The node pool ID. You can add the node to a specified node pool.
    * 
    * > If you do not specify a node pool ID, the node is added to the default node pool.
    * 
@@ -70,9 +67,9 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   oneTimeToken?: boolean;
   /**
    * @remarks
-   * The configuration parameters for node attachment.
+   * The configuration parameters for node registration.
    * 
-   * > This parameter is required if the cluster is a managed edge cluster.
+   * > This parameter is required when the cluster type is managed edge cluster.
    * 
    * @example
    * {"enableIptables": true,"manageRuntime": true,"quiet": true,"allowedClusterAddons": ["kube-proxy","flannel","coredns"]}
@@ -80,7 +77,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * If you specify a list of RDS instances, the system automatically adds the ECS instances of the cluster nodes to the access whitelists of the specified RDS instances.
+   * If you specify a list of ApsaraDB RDS instances, the ECS instances in the cluster are automatically added to the whitelists of the specified ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ import { InstanceMetadataOptions } from "./InstanceMetadataOptions";
 export class DescribeClusterDetailResponseBodyAutoMode extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether smart managed mode is enabled.
+   * Whether to enable intelligent managed mode.
    * 
    * @example
    * false
@@ -38,7 +38,7 @@ export class DescribeClusterDetailResponseBodyAutoMode extends $dara.Model {
 export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled for nodes.
+   * Whether auto-renewal is enabled for the node.
    * 
    * @example
    * true
@@ -46,7 +46,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   autoRenew?: boolean;
   /**
    * @remarks
-   * Auto-renewal duration for nodes.
+   * Auto-renewal duration of the node.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * Billing method for control plane nodes.
+   * Billing type of control plane nodes.
    * 
    * @example
    * PrePaid
@@ -62,7 +62,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   chargeType?: string;
   /**
    * @remarks
-   * Indicates whether Cloud Monitor is installed on nodes.
+   * Whether to install CloudMonitor on the node.
    * 
    * @example
    * true
@@ -70,7 +70,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   cloudMonitorFlags?: boolean;
   /**
    * @remarks
-   * CPU management policy for nodes.
+   * Node CPU management policy.
    * 
    * @example
    * none
@@ -94,7 +94,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   imageId?: string;
   /**
    * @remarks
-   * Operating system image type.
+   * OS image type.
    * 
    * @example
    * AliyunLinux3
@@ -107,12 +107,12 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
-   * Instance types for control plane nodes.
+   * Node instance specification types.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * Key pair name. Specify either this parameter or login_password.
+   * Key pair name. You can specify either this parameter or login_password.
    * 
    * @example
    * ack
@@ -120,7 +120,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   keyPair?: string;
   /**
    * @remarks
-   * Port range for node services.
+   * Node service port range.
    * 
    * @example
    * 30000-32767
@@ -128,7 +128,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   nodePortRange?: string;
   /**
    * @remarks
-   * Subscription duration for nodes.
+   * Subscription duration of the node.
    * 
    * @example
    * 1
@@ -136,7 +136,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   period?: number;
   /**
    * @remarks
-   * Time unit for node subscription.
+   * Unit of the subscription duration.
    * 
    * @example
    * Month
@@ -144,7 +144,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   periodUnit?: string;
   /**
    * @remarks
-   * Runtime name.
+   * Container runtime name.
    * 
    * @example
    * containerd
@@ -152,7 +152,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   runtime?: string;
   /**
    * @remarks
-   * Indicates whether Alibaba Cloud OS security hardening is enabled.
+   * Whether to enable Alibaba Cloud OS security hardening.
    * 
    * @example
    * true
@@ -168,7 +168,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   size?: number;
   /**
    * @remarks
-   * Indicates whether security hardening for compliance is enabled.
+   * Whether to enable classified protection security hardening.
    * 
    * @example
    * false
@@ -176,7 +176,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   socEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether burst performance is enabled for node system disks.
+   * Whether burst (performance burst) is enabled for the node system disk.
    * 
    * @example
    * true
@@ -184,7 +184,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * System disk category for nodes.
+   * Node system disk type.
    * 
    * @example
    * cloud_essd
@@ -192,7 +192,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   systemDiskCategory?: string;
   /**
    * @remarks
-   * Disk performance level for node system disks. Applies only to ESSD disks.
+   * Performance level of the node system disk. Only applicable to ESSD disks.
    * 
    * @example
    * PL1
@@ -200,7 +200,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * Provisioned IOPS for node system disks.
+   * Provisioned read/write IOPS for the node system disk.
    * 
    * @example
    * 1000
@@ -208,7 +208,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * System disk size for nodes, in GB. Minimum value: 40.
+   * Node system disk size, minimum 40.
    * 
    * @example
    * 120
@@ -216,7 +216,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   systemDiskSize?: number;
   /**
    * @remarks
-   * Automatic snapshot backup policy for node system disks.
+   * Node automatic snapshot backup policy.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -298,14 +298,13 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
 export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
   /**
    * @remarks
-   * VPCs where the internal domain name resolution takes effect. By default, this includes the VPC where the cluster resides.
+   * The VPC scope within which the internal DNS record resolution takes effect. The VPC where the cluster is located is included by default.
    */
   bindVpcs?: string[];
   /**
    * @remarks
-   * Indicates whether internal domain name access is enabled.
-   * 
-   * - true: Internal domain name access is enabled. Node-side components (kubelet, kube-proxy) access the API server through the internal domain name.
+   * Whether to enable internal DNS access for the cluster.
+   * - true: Enable internal DNS access. Node-side components (kubelet, kube-proxy) will access the API Server through the internal DNS.
    * 
    * @example
    * true
@@ -340,7 +339,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInterna
 export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig extends $dara.Model {
   /**
    * @remarks
-   * Internal domain name configuration for the cluster, applicable to ACK managed clusters. The internal domain name allows node-side system components such as kubelet and kube-proxy to access the API server. If internal domain name access is disabled, these components access the API server through the CLB IP address.
+   * Internal DNS configuration for the cluster, applicable to ACK managed clusters. The internal DNS is used by node-side system components such as kubelet and kube-proxy to access the API Server. When internal DNS access is not enabled, node-side system components access the API Server through the CLB IP.
    */
   internalDnsConfig?: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig;
   static names(): { [key: string]: string } {
@@ -370,14 +369,11 @@ export class DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig extend
 export class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
-   * Frequency of automatic cluster upgrades. For more information, see [Upgrade frequency](https://help.aliyun.com/document_detail/2712866.html).
+   * Cluster auto-upgrade frequency. For more information, see [Upgrade frequency](https://help.aliyun.com/document_detail/2712866.html).
    * 
    * Valid values:
-   * 
    * - patch: Latest patch version.
-   * 
    * - stable: Second latest minor version.
-   * 
    * - rapid: Latest minor version.
    * 
    * @example
@@ -386,7 +382,7 @@ export class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade 
   channel?: string;
   /**
    * @remarks
-   * Indicates whether automatic cluster upgrade is enabled.
+   * Whether cluster auto-upgrade is enabled.
    * 
    * @example
    * true
@@ -418,7 +414,7 @@ export class DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade 
 export class DescribeClusterDetailResponseBodyOperationPolicy extends $dara.Model {
   /**
    * @remarks
-   * Automatic cluster upgrade settings.
+   * Cluster auto-upgrade.
    */
   clusterAutoUpgrade?: DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade;
   static names(): { [key: string]: string } {
@@ -448,7 +444,7 @@ export class DescribeClusterDetailResponseBodyOperationPolicy extends $dara.Mode
 export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   /**
    * @remarks
-   * Default audience for the OIDC token. Multiple values are separated by commas (,). These values appear as an array in the aud field of the OIDC token.
+   * The default audience information of the OIDC token. Multiple values are separated by commas (,). The values will be set as an array in the aud field of the OIDC token.
    * 
    * @example
    * https://kubernetes.default.svc,https://example.***.com
@@ -456,7 +452,7 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   audience?: string;
   /**
    * @remarks
-   * Indicates whether RRSA is enabled.
+   * Whether RRSA is enabled.
    * 
    * @example
    * true
@@ -464,7 +460,7 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Issuer of the OIDC token. Multiple values are separated by commas (,). The first value appears in the iss field of the OIDC token and serves as the issuer URL for the OIDC identity provider.
+   * The issuer information of the OIDC token. Multiple values are separated by commas (,). The first value will be set as the iss field of the OIDC token and the issuer URL of the OIDC identity provider.
    * 
    * @example
    * https://oidc-ack-***,https://kubernetes.default.svc
@@ -472,12 +468,12 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * URL of the OIDC public key information.
+   * OIDC public key information URL.
    */
   jwksUrl?: string;
   /**
    * @remarks
-   * Maximum validity period configurable for the OIDC token.
+   * The maximum configurable validity period of an OIDC token.
    * 
    * @example
    * 12h
@@ -485,7 +481,7 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   maxOidcTokenExpiration?: string;
   /**
    * @remarks
-   * ARN of the OIDC identity provider.
+   * OIDC identity provider ARN.
    * 
    * @example
    * acs:ram::1138***:oidc-provider/ack-rrsa-***
@@ -493,7 +489,7 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   oidcArn?: string;
   /**
    * @remarks
-   * Name of the OIDC identity provider.
+   * OIDC identity provider name.
    * 
    * @example
    * ack-rrsa-***
@@ -501,7 +497,7 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
   oidcName?: string;
   /**
    * @remarks
-   * URL of the OIDC configuration document.
+   * OIDC configuration document URL.
    */
   openApiConfigurationUrl?: string;
   static names(): { [key: string]: string } {
@@ -542,12 +538,12 @@ export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
 export class DescribeClusterDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Smart managed mode configuration.
+   * Intelligent managed mode configuration.
    */
   autoMode?: DescribeClusterDetailResponseBodyAutoMode;
   /**
    * @remarks
-   * Local domain name of the cluster.
+   * Cluster local domain.
    * 
    * @example
    * cluster.local
@@ -563,21 +559,17 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster specification when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
+   * The cluster specifications when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
    * 
-   * - `ack.standard`: Basic Edition (default if left empty)
-   * 
-   * - `ack.pro.small`: Pro Edition
-   * 
+   * - `ack.standard`: Basic edition (selected by default when the value is empty)
+   * - `ack.pro.small`: Pro edition
    * - `ack.pro.xlarge`: Pro XL
-   * 
    * - `ack.pro.2xlarge`: Pro 2XL
+   * - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service for allowlisting)
    * 
-   * - `ack.pro.4xlarge`: Pro 4XL (requires whitelist approval from customer service)
+   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and pinning control plane resources, they ensure that API concurrency and Pod scheduling capabilities remain at a consistently high level, suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
    * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three tiers offered by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These tiers pre-allocate and dedicate control plane resources to ensure consistent high performance for API concurrency and pod scheduling, making them suitable for AI training and inference, large-scale clusters, and mission-critical workloads.
-   * 
-   * For cluster management fees of Pro Edition and provisioned control plane clusters, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+   * For cluster management fees for Pro edition and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.pro.small
@@ -588,10 +580,10 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * Cluster type.
    * 
    * - `Kubernetes`: ACK dedicated cluster.
-   * 
-   * - `ManagedKubernetes`: ACK managed clusters, including ACK Pro Edition and Basic Edition clusters, ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK LINGJUN clusters (Pro).
-   * 
-   * - `ExternalKubernetes`: registered cluster.
+   *  
+   * - `ManagedKubernetes`: ACK managed clusters, including ACK managed clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
+   *  
+   * - `ExternalKubernetes`: Registered cluster.
    * 
    * @example
    * Kubernetes
@@ -599,7 +591,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * CIDR block for pod networks, used with Flannel.
+   * Pod network CIDR block, configured for Flannel networking.
    * 
    * @example
    * 172.20.xx.xx/16
@@ -607,7 +599,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   containerCidr?: string;
   /**
    * @remarks
-   * Control plane configuration for dedicated clusters.
+   * Dedicated cluster control plane configuration.
    */
   controlPlaneConfig?: DescribeClusterDetailResponseBodyControlPlaneConfig;
   /**
@@ -617,7 +609,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   controlPlaneEndpointsConfig?: DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig;
   /**
    * @remarks
-   * Time when the cluster was created.
+   * Cluster creation time.
    * 
    * @example
    * 2025-04-07T09:57:26+08:00
@@ -625,7 +617,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * Current Kubernetes version of the cluster. For supported Kubernetes versions in ACK, see [Overview of Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * The current version of the cluster. For Kubernetes versions supported by ACK, see [Kubernetes release overview](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -633,11 +625,10 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * Deletion protection for the cluster prevents accidental deletion through the console or API. Valid values:
+   * Cluster deletion protection, which prevents accidental deletion of the cluster through the console or API. Valid values:
    * 
-   * - `true`: Deletion protection is enabled. You cannot delete the cluster through the console or API.
-   * 
-   * - `false`: Deletion protection is disabled. You can delete the cluster through the console or API.
+   * - `true`: Enable cluster deletion protection. The cluster cannot be deleted through the console or API.
+   * - `false`: Disable cluster deletion protection. The cluster can be deleted through the console or API.
    * 
    * @example
    * true
@@ -645,7 +636,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * Docker version used in the cluster.
+   * The Docker version in the cluster.
    * 
    * @example
    * 19.03.5
@@ -655,7 +646,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   dockerVersion?: string;
   /**
    * @remarks
-   * ID of the Server Load Balancer instance used for the cluster Ingress.
+   * Cluster Ingress SLB instance ID.
    * 
    * @example
    * lb-2zehc05z3b8dwiifh****
@@ -665,12 +656,12 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   externalLoadbalancerId?: string;
   /**
    * @remarks
-   * Custom Subject Alternative Names (SANs) for the API server certificate.
+   * Custom API Server certificate SAN (Subject Alternative Name).
    */
   extraSans?: string[];
   /**
    * @remarks
-   * Initial Kubernetes version of the cluster.
+   * Cluster initial version.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -678,11 +669,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   initVersion?: string;
   /**
    * @remarks
-   * IP protocol stack of the cluster. Valid values:
-   * 
-   * - ipv4: Creates a cluster that supports IPv4 only.
-   * 
-   * - dual: Creates a cluster that supports both IPv4 and IPv6.
+   * The IP protocol stack of the cluster. Valid values:
+   * - ipv4: Creates a cluster that supports only the IPv4 protocol stack.
+   * - dual: Creates a cluster that supports the IPv4/IPv6 dual stack.
    * 
    * @example
    * ipv4
@@ -690,12 +679,12 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   ipStack?: string;
   /**
    * @remarks
-   * Maintenance window configuration for the cluster. This setting applies only to managed clusters (ACK Pro clusters).
+   * Cluster maintenance window configuration. Only takes effect in managed editions (i.e., ACK Pro clusters).
    */
   maintenanceWindow?: MaintenanceWindow;
   /**
    * @remarks
-   * Cluster endpoint, including internal and public endpoints.
+   * The access endpoint of the cluster, including the internal and public access endpoints.
    * 
    * @example
    * {\\"intranet_api_server_endpoint\\":\\"https://192.168.xx.xx:6443\\"***}
@@ -703,7 +692,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   masterUrl?: string;
   /**
    * @remarks
-   * Metadata of the cluster.
+   * Cluster metadata information.
    * 
    * @example
    * \\"Addons\\":***
@@ -719,7 +708,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Network type used by the cluster, such as VPC.
+   * The network type used by the cluster, for example: VPC network.
    * 
    * @example
    * vpc
@@ -729,7 +718,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * Next available Kubernetes version for upgrade.
+   * Cluster upgradeable version.
    * 
    * @example
    * 1.xx.x-aliyun.1
@@ -737,9 +726,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * Applies only to Flannel network plugin.
+   * Only applicable to the Flannel network plugin.
    * 
-   * Subnet mask size allocated to each node, which controls the number of IP addresses assignable to the node.
+   * The subnet mask size allocated to each node, which controls the number of IP addresses that can be allocated to the node.
    * 
    * @example
    * 26
@@ -747,23 +736,22 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   nodeCidrMask?: string;
   /**
    * @remarks
-   * Automatic O\\&M policy for the cluster.
+   * Cluster automatic O&M policy.
    */
   operationPolicy?: DescribeClusterDetailResponseBodyOperationPolicy;
   /**
    * @remarks
-   * Collection of ROS parameters for the cluster.
+   * Cluster ROS parameter collection.
    * 
    * @deprecated
    */
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * Indicates whether PrivateZone is enabled for the cluster.
+   * Whether PrivateZone is enabled for the cluster.
    * 
    * - `true`: Enabled.
-   * 
-   * - `false`: Disabled.
+   * - `false`: Not enabled.
    * 
    * Default value: false.
    * 
@@ -777,13 +765,13 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * @remarks
    * Cluster subtype.
    * 
-   * - `Default`: ACK managed cluster, including ACK Pro Edition and Basic Edition.
-   * 
-   * - `Edge`: ACK Edge cluster, including ACK Edge Pro Edition and Basic Edition.
-   * 
-   * - `Serverless`: ACK Serverless cluster, including ACK Serverless Pro Edition and Basic Edition.
-   * 
-   * - `Lingjun`: ACK LINGJUN cluster, available in Pro Edition.
+   * - `Default`: ACK managed cluster, including ACK Pro and ACK Basic.
+   *  
+   * - `Edge`: ACK Edge cluster, including ACK Edge Pro and ACK Edge Basic.
+   *  
+   * - `Serverless`: ACK Serverless cluster, including ACK Serverless Pro and ACK Serverless Basic.
+   *  
+   * - `Lingjun`: ACK Lingjun cluster, available in Pro edition.
    * 
    * @example
    * Default
@@ -793,9 +781,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * @remarks
    * kube-proxy proxy mode.
    * 
-   * - `iptables`: A mature and stable kube-proxy mode that uses iptables rules for Kubernetes service discovery and load balancing. Performance is moderate and degrades at scale. Suitable for clusters with a small number of services.
-   * 
-   * - `ipvs`: A high-performance kube-proxy mode that uses the Linux IPVS module for Kubernetes service discovery and load balancing. Suitable for clusters with many services and high load balancing demands.
+   * - `iptables`: A mature and stable kube-proxy proxy mode. Service discovery and load balancing for Kubernetes Services are configured using iptables rules. However, the performance is average and significantly affected by scale. This mode is suitable for clusters with a small number of Services.
+   * - `ipvs`: A high-performance kube-proxy proxy mode. Service discovery and load balancing for Kubernetes Services are configured using the Linux IPVS module. This mode is suitable for clusters with a large number of Services and scenarios that require high-performance load balancing.
    * 
    * @example
    * ipvs
@@ -803,7 +790,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   proxyMode?: string;
   /**
    * @remarks
-   * Region ID where the cluster is deployed.
+   * The region ID where the cluster is located.
    * 
    * @example
    * cn-beijing
@@ -811,7 +798,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID of the cluster.
+   * Cluster resource group ID.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -824,7 +811,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   rrsaConfig?: DescribeClusterDetailResponseBodyRrsaConfig;
   /**
    * @remarks
-   * Security group ID of the cluster.
+   * Cluster security group ID.
    * 
    * @example
    * sg-25yq****
@@ -832,7 +819,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * CIDR block for service networks.
+   * Service network CIDR block.
    * 
    * This parameter is required.
    * 
@@ -842,7 +829,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   serviceCidr?: string;
   /**
    * @remarks
-   * Total number of nodes in the cluster, including master and worker nodes.
+   * The number of nodes in the cluster, including both Master and Worker nodes.
    * 
    * @example
    * 5
@@ -850,36 +837,22 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Cluster status. Valid values:
+   * Cluster running status. Valid values:
    * 
    * - `initial`: The cluster is being created.
-   * 
-   * - `failed`: Cluster creation failed.
-   * 
+   * - `failed`: The cluster failed to be created.
    * - `running`: The cluster is running.
-   * 
    * - `updating`: The cluster is being updated.
-   * 
    * - `upgrading`: The cluster is being upgraded.
-   * 
    * - `removing`: Nodes are being removed.
-   * 
    * - `draining`: Nodes are being drained.
-   * 
-   * - `scaling`: The cluster is scaling.
-   * 
+   * - `scaling`: The cluster is being scaled.
    * - `inactive`: The cluster is inactive.
-   * 
    * - `unavailable`: The cluster is unavailable.
-   * 
    * - `deleting`: The cluster is being deleted.
-   * 
    * - `deleted`: The cluster has been deleted.
-   * 
-   * - `delete_failed`: Cluster deletion failed.
-   * 
-   * - `waiting`: Waiting for access.
-   * 
+   * - `delete_failed`: The cluster failed to be deleted.
+   * - `waiting`: Waiting for connection.
    * - `disconnected`: Disconnected.
    * 
    * @example
@@ -888,7 +861,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * CIDR block for pod networks.
+   * Pod network CIDR block.
    * 
    * @example
    * 172.20.xx.xx/16
@@ -898,12 +871,12 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   subnetCidr?: string;
   /**
    * @remarks
-   * Tags associated with the cluster.
+   * Cluster resource tags.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * Time zone.
+   * Timezone.
    * 
    * @example
    * Asia/Shanghai
@@ -911,7 +884,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * Last time the cluster was updated.
+   * Cluster update time.
    * 
    * @example
    * 2025-04-10T13:28:09+08:00
@@ -919,7 +892,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * VPC ID of the cluster. This parameter is required when creating a cluster.
+   * The VPC ID of the cluster. This is a required parameter when creating a cluster.
    * 
    * @example
    * vpc-2zecuu62b9zw7a7qn****
@@ -927,7 +900,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * vSwitch ID. This field is deprecated. Use vswitch_ids to query control plane vSwitches and node pool vswitch_ids to query data plane vSwitches.
+   * vSwitch ID. This field is deprecated. For control plane vSwitches, use the vswitch_ids field. For data plane vSwitches, query through the vswitch_ids field in node pools.
    * 
    * @example
    * vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
@@ -937,12 +910,12 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   vswitchId?: string;
   /**
    * @remarks
-   * vSwitches for the cluster control plane.
+   * Cluster control plane vSwitches.
    */
   vswitchIds?: string[];
   /**
    * @remarks
-   * Name of the RAM role assigned to ECS instances acting as worker nodes in the cluster.
+   * The name of the Worker RAM role, which authorizes ECS instances as Worker nodes of the cluster.
    * 
    * @example
    * KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
@@ -950,7 +923,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   workerRamRoleName?: string;
   /**
    * @remarks
-   * Zone ID within the region where the cluster is deployed.
+   * The availability zone ID within the region where the cluster is located.
    * 
    * @example
    * cn-beijing-a

@@ -13,7 +13,7 @@ export class RepairClusterNodePoolResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * T-613b19bbd160ad2800******

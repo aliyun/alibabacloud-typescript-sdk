@@ -13,12 +13,11 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the component. Valid values:
-   * 
-   * *   active: The component is installed.
-   * *   updating: The component is being modified.
-   * *   upgrading: The component is being updated.
-   * *   deleting: The component is being uninstalled.
+   * The component status. Valid values:
+   * - active: installed
+   * - updating: being modified
+   * - upgrading: being upgraded
+   * - deleting: being uninstalled.
    * 
    * @example
    * active
@@ -26,7 +25,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
    * v1.9.3.10-7dfca203-aliyun
@@ -60,7 +59,7 @@ export class ListClusterAddonInstancesResponseBodyAddons extends $dara.Model {
 export class ListClusterAddonInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of components that are installed in the cluster.
+   * The list of installed component instances.
    */
   addons?: ListClusterAddonInstancesResponseBodyAddons[];
   static names(): { [key: string]: string } {

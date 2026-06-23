@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorization setting. Valid values:
+   * 集群访问配置，格式为：
    * 
-   * *   `{cluster_id}` is returned if the permissions are scoped to a cluster.
-   * *   `{cluster_id}/{namespace}` is returned if the permissions are scoped to a namespace of a cluster.
-   * *   `all-clusters` is returned if the permissions are scoped to all clusters.
+   * - 当是集群维度授权时，格式为：`{cluster_id}`。
+   * - 当是命名空间维度授权时，格式为：`{cluster_id}/{namespace}`。
+   * - 当是所有集群授权时，值固定为：`all-clusters`。
    * 
    * @example
    * c1b542****
@@ -17,11 +17,11 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The authorization type. Valid values:
+   * 授权类型，取值：
    * 
-   * *   `cluster`: indicates that the permissions are scoped to a cluster.
-   * *   `namespace`: indicates that the permissions are scoped to a namespace of a cluster.
-   * *   `console`: indicates that the permissions are scoped to all clusters.
+   * - `cluster`：集群维度。
+   * - `namespace`：命名空间维度。
+   * - `console`：所有集群维度的授权。
    * 
    * @example
    * cluster
@@ -29,7 +29,7 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The name of the custom role. If a custom role is assigned, the value is the name of the assigned custom role.
+   * 自定义角色名称，当授权自定义角色时，该字段为指定的自定义集群管理角色名称。
    * 
    * @example
    * terway-pod-reader
@@ -37,13 +37,13 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The type of predefined role. Valid values:
+   * 预置的角色类型，取值：
    * 
-   * *   `admin`: administrator
-   * *   `ops`: O\\&M engineer
-   * *   `dev`: developer
-   * *   `restricted`: restricted user
-   * *   `custom`: custom role
+   * - `admin`：管理员。
+   * - `ops`：运维人员。
+   * - `dev`：开发人员。
+   * - `restricted`：受限用户。
+   * - `custom`：使用自定义的集群管理角色。
    * 
    * @example
    * admin
@@ -51,10 +51,10 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * Indicates whether the permissions are granted to the cluster owner.
+   * 是否为集群创建者的授权，取值：
    * 
-   * *   `0`: indicates that the permissions are not granted to the cluster owner.
-   * *   `1`: indicates that the permissions are granted to the cluster owner. The cluster owner is the administrator.
+   * - `0`：代表不是集群创建者的授权记录。
+   * - `1`：代表该授权记录为集群创建者的管理员权限。
    * 
    * @example
    * 1
@@ -62,10 +62,10 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
   isOwner?: number;
   /**
    * @remarks
-   * Indicates whether the permissions are granted to the RAM role. Valid values:
+   * 是否为RAM角色授权，取值：
    * 
-   * *   `0`: indicates that the permissions are not granted to the RAM role.
-   * *   `1`: indicates that the permissions are granted to the RAM role.
+   * - `0`：代表当前记录不是RAM角色授权。
+   * - `1`：代表当前记录是RAM角色授权。
    * 
    * @example
    * 1

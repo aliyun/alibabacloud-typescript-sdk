@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that is used to deploy the policy instance.
+   * 策略实例实施者UID。
    * 
    * @example
    * 16298168****
@@ -13,7 +13,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * 目标集群ID。
    * 
    * @example
    * c8155823d057948c69a****
@@ -21,7 +21,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the policy instance.
+   * 规则实例名称。
    * 
    * @example
    * no-env-var-secrets-****
@@ -29,7 +29,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * 策略治理规则名称。
    * 
    * @example
    * ACKPSPCapabilities
@@ -37,7 +37,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * 策略类型名称。
    * 
    * @example
    * k8s-general
@@ -45,7 +45,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyCategory?: string;
   /**
    * @remarks
-   * The description of the policy template.
+   * 规则模板描述。
    * 
    * @example
    * Restricts secrets used in pod envs
@@ -53,7 +53,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyDescription?: string;
   /**
    * @remarks
-   * The parameters of the policy instance.
+   * 当前规则实例的配置参数。
    * 
    * @example
    * "restrictedNamespaces": [ "test" ]
@@ -61,7 +61,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyParameters?: string;
   /**
    * @remarks
-   * The severity level of the policy instance.
+   * 规则实例治理等级。
    * 
    * @example
    * low
@@ -69,11 +69,11 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policySeverity?: string;
   /**
    * @remarks
-   * The applicable scope of the policy instance.
+   * 策略实例实施范围：
    * 
-   * A value of \\* indicates all namespaces in the cluster. This is the default value.
+   * 默认"*"代表集群所有命名空间。
    * 
-   * Multiple namespaces are separated by commas (,).
+   * 否则返回作用Namespaces名称，多个Namespaces以逗号（,）分隔。
    * 
    * @example
    * *
@@ -81,10 +81,11 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyScope?: string;
   /**
    * @remarks
-   * The action of the policy. Valid values:
+   * 规则治理动作，取值：
    * 
-   * *   `deny`: Deployments that match the policy are denied.
-   * *   `warn`: Alerts are generated for deployments that match the policy.
+   * - `deny`：拦截违规部署。
+   * 
+   * - `warn`：告警。
    * 
    * @example
    * deny
@@ -92,7 +93,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * The creation time of the instance. This parameter is deprecated.
+   * 创建时间（已废弃，请勿使用）。
    * 
    * @example
    * 2024-10-29T18:09:12+08:00
@@ -102,7 +103,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The update time of the instance. This parameter is deprecated.
+   * 更新时间（已废弃，请勿使用）。
    * 
    * @example
    * 2024-10-29T18:09:12+08:00
@@ -112,7 +113,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * The ID of the resource. This parameter is deprecated.
+   * 资源ID（已废弃，请勿使用）。
    * 
    * @example
    * 123456***
@@ -122,7 +123,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The number of violations processed in the cluster. This parameter is deprecated.
+   * 集群中处理违规计数（已废弃，请勿使用）。
    * 
    * @example
    * 0
@@ -132,7 +133,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   totalViolations?: number;
   /**
    * @remarks
-   * The status of the deletion. This parameter is deprecated.
+   * 删除状态（已废弃，请勿使用）。
    * 
    * @example
    * 0

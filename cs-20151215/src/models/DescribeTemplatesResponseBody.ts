@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 3
@@ -55,13 +55,11 @@ export class DescribeTemplatesResponseBodyPageInfo extends $dara.Model {
 export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The access control policy of the template. Valid values:
+   * The access permissions for the deployment template. Valid values:
    * 
-   * *   `private`: The template is private.
-   * *   `public`: The template is public.
-   * *   `shared`: The template can be shared.
-   * 
-   * Default value: `private`.
+   * - `private`: private.
+   * - `public`: public.
+   * - `shared`: shared.
    * 
    * @example
    * private
@@ -69,7 +67,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The time when the orchestration template was created.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00
@@ -77,7 +75,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The description of the template.
+   * The description of the orchestration template.
    * 
    * @example
    * a web server
@@ -85,7 +83,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The ID of the orchestration template.
    * 
    * @example
    * 874ec485-e7e6-4373-8a3b-47bde8******
@@ -93,7 +91,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The name of the orchestration template.
    * 
    * @example
    * webserver
@@ -101,7 +99,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The label of the template. By default, the value is the name of the template.
+   * The tag of the orchestration template. If not explicitly specified, the tag defaults to the template name.
    * 
    * @example
    * kubernetes
@@ -109,7 +107,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The template content in the YAML format.
+   * The template content in YAML format.
    * 
    * @example
    * apiVersion: apps/v1\\nkind: Deployment\\nmetadata:\\n  name: nginx-deployment-basic\\n  labels:\\n    app: nginx\\nspec:\\n  replicas: 2\\n  selector:\\n    matchLabels:\\n      app: nginx\\n  template:\\n    metadata:\\n      labels:\\n        app: nginx\\n    spec:\\n      containers:\\n      - name: nginx\\n        image: busybox:latest\\n        ports:\\n        - containerPort: 80
@@ -117,10 +115,11 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The type of template. This parameter can be set to a custom value.
+   * The templatetype.
    * 
-   * *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
-   * *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. However, Container Service for Swarm is deprecated.
+   * - If the value is set to kubernetes, the template is displayed on the Orchestration Templates page in the console.
+   * 
+   * - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
    * 
    * @example
    * kubernetes
@@ -128,7 +127,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The ID of the parent template. The value of `template_with_hist_id` is the same for each template version. This allows you to manage different template versions.
+   * The ID of the parent template associated with the template. This parameter is used to implement template versioning. Different versions of the same template share the same `template_with_hist_id` value.
    * 
    * @example
    * ad81d115-7c8b-47e7-a222-9c28d7******
@@ -136,7 +135,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
   templateWithHistId?: string;
   /**
    * @remarks
-   * The time when the template was updated.
+   * The time when the orchestration template was last updated.
    * 
    * @example
    * 2025-04-25T16:56:33+08:00
@@ -189,7 +188,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   pageInfo?: DescribeTemplatesResponseBodyPageInfo;
   /**
    * @remarks
-   * The list of returned templates.
+   * The list of templates.
    */
   templates?: DescribeTemplatesResponseBodyTemplates[];
   static names(): { [key: string]: string } {

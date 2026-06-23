@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent configurations in the YAML format.
+   * The agent configuration in YAML format.
    * 
    * @example
    * apiVersion: v1****

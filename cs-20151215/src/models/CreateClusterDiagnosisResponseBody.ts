@@ -13,7 +13,7 @@ export class CreateClusterDiagnosisResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The diagnostic ID.
+   * The diagnosis ID.
    * 
    * @example
    * 6f719f23098240818eb26fe3a37d****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number to return when paginating query results.
    * 
    * Default value: 1.
    * 
@@ -15,7 +15,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page when paginating query results.
    * 
    * Default value: 10.
    * 
@@ -25,12 +25,13 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of template. This parameter can be set to a custom value.
+   * The templatetype.
    * 
-   * *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
-   * *   If you set the parameter to `compose`, the template is not displayed on the Templates page in the console.
+   * - If the value is set to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
    * 
-   * Default value: `kubernetes`.
+   * - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * 
+   * Set this parameter to `kubernetes`.
    * 
    * @example
    * kubernetes

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * c82e6987e2961451182edacd74faf****
@@ -13,7 +13,7 @@ export class UpgradeClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0527ac9a-c899-4341-a21a-****
@@ -21,7 +21,7 @@ export class UpgradeClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * T-5faa48fb31b6b8078d00****

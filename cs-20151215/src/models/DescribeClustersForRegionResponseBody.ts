@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
-   * The cluster domain.
+   * The local domain name of the cluster.
    * 
    * @example
    * cluster.local
@@ -24,19 +24,15 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
    * @remarks
    * The specification of the cluster. Valid values:
    * 
-   * - `ack.standard`: Basic Edition
-   * 
-   * - `ack.pro.small`: Pro Edition
-   * 
+   * - `ack.standard`: Basic
+   * - `ack.pro.small`: Pro
    * - `ack.pro.xlarge`: Pro XL
-   * 
    * - `ack.pro.2xlarge`: Pro 2XL
+   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to add your account to the whitelist)
    * 
-   * - `ack.pro.4xlarge`: Pro 4XL. This specification is available only to allowlisted users.
+   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and Pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
    * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three specifications available for the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These specifications ensure a high and deterministic level of API concurrency and Pod scheduling capabilities by pre-allocating and dedicating control plane resources. They are suitable for AI training and inference, large-scale clusters, and mission-critical workloads.
-   * 
-   * For information about the <props="china">[cluster management fee](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[cluster management fee](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee) for Pro Edition and ACK Pro provisioned control plane specifications, see the linked topic.
+   * For information about cluster management fees for Pro and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.standard
@@ -44,13 +40,10 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
-   * 
-   * - `Kubernetes`: an ACK dedicated cluster.
-   * 
-   * - `ManagedKubernetes`: an ACK managed cluster. This type includes ACK managed clusters (Pro and Basic editions), ACK Serverless clusters (Pro and Basic editions), ACK Edge clusters (Pro and Basic editions), and ACK Lingjun clusters (Pro edition).
-   * 
-   * - `ExternalKubernetes`: a registered cluster.
+   * The cluster type. Valid values:
+   * - Kubernetes: ACK dedicated cluster.
+   * - ManagedKubernetes: ACK managed cluster types, including ACK managed clusters (ACK Pro and ACK Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
+   * - ExternalKubernetes: registered cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -58,7 +51,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The CIDR block for Pods in the cluster.
+   * The pod CIDR block of the cluster.
    * 
    * @example
    * 172.20.0.0/16
@@ -66,7 +59,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   containerCidr?: string;
   /**
    * @remarks
-   * The time the cluster was created.
+   * The time when the cluster was created.
    * 
    * @example
    * 2020-12-01T20:40:40+08:00
@@ -82,11 +75,9 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * Specifies whether deletion protection is enabled for the cluster. If enabled, you cannot delete the cluster from the console or by an API call. Valid values:
-   * 
-   * - `true`: Deletion protection is enabled.
-   * 
-   * - `false`: Deletion protection is disabled.
+   * Indicates whether deletion protection is enabled for the cluster. Deletion protection prevents the cluster from being accidentally deleted in the console or by calling API operations. Valid values:
+   * - true: Deletion protection is enabled. The cluster cannot be deleted in the console or by calling API operations.
+   * - false: Deletion protection is not enabled. The cluster can be deleted in the console or by calling API operations.
    * 
    * @example
    * false
@@ -102,7 +93,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   initVersion?: string;
   /**
    * @remarks
-   * The IP stack of the cluster.
+   * The IP protocol stack of the cluster.
    * 
    * @example
    * ipv4
@@ -118,7 +109,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The available upgrade version.
+   * The version to which the cluster can be upgraded.
    * 
    * @example
    * 1.18.8-aliyun.1
@@ -126,15 +117,11 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The subtype of the cluster. Valid values:
-   * 
-   * - `Default`: An ACK managed cluster (Pro and Basic editions).
-   * 
-   * - `Edge`: An ACK Edge cluster (Pro and Basic editions).
-   * 
-   * - `Serverless`: An ACK Serverless cluster (Pro and Basic editions).
-   * 
-   * - `LingJun`: An ACK Lingjun cluster (Pro edition).
+   * The cluster subtype. Valid values:
+   * - Default: ACK managed cluster, including ACK Pro and ACK Basic.
+   * - Edge: ACK Edge cluster, including ACK Edge Pro and ACK Edge Basic.
+   * - Serverless: ACK Serverless cluster, including ACK Serverless Pro and ACK Serverless Basic.
+   * - LingJun: ACK Lingjun cluster, available in Pro.
    * 
    * @example
    * Default
@@ -142,7 +129,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The kube-proxy proxy mode of the cluster.
+   * The kube-proxy mode of the cluster.
    * 
    * @example
    * ipvs
@@ -158,7 +145,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the cluster belongs.
+   * The resource group ID of the cluster.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -174,7 +161,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The CIDR block for the service network.
+   * The service CIDR block.
    * 
    * This parameter is required.
    * 
@@ -192,36 +179,22 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The state of the cluster. Valid values:
+   * The running state of the cluster. Valid values:
    * 
    * - `initial`: The cluster is being created.
-   * 
-   * - `failed`: Cluster creation failed.
-   * 
+   * - `failed`: The cluster failed to be created.
    * - `running`: The cluster is running.
-   * 
    * - `updating`: The cluster is being updated.
-   * 
    * - `upgrading`: The cluster is being upgraded.
-   * 
-   * - `removing`: Nodes are being removed from the cluster.
-   * 
-   * - `draining`: Node draining is in progress.
-   * 
+   * - `removing`: Nodes are being removed.
+   * - `draining`: Nodes are being drained.
    * - `scaling`: The cluster is being scaled.
-   * 
    * - `inactive`: The cluster is inactive.
-   * 
    * - `unavailable`: The cluster is unavailable.
-   * 
    * - `deleting`: The cluster is being deleted.
-   * 
-   * - `deleted`: The cluster is deleted.
-   * 
-   * - `delete_failed`: Cluster deletion failed.
-   * 
-   * - `waiting`: The cluster is waiting for a connection.
-   * 
+   * - `deleted`: The cluster has been deleted.
+   * - `delete_failed`: The cluster failed to be deleted.
+   * - `waiting`: The cluster is in the accessed state, waiting to be connected.
    * - `disconnected`: The cluster is disconnected.
    * 
    * @example
@@ -230,12 +203,12 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The tags attached to the cluster.
+   * The list of cluster tags.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The time zone of the cluster.
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -243,7 +216,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The time the cluster was last updated.
+   * The time when the cluster was last updated.
    * 
    * @example
    * 2020-12-08T15:37:00+08:00
@@ -259,7 +232,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches for the control plane.
+   * The list of vSwitches for the cluster control plane.
    */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -340,7 +313,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
 export class DescribeClustersForRegionResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The returned page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -348,7 +321,7 @@ export class DescribeClustersForRegionResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -356,7 +329,7 @@ export class DescribeClustersForRegionResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The total number of results.
    * 
    * @example
    * 10
@@ -390,7 +363,7 @@ export class DescribeClustersForRegionResponseBodyPageInfo extends $dara.Model {
 export class DescribeClustersForRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of clusters.
+   * The list of cluster details.
    */
   clusters?: DescribeClustersForRegionResponseBodyClusters[];
   /**

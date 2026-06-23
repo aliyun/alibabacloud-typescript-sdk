@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunClusterInspectRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token that ensures an API request completes no more than one time.
+   * The idempotence token.
    * 
    * @example
    * c82e6987e2961451182edacd74faf

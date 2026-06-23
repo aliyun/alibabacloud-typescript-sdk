@@ -8,12 +8,12 @@ import { Hugepage } from "./Hugepage";
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
   /**
    * @remarks
-   * Hugepage configuration.
+   * The Hugepage configuration.
    */
   hugepage?: Hugepage;
   /**
    * @remarks
-   * The sysctl configuration.
+   * The custom sysctl parameter configuration.
    */
   sysctl?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -48,7 +48,11 @@ export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
 export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of unavailable nodes.
+   * Node updates in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
+   * 
+   * Valid values: [1,10].
+   * 
+   * Default value: 10.
    * 
    * @example
    * 3
@@ -83,22 +87,22 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   containerdConfig?: ContainerdConfig;
   /**
    * @remarks
-   * The kubelet configurations.
+   * The kubelet parameter configuration.
    */
   kubeletConfig?: KubeletConfig;
   /**
    * @remarks
-   * List of nodes to upgrade.
+   * The list of specified nodes to upgrade.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The OS configuration.
+   * The operating system parameter configuration.
    */
   osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   /**
    * @remarks
-   * The rolling policy configuration.
+   * The rolling update configuration.
    */
   rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
   static names(): { [key: string]: string } {

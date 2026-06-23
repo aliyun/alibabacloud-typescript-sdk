@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster check task.
+   * The check ID.
    * 
    * @example
    * 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
@@ -13,7 +13,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * The time when the cluster check task was created.
+   * The creation time.
    * 
    * @example
    * 2025-04-11T02:56:02.565982623Z
@@ -21,7 +21,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The time when the cluster check task was completed.
+   * The completion time.
    * 
    * @example
    * 2025-04-11T02:56:18.881054031Z
@@ -29,7 +29,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * The message that indicates the status of the cluster check task.
+   * The check status message.
    * 
    * @example
    * task succeed
@@ -37,7 +37,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status of the cluster check.
+   * The check status.
    * 
    * @example
    * Succeeded
@@ -45,7 +45,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The check method.
+   * The check type.
    * 
    * @example
    * ClusterUpgrade
@@ -85,7 +85,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
 export class ListClusterChecksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of check items.
+   * The list of checks.
    */
   checks?: ListClusterChecksResponseBodyChecks[];
   static names(): { [key: string]: string } {

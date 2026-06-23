@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContactGroupForAlertRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert contact group.
+   * The name of the alert metric contact group.
    * 
    * @example
    * sample
@@ -18,7 +18,7 @@ export class UpdateContactGroupForAlertRequest extends $dara.Model {
   contactGroupIds?: number[];
   /**
    * @remarks
-   * The name of the container registry instance.
+   * The name of the CR instance.
    * 
    * @example
    * sample

@@ -6,12 +6,11 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   /**
    * @remarks
    * The category of the inspection item. Valid values:
-   * 
-   * *   security: Security compliance
-   * *   performance: Performance efficiency
-   * *   stability: Business stability
-   * *   limitation: Service limits
-   * *   cost: Cost optimization
+   * - security: security and compliance
+   * - performance: performance and efficiency 
+   * - stability: business stability
+   * - limitation: service limits 
+   * - cost: cost optimization.
    * 
    * @example
    * stability
@@ -27,7 +26,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   checkItemUid?: string;
   /**
    * @remarks
-   * The description of the inspection item.
+   * The description of the check item.
    * 
    * @example
    * 集群API Server负载均衡实例异常会影响集群可用性，请检查负载均衡实例状态是否正常。
@@ -35,7 +34,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   description?: string;
   /**
    * @remarks
-   * The fixing suggestion.
+   * The fix suggestion.
    * 
    * @example
    * 请提交工单处理。
@@ -44,11 +43,10 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   /**
    * @remarks
    * The level of the inspection item. Valid values:
-   * 
-   * *   advice: Suggestions
-   * *   warning: Low severity
-   * *   error: Medium severity
-   * *   critical: High severity
+   * - advice: suggestion
+   * - warning: low-risk
+   * - error: medium-risk
+   * - critical: high-risk.
    * 
    * @example
    * critical
@@ -56,7 +54,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   level?: string;
   /**
    * @remarks
-   * The name of the inspection item.
+   * The name of the check item.
    * 
    * @example
    * API Server CLB 实例状态异常
@@ -64,11 +62,10 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   name?: string;
   /**
    * @remarks
-   * The inspection results. Valid values:
-   * 
-   * *   true: The inspection item is abnormal.
-   * *   false: The inspection item is normal.
-   * *   disable: The inspection item is not enabled.
+   * The check result. Valid values:
+   * - true: The check item is abnormal.
+   * - false: The check item is normal.
+   * - disable: The check item is not enabled.
    * 
    * @example
    * false
@@ -76,7 +73,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   result?: string;
   /**
    * @remarks
-   * The resource type of the inspection object.
+   * The resource type of the check target.
    * 
    * @example
    * CLB
@@ -84,7 +81,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   targetType?: string;
   /**
    * @remarks
-   * The inspection objects.
+   * The list of check targets.
    */
   targets?: string[];
   static names(): { [key: string]: string } {
@@ -130,7 +127,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
 export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Model {
   /**
    * @remarks
-   * The number of check items whose inspection result is advice.
+   * The number of check items with a result of advice.
    * 
    * @example
    * 0
@@ -138,7 +135,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   adviceCount?: number;
   /**
    * @remarks
-   * Check the status code of the inspection task.
+   * The status code of the check task result.
    * 
    * @example
    * warning
@@ -146,7 +143,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The number of check items whose inspection result is error.
+   * The number of check items with a result of error.
    * 
    * @example
    * 0
@@ -154,7 +151,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   errorCount?: number;
   /**
    * @remarks
-   * The number of check items whose inspection result is normal.
+   * The number of check items with a result of normal.
    * 
    * @example
    * 10
@@ -162,7 +159,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   normalCount?: number;
   /**
    * @remarks
-   * The number of check items whose inspection result is warning.
+   * The number of check items with a result of warning.
    * 
    * @example
    * 1
@@ -200,7 +197,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
 export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The results.
+   * The list of results.
    */
   checkItemResults?: GetClusterInspectReportDetailResponseBodyCheckItemResults[];
   /**
@@ -213,7 +210,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The token that is used to display the returned tags on multiple pages.
+   * The pagination token.
    * 
    * @example
    * AK8uQQrxgFK8sbARvnCj6w9R3kPme4I3
@@ -221,7 +218,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the inspection report.
+   * The inspection report ID.
    * 
    * @example
    * 782df89346054a0000562063a****
@@ -245,10 +242,9 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the inspection report. Valid values:
-   * 
-   * *   completed: The inspection report is generated.
-   * *   running: The inspection report is generating.
+   * The generation status of the inspection report. Valid values:
+   * - completed: Completed.
+   * - running: In progress.
    * 
    * @example
    * completed
@@ -256,7 +252,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Overview of inspection reports.
+   * The inspection report summary.
    */
   summary?: GetClusterInspectReportDetailResponseBodySummary;
   static names(): { [key: string]: string } {

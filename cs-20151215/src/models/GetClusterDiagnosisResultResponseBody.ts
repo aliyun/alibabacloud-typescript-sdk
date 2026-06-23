@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code that indicates the diagnostic result. Valid values:
-   * 
-   * *   0: the diagnostic is completed.
-   * *   1: the diagnostic failed.
+   * The diagnosis result code. Valid values:
+   * - 0: diagnosis completed.
+   * - 1: diagnosis failed.
    * 
    * @example
    * 0
@@ -16,7 +15,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The time when the diagnostic is initiated.
+   * The time when the diagnosis was initiated.
    * 
    * @example
    * 2024-05-28T11:29Z
@@ -24,7 +23,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The diagnostic ID.
+   * The diagnosis ID.
    * 
    * @example
    * 6cf6b62e334e4583bdfd26707516****
@@ -32,7 +31,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   diagnosisId?: string;
   /**
    * @remarks
-   * The time when the diagnostic is completed.
+   * The time when the diagnosis was completed.
    * 
    * @example
    * 2024-05-28T11:29Z
@@ -40,7 +39,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   finished?: string;
   /**
    * @remarks
-   * The diagnostic status information.
+   * The diagnosis status message.
    * 
    * @example
    * success
@@ -48,7 +47,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The diagnostic result.
+   * The diagnosis result.
    * 
    * @example
    * {"phase":5,"version":"20240101"}
@@ -56,11 +55,10 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The status of the diagnostic. Valid values:
-   * 
-   * *   0: The diagnostic is created.
-   * *   1: The diagnostic is running.
-   * *   2: The diagnostic is completed.
+   * The diagnosis status. Valid values:
+   * - 0: diagnosis created.
+   * - 1: diagnosis running.
+   * - 2: diagnosis completed.
    * 
    * @example
    * 2
@@ -68,7 +66,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The diagnostic object.
+   * The diagnosis target.
    * 
    * @example
    * {"name":"cn-hongkong.10.0.0.246"}
@@ -76,17 +74,7 @@ export class GetClusterDiagnosisResultResponseBody extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The type of the diagnostic.
-   * 
-   * Valid values:
-   * 
-   * *   node
-   * *   ingress
-   * *   cluster
-   * *   memory
-   * *   pod
-   * *   service
-   * *   network
+   * The diagnosis type.
    * 
    * @example
    * Node

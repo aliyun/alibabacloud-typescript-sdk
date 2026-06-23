@@ -15,9 +15,9 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The maximum number of results to return per page.
    * 
-   * Valid values: 1 to 100.
+   * Valid values: [1,100].
    * 
    * Default value: 50.
    * 
@@ -27,7 +27,7 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task ID. If specified, only events associated with this task are returned.
+   * The ID of the task to query.
    * 
    * @example
    * T-6823f946ffadbb0106****

@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The update interval between batches takes effect only when the pause policy is set to NotPause. Unit: minutes. Valid values: 5 to 120.
+   * The interval between batches during the upgrade. This parameter takes effect only when the pause policy is set to `NotPause`.
+   * 
+   * Valid values: [5,120]. Unit: minutes.
+   * 
+   * You can set this parameter to 0 to specify no interval between batches.
    * 
    * @example
    * 5
@@ -13,7 +17,11 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes per batch.
+   * The maximum number of nodes that can be upgraded in parallel per batch. Nodes in the node pool are upgraded in batches.
+   * 
+   * Valid values: [1,10].
+   * 
+   * Default value: 10.
    * 
    * @example
    * 2
@@ -21,11 +29,10 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The policy used to pause the update. Valid values:
-   * 
-   * *   FirstBatch: pauses after the first batch is updated.
-   * *   EveryBatch: pauses after each batch is updated.
-   * *   NotPause: does not pause.
+   * The automatic pause policy during node upgrades. Valid values:
+   * - FirstBatch: pauses after the first batch is completed.
+   * - EveryBatch: pauses after each batch is completed.
+   * - NotPause: does not pause.
    * 
    * @example
    * NotPause
@@ -59,7 +66,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
 export class UpgradeClusterNodepoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the OS image used by the nodes.
+   * The system image ID of the node.
    * 
    * @example
    * aliyun_3_x64_20G_container_optimized_20241226.vhd
@@ -67,7 +74,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The Kubernetes version used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the Kubernetes version of the current cluster in the current_version field.
+   * The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from the `KubernetesVersion` field.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -75,7 +82,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   kubernetesVersion?: string;
   /**
    * @remarks
-   * The nodes you want to update. If you do not specify this parameter, all nodes in the node pool are updated by default.
+   * The list of nodes to upgrade. If this parameter is not specified, all nodes in the node pool are upgraded.
    */
   nodeNames?: string[];
   /**
@@ -85,7 +92,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   rollingPolicy?: UpgradeClusterNodepoolRequestRollingPolicy;
   /**
    * @remarks
-   * The runtime type. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the runtime information in the runtime field.
+   * The runtime type. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the runtime information from the runtime field.
    * 
    * @example
    * containerd
@@ -93,7 +100,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   runtimeType?: string;
   /**
    * @remarks
-   * The version of the container runtime used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the runtime version in the runtime field.
+   * The runtime version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the runtime version information from the runtime field.
    * 
    * @example
    * 1.6.36
@@ -101,10 +108,9 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * Specifies whether to perform the update by replacing the system disk. Valid values:
-   * 
-   * *   true: replaces the system disk.
-   * *   false: does not replace the system disk.
+   * Specifies whether to use system cloud disk replacement for the upgrade. Valid values:
+   * - true: Uses system cloud disk replacement to upgrade the node pool. ACK reinitializes the nodes based on the current node pool configurations, such as the logon method, labels, taints, operating system image, and runtime version.
+   * - false: Does not use system cloud disk replacement.
    * 
    * Default value: false.
    * 

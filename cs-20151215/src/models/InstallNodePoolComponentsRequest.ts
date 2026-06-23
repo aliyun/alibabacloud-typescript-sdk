@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Model {
   /**
    * @remarks
-   * Custom parameters for the component.
+   * The custom configuration of the component.
    */
   customConfig?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
 export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * The configuration details for the component.
+   * The component configuration.
    */
   config?: InstallNodePoolComponentsRequestComponentsConfig;
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
    * 1.28.9-aliyun.1
@@ -87,7 +87,7 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
 export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The time interval between update batches, in seconds.
+   * The interval between batches during the upgrade. Unit: seconds.
    * 
    * @example
    * 0
@@ -95,7 +95,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can be updated concurrently in each batch. Default: 1.
+   * The maximum number of nodes that can be processed in parallel per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The strategy for automatic pausing during the update process. Valid values: NotPause, FirstBatchPause, EveryBatchPause.
+   * The automatic pause policy during the node upgrade process.
    * 
    * @example
    * NotPause
@@ -137,17 +137,17 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
 export class InstallNodePoolComponentsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of node components to be installed.
+   * The list of node components.
    */
   components?: InstallNodePoolComponentsRequestComponents[];
   /**
    * @remarks
-   * A list of specific node names where the component should be installed. If not specified, the component will be installed on all nodes in the node pool.
+   * The list of node names for the rolling update. By default, all nodes are included.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * Configuration for the rolling update process.
+   * The rolling update configuration.
    */
   rollingPolicy?: InstallNodePoolComponentsRequestRollingPolicy;
   static names(): { [key: string]: string } {

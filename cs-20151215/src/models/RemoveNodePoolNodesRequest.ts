@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveNodePoolNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to remove concurrently.
+   * Specifies whether to remove nodes concurrently.
+   * 
+   * - true: Nodes are concurrently removed from the scaling group.
+   * 
+   * - false: Nodes are sequentially removed from the scaling group.
+   * 
+   * Default value: false.
    * 
    * @example
    * false
@@ -13,10 +19,9 @@ export class RemoveNodePoolNodesRequest extends $dara.Model {
   concurrency?: boolean;
   /**
    * @remarks
-   * Specifies whether to drain the nodes that you want to remove. Valid values:
-   * 
-   * *   true: drain the nodes that you want to remove.
-   * *   false: do not drain the nodes that you want to remove.
+   * Specifies whether to drain the nodes. Valid values:
+   * - true: Drain the nodes.
+   * - false: Do not drain the nodes.
    * 
    * @example
    * true
@@ -24,26 +29,25 @@ export class RemoveNodePoolNodesRequest extends $dara.Model {
   drainNode?: boolean;
   /**
    * @remarks
-   * A list of instances that you want to remove.
+   * The list of instances to remove.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * This parameter is deprecated.
+   * [This parameter is deprecated]
    * 
-   * A list of nodes that you want to remove.
+   * The list of nodes to remove.
    * 
-   * >  This parameter is deprecated. Use instance_ids instead.
+   * >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>.
    * 
    * @deprecated
    */
   nodes?: string[];
   /**
    * @remarks
-   * Specifies whether to release the nodes after they are removed. Valid values:
-   * 
-   * *   true: release the nodes after they are removed.
-   * *   false: do not release the nodes after they are removed.
+   * Specifies whether to release the nodes. Valid values:
+   * - true: Release the nodes.
+   * - false: Do not release the nodes.
    * 
    * @example
    * true

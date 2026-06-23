@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterAddonRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom parameter settings that you want to use.
+   * The custom parameter settings.
    * 
    * @example
    * {"CpuRequest":"800m"}

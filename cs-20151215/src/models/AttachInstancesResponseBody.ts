@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachInstancesResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The code that indicates the task result.
+   * The status code of the node addition result.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class AttachInstancesResponseBodyList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The ECS instance ID.
    * 
    * @example
    * i-2ze0lgm3y6iylcbt****
@@ -21,7 +21,7 @@ export class AttachInstancesResponseBodyList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the ECS instance is successfully added to the ACK cluster.
+   * The description of the node addition result.
    * 
    * @example
    * successful
@@ -55,7 +55,7 @@ export class AttachInstancesResponseBodyList extends $dara.Model {
 export class AttachInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the added nodes.
+   * The list of node addition information.
    */
   list?: AttachInstancesResponseBodyList[];
   /**

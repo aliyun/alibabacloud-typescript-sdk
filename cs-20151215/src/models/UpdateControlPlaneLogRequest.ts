@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateControlPlaneLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 162981*****
@@ -16,12 +16,12 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   aliuid?: string;
   /**
    * @remarks
-   * The control plane components for which you want to enable log collection.
+   * The list of components for which control plane logging is enabled.
    */
   components?: string[];
   /**
    * @remarks
-   * The name of the Simple Log Service Project that you want to use to store the logs of control plane components.
+   * The name of the SLS project used to store control plane component logs.
    * 
    * Default value: k8s-log-$Cluster ID.
    * 
@@ -34,9 +34,9 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The retention period of the log data stored in the Logstore. Valid values: 1 to 3000. Unit: days.
+   * The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
    * 
-   * Default value: 30.
+   * Default value: 30 days.
    * 
    * @example
    * 30

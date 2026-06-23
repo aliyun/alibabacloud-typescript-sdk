@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the policy instance.
+   * The instance ID of the policy rule.
    * 
    * @example
    * allowed-repos-mqdsf

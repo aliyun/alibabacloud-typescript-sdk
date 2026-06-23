@@ -13,7 +13,7 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 5
@@ -55,15 +55,15 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
 export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the content matches the default cluster role template.  
+   * Indicates whether the content matches the default cluster role template. Valid values:
    * 
-   * - true: Matches  
-   * - false: Does not match
+   * - true: The content matches the default template.
+   * - false: The content does not match the default template.
    */
   isDefaultTemplate?: boolean;
   /**
    * @remarks
-   * Name of the cluster role associated with the cluster cloud product service role.
+   * The name of the cluster role associated with the cloud service role.
    * 
    * @example
    * cluster-admin
@@ -71,7 +71,7 @@ export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles exte
   roleName?: string;
   /**
    * @remarks
-   * Namespace of the cluster role associated with the cluster cloud product service role.
+   * The namespace of the cluster role associated with the cloud service role.
    * 
    * @example
    * kube-system
@@ -79,7 +79,7 @@ export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles exte
   roleNamespace?: string;
   /**
    * @remarks
-   * The type of the cluster role associated with the cloud service role of the cluster.
+   * The type of the cluster role associated with the cloud service role.
    * 
    * @example
    * ClusterRole
@@ -115,7 +115,7 @@ export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles exte
 export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
-   * The displayed name or role name of the RAM user.
+   * The display name of the Resource Access Management (RAM) user or the role name.
    * 
    * @example
    * tom
@@ -123,7 +123,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountDisplayName?: string;
   /**
    * @remarks
-   * The ID of an Alibaba Cloud account, RAM user, or RAM role.
+   * The Alibaba Cloud account, Resource Access Management (RAM) user, or role ID.
    * 
    * @example
    * 22855*****************
@@ -131,7 +131,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The logon name or role name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user or the role name.
    * 
    * @example
    * tom
@@ -139,11 +139,13 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The status of the account.
+   * The account status. Valid values:
    * 
-   * *   Active: The account is active.
-   * *   InActive: The account is locked.
-   * *   Deleted: The account is deleted.
+   * - Active: The account is active.
+   * 
+   * - InActive: The account is frozen.
+   * 
+   * - Deleted: The account is deleted.
    * 
    * @example
    * Active
@@ -151,11 +153,11 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountState?: string;
   /**
    * @remarks
-   * The type of the account.
+   * The account type. Valid values:
    * 
-   * *   RootAccount: Alibaba Cloud account.
-   * *   RamUser: RAM user.
-   * *   RamRole: RAM role.
+   * - RootAccount: Alibaba Cloud account.
+   * - RamUser: Resource Access Management (RAM) user.
+   * - RamRole: RAM role.
    * 
    * @example
    * RamUser
@@ -163,7 +165,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The expiration time of the client certificate for the kubeconfig file.
+   * The expiration time of the KubeConfig client certificate.
    * 
    * @example
    * 2027-07-15T01:32:20Z
@@ -171,11 +173,13 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   certExpireTime?: string;
   /**
    * @remarks
-   * The status of the client certificate for the kubeconfig file.
+   * The status of the KubeConfig client certificate. Valid values:
    * 
-   * *   Unexpired: The certificate is not expired.
-   * *   Expired: The certificate is expired.
-   * *   Unknown: The status of the certificate is unknown.
+   * - Unexpired: The certificate has not expired.
+   * 
+   * - Expired: The certificate has expired.
+   * 
+   * - Unknown: The certificate status is unknown (abnormal state).
    * 
    * @example
    * Expired
@@ -183,7 +187,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   certState?: string;
   /**
    * @remarks
-   * Cloud service name.
+   * The name of the cloud service.
    * 
    * @example
    * cs/ecs/sls
@@ -191,12 +195,12 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   cloudServiceName?: string;
   /**
    * @remarks
-   * List of cluster roles associated with the cluster cloud product service roles.
+   * The list of cluster roles associated with the cloud service role.
    */
   cloudServiceRoles?: ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles[];
   /**
    * @remarks
-   * Indicates whether the client certificate for the kubeconfig file can be revoked.
+   * Indicates whether the KubeConfig client certificate can be revoked.
    * 
    * @example
    * true
@@ -252,7 +256,7 @@ export class ListClusterKubeconfigStatesResponseBody extends $dara.Model {
   page?: ListClusterKubeconfigStatesResponseBodyPage;
   /**
    * @remarks
-   * The status list of the kubeconfig files associated with the cluster.
+   * The list of KubeConfig states associated with the cluster.
    */
   states?: ListClusterKubeconfigStatesResponseBodyStates[];
   static names(): { [key: string]: string } {

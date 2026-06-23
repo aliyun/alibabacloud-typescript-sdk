@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which the results are returned.
-   * 
-   * Valid values:
-   * 
-   * *   zh-CN
-   * *   en-US
+   * Filters the results by language (Chinese or English).
    * 
    * @example
    * zh-CN
@@ -18,13 +13,7 @@ export class DescribeRegionsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The type of the cluster.
-   * 
-   * Valid values:
-   * 
-   * *   ExternalKubernetes: registered clusters.
-   * *   ManagedKubernetes: managed clusters.
-   * *   Kubernetes: dedicated clusters.
+   * The cluster type.
    * 
    * @example
    * ManagedKubernetes
@@ -32,14 +21,7 @@ export class DescribeRegionsRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The subtype of the managed cluster.
-   * 
-   * Valid values:
-   * 
-   * *   Lingjun: ACK Lingjun clusters.
-   * *   Serverless: ACK serverless clusters.
-   * *   Default: ACK managed clusters.
-   * *   Edge: ACK Edge clusters.
+   * The subtype of managed clusters.
    * 
    * @example
    * Default

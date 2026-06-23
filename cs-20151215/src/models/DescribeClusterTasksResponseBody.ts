@@ -13,7 +13,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of results.
    * 
    * @example
    * 10
@@ -95,7 +95,7 @@ export class DescribeClusterTasksResponseBodyTasksError extends $dara.Model {
 export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * @example
    * 2022-08-03T10:11:33+08:00
@@ -103,12 +103,12 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The error message.
+   * The node fault error message.
    */
   error?: DescribeClusterTasksResponseBodyTasksError;
   /**
    * @remarks
-   * The task state.
+   * The task status.
    * 
    * @example
    * success
@@ -132,7 +132,7 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The time when the task was updated.
+   * The update time.
    * 
    * @example
    * 2022-08-03T10:12:03.482+08:00
@@ -189,7 +189,7 @@ export class DescribeClusterTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tasks.
+   * The task array.
    */
   tasks?: DescribeClusterTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {

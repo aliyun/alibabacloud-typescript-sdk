@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutoRepairPoliciesResponseBodyItemsRulesIncidents extends $dara.Model {
   /**
    * @remarks
-   * The incident name.
+   * The name of the incident.
    * 
    * @example
    * Node.FaultNeedReboot.HOST
@@ -45,7 +45,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesIncidents extends $dara
 export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
    * @remarks
-   * The key of the label.
+   * The label `key`.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -53,7 +53,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
   key?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The label `value`.
    * 
    * @example
    * approved
@@ -85,7 +85,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
 export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
    * @remarks
-   * The key of the label.
+   * The label `key`.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -93,7 +93,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
   key?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The taint `value`.
    * 
    * @example
    * inquiring
@@ -125,12 +125,12 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
 export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureIntervention extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the approval label. Applying this label to the node authorizes Container Service for Kubernetes (ACK) to execute the action for this repair step. After the step is complete, ACK automatically removes both the inquiry and approval labels. If the approval label is not applied promptly, the repair process will not proceed, and the node may remain in an unhealthy state.
+   * The label configuration for confirming authorization. When you add the following label to a node, it indicates that you authorize ACK to execute the action of this phase. After completing the action of this phase, ACK automatically removes the authorization inquiry label and the confirmation label corresponding to this phase. If you do not add the following label to authorize the action in time, ACK will not execute the action of this phase or any subsequent actions, and the node may remain in a damaged state.
    */
   approvedLabel?: ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterventionApprovedLabel;
   /**
    * @remarks
-   * Determines whether manual approval is required for the repair step.
+   * Specifies whether to enable manual approval.
    * 
    * @example
    * true
@@ -138,12 +138,12 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
   enable?: boolean;
   /**
    * @remarks
-   * The configuration for the authorization inquiry label. When this repair step starts, Container Service for Kubernetes (ACK) applies this label to the node and pauses, awaiting approval before executing the step\\"s action.
+   * The label configuration for authorization inquiry. When this phase is entered, ACK adds the following label to your node and waits for your authorization to execute the action of this phase.
    */
   inquiringLabel?: ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterventionInquiringLabel;
   /**
    * @remarks
-   * The manual approval type.
+   * The type of manual approval.
    * 
    * @example
    * label
@@ -185,17 +185,17 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureInterven
 export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedure extends $dara.Model {
   /**
    * @remarks
-   * The configuration parameters for the procedure step.
+   * The configuration parameters of the procedure.
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The manual intervention settings for this procedure step.
+   * The configuration for manual intervention.
    */
   intervention?: ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedureIntervention;
   /**
    * @remarks
-   * The name of the procedure step.
+   * The name of the procedure.
    * 
    * @example
    * QuarantineGPU
@@ -235,7 +235,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRulesRepairProcedure extends
 export class ListAutoRepairPoliciesResponseBodyItemsRules extends $dara.Model {
   /**
    * @remarks
-   * A list of identified incidents.
+   * The list of identified incidents.
    */
   incidents?: ListAutoRepairPoliciesResponseBodyItemsRulesIncidents[];
   /**
@@ -275,7 +275,7 @@ export class ListAutoRepairPoliciesResponseBodyItemsRules extends $dara.Model {
 export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the auto-repair rule.
+   * The ID of the auto-repair policy.
    * 
    * @example
    * r-xxxxx
@@ -283,7 +283,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the auto-repair rule.
+   * The name of the auto-repair policy.
    * 
    * @example
    * test
@@ -291,12 +291,12 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The IDs of the resources that the auto-repair rule affects.
+   * The list of resources bound to the auto-repair policy.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The resource sub-type that the auto-repair rule affects.
+   * The subtype of resource bound to the auto-repair policy.
    * 
    * @example
    * ess
@@ -304,7 +304,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   resourceSubType?: string;
   /**
    * @remarks
-   * The resource type that the auto-repair rule affects.
+   * The type of resource bound to the auto-repair policy.
    * 
    * @example
    * nodepool
@@ -312,7 +312,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * A list of auto-repair sub-rules.
+   * The list of auto-repair sub-rules.
    */
   rules?: ListAutoRepairPoliciesResponseBodyItemsRules[];
   static names(): { [key: string]: string } {
@@ -355,7 +355,7 @@ export class ListAutoRepairPoliciesResponseBodyItems extends $dara.Model {
 export class ListAutoRepairPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of auto-repair rules.
+   * The auto-repair policies.
    */
   items?: ListAutoRepairPoliciesResponseBodyItems[];
   static names(): { [key: string]: string } {

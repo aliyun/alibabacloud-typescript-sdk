@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy instance that you want to query.
+   * The name of the policy instance.
    * 
    * @example
    * allowed-repos-cz4s2
@@ -13,7 +13,7 @@ export class DescribePolicyInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The name of the policy that you want to query.
+   * The name of the policy governance rule.
    * 
    * @example
    * ACKPSPCapabilities

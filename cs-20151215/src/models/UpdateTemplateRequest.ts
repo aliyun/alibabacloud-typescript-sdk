@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the template.
+   * The description of the deployment template.
    * 
    * @example
    * web server cluster
@@ -13,7 +13,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The name of the deployment template.
    * 
    * @example
    * webserver01
@@ -21,7 +21,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The label of the template.
+   * The tags of the deployment template.
    * 
    * @example
    * web
@@ -29,7 +29,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The YAML content of the template.
+   * The template content in YAML format.
    * 
    * @example
    * apiVersion: apps/v1\\\\nkind: Deployment\\\\nmetadata:\\\\n  name: nginx-deployment-basic\\\\n  labels:\\\\n    app: nginx\\\\nspec:\\\\n  replicas: 2\\\\n  selector:\\\\n    matchLabels:\\\\n      app: nginx\\\\n  template:\\\\n    metadata:\\\\n      labels:\\\\n        app: nginx\\\\n    spec:\\\\n      containers:\\\\n      - name: nginx\\\\n        image: busybox:latest\\\\n        ports:\\\\n        - containerPort: 8080
@@ -37,10 +37,13 @@ export class UpdateTemplateRequest extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The type of template. This parameter can be set to a custom value.
+   * The templatetype.
    * 
-   * *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
-   * *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. Container Service for Swarm is deprecated.
+   * - If you set this parameter to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
+   * 
+   * - If you leave this parameter empty or set it to other values, the template is not displayed on the Orchestration Templates page in the console.
+   * 
+   * Settings this parameter to `kubernetes` is recommended.
    * 
    * @example
    * kubernetes

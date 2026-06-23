@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extends $dara.Model {
   /**
    * @remarks
-   * Package name.
+   * The package name.
    * 
    * @example
    * WebLogic
@@ -35,7 +35,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extend
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Model {
   /**
    * @remarks
-   * The alias of the vulnerability.
+   * The vulnerability alias.
    * 
    * @example
    * RHSA-2019:3197-Important: sudo security update
@@ -43,12 +43,12 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   aliasName?: string;
   /**
    * @remarks
-   * A list of CVE names corresponding to the vulnerabilities.
+   * The list of CVEs associated with the vulnerability.
    */
   cveList?: string[];
   /**
    * @remarks
-   * The name of the vulnerability.
+   * The vulnerability name.
    * 
    * @example
    * oval:com.redhat.rhsa:def:20193197
@@ -56,13 +56,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The severity level of the vulnerability.
-   * 
-   * Valid values:
-   * 
-   * *   nntf: You can ignore the vulnerability.
-   * *   later: You can fix the vulnerability later.
-   * *   asap: You need to fix the vulnerability at the earliest opportunity.
+   * The vulnerability severity level.
    * 
    * @example
    * asap
@@ -78,7 +72,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   needReboot?: boolean;
   /**
    * @remarks
-   * List of packages affected by the vulnerability.
+   * The list of packages affected by the vulnerability.
    */
   packageList?: DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList[];
   static names(): { [key: string]: string } {
@@ -121,7 +115,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
 export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The node instance ID.
    * 
    * @example
    * i-t4n2qolb0wtzt0pz****
@@ -129,7 +123,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node name. This name is the identifier of the node in the cluster.
+   * The node name, which is the identifier of the node within the cluster.
    * 
    * @example
    * cn-hangzhou.192.168.x.x
@@ -171,15 +165,16 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
 export class DescribeNodePoolVulsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The vulnerability list of all node pools.
+   * The list of node pool vulnerabilities.
    */
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
    * @remarks
-   * Indicates whether the CVE vulnerability patching service provided by Security Center is purchased.
+   * Indicates whether the Security Center CVE fix service has been purchased.
    * 
-   * *   true: yes
-   * *   false: no
+   * - true: Purchased.
+   * 
+   * - false: Not purchased.
    * 
    * @example
    * false

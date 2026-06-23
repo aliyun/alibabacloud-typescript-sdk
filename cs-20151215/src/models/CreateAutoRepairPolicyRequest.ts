@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
   /**
    * @remarks
-   * The incident name.
+   * The name of the fault.
    * 
    * @example
    * Node.FaultNeedReboot.HOST
@@ -13,7 +13,7 @@ export class CreateAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The incident type.
+   * The type of the fault.
    * 
    * @example
    * system
@@ -45,7 +45,7 @@ export class CreateAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The key of the label.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -53,7 +53,7 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprov
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the label.
    * 
    * @example
    * approved
@@ -85,7 +85,7 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprov
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The key of the label.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -93,7 +93,7 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquir
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the label.
    * 
    * @example
    * inquiring
@@ -125,7 +125,7 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquir
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention extends $dara.Model {
   /**
    * @remarks
-   * The label that grants authorization for the repair step. To approve the step, add this label to the node. After the action is complete, ACK automatically removes both the inquiry and approval labels for this step. If this label is not added promptly, the repair procedure halts and the node remains impaired.
+   * The label configuration for authorization confirmation. When you add the following label to the node, you authorize ACK to execute the action in this stage. After completing the action in this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels for this stage. If you do not add the following label to authorize the action promptly, ACK does not execute the action in this stage or subsequent actions, and the node may remain in a damaged state.
    */
   approvedLabel?: CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel;
   /**
@@ -138,12 +138,12 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention exten
   enable?: boolean;
   /**
    * @remarks
-   * The label used to request authorization for the repair step. When this step begins, ACK applies this label to the node and waits for approval before performing the action.
+   * The label configuration for authorization inquiry. When this stage is reached, ACK adds the following label to your node and waits for you to authorize the execution of the action in this stage.
    */
   inquiringLabel?: CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel;
   /**
    * @remarks
-   * The manual approval type.
+   * The type of manual approval.
    * 
    * @example
    * label
@@ -185,17 +185,17 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention exten
 export class CreateAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Model {
   /**
    * @remarks
-   * Configuration parameters for the repair step.
+   * The configuration parameters of the repair procedure.
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * Settings for manual intervention.
+   * The configuration for manual intervention in the procedure.
    */
   intervention?: CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention;
   /**
    * @remarks
-   * The name of the repair step.
+   * The name of the procedure.
    * 
    * @example
    * Drain
@@ -235,7 +235,7 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Mod
 export class CreateAutoRepairPolicyRequestRules extends $dara.Model {
   /**
    * @remarks
-   * The incidents that the rule detects.
+   * The list of identified faults.
    */
   incidents?: CreateAutoRepairPolicyRequestRulesIncidents[];
   /**
@@ -275,7 +275,7 @@ export class CreateAutoRepairPolicyRequestRules extends $dara.Model {
 export class CreateAutoRepairPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the auto repair policy.
+   * The name of the self-healing rule.
    * 
    * @example
    * test
@@ -283,7 +283,7 @@ export class CreateAutoRepairPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource subtype to which the auto repair policy applies.
+   * The resource subtype that the self-healing rule can be bound to.
    * 
    * @example
    * ess
@@ -291,7 +291,7 @@ export class CreateAutoRepairPolicyRequest extends $dara.Model {
   resourceSubType?: string;
   /**
    * @remarks
-   * The resource type to which the auto repair policy applies.
+   * The resource type that the self-healing rule can be bound to.
    * 
    * @example
    * nodepool
@@ -299,7 +299,7 @@ export class CreateAutoRepairPolicyRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The sub-rules for the auto repair policy.
+   * The list of self-healing sub-rules.
    * 
    * @example
    * ["np-xxx"]

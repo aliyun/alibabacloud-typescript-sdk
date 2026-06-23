@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunClusterCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster check task.
+   * The check ID.
    * 
    * @example
    * 1697100584236******-ce0da5a1d627e4e9e9f96cae8ad******-clustercheck-lboto
@@ -13,7 +13,7 @@ export class RunClusterCheckResponseBody extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F04DF81D-5C12-1524-B36A-86E025******

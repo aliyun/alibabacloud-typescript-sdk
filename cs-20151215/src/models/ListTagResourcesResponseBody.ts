@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * c2e39566adf23481fa1164ed510****
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. For more information, see [Labels](https://help.aliyun.com/document_detail/110425.html).
+   * The resource type.
    * 
    * @example
    * ALIYUN::CS::CLUSTER
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * The key of the label.
+   * The tag key.
    * 
    * @example
    * ack.aliyun.com
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   tagKey?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The tag value.
    * 
    * @example
    * c71cf3d796c374bf48644482cb0c3****
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The resource and label.
+   * The tag resource.
    */
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that determines the start point of the next query.
    * 
    * @example
    * c374bf4864448****
@@ -111,7 +111,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the queried labels and resources.
+   * The collection of tag resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

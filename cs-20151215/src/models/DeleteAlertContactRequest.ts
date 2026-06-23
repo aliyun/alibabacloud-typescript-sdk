@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertContactRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert contact IDs to delete.
+   * The list of alert contact IDs.
    * 
    * This parameter is required.
    */

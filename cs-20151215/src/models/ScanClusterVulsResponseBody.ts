@@ -13,7 +13,7 @@ export class ScanClusterVulsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * T-xascadasd*****

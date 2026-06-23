@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ModifyClusterTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The data of the tags that you want to modify.
+   * The data to be modified.
    */
   body?: Tag[];
   static names(): { [key: string]: string } {

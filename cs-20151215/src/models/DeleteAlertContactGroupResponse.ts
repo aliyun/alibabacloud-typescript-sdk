@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertContactGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deletion status.
+   * Deletion status.
    * 
-   * *   true: The alert contact group was deleted.
-   * *   false: The alert contact group failed to be deleted.
+   * * true: Deletion successful.
+   * * false: Deletion failed.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class DeleteAlertContactGroupResponseBody extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The message returned when execution fails.
    * 
    * @example
    * Delete contact group resource failed.
@@ -24,7 +24,7 @@ export class DeleteAlertContactGroupResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The alert contact group ID.
+   * Alert contact group ID.
    * 
    * @example
    * 12345

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action of the policy. Valid values:
-   * 
-   * *   `enforce`: blocks deployments that match the policy.
-   * *   `inform`: generates alerts for deployments that match the policy.
+   * The governance action of the rule. Valid values:
+   * - `enforce`: blocks non-compliant deployments.
+   * - `inform`: generates alerts.
    * 
    * @example
    * enforce
@@ -16,7 +15,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * The rule templatetype.
    * 
    * @example
    * k8s-general
@@ -24,7 +23,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The description of the rule template.
    * 
    * @example
    * Requires container images to begin with a repo string from a specified list
@@ -32,10 +31,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the policy is deleted. Valid values:
-   * 
-   * *   0: The policy is not deleted.
-   * *   1: The policy is deleted.
+   * Indicates whether the rule is deleted. Valid values:
+   * - 0: The rule is not deleted.
+   * - 1: The rule is deleted.
    * 
    * @example
    * 0
@@ -43,7 +41,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the policy governance rule.
    * 
    * @example
    * ACKAllowedRepos
@@ -51,10 +49,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether parameters are required. Valid values:
-   * 
-   * *   0: Parameters are required.
-   * *   1: Parameters are optional.
+   * Indicates whether policy configuration is required. Valid values: 
+   * - 0: Parameter settings are required.
+   * - 1: No parameter settings are required.
    * 
    * @example
    * 0
@@ -62,11 +59,10 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   noConfig?: number;
   /**
    * @remarks
-   * The severity level of the policy. Valid values:
-   * 
-   * *   `high`
-   * *   `medium`
-   * *   `low`
+   * The governance severity level of the rule. Valid values:
+   * * `high`: high risk.
+   * * `medium`: medium risk.
+   * * `low`: low risk.
    * 
    * @example
    * high
@@ -74,7 +70,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The content of the policy.
+   * The details of the rule template.
    * 
    * @example
    * 详情请参见请求示例

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of policy instances.
+   * The list of policy instances.
    */
   instances?: string[];
   static names(): { [key: string]: string } {

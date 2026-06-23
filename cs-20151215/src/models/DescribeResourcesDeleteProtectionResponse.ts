@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource name.
+   * The name of the queried resource.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the resource belongs.
+   * The namespace of the queried resource.
    * 
    * @example
    * default
@@ -23,7 +23,7 @@ export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The type of the queried resource.
    * 
    * @example
    * namespaces
@@ -32,9 +32,8 @@ export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether deletion protection is enabled.
-   * 
-   * *   true: deletion protection is enabled.
-   * *   false: deletion protection is disabled.
+   * - true: enabled.
+   * - false: disabled.
    * 
    * @example
    * false

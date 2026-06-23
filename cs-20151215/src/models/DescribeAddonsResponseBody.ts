@@ -6,7 +6,7 @@ import { StandardComponentsValue } from "./StandardComponentsValue";
 export class DescribeAddonsResponseBodyComponentGroupsItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * @example
    * flexvolume
@@ -44,7 +44,7 @@ export class DescribeAddonsResponseBodyComponentGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The names of the components in the component group.
+   * The component names included in this group.
    */
   items?: DescribeAddonsResponseBodyComponentGroupsItems[];
   static names(): { [key: string]: string } {
@@ -76,12 +76,12 @@ export class DescribeAddonsResponseBodyComponentGroups extends $dara.Model {
 export class DescribeAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the returned components.
+   * The list of component groups.
    */
   componentGroups?: DescribeAddonsResponseBodyComponentGroups[];
   /**
    * @remarks
-   * Standard components.
+   * The standard components.
    */
   standardComponents?: { [key: string]: StandardComponentsValue };
   static names(): { [key: string]: string } {
