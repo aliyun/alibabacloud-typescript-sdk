@@ -2,10 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
+/**
+ */
+export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The API operation name.
+   * As described above.
    * 
    * @example
    * xxx
@@ -21,7 +23,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the identity used for authentication belongs.
+   * As described above.
    * 
    * @example
    * 111
@@ -29,10 +31,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of identity used for authentication in the request. Valid values:
-   * - SubUser: RAM user.
-   * - AssumedRoleUser: RAM role.
-   * - Federated: SSO federated identity.
+   * As described above.
    * 
    * @example
    * 222
@@ -40,7 +39,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted complete diagnostic information.
+   * The encoded diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,9 +47,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial. Valid values:
-   * - **ImplicitDeny**: The resource owner has not granted the required permissions to the current user. Unauthorized operations are denied by default.
-   * - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -58,7 +55,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * PolicyType
    * 
    * @example
    * PRIORITY
@@ -97,67 +94,30 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   }
 }
 
-export class ModifyMem0SecurityIpsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyMem0SecurityIpsResponseBody extends $dara.Model {
+export class AllocateMem0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
    */
-  accessDeniedDetail?: ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data structure.
-   */
-  data?: ModifyMem0SecurityIpsResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * B87E2AB3-B7C9-4394-9160-7F639F732031
+   * A501A191-BD70-5E50-98A9-C2A486A82****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
-      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail,
-      data: ModifyMem0SecurityIpsResponseBodyData,
+      accessDeniedDetail: AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail,
       requestId: 'string',
     };
   }
@@ -165,9 +125,6 @@ export class ModifyMem0SecurityIpsResponseBody extends $dara.Model {
   validate() {
     if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
       (this.accessDeniedDetail as any).validate();
-    }
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
     }
     super.validate();
   }

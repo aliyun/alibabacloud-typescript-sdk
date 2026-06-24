@@ -263,6 +263,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables a public domain name for a Mem0 instance.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+   * 
+   * @param request - AllocateMem0PublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateMem0PublicConnectionResponse
+   */
+  async allocateMem0PublicConnectionWithOptions(request: $_model.AllocateMem0PublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateMem0PublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateMem0PublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateMem0PublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.AllocateMem0PublicConnectionResponse({}));
+  }
+
+  /**
+   * Enables a public domain name for a Mem0 instance.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+   * 
+   * @param request - AllocateMem0PublicConnectionRequest
+   * @returns AllocateMem0PublicConnectionResponse
+   */
+  async allocateMem0PublicConnection(request: $_model.AllocateMem0PublicConnectionRequest): Promise<$_model.AllocateMem0PublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateMem0PublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
    * Mounts a columnar instance to a specified primary database instance.
    * 
    * @param request - AttachColumnarInstanceRequest
@@ -6898,10 +6958,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the whitelist of a memory engine instance.
+   * Modifies the whitelist of a memory engine.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyMem0SecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6948,10 +7008,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the whitelist of a memory engine instance.
+   * Modifies the whitelist of a memory engine.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyMem0SecurityIpsRequest
    * @returns ModifyMem0SecurityIpsResponse
@@ -7283,6 +7343,62 @@ export default class Client extends OpenApi {
   async releaseInstancePublicConnection(request: $_model.ReleaseInstancePublicConnectionRequest): Promise<$_model.ReleaseInstancePublicConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases the public domain name for a Mem0 instance.
+   * 
+   * @remarks
+   * This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+   * 
+   * @param request - ReleaseMem0PublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseMem0PublicConnectionResponse
+   */
+  async releaseMem0PublicConnectionWithOptions(request: $_model.ReleaseMem0PublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseMem0PublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentConnectionString)) {
+      query["CurrentConnectionString"] = request.currentConnectionString;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseMem0PublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseMem0PublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseMem0PublicConnectionResponse({}));
+  }
+
+  /**
+   * Releases the public domain name for a Mem0 instance.
+   * 
+   * @remarks
+   * This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+   * 
+   * @param request - ReleaseMem0PublicConnectionRequest
+   * @returns ReleaseMem0PublicConnectionResponse
+   */
+  async releaseMem0PublicConnection(request: $_model.ReleaseMem0PublicConnectionRequest): Promise<$_model.ReleaseMem0PublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseMem0PublicConnectionWithOptions(request, runtime);
   }
 
   /**

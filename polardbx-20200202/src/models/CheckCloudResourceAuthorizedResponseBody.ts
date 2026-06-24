@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CheckCloudResourceAuthorizedResponseBodyData extends $dara.Model {
   /**
    * @remarks

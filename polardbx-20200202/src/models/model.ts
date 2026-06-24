@@ -1,3 +1,4 @@
+export { AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail } from './AllocateMem0publicConnectionResponseBody';
 export { CheckCloudResourceAuthorizedResponseBodyData } from './CheckCloudResourceAuthorizedResponseBody';
 export { CloseEngineMigrationResponseBodyData } from './CloseEngineMigrationResponseBody';
 export { ConfirmNoConnectionResponseBodyData } from './ConfirmNoConnectionResponseBody';
@@ -142,6 +143,7 @@ export { ModifyMem0SecurityIpsResponseBodyData } from './ModifyMem0securityIpsRe
 export { PreCheckSqlFlashbackTaskResponseBodyDataCheckResult } from './PreCheckSqlFlashbackTaskResponseBody';
 export { PreCheckSqlFlashbackTaskResponseBodyData } from './PreCheckSqlFlashbackTaskResponseBody';
 export { RefreshImportMetaResponseBodyData } from './RefreshImportMetaResponseBody';
+export { ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail } from './ReleaseMem0publicConnectionResponseBody';
 export { ResetMem0AccountPasswordResponseBodyAccessDeniedDetail } from './ResetMem0accountPasswordResponseBody';
 export { ResetMem0AccountPasswordResponseBodyData } from './ResetMem0accountPasswordResponseBody';
 export { SkipCurrentStepResponseBodyData } from './SkipCurrentStepResponseBody';
@@ -166,6 +168,9 @@ export { AllocateColdDataVolumeResponse } from './AllocateColdDataVolumeResponse
 export { AllocateInstancePublicConnectionRequest } from './AllocateInstancePublicConnectionRequest';
 export { AllocateInstancePublicConnectionResponseBody } from './AllocateInstancePublicConnectionResponseBody';
 export { AllocateInstancePublicConnectionResponse } from './AllocateInstancePublicConnectionResponse';
+export { AllocateMem0PublicConnectionRequest } from './AllocateMem0publicConnectionRequest';
+export { AllocateMem0PublicConnectionResponseBody } from './AllocateMem0publicConnectionResponseBody';
+export { AllocateMem0PublicConnectionResponse } from './AllocateMem0publicConnectionResponse';
 export { AttachColumnarInstanceRequest } from './AttachColumnarInstanceRequest';
 export { AttachColumnarInstanceResponseBody } from './AttachColumnarInstanceResponseBody';
 export { AttachColumnarInstanceResponse } from './AttachColumnarInstanceResponse';
@@ -532,6 +537,9 @@ export { ReleaseColdDataVolumeResponse } from './ReleaseColdDataVolumeResponse';
 export { ReleaseInstancePublicConnectionRequest } from './ReleaseInstancePublicConnectionRequest';
 export { ReleaseInstancePublicConnectionResponseBody } from './ReleaseInstancePublicConnectionResponseBody';
 export { ReleaseInstancePublicConnectionResponse } from './ReleaseInstancePublicConnectionResponse';
+export { ReleaseMem0PublicConnectionRequest } from './ReleaseMem0publicConnectionRequest';
+export { ReleaseMem0PublicConnectionResponseBody } from './ReleaseMem0publicConnectionResponseBody';
+export { ReleaseMem0PublicConnectionResponse } from './ReleaseMem0publicConnectionResponse';
 export { ResetAccountPasswordRequest } from './ResetAccountPasswordRequest';
 export { ResetAccountPasswordResponseBody } from './ResetAccountPasswordResponseBody';
 export { ResetAccountPasswordResponse } from './ResetAccountPasswordResponse';

@@ -15,7 +15,7 @@ export class ModifyMem0SecurityIpsRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the whitelist group for the instance.
+   * The name of the whitelist group of the instance.
    * 
    * @example
    * default
