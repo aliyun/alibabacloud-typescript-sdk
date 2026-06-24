@@ -103,7 +103,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -135,7 +135,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**

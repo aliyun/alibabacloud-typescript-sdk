@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppFileRequest extends $dara.Model {
   /**
    * @remarks
-   * File content
+   * The file content.
    * 
    * @example
    * verify_46630893e2b5efde444c82b4e3707adb
@@ -13,7 +13,7 @@ export class UpdateAppFileRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41
@@ -21,7 +21,7 @@ export class UpdateAppFileRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * File Path
+   * The file path.
    * 
    * @example
    * pt3/01/31/pengpeixin.png

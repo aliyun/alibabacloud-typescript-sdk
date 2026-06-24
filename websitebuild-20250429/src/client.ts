@@ -5364,6 +5364,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+   * 
+   * @param request - OfflineAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineAppInstanceResponse
+   */
+  async offlineAppInstanceWithOptions(request: $_model.OfflineAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OfflineAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflineAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflineAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.OfflineAppInstanceResponse({}));
+  }
+
+  /**
+   * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+   * 
+   * @param request - OfflineAppInstanceRequest
+   * @returns OfflineAppInstanceResponse
+   */
+  async offlineAppInstance(request: $_model.OfflineAppInstanceRequest): Promise<$_model.OfflineAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.offlineAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+   * 
+   * @param request - OnlineAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineAppInstanceResponse
+   */
+  async onlineAppInstanceWithOptions(request: $_model.OnlineAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OnlineAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OnlineAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OnlineAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.OnlineAppInstanceResponse({}));
+  }
+
+  /**
+   * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+   * 
+   * @param request - OnlineAppInstanceRequest
+   * @returns OnlineAppInstanceResponse
+   */
+  async onlineAppInstance(request: $_model.OnlineAppInstanceRequest): Promise<$_model.OnlineAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.onlineAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Operates an application by a partner.
    * 
    * @param request - OperateAppInstanceForPartnerRequest
@@ -7005,10 +7089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save requirements
+   * Save Requirement
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Get code generation plugin configuration information
    * 
    * @param request - SaveAppRequirementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7045,10 +7129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save requirements
+   * Save Requirement
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Get code generation plugin configuration information
    * 
    * @param request - SaveAppRequirementRequest
    * @returns SaveAppRequirementResponse
@@ -7661,10 +7745,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update file
+   * Updates a file.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - UpdateAppFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7703,10 +7787,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update file
+   * Updates a file.
    * 
    * @remarks
-   * Obtain the configuration information of the code generation plugin
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - UpdateAppFileRequest
    * @returns UpdateAppFileResponse

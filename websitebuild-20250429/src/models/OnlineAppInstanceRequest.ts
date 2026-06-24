@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SaveAppRequirementRequest extends $dara.Model {
+export class OnlineAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Conversation ID
+   * The business ID of the application instance.
    * 
    * @example
-   * 5b7105a2-2999-430b-ba23-ba09149d5434
+   * WS20250801154628000001
    */
-  conversationId?: string;
-  /**
-   * @remarks
-   * Requirement document content
-   * 
-   * @example
-   * prd
-   */
-  prd?: string;
+  bizId?: string;
   static names(): { [key: string]: string } {
     return {
-      conversationId: 'ConversationId',
-      prd: 'Prd',
+      bizId: 'BizId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      conversationId: 'string',
-      prd: 'string',
+      bizId: 'string',
     };
   }
 

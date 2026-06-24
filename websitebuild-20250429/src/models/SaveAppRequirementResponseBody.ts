@@ -13,7 +13,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Whether retry is allowed
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * Application name, used to query the application with this name
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -37,8 +37,8 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message in the response.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** provided is invalid.
+   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,7 +75,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * Exception message
    * 
    * @example
    * 系统异常
@@ -83,7 +83,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Backup parameter.
+   * Reserved parameter.
    * 
    * @example
    * True

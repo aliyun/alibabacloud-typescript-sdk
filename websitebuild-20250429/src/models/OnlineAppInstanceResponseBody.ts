@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateAppFileResponseBody extends $dara.Model {
+export class OnlineAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The authentication failure details.
    * 
    * @example
    * {}
@@ -21,15 +21,15 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name can be up to 36 characters in length.
    * 
    * @example
-   * watermark
+   * stg.mlp_finance_cap_refund_hi
    */
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * ERROR-oo1
@@ -37,11 +37,10 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The placeholder in the dynamic error message.
    * 
    * @example
-   * abc
+   * xxxxx
    */
   dynamicMessage?: string;
   /**
@@ -51,18 +50,18 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move operation is successful.
+   * The application module.
    * 
    * @example
-   * true
+   * {\\"StorageSize\\": \\"3.29 MB\\", \\"FileNum\\": 30}
    */
-  module?: boolean;
+  module?: { [key: string]: any };
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * 6C6B99AC-39EC-5350-874C-204128C905E6
+   * CAB8FBB7-F93D-596D-8BA9-FB278ADF9C22
    */
   requestId?: string;
   /**
@@ -83,7 +82,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True
@@ -113,7 +112,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
       dynamicCode: 'string',
       dynamicMessage: 'string',
       errorArgs: { 'type': 'array', 'itemType': 'any' },
-      module: 'boolean',
+      module: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       rootErrorCode: 'string',
       rootErrorMsg: 'string',
@@ -124,6 +123,9 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.errorArgs)) {
       $dara.Model.validateArray(this.errorArgs);
+    }
+    if(this.module) {
+      $dara.Model.validateMap(this.module);
     }
     super.validate();
   }

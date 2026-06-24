@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateAppFileResponseBody extends $dara.Model {
+export class OfflineAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The deprecated parameter. You can ignore this parameter.
    * 
    * @example
-   * {}
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,15 +21,15 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name.
    * 
    * @example
-   * watermark
+   * DocdbSortingCode
    */
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -37,8 +37,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The dynamic message.
    * 
    * @example
    * abc
@@ -51,12 +50,12 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move operation is successful.
+   * Indicates whether the shift was successful.
    * 
    * @example
-   * true
+   * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
    */
-  module?: boolean;
+  module?: { [key: string]: any };
   /**
    * @remarks
    * Id of the request
@@ -75,7 +74,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -83,7 +82,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * The reserved parameter.
    * 
    * @example
    * True
@@ -113,7 +112,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
       dynamicCode: 'string',
       dynamicMessage: 'string',
       errorArgs: { 'type': 'array', 'itemType': 'any' },
-      module: 'boolean',
+      module: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       rootErrorCode: 'string',
       rootErrorMsg: 'string',
@@ -124,6 +123,9 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.errorArgs)) {
       $dara.Model.validateArray(this.errorArgs);
+    }
+    if(this.module) {
+      $dara.Model.validateMap(this.module);
     }
     super.validate();
   }
