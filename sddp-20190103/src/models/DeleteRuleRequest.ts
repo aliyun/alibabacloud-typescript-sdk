@@ -23,7 +23,7 @@ export class DeleteRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * The language of the data asset. Valid values: -**zh**: Chinese -**en**: English
    * 
    * @example
    * zh
@@ -34,7 +34,7 @@ export class DeleteRuleRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 39.170.XX.XX
+   * 106.11.XX.XX
    */
   sourceIp?: string;
   static names(): { [key: string]: string } {

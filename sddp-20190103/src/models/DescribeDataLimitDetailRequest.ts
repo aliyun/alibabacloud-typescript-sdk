@@ -8,7 +8,7 @@ export class DescribeDataLimitDetailRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 1
+   * 2
    */
   featureType?: number;
   /**
@@ -27,8 +27,9 @@ export class DescribeDataLimitDetailRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Valid values:
    * 
-   * *   **zh**: Simplified Chinese.
-   * *   **en**: English
+   * - **zh**: Simplified Chinese.
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -38,8 +39,9 @@ export class DescribeDataLimitDetailRequest extends $dara.Model {
    * @remarks
    * The network type of the data asset that you want to query. Valid values:
    * 
-   * *   **1**: virtual private cloud (VPC)
-   * *   **2**: classic network
+   * - **1**: virtual private cloud (VPC)
+   * 
+   * - **2**: classic network
    * 
    * @example
    * 1

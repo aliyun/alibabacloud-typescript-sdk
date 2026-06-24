@@ -5,13 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh_cn**: Chinese (Simplified). Default value.
+   * 
+   * - **en_us**: English (United States).
    * 
    * @example
-   * zh
+   * zh_cn
    */
   lang?: string;
   static names(): { [key: string]: string } {

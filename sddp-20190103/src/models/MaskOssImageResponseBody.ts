@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class MaskOssImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 136082B3-B21F-5E9D-B68E-991FFD205D24
    */

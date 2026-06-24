@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Audit authorization status. The values are as follows:
-   * - **1**: Authorized
-   * - **0**: Unauthorized
+   * The audit authorization status. Valid values:
+   * 
+   * - **1**: Authorized.
+   * 
+   * - **0**: Unauthorized.
    * 
    * @example
    * 1
@@ -15,9 +17,11 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * Authorization status of the data asset instance.
-   * - **0**: Unauthorized
-   * - **1**: Authorized
+   * The authorization status of the data asset instance.
+   * 
+   * - **0**: Unauthorized.
+   * 
+   * - **1**: Authorized.
    * 
    * @example
    * 1
@@ -25,7 +29,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   authStatus?: number;
   /**
    * @remarks
-   * Instance authorization time, in milliseconds.
+   * The time when the instance was authorized. Unit: milliseconds.
    * 
    * @example
    * 1719882941000
@@ -33,7 +37,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   authTime?: number;
   /**
    * @remarks
-   * Instance status.
+   * The instance status.
    * 
    * @example
    * Running
@@ -41,7 +45,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * Connection node type, valid only for MongoDB assets.
+   * The type of the connection node. This parameter is valid only for MongoDB assets.
    * 
    * @example
    * Primary
@@ -49,7 +53,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   connectNode?: string;
   /**
    * @remarks
-   * Number of databases under the instance.
+   * The number of databases in the instance.
    * 
    * @example
    * 3
@@ -57,12 +61,17 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   dbNum?: string;
   /**
    * @remarks
-   * The engine type. Valid values:
-   * - **MySQL**
-   * - **MariaDB**
-   * - **Oracle**
-   * - **PostgreSQL**
-   * - **SQLServer**
+   * The type of the database engine. Valid values:
+   * 
+   * - **MySQL**.
+   * 
+   * - **MariaDB**.
+   * 
+   * - **Oracle**.
+   * 
+   * - **PostgreSQL**.
+   * 
+   * - **SQLServer**.
    * 
    * @example
    * MySQL
@@ -70,7 +79,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * Description of the instance.
+   * The description of the instance.
    * 
    * @example
    * instance description
@@ -78,7 +87,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * rm-*******t2vz
@@ -86,7 +95,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance space size, valid only for OSS assets. Unit: bytes.
+   * The storage space of the instance. This parameter is valid only for OSS assets. Unit: bytes.
    * 
    * @example
    * 409600
@@ -94,25 +103,33 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   instanceSize?: number;
   /**
    * @remarks
-   * Region name. The values are as follows:
+   * The name of the region. The following list describes the valid values:
    * 
    * - **China (Hangzhou)**
+   * 
    * - **China (Shanghai)**
+   * 
    * - **China (Beijing)**
+   * 
    * - **China (Zhangjiakou)**
+   * 
    * - **China (Shenzhen)**
+   * 
    * - **China (Guangzhou)**
+   * 
    * - **China (Hong Kong)**
+   * 
    * - **Singapore**
+   * 
    * - **US (Silicon Valley)**
    * 
    * @example
-   * China (Hangzhou)
+   * cn-hangzhou
    */
   localName?: string;
   /**
    * @remarks
-   * Member account ID.
+   * The ID of the member account.
    * 
    * @example
    * **********8103
@@ -120,7 +137,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * Identifier for the authorized asset. For structured data, it is identified by `instanceID.databaseName`.
+   * The identifier of the authorized asset. If the asset is structured data, the identifier is in the format of \\`Instance ID.Database name\\`.
    * 
    * @example
    * rm-******xxx.**st
@@ -128,7 +145,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The region in which the asset resides.
+   * The region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -136,18 +153,30 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Asset type name. The values are as follows:
+   * The name of the asset type. Valid values:
+   * 
    * - **MaxCompute**
+   * 
    * - **OSS**
+   * 
    * - **ADB-MYSQL**
+   * 
    * - **TableStore**
+   * 
    * - **RDS**
+   * 
    * - **SelfDB**
+   * 
    * - **PolarDB-X**
+   * 
    * - **PolarDB**
+   * 
    * - **ADB-PG**
+   * 
    * - **OceanBase**
+   * 
    * - **MongoDB**
+   * 
    * - **Redis**
    * 
    * @example
@@ -156,7 +185,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Supported connection nodes, separated by commas.
+   * The supported connection nodes. Multiple nodes are separated by commas.
    * 
    * @example
    * Primary,Secondary
@@ -164,7 +193,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   supportConnectNodes?: string;
   /**
    * @remarks
-   * Tenant ID, valid only for OceanBase assets.
+   * The tenant ID. This parameter is valid only for OceanBase assets.
    * 
    * @example
    * HB***-zh_CN
@@ -172,7 +201,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * Tenant name, valid only for OceanBase assets.
+   * The tenant name. This parameter is valid only for OceanBase assets.
    * 
    * @example
    * user1
@@ -180,7 +209,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * Number of unconnected databases under the instance.
+   * The number of unconnected databases in the instance.
    * 
    * @example
    * 1
@@ -188,7 +217,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   unConnectDbCount?: string;
   /**
    * @remarks
-   * Reason for not supporting one-click authorization.
+   * The reason why one-click authorization is not supported.
    * 
    * @example
    * engine type not support
@@ -256,7 +285,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
 export class DescribeParentInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * When performing a paginated query, set the current page number. Default value: **1**.
+   * The page number of the returned page. Default value: **1**.
    * 
    * @example
    * 1
@@ -264,12 +293,12 @@ export class DescribeParentInstanceResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The assets.
+   * The list of queried data assets.
    */
   items?: DescribeParentInstanceResponseBodyItems[];
   /**
    * @remarks
-   * When performing a paginated query, set the maximum number of data asset instances displayed per page. Default value: **10**.
+   * The maximum number of data asset instances returned on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -277,7 +306,7 @@ export class DescribeParentInstanceResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID of the result.
+   * The ID of the request.
    * 
    * @example
    * ACEF9334-BB50-525D-8CF3-6CF504E4D1B3
@@ -285,7 +314,7 @@ export class DescribeParentInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of data items in the result.
+   * The total number of entries returned.
    * 
    * @example
    * 3

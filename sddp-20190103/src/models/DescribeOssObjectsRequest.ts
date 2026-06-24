@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssObjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The code of the file type.
+   * The code of the file category.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   fileCategoryCode?: number;
   /**
    * @remarks
-   * The ID of the instance to which the OSS object belongs.
+   * The ID of the asset instance to which the OSS object belongs.
    * 
-   * > You can call the **DescribeInstances** operation to query the instance ID.
+   * > To query the list of authorized OSS objects by the ID of the asset instance, call the **DescribeInstances** operation to obtain the instance ID.
    * 
    * @example
    * ins-2222
@@ -31,10 +31,11 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -58,7 +59,7 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   lastScanTimeStart?: number;
   /**
    * @remarks
-   * When you query data by page, use the `Marker` parameter to query the data that follows the `Marker` value.
+   * The position where the query starts. To retrieve the next page of results, set this parameter to the value of `NextMarker` from the previous response.
    * 
    * @example
    * 1754786235714378752
@@ -74,7 +75,7 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 12
@@ -82,13 +83,17 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sensitivity level of the OSS object. Valid values:
+   * The risk level ID of the OSS object. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A. No sensitive data is detected.
+   * 
+   * - **2**: S1. Level 1 sensitive data.
+   * 
+   * - **3**: S2. Level 2 sensitive data.
+   * 
+   * - **4**: S3. Level 3 sensitive data.
+   * 
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -96,9 +101,9 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The ID of the sensitive data detection rule that the OSS object hits.
+   * The ID of the sensitive data detection rule that the OSS object matches.
    * 
-   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+   * > To query the list of authorized OSS objects by the ID of a matched sensitive data detection rule, call the **DescribeRules** operation to obtain the rule ID.
    * 
    * @example
    * 1222
@@ -106,7 +111,7 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The region in which the data asset resides.
+   * The region of the asset.
    * 
    * @example
    * cn-hangzhou
@@ -114,7 +119,7 @@ export class DescribeOssObjectsRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The ID of the industry-specific rule template.
+   * The ID of the industry-specific template.
    * 
    * @example
    * 1

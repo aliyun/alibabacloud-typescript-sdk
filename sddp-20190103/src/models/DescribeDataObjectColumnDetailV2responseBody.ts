@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
-   * ID corresponding to the data tag name. Values:
-   * - **101**: Personal Sensitive Information.
-   * - **102**: Personal Information.
-   * - **107**: General Information.
+   * The ID of the data tag. Valid values:
+   * 
+   * - **101**: Personal sensitive information
+   * 
+   * - **102**: Personal information
+   * 
+   * - **107**: General information
    * 
    * @example
    * 101
@@ -16,10 +19,13 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends 
   id?: number;
   /**
    * @remarks
-   * Data tag name. Values:
-   * - Personal Sensitive Information.
-   * - Personal Information.
-   * - General Information.
+   * The name of the data tag. Valid values:
+   * 
+   * - Personal sensitive information
+   * 
+   * - Personal information
+   * 
+   * - General information
    * 
    * @example
    * personal sensitive information
@@ -51,12 +57,12 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends 
 export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * List of industry categories for sensitive data.
+   * The list of industry-specific categories for the sensitive data.
    */
   categories?: string[];
   /**
    * @remarks
-   * Comment for the column.
+   * The comments on the column.
    * 
    * @example
    * column comment
@@ -64,7 +70,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   columnComment?: string;
   /**
    * @remarks
-   * Column name.
+   * The name of the column.
    * 
    * @example
    * hide14
@@ -72,7 +78,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   columnName?: string;
   /**
    * @remarks
-   * Data type of the column.
+   * The data type of the column.
    * 
    * @example
    * varchar
@@ -80,12 +86,17 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   dataType?: string;
   /**
    * @remarks
-   * Engine type. Values:
-   * - **MySQL**
-   * - **MariaDB**
-   * - **Oracle**
-   * - **PostgreSQL**
-   * - **SQLServer**
+   * The engine type. Valid values:
+   * 
+   * - **MySQL**.
+   * 
+   * - **MariaDB**.
+   * 
+   * - **Oracle**.
+   * 
+   * - **PostgreSQL**.
+   * 
+   * - **SQLServer**.
    * 
    * @example
    * MySQL
@@ -93,7 +104,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   engineType?: string;
   /**
    * @remarks
-   * Unique identifier ID of the data object.
+   * The unique ID of the data object.
    * 
    * @example
    * 1392973973691383808
@@ -101,7 +112,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * Instance name of the data asset table.
+   * The name of the instance for the data asset table.
    * 
    * @example
    * rm-bp17t1htja573l5i8****
@@ -109,11 +120,11 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   instanceName?: string;
   /**
    * @remarks
-   * Column encryption status. Values:
+   * The encryption status of the column. Valid values:
    * 
    * - **-1**: Not encrypted
    * 
-   * - **1**: Encryption successful
+   * - **1**: Encrypted
    * 
    * - **2**: Encryption failed
    * 
@@ -123,15 +134,16 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   maskingStatus?: number;
   /**
    * @remarks
-   * List of data tags.
+   * The list of data tags.
    */
   modelTags?: DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags[];
   /**
    * @remarks
-   * Whether the column is a primary key. Value explanation:
+   * Indicates whether the column is a primary key. Valid values:
    * 
-   * - **true**: Primary key.
-   * - **false**: Not a primary key.
+   * - **true**: The column is a primary key.
+   * 
+   * - **false**: The column is not a primary key.
    * 
    * @example
    * true
@@ -139,18 +151,30 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   primaryKey?: boolean;
   /**
    * @remarks
-   * ID corresponding to the product name of the data object. Values:
+   * The ID of the product to which the data object belongs. Valid values:
+   * 
    * - **1**: MaxCompute
+   * 
    * - **2**: OSS
+   * 
    * - **3**: ADB-MYSQL
-   * - **4**: TableStore
+   * 
+   * - **4**: Tablestore
+   * 
    * - **5**: RDS
+   * 
    * - **6**: SELF_DB
+   * 
    * - **7**: PolarDB-X
+   * 
    * - **8**: PolarDB
+   * 
    * - **9**: ADB-PG
+   * 
    * - **10**: OceanBase
+   * 
    * - **11**: MongoDB
+   * 
    * - **25**: Redis
    * 
    * @example
@@ -159,7 +183,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   productId?: number;
   /**
    * @remarks
-   * Region where the asset is located.
+   * The region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -167,12 +191,17 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * Risk level ID. Values:
-   * - **1**: N/A: No sensitive data detected.
-   * - **2**: S1: Level 1 sensitive data.
-   * - **3**: S2: Level 2 sensitive data.
-   * - **4**: S3: Level 3 sensitive data.
-   * - **5**: S4: Level 4 sensitive data.
+   * The ID of the sensitivity level. Valid values:
+   * 
+   * - **1**: N/A: No sensitive data is detected.
+   * 
+   * - **2**: S1: level-1 sensitive data.
+   * 
+   * - **3**: S2: level-2 sensitive data.
+   * 
+   * - **4**: S3: level-3 sensitive data.
+   * 
+   * - **5**: S4: level-4 sensitive data.
    * 
    * @example
    * 2
@@ -180,12 +209,17 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   riskLevelId?: number;
   /**
    * @remarks
-   * Risk level name. Values:
-   * - **N/A**: No sensitive data was identified.
-   * - **S1**: Level 1 sensitive data.
-   * - **S2**: Level 2 sensitive data.
-   * - **S3**: Level 3 sensitive data.
-   * - **S4**: Level 4 sensitive data.
+   * The name of the sensitivity level. Valid values:
+   * 
+   * - **N/A**: No sensitive data is detected.
+   * 
+   * - **S1**: level-1 sensitive data.
+   * 
+   * - **S2**: level-2 sensitive data.
+   * 
+   * - **S3**: level-3 sensitive data.
+   * 
+   * - **S4**: level-4 sensitive data.
    * 
    * @example
    * S1
@@ -193,7 +227,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   riskLevelName?: string;
   /**
    * @remarks
-   * The ID of the matched recognition model.
+   * The ID of the hit detection model.
    * 
    * @example
    * 51
@@ -201,7 +235,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   ruleId?: number;
   /**
    * @remarks
-   * The name of the matched recognition model.
+   * The name of the hit detection model.
    * 
    * @example
    * name
@@ -209,7 +243,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * Table name.
+   * The name of the table.
    * 
    * @example
    * it_table
@@ -277,7 +311,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Mod
 export class DescribeDataObjectColumnDetailV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number for paginated queries. Default value: 1.
+   * The page number of the returned page. Default value: 1.
    * 
    * @example
    * 1
@@ -285,12 +319,12 @@ export class DescribeDataObjectColumnDetailV2ResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of recognition results for the columns in the data table.
+   * The list of detection results for the columns in the data table.
    */
   items?: DescribeDataObjectColumnDetailV2ResponseBodyItems[];
   /**
    * @remarks
-   * When performing a paginated query, set the maximum number of data asset instances to display per page. Default value: **10**.
+   * The number of entries returned per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -298,7 +332,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+   * The ID of the request.
    * 
    * @example
    * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
@@ -306,7 +340,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of data entries.
+   * The total number of entries.
    * 
    * @example
    * 231

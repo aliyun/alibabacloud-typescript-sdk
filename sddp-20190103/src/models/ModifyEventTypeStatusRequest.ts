@@ -8,12 +8,12 @@ export class ModifyEventTypeStatusRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 1
+   * 2
    */
   featureType?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * The language of the request and response. Valid values are **zh** for Chinese and **en** for English.
    * 
    * @example
    * zh
@@ -21,9 +21,9 @@ export class ModifyEventTypeStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
+   * The unique IDs of the anomalous activity subtypes. Separate multiple IDs with commas.
    * 
-   * > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
+   * > To enable SDDP to detect anomalous activities for subtypes, provide the unique IDs of the anomalous activity subtypes. Call the **DescribeEventTypes** operation to obtain the IDs.
    * 
    * @example
    * 020008

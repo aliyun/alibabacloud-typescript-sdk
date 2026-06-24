@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The type of service to which the masked data is destined. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   dstType?: number;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time to query for task executions. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1583856000000
@@ -29,10 +29,11 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese.
+   * 
+   * - **en_us**: English.
    * 
    * @example
    * zh_cn
@@ -40,9 +41,9 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the main task.
    * 
-   * > If a task has one or more subtasks, the value of the parameter must be the ID of the task. Otherwise, leave this parameter empty.
+   * > If a task has subtasks, this parameter specifies the ID of the main task. Otherwise, this parameter is empty.
    * 
    * @example
    * 366731
@@ -66,7 +67,7 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   srcTableName?: string;
   /**
    * @remarks
-   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The type of service to which the source data belongs. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
    * 
    * @example
    * 2
@@ -74,7 +75,7 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   srcType?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time to query for task executions. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1582992000000
@@ -82,14 +83,19 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the de-identification task. Valid values:
+   * The execution status of the task. Valid values:
    * 
-   * *   **-1**: waiting
-   * *   **0**: being executed
-   * *   **1**: executed
-   * *   **2**: failed to be executed
-   * *   **3**: terminated
-   * *   **4**: partially failed
+   * - **-1**: pending.
+   * 
+   * - **0**: running.
+   * 
+   * - **1**: successful.
+   * 
+   * - **2**: failed.
+   * 
+   * - **3**: stopped by user.
+   * 
+   * - **4**: partially failed.
    * 
    * @example
    * 0
@@ -97,7 +103,7 @@ export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The ID of the de-identification task.
+   * The ID of the data masking task.
    * 
    * @example
    * mt4HBgtw1B******

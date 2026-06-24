@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the sensitive data detection rule.
+   * The unique ID of the sensitive data detection rule.
    * 
-   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * > To enable or disable the detection feature for a sensitive data detection rule, provide the unique ID of the rule. Call the **DescribeRules** operation to obtain the ID.
    * 
    * @example
    * 12341
@@ -15,9 +15,9 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
+   * The unique IDs of the sensitive data detection rules. Separate multiple IDs with commas.
    * 
-   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * > To enable or disable the detection feature for sensitive data detection rules, provide the unique IDs of the rules. Call the **DescribeRules** operation to obtain the IDs.
    * 
    * @example
    * 1,2,3,4
@@ -25,10 +25,11 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -36,10 +37,11 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to enable or disable the sensitive data detection rule. Valid values:
+   * Specifies whether to enable or disable the detection feature for the sensitive data detection rules. Valid values:
    * 
-   * *   **0**: disables the sensitive data detection rule.
-   * *   **1**: enables the sensitive data detection rule.
+   * - **0**: Disable.
+   * 
+   * - **1**: Enable.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeTablesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the data asset to which the table belongs. You can call the [DescribeInstances](~~DescribeInstances~~) operation to obtain the ID of the data asset.
+   * The ID of the instance to which the data asset table belongs. Call the [DescribeInstances](~~DescribeInstances~~) operation to obtain this ID.
    * 
    * @example
    * 1
@@ -21,10 +21,11 @@ export class DescribeTablesRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese.
+   * 
+   * - **en_us**: English.
    * 
    * @example
    * zh_cn
@@ -32,7 +33,7 @@ export class DescribeTablesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported. For example, if you specify test, all tables whose names contain test are retrieved.
+   * The search keyword. Fuzzy search is supported. For example, if you enter test, all results that contain test are returned.
    * 
    * @example
    * test
@@ -40,7 +41,7 @@ export class DescribeTablesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the package to which the table belongs. You can call the [DescribePackages](~~DescribePackages~~) operation to obtain the ID of the package.
+   * The ID of the package to which the data asset table belongs. Call the [DescribePackages](~~DescribePackages~~) operation to obtain this ID.
    * 
    * @example
    * 555555
@@ -48,7 +49,7 @@ export class DescribeTablesRequest extends $dara.Model {
   packageId?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The maximum number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -56,7 +57,7 @@ export class DescribeTablesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the service to which the table belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which Data Security Center (DSC) can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * The name of the product to which the data asset table belongs. Valid values include MaxCompute, OSS, ADS, OTS, and RDS. For more information about the supported products, see [Data asset types that support sensitive data detection](https://help.aliyun.com/document_detail/212906.html).
    * 
    * @example
    * MaxCompute
@@ -64,7 +65,7 @@ export class DescribeTablesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the table belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to obtain the ID of the service.
+   * The ID of the product to which the data asset table belongs. Call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to obtain this ID.
    * 
    * @example
    * 1
@@ -72,13 +73,17 @@ export class DescribeTablesRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+   * The ID of the risk level for the data asset table. Each risk level ID corresponds to a risk level name. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A. No sensitive data is detected.
+   * 
+   * - **2**: S1. Level 1 sensitive data.
+   * 
+   * - **3**: S2. Level 2 sensitive data.
+   * 
+   * - **4**: S3. Level 3 sensitive data.
+   * 
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -86,7 +91,7 @@ export class DescribeTablesRequest extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The ID of the sensitive data detection rule that the table hits. You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID of the sensitive data detection rule.
+   * The ID of the sensitive data detection rule that the data asset table hits. Call the [DescribeRules](~~DescribeRules~~) operation to obtain this ID.
    * 
    * @example
    * 333322
@@ -94,7 +99,7 @@ export class DescribeTablesRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The region in which DSC is activated. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * The region where Data Security Center is available. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
    * 
    * @example
    * cn-hangzhou
@@ -102,7 +107,7 @@ export class DescribeTablesRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The ID of the industry-specific rule template.
+   * The ID of the industry-specific template.
    * 
    * @example
    * 1

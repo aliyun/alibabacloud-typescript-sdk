@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
-   * The ID of the tag. Valid values:
+   * The ID of the data label. Valid values:
    * 
-   * *   **101**: personal sensitive information
-   * *   **102**: personal information
-   * *   **107**: general information
+   * - **101**: Personal sensitive information
+   * 
+   * - **102**: Personal information
+   * 
+   * - **107**: General information
    * 
    * @example
    * 101
@@ -17,11 +19,13 @@ export class DescribeInstancesResponseBodyItemsModelTags extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the tag. Valid values:
+   * The name of the data label. Valid values:
    * 
-   * *   Personal sensitive information
-   * *   Personal information
-   * *   General information
+   * - Personal sensitive information
+   * 
+   * - Personal information
+   * 
+   * - General information
    * 
    * @example
    * personal sensitive data
@@ -53,7 +57,7 @@ export class DescribeInstancesResponseBodyItemsModelTags extends $dara.Model {
 export class DescribeInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the data asset instance was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1637226782000
@@ -61,7 +65,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The name of the department to which the data asset belongs.
+   * The name of the department to which the data asset instance belongs.
    * 
    * @example
    * ***DemoCenter
@@ -69,7 +73,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   departName?: string;
   /**
    * @remarks
-   * The unique ID of the data asset in DSC.
+   * The unique ID of the data asset instance that is recorded in Data Security Center.
    * 
    * @example
    * 11111
@@ -77,18 +81,19 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The description of the data asset.
+   * The description of the data asset instance.
    * 
    * @example
-   * Data asset Information 1
+   * instance dscription
    */
   instanceDescription?: string;
   /**
    * @remarks
-   * The security status of the data asset. Valid values:
+   * The security status of the data asset instance. Valid values:
    * 
-   * *   **true**: The data asset is secure.
-   * *   **false**: The data asset is insecure.
+   * - **true**: secure
+   * 
+   * - **false**: insecure
    * 
    * @example
    * true
@@ -96,7 +101,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   labelsec?: boolean;
   /**
    * @remarks
-   * The time when the data asset was last scanned. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the last scan of the data asset instance was completed. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1637622793000
@@ -104,7 +109,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   lastFinishTime?: number;
   /**
    * @remarks
-   * If the management account has opened multiple accounts and the asset belongs to other member accounts, this field displays the UID of the member accounts.
+   * If multi-account management is enabled and the asset belongs to a member account, this parameter indicates the UID of the member account.
    * 
    * @example
    * 12567890126
@@ -112,12 +117,12 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   memberAliUid?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of data labels.
    */
   modelTags?: DescribeInstancesResponseBodyItemsModelTags[];
   /**
    * @remarks
-   * The name of the data asset.
+   * The name of the data asset instance.
    * 
    * @example
    * gxdata
@@ -133,7 +138,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   odpsRiskLevelName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account to which the data asset belongs.
+   * The Alibaba Cloud account that owns the data asset instance.
    * 
    * @example
    * dtdep-239-******
@@ -141,7 +146,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets that DSC can scan to detect sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * The name of the product to which the data asset instance belongs, such as MaxCompute, OSS, or RDS. For more information about the supported products, see [Data assets that can be scanned for sensitive data](https://help.aliyun.com/document_detail/212906.html).
    * 
    * @example
    * RDS
@@ -149,7 +154,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the data asset belongs.
+   * The ID of the product to which the data asset instance belongs.
    * 
    * @example
    * 5
@@ -157,10 +162,11 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The protection status of the data asset. Valid values:
+   * The protection status of the data asset instance. Valid values:
    * 
-   * *   **true**: The data asset is being protected.
-   * *   **false**: The data asset is not protected.
+   * - **true**: The instance is protected.
+   * 
+   * - **false**: The instance is not protected.
    * 
    * @example
    * false
@@ -168,19 +174,29 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   protection?: boolean;
   /**
    * @remarks
-   * The ID of the sensitivity level for the data asset. A higher sensitivity level ID indicates that the identified data is more sensitive.
+   * The ID of the threat level for the data asset instance. The higher the threat level ID, the more sensitive the data.
    * 
-   * *   **1**: No sensitive data is detected.
-   * *   **2**: sensitive data at level 1.
-   * *   **3**: sensitive data at level 2.
-   * *   **4**: sensitive data at level 3.
-   * *   **5**: sensitive data at level 4.
-   * *   **6**: sensitive data at level 5.
-   * *   **7**: sensitive data at level 6.
-   * *   **8**: sensitive data at level 7.
-   * *   **9**: sensitive data at level 8.
-   * *   **10**: sensitive data at level 9.
-   * *   **11**: sensitive data at level 10.
+   * - **1**: No sensitive data is detected. No threat.
+   * 
+   * - **2**: Threat level 1.
+   * 
+   * - **3**: Threat level 2.
+   * 
+   * - **4**: Threat level 3.
+   * 
+   * - **5**: Threat level 4.
+   * 
+   * - **6**: Threat level 5.
+   * 
+   * - **7**: Threat level 6.
+   * 
+   * - **8**: Threat level 7.
+   * 
+   * - **9**: Threat level 8.
+   * 
+   * - **10**: Threat level 9.
+   * 
+   * - **11**: Threat level 10.
    * 
    * @example
    * 2
@@ -188,26 +204,27 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the sensitivity level for the data asset.
+   * The name of the threat level for the data asset instance.
    * 
    * @example
-   * Sensitive data at level 1
+   * S1
    */
   riskLevelName?: string;
   /**
    * @remarks
-   * The name of the sensitive data detection rule that the data asset hits.
+   * The name of the sensitive data detection rule that the data asset instance hits.
    * 
    * @example
-   * \\*\\*\\* rule
+   * *** rule
    */
   ruleName?: string;
   /**
    * @remarks
-   * Indicates whether the data asset contains sensitive data. Valid values:
+   * Indicates whether the data asset instance contains sensitive data. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -215,7 +232,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * The number of sensitive data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the number of sensitive tables in all databases of the instance.
+   * The total amount of sensitive data in the data asset instance. For example, if the data asset is an RDS instance, this parameter indicates the total number of sensitive tables in the instance.
    * 
    * @example
    * 123
@@ -226,12 +243,12 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
    * The name of the tenant.
    * 
    * @example
-   * Tenant 1
+   * tenant
    */
   tenantName?: string;
   /**
    * @remarks
-   * The total number of data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the total number of tables in all databases of the instance.
+   * The total amount of data in the data asset instance. For example, if the data asset is an RDS instance, this parameter indicates the total number of tables in the instance.
    * 
    * @example
    * 231
@@ -304,7 +321,7 @@ export class DescribeInstancesResponseBodyItems extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -312,12 +329,12 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data assets.
+   * The details of the data asset instances.
    */
   items?: DescribeInstancesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of data asset instances returned on each page.
    * 
    * @example
    * 10
@@ -333,7 +350,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of data assets.
+   * The total number of data asset instances.
    * 
    * @example
    * 231

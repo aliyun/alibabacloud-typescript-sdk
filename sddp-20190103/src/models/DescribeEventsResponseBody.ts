@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when an alert was triggered for the anomalous event. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when an alert was generated for the anomalous activity. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 154529000
@@ -13,10 +13,11 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   alertTime?: number;
   /**
    * @remarks
-   * Indicates whether the detection of anomalous events is enhanced. If the detection of anomalous events is enhanced, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+   * Indicates whether enhanced detection is enabled for the anomalous activity. Enhanced detection improves detection accuracy and the alert reporting rate.
    * 
-   * *   true: yes
-   * *   false: no
+   * - true: Enhanced detection is enabled.
+   * 
+   * - false: Enhanced detection is disabled.
    * 
    * @example
    * false
@@ -24,7 +25,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   backed?: boolean;
   /**
    * @remarks
-   * The display name of the account that is used to handle the anomalous event.
+   * The display name of the account that handled the anomalous activity.
    * 
    * @example
    * yundunsr
@@ -32,7 +33,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   dealDisplayName?: string;
   /**
    * @remarks
-   * The username of the account that is used to handle the anomalous event.
+   * The logon name of the account that handled the anomalous activity.
    * 
    * @example
    * det1111
@@ -40,7 +41,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   dealLoginName?: string;
   /**
    * @remarks
-   * The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the anomalous activity was handled. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 12223300
@@ -48,7 +49,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   dealTime?: number;
   /**
    * @remarks
-   * The ID of the account that is used to handle the anomalous event.
+   * The ID of the account that handled the anomalous activity.
    * 
    * @example
    * 229157443385014***
@@ -56,7 +57,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   dealUserId?: number;
   /**
    * @remarks
-   * The display name of the account that triggered the anomalous event.
+   * The display name of the account that performed the operation.
    * 
    * @example
    * yundunsr
@@ -64,7 +65,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the anomalous activity occurred. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1545829129000
@@ -72,7 +73,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   eventTime?: number;
   /**
    * @remarks
-   * The ID of the anomalous event.
+   * The unique ID of the anomalous activity that is recorded in Data Security Center (DSC).
    * 
    * @example
    * 42233335555
@@ -80,7 +81,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The username of the account that triggered the anomalous event.
+   * The logon name of the account that performed the operation.
    * 
    * @example
    * det1111
@@ -88,7 +89,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   loginName?: string;
   /**
    * @remarks
-   * The name of the service in which the anomalous event was detected.
+   * The service to which the anomalous activity belongs.
    * 
    * @example
    * RDS
@@ -96,11 +97,13 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The handling status for the anomalous event. Valid values:
+   * The processing status of the anomalous activity.
    * 
-   * *   0: unhandled
-   * *   1: confirmed
-   * *   2: marked as false positive
+   * - 0: Unhandled.
+   * 
+   * - 1: Confirmed.
+   * 
+   * - 2: Dismissed.
    * 
    * @example
    * 0
@@ -108,7 +111,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The name of the handling status for the anomalous event.
+   * The name of the processing status.
    * 
    * @example
    * Pending
@@ -116,7 +119,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   statusName?: string;
   /**
    * @remarks
-   * The code of the anomalous event subtype.
+   * The code of the child type of the anomalous activity.
    * 
    * @example
    * 020008
@@ -124,15 +127,15 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   subTypeCode?: string;
   /**
    * @remarks
-   * The name of the anomalous event subtype.
+   * The name of the child type of the anomalous activity.
    * 
    * @example
-   * Anomalous volume of downloaded data
+   * Abnormal data download volume
    */
   subTypeName?: string;
   /**
    * @remarks
-   * The name of the destination service in an anomalous data flow.
+   * The destination service for the anomalous data flow event.
    * 
    * @example
    * RDS
@@ -140,7 +143,7 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   targetProductCode?: string;
   /**
    * @remarks
-   * The code of the anomalous event type.
+   * The code of the parent type of the anomalous activity.
    * 
    * @example
    * 02
@@ -148,15 +151,15 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   typeCode?: string;
   /**
    * @remarks
-   * The name of the anomalous event type.
+   * The name of the parent type of the anomalous activity.
    * 
    * @example
-   * Anomalous data flow
+   * Abnormal data flow
    */
   typeName?: string;
   /**
    * @remarks
-   * The ID of the account that triggered the anomalous event.
+   * The ID of the account that performed the operation.
    * 
    * @example
    * 1978132506596***
@@ -164,11 +167,13 @@ export class DescribeEventsResponseBodyItems extends $dara.Model {
   userId?: number;
   /**
    * @remarks
-   * The severity of the anomalous event.
+   * The risk level of the anomalous activity.
    * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * - **1**: Low.
+   * 
+   * - **2**: Medium.
+   * 
+   * - **3**: High.
    * 
    * @example
    * 2
@@ -244,7 +249,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * An array that consists of the anomalous events.
+   * A list of anomalous activities.
    */
   items?: DescribeEventsResponseBodyItems[];
   /**

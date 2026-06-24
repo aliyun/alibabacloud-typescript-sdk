@@ -4,16 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRulesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The audit mode.
+   * 
    * @example
    * 0
    */
   auditMode?: number;
   /**
    * @remarks
-   * The content type of the sensitive data detection rule. Valid values:
+   * The type of content in the sensitive data detection rule. Valid values:
    * 
-   * *   **0**: keyword
-   * *   **2**: regular expression
+   * - **0**: keyword
+   * 
+   * - **2**: regular expression
    * 
    * @example
    * 2
@@ -21,7 +25,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The name of the content type of the sensitive data detection rule.
+   * The name of the content type for the sensitive data detection rule.
    * 
    * @example
    * Regular expression
@@ -29,9 +33,9 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The content in the sensitive data detection rule.
+   * The content of the sensitive data detection rule.
    * 
-   * >  A built-in detection rule whose CustomType is 0 does not return the content of the rule.
+   * > The content of a built-in rule, for which CustomType is 0, is not returned.
    * 
    * @example
    * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
@@ -39,7 +43,17 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * The content type. Valid values:
+   * 
+   * - **1**: SQL injection exploits
+   * 
+   * - **2**: SQL injection bypass attempts
+   * 
+   * - **3**: stored procedure abuse
+   * 
+   * - **4**: buffer overflows
+   * 
+   * - **5**: error-based SQL injections
    * 
    * @example
    * 1
@@ -49,8 +63,9 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
    * @remarks
    * The type of the sensitive data detection rule.
    * 
-   * *   0: built-in rule
-   * *   1: custom rule
+   * - 0: built-in
+   * 
+   * - 1: custom
    * 
    * @example
    * 1
@@ -61,12 +76,12 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
    * The description of the sensitive data detection rule.
    * 
    * @example
-   * The sensitive data detection rule is used to detect IP addresses.
+   * Used to identify IP addresses
    */
   description?: string;
   /**
    * @remarks
-   * The display name of the account that is used to create the sensitive data detection rule.
+   * The display name of the user who created the sensitive data detection rule.
    * 
    * @example
    * ****test
@@ -74,7 +89,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the sensitive data detection rule is created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the sensitive data detection rule was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1545277010000
@@ -82,7 +97,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the sensitive data detection rule is modified. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the sensitive data detection rule was last modified. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1545277010000
@@ -90,7 +105,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The parent group type of the rule.
+   * The parent group of the rule.
    * 
    * @example
    * 4_1
@@ -98,7 +113,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The number of times that the sensitive data detection rule is hit.
+   * The number of times the rule was hit.
    * 
    * @example
    * 3
@@ -106,7 +121,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   hitTotalCount?: number;
   /**
    * @remarks
-   * The ID of the sensitive data detection rule.
+   * The unique ID of the sensitive data detection rule.
    * 
    * @example
    * 20000
@@ -114,7 +129,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The username of the account that is used to create the sensitive data detection rule.
+   * The logon name of the user who created the sensitive data detection rule.
    * 
    * @example
    * det1111
@@ -122,7 +137,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   loginName?: string;
   /**
    * @remarks
-   * The key of the primary dimension.
+   * The primary dimension key.
    * 
    * @example
    * key
@@ -132,8 +147,9 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
    * @remarks
    * The match type. Valid values:
    * 
-   * *   **1**: rule-based match
-   * *   **2**: dictionary-based match
+   * - **1**: rule-based match
+   * 
+   * - **2**: dictionary-based match
    * 
    * @example
    * 1
@@ -141,7 +157,7 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   matchType?: number;
   /**
    * @remarks
-   * The IDs of the models for sensitive data audit.
+   * A collection of model IDs for sensitive data auditing.
    * 
    * @example
    * 1452
@@ -157,7 +173,19 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The name of the service to which the data asset belongs. Valid values:
+   * 
+   * - **MaxCompute**
+   * 
+   * - **OSS**
+   * 
+   * - **ADS**
+   * 
+   * - **OTS**
+   * 
+   * - **RDS**
+   * 
+   * - **SELF_DB**
    * 
    * @example
    * MaxCompute
@@ -165,7 +193,19 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The ID of the service to which the data asset belongs. Valid values:
+   * 
+   * - **1**: MaxCompute
+   * 
+   * - **2**: OSS
+   * 
+   * - **3**: ADS
+   * 
+   * - **4**: OTS
+   * 
+   * - **5**: RDS
+   * 
+   * - **6**: SELF_DB
    * 
    * @example
    * 2
@@ -173,13 +213,17 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * The sensitivity level ID of the sensitive data detection rule. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A. No sensitive data is detected.
+   * 
+   * - **2**: S1. Level 1 sensitive data.
+   * 
+   * - **3**: S2. Level 2 sensitive data.
+   * 
+   * - **4**: S3. Level 3 sensitive data.
+   * 
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -187,13 +231,17 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The sensitivity level of data that hits the sensitive data detection rule. Valid values:
+   * The name of the sensitivity level for the sensitive data detection rule. Valid values:
    * 
-   * *   **N/A**: indicates that no sensitive data is detected.
-   * *   **S1**: indicates the low sensitivity level.
-   * *   **S2**: indicates the medium sensitivity level.
-   * *   **S3**: indicates the high sensitivity level.
-   * *   **S4**: indicates the highest sensitivity level.
+   * - **N/A**: No sensitive data is detected.
+   * 
+   * - **S1**: Level 1 sensitive data.
+   * 
+   * - **S2**: Level 2 sensitive data.
+   * 
+   * - **S3**: Level 3 sensitive data.
+   * 
+   * - **S4**: Level 4 sensitive data.
    * 
    * @example
    * S2
@@ -209,10 +257,11 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   statExpress?: string;
   /**
    * @remarks
-   * The status of the sensitive data detection rule. Valid values:
+   * The detection status of the sensitive data detection rule. Valid values:
    * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * - **0**: disabled
+   * 
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -220,11 +269,13 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The data asset type that is supported by the sensitive data detection rule. Valid values:
+   * The type of data asset that the rule supports. Valid values:
    * 
-   * *   **0**: all data assets
-   * *   **1**: structured data assets
-   * *   **2**: unstructured data assets
+   * - **0**: all assets
+   * 
+   * - **1**: structured assets
+   * 
+   * - **2**: unstructured assets
    * 
    * @example
    * 2
@@ -232,7 +283,19 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   supportForm?: number;
   /**
    * @remarks
-   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The name of the service to which the data asset belongs. Valid values:
+   * 
+   * - **MaxCompute**
+   * 
+   * - **OSS**
+   * 
+   * - **ADS**
+   * 
+   * - **OTS**
+   * 
+   * - **RDS**
+   * 
+   * - **SELF_DB**
    * 
    * @example
    * MaxCompute
@@ -240,20 +303,23 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The IDs of the templates that are used to audit sensitive data.
+   * A collection of template IDs for sensitive data auditing.
    * 
    * @example
    * 1
    */
   templateRuleIds?: string;
   /**
+   * @remarks
+   * The threat analysis mode status. Valid values: 0 (disabled), 1 (enabled).
+   * 
    * @example
    * 0
    */
   threatAnalysisStatus?: number;
   /**
    * @remarks
-   * The ID of the account that is used to create the sensitive data detection rule.
+   * The ID of the user who created the sensitive data detection rule.
    * 
    * @example
    * 0
@@ -261,11 +327,13 @@ export class DescribeRulesResponseBodyItems extends $dara.Model {
   userId?: number;
   /**
    * @remarks
-   * The severity level. Valid values:
+   * The risk level.
    * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * - **1**: Low
+   * 
+   * - **2**: Medium
+   * 
+   * - **3**: High
    * 
    * @example
    * 2
@@ -361,7 +429,7 @@ export class DescribeRulesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The sensitive data detection rules.
+   * A list of sensitive data detection rules.
    */
   items?: DescribeRulesResponseBodyItems[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The member account to which the desensitization target belongs.
+   * The member account that the data masking destination belongs to.
    * 
    * @example
    * 192479427903xxxx
@@ -18,7 +18,19 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstPath?: string;
   /**
    * @remarks
-   * The service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The product that the destination data source belongs to. Valid values:
+   * 
+   * - **1**: MaxCompute.
+   * 
+   * - **2**: OSS.
+   * 
+   * - **3**: ADS.
+   * 
+   * - **4**: OTS.
+   * 
+   * - **5**: RDS.
+   * 
+   * - **6**: SELF_DB.
    * 
    * @example
    * 5
@@ -26,7 +38,19 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstType?: number;
   /**
    * @remarks
-   * The type of the service to which the de-identified data belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the destination product. Valid values:
+   * 
+   * - **MaxCompute**.
+   * 
+   * - **OSS**.
+   * 
+   * - **ADS**.
+   * 
+   * - **OTS**.
+   * 
+   * - **RDS**.
+   * 
+   * - **SELF_DB**.
    * 
    * @example
    * RDS
@@ -34,7 +58,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstTypeCode?: string;
   /**
    * @remarks
-   * The time when the de-identification task is created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1582992000000
@@ -42,7 +66,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Indicates whether the de-identification task is running.
+   * Indicates whether the task is running.
    * 
    * @example
    * false
@@ -50,7 +74,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   hasUnfinishProcess?: boolean;
   /**
    * @remarks
-   * The task ID.
+   * The numerical ID of the task.
    * 
    * @example
    * 1
@@ -58,7 +82,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the source table is de-identified.
+   * Indicates whether the source table is masked.
    * 
    * @example
    * false
@@ -66,7 +90,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   originalTable?: boolean;
   /**
    * @remarks
-   * The user who created the de-identification task.
+   * The creator of the task.
    * 
    * @example
    * owner
@@ -74,7 +98,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The number of times that the de-identification task is run.
+   * The number of executions.
    * 
    * @example
    * 1
@@ -82,7 +106,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   runCount?: number;
   /**
    * @remarks
-   * The member account to which the desensitization source belongs.
+   * The member account that the data masking source belongs to.
    * 
    * @example
    * 192479427903xxxx
@@ -95,7 +119,19 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   srcPath?: string;
   /**
    * @remarks
-   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The type of the source product. Valid values:
+   * 
+   * - **1**: MaxCompute.
+   * 
+   * - **2**: OSS.
+   * 
+   * - **3**: ADS.
+   * 
+   * - **4**: OTS.
+   * 
+   * - **5**: RDS.
+   * 
+   * - **6**: SELF_DB.
    * 
    * @example
    * 5
@@ -103,7 +139,19 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   srcType?: number;
   /**
    * @remarks
-   * The type of the service to which the data to be de-identified belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the source product. Valid values:
+   * 
+   * - **MaxCompute**.
+   * 
+   * - **OSS**.
+   * 
+   * - **ADS**.
+   * 
+   * - **OTS**.
+   * 
+   * - **RDS**.
+   * 
+   * - **SELF_DB**.
    * 
    * @example
    * RDS
@@ -113,8 +161,9 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -122,7 +171,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The string ID of the task.
    * 
    * @example
    * mt4HBgtw1B******
@@ -138,11 +187,13 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The mode in which the de-identification task is run. Valid values:
+   * The execution method of the task. Valid values:
    * 
-   * *   **1**: manual
-   * *   **2**: scheduled
-   * *   **3**: manual and scheduled
+   * - **1**: Manual.
+   * 
+   * - **2**: Scheduled.
+   * 
+   * - **3**: Manual and scheduled.
    * 
    * @example
    * 1
@@ -214,7 +265,7 @@ export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A list of de-identification tasks.
+   * A list of data masking tasks.
    */
   items?: DescribeDataMaskingTasksResponseBodyItems[];
   /**

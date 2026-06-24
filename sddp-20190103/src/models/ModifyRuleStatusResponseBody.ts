@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRuleStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
+   * The IDs of the rules whose status failed to be changed. Multiple IDs are separated by commas.
    * 
    * @example
    * 1,2,3,4

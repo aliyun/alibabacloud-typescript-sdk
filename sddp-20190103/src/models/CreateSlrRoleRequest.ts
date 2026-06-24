@@ -13,10 +13,11 @@ export class CreateSlrRoleRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response messages. Default value: **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese (Simplified)
+   * 
+   * - **en_us**: English (US)
    * 
    * @example
    * zh_cn
@@ -28,7 +29,7 @@ export class CreateSlrRoleRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 39.170.XX.XX
+   * 106.11.XX.XX
    */
   sourceIp?: string;
   static names(): { [key: string]: string } {

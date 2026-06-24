@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of rows that are in conflict with the data to be de-identified in the destination table to which the data to be de-identified is moved.
+   * The number of data conflicts. This is the number of rows to be inserted into the destination table that conflict with existing data.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   conflictCount?: number;
   /**
    * @remarks
-   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The type of service to which the masked data is destined. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   dstType?: number;
   /**
    * @remarks
-   * The service that stores the de-identified data. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the destination service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
    * 
    * @example
    * OSS
@@ -29,7 +29,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   dstTypeCode?: string;
   /**
    * @remarks
-   * The end time of the de-identification task.
+   * The time when the execution ended. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1582251233000
@@ -37,7 +37,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   endTime?: number;
   /**
    * @remarks
-   * The error code that is returned when the de-identification task fails.
+   * The error code returned when the task fails. This parameter has a value only if the task fails.
    * 
    * @example
    * masking_task_not_found
@@ -45,7 +45,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   failCode?: string;
   /**
    * @remarks
-   * The reason why the de-identification task fails.
+   * The reason the task failed.
    * 
    * @example
    * error
@@ -53,10 +53,11 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   failMsg?: string;
   /**
    * @remarks
-   * Indicates whether a file is available for download.
+   * Indicates whether a download file is available.
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Yes.
+   * 
+   * - **0**: No.
    * 
    * @example
    * 1
@@ -72,7 +73,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   hasSubProcess?: number;
   /**
    * @remarks
-   * The ID of the task execution record.
+   * The ID of the execution record.
    * 
    * @example
    * 1
@@ -80,7 +81,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The number of rows that are de-identified.
+   * The number of masked rows.
    * 
    * @example
    * 100
@@ -88,7 +89,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   maskingCount?: number;
   /**
    * @remarks
-   * The progress of the de-identification task.
+   * The execution progress.
    * 
    * @example
    * 100
@@ -96,7 +97,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   percentage?: number;
   /**
    * @remarks
-   * The number of times that the de-identification task is executed.
+   * The number of times the task has been executed.
    * 
    * @example
    * 1
@@ -112,7 +113,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcTableName?: string;
   /**
    * @remarks
-   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The type of service to which the source data belongs. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
    * 
    * @example
    * 2
@@ -120,7 +121,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcType?: number;
   /**
    * @remarks
-   * The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the source service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
    * 
    * @example
    * OSS
@@ -128,7 +129,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcTypeCode?: string;
   /**
    * @remarks
-   * The time when the de-identification task was executed. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the execution started. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1582251233000
@@ -136,14 +137,19 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   startTime?: number;
   /**
    * @remarks
-   * The status of the de-identification task. Valid values:
+   * The execution status of the task. Valid values:
    * 
-   * *   **-1**: waiting
-   * *   **0**: being executed
-   * *   **1**: executed
-   * *   **2**: failed to be executed
-   * *   **3**: terminated
-   * *   **4**: partially failed
+   * - -**1**: pending.
+   * 
+   * - **0**: running.
+   * 
+   * - **1**: successful.
+   * 
+   * - **2**: failed.
+   * 
+   * - **3**: stopped by user.
+   * 
+   * - **4**: partially failed.
    * 
    * @example
    * 1
@@ -151,7 +157,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The ID of the identification task.
+   * The ID of the task.
    * 
    * @example
    * mt4HBgtw1B******
@@ -159,10 +165,11 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   taskId?: string;
   /**
    * @remarks
-   * The mode in which the de-identification task is executed. Valid values:
+   * The execution method. Valid values:
    * 
-   * *   **1**: manual
-   * *   **2**: scheduled
+   * - **1**: manual.
+   * 
+   * - **2**: scheduled.
    * 
    * @example
    * 1
@@ -236,7 +243,7 @@ export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The execution information about the de-identification task.
+   * A list of data masking task details.
    */
   items?: DescribeDataMaskingRunHistoryResponseBodyItems[];
   /**

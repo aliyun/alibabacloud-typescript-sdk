@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data asset.
+   * The ID of the authorized data asset.
    * 
    * @example
    * 1

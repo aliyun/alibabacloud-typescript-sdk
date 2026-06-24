@@ -13,10 +13,11 @@ export class DescribeDataLimitSetRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese (Simplified). This is the default value.
+   * 
+   * - **en_us**: English (US).
    * 
    * @example
    * zh_cn
@@ -24,24 +25,41 @@ export class DescribeDataLimitSetRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The parent asset ID of the data asset.
+   * The ID of the parent asset.
    * 
-   * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
+   * The [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation returns this ID in the **ParentId** parameter.
    * 
    * @example
    * db
    */
   parentId?: string;
+  /**
+   * @remarks
+   * The region type.
+   * 
+   * - **native_audit**: A region that supports traffic collection.
+   * 
+   * @example
+   * native_audit
+   */
   regionType?: string;
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Valid values:
+   * The type of data asset. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
+   * - **1**: MaxCompute.
+   * 
+   * - **2**: OSS.
+   * 
+   * - **3**: ADS.
+   * 
+   * - **4**: OTS.
+   * 
+   * - **5**: RDS.
+   * 
+   * - **6**: SELF_DB.
+   * 
+   * > If you set this parameter to a value other than 2, the returned OssBucketList object is empty.
    * 
    * @example
    * 2

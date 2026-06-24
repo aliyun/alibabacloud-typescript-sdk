@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCategoryTemplateListRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number for paginated queries. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,11 +21,11 @@ export class DescribeCategoryTemplateListRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * Set the language type for the request and response messages, default is **zh_cn**.
-   * Values:
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
    * 
-   * - **zh_cn**: Chinese (Simplified)
-   * - **en_us**: English (United States)
+   * - **zh_cn**: Simplified Chinese
+   * 
+   * - **en_us**: U.S. English
    * 
    * @example
    * zh_cn
@@ -33,7 +33,7 @@ export class DescribeCategoryTemplateListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * When performing a paginated query, set the number of items per page. Default value is **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -41,11 +41,13 @@ export class DescribeCategoryTemplateListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * API call scenario, default is **null**.
-   * Values:
-   * - **null**: Old version
-   * - **0**: Old version
-   * - **1**: New version
+   * The scenario in which the operation is called. Default value: **null**. Valid values:
+   * 
+   * - **null**: an earlier version
+   * 
+   * - **0**: an earlier version
+   * 
+   * - **1**: the latest version
    * 
    * @example
    * 1

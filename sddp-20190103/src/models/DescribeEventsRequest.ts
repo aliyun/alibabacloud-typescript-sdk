@@ -13,7 +13,7 @@ export class DescribeEventsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the account that handles the anomalous event.
+   * The ID of the account that handled the anomalous activity.
    * 
    * @example
    * yundun-***
@@ -21,15 +21,15 @@ export class DescribeEventsRequest extends $dara.Model {
   dealUserId?: string;
   /**
    * @remarks
-   * The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the detection of the anomalous activity ended. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1698700000
    */
-  endTime?: string;
+  endTime?: number;
   /**
    * @remarks
-   * The unique ID of the anomalous event.
+   * The unique ID of the anomalous activity.
    * 
    * @example
    * 789026
@@ -37,7 +37,7 @@ export class DescribeEventsRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the data asset.
+   * The name of the data asset instance.
    * 
    * @example
    * rm-uf6yzvbc2tg90iuxk.l****
@@ -45,10 +45,11 @@ export class DescribeEventsRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response. The default value is **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese.
+   * 
+   * - **en_us**: English.
    * 
    * @example
    * zh_cn
@@ -64,7 +65,7 @@ export class DescribeEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The service to which the data asset belongs. Valid values include MaxCompute, OSS, ADS, OTS, and **RDS**.
    * 
    * @example
    * OSS
@@ -72,19 +73,21 @@ export class DescribeEventsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the anomalous activity occurred. This is the start time of the detection. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1657900000
    */
-  startTime?: string;
+  startTime?: number;
   /**
    * @remarks
-   * The handling status of the anomalous event. Valid values:
+   * The processing status of the anomalous activity.
    * 
-   * *   0: unhandled
-   * *   1: confirmed
-   * *   2: marked as false positive
+   * - 0: Unhandled.
+   * 
+   * - 1: Confirmed.
+   * 
+   * - 2: Dismissed.
    * 
    * @example
    * 1
@@ -92,17 +95,17 @@ export class DescribeEventsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the anomalous event subtype.
+   * The name of the child type of the anomalous activity.
    * 
-   * > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
+   * > To query anomalous activities by the child type name, call the **DescribeEventTypes** operation to get the name.
    * 
    * @example
-   * Anomalous volume of downloaded data
+   * Abnormal data download volume
    */
   subTypeCode?: string;
   /**
    * @remarks
-   * The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
+   * The destination service for an anomalous data flow event. Valid values include MaxCompute, OSS, ADS, OTS, and **RDS**.
    * 
    * @example
    * RDS
@@ -110,11 +113,13 @@ export class DescribeEventsRequest extends $dara.Model {
   targetProductCode?: string;
   /**
    * @remarks
-   * The name of the anomalous event type. Valid values:
+   * The code of the parent type of the anomalous activity.
    * 
-   * *   01: anomalous permission usage
-   * *   02: anomalous data flow
-   * *   03: anomalous data operation
+   * - 01: Anomalous permission access.
+   * 
+   * - 02: Anomalous data flow.
+   * 
+   * - 03: Anomalous data operation.
    * 
    * @example
    * 02
@@ -122,7 +127,7 @@ export class DescribeEventsRequest extends $dara.Model {
   typeCode?: string;
   /**
    * @remarks
-   * The ID of the account that triggered the anomalous event.
+   * The ID of the account that performed the operation that triggered the anomalous activity.
    * 
    * @example
    * 1978132506596***
@@ -138,11 +143,13 @@ export class DescribeEventsRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The risk level of the alert that is triggered. Valid values:
+   * The risk level of the anomalous activity.
    * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * - **1**: Low.
+   * 
+   * - **2**: Medium.
+   * 
+   * - **3**: High.
    * 
    * @example
    * 1
@@ -173,13 +180,13 @@ export class DescribeEventsRequest extends $dara.Model {
     return {
       currentPage: 'number',
       dealUserId: 'string',
-      endTime: 'string',
+      endTime: 'number',
       id: 'number',
       instanceName: 'string',
       lang: 'string',
       pageSize: 'number',
       productCode: 'string',
-      startTime: 'string',
+      startTime: 'number',
       status: 'string',
       subTypeCode: 'string',
       targetProductCode: 'string',

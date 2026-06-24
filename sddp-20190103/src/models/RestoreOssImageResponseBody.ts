@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestoreOssImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
    */
   requestId?: string;
   /**
+   * @remarks
+   * The storage path of the restored image in the bucket.
+   * 
    * @example
    * aliyun_dsc_original /dir1/test.png
    */

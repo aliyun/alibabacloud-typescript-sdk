@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $dara.Model {
   /**
    * @remarks
-   * ID of the data label for the recognition model.
+   * The ID of the data tag for the detection model.
+   * 
    * - **101**: Personal sensitive information.
+   * 
    * - **102**: Personal information.
+   * 
    * - **103**: Important data.
    * 
    * @example
@@ -16,13 +19,16 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTa
   id?: number;
   /**
    * @remarks
-   * Name of the data label for the recognition model.
+   * The name of the data tag for the detection model.
+   * 
    * - Personal sensitive information.
+   * 
    * - Personal information.
+   * 
    * - Important data.
    * 
    * @example
-   * personal sensitive data
+   * Personal sensitive information
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -51,15 +57,15 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTa
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extends $dara.Model {
   /**
    * @remarks
-   * The major category of the model.
+   * The parent category of the model.
    * 
    * @example
-   * Excel
+   * 敏感图片信息
    */
   categoryName?: string;
   /**
    * @remarks
-   * The number of times the sensitive data recognition rule was hit.
+   * The number of times the sensitive data detection rule was matched.
    * 
    * @example
    * 2
@@ -67,17 +73,22 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   count?: number;
   /**
    * @remarks
-   * List of data tags.
+   * A list of tags for the detection model.
    */
   modelTags?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags[];
   /**
    * @remarks
-   * The risk level ID of the OSS storage object.
-   * - **1**: No sensitive data detected.
-   * - **2**: Level 1 sensitive data.
-   * - **3**: Level 2 sensitive data.
-   * - **4**: Level 3 sensitive data.
-   * - **5**: Level 4 sensitive data.
+   * The ID of the risk level that is specified in the rule.
+   * 
+   * - **1**: N/A
+   * 
+   * - **2**: S1
+   * 
+   * - **3**: S2
+   * 
+   * - **4**: S3
+   * 
+   * - **5**: S4
    * 
    * @example
    * 3
@@ -85,7 +96,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   riskLevelId?: number;
   /**
    * @remarks
-   * The risk level name of the OSS storage object.
+   * The name of the risk level that is specified in the rule.
    * 
    * @example
    * S2
@@ -93,10 +104,10 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   riskLevelName?: string;
   /**
    * @remarks
-   * The name of the sensitive data recognition rule that was hit.
+   * The name of the matched sensitive data detection rule.
    * 
    * @example
-   * name
+   * ID card number
    */
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -136,7 +147,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the Bucket to which the OSS storage object belongs.
+   * The name of the bucket that stores the OSS object.
    * 
    * @example
    * sddp-api-scan-demo
@@ -144,23 +155,23 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   bucketName?: string;
   /**
    * @remarks
-   * The major category of the model.
+   * The parent category of the model.
    * 
    * @example
-   * Excel file
+   * Sensitive image information
    */
   categoryName?: string;
   /**
    * @remarks
-   * File type.
+   * The file type.
    * 
    * @example
-   * Text file
+   * Image file
    */
   fileCategoryName?: string;
   /**
    * @remarks
-   * The unique ID of the OSS object.
+   * The unique ID of the object.
    * 
    * @example
    * 1757262735738932224
@@ -168,10 +179,13 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   id?: string;
   /**
    * @remarks
-   * Data labels, separated by commas. Values:
-   * - **101**: Personal Sensitive Information.
-   * - **102**: Personal Information.
-   * - **107**: General Information.
+   * The data tags, separated by commas. Example: 101,102. Valid values:
+   * 
+   * - **101**: Personal sensitive information.
+   * 
+   * - **102**: Personal information.
+   * 
+   * - **107**: General information.
    * 
    * @example
    * 101,102
@@ -179,7 +193,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   modelTagIds?: string;
   /**
    * @remarks
-   * OSS storage object name.
+   * The name of the OSS object.
    * 
    * @example
    * dir1/test.png
@@ -187,7 +201,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   name?: string;
   /**
    * @remarks
-   * OSS Object ACL
+   * The access control list (ACL) of the object.
    * 
    * @example
    * private
@@ -195,7 +209,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   objectAcl?: string;
   /**
    * @remarks
-   * The region ID to which the OSS storage object belongs.
+   * The ID of the region where the OSS object is stored.
    * 
    * @example
    * cn-hangzhou
@@ -203,13 +217,19 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   regionId?: string;
   /**
    * @remarks
-   * The sensitivity level of the OSS object. Valid values:
+   * The ID of the risk level of the data asset. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A.
+   * 
+   * - **2**: S1.
+   * 
+   * - **3**: S2.
+   * 
+   * - **4**: S3.
+   * 
+   * - **5**: S4.
+   * 
+   * > A return value of 1 or less indicates N/A.
    * 
    * @example
    * 4
@@ -217,7 +237,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   riskLevelId?: number;
   /**
    * @remarks
-   * The risk level name of the OSS storage object.
+   * The name of the risk level of the OSS object.
    * 
    * @example
    * S2
@@ -225,12 +245,12 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   riskLevelName?: string;
   /**
    * @remarks
-   * A list of sensitive data recognition rules hit by the OSS storage object.
+   * The list of sensitive data detection rules that the OSS object matches.
    */
   ruleList?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList[];
   /**
    * @remarks
-   * File size. Unit: Byte.
+   * The size of the file in bytes.
    * 
    * @example
    * 1024
@@ -285,12 +305,12 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
 export class DescribeOssObjectDetailV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information about the OSS storage object.
+   * The details of the OSS object.
    */
   ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
   /**
    * @remarks
-   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
+   * The ID of the request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 769FB3C1-F4C9-42DF-9B72-7077A8989C13

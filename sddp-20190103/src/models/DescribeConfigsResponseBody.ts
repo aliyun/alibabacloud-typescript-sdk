@@ -5,42 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigsResponseBodyConfigList extends $dara.Model {
   /**
    * @remarks
-   * The code of the common configuration item.
+   * The code of the configuration item.
    * 
    * @example
-   * 1
+   * abnormal_download_file
    */
   code?: string;
   /**
    * @remarks
-   * The description of the default value for the common configuration item.
+   * The default value of the configuration item.
    * 
    * @example
-   * The volume of logs of a specific type that are generated on the current day is less than 30% of the average volume of logs generated in the previous 10 days.
+   * 10000
    */
   defaultValue?: string;
   /**
    * @remarks
-   * The description of the common configuration item.
+   * The description of the configuration item.
    * 
    * @example
-   * Anomalous log output
+   * Unauthorized resource multiple access attempts: current threshold is defined as 10 attempts
    */
   description?: string;
   /**
    * @remarks
-   * The unique ID of the common configuration item.
+   * The unique ID of the configuration item.
    * 
    * @example
-   * 2133
+   * 50
    */
   id?: number;
   /**
    * @remarks
-   * The value of the common configuration item.
+   * The value of the configuration item.
    * 
    * @example
-   * 30
+   * 10000
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeConfigsResponseBodyConfigList extends $dara.Model {
 export class DescribeConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of common configuration items for alerts.
+   * A list of common configuration items for anomaly alerts.
    */
   configList?: DescribeConfigsResponseBodyConfigList[];
   /**

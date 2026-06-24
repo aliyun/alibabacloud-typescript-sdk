@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePackagesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The point in time when the MaxCompute package was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the data asset package was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1536751124000
@@ -13,7 +13,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The ID of the package.
+   * The unique ID of the data asset package.
    * 
    * @example
    * 111111
@@ -21,7 +21,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the instance to which the package belongs.
+   * The ID of the asset instance to which the data asset package belongs.
    * 
    * @example
    * 223453332
@@ -29,7 +29,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The name of the package.
+   * The name of the data asset package.
    * 
    * @example
    * gxdata
@@ -37,7 +37,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account of the user that owns the package.
+   * The account of the data asset package owner.
    * 
    * @example
    * cou-2221
@@ -45,13 +45,17 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The sensitivity level of the package. Valid values:
+   * The ID of the risk level for the data asset package.
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A: No sensitive data is detected.
+   * 
+   * - **2**: S1: Level 1 sensitive data.
+   * 
+   * - **3**: S2: Level 2 sensitive data.
+   * 
+   * - **4**: S3: Level 3 sensitive data.
+   * 
+   * - **5**: S4: Level 4 sensitive data.
    * 
    * @example
    * 4
@@ -59,18 +63,19 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the sensitivity level for the package.
+   * The name of the risk level for the package.
    * 
    * @example
-   * Highest sensitivity level
+   * S3
    */
   riskLevelName?: string;
   /**
    * @remarks
-   * Indicates whether the package contains sensitive data. Valid values:
+   * Indicates whether the data asset package contains sensitive data.
    * 
-   * *   true: yes
-   * *   false: no
+   * - true: Yes.
+   * 
+   * - false: No.
    * 
    * @example
    * true
@@ -78,7 +83,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * The total volume of sensitive data in the package. For example, the value can be the total number of sensitive tables in the MaxCompute package.
+   * The total number of sensitive data entries in the data asset package. For example, the total number of sensitive tables in MaxCompute.
    * 
    * @example
    * 123
@@ -86,7 +91,7 @@ export class DescribePackagesResponseBodyItems extends $dara.Model {
   sensitiveCount?: number;
   /**
    * @remarks
-   * The total volume of data in the package. For example, the value can be the total number of tables in the MaxCompute package.
+   * The total number of data entries in the data asset package. For example, the total number of tables in MaxCompute.
    * 
    * @example
    * 321
@@ -142,12 +147,12 @@ export class DescribePackagesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * An array that consists of the information about the packages.
+   * The information about the data asset packages.
    */
   items?: DescribePackagesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10

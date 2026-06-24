@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   /**
    * @remarks
-   * The code of the object type.
+   * The code of the file type.
    * 
    * @example
    * 100001
@@ -13,7 +13,7 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the object type.
+   * The unique ID of the file type.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the object type.
+   * The name of the file type.
    * 
    * @example
    * C/C++ Source Code
@@ -55,7 +55,7 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
 export class DescribeDocTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of OSS object types.
+   * A list of OSS file types.
    */
   docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
   /**

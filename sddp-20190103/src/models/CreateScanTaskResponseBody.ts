@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom scan task.
+   * The resource ID of the custom scan task.
    * 
    * @example
    * 100

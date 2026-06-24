@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the test of connectivity between DSC and the data asset is passed.
+   * The status of the connectivity test between Security Center and the authorized data asset.
    * 
-   * *   **2**: The connectivity test is in progress.
-   * *   **3**: The connectivity test is passed.
-   * *   **4**: The connectivity test failed.
+   * - **2**: The connectivity test is in progress.
+   * 
+   * - **3**: The connectivity test is passed.
+   * 
+   * - **4**: The connectivity test has failed.
    * 
    * @example
    * 3
@@ -17,23 +19,23 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   checkStatus?: number;
   /**
    * @remarks
-   * The name of the data detection status.
+   * The name of the connectivity test status.
    * 
    * @example
-   * Connectivity test status
+   * Connected
    */
   checkStatusName?: string;
   /**
    * @remarks
-   * The connection string that is used to access the data asset.
+   * The connection string for the data asset.
    * 
    * @example
-   * Connection string
+   * jdbc:mysql://10.*.*.94:3306/test_demo
    */
   connector?: string;
   /**
    * @remarks
-   * The time when the data asset was created. Unit: milliseconds.
+   * The time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1625587423000
@@ -41,7 +43,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   gmtCreate?: number;
   /**
    * @remarks
-   * The ID of the data asset.
+   * The unique ID of the data asset.
    * 
    * @example
    * 1
@@ -49,15 +51,15 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   id?: number;
   /**
    * @remarks
-   * The region in which the data asset resides.
+   * The name of the region where the data asset is located.
    * 
    * @example
-   * China (Hangzhou)
+   * cn-hangzhou
    */
   localName?: string;
   /**
    * @remarks
-   * The parent asset ID of the data asset.
+   * The ID of the parent asset.
    * 
    * @example
    * db
@@ -65,7 +67,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   parentId?: string;
   /**
    * @remarks
-   * The region in which the data asset resides.
+   * The ID of the region where the data asset is located.
    * 
    * @example
    * cn-****
@@ -73,13 +75,19 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   regionId?: string;
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Valid values:
+   * The type of the data asset. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
+   * - **1**: MaxCompute.
+   * 
+   * - **2**: OSS.
+   * 
+   * - **3**: ADS.
+   * 
+   * - **4**: OTS.
+   * 
+   * - **5**: RDS.
+   * 
+   * - **6**: SELF_DB.
    * 
    * @example
    * 2
@@ -87,13 +95,19 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   resourceType?: number;
   /**
    * @remarks
-   * The code of the service to which the data asset belongs. Valid values:
+   * The code for the data asset type. Valid values:
    * 
-   * *   **ODPS**
-   * *   **OSS**
-   * *   **ADS**
-   * *   **OTS**
-   * *   **RDS**
+   * - **MaxCompute**
+   * 
+   * - **OSS**
+   * 
+   * - **ADS**
+   * 
+   * - **OTS**
+   * 
+   * - **RDS**
+   * 
+   * - **SELF_DB**
    * 
    * @example
    * OSS
@@ -101,7 +115,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
   resourceTypeCode?: string;
   /**
    * @remarks
-   * The username that is used to access the data asset.
+   * The username of the data owner.
    * 
    * @example
    * tsts
@@ -151,7 +165,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
 export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket to which the OSS object belongs.
+   * The name of the OSS bucket.
    * 
    * @example
    * oss-bucket
@@ -159,7 +173,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $
   bucketName?: string;
   /**
    * @remarks
-   * The region ID of the OSS object.
+   * The ID of the region where the OSS bucket is located.
    * 
    * @example
    * cn-****
@@ -191,15 +205,15 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $
 export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $dara.Model {
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
-   * China (Hangzhou)
+   * cn-hangzhou
    */
   localName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-****
@@ -231,28 +245,34 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $dar
 export class DescribeDataLimitSetResponseBodyDataLimitSet extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of data assets that DSC is authorized to scan.
+   * A list of authorized data assets.
    */
   dataLimitList?: DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList[];
   /**
    * @remarks
-   * An array consisting of the OSS objects that DSC is authorized to scan.
+   * A list of authorized OSS buckets.
    */
   ossBucketList?: DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList[];
   /**
    * @remarks
-   * An array consisting of the regions in which the data assets can be scanned.
+   * A list of regions that support scanning.
    */
   regionList?: DescribeDataLimitSetResponseBodyDataLimitSetRegionList[];
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Valid values:
+   * The type of the data asset. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
+   * - **1**: MaxCompute.
+   * 
+   * - **2**: OSS.
+   * 
+   * - **3**: ADS.
+   * 
+   * - **4**: OTS.
+   * 
+   * - **5**: RDS.
+   * 
+   * - **6**: SELF_DB.
    * 
    * @example
    * 2
@@ -260,13 +280,19 @@ export class DescribeDataLimitSetResponseBodyDataLimitSet extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The service to which the data asset belongs. Valid values:
+   * The code for the data asset type. Valid values:
    * 
-   * *   **ODPS**
-   * *   **OSS**
-   * *   **ADS**
-   * *   **OTS**
-   * *   **RDS**
+   * - **MaxCompute**
+   * 
+   * - **OSS**
+   * 
+   * - **ADS**
+   * 
+   * - **OTS**
+   * 
+   * - **RDS**
+   * 
+   * - **SELF_DB**
    * 
    * @example
    * OSS
@@ -274,7 +300,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSet extends $dara.Model {
   resourceTypeCode?: string;
   /**
    * @remarks
-   * The total number of data objects in the data assets.
+   * The total number of assets found.
    * 
    * @example
    * 10
@@ -323,7 +349,7 @@ export class DescribeDataLimitSetResponseBodyDataLimitSet extends $dara.Model {
 export class DescribeDataLimitSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the data asset.
+   * Information about the authorized data assets.
    */
   dataLimitSet?: DescribeDataLimitSetResponseBodyDataLimitSet;
   /**

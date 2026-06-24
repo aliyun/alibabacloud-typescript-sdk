@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
+   * The audit status. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Auditing is enabled.
+   * 
+   * - **0**: Auditing is disabled.
    * 
    * @example
    * 1
@@ -16,10 +17,11 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * Specifies whether DSC is authorized to access the data asset.
+   * The authorization status of the data asset instance.
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: Unauthorized.
+   * 
+   * - **1**: Authorized.
    * 
    * @example
    * 0
@@ -27,7 +29,7 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   authStatus?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -35,13 +37,17 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The engine type. Valid values:
+   * The database engine type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **MariaDB**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **MariaDB**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -52,12 +58,12 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 2
+   * 1
    */
   featureType?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * instance-demo-****
@@ -65,10 +71,11 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
+   * - **zh_cn**: Simplified Chinese. This is the default value.
+   * 
+   * - **en_us**: English.
    * 
    * @example
    * zh_cn
@@ -76,7 +83,7 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paginated query. Default value: **10**.
    * 
    * @example
    * 10
@@ -84,7 +91,7 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The name of the product to query. Valid values: MaxCompute, OSS, ADS, OTS, and RDS.
    * 
    * @example
    * MaxCompute
@@ -92,14 +99,19 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the asset belongs. Valid values:
+   * The product type ID to query. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: Object Storage Service (OSS)
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore (OTS)
-   * *   **5**: ApsaraDB RDS
-   * *   **6**: self-managed databases
+   * - **1**: MaxCompute
+   * 
+   * - **2**: OSS
+   * 
+   * - **3**: ADS
+   * 
+   * - **4**: OTS
+   * 
+   * - **5**: RDS
+   * 
+   * - **6**: SELF_DB
    * 
    * @example
    * 1
@@ -107,7 +119,7 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The content based on which a fuzzy search is performed.
+   * The keyword for the fuzzy search of data assets.
    * 
    * @example
    * 1
@@ -115,11 +127,13 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The data asset type based on which a fuzzy search is performed.
+   * The type of the fuzzy search for data assets. Valid values:
    * 
-   * *   **InstanceId**: the ID of the instance.
-   * *   **InstanceName**: the name of the instance.
-   * *   **DatabaseName**: the name of the database.
+   * - **InstanceId**: The instance ID.
+   * 
+   * - **InstanceName**: The instance name.
+   * 
+   * - **DatabaseName**: The database name.
    * 
    * @example
    * InstanceId
@@ -127,7 +141,7 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * The region where the asset is located. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
    * 
    * @example
    * cn-hangzhou

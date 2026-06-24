@@ -8,15 +8,16 @@ export class ModifyReportTaskStatusRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 1
+   * 2
    */
   featureType?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese
+   * 
+   * - **en_us**: English
    * 
    * @example
    * zh_cn
@@ -24,12 +25,15 @@ export class ModifyReportTaskStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies the status of the report task. Valid values:
+   * The status to set for the report task. Valid values:
    * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * - **0**: Disable
    * 
-   * > This parameter is required.
+   * - **1**: Enable
+   * 
+   * >Notice: 
+   * 
+   * This parameter is required.
    * 
    * @example
    * 0

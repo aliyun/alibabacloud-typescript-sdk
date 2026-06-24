@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataLimitRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
+   * Specifies whether to enable auditing. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: Do not enable auditing.
+   * 
+   * - **1**: Enable auditing.
    * 
    * @example
    * 1
@@ -16,12 +17,13 @@ export class CreateDataLimitRequest extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+   * Specifies whether to automatically trigger a rescan when a rule changes. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: Do not trigger an automatic scan.
    * 
-   * > When a re-scan is triggered, DSC scans all data in your data asset.
+   * - **1**: Trigger an automatic scan.
+   * 
+   * > If you enable this feature, a rule change triggers a full scan of all data in the data source.
    * 
    * @example
    * 1
@@ -29,10 +31,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   autoScan?: number;
   /**
    * @remarks
-   * The permissions. Valid values:
+   * The permission level of the credential. Valid values:
    * 
-   * *   **ReadOnly**: read-only permissions
-   * *   **ReadWrite**: read and write permissions
+   * - **ReadOnly**: Read-only permissions.
+   * 
+   * - **ReadWrite**: Read and write permissions.
    * 
    * @example
    * ReadOnly
@@ -42,10 +45,11 @@ export class CreateDataLimitRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable sensitive data detection. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled.
    * 
-   * > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
+   * - **0**: Disabled.
+   * 
+   * > The default value is 1 for the first authorization. For later authorizations, the value from the previous authorization is used. Set this parameter to 1 to detect sensitive data.
    * 
    * @example
    * 1
@@ -53,10 +57,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The database engine that is run by the instance. Valid values:
+   * The database engine type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -64,10 +69,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * Specifies whether to enable anomalous event detection. Valid values:
+   * Specifies whether to enable anomalous activity detection. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes (default)
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled. This is the default value.
    * 
    * @example
    * 1
@@ -83,10 +89,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * Specifies whether to immediately scan the authorized asset. Valid values:
+   * Specifies whether to immediately scan the authorized data asset. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: Do not scan immediately.
+   * 
+   * - **true**: Scan immediately.
    * 
    * @example
    * false
@@ -94,10 +101,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   instantlyScan?: boolean;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the content that is returned in the response. Default value: **zh_cn**. Valid values:
    * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
+   * - **zh_cn**: Chinese
+   * 
+   * - **en_us**: English
    * 
    * @example
    * zh_cn
@@ -105,12 +113,15 @@ export class CreateDataLimitRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+   * The retention period of raw logs after you enable auditing. Unit: days. Valid values:
    * 
-   * *   **30**
-   * *   **90**
-   * *   **180**
-   * *   **365**
+   * - **30**
+   * 
+   * - **90**
+   * 
+   * - **180**
+   * 
+   * - **365**
    * 
    * @example
    * 30
@@ -118,10 +129,11 @@ export class CreateDataLimitRequest extends $dara.Model {
   logStoreDay?: number;
   /**
    * @remarks
-   * Specifies whether to enable optical character recognition (OCR). Valid values:
+   * Specifies whether to enable Optical Character Recognition (OCR). Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled.
+   * 
+   * - **0**: Disabled.
    * 
    * @example
    * 0
@@ -129,23 +141,23 @@ export class CreateDataLimitRequest extends $dara.Model {
   ocrStatus?: number;
   /**
    * @remarks
-   * The name of the asset. The value is a connection string. It consists of an instance ID and a database name, which are separated by a comma (,). This parameter is required.
+   * The name of the data asset. The name consists of the instance ID and the database name, separated by a period (.).
    * 
    * @example
-   * test-11**
+   * rm-****34.******name
    */
   parentId?: string;
   /**
    * @remarks
-   * The password that is used to access the database.
+   * The password to access the database.
    * 
    * @example
-   * passwd
+   * p****d
    */
   password?: string;
   /**
    * @remarks
-   * The port that is used to connect to the database.
+   * The database connection port.
    * 
    * @example
    * 3306
@@ -153,13 +165,17 @@ export class CreateDataLimitRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Valid values:
+   * The service to which the data asset belongs. Valid values:
    * 
-   * *   **1** :MaxCompute
-   * *   **2**: Object Storage Service (OSS)
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4** :Tablestore
-   * *   **5**: ApsaraDB RDS
+   * - **1**: MaxCompute
+   * 
+   * - **2**: OSS
+   * 
+   * - **3**: ADS
+   * 
+   * - **4**: OTS
+   * 
+   * - **5**: RDS
    * 
    * This parameter is required.
    * 
@@ -169,11 +185,15 @@ export class CreateDataLimitRequest extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
+   * The number of sensitive data samples to return after a scan. Valid values:
    * 
-   * *   **0**
-   * *   **5**
-   * *   **10**
+   * - **0**
+   * 
+   * - **5**
+   * 
+   * - **10**
+   * 
+   * > The default value is 10.
    * 
    * @example
    * 0
@@ -181,15 +201,21 @@ export class CreateDataLimitRequest extends $dara.Model {
   samplingSize?: number;
   /**
    * @remarks
-   * The region in which the data asset resides. Valid values:
+   * The region where the data asset is located. Valid values:
    * 
-   * *   **cn-beijing**: China (Beijing).
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-huhehaote**: China (Hohhot)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
+   * - **cn-beijing**: China (Beijing)
+   * 
+   * - **cn-zhangjiakou**: China (Zhangjiakou)
+   * 
+   * - **cn-huhehaote**: China (Hohhot)
+   * 
+   * - **cn-hangzhou**: China (Hangzhou)
+   * 
+   * - **cn-shanghai**: China (Shanghai)
+   * 
+   * - **cn-shenzhen**: China (Shenzhen)
+   * 
+   * - **cn-hongkong**: China (Hong Kong)
    * 
    * @example
    * cn-hangzhou
@@ -200,15 +226,15 @@ export class CreateDataLimitRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * 39.170.XX.XX
+   * 106.11.XX.XX
    */
   sourceIp?: string;
   /**
    * @remarks
-   * The username that is used to access the database.
+   * The username for the database.
    * 
    * @example
-   * yhm
+   * y*****m
    */
   userName?: string;
   static names(): { [key: string]: string } {

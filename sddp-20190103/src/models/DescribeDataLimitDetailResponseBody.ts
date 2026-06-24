@@ -7,9 +7,11 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
    * @remarks
    * The status of the connectivity test between the data asset and DSC. Valid values:
    * 
-   * *   **2**: indicates that the data asset was being connected.
-   * *   **3**: indicates that the data asset was connected to DSC.
-   * *   **4**: indicates that the data asset failed to be connected.
+   * - **2**: indicates that the data asset was being connected.
+   * 
+   * - **3**: indicates that the data asset was connected to DSC.
+   * 
+   * - **4**: indicates that the data asset failed to be connected.
    * 
    * @example
    * 3
@@ -19,12 +21,14 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
    * @remarks
    * The result that indicates the status of the connectivity test between the data asset and DSC. Valid values:
    * 
-   * *   **Passed**
-   * *   **Failed**
-   * *   **Testing**
+   * - **Passed**
+   * 
+   * - **Failed**
+   * 
+   * - **Testing**
    * 
    * @example
-   * Passed
+   * Pending
    */
   checkStatusName?: string;
   /**
@@ -48,7 +52,7 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
    * The region in which the data asset resides.
    * 
    * @example
-   * China (Qingdao)
+   * cn-hangzhou
    */
   localName?: string;
   /**
@@ -79,11 +83,15 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
    * @remarks
    * The type of the service to which the data asset belongs. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
+   * - **1**: MaxCompute
+   * 
+   * - **2**: OSS
+   * 
+   * - **3**: AnalyticDB for MySQL
+   * 
+   * - **4**: Tablestore
+   * 
+   * - **5**: ApsaraDB RDS
    * 
    * @example
    * 1
@@ -93,11 +101,15 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
    * @remarks
    * The service to which the data asset belongs. Valid values:
    * 
-   * *   **MaxCompute**
-   * *   **OSS**
-   * *   **ADS**
-   * *   **OTS**
-   * *   **RDS**
+   * - **MaxCompute**
+   * 
+   * - **OSS**
+   * 
+   * - **ADS**
+   * 
+   * - **OTS**
+   * 
+   * - **RDS**
    * 
    * @example
    * RDS

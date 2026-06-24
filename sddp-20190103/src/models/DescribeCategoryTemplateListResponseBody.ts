@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Current risk level ID.
+   * The ID of the current risk level.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   currentRiskLevel?: number;
   /**
    * @remarks
-   * Description information of the industry template.
+   * The description of the industry-specific template.
    * 
    * @example
    * description
@@ -21,7 +21,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Industry template creation time.
+   * The time when the industry-specific template was created.
    * 
    * @example
    * 1582992000000
@@ -29,7 +29,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Industry template modification time.
+   * The time when the industry-specific template was last modified.
    * 
    * @example
    * 1545277010000
@@ -37,7 +37,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Unique identifier ID of the industry template.
+   * The unique ID of the industry-specific template.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Maximum category level.
+   * The maximum categorization level.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   maxCategoryLevel?: number;
   /**
    * @remarks
-   * Maximum risk level ID.
+   * The ID of the maximum risk level.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   maxRiskLevel?: number;
   /**
    * @remarks
-   * Name of the industry template.
+   * The name of the industry-specific template.
    * 
    * @example
    * built-in template
@@ -69,13 +69,17 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Status of the industry template. Values:
-   * - **0**: Closed status.
-   * - **1**: Enabled status, user\\"s current main template.
-   * - **2**: Active status, both enabled and active templates can be applied to recognition tasks.
-   * - **3**: General recognition model template status.
+   * The status of the industry-specific template. Valid values:
    * 
-   * > Templates in enabled and active status can be used as the industry template ID parameter for [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html).
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled. This is the current primary template of the user.
+   * 
+   * - **2**: Active. Both enabled and active templates can be used in detection tasks.
+   * 
+   * - **3**: The status of the template for the general-purpose detection model.
+   * 
+   * > The IDs of enabled and active templates can be used as the industry-specific template ID for the [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) operation.
    * 
    * @example
    * 1
@@ -83,9 +87,11 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether the industry template supports editing. Values:
-   * - **0**: Not supported.
-   * - **1**: Supported.
+   * Specifies whether the industry-specific template can be edited. Valid values:
+   * 
+   * - **0**: No.
+   * 
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -93,7 +99,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   supportEdit?: number;
   /**
    * @remarks
-   * Type of the industry template.
+   * The type of the industry-specific template.
    * 
    * @example
    * 6
@@ -143,7 +149,7 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
 export class DescribeCategoryTemplateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number for paginated queries. Default value: 1.
+   * The page number of the returned page. Default value: 1.
    * 
    * @example
    * 1
@@ -151,12 +157,12 @@ export class DescribeCategoryTemplateListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of industry templates.
+   * A list of industry-specific templates.
    */
   items?: DescribeCategoryTemplateListResponseBodyItems[];
   /**
    * @remarks
-   * Number of items per page in a paginated query. Default value: 10.
+   * The number of entries returned per page. Default value: 10.
    * 
    * @example
    * 10
@@ -164,7 +170,7 @@ export class DescribeCategoryTemplateListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier generated by Alibaba Cloud for this request.
+   * The ID of the request.
    * 
    * @example
    * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
@@ -172,7 +178,7 @@ export class DescribeCategoryTemplateListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of data items returned.
+   * The total number of entries returned.
    * 
    * @example
    * 12

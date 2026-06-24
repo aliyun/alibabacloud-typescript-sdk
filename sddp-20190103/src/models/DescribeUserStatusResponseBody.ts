@@ -5,19 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the current account.
+   * The authorized AccessKey ID of the user.
    * 
    * @example
    * yourAccessKeyID
    */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * Indicates whether the currently logged-in account has been granted the service role permissions for DSC asset synchronization. Valid values:
+   * 
+   * - **true**: authorized.
+   * 
+   * - **false**: unauthorized.
+   * 
+   * @example
+   * true
+   */
   assetRoleAuthed?: boolean;
   /**
    * @remarks
-   * Indicates whether the SQL Explorer feature can be disabled. Valid values:
+   * Indicates whether SQL Insights can be disabled. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true
@@ -25,10 +37,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   auditClosable?: boolean;
   /**
    * @remarks
-   * Indicates whether the audit resources can be released.
+   * Indicates whether SQL Insights can be released.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true
@@ -36,10 +49,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   auditReleasable?: boolean;
   /**
    * @remarks
-   * Indicates whether DSC has permission to access user resources within the current account. Valid values:
+   * Indicates whether the current account is granted Resource Access Management (RAM) permissions on DSC. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The account is granted the permissions.
+   * 
+   * - **false**: The account is not granted the permissions.
    * 
    * @example
    * true
@@ -47,10 +61,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   authed?: boolean;
   /**
    * @remarks
-   * The billing method of DCS that is purchased by using the current account. Valid values:
+   * The billing method of the DSC service for the current account. Valid values:
    * 
-   * *   **PREPAY**: subscription
-   * *   **POSTPAY**: pay-as-you-go
+   * - **PREPAY**: subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -60,8 +75,9 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
    * @remarks
    * The permissions that the current account has. Valid values:
    * 
-   * *   **0**: The current account has the administrative permissions or read-only permissions on Data Security Center.
-   * *   **1**: The current account has the permissions to manage data domains.
+   * - **0**: The account has the management or read-only permissions on Data Security Center.
+   * 
+   * - **1**: The account has the management permissions on data domains.
    * 
    * @example
    * 1
@@ -69,7 +85,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   dataManagerRole?: number;
   /**
    * @remarks
-   * The ID of the data security center instance purchased by the main account.
+   * The ID of the Data Security Center instance purchased by the Alibaba Cloud account.
    * 
    * @example
    * sddp-cn-****
@@ -77,7 +93,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of instances within the current account.
+   * The number of instances in the current account.
    * 
    * @example
    * 32
@@ -93,10 +109,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   instanceTotalCount?: number;
   /**
    * @remarks
-   * Indicates whether the data security lab feature is enabled. Valid values:
+   * Indicates whether the Asset Lab feature is enabled. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -104,7 +121,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   labStatus?: number;
   /**
    * @remarks
-   * OSS total storage capacity. Unit: Bytes.
+   * The total OSS storage. Unit: bytes.
    * 
    * @example
    * 2048
@@ -112,18 +129,19 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   ossTotalSize?: number;
   /**
    * @remarks
-   * Accumulate the number of days to protect user assets.
+   * The total number of days that assets have been protected.
    * 
    * @example
-   * 2
+   * 22
    */
   protectionDays?: number;
   /**
    * @remarks
-   * Indicates whether DSC is purchased. Valid values:
+   * Indicates whether the DSC service is purchased. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true
@@ -131,7 +149,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   purchased?: boolean;
   /**
    * @remarks
-   * The grace period between when DSC is expired and when DSC is released. Unit: days.
+   * The number of days from service expiration to service release. Unit: days.
    * 
    * @example
    * 15
@@ -139,7 +157,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   releaseDays?: number;
   /**
    * @remarks
-   * The time when the audit resources are released. Unit: milliseconds.
+   * The release time. Unit: milliseconds.
    * 
    * @example
    * 15000
@@ -147,7 +165,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   releaseTime?: number;
   /**
    * @remarks
-   * The remaining period for which the data assets within the current account can be protected by DSC.
+   * The number of remaining days in the protection period for the assets of the current account.
    * 
    * @example
    * 131
@@ -155,10 +173,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   remainDays?: number;
   /**
    * @remarks
-   * Indicates whether the current account uses a free trial of DSC. Valid values:
+   * Indicates whether the current account uses the trial version of the DSC service. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true
@@ -166,10 +185,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   trail?: boolean;
   /**
    * @remarks
-   * Indicates whether the agent audit feature is used. Valid values:
+   * Indicates whether the agent-based audit feature has been used. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -177,7 +197,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   useAgentAudit?: boolean;
   /**
    * @remarks
-   * The number of instances that are used.
+   * The number of used instances.
    * 
    * @example
    * 125
@@ -185,7 +205,7 @@ export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   useInstanceNum?: number;
   /**
    * @remarks
-   * The occupied space of the Object Storage Service (OSS) bucket. Unit: bytes.
+   * The used Object Storage Service (OSS) storage. Unit: bytes.
    * 
    * @example
    * 234
@@ -263,7 +283,7 @@ export class DescribeUserStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the current account.
+   * The details of the current account.
    */
   userStatus?: DescribeUserStatusResponseBodyUserStatus;
   static names(): { [key: string]: string } {

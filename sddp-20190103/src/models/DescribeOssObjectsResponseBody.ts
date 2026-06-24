@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssObjectsResponseBodyItemsRuleList extends $dara.Model {
   /**
    * @remarks
-   * The number of times that the rule is hit.
+   * The number of times the rule is matched.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeOssObjectsResponseBodyItemsRuleList extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported.
+   * The name of the rule.
    * 
    * @example
    * ID card
@@ -21,13 +21,17 @@ export class DescribeOssObjectsResponseBodyItemsRuleList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level of the OSS object. Valid values:
+   * The risk level ID of the rule. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A. No sensitive data is detected.
+   * 
+   * - **2**: S1. Level 1 sensitive data.
+   * 
+   * - **3**: S2. Level 2 sensitive data.
+   * 
+   * - **4**: S3. Level 3 sensitive data.
+   * 
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -61,7 +65,7 @@ export class DescribeOssObjectsResponseBodyItemsRuleList extends $dara.Model {
 export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * oss-duplicate-***
@@ -69,7 +73,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The type of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
+   * The type of the OSS object, such as **900001** (MP4 video file), **800015** (PDF document), and **800005** (OSS configuration file).
    * 
    * @example
    * 900001
@@ -80,12 +84,12 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
    * The name of the file type.
    * 
    * @example
-   * MP4 file
+   * MP4
    */
   categoryName?: string;
   /**
    * @remarks
-   * The code of the file type.
+   * The code of the file category.
    * 
    * @example
    * 1
@@ -93,7 +97,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   fileCategoryCode?: number;
   /**
    * @remarks
-   * The name of the file type.
+   * The name of the file category.
    * 
    * @example
    * text file
@@ -101,7 +105,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   fileCategoryName?: string;
   /**
    * @remarks
-   * The file ID of the OSS object.
+   * The ID of the OSS file.
    * 
    * @example
    * file-22***
@@ -109,7 +113,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the OSS object.
+   * The unique ID of the OSS object.
    * 
    * @example
    * 17383
@@ -117,7 +121,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the instance to which the OSS object belongs.
+   * The ID of the asset instance to which the OSS object belongs.
    * 
    * @example
    * 1232122
@@ -141,7 +145,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID of the OSS object.
+   * The region ID of the OSS object owner.
    * 
    * @example
    * cn-***
@@ -149,13 +153,17 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level of the OSS object. Valid values:
+   * The risk level ID of the OSS object. Valid values:
    * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
+   * - **1**: N/A. No sensitive data is detected.
+   * 
+   * - **2**: S1. Level 1 sensitive data.
+   * 
+   * - **3**: S2. Level 2 sensitive data.
+   * 
+   * - **4**: S3. Level 3 sensitive data.
+   * 
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -163,15 +171,15 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the sensitivity level for the OSS object.
+   * The name of the risk level for the OSS object.
    * 
    * @example
-   * Medium sensitivity level
+   * High risk
    */
   riskLevelName?: string;
   /**
    * @remarks
-   * The number of rules that are hit.
+   * The number of matched rules.
    * 
    * @example
    * 100
@@ -179,12 +187,12 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * The rules.
+   * A list of rules.
    */
   ruleList?: DescribeOssObjectsResponseBodyItemsRuleList[];
   /**
    * @remarks
-   * The number of fields that are hit.
+   * The number of matched fields.
    * 
    * @example
    * 50
@@ -192,7 +200,7 @@ export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   sensitiveCount?: number;
   /**
    * @remarks
-   * The size of the file. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 20
@@ -265,7 +273,7 @@ export class DescribeOssObjectsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The OSS objects.
+   * A list of OSS objects.
    */
   items?: DescribeOssObjectsResponseBodyItems[];
   /**
@@ -278,9 +286,9 @@ export class DescribeOssObjectsResponseBody extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The ID value from which the next page of results starts.
+   * The token that marks the start of the next page of results.
    * 
-   * >  This parameter is returned only when the `Truncated` parameter is set to `true`.
+   * > This parameter is returned only when `Truncated` is `true`.
    * 
    * @example
    * 1754786235714378752
@@ -288,7 +296,7 @@ export class DescribeOssObjectsResponseBody extends $dara.Model {
   nextMarker?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 12
@@ -312,10 +320,11 @@ export class DescribeOssObjectsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Indicates whether the queried entries are truncated. Valid values:
+   * Indicates whether the results are truncated. The default value is false. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The results are truncated.
+   * 
+   * - **false**: The results are not truncated.
    * 
    * @example
    * false

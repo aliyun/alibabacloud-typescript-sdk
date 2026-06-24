@@ -15,10 +15,11 @@ export class ScanOssObjectV1ShrinkRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,14 +27,14 @@ export class ScanOssObjectV1ShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The objects in the OSS bucket that you want to scan. You can specify up to 50 objects at a time.
+   * A list of objects to scan in the OSS bucket. You can specify up to 50 ObjectKeys.
    * 
    * This parameter is required.
    */
   objectKeyListShrink?: string;
   /**
    * @remarks
-   * The ID of the region in which the OSS bucket is located.
+   * The ID of the region where the OSS bucket is located.
    * 
    * This parameter is required.
    * 
@@ -43,9 +44,9 @@ export class ScanOssObjectV1ShrinkRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The ID of the industry-specific classification template.
+   * The ID of the industry-specific template.
    * 
-   * >  You can call the **DescribeCategoryTemplateList** operation to query industry-specific classification templates. If you do not specify this parameter, the system automatically uses the main template.
+   * > Call **DescribeCategoryTemplateList** to get a list of templates. If you do not specify this parameter, the default active template is used for the scan.
    * 
    * @example
    * 1

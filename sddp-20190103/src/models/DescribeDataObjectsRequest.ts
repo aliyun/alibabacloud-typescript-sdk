@@ -4,31 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDataObjectsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The version of the API.
+   * 
    * @example
    * 1
    */
   APIVersion?: number;
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * bucketName
    */
   bucket?: string;
   /**
    * @remarks
-   * Page number for the paginated query. Default value: 1.
+   * The page number of the returned page. Default value: 1.
    * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * dataBaseName
    */
   dbName?: string;
   /**
    * @remarks
-   * ID of the data domain to which the data asset belongs.
+   * The ID of the data domain to which the data asset belongs.
    * 
    * @example
    * 2
@@ -44,7 +53,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * File category code.
+   * The code of the file category.
    * 
    * @example
    * 1
@@ -52,9 +61,9 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   fileCategoryCode?: number;
   /**
    * @remarks
-   * OSS file types that are supported for recognition.
+   * The type of the OSS file.
    * 
-   * > You can obtain the supported OSS file types by calling [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html), using the Code field value from the response. This parameter is only valid for querying OSS-type assets.
+   * > This parameter is valid only for querying data assets of the OSS type. You can call the [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html) operation to obtain the supported OSS file types. Use the value of the `Code` parameter in the response.
    * 
    * @example
    * 100001
@@ -62,7 +71,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * Keyword for the asset instance ID.
+   * The keyword of the instance ID.
    * 
    * @example
    * 8vb54hn2g9j191ddz
@@ -70,8 +79,10 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language type for request and response messages, default is **zh_cn**. Values:
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
    * - **zh_cn**: Chinese.
+   * 
    * - **en_us**: English.
    * 
    * @example
@@ -79,18 +90,24 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the Logstore.
+   * 
    * @example
    * logstore
    */
   logStore?: string;
   /**
+   * @remarks
+   * Specifies whether to query data at the Logstore level. The Simple Log Service data catalog has two layers. Set this parameter to 1 to query data at the Logstore level.
+   * 
    * @example
    * 1
    */
   logStoreFlag?: number;
   /**
    * @remarks
-   * Member account ID.
+   * The ID of the member.
    * 
    * @example
    * **********8103
@@ -98,8 +115,9 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * Model IDs of the industry template, separated by commas.
-   * > You can obtain the industry template model identifier ID by calling [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html).
+   * The model ID of the industry-specific rule template. You can specify multiple IDs. Separate them with commas (,).
+   * 
+   * > You can call the [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) operation to obtain the model ID of the industry-specific rule template.
    * 
    * @example
    * 101
@@ -107,10 +125,13 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   modelIds?: string;
   /**
    * @remarks
-   * Data labels to be queried, separated by commas. Values:
-   * - **101**: Personal Sensitive Information.
-   * - **102**: Personal Information.
-   * - **107**: General Information.
+   * The data labels to be queried. You can specify multiple data labels. Separate them with commas (,). Valid values:
+   * 
+   * - **101**: personal sensitive information
+   * 
+   * - **102**: personal information
+   * 
+   * - **107**: general information
    * 
    * @example
    * 101,102
@@ -118,7 +139,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   modelTagIds?: string;
   /**
    * @remarks
-   * When performing a paginated query, set the maximum number of data asset instances to display per page. Default value: **10**.
+   * The number of data assets to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -126,114 +147,161 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of parent category IDs for the template to be queried, separated by commas.
+   * The IDs of the parent asset categories to be queried. You can specify multiple IDs. Separate them with commas (,).
    * 
    * @example
    * 234,236,238
    */
   parentCategoryIds?: string;
   /**
+   * @remarks
+   * The path of the file.
+   * 
    * @example
    * road
    */
   path?: string;
   /**
+   * @remarks
+   * The ID of the product.
+   * 
    * @example
    * 5
    */
   productId?: number;
   /**
    * @remarks
-   * It is recommended to fill in the list of product IDs to be queried, separated by commas. Values:
+   * The IDs of the products to which the data assets to be queried belong. You can specify multiple product IDs. Separate them with commas (,). We recommend that you specify this parameter. Valid values:
+   * 
    * - **1**: MaxCompute
+   * 
    * - **2**: OSS
+   * 
    * - **3**: ADB-MYSQL
+   * 
    * - **4**: TableStore
+   * 
    * - **5**: RDS
+   * 
    * - **6**: SELF_DB
+   * 
    * - **7**: PolarDB-X
+   * 
    * - **8**: PolarDB
+   * 
    * - **9**: ADB-PG
+   * 
    * - **10**: OceanBase
+   * 
    * - **11**: MongoDB
+   * 
    * - **25**: Redis
    * 
-   * > OSS is mutually exclusive with other products, meaning if OSS is included in the query, no other products can be listed; by default, non-OSS products are queried.
+   * > If you want to query data assets that belong to OSS, you cannot query data assets of other products. By default, data assets of products other than OSS are queried.
    * 
    * @example
    * 1,5
    */
   productIds?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
    * project
    */
   project?: string;
   /**
    * @remarks
-   * Keyword for the data object to be queried.
+   * The keyword of the data asset to be queried.
    * 
    * @example
    * t_sddp_selfmysql_pers0
    */
   queryName?: string;
   /**
+   * @remarks
+   * The region in which the data asset catalog resides.
+   * 
    * @example
    * cn-zhangjiakou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The IDs of the sensitivity levels. You can specify multiple sensitivity level IDs. Separate them with commas (,).
+   * 
    * @example
    * 1,2,3
    */
   riskLevelIdList?: string;
   /**
    * @remarks
-   * Specify the risk levels of the data assets to be queried, separated by commas if multiple.
-   * - **2**: S1, low risk level.
-   * - **3**: S2, medium risk level.
-   * - **4**: S3, high risk level.
-   * - **5**: S4, highest risk level.
+   * The sensitivity level of the data asset. You can specify multiple sensitivity levels. Separate them with commas (,).
+   * 
+   * - **2**: S1, low sensitivity level
+   * 
+   * - **3**: S2, medium sensitivity level
+   * 
+   * - **4**: S3, high sensitivity level
+   * 
+   * - **5**: S4, highest sensitivity level
    * 
    * @example
    * 2
    */
   riskLevels?: string;
   /**
+   * @remarks
+   * The IDs of the rules. You can specify multiple rule IDs. Separate them with commas (,).
+   * 
    * @example
    * 1,2,3
    */
   ruleIds?: string;
   /**
    * @remarks
-   * Region where the asset is located. Values:
-   * - **cn-beijing**: North China 2 (Beijing).
-   * - **cn-zhangjiakou**: North China 3 (Zhangjiakou).
-   * - **cn-huhehaote**: North China 5 (Hohhot).
-   * - **cn-hangzhou**: East China 1 (Hangzhou).
-   * - **cn-shanghai**: East China 2 (Shanghai).
-   * - **cn-shenzhen**: South China 1 (Shenzhen).
-   * - **cn-hongkong**: Hong Kong, China.
+   * The region where the data asset resides. Valid values:
+   * 
+   * - **cn-beijing**: China (Beijing)
+   * 
+   * - **cn-zhangjiakou**: China (Zhangjiakou)
+   * 
+   * - **cn-huhehaote**: China (Hohhot)
+   * 
+   * - **cn-hangzhou**: China (Hangzhou)
+   * 
+   * - **cn-shanghai**: China (Shanghai)
+   * 
+   * - **cn-shenzhen**: China (Shenzhen)
+   * 
+   * - **cn-hongkong**: China (Hong Kong)
    * 
    * @example
    * cn-hangzhou
    */
   serviceRegionId?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * TableName
    */
   tableName?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 1
    */
   taskId?: number;
   /**
    * @remarks
-   * Industry template ID.
+   * The ID of the industry-specific rule template.
    * 
-   * > You can obtain the industry template identifier ID by calling [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html).
+   * > You can call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the ID of the industry-specific rule template.
    * 
    * This parameter is required.
    * 

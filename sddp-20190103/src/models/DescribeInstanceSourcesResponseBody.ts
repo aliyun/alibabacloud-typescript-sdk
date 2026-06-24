@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the security audit feature is enabled. Valid values:
+   * The audit authorization status. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Authorized.
+   * 
+   * - **0**: Unauthorized.
    * 
    * @example
    * 1
@@ -16,10 +17,11 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * Indicates whether the automatic scan feature is enabled to detect sensitive data. Valid values:
+   * Indicates whether automatic scanning for sensitive data is enabled. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -27,10 +29,11 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   autoScan?: number;
   /**
    * @remarks
-   * Indicates whether the username and password can be changed. Valid values:
+   * Indicates whether the username and password can be modified. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -38,13 +41,17 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   canModifyUserName?: boolean;
   /**
    * @remarks
-   * The data detection status. Valid values:
+   * The data check status. Valid values:
    * 
-   * *   **0**: The data detection is ready.
-   * *   **1**: The data detection is running.
-   * *   **2**: The connectivity test is in progress.
-   * *   **3**: The connectivity test passed.
-   * *   **4**: The connectivity test failed.
+   * - **0**: Ready.
+   * 
+   * - **1**: Running.
+   * 
+   * - **2**: Connectivity test in progress.
+   * 
+   * - **3**: Connectivity test passed.
+   * 
+   * - **4**: Connectivity test failed.
    * 
    * @example
    * 3
@@ -52,10 +59,11 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   checkStatus?: number;
   /**
    * @remarks
-   * Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+   * The status of data masking authorization. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled.
+   * 
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -63,7 +71,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   datamaskStatus?: number;
   /**
    * @remarks
-   * The name of the database to which the data asset belongs.
+   * The name of the database to which the asset belongs.
    * 
    * @example
    * demo
@@ -71,10 +79,11 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * Indicates whether sensitive data detection is enabled for the data asset. Valid values:
+   * Indicates whether sensitive data detection is enabled for the asset. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled.
+   * 
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -82,13 +91,17 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The engine type. Valid values:
+   * The database engine type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **MariaDB**
-   * *   **Oracle**
-   * *   **PostgreSQL**
-   * *   **SQLServer**
+   * - **MySQL**
+   * 
+   * - **MariaDB**
+   * 
+   * - **Oracle**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -99,12 +112,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
    * The reason for the failure.
    * 
    * @example
-   * The password is invalid.
+   * password error
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the asset was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1625587423000
@@ -112,7 +125,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The unique ID of the data asset.
+   * The unique ID of the asset.
    * 
    * @example
    * 1
@@ -123,12 +136,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * Test
+   * instance test
    */
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the instance
+   * The instance ID.
    * 
    * @example
    * rm-****
@@ -136,7 +149,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The storage space size of the instance. This parameter is valid only if the value of the ProductId parameter is 2. Unit: bytes.
+   * The size of the instance. This parameter is valid only for OSS assets. Unit: bytes.
    * 
    * @example
    * 409600
@@ -144,7 +157,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   instanceSize?: number;
   /**
    * @remarks
-   * The time when the data asset was last modified. Unit: milliseconds.
+   * The timestamp when the asset was last modified. Unit: milliseconds.
    * 
    * @example
    * 1625587423000
@@ -152,7 +165,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * The ID of the account that is last used to modify the data asset.
+   * The ID of the account that last modified the asset.
    * 
    * @example
    * demo
@@ -160,7 +173,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   lastModifyUserId?: string;
   /**
    * @remarks
-   * The retention period of raw logs. Unit: days.
+   * The storage duration of raw logs. Unit: days.
    * 
    * @example
    * 30
@@ -168,10 +181,11 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   logStoreDay?: number;
   /**
    * @remarks
-   * Indicates whether the password is used. Valid values:
+   * The status of the password. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: In use.
+   * 
+   * - **0**: Not in use.
    * 
    * @example
    * 1
@@ -179,14 +193,19 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   passwordStatus?: number;
   /**
    * @remarks
-   * The ID of the service to which the asset belongs. Valid values:
+   * The product type ID. Valid values:
    * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: OTS
-   * *   **5**: ApsaraDB RDS
-   * *   **6**: self-managed databases
+   * - **1**: MaxCompute
+   * 
+   * - **2**: OSS
+   * 
+   * - **3**: ADS
+   * 
+   * - **4**: OTS
+   * 
+   * - **5**: RDS
+   * 
+   * - **6**: SELF_DB
    * 
    * @example
    * 2
@@ -194,7 +213,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -205,12 +224,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
    * The name of the region.
    * 
    * @example
-   * China (Hangzhou)
+   * cn-hangzhou
    */
   regionName?: string;
   /**
    * @remarks
-   * The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+   * The sensitive data sampling size. Valid values: **0**, **5**, and **10**. Unit: number of entries.
    * 
    * @example
    * 10
@@ -218,7 +237,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   samplingSize?: number;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 11
@@ -312,7 +331,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
 export class DescribeInstanceSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -320,12 +339,12 @@ export class DescribeInstanceSourcesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The assets.
+   * A list of assets.
    */
   items?: DescribeInstanceSourcesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -333,7 +352,7 @@ export class DescribeInstanceSourcesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 5A7E8FB9-5011-5A90-97D9-AE587047****
@@ -341,7 +360,7 @@ export class DescribeInstanceSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of assets.
    * 
    * @example
    * 2

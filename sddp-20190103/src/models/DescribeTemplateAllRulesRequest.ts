@@ -13,8 +13,10 @@ export class DescribeTemplateAllRulesRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The language type for the request and response, default is **zh_cn**. Values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
+   * 
    * - **zh_cn**: Chinese.
+   * 
    * - **en_us**: English.
    * 
    * @example
@@ -23,9 +25,9 @@ export class DescribeTemplateAllRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Industry template ID.
+   * The ID of the industry template.
    * 
-   * > You can obtain the industry template ID by calling [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html). If this parameter is not provided, the model list of the primary template will be returned by default.
+   * > You can call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the ID of the industry template. If you do not specify this parameter, the list of models for the primary template is returned by default.
    * 
    * @example
    * 1
