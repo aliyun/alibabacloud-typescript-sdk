@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
+export class CreateOpenSourcePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,12 +13,7 @@ export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The returned message.
+   * The return message.
    * 
    * @example
    * operation success
@@ -26,15 +21,15 @@ export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * CCBB1225-C392-480E-8C7F-D09AB2CD2***
+   * 8BFB1C9D-08A2-4859-A47C-403C9EFA2***
    */
   requestId?: string;
   /**
    * @remarks
-   * The result of the request.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True
@@ -43,7 +38,6 @@ export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -53,7 +47,6 @@ export class UpdateInstanceServerlessSwitchResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'boolean',
       message: 'string',
       requestId: 'string',
       success: 'boolean',

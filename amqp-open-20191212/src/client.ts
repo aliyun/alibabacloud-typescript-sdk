@@ -486,6 +486,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an open-source username and password.
+   * 
+   * @param request - CreateOpenSourceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSourceAccountResponse
+   */
+  async createOpenSourceAccountWithOptions(request: $_model.CreateOpenSourceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSourceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpenSourceAccount",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpenSourceAccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSourceAccountResponse({}));
+  }
+
+  /**
+   * Creates an open-source username and password.
+   * 
+   * @param request - CreateOpenSourceAccountRequest
+   * @returns CreateOpenSourceAccountResponse
+   */
+  async createOpenSourceAccount(request: $_model.CreateOpenSourceAccountRequest): Promise<$_model.CreateOpenSourceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpenSourceAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an open source permission.
+   * 
+   * @param request - CreateOpenSourcePermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSourcePermissionResponse
+   */
+  async createOpenSourcePermissionWithOptions(request: $_model.CreateOpenSourcePermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSourcePermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configure)) {
+      query["Configure"] = request.configure;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.read)) {
+      query["Read"] = request.read;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.vhost)) {
+      query["Vhost"] = request.vhost;
+    }
+
+    if (!$dara.isNull(request.write)) {
+      query["Write"] = request.write;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpenSourcePermission",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpenSourcePermissionResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSourcePermissionResponse({}));
+  }
+
+  /**
+   * Creates an open source permission.
+   * 
+   * @param request - CreateOpenSourcePermissionRequest
+   * @returns CreateOpenSourcePermissionResponse
+   */
+  async createOpenSourcePermission(request: $_model.CreateOpenSourcePermissionRequest): Promise<$_model.CreateOpenSourcePermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpenSourcePermissionWithOptions(request, runtime);
+  }
+
+  /**
    * A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
    * 
    * @param request - CreateQueueRequest
@@ -779,6 +903,102 @@ export default class Client extends OpenApi {
   async deleteExchange(request: $_model.DeleteExchangeRequest): Promise<$_model.DeleteExchangeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteExchangeWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the username and password of an open-source user.
+   * 
+   * @param request - DeleteOpenSourceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOpenSourceAccountResponse
+   */
+  async deleteOpenSourceAccountWithOptions(request: $_model.DeleteOpenSourceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOpenSourceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOpenSourceAccount",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOpenSourceAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOpenSourceAccountResponse({}));
+  }
+
+  /**
+   * Deletes the username and password of an open-source user.
+   * 
+   * @param request - DeleteOpenSourceAccountRequest
+   * @returns DeleteOpenSourceAccountResponse
+   */
+  async deleteOpenSourceAccount(request: $_model.DeleteOpenSourceAccountRequest): Promise<$_model.DeleteOpenSourceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOpenSourceAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an open source permission.
+   * 
+   * @param request - DeleteOpenSourcePermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOpenSourcePermissionResponse
+   */
+  async deleteOpenSourcePermissionWithOptions(request: $_model.DeleteOpenSourcePermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOpenSourcePermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.vhost)) {
+      query["Vhost"] = request.vhost;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOpenSourcePermission",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOpenSourcePermissionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOpenSourcePermissionResponse({}));
+  }
+
+  /**
+   * Deletes an open source permission.
+   * 
+   * @param request - DeleteOpenSourcePermissionRequest
+   * @returns DeleteOpenSourcePermissionResponse
+   */
+  async deleteOpenSourcePermission(request: $_model.DeleteOpenSourcePermissionRequest): Promise<$_model.DeleteOpenSourcePermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOpenSourcePermissionWithOptions(request, runtime);
   }
 
   /**
@@ -1238,6 +1458,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enumerates open-source usernames and passwords.
+   * 
+   * @param request - ListOpenSourceAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOpenSourceAccountsResponse
+   */
+  async listOpenSourceAccountsWithOptions(request: $_model.ListOpenSourceAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOpenSourceAccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOpenSourceAccounts",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOpenSourceAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListOpenSourceAccountsResponse({}));
+  }
+
+  /**
+   * Enumerates open-source usernames and passwords.
+   * 
+   * @param request - ListOpenSourceAccountsRequest
+   * @returns ListOpenSourceAccountsResponse
+   */
+  async listOpenSourceAccounts(request: $_model.ListOpenSourceAccountsRequest): Promise<$_model.ListOpenSourceAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOpenSourceAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists open source permissions.
+   * 
+   * @param request - ListOpenSourcePermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOpenSourcePermissionsResponse
+   */
+  async listOpenSourcePermissionsWithOptions(request: $_model.ListOpenSourcePermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOpenSourcePermissionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOpenSourcePermissions",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOpenSourcePermissionsResponse>(await this.callApi(params, req, runtime), new $_model.ListOpenSourcePermissionsResponse({}));
+  }
+
+  /**
+   * Lists open source permissions.
+   * 
+   * @param request - ListOpenSourcePermissionsRequest
+   * @returns ListOpenSourcePermissionsResponse
+   */
+  async listOpenSourcePermissions(request: $_model.ListOpenSourcePermissionsRequest): Promise<$_model.ListOpenSourcePermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOpenSourcePermissionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the online consumer clients of a specified queue.
    * 
    * @remarks
@@ -1598,7 +1922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the elastic scaling switch of a serverless instance.
+   * Update serverless switch
    * 
    * @param request - UpdateInstanceServerlessSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1637,7 +1961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the elastic scaling switch of a serverless instance.
+   * Update serverless switch
    * 
    * @param request - UpdateInstanceServerlessSwitchRequest
    * @returns UpdateInstanceServerlessSwitchResponse
@@ -1645,6 +1969,130 @@ export default class Client extends OpenApi {
   async updateInstanceServerlessSwitch(request: $_model.UpdateInstanceServerlessSwitchRequest): Promise<$_model.UpdateInstanceServerlessSwitchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceServerlessSwitchWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the username and password for open-source access.
+   * 
+   * @param request - UpdateOpenSourceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOpenSourceAccountResponse
+   */
+  async updateOpenSourceAccountWithOptions(request: $_model.UpdateOpenSourceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOpenSourceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOpenSourceAccount",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOpenSourceAccountResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOpenSourceAccountResponse({}));
+  }
+
+  /**
+   * Updates the username and password for open-source access.
+   * 
+   * @param request - UpdateOpenSourceAccountRequest
+   * @returns UpdateOpenSourceAccountResponse
+   */
+  async updateOpenSourceAccount(request: $_model.UpdateOpenSourceAccountRequest): Promise<$_model.UpdateOpenSourceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOpenSourceAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates open source permissions.
+   * 
+   * @param request - UpdateOpenSourcePermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOpenSourcePermissionResponse
+   */
+  async updateOpenSourcePermissionWithOptions(request: $_model.UpdateOpenSourcePermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOpenSourcePermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configure)) {
+      query["Configure"] = request.configure;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.read)) {
+      query["Read"] = request.read;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.vhost)) {
+      query["Vhost"] = request.vhost;
+    }
+
+    if (!$dara.isNull(request.write)) {
+      query["Write"] = request.write;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOpenSourcePermission",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOpenSourcePermissionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOpenSourcePermissionResponse({}));
+  }
+
+  /**
+   * Updates open source permissions.
+   * 
+   * @param request - UpdateOpenSourcePermissionRequest
+   * @returns UpdateOpenSourcePermissionResponse
+   */
+  async updateOpenSourcePermission(request: $_model.UpdateOpenSourcePermissionRequest): Promise<$_model.UpdateOpenSourcePermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOpenSourcePermissionWithOptions(request, runtime);
   }
 
 }
