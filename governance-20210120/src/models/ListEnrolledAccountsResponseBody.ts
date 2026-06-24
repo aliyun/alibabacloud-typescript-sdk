@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 19534534552*****
@@ -13,7 +13,7 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $dara.Mode
   accountUid?: number;
   /**
    * @remarks
-   * The ID of the baseline that is implemented.
+   * The ID of the baseline that is applied.
    * 
    * @example
    * afb-bp1durvn3lgqe28v****
@@ -45,7 +45,7 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $dara.Mode
   folderId?: string;
   /**
    * @remarks
-   * The ID of the settlement account.
+   * The ID of the billing account.
    * 
    * @example
    * 13161210500*****
@@ -53,14 +53,19 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $dara.Mode
   payerAccountUid?: number;
   /**
    * @remarks
-   * The creation status. Valid values:
+   * The enrollment status. Valid values:
    * 
-   * *   Pending: The account is pending to be created.
-   * *   Running: The account is being created.
-   * *   Finished: The account is created.
-   * *   Failed: The account fails to be created.
-   * *   Scheduling: The account is being scheduled.
-   * *   ScheduleFailed: The account fails to be scheduled.
+   * - Pending: The account is waiting to be enrolled.
+   * 
+   * - Running: The account is being enrolled.
+   * 
+   * - Finished: The account is enrolled.
+   * 
+   * - Failed: The account failed to be enrolled.
+   * 
+   * - Scheduling: The account is being scheduled.
+   * 
+   * - ScheduleFailed: The account failed to be scheduled.
    * 
    * @example
    * Running
@@ -117,7 +122,7 @@ export class ListEnrolledAccountsResponseBody extends $dara.Model {
   enrolledAccounts?: ListEnrolledAccountsResponseBodyEnrolledAccounts[];
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****

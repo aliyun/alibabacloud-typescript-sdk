@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationResultsRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The key of the filter condition. Valid values:
+   * Filter condition key. Valid values:
    * 
-   * *   ResourceId: the resource ID.
-   * *   ResourceName: the name of the resource.
-   * *   ResourceType: the resource type.
+   * - ResourceId: Resource ID.
+   * - ResourceName: Resource name.
+   * - ResourceType: Resource type.
    * 
    * @example
    * ResourceId
@@ -17,7 +17,7 @@ export class ListEvaluationResultsRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The list of filter condition values.
+   * List of filter condition values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -49,41 +49,62 @@ export class ListEvaluationResultsRequestFilters extends $dara.Model {
 export class ListEvaluationResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * Member account ID. This parameter is only applicable to multi-account evaluation mode.
    * 
    * @example
    * 176618589410****
    */
   accountId?: number;
+  evaluationDomain?: string;
   /**
    * @remarks
-   * The filter conditions.
+   * Filter conditions.
    */
   filters?: ListEvaluationResultsRequestFilters[];
   /**
+   * @remarks
+   * Special evaluation code. Valid values:
+   * 
+   * - basic (default): Basic model (governance maturity) evaluation.
+   * - ack: Container construction special evaluation.
+   * - ai: Machine learning special evaluation.
+   * - nis: Network service special evaluation.
+   * 
    * @example
    * basic
    */
   lensCode?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Governance maturity evaluation scope. Valid values:
+   * 
+   * - Account (default): Performs single-account governance maturity evaluation, evaluating only the current account.
+   * - ResourceDirectory: Performs multi-account governance maturity evaluation, evaluating all member accounts in the resource directory. Before performing this operation, you must first upgrade to multi-account governance maturity evaluation.
+   * 
    * @example
    * ResourceDirectory
    */
   scope?: string;
   /**
+   * @remarks
+   * Evaluation snapshot ID.
+   * 
    * @example
    * es-bp1r**************
    */
   snapshotId?: string;
   /**
+   * @remarks
+   * Governance topic code.
+   * 
    * @example
    * IdentityAndAccessManagement
    */
@@ -91,6 +112,7 @@ export class ListEvaluationResultsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      evaluationDomain: 'EvaluationDomain',
       filters: 'Filters',
       lensCode: 'LensCode',
       regionId: 'RegionId',
@@ -103,6 +125,7 @@ export class ListEvaluationResultsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      evaluationDomain: 'string',
       filters: { 'type': 'array', 'itemType': ListEvaluationResultsRequestFilters },
       lensCode: 'string',
       regionId: 'string',

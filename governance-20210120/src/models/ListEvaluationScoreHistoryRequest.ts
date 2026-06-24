@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationScoreHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * The ID of the member accounts. This parameter is applicable only to the multi-account detection pattern.
    * 
    * @example
    * 176618589410****
@@ -13,14 +13,15 @@ export class ListEvaluationScoreHistoryRequest extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * The end date of the query. Format: YYYY-MM-DD.
    * 
-   * By default, the historical scores that were generated in the seven days before the current date are queried.
+   * By default, the historical scores from the last 7 days are returned.
    * 
    * @example
    * 2024-07-11
    */
   endDate?: string;
+  evaluationDomain?: string;
   /**
    * @remarks
    * The region ID.
@@ -31,9 +32,9 @@ export class ListEvaluationScoreHistoryRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * The start date of the query. Format: YYYY-MM-DD.
    * 
-   * You can query the historical scores within the previous 180 days.
+   * You can query records from the last 180 days.
    * 
    * @example
    * 2024-06-11
@@ -43,6 +44,7 @@ export class ListEvaluationScoreHistoryRequest extends $dara.Model {
     return {
       accountId: 'AccountId',
       endDate: 'EndDate',
+      evaluationDomain: 'EvaluationDomain',
       regionId: 'RegionId',
       startDate: 'StartDate',
     };
@@ -52,6 +54,7 @@ export class ListEvaluationScoreHistoryRequest extends $dara.Model {
     return {
       accountId: 'number',
       endDate: 'string',
+      evaluationDomain: 'string',
       regionId: 'string',
       startDate: 'string',
     };

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountFactoryBaselinesResponseBodyBaselines extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
    * afb-bp1durvn3lgqe28v****
@@ -21,7 +21,7 @@ export class ListAccountFactoryBaselinesResponseBodyBaselines extends $dara.Mode
   baselineName?: string;
   /**
    * @remarks
-   * The time at which the baseline was created.
+   * The time when the baseline was created.
    * 
    * @example
    * 2021-11-30T09:09:28Z
@@ -39,8 +39,9 @@ export class ListAccountFactoryBaselinesResponseBodyBaselines extends $dara.Mode
    * @remarks
    * The type of the baseline. Valid values:
    * 
-   * *   System: default baseline.
-   * *   Custom: custom baseline.
+   * - System: The baseline is a default baseline.
+   * 
+   * - Custom: The baseline is a custom baseline.
    * 
    * @example
    * Custom

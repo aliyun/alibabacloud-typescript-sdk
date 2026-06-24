@@ -18,7 +18,7 @@ export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $dara.Mo
    * The name of the baseline item.
    * 
    * @example
-   * 1097526274671790
+   * ACS-BP_ACCOUNT_FACTORY_VPC
    */
   name?: string;
   /**
@@ -57,7 +57,7 @@ export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $dara.Mo
 export class GetAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
    * afb-bp16ae2k8a3yo3d*****
@@ -104,8 +104,9 @@ export class GetAccountFactoryBaselineResponseBody extends $dara.Model {
    * @remarks
    * The type of the baseline. Valid values:
    * 
-   * *   System: default baseline.
-   * *   Custom: custom baseline.
+   * - System: The baseline is a default baseline.
+   * 
+   * - Custom: The baseline is a custom baseline.
    * 
    * @example
    * Custom

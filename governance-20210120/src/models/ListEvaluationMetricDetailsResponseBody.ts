@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties extends $dara.Model {
   /**
    * @remarks
-   * The name of the resource attribute.
+   * The name of the resource property.
    * 
    * @example
    * DisplayName
@@ -13,10 +13,10 @@ export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties 
   propertyName?: string;
   /**
    * @remarks
-   * The value of the resource attribute.
+   * The value of the resource property.
    * 
    * @example
-   * example
+   * TestAccount
    */
   propertyValue?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,11 @@ export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties 
 export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The compliance status of the resource. Valid values:
-   * 
-   * *   NonCompliant: non-compliant.
-   * *   Excluded: ignored.
-   * *   PendingExclusion: to be ignored.
-   * *   PendingInclusion: to be unignored.
+   * The compliance status. Valid values:
+   * - NonCompliant: non-compliant.
+   * - Excluded: ignored.
+   * - PendingExclusion: ignored but not yet effective.
+   * - PendingInclusion: unignored but not yet effective.
    * 
    * @example
    * NonCompliant
@@ -66,9 +65,9 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The check results further analyzed by auxiliary decision-making.
+   * The decision assistance classification.
    * 
-   * >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
+   * > This parameter is returned only for check items that support decision assistance.
    * 
    * @example
    * RecentUnloginRamUser
@@ -76,7 +75,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
   resourceClassification?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 26435103783237****
@@ -84,7 +83,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * test
@@ -92,7 +91,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
   resourceName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the resource.
+   * The Alibaba Cloud account ID to which the resource belongs.
    * 
    * @example
    * 176618589410****
@@ -100,12 +99,12 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The attributes of the resource.
+   * The list of additional resource properties.
    */
   resourceProperties?: ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties[];
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * ACS::RAM::User
@@ -150,10 +149,17 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
 }
 
 export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The date.
+   * 
+   * @example
+   * 2026-01-01
+   */
   date?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token used to retrieve the next page of data.
    * 
    * @example
    * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
@@ -169,7 +175,7 @@ export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the non-compliant resources.
+   * The details of non-compliant resources.
    */
   resources?: ListEvaluationMetricDetailsResponseBodyResources[];
   static names(): { [key: string]: string } {

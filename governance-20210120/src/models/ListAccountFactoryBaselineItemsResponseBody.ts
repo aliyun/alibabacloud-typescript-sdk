@@ -55,7 +55,7 @@ export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn e
 export class ListAccountFactoryBaselineItemsResponseBodyBaselineItems extends $dara.Model {
   /**
    * @remarks
-   * The dependency of the baseline item.
+   * The dependencies of the baseline item.
    */
   dependsOn?: ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn[];
   /**

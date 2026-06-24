@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchEnrollAccountsRequestAccounts extends $dara.Model {
   /**
    * @remarks
-   * The account ID. This parameter is required.
+   * The ID of the account to enroll. This parameter is required.
    * 
    * @example
    * 12868156179****
@@ -40,7 +40,7 @@ export class BatchEnrollAccountsRequestBaselineItems extends $dara.Model {
    * The configurations of the baseline item.
    * 
    * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   * {"Notifications":[{"GroupKey":"account_msg","Contacts":[{"Name":"aa"}],"PmsgStatus":1,"EmailStatus":1,"SmsStatus":1}]}
    */
   config?: string;
   /**
@@ -55,8 +55,9 @@ export class BatchEnrollAccountsRequestBaselineItems extends $dara.Model {
    * @remarks
    * Specifies whether to skip the baseline item. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false (default): does not skip the baseline item.
+   * 
+   * - true: skips the baseline item.
    * 
    * @example
    * false
@@ -105,9 +106,7 @@ export class BatchEnrollAccountsRequest extends $dara.Model {
   accounts?: BatchEnrollAccountsRequestAccounts[];
   /**
    * @remarks
-   * The baseline ID.
-   * 
-   * If this parameter is left empty, the default baseline is used.
+   * The ID of the baseline. If you leave this parameter empty, the default baseline is used.
    * 
    * @example
    * afb-bp1durvn3lgqe28v****
@@ -117,7 +116,7 @@ export class BatchEnrollAccountsRequest extends $dara.Model {
    * @remarks
    * The baseline items.
    * 
-   * If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
+   * If you specify this parameter, the baseline item configurations are merged with the configurations of the baseline specified by `BaselineId`. For duplicate baseline items, the configurations in this parameter take precedence. We recommend that you leave this parameter empty and use `BaselineId` to apply baseline configurations.
    */
   baselineItems?: BatchEnrollAccountsRequestBaselineItems[];
   /**

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary extends $dara.Model {
   /**
+   * @remarks
+   * Number of non-compliant accounts.
+   * 
    * @example
    * 1
    */
@@ -30,6 +33,10 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary
 }
 
 export class ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation extends $dara.Model {
+  /**
+   * @remarks
+   * Remediation template ID.
+   */
   remediationTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,7 +62,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemed
 export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * EcsInsightEnableFailed
@@ -63,7 +70,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo exte
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * Unable to enable ECS Insight due to a server error.
@@ -95,7 +102,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo exte
 export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of non-compliant resources.
+   * Number of non-compliant resources.
    * 
    * @example
    * 2
@@ -123,18 +130,26 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSumma
 }
 
 export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara.Model {
+  /**
+   * @remarks
+   * Evaluation item account assessment summary.
+   */
   accountSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary;
+  /**
+   * @remarks
+   * List of available remediations.
+   */
   availableRemediation?: ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation[];
   /**
    * @remarks
-   * The error information.
+   * Error information.
    * 
-   * >  This parameter is returned only if the value of `Status` is `Failed`.
+   * > This error information is returned when `Status` is `Failed`.
    */
   errorInfo?: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo;
   /**
    * @remarks
-   * The end time of the check item. The time is displayed in UTC.
+   * Individual evaluation item end time (UTC).
    * 
    * @example
    * 2023-12-13T03:34:02Z
@@ -142,25 +157,28 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   evaluationTime?: string;
   /**
    * @remarks
-   * The ID of the check item.
+   * Evaluation item ID.
    * 
    * @example
    * r7xdcu****
    */
   id?: string;
   /**
+   * @remarks
+   * Potential score increase.
+   * 
    * @example
    * 0.2
    */
   potentialScoreIncrease?: number;
   /**
    * @remarks
-   * The checked resources.
+   * Evaluation item resource assessment summary.
    */
   resourcesSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary;
   /**
    * @remarks
-   * The rate of the non-compliant resources.
+   * Evaluation item resource compliance rate.
    * 
    * @example
    * 0.67
@@ -168,11 +186,11 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   result?: number;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * Evaluation risk level. Valid values:
    * 
-   * *   Error: high risk
-   * *   Warning: medium risk
-   * *   None: no risk
+   * - Error: High risk.
+   * - Warning: Medium risk.
+   * - None: No risk.
    * 
    * @example
    * Error
@@ -180,11 +198,11 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   risk?: string;
   /**
    * @remarks
-   * The status of the check item. Valid values:
+   * Individual evaluation item status. Valid values:
    * 
-   * *   Running: The check is in progress.
-   * *   Finished: The check is complete.
-   * *   failed: The check fails.
+   * - Running: Evaluation in progress.
+   * - Finished: Evaluation completed.
+   * - Failed: Evaluation failed.
    * 
    * @example
    * Running
@@ -244,7 +262,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
 export class ListEvaluationResultsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The end time of the overall check. The time is displayed in UTC.
+   * Overall evaluation end time (UTC).
    * 
    * @example
    * 2023-12-13T03:35:00Z
@@ -252,16 +270,16 @@ export class ListEvaluationResultsResponseBodyResults extends $dara.Model {
   evaluationTime?: string;
   /**
    * @remarks
-   * The check result.
+   * Evaluation results.
    */
   metricResults?: ListEvaluationResultsResponseBodyResultsMetricResults[];
   /**
    * @remarks
-   * The status of the overall check. Valid values:
+   * Overall evaluation status. Valid values:
    * 
-   * *   Running: The check is in progress.
-   * *   Finished: The check is complete.
-   * *   failed: The check fails.
+   * - Running: Evaluation in progress.
+   * - Finished: Evaluation completed.
+   * - Failed: Evaluation failed.
    * 
    * @example
    * Running
@@ -269,7 +287,7 @@ export class ListEvaluationResultsResponseBodyResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The overall score.
+   * Overall score.
    * 
    * @example
    * 0.6453
@@ -308,7 +326,7 @@ export class ListEvaluationResultsResponseBodyResults extends $dara.Model {
 export class ListEvaluationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * Member account ID.
    * 
    * @example
    * 176618589410****
@@ -316,7 +334,7 @@ export class ListEvaluationResultsResponseBody extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * BD57329E-131A-59F4-8746-E1CD8D7B****
@@ -324,7 +342,7 @@ export class ListEvaluationResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The check results, including the status of the overall check and the results of check items.
+   * Evaluation results, including overall evaluation status and sub-item evaluation results.
    */
   results?: ListEvaluationResultsResponseBodyResults;
   static names(): { [key: string]: string } {

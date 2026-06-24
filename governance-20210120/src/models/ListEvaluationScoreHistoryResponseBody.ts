@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory extends $dara.Model {
   /**
    * @remarks
-   * The time when the score was generated. The time is in UTC.
+   * The time when the score was generated, in UTC.
    * 
    * @example
    * 2024-06-30T03:34:02Z
@@ -47,7 +47,7 @@ export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory
 export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $dara.Model {
   /**
    * @remarks
-   * The historical scores.
+   * The historical detection scores.
    */
   totalScoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class ListEvaluationScoreHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The historical scores.
+   * The historical detection scores.
    */
   scoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistory;
   static names(): { [key: string]: string } {

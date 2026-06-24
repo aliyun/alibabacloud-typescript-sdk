@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class EnrollAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The ID of the enrolled account.
+   * 
+   * colspan="1" rowspan="1">
+   * 
+   * 143165363236\\*\\*\\*\\*
    * 
    * @example
    * 143165363236****

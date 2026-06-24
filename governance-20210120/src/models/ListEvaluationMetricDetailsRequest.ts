@@ -5,18 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * The ID of the member account. This parameter is applicable only to the multi-account check pattern.
    * 
    * @example
    * 103144549568****
    */
   accountId?: number;
-  date?: string;
   /**
    * @remarks
-   * The ID of the check item.
+   * The date to query.
    * 
-   * You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to query the ID of the check item.
+   * @example
+   * 2026-01-01
+   */
+  date?: string;
+  evaluationDomain?: string;
+  /**
+   * @remarks
+   * The ID of the check item for which you want to retrieve non-compliant resources.
+   * 
+   * You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to obtain the check item ID.
    * 
    * @example
    * xfyve5****
@@ -24,7 +32,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request. Default value: 5.
+   * The maximum number of entries to return in a single request. Default value: 5.
    * 
    * @example
    * 5
@@ -32,7 +40,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token for the next query.
    * 
    * @example
    * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
@@ -46,12 +54,30 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The scope of the governance maturity check. Valid values:
+   * 
+   * - Account (default): queries the check item details for the current account.
+   * - ResourceDirectory: queries the check item details for all member accounts in the resource directory. Before using this value, upgrade to multi-account governance maturity check.
+   * 
+   * @example
+   * Account
+   */
   scope?: string;
+  /**
+   * @remarks
+   * The check snapshot ID.
+   * 
+   * @example
+   * es-bp1r**************
+   */
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       date: 'Date',
+      evaluationDomain: 'EvaluationDomain',
       id: 'Id',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -65,6 +91,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
     return {
       accountId: 'number',
       date: 'string',
+      evaluationDomain: 'string',
       id: 'string',
       maxResults: 'number',
       nextToken: 'string',

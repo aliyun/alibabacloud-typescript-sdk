@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class RunEvaluationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * The ID of the member account. This parameter is applicable only to the multi-account check pattern.
    * 
    * @example
    * 176618589410****
    */
   accountId?: number;
+  evaluationDomain?: string;
   /**
    * @remarks
-   * The IDs of the check items to be checked.
+   * The list of check item IDs to check.
    */
   metricIdsShrink?: string;
   /**
@@ -26,10 +27,10 @@ export class RunEvaluationShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The check range of the governance maturity check. Valid values:
+   * The scope of the governance maturity check. Valid values:
    * 
-   * *   Account (default): A single-account governance maturity check is performed to check only the Alibaba Cloud account that you use to access Cloud Governance Center.
-   * *   ResourceDirectory: A multi-account governance maturity check is performed to check all members within a resource directory. Before you perform a multi-account governance maturity check, you must enable the multi-account governance maturity check feature.
+   * - Account (default): runs a single-account governance maturity check that checks only the current account.
+   * - ResourceDirectory: runs a multi-account governance maturity check that checks all member accounts in the resource directory. Before you perform this operation, upgrade to the multi-account governance maturity check.
    * 
    * @example
    * ResourceDirectory
@@ -38,6 +39,7 @@ export class RunEvaluationShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      evaluationDomain: 'EvaluationDomain',
       metricIdsShrink: 'MetricIds',
       regionId: 'RegionId',
       scope: 'Scope',
@@ -47,6 +49,7 @@ export class RunEvaluationShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      evaluationDomain: 'string',
       metricIdsShrink: 'string',
       regionId: 'string',
       scope: 'string',

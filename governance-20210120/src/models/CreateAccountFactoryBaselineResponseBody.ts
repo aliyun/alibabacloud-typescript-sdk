@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
    * afb-bp1e6ixtiwupap8m****

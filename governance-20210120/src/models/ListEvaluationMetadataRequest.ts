@@ -3,17 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEvaluationMetadataRequest extends $dara.Model {
+  evaluationDomain?: string;
   /**
    * @remarks
-   * The language. The information is returned in the specified language. Valid values:
+   * The language type. Governance evaluation definitions are returned in this language. Valid values:
    * 
-   * *   en: English
-   * *   zh: Chinese
+   * - en: English.
+   * - zh: Chinese.
    * 
    * @example
    * zh
    */
   language?: string;
+  /**
+   * @remarks
+   * The specialized evaluation code. Valid values:
+   * 
+   * - basic (default): foundation model (governance maturity) evaluation.
+   * - ack: container building specialized evaluation.
+   * - ai: machine learning specialized evaluation.
+   * - nis: network service specialized evaluation.
+   * 
+   * @example
+   * ack
+   */
   lensCode?: string;
   /**
    * @remarks
@@ -24,12 +37,16 @@ export class ListEvaluationMetadataRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The governance topic code.
+   * 
    * @example
    * ResourceUtilization
    */
   topicCode?: string;
   static names(): { [key: string]: string } {
     return {
+      evaluationDomain: 'EvaluationDomain',
       language: 'Language',
       lensCode: 'LensCode',
       regionId: 'RegionId',
@@ -39,6 +56,7 @@ export class ListEvaluationMetadataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      evaluationDomain: 'string',
       language: 'string',
       lensCode: 'string',
       regionId: 'string',

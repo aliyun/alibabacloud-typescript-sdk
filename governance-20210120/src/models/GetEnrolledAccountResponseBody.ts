@@ -21,10 +21,11 @@ export class GetEnrolledAccountResponseBodyBaselineItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether baseline item is skipped. Valid values:
+   * Indicates whether the baseline item is skipped. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The baseline item is not skipped.
+   * 
+   * - true: The baseline item is skipped.
    * 
    * @example
    * false
@@ -71,7 +72,7 @@ export class GetEnrolledAccountResponseBodyErrorInfo extends $dara.Model {
    * The error code.
    * 
    * @example
-   * CompliancePackExists
+   * EntityAlreadyExists.Role
    */
   code?: string;
   /**
@@ -79,7 +80,7 @@ export class GetEnrolledAccountResponseBodyErrorInfo extends $dara.Model {
    * The error message.
    * 
    * @example
-   * The compliance pack already exists.
+   * The role already exists.
    */
   message?: string;
   /**
@@ -87,7 +88,7 @@ export class GetEnrolledAccountResponseBodyErrorInfo extends $dara.Model {
    * The recommended solution.
    * 
    * @example
-   * https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
+   * https://next.api.aliyun.com/troubleshoot?q=EntityAlreadyExists.Role\\u0026product=Ram
    */
   recommend?: string;
   /**
@@ -131,7 +132,7 @@ export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $dara.Mod
    * The configurations of the baseline item.
    * 
    * @example
-   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
+   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud5210+10@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
    */
   config?: string;
   /**
@@ -144,10 +145,11 @@ export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * Indicates whether baseline item is skipped. Valid values:
+   * Indicates whether the baseline item is skipped. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The baseline item is not skipped.
+   * 
+   * - true: The baseline item is skipped.
    * 
    * @example
    * false
@@ -239,7 +241,7 @@ export class GetEnrolledAccountResponseBodyInputs extends $dara.Model {
   accountNamePrefix?: string;
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 12868156179*****
@@ -268,7 +270,7 @@ export class GetEnrolledAccountResponseBodyInputs extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The ID of the settlement account.
+   * The ID of the billing account.
    * 
    * @example
    * 19534534552*****
@@ -331,10 +333,13 @@ export class GetEnrolledAccountResponseBodyProgress extends $dara.Model {
    * @remarks
    * The status of applying the baseline to the account. Valid values:
    * 
-   * *   Pending: The baseline is pending to be applied to the account.
-   * *   Running: The baseline is being applied to the account.
-   * *   Finished: : The baseline is applied to the account.
-   * *   Failed: : The baseline fails to be applied to the account.
+   * - Pending: The baseline is waiting to be applied to the account.
+   * 
+   * - Running: The baseline is being applied to the account.
+   * 
+   * - Finished: The baseline is applied to the account.
+   * 
+   * - Failed: The baseline failed to be applied to the account.
    * 
    * @example
    * Running
@@ -366,7 +371,7 @@ export class GetEnrolledAccountResponseBodyProgress extends $dara.Model {
 export class GetEnrolledAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 12868156179*****
@@ -374,7 +379,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
   accountUid?: number;
   /**
    * @remarks
-   * The ID of the baseline that is implemented.
+   * The ID of the baseline that is applied.
    * 
    * @example
    * afb-bp1adadfadsf***
@@ -382,7 +387,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
   baselineId?: string;
   /**
    * @remarks
-   * The array that contains baseline items.
+   * The baseline items.
    */
   baselineItems?: GetEnrolledAccountResponseBodyBaselineItems[];
   /**
@@ -405,7 +410,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * 
-   * >  This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
+   * > This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
    */
   errorInfo?: GetEnrolledAccountResponseBodyErrorInfo;
   /**
@@ -420,8 +425,9 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the initialization is complete. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The initialization is not complete.
+   * 
+   * - true: The initialization is complete.
    * 
    * @example
    * true
@@ -429,7 +435,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
   initialized?: boolean;
   /**
    * @remarks
-   * Input parameters used to create an account.
+   * The input parameters that were specified when the account was enrolled.
    */
   inputs?: GetEnrolledAccountResponseBodyInputs;
   /**
@@ -442,7 +448,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
   masterAccountUid?: number;
   /**
    * @remarks
-   * The ID of the settlement account.
+   * The ID of the billing account.
    * 
    * @example
    * 19534534552*****
@@ -450,7 +456,7 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
   payerAccountUid?: number;
   /**
    * @remarks
-   * The progress of the applying the baseline to the account.
+   * The progress of applying the baseline to the account.
    */
   progress?: GetEnrolledAccountResponseBodyProgress[];
   /**
@@ -465,12 +471,17 @@ export class GetEnrolledAccountResponseBody extends $dara.Model {
    * @remarks
    * The status of the account. Valid values:
    * 
-   * *   Pending: The account is pending to be created.
-   * *   Running: The account is being created.
-   * *   Finished: The account is created.
-   * *   Failed: The account fails to be created.
-   * *   Scheduling: The account is being scheduled.
-   * *   ScheduleFailed: The account fails to be scheduled.
+   * - Pending: The account is waiting to be enrolled.
+   * 
+   * - Running: The account is being enrolled.
+   * 
+   * - Finished: The account is enrolled.
+   * 
+   * - Failed: The account failed to be enrolled.
+   * 
+   * - Scheduling: The account is being scheduled.
+   * 
+   * - ScheduleFailed: The account failed to be scheduled.
    * 
    * @example
    * Finished

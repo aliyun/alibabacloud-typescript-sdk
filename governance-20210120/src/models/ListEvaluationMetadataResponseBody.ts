@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance extends $dara.Model {
   /**
    * @remarks
-   * The display name of the fixing button.
+   * The display name of the remediation step button.
    * 
    * @example
-   * Manual fixing
+   * Manual fix
    */
   buttonName?: string;
   /**
    * @remarks
-   * The navigation URL of the fixing button.
+   * The URL that the remediation step button links to.
    * 
    * @example
    * https://ram.console.aliyun.com/users
@@ -21,7 +21,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
   buttonRef?: string;
   /**
    * @remarks
-   * The fixing procedure.
+   * The content of the remediation step.
    * 
    * @example
    * You must replace the AccessKey pair of your Alibaba Cloud account. To do so, perform the following steps:</br>1. Log on to the RAM console. In the left-side navigation pane, choose Identities > Users. On the Users page, click Create User.</br>2. On the Create User page, enter a logon name and select OpenAPI Access for the Access Mode parameter.</br>3. After the RAM user is created, save the AccessKey pair. Then, find the user that you created on the Users page and click Add Permissions in the Actions column. In the Grant Permission panel, find the AdministratorAccess policy and attach it to the RAM user.</br>4. In a program, replace the AccessKey pair of the Alibaba Cloud account with the AccessKey pair of the RAM user created in the previous step and check whether the program runs as expected in the test environment.</br>5. If the program runs as expected, publish the program to the production environment and disable the previous AccessKey pair of your Alibaba Cloud account. Then, check whether the program runs as expected.</br>6. If the program runs as expected, delete the disabled AccessKey pair after the specified period of time, such as 90 days.
@@ -29,7 +29,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
   content?: string;
   /**
    * @remarks
-   * The title of the fixing procedure.
+   * The title of the remediation step.
    * 
    * @example
    * Scenario 3: AccessKey pair that is used within the last 90 days
@@ -65,9 +65,9 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions extends $dara.Model {
   /**
    * @remarks
-   * The fixing method.
+   * The remediation method category.
    * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * > This parameter is returned only when `RemediationType` is set to `Analysis`.
    * 
    * @example
    * UnusedAccessKeyInRamUser
@@ -75,7 +75,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
   classification?: string;
   /**
    * @remarks
-   * The fixing cost.
+   * The remediation cost.
    * 
    * @example
    * You are not charged for this operation.
@@ -83,32 +83,32 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
   costDescription?: string;
   /**
    * @remarks
-   * The description of the fixing item.
+   * The remediation description.
    * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * > This parameter is returned only when `RemediationType` is set to `Analysis`.
    * 
    * @example
-   * Console logon is enabled for the RAM user. The RAM user owns an AccessKey pair that is never used.
+   * A RAM user has both console logon and an AccessKey pair enabled, but the AccessKey pair has never been used.
    */
   description?: string;
   /**
    * @remarks
-   * The content of the fixing items.
+   * The remediation guidance.
    */
   guidance?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance[];
   /**
    * @remarks
-   * The usage notes of the fixing item.
+   * The remediation precautions.
    * 
    * @example
-   * The BestPracticesForIdentityAndPermissions compliance package is enabled in Cloud Config to check the settings and usage of the AccessKey pair, Alibaba Cloud account, and RAM users.
+   * This governance item enables the Best Practices for AccessKey and Permission Governance compliance package in Cloud Config to check the settings and usage of AccessKey pairs, Alibaba Cloud accounts, and RAM users.
    */
   notice?: string;
   /**
    * @remarks
-   * The fixing suggestion.
+   * The remediation suggestion.
    * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * > This parameter is returned only when `RemediationType` is set to `Analysis`.
    * 
    * @example
    * Console logon is enabled for the RAM user and the RAM user owns an AccessKey pair, while the AccessKey pair has never been used by the RAM user. We recommend that you disable the AccessKey pair for 90 days. If no related issue occurs during this period, you can delete the AccessKey pair.
@@ -151,16 +151,16 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation extends $dara.Model {
   /**
    * @remarks
-   * The fixing operations.
+   * The remediation actions.
    */
   actions?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions[];
   /**
    * @remarks
-   * The type of the fixing method. Valid values:
+   * The remediation type. Valid values:
    * 
-   * *   Manual: manual fixing
-   * *   QuickFix: quick fixing
-   * *   Analysis: auxiliary decision-making
+   * - Manual: Manual remediation.
+   * - QuickFix: Quick fix.
+   * - Analysis: Assisted decision-making.
    * 
    * @example
    * Manual
@@ -195,7 +195,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata extends $dara.Model {
   /**
    * @remarks
-   * The fixing items.
+   * The remediation item.
    */
   remediation?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation[];
   static names(): { [key: string]: string } {
@@ -225,15 +225,15 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata extends $dara.Model {
   /**
    * @remarks
-   * The display name of the resource property.
+   * The display name of the property.
    * 
    * @example
-   * AccessKey Pair Last Used At
+   * Last time the AccessKey pair was used
    */
   displayName?: string;
   /**
    * @remarks
-   * The name of the resource property.
+   * The resource property name.
    * 
    * @example
    * AkLastUsedTime
@@ -241,7 +241,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourc
   propertyName?: string;
   /**
    * @remarks
-   * The type of the resource property.
+   * The resource property type.
    * 
    * @example
    * String
@@ -275,7 +275,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourc
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the resource properties.
+   * The resource property metadata.
    */
   resourcePropertyMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata[];
   static names(): { [key: string]: string } {
@@ -305,7 +305,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourc
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extends $dara.Model {
   /**
    * @remarks
-   * The category of the check item.
+   * The pillar to which the evaluation item belongs.
    * 
    * @example
    * Security
@@ -313,15 +313,15 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
   category?: string;
   /**
    * @remarks
-   * The description of the check item.
+   * The description of the evaluation item.
    * 
    * @example
-   * If you use an AccessKey pair of an Alibaba Cloud account, you have full permissions on the resources of the account. You cannot set limits on the account, such as setting limits on source IP addresses or access duration. If the AccessKey pair is leaked, resources within the account are exposed to high security risks. If your Alibaba Cloud account has an existing AccessKey pair, the check result is Non-compliant.
+   * If you use an AccessKey pair of an Alibaba Cloud account, you have full permissions that cannot be restricted by conditions such as source IP address or access time. Once leaked, the risk is extremely high. If an AccessKey pair exists for the Alibaba Cloud account, it is considered non-compliant.
    */
   description?: string;
   /**
    * @remarks
-   * The display name of the check item.
+   * The display name.
    * 
    * @example
    * An AccessKey pair is enabled for the Alibaba Cloud account.
@@ -329,7 +329,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
   displayName?: string;
   /**
    * @remarks
-   * The ID of the metadata.
+   * The random ID of the metadata.
    * 
    * @example
    * pxgtda****
@@ -337,7 +337,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
   id?: string;
   /**
    * @remarks
-   * The governance level of the check item.
+   * The recommended governance level of the evaluation item.
    * 
    * @example
    * High
@@ -345,20 +345,20 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
   recommendationLevel?: string;
   /**
    * @remarks
-   * The metadata of the fixing task.
+   * The remediation metadata.
    */
   remediationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata;
   /**
    * @remarks
-   * The metadata of the checked resources.
+   * The resource metadata of the evaluation item.
    */
   resourceMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata;
   /**
    * @remarks
-   * The scope of the check item. Valid values:
+   * The scope to which the evaluation item belongs. Valid values:
    * 
-   * *   Account: the check item in a single-account governance maturity check
-   * *   ResourceDirectory: the check item in a multi-account governance maturity check
+   * - Account: single-account evaluation item.
+   * - ResourceDirectory: multi-account evaluation item.
    * 
    * @example
    * Account
@@ -366,16 +366,19 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
   scope?: string;
   /**
    * @remarks
-   * The status of the check item. Valid values:
+   * The status of the evaluation item. Valid values:
    * 
-   * *   Released: The check item is released.
-   * *   Beta: The check item is pre-released.
+   * - Released: officially released.
+   * - Beta: pre-release.
    * 
    * @example
    * Released
    */
   stage?: string;
   /**
+   * @remarks
+   * The governance topic code to which the evaluation item belongs.
+   * 
    * @example
    * ResourceUtilization
    */
@@ -428,14 +431,14 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
 export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $dara.Model {
   /**
    * @remarks
-   * The metadata objects of a specific metadata type.
+   * The list of metadata objects under a specific metadata type.
    */
   metadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata[];
   /**
    * @remarks
-   * The type of the metadata. Valid values:
+   * The metadata type. Valid values:
    * 
-   * *   Metric: the check item
+   * - Metric: evaluation item.
    * 
    * @example
    * Metric
@@ -470,7 +473,7 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $dara.
 export class ListEvaluationMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metadata of a governance maturity check.
+   * The governance evaluation definition metadata.
    */
   evaluationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadata[];
   /**

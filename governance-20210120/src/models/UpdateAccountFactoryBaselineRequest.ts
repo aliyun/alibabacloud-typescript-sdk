@@ -8,7 +8,7 @@ export class UpdateAccountFactoryBaselineRequestBaselineItems extends $dara.Mode
    * The configurations of the baseline item. The value of this parameter is a JSON string.
    * 
    * @example
-   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
+   * {"EnabledServices":["CEN_TR","CDT","CMS","KMS"]}
    */
   config?: string;
   /**
@@ -71,11 +71,17 @@ export class UpdateAccountFactoryBaselineRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the baseline.
+   * 
+   * @example
+   * Custom baseline
    */
   baselineName?: string;
   /**
    * @remarks
    * The description of the baseline.
+   * 
+   * @example
+   * Default baseline
    */
   description?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEnrolledAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * This parameter is required.
    * 
