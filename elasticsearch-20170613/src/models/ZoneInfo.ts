@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ZoneInfo extends $dara.Model {
   /**
+   * @remarks
+   * The zone status. Valid values:
+   * 
+   * - ISOLATION: offline
+   * - NORMAL: Normal.
+   * 
    * @example
    * NORMAL
    */
   status?: string;
   /**
+   * @remarks
+   * The zone ID, which uniquely identifies the zone.
+   * 
    * @example
    * cn-hangzhou-b
    */

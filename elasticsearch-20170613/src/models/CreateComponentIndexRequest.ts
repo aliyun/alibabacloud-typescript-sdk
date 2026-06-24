@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateComponentIndexRequestTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The aliases configuration of the template.
+   * 
    * @example
    * {}
    */
   aliases?: { [key: string]: any };
   /**
+   * @remarks
+   * The mappings configuration of the template.
+   * 
    * @example
    * { 			"properties": { 				"@timestamp": { 					"type": "date" 				} 			} 		}
    */
   mappings?: { [key: string]: any };
   /**
+   * @remarks
+   * The settings configuration of the template.
+   * 
    * @example
    * { 			"index.number_of_replicas": 0 		}
    */
@@ -54,10 +63,17 @@ export class CreateComponentIndexRequestTemplate extends $dara.Model {
 
 export class CreateComponentIndexRequest extends $dara.Model {
   /**
+   * @remarks
+   * The metadata, which is used to store information such as remarks.
+   * 
    * @example
    * {       "description": "set number of shards to one"   }
    */
   meta?: { [key: string]: any };
+  /**
+   * @remarks
+   * The composable template information.
+   */
   template?: CreateComponentIndexRequestTemplate;
   static names(): { [key: string]: string } {
     return {

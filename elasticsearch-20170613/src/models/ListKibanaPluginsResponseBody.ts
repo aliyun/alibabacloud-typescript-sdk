@@ -35,7 +35,7 @@ export class ListKibanaPluginsResponseBodyHeaders extends $dara.Model {
 export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The description of the plug-in.
+   * The plugin description.
    * 
    * @example
    * Customize DSL statements to query data.
@@ -43,7 +43,7 @@ export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the plug-in.
+   * The plugin name.
    * 
    * @example
    * bsearch_querybuilder
@@ -51,7 +51,7 @@ export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source of the plug-in.
+   * The source of the plugin.
    * 
    * @example
    * SYSTEM
@@ -59,7 +59,7 @@ export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The URL of the introduction to the plug-in. The value null is supported.
+   * The URL of the plugin introduction. The value can be null.
    * 
    * @example
    * https://xxxx
@@ -67,7 +67,7 @@ export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
   specificationUrl?: string;
   /**
    * @remarks
-   * The installation status of the plug-in.
+   * The installation status of the plugin.
    * 
    * @example
    * INSTALLED
@@ -105,7 +105,7 @@ export class ListKibanaPluginsResponseBodyResult extends $dara.Model {
 export class ListKibanaPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request header.
+   * The request headers.
    */
   headers?: ListKibanaPluginsResponseBodyHeaders;
   /**
@@ -118,7 +118,7 @@ export class ListKibanaPluginsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the plug-ins.
+   * The plugin information returned by the current request.
    */
   result?: ListKibanaPluginsResponseBodyResult[];
   static names(): { [key: string]: string } {

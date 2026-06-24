@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -13,10 +13,10 @@ export class RenewInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: renewal successfully
-   * *   false: renewal failed
+   * - true: The renewal was successful.
+   * - false: The renewal failed.
    * 
    * @example
    * true

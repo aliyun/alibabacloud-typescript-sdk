@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDynamicSettingsResponseBody extends $dara.Model {
   requestId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class ListVpcEndpointsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page for a paged query. Default value: 20.
    * 
    * @example
    * 10

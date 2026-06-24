@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ClientNodeConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The number of client nodes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ClientNodeConfiguration extends $dara.Model {
   amount?: number;
   /**
    * @remarks
+   * The storage size of the client node. Unit: GB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ClientNodeConfiguration extends $dara.Model {
   disk?: number;
   /**
    * @remarks
+   * The storage type of the client node. Only cloud_efficiency (ultra cloud disk) is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ClientNodeConfiguration extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
+   * The node specifications of the client node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
+   * 
    * This parameter is required.
    * 
    * @example

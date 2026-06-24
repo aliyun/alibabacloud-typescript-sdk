@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDiagnosisSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class UpdateDiagnosisSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: update successfully
-   * *   false: update failed
+   * - true: The update was successful.
+   * - false: The update failed.
    * 
    * @example
    * true

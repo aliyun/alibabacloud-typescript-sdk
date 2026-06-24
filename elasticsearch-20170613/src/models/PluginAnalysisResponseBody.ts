@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class PluginAnalysisResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Plugin Description.
+   * 
    * @example
    * plugin description
    */
   description?: string;
   /**
+   * @remarks
+   * Plugin version.
+   * 
    * @example
    * 8.17.0
    */
   elasticsearchVersion?: string;
   /**
+   * @remarks
+   * Plugin Name.
+   * 
    * @example
    * plugin_name
    */
   name?: string;
   /**
+   * @remarks
+   * Plugin security policy.
+   * 
    * @example
    * null
    */
   securityPolicy?: string;
   /**
+   * @remarks
+   * Plugin Version.
+   * 
    * @example
    * 8.17.0
    */
@@ -60,12 +75,16 @@ export class PluginAnalysisResponseBodyResult extends $dara.Model {
 export class PluginAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   result?: PluginAnalysisResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

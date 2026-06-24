@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The address of the plug-in description document.
+   * The total number of records returned.
    * 
    * @example
    * 2
@@ -35,31 +35,40 @@ export class ListPluginsResponseBodyHeaders extends $dara.Model {
 export class ListPluginsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The source type of the plug-in.
+   * The plugin description.
    * 
    * @example
    * IK analysis plug-in for Elasticsearch.
    */
   description?: string;
   /**
+   * @remarks
+   * The plugin name.
+   * 
    * @example
    * analysis-ik
    */
   name?: string;
   /**
+   * @remarks
+   * The plugin source type.
+   * 
    * @example
    * SYSTEM
    */
   source?: string;
   /**
    * @remarks
-   * The name of the plug-in.
+   * The URL of the plugin documentation.
    * 
    * @example
    * https://xxxx.html
    */
   specificationUrl?: string;
   /**
+   * @remarks
+   * The plugin status.
+   * 
    * @example
    * INSTALLED
    */
@@ -96,12 +105,12 @@ export class ListPluginsResponseBodyResult extends $dara.Model {
 export class ListPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the plug-in.
+   * The response headers.
    */
   headers?: ListPluginsResponseBodyHeaders;
   /**
    * @remarks
-   * The return results.
+   * The request ID.
    * 
    * @example
    * 5A5D8E74-565C-43DC-B031-29289FA9****
@@ -109,7 +118,7 @@ export class ListPluginsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the plug-in.
+   * The returned results.
    */
   result?: ListPluginsResponseBodyResult[];
   static names(): { [key: string]: string } {

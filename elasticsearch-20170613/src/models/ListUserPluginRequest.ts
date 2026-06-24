@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserPluginRequest extends $dara.Model {
   /**
+   * @remarks
+   * Plugin Name.
+   * 
    * @example
    * my-plugin
    */
   name?: string;
   /**
+   * @remarks
+   * Page number for paging the plugin list.
+   * 
    * @example
    * 1
    */
   page?: string;
   /**
+   * @remarks
+   * Number of records per page.
+   * 
    * @example
    * 50
    */

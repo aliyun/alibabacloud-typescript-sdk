@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDescriptionResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The updated instance name.
+   * 
    * @example
    * aliyunes_test_name
    */
@@ -31,10 +34,17 @@ export class UpdateDescriptionResponseBodyResult extends $dara.Model {
 
 export class UpdateDescriptionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FDF34727-1664-44C1-A8DA-3EB72D60****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: UpdateDescriptionResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

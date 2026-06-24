@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashRequest extends $dara.Model {
   /**
    * @remarks
-   * rg-acfm2h5vbzd\\*\\*\\*\\*
+   * The instance name. Fuzzy match is supported. For example, if you search for an instance named abc, instances named abc, abcde, xyabc, and xabcy may all be returned.
    * 
    * @example
    * ls-cn-abc
@@ -13,7 +13,7 @@ export class ListLogstashRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * [{"tagKey":"key1","tagValue":"value1"}]
+   * The instance ID.
    * 
    * @example
    * ls-cn-n6w1o5jq****
@@ -21,7 +21,7 @@ export class ListLogstashRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ls-cn-n6w1o5jq\\*\\*\\*\\*
+   * The page number of the instance list. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListLogstashRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Details of the request header.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm2h5vbzd****
@@ -37,7 +37,7 @@ export class ListLogstashRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 5.5.3_with_X-Pack
+   * The number of entries per page for paging. Default value: 20.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListLogstashRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The instance tags.
    * 
    * @example
    * [{"tagKey":"key1","tagValue":"value1"}]
@@ -53,7 +53,7 @@ export class ListLogstashRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The instance version.
    * 
    * @example
    * 5.5.3_with_X-Pack

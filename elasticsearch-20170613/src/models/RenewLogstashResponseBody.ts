@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewLogstashResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC****
@@ -15,8 +15,8 @@ export class RenewLogstashResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * *   true: The cluster is renewed.
-   * *   false: The cluster fails to be renewed.
+   * - true: The renewal was successful.
+   * - false: The renewal failed.
    * 
    * @example
    * true

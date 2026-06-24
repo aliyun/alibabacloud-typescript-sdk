@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransferableNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of nodes to be migrated.
+   * The expected number of nodes to retrieve for data migration.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTransferableNodesRequest extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The type of nodes.**WORKER**represents a hot node,**WORKER_WARM** represents a warm node.
+   * The type of node for data migration. **WORKER** indicates a hot node. **WORKER_WARM** indicates a warm node.
    * 
    * This parameter is required.
    * 

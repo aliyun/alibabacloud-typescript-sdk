@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDictsResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class ListDictsResponseBodyHeaders extends $dara.Model {
 export class ListDictsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The link that is used to download the dictionary over the Internet. The link is valid for 90s.
+   * The publicly accessible download URL. The URL is valid for 90 seconds.
    * 
    * @example
    * http://test_bucket.oss-cn-hangzhou.aliyuncs.com/AliyunEs/test.dic?Expires=162573****&OSSAccessKeyId=LTAI*****V9&Signature=PNPO********BBGsJDO4V3VfU4sE%3D
@@ -43,7 +43,7 @@ export class ListDictsResponseBodyResult extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The size of the dictionary file. Unit: byte.
+   * The size of the dictionary file, in bytes.
    * 
    * @example
    * 2782602
@@ -51,7 +51,7 @@ export class ListDictsResponseBodyResult extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The name of the dictionary file.
+   * The file name of the dictionary file.
    * 
    * @example
    * SYSTEM_MAIN.dic
@@ -59,7 +59,7 @@ export class ListDictsResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source type.
+   * A fixed value.
    * 
    * @example
    * ORIGIN
@@ -69,8 +69,9 @@ export class ListDictsResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the IK dictionary. Valid values:
    * 
-   * *   MAIN: main dictionary
-   * *   STOP: stopword list
+   * - MAIN: main tokenization dictionary.
+   * 
+   * - STOP: stopword dictionary.
    * 
    * @example
    * MAIN
@@ -108,12 +109,12 @@ export class ListDictsResponseBodyResult extends $dara.Model {
 export class ListDictsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The response headers.
    */
   headers?: ListDictsResponseBodyHeaders;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2937F832-F39E-41EF-89BA-B528342A2A3A
@@ -121,7 +122,7 @@ export class ListDictsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The request result.
    */
   result?: ListDictsResponseBodyResult[];
   static names(): { [key: string]: string } {

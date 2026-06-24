@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEcsInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * test
+   * The list of ECS instance IDs. The value can be a JSON array that consists of up to 100 instance IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["i-bp13y63575oypr9d****","i-bp1gyhphjaj73jsr****"]
@@ -13,7 +13,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   ecsInstanceIds?: string;
   /**
    * @remarks
-   * [{ "tagKey":"a","tagValue":"b"}]
+   * The name of the ECS instance.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * 10
+   * The page number of the returned results. Maximum value: 500.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * ["i-bp13y63575oypr9d\\*\\*\\*\\*","i-bp1gyhphjaj73jsr\\*\\*\\*\\*"]
+   * The number of results per page. Default value: 10. Maximum value: 500.
    * 
    * @example
    * 10
@@ -37,7 +37,10 @@ export class ListEcsInstancesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
+   * Instance tags of the ECS instance. The following fields must be included:
+   * 
+   * - tagKey: instance tag key.
+   * - tagValue: instance tag value.
    * 
    * @example
    * [{ "tagKey":"a","tagValue":"b"}]
@@ -45,7 +48,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the VPC where the ECS instance resides.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****

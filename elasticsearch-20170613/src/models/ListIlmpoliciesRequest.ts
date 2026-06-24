@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListILMPoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the index lifecycle policy.
+   * 
    * @example
    * policy-1
    */

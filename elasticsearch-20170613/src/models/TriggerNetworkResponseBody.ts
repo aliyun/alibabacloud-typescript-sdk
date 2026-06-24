@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class TriggerNetworkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A5D8E74-565C-43DC-B031-29289FA****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The operation was successful.
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

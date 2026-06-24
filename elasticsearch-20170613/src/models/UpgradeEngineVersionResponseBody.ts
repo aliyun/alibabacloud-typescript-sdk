@@ -4,21 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeEngineVersionResponseBodyResultValidateResult extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * ClusterStatusNotHealth
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The cluster status is not health
    */
   errorMsg?: string;
   /**
    * @remarks
-   * The verification is passed. Valid values:
+   * The error type. Valid values:
    * 
-   * *   success: through
-   * *   failed: failed
+   * - clusterStatus: cluster health status.
+   * - clusterConfigYml: cluster YML file.
+   * - clusterConfigPlugins: cluster configuration file.
+   * - clusterResource: cluster resources.
+   * - clusterSnapshot: cluster snapshot.
    * 
    * @example
    * clusterStatus
@@ -51,18 +60,29 @@ export class UpgradeEngineVersionResponseBodyResultValidateResult extends $dara.
 
 export class UpgradeEngineVersionResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the check is passed. Valid values:
+   * 
+   * - success: passed.
+   * - failed: not passed.
+   * 
    * @example
    * success
    */
   status?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The check information.
    */
   validateResult?: UpgradeEngineVersionResponseBodyResultValidateResult[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The check type. Valid values:
+   * 
+   * - checkClusterHealth: cluster health status.
+   * - checkConfigCompatible: configuration compatibility status.
+   * - checkClusterResource: resource space status.
+   * - checkClusterSnapshot: whether a snapshot exists.
    * 
    * @example
    * checkClusterHealth
@@ -99,7 +119,7 @@ export class UpgradeEngineVersionResponseBodyResult extends $dara.Model {
 export class UpgradeEngineVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The verification information.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC*****
@@ -107,13 +127,7 @@ export class UpgradeEngineVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the error. Valid values:
-   * 
-   * *   clusterStatus: the health status of the cluster.
-   * *   clusterConfigYml: Cluster YML File
-   * *   clusterConfigPlugins: Cluster Configuration File
-   * *   clusterResource: cluster resources
-   * *   clusterSnapshot: cluster snapshot
+   * The returned result.
    */
   result?: UpgradeEngineVersionResponseBodyResult[];
   static names(): { [key: string]: string } {

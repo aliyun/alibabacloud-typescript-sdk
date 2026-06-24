@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeComponentIndexResponseBodyResultTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The alias configuration of the template.
+   * 
    * @example
    * {}
    */
   aliases?: { [key: string]: any };
   /**
+   * @remarks
+   * The mappings configuration of the template.
+   * 
    * @example
    * { "properties": { "@timestamp": { "type": "date" } } }
    */
   mappings?: { [key: string]: any };
   /**
+   * @remarks
+   * The settings configuration of the template.
+   * 
    * @example
    * { "index.number_of_replicas": 0 }
    */
@@ -54,10 +63,17 @@ export class DescribeComponentIndexResponseBodyResultTemplate extends $dara.Mode
 
 export class DescribeComponentIndexResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The metadata, which is used to store information such as remarks.
+   * 
    * @example
    * { "description": "set number of shards to one" }
    */
   meta?: { [key: string]: any };
+  /**
+   * @remarks
+   * The template information.
+   */
   template?: DescribeComponentIndexResponseBodyResultTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -90,10 +106,17 @@ export class DescribeComponentIndexResponseBodyResult extends $dara.Model {
 
 export class DescribeComponentIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: DescribeComponentIndexResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

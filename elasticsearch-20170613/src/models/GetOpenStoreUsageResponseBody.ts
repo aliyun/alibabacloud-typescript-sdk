@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOpenStoreUsageResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The current OpenStore storage capacity (estimated value based on actual indexes). Unit: Byte.
+   * The current OpenStore storage usage, which is an estimated value based on actual indexes. Unit: bytes.
    * 
    * @example
    * 204800
@@ -13,7 +13,7 @@ export class GetOpenStoreUsageResponseBodyResult extends $dara.Model {
   currentUsage?: number;
   /**
    * @remarks
-   * The storage capacity of OpenStore yesterday. Unit: bytes.
+   * The OpenStore storage usage on the previous day. Unit: bytes.
    * 
    * @example
    * 184320
@@ -45,7 +45,7 @@ export class GetOpenStoreUsageResponseBodyResult extends $dara.Model {
 export class GetOpenStoreUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E1DE2491-804F-4C86-BAB4-548DD70B****
@@ -53,7 +53,7 @@ export class GetOpenStoreUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The current request result.
+   * The result of the current request.
    */
   result?: GetOpenStoreUsageResponseBodyResult;
   static names(): { [key: string]: string } {

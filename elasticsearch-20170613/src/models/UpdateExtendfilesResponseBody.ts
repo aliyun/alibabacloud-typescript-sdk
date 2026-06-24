@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExtendfilesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The size of the driver file. Unit: byte.
+   * The size of the extension file. Unit: bytes.
    * 
    * @example
    * 1853083
@@ -13,7 +13,7 @@ export class UpdateExtendfilesResponseBodyResult extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The name of the driver file.
+   * The name of the extension file.
    * 
    * @example
    * mysql-connector-java-6.0.2.jar
@@ -21,7 +21,7 @@ export class UpdateExtendfilesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source of the driver file. This parameter is fixed as ORIGIN, which indicates that the driver file is retained.
+   * The source of the extension file. Only ORIGIN (retained original extension file) is supported.
    * 
    * @example
    * ORIGIN
@@ -55,7 +55,7 @@ export class UpdateExtendfilesResponseBodyResult extends $dara.Model {
 export class UpdateExtendfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****

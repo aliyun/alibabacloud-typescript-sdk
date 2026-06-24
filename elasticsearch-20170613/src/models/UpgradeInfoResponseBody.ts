@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   /**
+   * @remarks
+   * Current repo version.
+   * 
    * @example
    * 1.7.3
    */
   curRepoVersion?: string;
   /**
+   * @remarks
+   * Upgradable repo version.
+   * 
    * @example
    * 1.7.3
    */
   updateRepoVersion?: string;
   /**
+   * @remarks
+   * Indicates whether an upgradable version exists.
+   * 
    * @example
    * false
    */
   upgrade?: boolean;
   /**
+   * @remarks
+   * Current Milvus version
+   * 
    * @example
    * 2.2.4
    */
   curApackVersion?: string;
   /**
+   * @remarks
+   * Current ES version
+   * 
    * @example
    * 8.17.0
    */
   curEsVersion?: string;
   /**
+   * @remarks
+   * Upgradable Milvus version.
+   * 
    * @example
    * 2.2.4
    */
   upgradeApackVersion?: string;
   /**
+   * @remarks
+   * Upgradable ES version
+   * 
    * @example
    * 8.17.0
    */
@@ -72,6 +93,10 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
 }
 
 export class UpgradeInfoResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Upgrade information.
+   */
   upgradeInfo?: UpgradeInfoResponseBodyResultUpgradeInfo;
   static names(): { [key: string]: string } {
     return {
@@ -100,12 +125,16 @@ export class UpgradeInfoResponseBodyResult extends $dara.Model {
 export class UpgradeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result body
+   */
   result?: UpgradeInfoResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

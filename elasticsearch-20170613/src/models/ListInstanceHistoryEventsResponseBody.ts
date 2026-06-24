@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceHistoryEventsResponseBodyHeaders extends $dara.Model {
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 15
    */
   xTotalCount?: number;
   /**
+   * @remarks
+   * The total number of failures.
+   * 
    * @example
    * 2
    */
   xTotalFailed?: number;
   /**
+   * @remarks
+   * The total number of successes.
+   * 
    * @example
    * 13
    */
@@ -45,51 +54,93 @@ export class ListInstanceHistoryEventsResponseBodyHeaders extends $dara.Model {
 
 export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The ECS instance ID.
+   * 
    * @example
    * i-2ze8s9cjdf2cv969****
    */
   ecsId?: string;
   /**
+   * @remarks
+   * The event creation time.
+   * 
    * @example
    * 2017-12-07T00:00:00Z
    */
   eventCreateTime?: string;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * - FAILED: failed
+   * - EXECUTED: executed
+   * - EXECUTING: executing.
+   * 
    * @example
    * EXECUTED
    */
   eventCycleStatus?: string;
   /**
+   * @remarks
+   * The event execution time.
+   * 
    * @example
    * 2017-12-07T00:00:00Z
    */
   eventExecuteTime?: string;
   /**
+   * @remarks
+   * The event completion time.
+   * 
    * @example
    * 2017-12-07T00:00:00Z
    */
   eventFinashTime?: string;
   /**
+   * @remarks
+   * The event level. Valid values:
+   * - INFO: information
+   * - WARN: warning
+   * - CRITICAL: critical.
+   * 
    * @example
    * INFO
    */
   eventLevel?: string;
   /**
+   * @remarks
+   * The event type. Valid values:
+   * - ECS:AUTO_RESTART: Automatic restart of an ECS node.
+   * - Instance:InstanceFailure.Reboot:Executed: ECS instance reboot completed (instance error).
+   * - Instance:InstanceFailure.Reboot:Executing: ECS instance reboot started (instance error).
+   * - Instance:SystemFailure.Reboot:Executed: ECS instance reboot completed (system error).
+   * - Instance:SystemFailure.Reboot:Executing: ECS instance reboot started (system error).
+   * - Instance:SystemFailure.Reboot:Failed: ECS instance reboot failed (system error).
+   * 
    * @example
    * ECS:AUTO_RESTART
    */
   eventType?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * es-cn-2r42l7a740005****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The IP address of the node that generated the event.
+   * 
    * @example
    * 10.1.xx.xx
    */
   nodeIP?: string;
   /**
+   * @remarks
+   * The region ID where the event occurred.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -134,12 +185,23 @@ export class ListInstanceHistoryEventsResponseBodyResult extends $dara.Model {
 }
 
 export class ListInstanceHistoryEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response headers.
+   */
   headers?: ListInstanceHistoryEventsResponseBodyHeaders;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1A6830A-F59B-4E05-BFAC-9496C21DBBA7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
   result?: ListInstanceHistoryEventsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

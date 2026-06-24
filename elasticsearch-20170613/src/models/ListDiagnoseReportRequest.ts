@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseReportRequest extends $dara.Model {
   /**
    * @remarks
-   * SYSTEM
+   * Specifies whether to display the details of diagnostic items.
    * 
    * @example
    * true
@@ -13,7 +13,9 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   detail?: boolean;
   /**
    * @remarks
-   * 1
+   * The end timestamp of the query. Unit: milliseconds.
+   * - Minimum value: 1000000000000
+   * - Maximum value: 2000000000000.
    * 
    * This parameter is required.
    * 
@@ -23,15 +25,21 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * 1594569600000
+   * The language of the reports to retrieve. Default value: the browser language. Valid values:
+   * 
+   * - en: English
+   * - zh: Simplified Chinese
+   * - zt: Traditional Chinese
+   * - es: Spanish
+   * - fr: French.
    * 
    * @example
-   * spanish
+   * es
    */
   lang?: string;
   /**
    * @remarks
-   * 20
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 1
@@ -39,7 +47,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * true
+   * The number of reports per page. Default value: 10. Minimum value: 1. Maximum value: 500.
    * 
    * @example
    * 20
@@ -47,7 +55,10 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * 1595174399999
+   * The start timestamp of the query. Unit: milliseconds.
+   * 
+   * - Minimum value: 1000000000000
+   * - Maximum value: 2000000000000.
    * 
    * This parameter is required.
    * 
@@ -57,7 +68,11 @@ export class ListDiagnoseReportRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The trigger method of the health diagnostics. Valid values:
+   * 
+   * - SYSTEM (default): automatically triggered by the system
+   * - INNER: internally triggered
+   * - USER: manually triggered by the user.
    * 
    * @example
    * SYSTEM

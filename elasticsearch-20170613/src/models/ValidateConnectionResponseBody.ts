@@ -13,10 +13,10 @@ export class ValidateConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the connectivity is normal. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The validation succeeded.
+   * - false: The validation failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCollectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,9 @@ export class DeleteCollectorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the shipper is deleted. Valid values:
-   * 
-   * *   true: The shipper is deleted.
-   * *   false: The shipper fails to be deleted.
+   * The returned result. Valid values:
+   * - true: The deletion was successful.
+   * - false: The deletion failed.
    * 
    * @example
    * true

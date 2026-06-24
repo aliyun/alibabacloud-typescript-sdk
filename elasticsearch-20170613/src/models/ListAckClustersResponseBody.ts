@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAckClustersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The cluster ID.
    * 
    * @example
    * c5ea2c2d9a3cf499481292f60425d****
@@ -13,7 +13,7 @@ export class ListAckClustersResponseBodyResult extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the cluster. The value is fixed as ManagedKubernetes.
+   * The cluster type. Only ManagedKubernetes is supported, which indicates a managed Kubernetes cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -21,7 +21,7 @@ export class ListAckClustersResponseBodyResult extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListAckClustersResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the cluster belongs.
+   * The ID of the VPC where the cluster resides.
    * 
    * @example
    * vpc-bp12nu14urf0upaf4****
@@ -73,7 +73,7 @@ export class ListAckClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The list of ACK clusters returned by the current request.
    */
   result?: ListAckClustersResponseBodyResult[];
   static names(): { [key: string]: string } {

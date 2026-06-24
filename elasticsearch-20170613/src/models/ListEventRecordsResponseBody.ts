@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest extends $dara.Model {
+  /**
+   * @remarks
+   * Operation suggestion
+   */
   suggestActions?: string[];
   /**
+   * @remarks
+   * Operation suggestion text
+   * 
    * @example
    * “”
    */
   suggestText?: string;
   /**
+   * @remarks
+   * Operation suggestion type
+   * 
    * @example
    * promptText
    */
@@ -43,38 +53,63 @@ export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest ex
 }
 
 export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.Model {
+  /**
+   * @remarks
+   * Operation suggestion
+   */
   actionSuggest?: ListEventRecordsResponseBodyResultResultShowContentActionSuggest;
   /**
+   * @remarks
+   * Description of the management event
+   * 
    * @example
    * Instance.SpecModify
    */
   desc?: string;
   /**
+   * @remarks
+   * Management event status
+   * 
    * @example
    * Executed
    */
   eventStatus?: string;
   /**
+   * @remarks
+   * Time of occurrence
+   * 
    * @example
    * 2025-05-08 18:31:01
    */
   eventTime?: string;
   /**
+   * @remarks
+   * End Time of O&M execution for the management event
+   * 
    * @example
    * 2025-05-08 18:41:01
    */
   executeFinishTime?: string;
   /**
+   * @remarks
+   * Start Time of O&M execution for the management event
+   * 
    * @example
    * 2025-05-08 18:31:00
    */
   executeStartTime?: string;
   /**
+   * @remarks
+   * Instance ID of the occurrence
+   * 
    * @example
    * es-cn-a5cb2dece****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Execution ID of the cluster Change
+   * 
    * @example
    * f183728022a1c769e97b4*****
    */
@@ -119,57 +154,94 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
 
 export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   /**
+   * @remarks
+   * Is auto-alarm enabled
+   * 
    * @example
    * false
    */
   autoAlarm?: boolean;
   /**
+   * @remarks
+   * Management event display name
+   * 
    * @example
    * Instance.SpecModify
    */
   displayName?: string;
   /**
+   * @remarks
+   * is Preview
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * event level
+   * 
    * @example
    * Info
    */
   level?: string;
   /**
+   * @remarks
+   * is O&M processing required
+   * 
    * @example
    * false
    */
   mustOps?: boolean;
   /**
+   * @remarks
+   * product type of the management event
+   * 
    * @example
    * elasticsearch
    */
   product?: string;
   /**
+   * @remarks
+   * scheduled running time
+   * 
    * @example
    * 2025-05-08 18:41:01
    */
   scheduleExecuteTime?: string;
   /**
+   * @remarks
+   * scheduled end time
+   * 
    * @example
    * 2025-05-08 18:41:01
    */
   scheduleFinishTime?: string;
+  /**
+   * @remarks
+   * Management event content
+   */
   showContent?: ListEventRecordsResponseBodyResultResultShowContent;
   /**
+   * @remarks
+   * Event occurrence source
+   * 
    * @example
    * webConsole
    */
   source?: string;
   /**
+   * @remarks
+   * Event status
+   * 
    * @example
    * Executed
    */
   status?: string;
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * UserOperator
    */
@@ -221,8 +293,15 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
 }
 
 export class ListEventRecordsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Content
+   */
   result?: ListEventRecordsResponseBodyResultResult[];
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 4
    */
@@ -255,10 +334,17 @@ export class ListEventRecordsResponseBodyResult extends $dara.Model {
 
 export class ListEventRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListEventRecordsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

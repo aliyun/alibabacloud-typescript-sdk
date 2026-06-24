@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * USER
+   * The plugin name.
    * 
    * @example
    * logstash-filter-clone
@@ -13,7 +13,7 @@ export class ListLogstashPluginsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The page number of the plugin list. Default value: 1. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListLogstashPluginsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The returned results.
+   * The number of entries per page in paging settings. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 3
@@ -29,7 +29,10 @@ export class ListLogstashPluginsRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The description of the plug-in.
+   * The plugin source. Valid values:
+   * 
+   * - USER: custom plugin
+   * - SYSTEM: system preset plugin.
    * 
    * @example
    * USER

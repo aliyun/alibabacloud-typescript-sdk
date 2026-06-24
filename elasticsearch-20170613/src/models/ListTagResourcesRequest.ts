@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The token for the next query.
    * 
    * @example
    * 1d2db86sca4384811e0b5e8707e******
@@ -13,7 +13,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 1d2db86sca4384811e0b5e8707e\\*\\*\\*\\*\\*\\*
+   * The page number of the resource relationship list. This parameter is deprecated.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The list of instance IDs to query. The value is in JSON array format and can contain up to 20 items.
    * 
    * @example
    * ["es-cn-aaa","es-cn-bbb"]
@@ -31,7 +31,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * [{"key":"env","value","dev"},{"key":"dev", "value":"IT"}]
+   * The resource type definition.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * ["es-cn-aaa","es-cn-bbb"]
+   * The number of entries per page in Settings for paged query and paging. This field is deprecated.
    * 
    * @example
    * 10
@@ -51,12 +51,10 @@ export class ListTagResourcesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The header of the response. This parameter is empty and is for reference only. You cannot force this parameter to be relied on in the program.
-   * 
-   * >  The return examples does not contain this parameter.
+   * The list of tags to query. The value is in JSON string format and can contain up to 20 items.
    * 
    * @example
-   * [{"key":"env","value","dev"},{"key":"dev",  "value":"IT"}]
+   * [{"key":"env", "value":"dev"},{"key":"dev", "value":"IT"}]
    */
   tags?: string;
   static names(): { [key: string]: string } {

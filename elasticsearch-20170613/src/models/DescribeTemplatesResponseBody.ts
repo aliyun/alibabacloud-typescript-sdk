@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTemplatesResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The template content.
+   * 
    * @example
    * {\\n\\t\\"persistent\\":{\\n\\t\\t\\"search\\":{\\n\\t\\t\\t\\"max_buckets\\":\\"10000\\"\\n\\t\\t}\\n\\t}\\n}
    */
   content?: string;
   /**
+   * @remarks
+   * The template name. Valid values:
+   * - staticSettings: elasticsearch.yml configuration
+   * - ilmPolicy: index lifecycle configuration
+   * - indexTemplate: index template configuration
+   * - dynamicSettings: cluster dynamic configuration.
+   * 
    * @example
    * dynamicSettings
    */
@@ -38,10 +48,17 @@ export class DescribeTemplatesResponseBodyResult extends $dara.Model {
 
 export class DescribeTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: DescribeTemplatesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

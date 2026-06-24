@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePipelinesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the pipeline is created. Valid values:
+   * 
+   * - true: The pipeline is created.
+   * - false: The pipeline failed to be created.
+   * 
    * @example
    * true
    */

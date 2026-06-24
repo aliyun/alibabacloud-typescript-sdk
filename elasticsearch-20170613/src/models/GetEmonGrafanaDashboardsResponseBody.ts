@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetEmonGrafanaDashboardsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1E9D9827-2092-4385-9DA1-FC5A8D1DB3F5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the Grafana dashboard list is retrieved. Valid values:
+   * 
+   * - true: succeeded.
+   * - false: failed.
+   * 
    * @example
    * true
    */

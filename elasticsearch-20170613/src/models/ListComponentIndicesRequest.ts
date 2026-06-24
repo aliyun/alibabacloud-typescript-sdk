@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListComponentIndicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the composable template.
+   * 
    * @example
    * template
    */
   name?: string;
   /**
+   * @remarks
+   * The page number for paging. Default value: 1.
+   * 
    * @example
    * 5
    * 
@@ -17,6 +23,9 @@ export class ListComponentIndicesRequest extends $dara.Model {
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page for paging. Default value: 10.
+   * 
    * @example
    * 10
    * 

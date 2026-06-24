@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateComponentIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C20022BA-5382-4339-89FB-30AF48A05431
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The template was created successfully.
+   * - false: The template failed to be created.
+   * 
    * @example
    * true
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Reference instance ID.
+   * The referenced instance ID.
    * 
    * @example
    * es-cn-6ja1ro4jt000c****
@@ -13,7 +13,7 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The address of the repository.
+   * The repository address.
    * 
    * @example
    * es-cn-6ja1ro4jt000c****
@@ -21,7 +21,7 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
   repoPath?: string;
   /**
    * @remarks
-   * Reference warehouse name.
+   * The name of the referenced repository.
    * 
    * @example
    * aliyun_snapshot_from_es-cn-6ja1ro4jt000c****
@@ -29,7 +29,9 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
   snapWarehouse?: string;
   /**
    * @remarks
-   * Reference warehouse status. available indicates that it is valid. unavailable indicates that it is invalid.
+   * The status of the referenced repository. Valid values:
+   * - available: The repository is active.
+   * - unavailable: The repository is inactive.
    * 
    * @example
    * available
@@ -65,7 +67,7 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
 export class ListSnapshotReposByInstanceIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
@@ -73,7 +75,7 @@ export class ListSnapshotReposByInstanceIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned results.
    */
   result?: ListSnapshotReposByInstanceIdResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDictsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the dictionary. Valid values:
+   * The dictionary type. Valid values:
    * 
-   * *   IK: IK dictionary after a standard update
-   * *   IK_HOT: IK dictionary after a rolling update
-   * *   SYNONYMS: synonym dictionary
-   * *   ALIWS: Alibaba Cloud dictionary
+   * - IK: IK cold update dictionary.
+   * 
+   * - IK_HOT: IK hot update dictionary.
+   * 
+   * - SYNONYMS: Synonym dictionary.
+   * 
+   * - ALIWS: Alibaba dictionary.
    * 
    * This parameter is required.
    * 
@@ -20,7 +23,7 @@ export class ListDictsRequest extends $dara.Model {
   analyzerType?: string;
   /**
    * @remarks
-   * The name of the dictionary file.
+   * The name of the file to filter.
    * 
    * @example
    * SYSTEM_MAIN.dic

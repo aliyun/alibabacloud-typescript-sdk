@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListStatsEventRecordsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * UserOperator
    */
   eventType?: string;
   /**
+   * @remarks
+   * Event level
+   * 
    * @example
    * Info
    */
   level?: string;
   /**
+   * @remarks
+   * Status of the management event
+   * 
    * @example
    * Executed
    */

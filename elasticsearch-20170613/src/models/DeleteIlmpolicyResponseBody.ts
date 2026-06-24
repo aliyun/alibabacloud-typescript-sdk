@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteILMPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 694FDC20-0FDD-47C4-B921-BFF902FA****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The specified lifecycle policy definition is deleted.
+   * 
+   * - false: The specified lifecycle policy definition failed to be deleted.
+   * 
    * @example
    * true
    */

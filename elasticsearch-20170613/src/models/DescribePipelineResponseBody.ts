@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePipelineResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the pipeline was created.
+   * The batch delay of the pipeline. Unit: milliseconds.
    * 
    * @example
    * 50
    */
   batchDelay?: number;
   /**
+   * @remarks
+   * The batch size of the pipeline.
+   * 
    * @example
    * 125
    */
   batchSize?: number;
   /**
    * @remarks
-   * The description of the pipeline.
+   * The specific configuration of the pipeline.
    * 
    * @example
    * input {  }  filter {  }  output {  }
@@ -26,24 +29,23 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The state of the MPS queue. Valid values:
-   * 
-   * *   NOT_DEPLOYED: The node is not deployed.
-   * *   RUNNING
-   * *   DELETED: Deleted. The console does not display this status.
+   * The pipeline description.
    * 
    * @example
    * this is a test
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the pipeline was created.
+   * 
    * @example
    * 2020-06-20T07:26:47.000+0000
    */
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The total capacity of the queue in bytes. Unit: MB.
+   * The time when the pipeline was last updated.
    * 
    * @example
    * 2020-06-20T07:26:47.000+0000
@@ -51,20 +53,27 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * Number of queue checkpoint writes.
+   * The pipeline ID.
    * 
    * @example
    * pipeline_test
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The pipeline status. Valid values:
+   * 
+   * - NOT_DEPLOYED: not deployed.
+   * - RUNNING: running.
+   * - DELETED: deleted. This status is not displayed in the console.
+   * 
    * @example
    * RUNNING
    */
   pipelineStatus?: string;
   /**
    * @remarks
-   * Pipeline batch delay. Unit: milliseconds.
+   * The number of queue checkpoint writes.
    * 
    * @example
    * 1024
@@ -72,7 +81,7 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   queueCheckPointWrites?: number;
   /**
    * @remarks
-   * The number of pipeline workers.
+   * The total capacity of the queue, in bytes. Unit: MB.
    * 
    * @example
    * 1024
@@ -80,7 +89,10 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   queueMaxBytes?: number;
   /**
    * @remarks
-   * The specific configuration of the pipeline.
+   * The queue type. Valid values:
+   * 
+   * - MEMORY: a traditional memory-based queue.
+   * - PERSISTED: a disk-based ACKed queue (persistent queue).
    * 
    * @example
    * MEMORY
@@ -88,7 +100,7 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   queueType?: string;
   /**
    * @remarks
-   * The size of the pipeline batch.
+   * The number of pipeline worker threads.
    * 
    * @example
    * 2
@@ -140,7 +152,7 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
 export class DescribePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the pipeline was updated.
+   * The request ID.
    * 
    * @example
    * 829F38F6-E2D6-4109-90A6-888160BD1***
@@ -148,10 +160,7 @@ export class DescribePipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the queue. Valid values:
-   * 
-   * *   MEMORY: a traditional memory-based queue.
-   * *   PERSISTED: disk-based ACKed queue (persistent queue).
+   * The returned pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
    */
   result?: DescribePipelineResponseBodyResult;
   static names(): { [key: string]: string } {

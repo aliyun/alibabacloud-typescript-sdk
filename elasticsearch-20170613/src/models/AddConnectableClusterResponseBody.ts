@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddConnectableClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5A5D8E74-565C-43DC-B031-29289FA****
@@ -13,10 +13,10 @@ export class AddConnectableClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The following information is returned:
+   * The result. Valid values:
    * 
-   * *   true: The configuration is successful.
-   * *   false: The configuration failed.
+   * - true: The configuration succeeded.
+   * - false: The configuration failed.
    * 
    * @example
    * true

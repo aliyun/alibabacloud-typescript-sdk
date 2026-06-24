@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPipelineIdsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The request body parameters. For more information, see the RequestBody section below.
+   * 
    * @example
    * {     "userName":"elastic",     "password":"xxxxxx" }
    */

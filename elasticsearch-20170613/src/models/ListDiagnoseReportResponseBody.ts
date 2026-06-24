@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseReportResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The total number of records returned.
    * 
    * @example
    * 15
@@ -35,7 +35,7 @@ export class ListDiagnoseReportResponseBodyHeaders extends $dara.Model {
 export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $dara.Model {
   /**
    * @remarks
-   * The diagnosis.
+   * The description of the diagnostic item.
    * 
    * @example
    * Check whether the number of replica shards is optimal and easy to maintain
@@ -43,7 +43,7 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $da
   desc?: string;
   /**
    * @remarks
-   * The description of the diagnostic item.
+   * The full name of the diagnostic item.
    * 
    * @example
    * Number of Replica Shards
@@ -51,20 +51,27 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $da
   name?: string;
   /**
    * @remarks
-   * The suggestion for the diagnosis.
+   * The diagnostic result.
    * 
    * @example
    * You may need to adjust the numbers of replica shards of some indices as follows:  [geoname08 : 0 -&gt; 1][geoname09 : 0 -&gt; 1][geonametest01 : 0 -&gt; 1]
    */
   result?: string;
   /**
+   * @remarks
+   * The diagnostic suggestion.
+   * 
    * @example
    * You can call the following function in the Elasticsearch API....
    */
   suggest?: string;
   /**
    * @remarks
-   * The full name of the diagnostic item.
+   * The type of the diagnostic result. Valid values:
+   * 
+   * - TEXT: text description
+   * - CONSOLE_API: console-triggered
+   * - ES_API: API-triggered.
    * 
    * @example
    * ES_API
@@ -102,16 +109,12 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $da
 export class ListDiagnoseReportResponseBodyResultDiagnoseItems extends $dara.Model {
   /**
    * @remarks
-   * The type of the diagnostic result. Valid values:
-   * 
-   * *   TEXT: text description
-   * *   CONSOLE_API: console-triggered
-   * *   ES_API: API triggered
+   * The details of the diagnostic item.
    */
   detail?: ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail;
   /**
    * @remarks
-   * The details of the diagnostic item.
+   * The health status of the diagnostic item. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
    * 
    * @example
    * YELLOW
@@ -119,7 +122,7 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItems extends $dara.Mod
   health?: string;
   /**
    * @remarks
-   * The health of the diagnostic item. Supported: GREEN, YELLOW, RED, and UNKNOWN.
+   * The name of the diagnostic item.
    * 
    * @example
    * IndexAliasUseDiagnostic
@@ -153,10 +156,51 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItems extends $dara.Mod
   }
 }
 
+export class ListDiagnoseReportResponseBodyResultItems extends $dara.Model {
+  desc?: string;
+  detail?: { [key: string]: any };
+  item?: string;
+  name?: string;
+  state?: string;
+  suggest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      detail: 'detail',
+      item: 'item',
+      name: 'name',
+      state: 'state',
+      suggest: 'suggest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      item: 'string',
+      name: 'string',
+      state: 'string',
+      suggest: 'string',
+    };
+  }
+
+  validate() {
+    if(this.detail) {
+      $dara.Model.validateMap(this.detail);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the report.
+   * The timestamp when the report was created.
    * 
    * @example
    * 1535745731000
@@ -164,12 +208,13 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The name of the item.
+   * The list of diagnostic items in the report.
    */
   diagnoseItems?: ListDiagnoseReportResponseBodyResultDiagnoseItems[];
+  diagnosisMode?: string;
   /**
    * @remarks
-   * Reports the list of diagnostic item information.
+   * The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
    * 
    * @example
    * YELLOW
@@ -177,15 +222,16 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The overall health of the cluster in the report. Supported: GREEN, YELLOW, RED, and UNKNOWN.
+   * The instance ID of the diagnosed instance.
    * 
    * @example
    * es-cn-abc
    */
   instanceId?: string;
+  items?: ListDiagnoseReportResponseBodyResultItems[];
   /**
    * @remarks
-   * The diagnosis status. Valid values: Supported: SUCCESS, FAILED, and RUNNING.
+   * The report ID.
    * 
    * @example
    * trigger__2020-08-17T17:09:02f
@@ -193,7 +239,7 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The ID of the instance for diagnosis.
+   * The diagnostic status. Valid values: SUCCESS, FAILED, and RUNNING.
    * 
    * @example
    * SUCCESS
@@ -201,7 +247,11 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The timestamp when the report was created.
+   * The trigger method of the health diagnostics. Valid values:
+   * 
+   * - SYSTEM: automatically triggered by the system
+   * - INNER: internally triggered
+   * - USER: manually triggered by the user.
    * 
    * @example
    * USER
@@ -211,8 +261,10 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
     return {
       createTime: 'createTime',
       diagnoseItems: 'diagnoseItems',
+      diagnosisMode: 'diagnosisMode',
       health: 'health',
       instanceId: 'instanceId',
+      items: 'items',
       reportId: 'reportId',
       state: 'state',
       trigger: 'trigger',
@@ -223,8 +275,10 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
     return {
       createTime: 'number',
       diagnoseItems: { 'type': 'array', 'itemType': ListDiagnoseReportResponseBodyResultDiagnoseItems },
+      diagnosisMode: 'string',
       health: 'string',
       instanceId: 'string',
+      items: { 'type': 'array', 'itemType': ListDiagnoseReportResponseBodyResultItems },
       reportId: 'string',
       state: 'string',
       trigger: 'string',
@@ -234,6 +288,9 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
   validate() {
     if(Array.isArray(this.diagnoseItems)) {
       $dara.Model.validateArray(this.diagnoseItems);
+    }
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
     }
     super.validate();
   }
@@ -246,12 +303,12 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
 export class ListDiagnoseReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The response headers.
    */
   headers?: ListDiagnoseReportResponseBodyHeaders;
   /**
    * @remarks
-   * The header of the response.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -259,11 +316,7 @@ export class ListDiagnoseReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The trigger mode of health diagnostics. Valid values:
-   * 
-   * *   SYSTEM: The system is automatically triggered.
-   * *   INNER: internal trigger
-   * *   USER: manually triggered by the user
+   * The returned results.
    */
   result?: ListDiagnoseReportResponseBodyResult[];
   static names(): { [key: string]: string } {

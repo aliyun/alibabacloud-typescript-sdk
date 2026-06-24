@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The page number of the current page for a paged query. Valid values: 1 to 200. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListPipelineRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The pipeline ID.
    * 
    * @example
    * pipeline_test
@@ -21,7 +21,7 @@ export class ListPipelineRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The number of pipelines per page for a paged query. Valid values: 1 to 200.
    * 
    * @example
    * 15

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class PluginAnalysisRequest extends $dara.Model {
   /**
+   * @remarks
+   * Request body parameters  
+   * 
+   * ```json
+   * 
    * @example
    * {
    *     "name": "plugin_name.zip",// plugin name
@@ -15,6 +20,12 @@ export class PluginAnalysisRequest extends $dara.Model {
    */
   body?: string;
   /**
+   * @remarks
+   * Whether to perform pre-upgrade validation:  
+   * 
+   * - true: Validate only  
+   * - false: Upload directly
+   * 
    * @example
    * false
    */

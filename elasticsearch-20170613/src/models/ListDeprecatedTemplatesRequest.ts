@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDeprecatedTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The index template name.
+   * 
    * @example
    * component-openstore-index-template
    */
   name?: string;
   /**
+   * @remarks
+   * The page number Settings for a paged query. Paging is used to retrieve results.
+   * 
    * @example
    * 5
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page Settings for a paged query. Paging is used to retrieve results.
+   * 
    * @example
    * 10
    * 

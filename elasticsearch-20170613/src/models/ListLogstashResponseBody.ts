@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The number of data nodes.
+   * The total number of instances.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class ListLogstashResponseBodyHeaders extends $dara.Model {
 export class ListLogstashResponseBodyResultTags extends $dara.Model {
   /**
    * @remarks
-   * The disk size of the node.
+   * The tag key.
    * 
    * @example
    * env
@@ -43,7 +43,7 @@ export class ListLogstashResponseBodyResultTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The instance type of the ECS instance.
+   * The tag value.
    * 
    * @example
    * dev
@@ -74,24 +74,33 @@ export class ListLogstashResponseBodyResultTags extends $dara.Model {
 
 export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   /**
+   * @remarks
+   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+   * 
    * @example
    * vpc
    */
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The VPC ID.
    * 
    * @example
    * vpc-abc
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone where the instance resides.
+   * 
    * @example
    * cn-hangzhou-*
    */
   vsArea?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-def
    */
@@ -126,7 +135,7 @@ export class ListLogstashResponseBodyResultNetworkConfig extends $dara.Model {
 export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The network configurations.
+   * The disk size of the node.
    * 
    * @example
    * 50
@@ -134,7 +143,10 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * The ID of the VPC.
+   * Indicates whether disk encryption is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -142,7 +154,7 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskEncryption?: boolean;
   /**
    * @remarks
-   * The zone where the cluster resides.
+   * The disk type.
    * 
    * @example
    * cloud_ssd
@@ -150,7 +162,7 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The type of the disk.
+   * The instance specification.
    * 
    * @example
    * logstash.n4.small
@@ -186,12 +198,12 @@ export class ListLogstashResponseBodyResultNodeSpec extends $dara.Model {
 export class ListLogstashResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The configuration information of the data node.
+   * The instance tags.
    */
   tags?: ListLogstashResponseBodyResultTags[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The time when the instance was created.
    * 
    * @example
    * 2018-07-13T03:58:07.253Z
@@ -199,7 +211,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The instance name.
    * 
    * @example
    * ls-cn-abc
@@ -212,7 +224,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The tag value of the cloud disk.
+   * The instance ID.
    * 
    * @example
    * ls-cn-n6w1o5jq****
@@ -220,12 +232,12 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+   * The network configuration.
    */
   networkConfig?: ListLogstashResponseBodyResultNetworkConfig;
   /**
    * @remarks
-   * The state of the instance. Valid values: Normal, Active, Inactive, and Invalid.
+   * The number of nodes in the instance.
    * 
    * @example
    * 2
@@ -233,15 +245,12 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * Specifies whether to use disk encryption. Valid values:
-   * 
-   * *   true: Enables the concurrent query feature for queries other than aggregate queries.
-   * *   false: Disables the concurrent query feature for queries other than aggregate queries.
+   * The configuration information of data nodes.
    */
   nodeSpec?: ListLogstashResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
    * 
    * @example
    * postpaid
@@ -250,7 +259,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The version of the instance. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
+   * The status of the instance. Valid values: active (Normal), activating (Taking Effect), inactive (Frozen), and invalid (Expired).
    * 
    * @example
    * active
@@ -258,7 +267,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the instance. Valid values:
+   * The time when the instance was last updated.
    * 
    * @example
    * 2018-07-18T10:10:04.484Z
@@ -266,7 +275,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The tag key of the cloud disk.
+   * The instance version. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
    * 
    * @example
    * 6.7.0_with_X-Pack
@@ -329,12 +338,12 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
 export class ListLogstashResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the instance. Supported: prepaid (subscription) and postpaid (pay-as-you-go).
+   * The request header information.
    */
   headers?: ListLogstashResponseBodyHeaders;
   /**
    * @remarks
-   * Detailed information about the matching instances.
+   * The request ID.
    * 
    * @example
    * AC442F2F-5068-4434-AA21-E78947A9****
@@ -342,7 +351,7 @@ export class ListLogstashResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The list of instances returned by the current request.
    */
   result?: ListLogstashResponseBodyResult[];
   static names(): { [key: string]: string } {

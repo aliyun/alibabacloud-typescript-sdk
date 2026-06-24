@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The value of the tag.
+   * The resource count of TagResource resources found.
    * 
    * @example
    * 10
@@ -34,23 +34,32 @@ export class ListTagResourcesResponseBodyHeaders extends $dara.Model {
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * es-cn-oew1q8bev0002****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type. The value is fixed as `ALIYUN::ELASTICSEARCH::INSTANCE`.
+   * 
    * @example
    * ALIYUN::ELASTICSEARCH::INSTANCE
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   tagKey?: string;
   /**
    * @remarks
-   * The tag key.
+   * The tag value.
    * 
    * @example
    * dev
@@ -86,7 +95,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * Indicates the ID of a resource.
+   * The tag resource.
    */
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
@@ -116,12 +125,13 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The labels of the resource.
+   * The response header information. This parameter is empty and is for reference only. Do not create a dependency on this parameter in your program.
+   * > This parameter is not included in the response example.
    */
   headers?: ListTagResourcesResponseBodyHeaders;
   /**
    * @remarks
-   * The number of resources to query.
+   * The page number.
    * 
    * @example
    * 1
@@ -129,7 +139,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of resources that have tags.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6D******
@@ -137,7 +147,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the resource. Fixed to `ALIYUN::ELASTICSEARCH::INSTANCE`.
+   * The tag resource group.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

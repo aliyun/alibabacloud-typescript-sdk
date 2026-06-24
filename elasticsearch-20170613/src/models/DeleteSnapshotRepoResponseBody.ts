@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSnapshotRepoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class DeleteSnapshotRepoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: reference warehouse deleted successfully
-   * *   false: reference warehouse deleted successfully failed
+   * - true: The reference repository is deleted.
+   * - false: The reference repository failed to be deleted.
    * 
    * @example
    * true

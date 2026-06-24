@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -13,10 +13,10 @@ export class CancelTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The result of the operation. Valid values:
    * 
-   * *   true: the task was cancelled successfully
-   * *   false: the task was cancelled successfully failed
+   * - true: The task was canceled.
+   * - false: The task failed to be canceled.
    * 
    * @example
    * true

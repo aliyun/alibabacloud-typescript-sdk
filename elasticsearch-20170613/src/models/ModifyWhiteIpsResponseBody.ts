@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyWhiteIpsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1DERFG
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result. Valid values:
+   * 
+   * - true: The whitelist is updated.
+   * - false: The whitelist failed to be updated.
+   * 
    * @example
    * true
    */

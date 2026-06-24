@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollectorsResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned records.
    * 
    * @example
    * 5
@@ -35,7 +35,7 @@ export class ListCollectorsResponseBodyHeaders extends $dara.Model {
 export class ListCollectorsResponseBodyResultConfigs extends $dara.Model {
   /**
    * @remarks
-   * The content of the file.
+   * The file content.
    * 
    * @example
    * - key: log\\n title: Log file content\\n description: >\\n Contains log file lines.\\n ....
@@ -43,7 +43,7 @@ export class ListCollectorsResponseBodyResultConfigs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * fields.yml
@@ -75,12 +75,12 @@ export class ListCollectorsResponseBodyResultConfigs extends $dara.Model {
 export class ListCollectorsResponseBodyResultExtendConfigsMachines extends $dara.Model {
   /**
    * @remarks
-   * The status of the shipper on the ECS instance. Valid values:
+   * The status of each collector on the ECS instance. Valid values:
    * 
-   * *   heartOk
-   * *   heartLost
-   * *   uninstalled
-   * *   failed
+   * - heartOk: The heartbeat is normal.
+   * - heartLost: The heartbeat is abnormal.
+   * - uninstalled: Not installed.
+   * - failed: Installation failed.
    * 
    * @example
    * heartOk
@@ -88,7 +88,7 @@ export class ListCollectorsResponseBodyResultExtendConfigsMachines extends $dara
   agentStatus?: string;
   /**
    * @remarks
-   * The IDs of the ECS instances.
+   * The list of ECS machine IDs.
    * 
    * @example
    * i-bp13y63575oypr9d****
@@ -122,9 +122,9 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
    * @remarks
    * The configuration type. Valid values:
    * 
-   * *   collectorTargetInstance
-   * *   collectorDeployMachine
-   * *   collectorElasticsearchForKibana
+   * - collectorTargetInstance: the collector Output
+   * - collectorDeployMachine: the deployment machine of the collector
+   * - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana dashboards.
    * 
    * @example
    * collectorDeployMachine
@@ -132,10 +132,11 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether monitoring is enabled. This parameter is returned if the value of **configType** is **collectorTargetInstance** and the value of **instanceType** is **elasticsearch**. Valid values:
+   * Indicates whether Monitoring is enabled. This parameter is displayed when **configType** is **collectorTargetInstance** and **instanceType** is **elasticsearch**. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -143,7 +144,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   enableMonitoring?: boolean;
   /**
    * @remarks
-   * The ID of the machine group. This parameter is returned if the value of **configType** is **collectorDeployMachine**.
+   * The machine group ID. This parameter is displayed when **configType** is **collectorDeployMachine**.
    * 
    * @example
    * default_ct-cn-5i2l75bz4776****
@@ -151,7 +152,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The internal endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+   * The internal-facing access address of Kibana over the private network after Kibana Dashboard is enabled. This parameter is displayed when **configType** is **collectorElasticsearchForKibana**.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601
@@ -160,7 +161,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the resource with which the shipper is associated. If the value of **configType** is **collectorTargetInstance**, the value of this parameter is the ID of the resource specified in the output configuration part of the shipper. If the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**, the value of this parameter is the ID of the ACK cluster.
+   * The ID of the instance associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK (Container Kubernetes) cluster ID.
    * 
    * @example
    * es-cn-nif1z89fz003i****
@@ -168,7 +169,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the cluster specified in the output configuration part of the shipper. Valid values: elasticsearch and logstash. This parameter is returned if the value of **configType** is **collectorTargetInstance**.
+   * The type of instance specified in the collector Output. Valid values: elasticsearch, logstash. This parameter is displayed when **configType** is **collectorTargetInstance**.
    * 
    * @example
    * elasticsearch
@@ -176,7 +177,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The public endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+   * The public network access address of Kibana after Kibana Dashboard is enabled. This parameter is displayed when **configType** is **collectorElasticsearchForKibana**.
    * 
    * @example
    * https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601
@@ -184,12 +185,12 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   kibanaHost?: string;
   /**
    * @remarks
-   * The information about the ECS instances on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ECSInstanceId**.
+   * The list of ECS machines on which the collector is deployed. This parameter is displayed when **configType** is **collectorDeployMachines** and **type** is **ECSInstanceId**.
    */
   machines?: ListCollectorsResponseBodyResultExtendConfigsMachines[];
   /**
    * @remarks
-   * The transmission protocol, which must be the same as the access protocol of the resource specified in the output configuration part of the shipper. Valid values: HTTP and HTTPS. This parameter is returned if the value of **configType** is **collectorTargetInstance**.
+   * The transmission protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Valid values: HTTP, HTTPS. This parameter is displayed when **configType** is **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -197,7 +198,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of pods from which data is successfully collected in the ACK cluster. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**.
+   * The number of Pod nodes successfully collected in the ACK cluster. This parameter is displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
    * 
    * @example
    * 8
@@ -205,7 +206,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   successPodsCount?: string;
   /**
    * @remarks
-   * The total number of pods from which data is collected in the ACK cluster. This parameter is returned if the value of **configType** is **collectorDeployMachine** and the value of **type** is **ACKCluster**.
+   * The total number of Pod nodes collected in the ACK cluster. This parameter is displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
    * 
    * @example
    * 10
@@ -213,10 +214,11 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   totalPodsCount?: string;
   /**
    * @remarks
-   * The type of the machine on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachine**. Valid values:
+   * The type of machine on which the collector is deployed. This parameter is displayed when **configType** is **collectorDeployMachine**. Valid values:
    * 
-   * *   ECSInstanceId
-   * *   ACKCluster
+   * - ECSInstanceId: ECS
+   * 
+   * - ACKCluster: Container Kubernetes.
    * 
    * @example
    * ECSInstanceId
@@ -224,7 +226,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The username that is used to access the resource specified in the output configuration part of the shipper. The default value is elastic. This parameter is returned if the value of **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+   * The username used to access the instance specified in the collector Output. Default value: elastic. This parameter is displayed when **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
    * 
    * @example
    * elastic
@@ -287,15 +289,15 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   collectorPaths?: string[];
   /**
    * @remarks
-   * The information about the configuration file of the shipper.
+   * The configuration file information of the collector.
    */
   configs?: ListCollectorsResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Indicates whether a dry run is performed. Valid values:
+   * Indicates whether the collector is validated only without being created. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Only validates without creating.
+   * - false: Validates and creates.
    * 
    * @example
    * false
@@ -303,12 +305,12 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The extended configurations of the shipper.
+   * The extended configuration information.
    */
   extendConfigs?: ListCollectorsResponseBodyResultExtendConfigs[];
   /**
    * @remarks
-   * The time when the shipper was created.
+   * The time when the collector was created.
    * 
    * @example
    * 2020-08-18T02:06:12.000+0000
@@ -316,7 +318,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the shipper was updated.
+   * The time when the collector was last updated.
    * 
    * @example
    * 2020-08-18T09:40:43.000+0000
@@ -324,7 +326,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The name of the shipper.
+   * The collector name.
    * 
    * @example
    * FileBeat001
@@ -340,7 +342,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the shipper.
+   * The collector instance ID.
    * 
    * @example
    * ct-cn-0v3xj86085dvq****
@@ -348,7 +350,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   resId?: string;
   /**
    * @remarks
-   * The type of the shipper. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+   * The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
    * 
    * @example
    * fileBeat
@@ -356,7 +358,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   resType?: string;
   /**
    * @remarks
-   * The version of the shipper.
+   * The collector version.
    * 
    * @example
    * 6.8.5_with_community
@@ -364,10 +366,11 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   resVersion?: string;
   /**
    * @remarks
-   * The status of the shipper. Valid values:
+   * The collector status. Valid values:
    * 
-   * *   activating
-   * *   active
+   * - activing: Taking effect.
+   * 
+   * - active: Active.
    * 
    * @example
    * active
@@ -375,7 +378,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the shipper resides.
+   * The ID of the VPC where the collector resides.
    * 
    * @example
    * vpc-bp16k1dvzxtma*****
@@ -438,7 +441,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
 export class ListCollectorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The response headers.
    */
   headers?: ListCollectorsResponseBodyHeaders;
   /**
@@ -451,7 +454,7 @@ export class ListCollectorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListCollectorsResponseBodyResult[];
   static names(): { [key: string]: string } {

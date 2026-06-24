@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MasterNodeConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The number of dedicated master nodes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MasterNodeConfiguration extends $dara.Model {
   amount?: number;
   /**
    * @remarks
+   * The storage space of dedicated master nodes. Unit: GB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class MasterNodeConfiguration extends $dara.Model {
   disk?: number;
   /**
    * @remarks
+   * The storage type of dedicated master nodes. Valid values:
+   * - cloud_ssd: standard SSD
+   * - cloud_essd (default): Enterprise SSD (ESSD).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,8 @@ export class MasterNodeConfiguration extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
+   * The node specifications of dedicated master nodes. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * 
    * This parameter is required.
    * 
    * @example

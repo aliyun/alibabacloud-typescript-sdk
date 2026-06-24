@@ -4,11 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitModelRequestModels extends $dara.Model {
   /**
+   * @remarks
+   * Model category  
+   * - a. Text embedding: text_embedding  
+   * - b. Reranking: rerank  
+   * - c. Document segmentation: doc_split  
+   * - d. Large Language Model (LLM) service: completion  
+   * - e. Query analysis: query_analyze  
+   * - f. Document content parsing: doc_analyze  
+   * - g. Image content parsing: img_analyze
+   * 
    * @example
    * text_embedding
    */
   modelType?: string;
   /**
+   * @remarks
+   * Service ID of the Search Open Platform
+   * 
    * @example
    * ops-text-embedding-**
    */
@@ -39,6 +52,8 @@ export class InitModelRequestModels extends $dara.Model {
 export class InitModelRequest extends $dara.Model {
   /**
    * @remarks
+   * API key for the AI Search Open Platform
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +62,8 @@ export class InitModelRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
+   * Service registration endpoint of the AI Search Open Platform
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,15 +72,23 @@ export class InitModelRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
+   * HTTP protocol type
+   * 
    * This parameter is required.
    * 
    * @example
    * https
    */
   httpSchema?: string;
+  /**
+   * @remarks
+   * Specify the models to initialize. If empty, all built-in models will be initialized.
+   */
   models?: InitModelRequestModels[];
   /**
    * @remarks
+   * Workspace.
+   * 
    * This parameter is required.
    * 
    * @example

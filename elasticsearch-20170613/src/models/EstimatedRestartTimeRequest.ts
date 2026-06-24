@@ -6,7 +6,7 @@ export class EstimatedRestartTimeRequest extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly restart the cluster. Default value: false.
+   * Specifies whether to force restart the instance. Default value: false.
    * 
    * @example
    * false

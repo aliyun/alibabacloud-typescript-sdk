@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
   /**
+   * @remarks
+   * Number of events
+   * 
    * @example
    * 4
    */
   cnt?: string;
   /**
+   * @remarks
+   * Event level
+   * 
    * @example
    * Info
    */
   level?: string;
   /**
+   * @remarks
+   * Event status
+   * 
    * @example
    * Executed
    */
   status?: string;
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * UserOperator
    */
@@ -51,8 +63,15 @@ export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
 }
 
 export class ListStatsEventRecordsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListStatsEventRecordsResponseBodyResultResult[];
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 6
    */
@@ -85,10 +104,17 @@ export class ListStatsEventRecordsResponseBodyResult extends $dara.Model {
 
 export class ListStatsEventRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListStatsEventRecordsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

@@ -23,8 +23,8 @@ export class UpdateDictResponseBodyResult extends $dara.Model {
    * @remarks
    * The source type of the dictionary file. Valid values:
    * 
-   * *   OSS
-   * *   ORIGIN
+   * - OSS: Object Storage Service (OSS).
+   * - ORIGIN: Retains the previously uploaded dictionary.
    * 
    * @example
    * ORIGIN
@@ -32,10 +32,10 @@ export class UpdateDictResponseBodyResult extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The dictionary type. Valid values:
+   * The type of the dictionary. Valid values:
    * 
-   * *   MAIN: IK main dicrionary
-   * *   STOP: IK stopword list
+   * - MAIN: IK main dictionary.
+   * - STOP: IK stopword dictionary.
    * 
    * @example
    * MAIN
@@ -79,7 +79,7 @@ export class UpdateDictResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: UpdateDictResponseBodyResult[];
   static names(): { [key: string]: string } {

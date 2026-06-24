@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $dara.Model {
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
-   * vsw-xxxx
+   * vsw-bp194pz9iezj6h1n5****
    */
   vswitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -38,22 +44,37 @@ export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $dara.Model {
 
 export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint name.
+   * 
    * @example
    * es-cn-27a3mul6l000xxx-kibana-endpoint
    */
   endpointName?: string;
   /**
    * @remarks
+   * The security groups.
+   * 
    * This parameter is required.
    */
   securityGroups?: string[];
+  /**
+   * @remarks
+   * The vSwitch and zone information.
+   */
   vSwitchIdsZone?: EnableKibanaPvlNetworkRequestVSwitchIdsZone[];
   /**
+   * @remarks
+   * The VPC-connected instance ID.
+   * 
    * @example
-   * vpc-xxx
+   * vpc-bp19ip2ocyv24w0e2****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * xxxxx
    */

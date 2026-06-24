@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelLogstashDeletionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 23EBF56B-2DC0-4507-8BE5-B87395DB0FEB
@@ -13,10 +13,10 @@ export class CancelLogstashDeletionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cluster is restored. Valid values:
+   * Indicates whether the instance is successfully resumed. Valid values:
    * 
-   * *   true: The cluster is restored.
-   * *   false: The cluster is not restored.
+   * - true: The instance is successfully resumed.
+   * - false: The instance failed to be resumed.
    * 
    * @example
    * true

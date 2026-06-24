@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListShardRecoveriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return information about data restoration of shards. Valid values:
+   * Specifies whether to display shard data recovery tracking information. Valid values:
    * 
-   * *   true: returns information about data restoration of shards that are being restored.
-   * *   false: returns information about data restoration of all shards.
+   * - true: Displays only ongoing shard data recovery tracking information.
+   * 
+   * - false: Displays all shard data recovery tracking information.
    * 
    * @example
    * true

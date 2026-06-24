@@ -4,8 +4,15 @@ import { WhiteIpGroup } from "./WhiteIpGroup";
 
 
 export class NetworkConfigLoadBalanceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 可用区信息，如: cn-hangzhou-i
+   */
   vsArea?: string;
   /**
+   * @remarks
+   * vswitchId
+   * 
    * @example
    * vsw-xxxx
    */
@@ -37,30 +44,49 @@ export class NetworkConfig extends $dara.Model {
   lbReplica?: number;
   loadBalanceConfig?: NetworkConfigLoadBalanceConfig[];
   /**
+   * @remarks
+   * The load balancing type. Default value: DEFAULT.
+   * 
    * @example
    * DEFAULT
    */
   loadBalanceType?: string;
   /**
+   * @remarks
+   * The network type. Only Virtual Private Cloud (VPC) is supported.
+   * 
    * @example
    * vpc
    */
   type?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-bp1xk0naij7jx4ph1****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID of the network.
+   * 
    * @example
    * cn-hangzhou-e
    */
   vsArea?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp1ogpdintii5qvyx****
    */
   vswitchId?: string;
+  /**
+   * @remarks
+   * The IP whitelist group configuration. You do not need to set this parameter when you call the createInstance operation to create an instance because the setting does not take effect during instance creation. Use a separate API operation to configure whitelists for different roles.
+   */
   whiteIpGroupList?: WhiteIpGroup[];
   static names(): { [key: string]: string } {
     return {

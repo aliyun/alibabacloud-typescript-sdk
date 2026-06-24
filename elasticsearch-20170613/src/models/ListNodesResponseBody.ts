@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of returned records.
    * 
    * @example
    * 10
@@ -45,8 +45,8 @@ export class ListNodesResponseBodyResultIpAddress extends $dara.Model {
    * @remarks
    * The type of the IP address. Valid values:
    * 
-   * *   public: public IP address
-   * *   private: private IP address
+   * - public: public IP address.
+   * - private: private IP address.
    * 
    * @example
    * public
@@ -78,7 +78,7 @@ export class ListNodesResponseBodyResultIpAddress extends $dara.Model {
 export class ListNodesResponseBodyResultTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * abc
@@ -86,7 +86,7 @@ export class ListNodesResponseBodyResultTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * xyz
@@ -118,12 +118,12 @@ export class ListNodesResponseBodyResultTags extends $dara.Model {
 export class ListNodesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of the shipper on the ECS instance. Valid values:
+   * The status of each collector on the ECS instance. Valid values:
    * 
-   * *   heartOk: The heartbeat is normal.
-   * *   heartLost: The heartbeat is abnormal.
-   * *   uninstalled: The shipper is not installed.
-   * *   failed: The shipper fails to be installed.
+   * - heartOk: normal heartbeat.
+   * - heartLost: abnormal heartbeat.
+   * - uninstalled: not installed.
+   * - failed: installation failed.
    * 
    * @example
    * heartOk
@@ -131,10 +131,10 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   agentStatus?: string;
   /**
    * @remarks
-   * Indicates whether the Cloud Assistant client is installed. Valid values:
+   * Indicates whether Cloud Assistant is enabled. Valid values:
    * 
-   * *   true: installed
-   * *   false: not installed
+   * - true: enabled.
+   * - false: not enabled.
    * 
    * @example
    * true
@@ -142,7 +142,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   cloudAssistantStatus?: string;
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The ECS instance ID.
    * 
    * @example
    * i-bp13y63575oypr****
@@ -150,7 +150,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The ECS instance name.
    * 
    * @example
    * ECS_beat
@@ -158,15 +158,15 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The IP addresses of the ECS instance.
+   * The list of IP address information of the ECS instance.
    */
   ipAddress?: ListNodesResponseBodyResultIpAddress[];
   /**
    * @remarks
    * The operating system type of the ECS instance. Valid values:
    * 
-   * *   windows: Windows Server
-   * *   linux: Linux
+   * - windows: Windows Server.
+   * - linux: Linux.
    * 
    * @example
    * linux
@@ -176,10 +176,10 @@ export class ListNodesResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the ECS instance. Valid values:
    * 
-   * *   running: The instance is running.
-   * *   starting: The instance is being started.
-   * *   stopping: The instance is being stopped.
-   * *   stopped: The instance is stopped.
+   * - running: running.
+   * - starting: starting.
+   * - stopping: stopping.
+   * - stopped: stopped.
    * 
    * @example
    * running
@@ -187,7 +187,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the ECS instance.
+   * The tag information of the ECS instance.
    */
   tags?: ListNodesResponseBodyResultTags[];
   static names(): { [key: string]: string } {
@@ -234,12 +234,12 @@ export class ListNodesResponseBodyResult extends $dara.Model {
 export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The response headers.
    */
   headers?: ListNodesResponseBodyHeaders;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E1FD7642-7C40-4FF2-9C0F-21F1A1746F70
@@ -247,7 +247,7 @@ export class ListNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListNodesResponseBodyResult[];
   static names(): { [key: string]: string } {

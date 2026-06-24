@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the X-Pack Monitoring feature is enabled. Valid values:
-   * 
-   * *   true: enabled
-   * *   false: disabled
+   * Indicates whether X-Pack monitoring is enabled. Valid values:
+   * - true: enabled.
+   * - false: not enabled.
    * 
    * @example
    * true
@@ -17,7 +16,7 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
   endpoints?: string[];
   /**
    * @remarks
-   * The ID of the associated Elasticsearch cluster.
+   * The instance ID of the Elasticsearch instance associated with X-Pack monitoring.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
@@ -26,7 +25,7 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
   pipelineIds?: string[];
   /**
    * @remarks
-   * The username that is used to access the associated Elasticsearch cluster.
+   * The username used to access the Elasticsearch instance associated with X-Pack monitoring.
    * 
    * @example
    * elastic
@@ -70,7 +69,7 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
 export class DescribeXpackMonitorConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****

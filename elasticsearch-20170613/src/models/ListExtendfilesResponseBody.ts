@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListExtendfilesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The path of the driver file.
+   * The extension file path.
    */
   filePath?: string;
   /**
    * @remarks
-   * The size of the driver file.
+   * The extension file size.
    * 
    * @example
    * 968668
@@ -18,7 +18,7 @@ export class ListExtendfilesResponseBodyResult extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The name of the driver file.
+   * The extension file name.
    * 
    * @example
    * mysql-connector-java-5.1.35.jar

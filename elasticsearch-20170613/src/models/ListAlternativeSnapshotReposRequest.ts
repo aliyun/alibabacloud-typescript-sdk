@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlternativeSnapshotReposRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to return the OSS reference repository added. The return value. Valid values: true and false.
+   * Specifies whether to return the OSS reference repositories that have already been added. Valid values:
+   * 
+   * - true (default): Returns the already added repositories.
+   * - false: Does not return the already added repositories.
    * 
    * @example
    * true

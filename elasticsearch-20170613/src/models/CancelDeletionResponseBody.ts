@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelDeletionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D682B6B3-B425-46DA-A5FC-5F5C60553622
@@ -13,10 +13,10 @@ export class CancelDeletionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cluster is restored. Valid values:
+   * Indicates whether the instance is recovered. Valid values:
    * 
-   * *   true: The cluster is restored.
-   * *   false: The cluster fails to be restored.
+   * - true: The instance is recovered.
+   * - false: The instance failed to be recovered.
    * 
    * @example
    * true

@@ -3,17 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
+  authorizationStatus?: boolean;
+  dailyLimit?: number;
+  dailyScheduleEnabled?: boolean;
+  diagnosisMode?: string;
   /**
    * @remarks
-   * Scenarios of intelligent maintenance.
+   * The scenario of intelligent O&M.
    * 
    * @example
    * Business Search
    */
   scene?: string;
+  selectedItems?: string[];
   /**
    * @remarks
-   * The timestamp of the last update for Intelligent Maintenance scenarios.
+   * The timestamp when the intelligent O&M scenario was last updated.
    * 
    * @example
    * 1588994035385
@@ -21,19 +26,32 @@ export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      authorizationStatus: 'authorizationStatus',
+      dailyLimit: 'dailyLimit',
+      dailyScheduleEnabled: 'dailyScheduleEnabled',
+      diagnosisMode: 'diagnosisMode',
       scene: 'scene',
+      selectedItems: 'selectedItems',
       updateTime: 'updateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      authorizationStatus: 'boolean',
+      dailyLimit: 'number',
+      dailyScheduleEnabled: 'boolean',
+      diagnosisMode: 'string',
       scene: 'string',
+      selectedItems: { 'type': 'array', 'itemType': 'string' },
       updateTime: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.selectedItems)) {
+      $dara.Model.validateArray(this.selectedItems);
+    }
     super.validate();
   }
 
@@ -45,7 +63,7 @@ export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
 export class DescribeDiagnosisSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5E82B8A8-EED7-4557-A6E9-D1AD3E58****
@@ -53,7 +71,7 @@ export class DescribeDiagnosisSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: DescribeDiagnosisSettingsResponseBodyResult;
   static names(): { [key: string]: string } {

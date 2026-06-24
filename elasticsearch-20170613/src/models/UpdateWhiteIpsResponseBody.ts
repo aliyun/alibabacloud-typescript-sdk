@@ -5,14 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList extends $dara.Model {
   /**
    * @remarks
-   * The type of the whitelist. The value of this parameter is fixed as PRIVATE_ES, which indicates a private IP address whitelist.
+   * The name of the whitelist group. The default group is included by default.
    * 
    * @example
    * test_group
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The IP address information in the whitelist group.
+   */
   ips?: string[];
   /**
+   * @remarks
+   * The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network internal-facing access whitelist.
+   * 
    * @example
    * PRIVATE_ES
    */
@@ -48,7 +55,7 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList exten
 export class UpdateWhiteIpsResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses in the whitelist.
+   * The list of whitelist groups.
    */
   whiteIpGroupList?: UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList[];
   static names(): { [key: string]: string } {
@@ -78,12 +85,12 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfig extends $dara.Model {
 export class UpdateWhiteIpsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The list of whitelists.
+   * The private network internal-facing access whitelist (deprecated).
    */
   esIPWhitelist?: string[];
   /**
    * @remarks
-   * The name of the whitelist. By default, the default whitelist is included.
+   * The network configuration.
    */
   networkConfig?: UpdateWhiteIpsResponseBodyResultNetworkConfig;
   static names(): { [key: string]: string } {
@@ -118,7 +125,7 @@ export class UpdateWhiteIpsResponseBodyResult extends $dara.Model {
 export class UpdateWhiteIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The updated whitelist.
+   * The request ID.
    * 
    * @example
    * 8D58B014-BBD7-4D80-B219-00B9D5C6860C
@@ -126,7 +133,7 @@ export class UpdateWhiteIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The network configurations.
+   * The returned result.
    */
   result?: UpdateWhiteIpsResponseBodyResult;
   static names(): { [key: string]: string } {

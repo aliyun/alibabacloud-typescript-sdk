@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListComponentIndicesResponseBodyHeaders extends $dara.Model {
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -31,6 +34,9 @@ export class ListComponentIndicesResponseBodyHeaders extends $dara.Model {
 
 export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndexLifecycle extends $dara.Model {
   /**
+   * @remarks
+   * The name of the lifecycle policy.
+   * 
    * @example
    * synthetics
    */
@@ -58,10 +64,20 @@ export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndexL
 
 export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndex extends $dara.Model {
   /**
+   * @remarks
+   * The index compression method. Valid values:
+   * 
+   * - LZ4: the default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
+   * - best_compression: uses the best_compression algorithm for compression, which provides a higher compression ratio.
+   * 
    * @example
    * best_compression
    */
   codec?: string;
+  /**
+   * @remarks
+   * The index lifecycle configuration.
+   */
   lifecycle?: ListComponentIndicesResponseBodyResultContentTemplateSettingsIndexLifecycle;
   static names(): { [key: string]: string } {
     return {
@@ -90,6 +106,10 @@ export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndex 
 }
 
 export class ListComponentIndicesResponseBodyResultContentTemplateSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The index information.
+   */
   index?: ListComponentIndicesResponseBodyResultContentTemplateSettingsIndex;
   static names(): { [key: string]: string } {
     return {
@@ -116,6 +136,10 @@ export class ListComponentIndicesResponseBodyResultContentTemplateSettings exten
 }
 
 export class ListComponentIndicesResponseBodyResultContentTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The settings configuration of the template.
+   */
   settings?: ListComponentIndicesResponseBodyResultContentTemplateSettings;
   static names(): { [key: string]: string } {
     return {
@@ -143,12 +167,22 @@ export class ListComponentIndicesResponseBodyResultContentTemplate extends $dara
 
 export class ListComponentIndicesResponseBodyResultContent extends $dara.Model {
   /**
+   * @remarks
+   * The metadata, which is used to store information such as remarks.
+   * 
    * @example
    * { "description": "set number of shards to one" }
    */
   meta?: { [key: string]: any };
+  /**
+   * @remarks
+   * The composable template object.
+   */
   template?: ListComponentIndicesResponseBodyResultContentTemplate;
   /**
+   * @remarks
+   * The version of the composable template.
+   * 
    * @example
    * 0
    */
@@ -185,9 +219,20 @@ export class ListComponentIndicesResponseBodyResultContent extends $dara.Model {
 }
 
 export class ListComponentIndicesResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the index templates that reference this composable template.
+   */
   composed?: string[];
+  /**
+   * @remarks
+   * The content of the composable template.
+   */
   content?: ListComponentIndicesResponseBodyResultContent;
   /**
+   * @remarks
+   * The name of the composable template.
+   * 
    * @example
    * synthetics-settings
    */
@@ -224,12 +269,23 @@ export class ListComponentIndicesResponseBodyResult extends $dara.Model {
 }
 
 export class ListComponentIndicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response headers.
+   */
   headers?: ListComponentIndicesResponseBodyHeaders;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the returned results.
+   */
   result?: ListComponentIndicesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

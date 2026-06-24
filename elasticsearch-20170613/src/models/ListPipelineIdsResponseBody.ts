@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPipelineIdsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the pipeline is available. Valid values:
+   * 
+   * - true: Available.
+   * 
+   * - false: Not available.
+   * 
    * @example
    * true
    */
   available?: boolean;
   /**
+   * @remarks
+   * The error code returned when the pipeline is unavailable.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message returned when the pipeline is unavailable.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The pipeline ID created in Kibana.
+   * 
    * @example
    * testKibanaManagement
    */
@@ -52,10 +68,17 @@ export class ListPipelineIdsResponseBodyResult extends $dara.Model {
 
 export class ListPipelineIdsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   result?: ListPipelineIdsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

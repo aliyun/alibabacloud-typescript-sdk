@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyElastictaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The scaling information.
+   * 
+   * @example
+   * {     "elasticExpansionTask":     {         "triggerType":"crontab",         "cronExpression":"0 0 0 ? * MON",         "elasticNodeCount":"2",         "targetIndices":["*"],         "replicaCount":"2"     } }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {

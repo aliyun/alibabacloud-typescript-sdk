@@ -30,10 +30,17 @@ export class UpdatePublicWhiteIpsResponseBodyResult extends $dara.Model {
 
 export class UpdatePublicWhiteIpsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C82758DD-282F-4D48-934F-92170A33****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: UpdatePublicWhiteIpsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

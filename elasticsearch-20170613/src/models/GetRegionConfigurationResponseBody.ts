@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRegionConfigurationResponseBodyResultClientNodeAmountRange extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of coordinating nodes.
+   * 
    * @example
    * 25
    */
   maxAmount?: number;
   /**
+   * @remarks
+   * The minimum number of coordinating nodes.
+   * 
    * @example
    * 2
    */
@@ -38,21 +44,33 @@ export class GetRegionConfigurationResponseBodyResultClientNodeAmountRange exten
 
 export class GetRegionConfigurationResponseBodyResultClientNodeDiskList extends $dara.Model {
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * cloud_efficiency
    */
   diskType?: string;
   /**
+   * @remarks
+   * The maximum disk size allowed.
+   * 
    * @example
    * 20
    */
   maxSize?: number;
   /**
+   * @remarks
+   * The minimum disk size allowed.
+   * 
    * @example
    * 20
    */
   minSize?: number;
   /**
+   * @remarks
+   * The maximum continuous value that can be set for the disk size.
+   * 
    * @example
    * 18
    */
@@ -86,21 +104,33 @@ export class GetRegionConfigurationResponseBodyResultClientNodeDiskList extends 
 
 export class GetRegionConfigurationResponseBodyResultDataDiskList extends $dara.Model {
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
+   * @remarks
+   * The maximum disk size allowed.
+   * 
    * @example
    * 5120
    */
   maxSize?: number;
   /**
+   * @remarks
+   * The minimum disk size allowed.
+   * 
    * @example
    * 20
    */
   minSize?: number;
   /**
+   * @remarks
+   * The maximum continuous value that can be set for the disk size.
+   * 
    * @example
    * 2048
    */
@@ -140,11 +170,17 @@ export class GetRegionConfigurationResponseBodyResultDataDiskList extends $dara.
 
 export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of nodes.
+   * 
    * @example
    * 25
    */
   maxAmount?: number;
   /**
+   * @remarks
+   * The minimum number of nodes.
+   * 
    * @example
    * 2
    */
@@ -174,26 +210,45 @@ export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmount
 
 export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether disk encryption is supported.
+   * 
+   * - true: supported
+   * 
+   * - false: not supported
+   * 
    * @example
    * true
    */
   diskEncryption?: boolean;
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
+   * @remarks
+   * The maximum disk size allowed.
+   * 
    * @example
    * 5120
    */
   maxSize?: number;
   /**
+   * @remarks
+   * The minimum disk size allowed.
+   * 
    * @example
    * 500
    */
   minSize?: number;
   /**
+   * @remarks
+   * The maximum continuous value that can be set for the disk size.
+   * 
    * @example
    * 2048
    */
@@ -234,7 +289,15 @@ export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskLi
 }
 
 export class GetRegionConfigurationResponseBodyResultElasticNodeProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The range for the number of elastic nodes.
+   */
   amountRange?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange;
+  /**
+   * @remarks
+   * The list of disk configurations.
+   */
   diskList?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList[];
   spec?: string[];
   static names(): { [key: string]: string } {
@@ -273,11 +336,17 @@ export class GetRegionConfigurationResponseBodyResultElasticNodeProperties exten
 
 export class GetRegionConfigurationResponseBodyResultEsVersionsLatestList extends $dara.Model {
   /**
+   * @remarks
+   * The supported major version number.
+   * 
    * @example
    * 5.5_with_X-Pack
    */
   key?: string;
   /**
+   * @remarks
+   * The full name of the supported minor version.
+   * 
    * @example
    * 5.5.3_with_X-Pack
    */
@@ -307,6 +376,9 @@ export class GetRegionConfigurationResponseBodyResultEsVersionsLatestList extend
 
 export class GetRegionConfigurationResponseBodyResultJvmConfine extends $dara.Model {
   /**
+   * @remarks
+   * The minimum memory size required to enable JVM garbage collection.
+   * 
    * @example
    * 32
    */
@@ -346,11 +418,17 @@ export class GetRegionConfigurationResponseBodyResultJvmConfine extends $dara.Mo
 
 export class GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of nodes.
+   * 
    * @example
    * 20
    */
   maxAmount?: number;
   /**
+   * @remarks
+   * The minimum number of nodes.
+   * 
    * @example
    * 1
    */
@@ -379,6 +457,10 @@ export class GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountR
 }
 
 export class GetRegionConfigurationResponseBodyResultKibanaNodeProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The allowed range for the number of nodes.
+   */
   amountRange?: GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange;
   spec?: string[];
   static names(): { [key: string]: string } {
@@ -412,21 +494,33 @@ export class GetRegionConfigurationResponseBodyResultKibanaNodeProperties extend
 
 export class GetRegionConfigurationResponseBodyResultMasterDiskList extends $dara.Model {
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
+   * @remarks
+   * The maximum disk size allowed.
+   * 
    * @example
    * 20
    */
   maxSize?: number;
   /**
+   * @remarks
+   * The minimum disk size allowed.
+   * 
    * @example
    * 20
    */
   minSize?: number;
   /**
+   * @remarks
+   * The maximum continuous value that can be set for the disk size.
+   * 
    * @example
    * 20
    */
@@ -460,11 +554,17 @@ export class GetRegionConfigurationResponseBodyResultMasterDiskList extends $dar
 
 export class GetRegionConfigurationResponseBodyResultNode extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of data nodes allowed.
+   * 
    * @example
    * 50
    */
   maxAmount?: number;
   /**
+   * @remarks
+   * The minimum number of data nodes allowed.
+   * 
    * @example
    * 2
    */
@@ -494,36 +594,66 @@ export class GetRegionConfigurationResponseBodyResultNode extends $dara.Model {
 
 export class GetRegionConfigurationResponseBodyResultNodeSpecList extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores for this specification.
+   * 
    * @example
    * 16
    */
   cpuCount?: number;
   /**
+   * @remarks
+   * The disk size for this specification.
+   * 
    * @example
    * 44000
    */
   disk?: number;
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * local_efficiency
    */
   diskType?: string;
   /**
+   * @remarks
+   * Indicates whether the specification is available for purchase.
+   * 
+   * - true: available
+   * - false: unavailable
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The memory size of the node.
+   * 
    * @example
    * 64
    */
   memorySize?: number;
   /**
+   * @remarks
+   * The specification name.
+   * 
    * @example
    * elasticsearch.sn2ne.large
    */
   spec?: string;
   /**
+   * @remarks
+   * The storage type. Valid values:
+   * 
+   * - common: cloud disk
+   * 
+   * - local_efficiency: local SATA disk
+   * 
+   * - local_ssd: local SSD disk
+   * 
    * @example
    * local_efficiency
    */
@@ -563,11 +693,17 @@ export class GetRegionConfigurationResponseBodyResultNodeSpecList extends $dara.
 
 export class GetRegionConfigurationResponseBodyResultSupportVersionsSupportVersionList extends $dara.Model {
   /**
+   * @remarks
+   * The version available on the purchase page.
+   * 
    * @example
    * 5.5
    */
   key?: string;
   /**
+   * @remarks
+   * The detailed version number.
+   * 
    * @example
    * 5.5.3
    */
@@ -597,10 +733,21 @@ export class GetRegionConfigurationResponseBodyResultSupportVersionsSupportVersi
 
 export class GetRegionConfigurationResponseBodyResultSupportVersions extends $dara.Model {
   /**
+   * @remarks
+   * The instance category. Valid values:
+   * 
+   * - advanced: Enhanced Edition
+   * 
+   * - x-pack: Commercial Edition
+   * 
    * @example
    * x-pack
    */
   instanceCategory?: string;
+  /**
+   * @remarks
+   * The supported Elasticsearch version information.
+   */
   supportVersionList?: GetRegionConfigurationResponseBodyResultSupportVersionsSupportVersionList[];
   static names(): { [key: string]: string } {
     return {
@@ -630,11 +777,17 @@ export class GetRegionConfigurationResponseBodyResultSupportVersions extends $da
 
 export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of nodes.
+   * 
    * @example
    * 50
    */
   maxAmount?: number;
   /**
+   * @remarks
+   * The minimum number of nodes.
+   * 
    * @example
    * 2
    */
@@ -664,26 +817,45 @@ export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRan
 
 export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether disk encryption is supported.
+   * 
+   * - true: supported
+   * 
+   * - false: not supported
+   * 
    * @example
    * true
    */
   diskEncryption?: boolean;
   /**
+   * @remarks
+   * The disk storage type.
+   * 
    * @example
    * cloud_efficiency
    */
   diskType?: string;
   /**
+   * @remarks
+   * The maximum disk size allowed.
+   * 
    * @example
    * 5120
    */
   maxSize?: number;
   /**
+   * @remarks
+   * The minimum disk size allowed.
+   * 
    * @example
    * 500
    */
   minSize?: number;
   /**
+   * @remarks
+   * The maximum continuous value that can be set for the disk size.
+   * 
    * @example
    * 2048
    */
@@ -724,7 +896,15 @@ export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList 
 }
 
 export class GetRegionConfigurationResponseBodyResultWarmNodeProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The range for the number of nodes.
+   */
   amountRange?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange;
+  /**
+   * @remarks
+   * The list of disk configurations.
+   */
   diskList?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList[];
   spec?: string[];
   static names(): { [key: string]: string } {
@@ -762,37 +942,94 @@ export class GetRegionConfigurationResponseBodyResultWarmNodeProperties extends 
 }
 
 export class GetRegionConfigurationResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The range for the number of coordinating nodes.
+   */
   clientNodeAmountRange?: GetRegionConfigurationResponseBodyResultClientNodeAmountRange;
+  /**
+   * @remarks
+   * The allowed values for coordinating node disks.
+   */
   clientNodeDiskList?: GetRegionConfigurationResponseBodyResultClientNodeDiskList[];
   clientNodeSpec?: string[];
   /**
+   * @remarks
+   * The URL of the purchase page.
+   * 
    * @example
    * https://common-buy.aliyun.com/?commodityCode=elasticsearch&orderType=BUY#/buy
    */
   createUrl?: string;
+  /**
+   * @remarks
+   * The allowed values for data node disks.
+   */
   dataDiskList?: GetRegionConfigurationResponseBodyResultDataDiskList[];
+  /**
+   * @remarks
+   * The elastic node configuration.
+   */
   elasticNodeProperties?: GetRegionConfigurationResponseBodyResultElasticNodeProperties;
   /**
+   * @remarks
+   * The environment flag.
+   * 
    * @example
    * production
    */
   env?: string;
   esVersions?: string[];
+  /**
+   * @remarks
+   * The list of Elasticsearch versions available for purchase.
+   */
   esVersionsLatestList?: GetRegionConfigurationResponseBodyResultEsVersionsLatestList[];
   instanceSupportNodes?: string[];
+  /**
+   * @remarks
+   * The JVM validation configuration.
+   */
   jvmConfine?: GetRegionConfigurationResponseBodyResultJvmConfine;
+  /**
+   * @remarks
+   * The Kibana node configuration.
+   */
   kibanaNodeProperties?: GetRegionConfigurationResponseBodyResultKibanaNodeProperties;
   logstashZones?: string[];
+  /**
+   * @remarks
+   * The allowed values for dedicated master node disks.
+   */
   masterDiskList?: GetRegionConfigurationResponseBodyResultMasterDiskList[];
   masterSpec?: string[];
+  /**
+   * @remarks
+   * The node configuration.
+   */
   node?: GetRegionConfigurationResponseBodyResultNode;
+  /**
+   * @remarks
+   * The list of data node specifications.
+   */
   nodeSpecList?: GetRegionConfigurationResponseBodyResultNodeSpecList[];
   /**
+   * @remarks
+   * The current region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The supported version configurations.
+   */
   supportVersions?: GetRegionConfigurationResponseBodyResultSupportVersions[];
+  /**
+   * @remarks
+   * The warm node configuration.
+   */
   warmNodeProperties?: GetRegionConfigurationResponseBodyResultWarmNodeProperties;
   zones?: string[];
   static names(): { [key: string]: string } {
@@ -912,10 +1149,17 @@ export class GetRegionConfigurationResponseBodyResult extends $dara.Model {
 
 export class GetRegionConfigurationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6F******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned region configuration information.
+   */
   result?: GetRegionConfigurationResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

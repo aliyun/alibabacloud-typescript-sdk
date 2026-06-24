@@ -30,10 +30,17 @@ export class UpdatePrivateNetworkWhiteIpsResponseBodyResult extends $dara.Model 
 
 export class UpdatePrivateNetworkWhiteIpsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6DEBE5EE-0368-4757-8F82-EF9C3972****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: UpdatePrivateNetworkWhiteIpsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

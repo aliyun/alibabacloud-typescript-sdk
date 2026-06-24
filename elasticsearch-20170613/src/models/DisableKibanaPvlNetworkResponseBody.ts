@@ -5,13 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DisableKibanaPvlNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request id
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1DERFG
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The operation is successful.
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataStreamsResponseBodyHeaders extends $dara.Model {
   /**
+   * @remarks
+   * The total number of data streams.
+   * 
    * @example
    * 100
    */
   xManagedCount?: number;
   /**
+   * @remarks
+   * The total storage size of indexes. Unit: bytes.
+   * 
    * @example
    * 143993923932990
    */
@@ -38,31 +44,60 @@ export class ListDataStreamsResponseBodyHeaders extends $dara.Model {
 
 export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data stream list was queried.
+   * 
    * @example
    * 2018-07-13T03:58:07.253Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The index status. Valid values:
+   * 
+   * - Green: healthy.
+   * 
+   * - Yellow: warning.
+   * 
+   * - Red: abnormal.
+   * 
    * @example
    * Green
    */
   health?: string;
   /**
+   * @remarks
+   * This field is deprecated and can be ignored.
+   * 
    * @example
    * false
    */
   isManaged?: boolean;
   /**
+   * @remarks
+   * The managed status of the index. Valid values:
+   * - following: managed.
+   * 
+   * - closing: being unmanaged.
+   * 
+   * - closed: not managed.
+   * 
    * @example
    * following
    */
   managedStatus?: string;
   /**
+   * @remarks
+   * The data stream name.
+   * 
    * @example
    * Log1
    */
   name?: string;
   /**
+   * @remarks
+   * The total storage space occupied by the current index. Unit: bytes.
+   * 
    * @example
    * 15393899
    */
@@ -100,32 +135,60 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
 
 export class ListDataStreamsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The data stream status. Valid values:
+   * 
+   * - Green: healthy.
+   * 
+   * - Yellow: warning.
+   * 
+   * - Red: abnormal.
+   * 
    * @example
    * Green
    */
   health?: string;
   /**
+   * @remarks
+   * The index lifecycle policy name.
+   * 
    * @example
    * rollver1
    */
   ilmPolicyName?: string;
   /**
+   * @remarks
+   * The index template name.
+   * 
    * @example
    * template1
    */
   indexTemplateName?: string;
+  /**
+   * @remarks
+   * The index information under the current data stream.
+   */
   indices?: ListDataStreamsResponseBodyResultIndices[];
   /**
+   * @remarks
+   * The total storage space occupied by managed indexes under the current data stream. Unit: bytes.
+   * 
    * @example
    * 1788239393298
    */
   managedStorageSize?: number;
   /**
+   * @remarks
+   * The index name.
+   * 
    * @example
    * my-index-0001
    */
   name?: string;
   /**
+   * @remarks
+   * The total storage space occupied by all indexes under the current data stream. Unit: bytes.
+   * 
    * @example
    * 1788239393298
    */
@@ -167,12 +230,23 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
 }
 
 export class ListDataStreamsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response headers.
+   */
   headers?: ListDataStreamsResponseBodyHeaders;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the returned data streams.
+   */
   result?: ListDataStreamsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

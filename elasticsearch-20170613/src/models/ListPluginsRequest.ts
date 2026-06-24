@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * SYSTEM
+   * The plugin name.
    * 
    * @example
    * analysis-ik
@@ -13,7 +13,7 @@ export class ListPluginsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListPluginsRequest extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The header of the response.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListPluginsRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The plugin source type. Only SYSTEM (system plugin) is supported.
    * 
    * @example
    * SYSTEM

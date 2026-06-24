@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The Java Virtual Machine (JVM) heap memory usage of the node.
+   * Specifies whether to return monitoring information for the nodes. Valid values:
+   * 
+   * - true (default): Returns monitoring information.
+   * 
+   * - false: Does not return monitoring information.
    * 
    * @example
    * false

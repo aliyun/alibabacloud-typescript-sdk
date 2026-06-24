@@ -5,22 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the diagnostic report was generated.
+   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The diagnostic items.
+   */
   diagnoseItems?: string[];
+  /**
+   * @remarks
+   * The list of indexes to diagnose.
+   */
   indices?: string[];
   /**
+   * @remarks
+   * The type of the diagnostic task. Valid values:
+   * 
+   * - ALL: Diagnoses all indexes.
+   * - SELECT: Diagnoses selected indexes.
+   * 
    * @example
    * ALL
    */
   type?: string;
   /**
    * @remarks
-   * The returned data.
+   * The language of the report. Default value: browser language. Valid values:
+   * 
+   * - en: English
+   * - zh: Simplified Chinese
+   * - zt: Traditional Chinese
+   * - es: Spanish
+   * - fr: French.
    * 
    * @example
    * en

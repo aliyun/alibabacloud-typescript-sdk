@@ -12,6 +12,9 @@ export class UpdateKibanaSsoResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return Result.
+   * 
    * @example
    * true
    */

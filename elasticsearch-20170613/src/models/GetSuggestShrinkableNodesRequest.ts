@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSuggestShrinkableNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of nodes that you want to remove.
+   * The expected number of removable nodes to retrieve.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetSuggestShrinkableNodesRequest extends $dara.Model {
   ignoreStatus?: boolean;
   /**
    * @remarks
-   * The type of removing nodes. WORKER indicates hot node and WORKER_WARM indicates warm node.
+   * The type of nodes to scale in. **WORKER** indicates hot nodes. **WORKER_WARM** indicates warm nodes.
    * 
    * This parameter is required.
    * 

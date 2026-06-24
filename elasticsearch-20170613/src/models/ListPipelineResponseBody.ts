@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelineResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The time when the pipeline was updated.
+   * The total number of records.
    * 
    * @example
    * 2
@@ -34,28 +34,37 @@ export class ListPipelineResponseBodyHeaders extends $dara.Model {
 
 export class ListPipelineResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The time when the pipeline was created.
+   * 
    * @example
    * 2020-08-05T03:10:38.188Z
    */
   gmtCreatedTime?: string;
   /**
+   * @remarks
+   * The time when the pipeline was last updated.
+   * 
    * @example
    * 2020-08-05T08:43:31.757Z
    */
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The status of the pipeline. Supported:
-   * 
-   * *   NOT_DEPLOYED: The node is not deployed.
-   * *   RUNNING
-   * *   DELETED: Deleted. The console does not display this status.
+   * The pipeline ID.
    * 
    * @example
    * pipeline_test
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The pipeline status. Valid values:
+   * 
+   * - NOT_DEPLOYED: not deployed.
+   * - RUNNING: running.
+   * - DELETED: deleted. This status is not displayed in the console.
+   * 
    * @example
    * NOT_DEPLOYED
    */
@@ -90,12 +99,12 @@ export class ListPipelineResponseBodyResult extends $dara.Model {
 export class ListPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * The response headers.
    */
   headers?: ListPipelineResponseBodyHeaders;
   /**
    * @remarks
-   * The response.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -103,7 +112,7 @@ export class ListPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the pipeline was created.
+   * The returned results.
    */
   result?: ListPipelineResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSearchLogResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the node that generates the log.
+   * The total number of records for the instance.
    * 
    * @example
    * 1000
@@ -35,39 +35,56 @@ export class ListSearchLogResponseBodyHeaders extends $dara.Model {
 export class ListSearchLogResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The detailed log content. This field has been migrated to the contentCollection field.
    * 
    * @example
    * [GC (Allocation Failure) 2018-07-19T17:24:20.682+0800: 7516.513: [ParNew: 6604768K->81121K(7341504K), 0.0760606 secs] 7226662K->703015K(31813056K), 0.0762507 secs] [Times: user=0.52 sys=0.00, real=0.07 secs]
    */
   content?: string;
   /**
+   * @remarks
+   * The log details. Different log types return different content fields.
+   * 
    * @example
    * {"level": "info", "host": "``192.168.**.**``", "time": "2019-03-18T08:16:12.741Z","content": "[o.e.c.r.a.AllocationService] [MnNASM_] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[my_index][3]] ...])."}
    */
   contentCollection?: { [key: string]: any };
   /**
    * @remarks
-   * Details of the log entry. Different content fields are returned for different log types.
+   * The IP address of the node that generated the log.
    * 
    * @example
    * ``192.168.**.**``
    */
   host?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * es-cn-n6w1o1x0w001c****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The timestamp when the log is generated. Unit: ms.
+   * The log level. Valid values:
+   * 
+   * - warn: warning log
+   * - info: information log
+   * - error: error log
+   * - trace: trace log
+   * - debug: debug log
+   * 
+   * The level information has been migrated to the contentCollection field.
    * 
    * @example
    * info
    */
   level?: string;
   /**
+   * @remarks
+   * The timestamp when the log was generated, in milliseconds.
+   * 
    * @example
    * 1531985112420
    */
@@ -109,20 +126,12 @@ export class ListSearchLogResponseBodyResult extends $dara.Model {
 export class ListSearchLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The level of the log. Valid values:
-   * 
-   * *   warn: warning log
-   * *   info: information log
-   * *   error: error log
-   * *   trace: trace logs
-   * *   debug: debug logs
-   * 
-   * The level information has been migrated to the contentCollection field.
+   * The response headers.
    */
   headers?: ListSearchLogResponseBodyHeaders;
   /**
    * @remarks
-   * The list of logs returned by the request.
+   * The request ID.
    * 
    * @example
    * 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
@@ -130,7 +139,7 @@ export class ListSearchLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The content of the log entry. Migrated to the contentCollection field.
+   * The list of logs returned by the request.
    */
   result?: ListSearchLogResponseBodyResult[];
   static names(): { [key: string]: string } {

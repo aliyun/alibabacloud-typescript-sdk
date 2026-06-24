@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The data restoration progress.
+   * The data recovery progress.
    * 
    * @example
    * 80%
@@ -13,7 +13,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   bytesPercent?: string;
   /**
    * @remarks
-   * The total amount of data that is restored.
+   * The total amount of data to be recovered.
    * 
    * @example
    * 12086
@@ -21,7 +21,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   bytesTotal?: number;
   /**
    * @remarks
-   * The file execution progress.
+   * The file recovery progress.
    * 
    * @example
    * 80.0%
@@ -37,7 +37,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   filesTotal?: number;
   /**
    * @remarks
-   * The name of the index.
+   * The index name.
    * 
    * @example
    * my-index-000001
@@ -53,7 +53,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   sourceHost?: string;
   /**
    * @remarks
-   * The name of the source node.
+   * The source node.
    * 
    * @example
    * 2Kni3dJ
@@ -61,14 +61,19 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   sourceNode?: string;
   /**
    * @remarks
-   * The data restoration status. Valid values:
+   * The stage of the data recovery process. Valid values:
    * 
-   * *   done: Data restoration is complete.
-   * *   finalize: Data is being cleared.
-   * *   index: Index metadata is being read, and bytes are being copied from source to destination.
-   * *   init: Data restoration is not started.
-   * *   start: Data restoration is started.
-   * *   translog: Translogs are being redone.
+   * - done: Recovery is complete.
+   * 
+   * - finalize: Cleanup operations are in progress.
+   * 
+   * - index: Reading index metadata and copying bytes from the source to the target.
+   * 
+   * - init: Recovery has not started.
+   * 
+   * - start: Recovery is starting.
+   * 
+   * - translog: Replaying the transaction log.
    * 
    * @example
    * done
@@ -76,7 +81,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   stage?: string;
   /**
    * @remarks
-   * The IP address of the destination node.
+   * The IP address of the target node.
    * 
    * @example
    * 192.168.XX.XX
@@ -84,7 +89,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   targetHost?: string;
   /**
    * @remarks
-   * The name of the destination node.
+   * The target node.
    * 
    * @example
    * YVVKLmW
@@ -92,7 +97,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   targetNode?: string;
   /**
    * @remarks
-   * The number of translog operations to be restored.
+   * The number of translog operations to be recovered.
    * 
    * @example
    * 12086
@@ -100,7 +105,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
   translogOps?: number;
   /**
    * @remarks
-   * The restoration progress of translog operations.
+   * The progress of translog operation recovery.
    * 
    * @example
    * 80%
@@ -152,7 +157,7 @@ export class ListShardRecoveriesResponseBodyResult extends $dara.Model {
 export class ListShardRecoveriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
@@ -160,7 +165,7 @@ export class ListShardRecoveriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListShardRecoveriesResponseBodyResult[];
   static names(): { [key: string]: string } {

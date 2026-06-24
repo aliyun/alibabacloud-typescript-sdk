@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogstashResponseBodyResultTags extends $dara.Model {
   /**
    * @remarks
-   * The value of the tag.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class DescribeLogstashResponseBodyResultTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The information about the zones.
+   * The tag value.
    * 
    * @example
    * dev
@@ -45,7 +45,10 @@ export class DescribeLogstashResponseBodyResultTags extends $dara.Model {
 export class DescribeLogstashResponseBodyResultZoneInfos extends $dara.Model {
   /**
    * @remarks
-   * The zone ID of the new instance.
+   * The status of the zone. Valid values:
+   * 
+   * - ISOLATION: offline.
+   * - NORMAL: Normal.
    * 
    * @example
    * NORMAL
@@ -53,7 +56,7 @@ export class DescribeLogstashResponseBodyResultZoneInfos extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The configuration of cluster extension parameters.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -85,7 +88,7 @@ export class DescribeLogstashResponseBodyResultZoneInfos extends $dara.Model {
 export class DescribeLogstashResponseBodyResultEndpointList extends $dara.Model {
   /**
    * @remarks
-   * The tags added to the ALB instance.
+   * The IP address of the node.
    * 
    * @example
    * ``172.16.**.**``
@@ -93,7 +96,7 @@ export class DescribeLogstashResponseBodyResultEndpointList extends $dara.Model 
   host?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The port number.
    * 
    * @example
    * 9600
@@ -101,7 +104,7 @@ export class DescribeLogstashResponseBodyResultEndpointList extends $dara.Model 
   port?: string;
   /**
    * @remarks
-   * The port number.
+   * The zone ID of the node.
    * 
    * @example
    * cn-hangzhou-b
@@ -135,7 +138,7 @@ export class DescribeLogstashResponseBodyResultEndpointList extends $dara.Model 
 export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
    * 
    * @example
    * vpc
@@ -143,7 +146,7 @@ export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The zone where the cluster resides.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -151,13 +154,16 @@ export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model
   vpcId?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values: Currently, only Virtual Private Cloud (VPC) are supported.
+   * The zone in which the instance resides.
    * 
    * @example
    * cn-hangzhou-*
    */
   vsArea?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp1k4ec6s7sjdbudw****
    */
@@ -192,10 +198,7 @@ export class DescribeLogstashResponseBodyResultNetworkConfig extends $dara.Model
 export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * Whether to use disk encryption:
-   * 
-   * *   true
-   * *   false
+   * The disk size of the node.
    * 
    * @example
    * 20
@@ -203,7 +206,10 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * The disk type of the node.
+   * Indicates whether cloud disk encryption is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -211,7 +217,7 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskEncryption?: boolean;
   /**
    * @remarks
-   * The network configurations.
+   * The disk type of the node.
    * 
    * @example
    * cloud_ssd
@@ -219,7 +225,7 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The disk size of the node.
+   * The specification of the node.
    * 
    * @example
    * elasticsearch.sn1ne.large
@@ -253,14 +259,10 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
 }
 
 export class DescribeLogstashResponseBodyResult extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration information of the node.
-   */
   extendConfigs?: { [key: string]: any }[];
   /**
    * @remarks
-   * The number of data nodes.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-aekzvowej3i****
@@ -268,23 +270,17 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The instance labels.
    */
   tags?: DescribeLogstashResponseBodyResultTags[];
   /**
    * @remarks
-   * The status of the zone. Valid values:
-   * 
-   * *   ISOLATION: offline
-   * *   NORMAL
+   * The zone information.
    */
   zoneInfos?: DescribeLogstashResponseBodyResultZoneInfos[];
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   prepaid: subscription
-   * *   postpaid: pay-as-you-go
+   * The instance configuration.
    * 
    * @example
    * {"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" }
@@ -292,12 +288,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The state of the instance. Four states are supported:
-   * 
-   * *   Normal: active
-   * *   Active: activating
-   * *   Freeze: inactive
-   * *   Invalid: invalid
+   * The time when the instance was created.
    * 
    * @example
    * 2020-02-06T14:12:03.672Z
@@ -305,7 +296,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The name of the instance.
    * 
    * @example
    * ls-cn-abc
@@ -314,12 +305,12 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the zone where the node resides.
+   * The access information of the nodes.
    */
   endpointList?: DescribeLogstashResponseBodyResultEndpointList[];
   /**
    * @remarks
-   * The access information of the node.
+   * The instance ID.
    * 
    * @example
    * ls-cn-abc
@@ -327,12 +318,12 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The network configuration.
    */
   networkConfig?: DescribeLogstashResponseBodyResultNetworkConfig;
   /**
    * @remarks
-   * The name of the instance.
+   * The number of nodes in the instance.
    * 
    * @example
    * 2
@@ -340,12 +331,15 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The specifications of the node.
+   * The configuration of the node.
    */
   nodeSpec?: DescribeLogstashResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The billing method of the instance. Valid values:
+   * 
+   * - prepaid: subscription
+   * - postpaid: pay-as-you-go.
    * 
    * @example
    * prepaid
@@ -353,7 +347,12 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the elastic container instances belong.
+   * The status of the instance. Valid values:
+   * 
+   * - active: Normal.
+   * - activating: Taking effect.
+   * - inactive: Frozen.
+   * - invalid: Expired.
    * 
    * @example
    * active
@@ -361,7 +360,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The edition of the dedicated KMS instance.
+   * The time when the instance was last updated.
    * 
    * @example
    * 2020-02-06T14:22:36.850Z
@@ -369,7 +368,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The version of the instance.
    * 
    * @example
    * 7.4.0_with_X-Pack
@@ -377,7 +376,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The ID of the VPC to which the instance belongs.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -462,7 +461,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
 export class DescribeLogstashResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information about the instance.
+   * The request ID.
    * 
    * @example
    * C9334241-4837-46C2-B24B-9BDC517318DE
@@ -470,7 +469,7 @@ export class DescribeLogstashResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of the instance.
+   * The details of the instance.
    */
   result?: DescribeLogstashResponseBodyResult;
   static names(): { [key: string]: string } {

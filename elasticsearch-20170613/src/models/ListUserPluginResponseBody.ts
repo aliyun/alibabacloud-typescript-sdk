@@ -4,36 +4,69 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   /**
+   * @remarks
+   * Plugin Description.
+   * 
    * @example
    * The plugin***
    */
   description?: string;
   /**
+   * @remarks
+   * Elasticsearch version of the plugin.
+   * 
    * @example
    * 8.17.0
    */
   elasticsearchVersion?: string;
   /**
+   * @remarks
+   * Plugin UUID
+   * 
    * @example
    * CAEQaRiBgIDI2tie6hkiIGIwM2I3MjZmNjk3YzR***
    */
   fileVersion?: string;
   /**
+   * @remarks
+   * Plugin Name.
+   * 
    * @example
    * dynamic-name
    */
   name?: string;
   /**
+   * @remarks
+   * Plugin Source. Valid values:
+   * 
+   * - USER: Custom plugin  
+   * - SYSTEM: Preset system plugin
+   * 
    * @example
    * USER
    */
   source?: string;
   /**
+   * @remarks
+   * Plugin Status
+   * 
+   * - INSTALLED,
+   * - UNINSTALLED,
+   * - INSTALLING,
+   * - UNINSTALLING,
+   * - UPGRADING,
+   * - FAILED,
+   * - UNKNOWN,
+   * - UPLOADING,
+   * 
    * @example
    * UNINSTALLED
    */
   state?: string;
   /**
+   * @remarks
+   * Plugin Version.
+   * 
    * @example
    * 8.17.0
    */
@@ -72,23 +105,39 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
 }
 
 export class ListUserPluginResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of plugins with the same name
+   */
   bingoPlugins?: ListUserPluginResponseBodyResultBingoPlugins[];
   /**
+   * @remarks
+   * Plugin Name.
+   * 
    * @example
    * ct-test
    */
   name?: string;
   /**
+   * @remarks
+   * Plugin Source.
+   * 
    * @example
    * USER
    */
   source?: string;
   /**
+   * @remarks
+   * Plugin Status.
+   * 
    * @example
    * UNINSTALLED
    */
   state?: string;
   /**
+   * @remarks
+   * Plugin Version.
+   * 
    * @example
    * 8.17.0
    */
@@ -127,15 +176,25 @@ export class ListUserPluginResponseBodyResult extends $dara.Model {
 
 export class ListUserPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response header information.
+   * 
    * @example
    * {\\"totalCount\\": 1, \\"X-Total-Count\\": 1}
    */
   headers?: { [key: string]: any };
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 5EEF8FAE-EEDD***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result array
+   */
   result?: ListUserPluginResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCollectorResponseBodyResultConfigs extends $dara.Model {
   /**
    * @remarks
-   * The content of the file.
+   * The file content.
    * 
    * @example
    * fileBeat.inputs:xxx
@@ -13,7 +13,7 @@ export class DescribeCollectorResponseBodyResultConfigs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * filebeat.yml
@@ -45,12 +45,12 @@ export class DescribeCollectorResponseBodyResultConfigs extends $dara.Model {
 export class DescribeCollectorResponseBodyResultExtendConfigsMachines extends $dara.Model {
   /**
    * @remarks
-   * The status of the shipper on the ECS instance. Valid values:
+   * The status of the collector on the ECS instance. Valid values:
    * 
-   * *   heartOk: The heartbeat is normal.
-   * *   heartLost: The heartbeat is abnormal.
-   * *   uninstalled: The shipper is not installed.
-   * *   failed: The shipper fails to be installed.
+   * - heartOk: The heartbeat is normal.
+   * - heartLost: The heartbeat is abnormal.
+   * - uninstalled: Not installed.
+   * - failed: Installation failed.
    * 
    * @example
    * heartOk
@@ -58,7 +58,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigsMachines extends $d
   agentStatus?: string;
   /**
    * @remarks
-   * The IDs of the ECS instances.
+   * The list of ECS instance IDs.
    * 
    * @example
    * i-bp1gyhphjaj73jsr****
@@ -92,9 +92,9 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
    * @remarks
    * The configuration type. Valid values:
    * 
-   * *   collectorTargetInstance
-   * *   collectorDeployMachine
-   * *   collectorElasticsearchForKibana
+   * - collectorTargetInstance: the collector Output
+   * - collectorDeployMachine: the deployment machine of the collector
+   * - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana Dashboard.
    * 
    * @example
    * collectorDeployMachine
@@ -102,10 +102,11 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   configType?: string;
   /**
    * @remarks
-   * Indicates whether monitoring is enabled. This parameter is returned if the value of **configType** is **collectorTargetInstance**. Valid values:
+   * Indicates whether Monitoring is enabled. This parameter is displayed when **configType** is set to **collectorTargetInstance**. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -113,7 +114,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   enableMonitoring?: boolean;
   /**
    * @remarks
-   * The ID of the machine group. This parameter is returned if the value of **configType** is **collectorDeployMachine**.
+   * The machine group ID. This parameter is displayed when **configType** is set to **collectorDeployMachine**.
    * 
    * @example
    * default_ct-cn-5i2l75bz4776****
@@ -121,7 +122,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   groupId?: string;
   /**
    * @remarks
-   * The private endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+   * The private endpoint of Kibana after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601
@@ -130,7 +131,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the resource that is associated with the shipper. If the value of **configType** is **collectorTargetInstance**, the value of this parameter is the ID of the resource specified in the output configuration part of the shipper. If the value of **configType** is **collectorDeployMachines** and the value of **type** is **ACKCluster**, the value of this parameter is the ID of the ACK cluster.
+   * The ID of the instance associated with the collector. When **configType** is set to **collectorTargetInstance**, this parameter indicates the instance ID of the collector Output. When **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this parameter indicates the ACK (Container Kubernetes) cluster ID.
    * 
    * @example
    * es-cn-n6w1o1****
@@ -138,7 +139,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The type of the cluster specified in the output configuration part of the shipper. Valid values: elasticsearch and logstash. This parameter is returned if the value of **configType** is **collectorTargetInstance**.
+   * The type of instance specified in the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * elasticsearch
@@ -146,7 +147,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   instanceType?: string;
   /**
    * @remarks
-   * The public endpoint of Kibana after you enable the Kibana dashboard. This parameter is returned if the value of **configType** is **collectorElasticsearchForKibana**.
+   * The public network access address of Kibana after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
    * 
    * @example
    * https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601
@@ -154,12 +155,12 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   kibanaHost?: string;
   /**
    * @remarks
-   * The information about the Elastic Compute Service (ECS) instances on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachines** and the value of **type** is **ECSInstanceId**.
+   * The list of ECS machines on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ECSInstanceId**.
    */
   machines?: DescribeCollectorResponseBodyResultExtendConfigsMachines[];
   /**
    * @remarks
-   * The transmission protocol, which must be the same as the access protocol of the resource specified in the output configuration part of the shipper. Valid values: HTTP and HTTPS. This parameter is returned if the value of **configType** is **collectorTargetInstance**.
+   * The transport protocol, which must be the same as the access protocol of the instance specified in the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -167,7 +168,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   protocol?: string;
   /**
    * @remarks
-   * The number of pods from which data is succcessfully collected in the Container Service for Kubernetes (ACK) cluster.
+   * The number of pods in the ACK cluster from which data is successfully collected.
    * 
    * @example
    * 8
@@ -175,7 +176,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   successPodsCount?: string;
   /**
    * @remarks
-   * The total number of pods from which data is collected in the ACK cluster.
+   * The total number of pods in the ACK cluster from which data is collected.
    * 
    * @example
    * 10
@@ -183,10 +184,10 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   totalPodsCount?: string;
   /**
    * @remarks
-   * The type of the machine on which the shipper is deployed. This parameter is returned if the value of **configType** is **collectorDeployMachine**. Valid values:
+   * The type of machine on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
    * 
-   * *   ECSInstanceId
-   * *   ACKCluster
+   * - ECSInstanceId: ECS
+   * - ACKCluster: Container Kubernetes.
    * 
    * @example
    * ECSInstanceId
@@ -194,7 +195,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The username that is used to access the resource specified in the output configuration part of the shipper. The default value is elastic. This parameter is returned if the value of **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+   * The username used to access the instance specified in the collector Output. Default value: elastic. This parameter is displayed when **configType** is set to **collectorTargetInstance** or **collectorElasticsearchForKibana**.
    * 
    * @example
    * elastic
@@ -257,15 +258,15 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   collectorPaths?: string[];
   /**
    * @remarks
-   * The information about the configuration file of the shipper.
+   * The configuration file information of the collector.
    */
   configs?: DescribeCollectorResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Indicates whether a dry run is performed. Valid values:
+   * Specifies whether to perform only a dry run without creating the collector. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Only validates the request without creating the collector.
+   * - false: Validates the request and creates the collector.
    * 
    * @example
    * false
@@ -273,12 +274,12 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The extended configurations of the shipper.
+   * The extended configurations of the collector.
    */
   extendConfigs?: DescribeCollectorResponseBodyResultExtendConfigs[];
   /**
    * @remarks
-   * The time when the shipper was created.
+   * The time when the collector was created.
    * 
    * @example
    * 2020-06-20T07:26:47.000+0000
@@ -286,7 +287,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the shipper was updated.
+   * The time when the collector was last updated.
    * 
    * @example
    * 2020-06-20T07:26:47.000+0000
@@ -294,7 +295,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   gmtUpdateTime?: string;
   /**
    * @remarks
-   * The name of the shipper.
+   * The collector name.
    * 
    * @example
    * ct-cn-4135is2tj194p****
@@ -310,7 +311,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the shipper.
+   * The collector instance ID.
    * 
    * @example
    * ct-cn-rg31ahn82m0qd****
@@ -318,7 +319,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   resId?: string;
   /**
    * @remarks
-   * The type of the shipper. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+   * The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
    * 
    * @example
    * fileBeat
@@ -326,7 +327,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   resType?: string;
   /**
    * @remarks
-   * The version of the shipper.
+   * The collector version.
    * 
    * @example
    * 6.8.5_with_community
@@ -334,10 +335,10 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   resVersion?: string;
   /**
    * @remarks
-   * The status of the shipper. Valid values:
+   * The collector status. Valid values:
    * 
-   * *   activating
-   * *   active
+   * - activing: being activated
+   * - active: activated.
    * 
    * @example
    * active
@@ -345,7 +346,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the shipper resides.
+   * The ID of the virtual private cloud (VPC) where the collector resides.
    * 
    * @example
    * vpc-bp16k1dvzxtma*****

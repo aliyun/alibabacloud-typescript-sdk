@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class DeletePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the pipeline is deleted. Valid values:
+   * The returned result:
    * 
-   * *   true: The pipeline is deleted.
-   * *   false: The pipeline fails to be deleted.
+   * - true: The pipelines are deleted.
+   * - false: The pipelines failed to be deleted.
    * 
    * @example
    * true

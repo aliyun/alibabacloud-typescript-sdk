@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKibanaSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC*****
@@ -13,10 +13,10 @@ export class UpdateKibanaSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: The Kibana language modified successfully
-   * *   false: The Kibana language modified failed
+   * - true: The Kibana language was modified.
+   * - false: The Kibana language failed to be modified.
    * 
    * @example
    * true

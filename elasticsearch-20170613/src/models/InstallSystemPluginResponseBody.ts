@@ -5,16 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class InstallSystemPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of plug-ins to be installed.
-   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

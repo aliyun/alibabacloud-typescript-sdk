@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDictInformationResponseBodyResultOssObject extends $dara.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket where the file is stored.
+   * 
    * @example
    * es-osstest*
    */
   bucketName?: string;
   /**
+   * @remarks
+   * The MD5 checksum (ETag) of the OSS file, in uppercase.
+   * 
    * @example
    * 2ABAB5E70BBF631145647F6BE533****
    */
   etag?: string;
   /**
+   * @remarks
+   * The storage path of the dictionary file in the OSS bucket.
+   * 
    * @example
    * oss/dict_0*.dic
    */
@@ -45,12 +54,26 @@ export class ListDictInformationResponseBodyResultOssObject extends $dara.Model 
 
 export class ListDictInformationResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The size of the dictionary file. Unit: bytes.
+   * 
    * @example
    * 2202301
    */
   fileSize?: number;
+  /**
+   * @remarks
+   * The details of the OSS file.
+   */
   ossObject?: ListDictInformationResponseBodyResultOssObject;
   /**
+   * @remarks
+   * The dictionary type. Valid values:
+   * 
+   * - MAIN: primary tokenization dictionary
+   * 
+   * - STOP: stopword dictionary.
+   * 
    * @example
    * STOP
    */
@@ -85,10 +108,17 @@ export class ListDictInformationResponseBodyResult extends $dara.Model {
 
 export class ListDictInformationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C4334EA-D22B-48BD-AE28-08EE68******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: ListDictInformationResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

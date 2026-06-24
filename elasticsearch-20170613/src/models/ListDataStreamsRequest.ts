@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataStreamsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to display only managed indexes. Valid values:
+   * 
+   * - true: displays only managed indexes.
+   * 
+   * - false (default): displays all indexes.
+   * 
    * @example
    * false
    */
   isManaged?: boolean;
   /**
+   * @remarks
+   * The data stream name.
+   * 
    * @example
    * Log1
    */

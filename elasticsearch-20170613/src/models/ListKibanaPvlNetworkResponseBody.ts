@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone extends $dara.Model {
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xdefafns***
    */
   vswitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-e
    */
@@ -38,33 +44,63 @@ export class ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone extends $dara.
 
 export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The time when the Kibana private network connection was created.
+   * 
    * @example
    * 2024-03-07T06:26:28Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The endpoint ID.
+   * 
    * @example
    * ep-bp1tah7zbrwmkjef****
    */
   endpointId?: string;
   /**
+   * @remarks
+   * The endpoint name.
+   * 
    * @example
    * es-cn-xxdjfia****-kibana
    */
   endpointName?: string;
   /**
+   * @remarks
+   * The endpoint status. Valid values:
+   * 
+   * - Disconnected: not connected.
+   * 
+   * - Connected: connected.
+   * 
    * @example
    * Connected
    */
   endpointStatus?: string;
   /**
+   * @remarks
+   * The Kibana private network connection ID.
+   * 
    * @example
    * es-cn-27a3mul6l***-kibana-internal
    */
   pvlId?: string;
+  /**
+   * @remarks
+   * The list of security groups.
+   */
   securityGroups?: string[];
+  /**
+   * @remarks
+   * The vSwitch and zone information.
+   */
   vSwitchIdsZone?: ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone[];
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-bp16k1dvzxtma*****
    */
@@ -113,12 +149,16 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
 export class ListKibanaPvlNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request id
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The array of result objects.
+   */
   result?: ListKibanaPvlNetworkResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

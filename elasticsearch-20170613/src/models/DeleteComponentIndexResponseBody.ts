@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteComponentIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The deletion was successful.
+   * - false: The deletion failed.
+   * 
    * @example
    * true
    */

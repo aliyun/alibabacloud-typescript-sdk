@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenHttpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -13,10 +13,10 @@ export class OpenHttpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: open the HTTPS protocol successfully
-   * *   false: open the HTTPS protocol failed
+   * - true: The HTTPS protocol is enabled.
+   * - false: The HTTPS protocol failed to be enabled.
    * 
    * @example
    * true

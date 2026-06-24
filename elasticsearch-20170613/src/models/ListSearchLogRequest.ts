@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSearchLogRequest extends $dara.Model {
   /**
    * @remarks
-   * 20
+   * The start timestamp of the log, in milliseconds. The value must be within the last 7 days. If this parameter is not specified, all logs within the [current time - 7 days, endTime\\] range are queried.
    * 
    * @example
    * 1531910852074
@@ -13,7 +13,7 @@ export class ListSearchLogRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The end timestamp of the log, in milliseconds. The value must be within the last 7 days. Specify this parameter. If this parameter is not specified, an empty result is returned.
    * 
    * @example
    * 1531910852074
@@ -21,7 +21,7 @@ export class ListSearchLogRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The header of the response.
+   * The page number of the plug-in list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSearchLogRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 1
+   * The keyword to query.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListSearchLogRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 20
@@ -47,7 +47,15 @@ export class ListSearchLogRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * 1531910852074
+   * The log type. Valid values:
+   * - INSTANCELOG: primary log.
+   * - SEARCHSLOW: searching slow log.
+   * - INDEXINGSLOW: indexing slow log.
+   * - JVMLOG: GC log.
+   * - ES_SEARCH_ACCESS_LOG: Elasticsearch access log.
+   * - AUDIT: audit log.
+   * 
+   * For limits on viewing logs, see [Query logs](https://help.aliyun.com/document_detail/72026.html).
    * 
    * This parameter is required.
    * 

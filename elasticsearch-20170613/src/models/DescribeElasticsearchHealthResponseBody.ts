@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticsearchHealthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeElasticsearchHealthResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DescribeElasticsearchHealthResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0731F217-2C8A-4D42-8BCD-5C352866E3B7
@@ -29,7 +29,7 @@ export class DescribeElasticsearchHealthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The color that indicates the health status of the cluster.
+   * The health status of the instance.
    * 
    * @example
    * GREEN

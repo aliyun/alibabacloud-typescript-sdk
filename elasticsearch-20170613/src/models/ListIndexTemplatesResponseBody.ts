@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIndexTemplatesResponseBodyResultTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The aliases configuration.
+   * 
    * @example
    * {\\"index.number_of_shards\\":\\"1\\"}
    */
   aliases?: string;
   /**
+   * @remarks
+   * The mappings configuration.
+   * 
    * @example
    * {\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}
    */
   mappings?: string;
   /**
+   * @remarks
+   * The settings configuration.
+   * 
    * @example
    * {\\"mydata\\":{}}
    */
@@ -45,26 +54,50 @@ export class ListIndexTemplatesResponseBodyResultTemplate extends $dara.Model {
 
 export class ListIndexTemplatesResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the data stream is enabled. Valid values:
+   * 
+   * - true: enabled.
+   * 
+   * - false (default): not enabled.
+   * 
    * @example
    * true
    */
   dataStream?: boolean;
   /**
+   * @remarks
+   * The index lifecycle policy name.
+   * 
    * @example
    * my_ilm_policy
    */
   ilmPolicy?: string;
+  /**
+   * @remarks
+   * The index pattern information.
+   */
   indexPatterns?: string[];
   /**
+   * @remarks
+   * The index template name.
+   * 
    * @example
    * my-template
    */
   indexTemplate?: string;
   /**
+   * @remarks
+   * The index template priority.
+   * 
    * @example
    * 100
    */
   priority?: number;
+  /**
+   * @remarks
+   * The component template.
+   */
   template?: ListIndexTemplatesResponseBodyResultTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +138,17 @@ export class ListIndexTemplatesResponseBodyResult extends $dara.Model {
 
 export class ListIndexTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The index template list information.
+   */
   result?: ListIndexTemplatesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

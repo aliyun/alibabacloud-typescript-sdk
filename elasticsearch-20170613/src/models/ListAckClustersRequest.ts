@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListAckClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. (Deprecated).
    * 
    * @example
-   * 3
+   * 1
    */
   page?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page. (Deprecated).
    * 
    * @example
-   * 20
+   * 15
    */
   size?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the ACK clusters belong.
+   * The ID of the VPC where the ACK cluster resides.
    * 
    * @example
    * vpc-bp12nu14urf0upaf4****

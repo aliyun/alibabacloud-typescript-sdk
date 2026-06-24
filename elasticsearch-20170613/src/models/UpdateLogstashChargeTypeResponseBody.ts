@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogstashChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -13,10 +13,10 @@ export class UpdateLogstashChargeTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the billing method of the cluster is switched. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true: The billing method is switched.
-   * *   false: The billing method fails to be switched.
+   * - true: The conversion succeeded.
+   * - false: The conversion failed.
    * 
    * @example
    * true

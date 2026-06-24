@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TurnOffZoneRequest extends $dara.Model {
   hpAlbZoneDrained?: boolean;
   /**
+   * @remarks
+   * The zone of the instance.
+   * 
    * @example
    * cn-hangzhou-i
    */

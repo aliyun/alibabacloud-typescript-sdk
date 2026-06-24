@@ -45,7 +45,7 @@ export class ListDefaultCollectorConfigurationsResponseBodyResult extends $dara.
 export class ListDefaultCollectorConfigurationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8BAE3C32-8E4A-47D6-B4B0-95B5DE643BF5

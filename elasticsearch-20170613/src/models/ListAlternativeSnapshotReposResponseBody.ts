@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlternativeSnapshotReposResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * es-cn-6ja1ro4jt000c****
@@ -13,7 +13,7 @@ export class ListAlternativeSnapshotReposResponseBodyResult extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The address of the repository.
+   * The repository address.
    * 
    * @example
    * RepoPath
@@ -45,7 +45,7 @@ export class ListAlternativeSnapshotReposResponseBodyResult extends $dara.Model 
 export class ListAlternativeSnapshotReposResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -53,7 +53,7 @@ export class ListAlternativeSnapshotReposResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: ListAlternativeSnapshotReposResponseBodyResult[];
   static names(): { [key: string]: string } {

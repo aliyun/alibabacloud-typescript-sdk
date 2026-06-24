@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseDiagnosisResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the intelligent O&M feature is disabled. Valid values:
+   * 
+   * - true: Succeeded.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeConnectableClustersResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of instances that can establish private network peering.
+   * 
    * @example
    * es-cn-xxx
    */
   instances?: string;
   /**
+   * @remarks
+   * The network type of the instance.
+   * 
    * @example
    * vpc
    */
@@ -38,10 +44,17 @@ export class DescribeConnectableClustersResponseBodyResult extends $dara.Model {
 
 export class DescribeConnectableClustersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: DescribeConnectableClustersResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

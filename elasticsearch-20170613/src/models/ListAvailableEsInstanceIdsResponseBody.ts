@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvailableEsInstanceIdsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The name of the Elasticsearch cluster.
+   * The name of the Elasticsearch instance.
    * 
    * @example
    * instanceName
@@ -13,7 +13,7 @@ export class ListAvailableEsInstanceIdsResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The address that is used to access the Elasticsearch cluster over the Internet.
+   * The public network access address of the Elasticsearch instance.
    * 
    * @example
    * http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200
@@ -21,7 +21,7 @@ export class ListAvailableEsInstanceIdsResponseBodyResult extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The ID of the Elasticsearch cluster.
+   * The Elasticsearch instance ID.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
@@ -29,7 +29,7 @@ export class ListAvailableEsInstanceIdsResponseBodyResult extends $dara.Model {
   esInstanceId?: string;
   /**
    * @remarks
-   * The address that is used to access the Kibana console of the Elasticsearch cluster over the Internet.
+   * The public network access address of Kibana.
    * 
    * @example
    * https://es-cn-n6w1o1x0w001c****.kibana.elasticsearch.aliyuncs.com:5601
@@ -65,7 +65,7 @@ export class ListAvailableEsInstanceIdsResponseBodyResult extends $dara.Model {
 export class ListAvailableEsInstanceIdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -73,7 +73,7 @@ export class ListAvailableEsInstanceIdsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListAvailableEsInstanceIdsResponseBodyResult[];
   static names(): { [key: string]: string } {

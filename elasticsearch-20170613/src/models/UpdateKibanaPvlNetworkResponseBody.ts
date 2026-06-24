@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateKibanaPvlNetworkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result. Valid values:
+   * 
+   * - true: The operation was successful.
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

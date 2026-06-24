@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallUserPluginsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of custom plugins to install.
+   * 
+   * @example
+   * [     {"name": "pluginName1.zip"},     {"name": "pluginName2.zip"} ]
+   */
   body?: string;
   force?: boolean;
   static names(): { [key: string]: string } {

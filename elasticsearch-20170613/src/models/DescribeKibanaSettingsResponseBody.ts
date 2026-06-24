@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeKibanaSettingsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6D*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Some configurable Kibana settings. For more information, see [Kibana settings](https://www.elastic.co/guide/cn/kibana/current/settings.html).
+   * 
    * @example
    * {"map.includeElasticMapsService": "false", "server.ssl.cert": "/home/admin/packages/kibana/config/cert/client.crt", "server.ssl.enabled": "true", "server.ssl.key": "/home/admin/packages/kibana/config/cert/client.key", "xpack.reporting.capture.browser.chromium.disableSandbox": "true"}
    */

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDynamicSettingsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the dynamic settings were successfully updated.
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {

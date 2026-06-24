@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The returned object.
+   * The tag key.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,7 @@ export class TagResourcesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Indicates whether tags are added to the clusters. Valid values:
-   * 
-   * *   true
-   * *   false
+   * The tag value.
    * 
    * This parameter is required.
    * 
@@ -52,14 +49,14 @@ export class TagResourcesRequestTags extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * A tag.
+   * The resource IDs.
    * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The resource type. Set this parameter to INSTANCE.
    * 
    * This parameter is required.
    * 
@@ -69,7 +66,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag information.
    * 
    * This parameter is required.
    */

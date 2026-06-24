@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListILMPoliciesResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The name of the index lifecycle policy.
+   * 
    * @example
    * policy-1
    */
   name?: string;
   /**
+   * @remarks
+   * The index lifecycle content.
+   * 
    * @example
    * {"hot":{"minAge":"0ms","actions":{"rollover":{"maxSize":"50gb","maxAge":"30d"},"setPriority":{"priority":100}}},"delete":{"minAge":"3d","actions":{"delete":{}}}}
    */
@@ -41,10 +47,17 @@ export class ListILMPoliciesResponseBodyResult extends $dara.Model {
 
 export class ListILMPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of index lifecycle policies returned by the request.
+   */
   result?: ListILMPoliciesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

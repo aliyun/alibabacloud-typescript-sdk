@@ -13,7 +13,7 @@ export class ListAckNamespacesResponseBodyResult extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The status of the namespace.
+   * The namespace status.
    * 
    * @example
    * Active
@@ -45,7 +45,7 @@ export class ListAckNamespacesResponseBodyResult extends $dara.Model {
 export class ListAckNamespacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 95789100-A329-473B-9D14-9E0B7DB4BD5A

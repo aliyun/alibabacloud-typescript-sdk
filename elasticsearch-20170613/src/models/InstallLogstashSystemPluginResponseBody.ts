@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallLogstashSystemPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC4****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

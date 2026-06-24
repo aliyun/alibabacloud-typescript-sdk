@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The return results.
+   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tag value of the ENI.
+   * The resource type. Fixed value: INSTANCE.
    * 
    * @example
    * INSTANCE

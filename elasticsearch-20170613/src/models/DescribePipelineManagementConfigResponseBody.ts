@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePipelineManagementConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The access addresses of the Elasticsearch cluster. Specify each address in the `http://Endpoint of the Elasticsearch cluster:Port number` format.
+   * The list of access endpoints for the Elasticsearch instance, in the format of `domain name:port number`.
    * 
    * @example
    * ["http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200"]
@@ -13,7 +13,7 @@ export class DescribePipelineManagementConfigResponseBodyResult extends $dara.Mo
   endpoints?: string;
   /**
    * @remarks
-   * The ID of the Elasticsearch cluster.
+   * The Elasticsearch instance ID.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
@@ -30,7 +30,7 @@ export class DescribePipelineManagementConfigResponseBodyResult extends $dara.Mo
   pipelineManagementType?: string;
   /**
    * @remarks
-   * The username that is used to access the Elasticsearch cluster.
+   * The username used to access the instance.
    * 
    * @example
    * elastic
@@ -71,7 +71,7 @@ export class DescribePipelineManagementConfigResponseBodyResult extends $dara.Mo
 export class DescribePipelineManagementConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***

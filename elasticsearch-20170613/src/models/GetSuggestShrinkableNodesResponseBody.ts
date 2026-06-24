@@ -45,7 +45,7 @@ export class GetSuggestShrinkableNodesResponseBodyResult extends $dara.Model {
 export class GetSuggestShrinkableNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -53,7 +53,7 @@ export class GetSuggestShrinkableNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned results.
    */
   result?: GetSuggestShrinkableNodesResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosisSettingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the returned result. Default value: en.
+   * The language of the returned results. Default value: en.
    * 
    * @example
    * en

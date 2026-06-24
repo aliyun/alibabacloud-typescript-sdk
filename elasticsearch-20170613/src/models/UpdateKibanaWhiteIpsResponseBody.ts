@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses in the whitelist.
+   * The name of the whitelist group.
    * 
    * @example
    * test_group_name
@@ -13,10 +13,13 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList
   groupName?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist.
+   * The list of IP addresses in the whitelist group.
    */
   ips?: string[];
   /**
+   * @remarks
+   * The whitelist type.
+   * 
    * @example
    * PUBLIC_KIBANA
    */
@@ -52,7 +55,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList
 export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelists.
+   * The network type.
    * 
    * @example
    * vpc
@@ -60,7 +63,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.M
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1jy348ibzulk6hn****
@@ -68,7 +71,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.M
   vpcId?: string;
   /**
    * @remarks
-   * The network type.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou-h
@@ -76,7 +79,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.M
   vsArea?: string;
   /**
    * @remarks
-   * The region ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1a0mifpletdd1da****
@@ -84,7 +87,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.M
   vswitchId?: string;
   /**
    * @remarks
-   * The IP address whitelists.
+   * The whitelist group list.
    */
   whiteIpGroupList?: UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList[];
   static names(): { [key: string]: string } {
@@ -122,17 +125,17 @@ export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $dara.M
 export class UpdateKibanaWhiteIpsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The public IP address whitelists for access to the Kibana console of the cluster.
+   * The Kibana access whitelist.
    */
   kibanaIPWhitelist?: string[];
   /**
    * @remarks
-   * The private IP address whitelists for access to the Kibana console of the cluster.
+   * The Kibana internal-facing whitelist.
    */
   kibanaPrivateIPWhitelist?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The network configuration.
    */
   networkConfig?: UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig;
   static names(): { [key: string]: string } {
@@ -172,7 +175,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResult extends $dara.Model {
 export class UpdateKibanaWhiteIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the Elasticsearch cluster.
+   * The request ID.
    * 
    * @example
    * E5EF11F1-DBAE-4020-AC24-DFA6C4345CAE
@@ -180,7 +183,7 @@ export class UpdateKibanaWhiteIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The private IP address whitelists for access to the Kibana console of the cluster.
+   * The details of the Elasticsearch instance.
    */
   result?: UpdateKibanaWhiteIpsResponseBodyResult;
   static names(): { [key: string]: string } {

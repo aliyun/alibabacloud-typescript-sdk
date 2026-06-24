@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The configuration of dedicated master nodes.
+   * The number of nodes.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
   amount?: number;
   /**
    * @remarks
-   * The node specifications.
+   * The storage size of the node.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
   disk?: number;
   /**
    * @remarks
-   * The number of nodes.
+   * The storage type of the node. You can ignore this parameter.
    * 
    * @example
    * cloud_ssd
@@ -29,7 +29,7 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * The storage type of the node. This parameter can be ignored.
+   * 节点规格。
    * 
    * @example
    * elasticsearch.n4.small
@@ -64,23 +64,32 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
 
 export class UpdateInstanceResponseBodyResultMasterConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The number of nodes.
+   * 
    * @example
    * 3
    */
   amount?: number;
   /**
+   * @remarks
+   * The storage size of the node. Unit: GB.
+   * 
    * @example
    * 20
    */
   disk?: number;
   /**
+   * @remarks
+   * The storage type of the node. Only cloud_ssd (standard SSD) is supported.
+   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
    * @remarks
-   * The storage type of the node. Only cloud_ssd(SSD cloud disk) is supported.
+   * 节点规格。
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -116,7 +125,7 @@ export class UpdateInstanceResponseBodyResultMasterConfiguration extends $dara.M
 export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The node specifications.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 40
@@ -124,7 +133,10 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * The number of nodes.
+   * The storage type of the node. Valid values:
+   * 
+   * - cloud_ssd: standard SSD
+   * - cloud_efficiency: ultra disk.
    * 
    * @example
    * cloud_ssd
@@ -132,7 +144,7 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The configuration of Kibana nodes.
+   * 节点规格。
    * 
    * @example
    * elasticsearch.sn2ne.xlarge
@@ -166,7 +178,7 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
 export class UpdateInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The private domain name of the instance.
+   * The time when the instance was created.
    * 
    * @example
    * 2018-07-13T03:58:07.253Z
@@ -174,7 +186,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The configuration of data nodes.
+   * The instance name.
    * 
    * @example
    * test
@@ -182,7 +194,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * 实例的私网访问域名。
    * 
    * @example
    * es-cn-abc.elasticsearch.aliyuncs.com
@@ -190,7 +202,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The node specifications.
+   * The instance version.
    * 
    * @example
    * 5.5.3_with_X-Pack
@@ -198,7 +210,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The storage space of the node. Unit: GB.
+   * The instance ID.
    * 
    * @example
    * es-cn-abc
@@ -206,20 +218,17 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The size of the node storage space.
+   * The Kibana node configuration.
    */
   kibanaConfiguration?: UpdateInstanceResponseBodyResultKibanaConfiguration;
   /**
    * @remarks
-   * The storage space of the node. Unit: GB.
+   * The master node configuration.
    */
   masterConfiguration?: UpdateInstanceResponseBodyResultMasterConfiguration;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   prepaid: subscription
-   * *   postpaid: pay-as-you-go
+   * The number of data nodes.
    * 
    * @example
    * 2
@@ -227,15 +236,15 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The storage type of the node. Valid values:
-   * 
-   * *   cloud_ssd: standard SSD
-   * *   cloud_efficiency: ultra disk
+   * The data node configuration.
    */
   nodeSpec?: UpdateInstanceResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The edition of the dedicated KMS instance.
+   * The billing method of the instance. Valid values:
+   * 
+   * - prepaid: subscription
+   * - postpaid: pay-as-you-go.
    * 
    * @example
    * postpaid
@@ -243,7 +252,12 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The status of the instance. Valid values:
+   * 
+   * - active: Normal
+   * - activating: Taking effect
+   * - inactive: Frozen
+   * - invalid: Invalid.
    * 
    * @example
    * active
@@ -304,7 +318,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -312,12 +326,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
-   * 
-   * *   active: normal
-   * *   activating: taking effect
-   * *   inactive: frozen
-   * *   invalid: invalid
+   * The returned result.
    */
   result?: UpdateInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

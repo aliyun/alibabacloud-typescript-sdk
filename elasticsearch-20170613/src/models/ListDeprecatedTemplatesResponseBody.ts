@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDeprecatedTemplatesResponseBodyHeaders extends $dara.Model {
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -31,16 +34,25 @@ export class ListDeprecatedTemplatesResponseBodyHeaders extends $dara.Model {
 
 export class ListDeprecatedTemplatesResponseBodyResultTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The alias configuration of the template.
+   * 
    * @example
    * "{}"
    */
   aliases?: string;
   /**
+   * @remarks
+   * The mappings configuration of the template.
+   * 
    * @example
    * "{\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}"
    */
   mappings?: string;
   /**
+   * @remarks
+   * The settings configuration of the template.
+   * 
    * @example
    * "{\\"index.number_of_shards\\":\\"1\\"}"
    */
@@ -72,23 +84,46 @@ export class ListDeprecatedTemplatesResponseBodyResultTemplate extends $dara.Mod
 
 export class ListDeprecatedTemplatesResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the template matches a data stream. Valid values:
+   * 
+   * - true: matched
+   * - false: not matched.
+   * 
    * @example
    * false
    */
   dataStream?: boolean;
+  /**
+   * @remarks
+   * The index template information.
+   */
   indexPatterns?: string[];
   /**
+   * @remarks
+   * The index template name.
+   * 
    * @example
    * openstore-index-template
    */
   indexTemplate?: string;
   /**
+   * @remarks
+   * The priority.
+   * 
    * @example
    * 100
    */
   order?: number;
+  /**
+   * @remarks
+   * The index template configuration.
+   */
   template?: ListDeprecatedTemplatesResponseBodyResultTemplate;
   /**
+   * @remarks
+   * The version of the index template.
+   * 
    * @example
    * 70000
    */
@@ -131,12 +166,23 @@ export class ListDeprecatedTemplatesResponseBodyResult extends $dara.Model {
 }
 
 export class ListDeprecatedTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response headers.
+   */
   headers?: ListDeprecatedTemplatesResponseBodyHeaders;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
   result?: ListDeprecatedTemplatesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

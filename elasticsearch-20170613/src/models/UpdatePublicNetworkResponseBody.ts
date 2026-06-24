@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublicNetworkResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of the public network access switch.
+   * The status of the public network address switch.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class UpdatePublicNetworkResponseBodyResult extends $dara.Model {
 export class UpdatePublicNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2A88ECA1-D827-4581-AD39-05149586****
@@ -43,7 +43,7 @@ export class UpdatePublicNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: UpdatePublicNetworkResponseBodyResult;
   static names(): { [key: string]: string } {

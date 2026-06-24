@@ -4,23 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint of the region exposed in the console.
+   * 
    * @example
    * https://elasticsearch-cn-hangzhou.console.aliyun.com
    */
   consoleEndpoint?: string;
   /**
+   * @remarks
+   * The name of the region.
+   * 
    * @example
    * China (Hangzhou)
    */
   localName?: string;
   /**
+   * @remarks
+   * The endpoint of the region.
+   * 
    * @example
    * elasticsearch.cn-hangzhou.aliyuncs.com
    */
   regionEndpoint?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -28,7 +37,7 @@ export class DescribeRegionsResponseBodyResult extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The endpoint of the region that is exposed in the console.
+   * The availability status of the region.
    * 
    * @example
    * available
@@ -66,7 +75,7 @@ export class DescribeRegionsResponseBodyResult extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available status of the region.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1ADFG
@@ -74,7 +83,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The endpoint of the region.
+   * The list of returned results.
    */
   result?: DescribeRegionsResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValidateShrinkNodesRequestBody extends $dara.Model {
   /**
+   * @remarks
+   * The IP address of the node.
+   * 
    * @example
    * 192.168.xx.xx
    */
   host?: string;
   /**
+   * @remarks
+   * The node name of the cloud-native ACK-based cluster. You can call the [ListAllNode](https://help.aliyun.com/document_detail/183958.html) operation to obtain the node name.
+   * 
    * @example
    * es-cn-pl32xxxxxxx-data-f-1
    */
   hostName?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * - WORKER: hot node
+   * - WORKER_WARM: warm node
+   * 
    * @example
    * WORKER
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The access port number of the node.
+   * 
    * @example
    * 9200
    */
   port?: number;
   /**
+   * @remarks
+   * The zone ID of the node in the instance. For example, the zone ID of China (Shanghai) Zone C is cn-shanghai-c.
+   * 
    * @example
    * cn-shanghai-c
    */
@@ -58,15 +76,25 @@ export class ValidateShrinkNodesRequestBody extends $dara.Model {
 }
 
 export class ValidateShrinkNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: ValidateShrinkNodesRequestBody[];
   /**
+   * @remarks
+   * The number of nodes.
+   * 
    * @example
    * 2
    */
   count?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Specifies whether to ignore the cluster health status.
+   * 
+   * - true: ignores the cluster health status.
+   * - false (default): does not ignore the cluster health status.
    * 
    * @example
    * false
@@ -74,10 +102,10 @@ export class ValidateShrinkNodesRequest extends $dara.Model {
   ignoreStatus?: boolean;
   /**
    * @remarks
-   * Returned results:
+   * The type of nodes to scale in. Valid values:
    * 
-   * *   true: can be scaled in
-   * *   false: cannot be scaled in.
+   * - WORKER: hot node
+   * - WORKER_WARM: warm node
    * 
    * This parameter is required.
    * 

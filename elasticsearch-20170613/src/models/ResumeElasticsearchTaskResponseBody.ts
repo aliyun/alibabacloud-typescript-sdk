@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeElasticsearchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class ResumeElasticsearchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The return result:
    * 
-   * *   true: resume the interrupted change successfully
-   * *   false: resume the interrupted change successfully failed
+   * - true: The interrupted change was resumed successfully.
+   * - false: The interrupted change failed to be resumed.
    * 
    * @example
    * true

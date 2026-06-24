@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddSnapshotRepoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cross-cluster backup information, which specifies the reference instance.
+   * 
+   * @example
+   * {
+   *     "repoPath" :"es-cn-4591jumei000u****"
+   * }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {

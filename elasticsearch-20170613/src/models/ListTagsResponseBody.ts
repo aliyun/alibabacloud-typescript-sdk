@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * env
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * dev
    */
@@ -39,12 +45,16 @@ export class ListTagsResponseBodyResult extends $dara.Model {
 export class ListTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: ListTagsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

@@ -4,22 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetElastictaskResponseBodyResultElasticExpansionTask extends $dara.Model {
   /**
+   * @remarks
+   * The trigger cycle, specified as a Quartz Cron expression.
+   * 
    * @example
    * 0 0 0 ? * MON
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The number of elastic data nodes during peak hours.
+   * 
    * @example
    * 2
    */
   elasticNodeCount?: number;
   /**
+   * @remarks
+   * The number of replicas for the target index.
+   * 
    * @example
    * 2
    */
   replicaCount?: number;
   targetIndices?: string[];
   /**
+   * @remarks
+   * The cause. Currently, only **crontab** is supported, which indicates scheduled triggering.
+   * 
    * @example
    * crontab
    */
@@ -58,22 +70,34 @@ export class GetElastictaskResponseBodyResultElasticExpansionTask extends $dara.
 
 export class GetElastictaskResponseBodyResultElasticShrinkTask extends $dara.Model {
   /**
+   * @remarks
+   * The trigger cycle, specified as a Quartz Cron expression.
+   * 
    * @example
    * 4 4 4 ? * WED
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The number of elastic data nodes during off-peak hours.
+   * 
    * @example
    * 2
    */
   elasticNodeCount?: number;
   /**
+   * @remarks
+   * The number of replicas for the target index.
+   * 
    * @example
    * 2
    */
   replicaCount?: number;
   targetIndices?: string[];
   /**
+   * @remarks
+   * The cause. Currently, only crontab is supported, which indicates scheduled triggering.
+   * 
    * @example
    * crontab
    */
@@ -111,7 +135,15 @@ export class GetElastictaskResponseBodyResultElasticShrinkTask extends $dara.Mod
 }
 
 export class GetElastictaskResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The elastic scale-out rule.
+   */
   elasticExpansionTask?: GetElastictaskResponseBodyResultElasticExpansionTask;
+  /**
+   * @remarks
+   * The elastic scale-in rule.
+   */
   elasticShrinkTask?: GetElastictaskResponseBodyResultElasticShrinkTask;
   static names(): { [key: string]: string } {
     return {
@@ -144,10 +176,17 @@ export class GetElastictaskResponseBodyResult extends $dara.Model {
 
 export class GetElastictaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: GetElastictaskResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

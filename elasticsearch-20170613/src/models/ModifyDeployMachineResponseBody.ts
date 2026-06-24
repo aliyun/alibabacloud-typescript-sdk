@@ -13,10 +13,10 @@ export class ModifyDeployMachineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ECS instances are changed. Valid values:
+   * Indicates whether the update is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

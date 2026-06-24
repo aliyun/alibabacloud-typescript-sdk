@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDictInformationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the OSS dictionary to be added. Valid values: IK_HOT, IK, SYNONYMS, and ALIWS. Default value: IK.
+   * 
    * @example
    * ALIWS
    */
   analyzerType?: string;
   /**
    * @remarks
+   * The name of the OSS bucket where the dictionary file is stored.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListDictInformationRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
+   * The storage path of the dictionary file in the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   /**
    * @remarks
-   * The type of the target cluster. Default value: elasticsearch.
+   * The destination cluster type. Default value: elasticsearch.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The public network access address of the target cluster.
+   * The public network access address of the destination cluster.
    * 
    * @example
    * http://192.168.xx.xx:4101
@@ -21,7 +21,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The target index.
+   * The destination index.
    * 
    * @example
    * product_info
@@ -29,7 +29,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   index?: string;
   /**
    * @remarks
-   * The type of the destination index.
+   * The index type.
    * 
    * @example
    * _doc
@@ -37,7 +37,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the cluster belongs.
+   * The ID of the virtual private cloud (VPC) where the cluster resides.
    * 
    * @example
    * vpc-2ze55voww95g82gak****
@@ -45,7 +45,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The instance ID or Server Load Balancer (SLB) ID of the current cluster.
+   * The instance ID of the current cluster or the load balancing SLB (Server Load Balancer) instance ID.
    * 
    * @example
    * es-cn-09k1rnu3g0002****-worker
@@ -53,7 +53,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   vpcInstanceId?: string;
   /**
    * @remarks
-   * The access port number of the cluster.
+   * The port number used to access the cluster.
    * 
    * @example
    * 9200
@@ -95,7 +95,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
 export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
   /**
    * @remarks
-   * The type of the source cluster. Default value: elasticsearch.
+   * The source cluster type. Default value: elasticsearch.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The index whose data you want to migrate.
+   * The index to be migrated.
    * 
    * @example
    * product_info
@@ -119,7 +119,7 @@ export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
   mapping?: string;
   /**
    * @remarks
-   * The routing field to index the table. It is set to the primary key by default.
+   * The routing field of the index. The primary key field is used by default.
    * 
    * @example
    * _id
@@ -127,7 +127,7 @@ export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
   routing?: string;
   /**
    * @remarks
-   * The Settings of the cluster.
+   * The Settings configuration of the cluster.
    * 
    * @example
    * {\\n  \\"index\\": {\\n    \\"replication\\": {\\n}.....}}
@@ -135,7 +135,7 @@ export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
   settings?: string;
   /**
    * @remarks
-   * The type of the destination index.
+   * The index type.
    * 
    * @example
    * _doc
@@ -175,7 +175,7 @@ export class ListDataTasksResponseBodyResultSourceCluster extends $dara.Model {
 export class ListDataTasksResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the site monitoring task was created.
+   * The time when the task was created.
    * 
    * @example
    * 2020-07-30 06:32:18
@@ -183,17 +183,17 @@ export class ListDataTasksResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The information of the target cluster.
+   * The destination cluster information.
    */
   sinkCluster?: ListDataTasksResponseBodyResultSinkCluster;
   /**
    * @remarks
-   * The information about the source cluster.
+   * The source cluster information.
    */
   sourceCluster?: ListDataTasksResponseBodyResultSourceCluster;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * SUCCESS
@@ -201,7 +201,7 @@ export class ListDataTasksResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * et_cn_mfv1233r47272****
@@ -245,7 +245,7 @@ export class ListDataTasksResponseBodyResult extends $dara.Model {
 export class ListDataTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -253,7 +253,7 @@ export class ListDataTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned results.
    */
   result?: ListDataTasksResponseBodyResult[];
   static names(): { [key: string]: string } {

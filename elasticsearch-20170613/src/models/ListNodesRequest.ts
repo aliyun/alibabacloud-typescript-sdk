@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the ECS instances.
+   * The list of ECS instance IDs.
    * 
    * @example
    * i-bp1ei8ysh7orb6eq****
@@ -13,7 +13,7 @@ export class ListNodesRequest extends $dara.Model {
   ecsInstanceIds?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The ECS instance name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListNodesRequest extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListNodesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of results per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListNodesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The tags of the ECS instance. You must configure tagKey and tagValue.
+   * The tag information of the ECS instance. The tag key (tagKey) and tag value (tagValue) must be included.
    * 
    * @example
    * [{"tagKey":"abc","tagValue":"xyz"}]

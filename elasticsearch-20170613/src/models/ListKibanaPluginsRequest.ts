@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKibanaPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the instance list. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListKibanaPluginsRequest extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10

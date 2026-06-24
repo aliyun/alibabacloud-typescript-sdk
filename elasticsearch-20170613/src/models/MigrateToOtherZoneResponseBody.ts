@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateToOtherZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class MigrateToOtherZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: migration succeeded
-   * *   false: The migration fails
+   * - true: The migration was successful.
+   * - false: The migration failed.
    * 
    * @example
    * true

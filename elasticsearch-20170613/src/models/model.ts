@@ -36,6 +36,7 @@ export { DescribeDeprecatedTemplateResponseBodyResultTemplate } from './Describe
 export { DescribeDeprecatedTemplateResponseBodyResult } from './DescribeDeprecatedTemplateResponseBody';
 export { DescribeDiagnoseReportResponseBodyResultDiagnoseItemsDetail } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiagnoseReportResponseBodyResultDiagnoseItems } from './DescribeDiagnoseReportResponseBody';
+export { DescribeDiagnoseReportResponseBodyResultItems } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiagnoseReportResponseBodyResult } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiagnosisSettingsResponseBodyResult } from './DescribeDiagnosisSettingsResponseBody';
 export { DescribeILMPolicyResponseBodyResult } from './DescribeIlmpolicyResponseBody';
@@ -70,6 +71,7 @@ export { DescribeRegionsResponseBodyResult } from './DescribeRegionsResponseBody
 export { DescribeSnapshotSettingResponseBodyResult } from './DescribeSnapshotSettingResponseBody';
 export { DescribeTemplatesResponseBodyResult } from './DescribeTemplatesResponseBody';
 export { DescribeXpackMonitorConfigResponseBodyResult } from './DescribeXpackMonitorConfigResponseBody';
+export { DiagnoseInstanceResponseBodyResultItems } from './DiagnoseInstanceResponseBody';
 export { DiagnoseInstanceResponseBodyResult } from './DiagnoseInstanceResponseBody';
 export { EnableKibanaPvlNetworkRequestVSwitchIdsZone } from './EnableKibanaPvlNetworkRequest';
 export { EstimatedLogstashRestartTimeResponseBodyResult } from './EstimatedLogstashRestartTimeResponseBody';
@@ -155,6 +157,7 @@ export { ListDeprecatedTemplatesResponseBodyResult } from './ListDeprecatedTempl
 export { ListDiagnoseReportResponseBodyHeaders } from './ListDiagnoseReportResponseBody';
 export { ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail } from './ListDiagnoseReportResponseBody';
 export { ListDiagnoseReportResponseBodyResultDiagnoseItems } from './ListDiagnoseReportResponseBody';
+export { ListDiagnoseReportResponseBodyResultItems } from './ListDiagnoseReportResponseBody';
 export { ListDiagnoseReportResponseBodyResult } from './ListDiagnoseReportResponseBody';
 export { ListDiagnoseReportIdsResponseBodyHeaders } from './ListDiagnoseReportIdsResponseBody';
 export { ListDiagnosisItemsResponseBodyResult } from './ListDiagnosisItemsResponseBody';

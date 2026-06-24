@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class RolloverDataStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The rollover succeeded.
+   * 
+   * - false: The rollover failed.
+   * 
    * @example
    * true
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseReportIdsResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records returned.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class ListDiagnoseReportIdsResponseBodyHeaders extends $dara.Model {
 export class ListDiagnoseReportIdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The response headers.
    */
   headers?: ListDiagnoseReportIdsResponseBodyHeaders;
   /**
@@ -46,6 +46,10 @@ export class ListDiagnoseReportIdsResponseBody extends $dara.Model {
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

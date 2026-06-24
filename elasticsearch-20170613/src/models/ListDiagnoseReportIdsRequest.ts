@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseReportIdsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value must be a UNIX timestamp.
+   * The end timestamp of the query.
+   * Minimum value: 1000000000000 ms
+   * Maximum value: 2000000000000 ms.
    * 
    * This parameter is required.
    * 
@@ -15,15 +17,20 @@ export class ListDiagnoseReportIdsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the reports.
+   * The language of the reports to retrieve. Default value: the browser language. Valid values:
+   * - en: English
+   * - zh: Simplified Chinese
+   * - zt: Traditional Chinese
+   * - es: Spanish
+   * - fr: French.
    * 
    * @example
-   * spanish
+   * en
    */
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Valid values: 1 to 200. Default value: 1.
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 1
@@ -31,7 +38,7 @@ export class ListDiagnoseReportIdsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 500. Default value: 10.
+   * The number of report IDs per page. Default value: 10. Minimum value: 1. Maximum value: 500.
    * 
    * @example
    * 15
@@ -39,7 +46,9 @@ export class ListDiagnoseReportIdsRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The value must be a UNIX timestamp.
+   * The start timestamp of the query.
+   * Minimum value: 1000000000000 ms
+   * Maximum value: 2000000000000 ms.
    * 
    * This parameter is required.
    * 
@@ -49,7 +58,7 @@ export class ListDiagnoseReportIdsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The method that is used to trigger health diagnostics. Valid values: SYSTEM, INNER, and USER.
+   * The trigger method of the health diagnostics. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
    * 
    * @example
    * SYSTEM

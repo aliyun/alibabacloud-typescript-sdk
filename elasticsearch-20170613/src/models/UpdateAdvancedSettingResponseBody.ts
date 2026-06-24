@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAdvancedSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
@@ -13,10 +13,10 @@ export class UpdateAdvancedSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: garbage collector configuration changed successfully
-   * *   false: garbage collector configuration changed successfully failed
+   * - true: The garbage collector configuration is changed.
+   * - false: The garbage collector configuration failed to be changed.
    * 
    * @example
    * true

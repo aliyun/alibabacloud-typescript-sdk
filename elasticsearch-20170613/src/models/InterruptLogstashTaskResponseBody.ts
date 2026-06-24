@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InterruptLogstashTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If the API operation is successfully called, this parameter is not returned.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
    * .
@@ -13,7 +13,7 @@ export class InterruptLogstashTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned. If the API operation is successfully called, this parameter is not returned.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * .
@@ -29,10 +29,10 @@ export class InterruptLogstashTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the task is suspended. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The task is suspended.
+   * - false: The task failed to be suspended.
    * 
    * @example
    * true

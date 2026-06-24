@@ -4,19 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint name.
+   * 
    * @example
-   * es-cn-27a3mul6l00***-kibana
+   * es-cn-text-kibana
    */
   endpointName?: string;
+  /**
+   * @remarks
+   * The list of security groups.
+   */
   securityGroups?: string[];
   /**
+   * @remarks
+   * Used to ensure the idempotency of the request.
+   * 
    * @example
    * xxxx
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The Kibana private network connection ID.
+   * 
    * @example
-   * es-cn-27a3mul6l0***-kibana-internal
+   * es-cn-vo93ngti8000a****-kibana-internal-internal
    */
   pvlId?: string;
   static names(): { [key: string]: string } {

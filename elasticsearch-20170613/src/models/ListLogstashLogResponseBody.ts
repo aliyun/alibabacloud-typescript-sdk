@@ -5,28 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashLogResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the node that generates the log.
+   * The detailed content of the log.
    */
   content?: string;
   /**
+   * @remarks
+   * The IP address of the node that generated the log.
+   * 
    * @example
    * 192.168.xx.xx
    */
   host?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ls-cn-v0h1kzca****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The log level. Valid values: trace, debug, info, warn, and error. GC logs do not have a level.
    * 
    * @example
    * info
    */
   level?: string;
   /**
+   * @remarks
+   * The timestamp when the log was generated. Unit: milliseconds.
+   * 
    * @example
    * 1531985112420
    */
@@ -63,7 +72,7 @@ export class ListLogstashLogResponseBodyResult extends $dara.Model {
 export class ListLogstashLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the log.
+   * The request ID.
    * 
    * @example
    * 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
@@ -71,7 +80,7 @@ export class ListLogstashLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timestamp of log generation. Unit: ms.
+   * The returned result.
    */
   result?: ListLogstashLogResponseBodyResult[];
   static names(): { [key: string]: string } {

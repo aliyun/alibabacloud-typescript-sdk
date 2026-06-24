@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRegionConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current zone ID.
+   * 
    * @example
    * cn-hangzhou-f
    */

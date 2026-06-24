@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * cn-hangzhou-i
+   * The instance name. Fuzzy search is supported. For example, if you search for all instances matching **abc**, all instances named **abc**, **abcde**, **xyabc**, and **xabcy** may be returned.
    * 
    * @example
    * aliyunes_test1
@@ -13,7 +13,7 @@ export class ListInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * advanced
+   * The instance version.
    * 
    * @example
    * 6.7_with_X-Pack
@@ -21,7 +21,13 @@ export class ListInstanceRequest extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The number of data nodes.
+   * The edition type of the instance. Valid values:
+   * 
+   * - x-pack: Commercial Edition
+   * 
+   * - advanced/IS: Enhanced Edition
+   * 
+   * - community: Basic Edition
    * 
    * @example
    * advanced
@@ -29,7 +35,7 @@ export class ListInstanceRequest extends $dara.Model {
   instanceCategory?: string;
   /**
    * @remarks
-   * postpaid
+   * The instance ID.
    * 
    * @example
    * es-cn-v641a0ta3000g****
@@ -37,7 +43,8 @@ export class ListInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * [{"tagKey":"key1","tagValue":"value1"}]
+   * The page number of the instance list.
+   * Start value: **1**, default value: **1**.
    * 
    * @example
    * 1
@@ -45,10 +52,11 @@ export class ListInstanceRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Specifies whether to include dedicated master nodes. Valid values:
+   * The billing method of the instance. Valid values:
    * 
-   * *   true: The files contain data that is dumped to the IA storage medium.
-   * *   false: The files do not contain data that is dumped to the IA storage medium.
+   * - postpaid: pay-as-you-go
+   * 
+   * - prepaid: subscription
    * 
    * @example
    * postpaid
@@ -56,7 +64,7 @@ export class ListInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-aekzvowej3i****
@@ -64,7 +72,7 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
+   * The number of entries per page for paginated queries. Maximum value: **100**, default value: **10**.
    * 
    * @example
    * 10
@@ -73,7 +81,7 @@ export class ListInstanceRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The header of the response.
+   * The instance tags.
    * 
    * @example
    * [{"tagKey":"key1","tagValue":"value1"}]
@@ -81,7 +89,7 @@ export class ListInstanceRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The ID of the virtual private cloud (VPC) where the instance is deployed.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -89,7 +97,7 @@ export class ListInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The returned data.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-i

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeactivateZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -13,10 +13,10 @@ export class DeactivateZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result:
+   * The returned result. Valid values:
    * 
-   * - true: Zone offline successful
-   * - false: Zone offline failed
+   * - true: The zones are taken offline.
+   * - false: The zones failed to be taken offline.
    * 
    * @example
    * true

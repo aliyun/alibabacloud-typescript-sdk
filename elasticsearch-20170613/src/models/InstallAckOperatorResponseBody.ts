@@ -13,10 +13,10 @@ export class InstallAckOperatorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether ES-operator is installed. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The installation was successful.
+   * - false: The installation failed.
    * 
    * @example
    * true

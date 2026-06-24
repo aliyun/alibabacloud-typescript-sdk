@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAliwsDictResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The size of the dictionary file. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 6226
@@ -13,7 +13,7 @@ export class UpdateAliwsDictResponseBodyResult extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The name of the uploaded dictionary file.
+   * The name of the uploaded file.
    * 
    * @example
    * aliws_ext_dict.txt
@@ -22,9 +22,8 @@ export class UpdateAliwsDictResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The source type of the dictionary file. Valid values:
-   * 
-   * *   OSS
-   * *   ORIGIN
+   * - OSS: uses OSS open storage.
+   * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
    * OSS
@@ -32,7 +31,7 @@ export class UpdateAliwsDictResponseBodyResult extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The dictionary type. The value is fixed as ALI_WS.
+   * The dictionary type. Valid values: ALI_WS (AliNLP tokenizer).
    * 
    * @example
    * ALI_WS

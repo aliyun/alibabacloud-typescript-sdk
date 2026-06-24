@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class InitModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return Result
+   * 
    * @example
    * true
    */

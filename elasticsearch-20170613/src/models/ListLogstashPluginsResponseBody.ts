@@ -5,31 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogstashPluginsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The source of the plug-in.
+   * The plugin description.
    * 
    * @example
    * The clone filter is for duplicating events.
    */
   description?: string;
   /**
+   * @remarks
+   * The plugin name.
+   * 
    * @example
    * logstash-filter-clone
    */
   name?: string;
   /**
+   * @remarks
+   * The plugin source.
+   * 
    * @example
    * SYSTEM
    */
   source?: string;
   /**
    * @remarks
-   * The name of the plug-in.
+   * The URL of the plugin documentation.
    * 
    * @example
    * https://xxx.html
    */
   specificationUrl?: string;
   /**
+   * @remarks
+   * The plugin status. Valid values:
+   * 
+   * - INSTALLED: installed
+   * - UNINSTALLED: not installed
+   * - INSTALLING: being installed
+   * - UNINSTALLING: being uninstalled
+   * - UPGRADING: being upgraded
+   * - FAILED: installation failed
+   * - UNKNOWN: the cluster is disconnected and the creation status cannot be retrieved.
+   * 
    * @example
    * INSTALLED
    */
@@ -66,7 +83,7 @@ export class ListLogstashPluginsResponseBodyResult extends $dara.Model {
 export class ListLogstashPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The address of the documentation for the plug-in.
+   * The request ID.
    * 
    * @example
    * 99407AB-2FA9-489E-A259-40CF6DCC****
@@ -74,15 +91,7 @@ export class ListLogstashPluginsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the plug-in. Valid values:
-   * 
-   * *   INSTALLED: Installed
-   * *   UNINSTALLED: Not installed
-   * *   INSTALLING: The instance is being installed.
-   * *   UNINSTALLING: The instance is being uninstalled.
-   * *   UPGRADING: The backup gateway is being upgraded.
-   * *   FAILED: Installation failed
-   * *   UNKNOWN: The cluster is lost and cannot be created.
+   * The returned results.
    */
   result?: ListLogstashPluginsResponseBodyResult[];
   static names(): { [key: string]: string } {

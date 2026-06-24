@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration type, with a single value: sharedDisk.
+   * The configuration type. The only valid value is sharedDisk.
    * 
-   * > This extendConfigs attribute may appear when the planned instance type is Advanced.
+   * > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
    * 
    * @example
    * sharedDisk
@@ -15,7 +15,7 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Disk size, in GiB.
+   * The disk size, in GiB.
    * 
    * @example
    * 2048
@@ -23,9 +23,9 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * Disk type, with a single value: CPFS_PREMIUM.
+   * The disk type. The only valid value is CPFS_PREMIUM.
    * 
-   * > This extendConfigs attribute may appear when the planned instance type is Advanced.
+   * > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
    * 
    * @example
    * CPFS_PREMIUM
@@ -59,7 +59,7 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
 export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Model {
   /**
    * @remarks
-   * Number of nodes.
+   * The number of nodes.
    * 
    * @example
    * 10
@@ -67,7 +67,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   amount?: number;
   /**
    * @remarks
-   * Number of CPUs.
+   * The number of CPUs.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * Disk size, in GiB.
+   * The disk size, in GiB.
    * 
    * @example
    * 20
@@ -83,17 +83,17 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   disk?: number;
   /**
    * @remarks
-   * Disk type, with meanings as follows:
+   * The disk type. Valid values:
    * 
-   * - cloud_essd: ESSD Cloud Disk
+   * - cloud_essd: ESSD
    * 
-   * - cloud_ssd: SSD Cloud Disk
+   * - cloud_ssd: standard SSD
    * 
-   * - cloud_efficiency: Efficient Cloud Disk
+   * - cloud_efficiency: ultra cloud disk
    * 
-   * - local_ssd: Local SSD Disk
+   * - local_ssd: local SSD
    * 
-   * - local_efficiency: Local Efficient Disk
+   * - local_efficiency: local ultra disk.
    * 
    * @example
    * cloud_ssd
@@ -101,7 +101,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   diskType?: string;
   /**
    * @remarks
-   * Specified memory size for the current node role.
+   * The memory size of the specifications for the current node role.
    * 
    * @example
    * 2
@@ -109,19 +109,19 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   memory?: number;
   /**
    * @remarks
-   * Node type, with supported types as follows:
+   * The node type. Valid values:
    * 
-   * - WORKER: Data Node
+   * - WORKER: data node
    * 
-   * - WORKER_WARM: Cold Data Node
+   * - WORKER_WARM: warm node
    * 
-   * - MASTER: Dedicated Master Node
+   * - MASTER: dedicated master node
    * 
-   * - KIBANA: Kibana Node
+   * - KIBANA: Kibana node
    * 
-   * - COORDINATING: Coordinator Node
+   * - COORDINATING: client node
    * 
-   * - ELASTIC_WORKER: Elastic Node
+   * - ELASTIC_WORKER: elastic node.
    * 
    * @example
    * WORKER
@@ -161,18 +161,18 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
 export class CapacityPlanResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Extended configuration information.
+   * The extended configuration information.
    */
   extendConfigs?: CapacityPlanResponseBodyResultExtendConfigs[];
   /**
    * @remarks
-   * Edition type, with values meaning as follows:
+   * The edition type. Valid values:
    * 
-   * - advanced: Enhanced Edition
+   * - advanced: Advanced Edition
    * 
    * - x-pack: Commercial Edition
    * 
-   * - community: Community Edition
+   * - community: Community Edition.
    * 
    * @example
    * advanced
@@ -180,16 +180,16 @@ export class CapacityPlanResponseBodyResult extends $dara.Model {
   instanceCategory?: string;
   /**
    * @remarks
-   * Node information.
+   * The node information.
    */
   nodeConfigurations?: CapacityPlanResponseBodyResultNodeConfigurations[];
   /**
    * @remarks
-   * Based on the capacity planning calculation, there is no default value. The meanings of the values are as follows:
+   * The result calculated based on capacity planning. No default value is available. Valid values:
    * 
-   * - true: Represents an oversized cluster, indicating that the number of data nodes calculated by the capacity planning exceeds the threshold of 50.
+   * - true: The cluster is oversized. The number of data nodes calculated by capacity planning exceeds the threshold of 50.
    * 
-   * - false: The number of data nodes calculated by the capacity planning is within 50.
+   * - false: The number of data nodes calculated by capacity planning is within 50.
    * 
    * @example
    * true
@@ -231,7 +231,7 @@ export class CapacityPlanResponseBodyResult extends $dara.Model {
 export class CapacityPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the current request.
+   * The ID of the request.
    * 
    * @example
    * E91B7129-A669-4D9D-A743-F90A0FF1F5EF
@@ -239,7 +239,7 @@ export class CapacityPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result of the request.
+   * The result of the request.
    */
   result?: CapacityPlanResponseBodyResult;
   static names(): { [key: string]: string } {

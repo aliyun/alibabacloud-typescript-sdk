@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAckOperatorResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The installation status of ES-operator. Valid values:
+   * The Operator installation status. Valid values:
    * 
-   * *   deployed: ES-operator is installed.
-   * *   not-deploy: ES-operator is not installed.
-   * *   failed: ES-operator fails to be installed.
-   * *   unknown: The installation status of ES-operator is unknown.
+   * - deployed: installed
+   * - not-deploy: not installed
+   * - failed: installation failed
+   * - unknown: unknown status.
    * 
    * @example
    * deployed
@@ -18,7 +18,7 @@ export class DescribeAckOperatorResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version of ES-operator.
+   * The Operator version.
    * 
    * @example
    * 1
@@ -50,7 +50,7 @@ export class DescribeAckOperatorResponseBodyResult extends $dara.Model {
 export class DescribeAckOperatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6615EE8D-FD9D-4FD3-997E-6FEA5B8D82ED

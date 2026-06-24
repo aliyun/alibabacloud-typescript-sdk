@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceResponseBodyResultDictList extends $dara.Model {
   /**
    * @remarks
-   * The size of the Dictionary File. Unit: bytes.
+   * The size of the dictionary file. Unit: bytes.
    * 
    * @example
    * 2782602
@@ -23,9 +23,9 @@ export class RestartInstanceResponseBodyResultDictList extends $dara.Model {
    * @remarks
    * The source type. Valid values:
    * 
-   * *   OSS: OSS open storage (need to ensure that OSS storage space is public readable.)
-   * *   ORIGIN: Open source Elasticsearch
-   * *   UPLOAD: Uploaded files
+   * - OSS: Object Storage Service (OSS). The OSS bucket must have public-read permissions.
+   * - ORIGIN: open-source Elasticsearch
+   * - UPLOAD: uploaded file.
    * 
    * @example
    * ORIGIN
@@ -33,12 +33,12 @@ export class RestartInstanceResponseBodyResultDictList extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The type of the dictionary. Valid values:
+   * The dictionary type. Valid values:
    * 
-   * *   STOP: The STOP word.
-   * *   MAIN: MAIN Dictionary
-   * *   SYNONYMS: SYNONYMS
-   * *   ALI_WS: an Alibaba Dictionary.
+   * - STOP: stopword dictionary
+   * - MAIN: main dictionary
+   * - SYNONYMS: synonym dictionary
+   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * MAIN
@@ -74,7 +74,7 @@ export class RestartInstanceResponseBodyResultDictList extends $dara.Model {
 export class RestartInstanceResponseBodyResultKibanaConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The number of performance metrics.
+   * The number of nodes.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class RestartInstanceResponseBodyResultKibanaConfiguration extends $dara.
   amount?: number;
   /**
    * @remarks
-   * The size of the node storage space. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -98,7 +98,7 @@ export class RestartInstanceResponseBodyResultKibanaConfiguration extends $dara.
   diskType?: string;
   /**
    * @remarks
-   * The specification of data nodes.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.n4.small
@@ -134,7 +134,7 @@ export class RestartInstanceResponseBodyResultKibanaConfiguration extends $dara.
 export class RestartInstanceResponseBodyResultMasterConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The number of nodes in the cluster.
+   * The number of nodes.
    * 
    * @example
    * 3
@@ -142,7 +142,7 @@ export class RestartInstanceResponseBodyResultMasterConfiguration extends $dara.
   amount?: number;
   /**
    * @remarks
-   * The size of the node storage space. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -150,7 +150,7 @@ export class RestartInstanceResponseBodyResultMasterConfiguration extends $dara.
   disk?: number;
   /**
    * @remarks
-   * The storage type of the node. This tool only supports cloud_ssd (cloud SSD) disks.
+   * The storage type of the node. Only cloud_ssd (standard SSD) is supported.
    * 
    * @example
    * cloud_ssd
@@ -158,7 +158,7 @@ export class RestartInstanceResponseBodyResultMasterConfiguration extends $dara.
   diskType?: string;
   /**
    * @remarks
-   * The node specifications of the cluster.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -202,7 +202,7 @@ export class RestartInstanceResponseBodyResultNetworkConfig extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -218,7 +218,7 @@ export class RestartInstanceResponseBodyResultNetworkConfig extends $dara.Model 
   vsArea?: string;
   /**
    * @remarks
-   * The ID of the vSwitch associated with the specified VPC.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1k4ec6s7sjdbudw****
@@ -254,7 +254,7 @@ export class RestartInstanceResponseBodyResultNetworkConfig extends $dara.Model 
 export class RestartInstanceResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The storage space size per data node. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 50
@@ -262,7 +262,7 @@ export class RestartInstanceResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * The storage type of the node. Valid values: cloud_ssd and cloud_efficiency.
+   * The storage type of the node.
    * 
    * @example
    * cloud_ssd
@@ -270,7 +270,7 @@ export class RestartInstanceResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The specification of data nodes.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.n4.small
@@ -304,7 +304,7 @@ export class RestartInstanceResponseBodyResultNodeSpec extends $dara.Model {
 export class RestartInstanceResponseBodyResultSynonymsDicts extends $dara.Model {
   /**
    * @remarks
-   * The size of the Dictionary File. Unit: bytes.
+   * The size of the dictionary file. Unit: bytes.
    * 
    * @example
    * 2782602
@@ -322,9 +322,9 @@ export class RestartInstanceResponseBodyResultSynonymsDicts extends $dara.Model 
    * @remarks
    * The source type. Valid values:
    * 
-   * *   OSS:OSS open storage (the OSS storage space must be publicly readable.)
-   * *   ORIGIN: open-source Elasticsearch
-   * *   UPLOAD
+   * - OSS: Object Storage Service (OSS). The OSS bucket must have public-read permissions.
+   * - ORIGIN: open-source Elasticsearch
+   * - UPLOAD: uploaded file.
    * 
    * @example
    * ORIGIN
@@ -332,12 +332,12 @@ export class RestartInstanceResponseBodyResultSynonymsDicts extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The type of the dictionary. Valid values:
+   * The dictionary type. Valid values:
    * 
-   * *   STOP: The STOP word.
-   * *   MAIN: MAIN Dictionary
-   * *   SYNONYMS: SYNONYMS
-   * *   ALI_WS: an Alibaba Dictionary.
+   * - STOP: stopword dictionary
+   * - MAIN: main dictionary
+   * - SYNONYMS: synonym dictionary
+   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * STOP
@@ -381,7 +381,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * es-cn-abc
@@ -389,12 +389,12 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The configuration of the IK dictionaries.
+   * The IK dictionary configuration.
    */
   dictList?: RestartInstanceResponseBodyResultDictList[];
   /**
    * @remarks
-   * The intranet access address of the instance.
+   * The internal endpoint of the instance.
    * 
    * @example
    * es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
@@ -402,7 +402,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The version of the instance.
+   * The instance version.
    * 
    * @example
    * 6.7.0_with_X-Pack
@@ -410,7 +410,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
@@ -418,12 +418,12 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configuration of Kibana nodes.
+   * The Kibana node configuration.
    */
   kibanaConfiguration?: RestartInstanceResponseBodyResultKibanaConfiguration;
   /**
    * @remarks
-   * The public network access address of Kibana.
+   * The Kibana public network access address.
    * 
    * @example
    * es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
@@ -431,7 +431,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   kibanaDomain?: string;
   /**
    * @remarks
-   * The public port of the Kibana network.
+   * The public port of Kibana.
    * 
    * @example
    * 5601
@@ -439,7 +439,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   kibanaPort?: number;
   /**
    * @remarks
-   * The configuration of dedicated master nodes.
+   * The master node configuration.
    */
   masterConfiguration?: RestartInstanceResponseBodyResultMasterConfiguration;
   /**
@@ -449,7 +449,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   networkConfig?: RestartInstanceResponseBodyResultNetworkConfig;
   /**
    * @remarks
-   * The number of data nodes.
+   * The number of data nodes in the instance.
    * 
    * @example
    * 2
@@ -457,14 +457,14 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The configuration of data nodes.
+   * The data node configuration.
    */
   nodeSpec?: RestartInstanceResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The billing method of the created ECS instance.
+   * The billing method of the instance.
    * 
-   * Valid values: prepaid and postpaid.
+   * Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
    * 
    * @example
    * postpaid
@@ -480,7 +480,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   publicDomain?: string;
   /**
    * @remarks
-   * The public network port.
+   * The public port.
    * 
    * @example
    * 9200
@@ -488,9 +488,9 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   publicPort?: number;
   /**
    * @remarks
-   * The state of the cluster.
+   * The status of the instance.
    * 
-   * Supported: active (normal), activating (initializing), inactive (blocked), and invalid (expired).
+   * Valid values: active, activating, inactive, and invalid.
    * 
    * @example
    * active
@@ -498,7 +498,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The configuration of the synonym dictionaries.
+   * The synonym dictionary configuration.
    */
   synonymsDicts?: RestartInstanceResponseBodyResultSynonymsDicts[];
   /**
@@ -587,7 +587,7 @@ export class RestartInstanceResponseBodyResult extends $dara.Model {
 export class RestartInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC****
@@ -595,7 +595,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: RestartInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

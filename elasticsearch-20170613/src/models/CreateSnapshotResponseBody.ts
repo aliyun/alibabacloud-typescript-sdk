@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -13,10 +13,10 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result. Valid values:
    * 
-   * *   true: manual snapshot backup successfully
-   * *   false: manual snapshot backup failed
+   * - true: The manual snapshot backup is successful.
+   * - false: The manual snapshot backup failed.
    * 
    * @example
    * true

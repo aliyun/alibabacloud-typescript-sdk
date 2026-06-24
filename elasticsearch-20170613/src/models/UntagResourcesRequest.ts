@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all parts. Default value: **false** . This parameter is valid only when **TagKeys** is not specified.
+   * Specifies whether to delete all tags. Default value: **false**. This parameter is valid only when **TagKeys** is empty.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The resource list that you want to delete.
+   * The list of resources to delete.
    * 
    * @example
    * ["es-cn-09k1rocex0006****","es-cn-oew1rgiev0009****"]
@@ -21,7 +21,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * The type of the resource. Fixed to **INSTANCE** .
+   * The resource type. Set this to **INSTANCE**.
    * 
    * @example
    * INSTANCE
@@ -29,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags that you want to delete. The list can contain up to 20 subitems.
+   * The list of tags to delete. A maximum of 20 items can be specified.
    * 
    * @example
    * ["tagKey1","tagKey2"]

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConnectedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -13,10 +13,10 @@ export class DeleteConnectedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The result of the operation. Valid values:
    * 
-   * *   true: remove the interworking instance successfully
-   * *   false: remove the interworking instance failed
+   * - true: The connected instance is removed.
+   * - false: The connected instance failed to be removed.
    * 
    * @example
    * true

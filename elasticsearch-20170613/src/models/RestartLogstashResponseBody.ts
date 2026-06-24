@@ -5,10 +5,17 @@ import { Logstash } from "./Logstash";
 
 export class RestartLogstashResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the current instance.
+   */
   result?: Logstash;
   static names(): { [key: string]: string } {
     return {

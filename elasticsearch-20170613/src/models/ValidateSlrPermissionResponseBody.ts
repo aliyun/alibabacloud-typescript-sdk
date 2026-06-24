@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValidateSlrPermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BC4ED7DD-8C84-49B5-8A95-456F82E44D13
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the service-linked role has been created. Valid values:
+   * 
+   * - true: The role has been created.
+   * - false: The role has not been created.
+   * 
    * @example
    * true
    */

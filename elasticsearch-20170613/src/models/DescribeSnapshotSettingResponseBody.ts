@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable automatic backup.
+   * Indicates whether automatic backup is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Automatic backup time configuration, using Quartz Cron expression.
+   * The automatic backup time configuration, specified as a Quartz Cron expression.
    * 
    * @example
    * 0 0 01 ? * * *
@@ -45,7 +45,7 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
 export class DescribeSnapshotSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
@@ -53,7 +53,7 @@ export class DescribeSnapshotSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: DescribeSnapshotSettingResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the scenario-specific template configuration is modified. Valid values:
+   * 
+   * - true: The modification is successful.
+   * - false: The modification failed.
+   * 
    * @example
    * true
    */

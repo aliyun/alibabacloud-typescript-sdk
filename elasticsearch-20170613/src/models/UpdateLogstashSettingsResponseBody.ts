@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogstashSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 71D0D1DA-B22F-58CB-AF5B-D1657A6A****

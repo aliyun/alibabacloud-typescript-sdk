@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateXpackMonitorConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * A unique token used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
+   * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to enable X-Pack monitoring. Valid values:
+   * 
+   * - true: Enable X-Pack monitoring.
+   * - false: Disable X-Pack monitoring.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The access endpoint of the Elasticsearch instance.
+   */
   endpoints?: string[];
   /**
+   * @remarks
+   * The password of the Elasticsearch instance.
+   * 
    * @example
    * ******
    * 
@@ -23,6 +39,9 @@ export class UpdateXpackMonitorConfigRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * The username of the Elasticsearch instance.
+   * 
    * @example
    * elastic
    * 

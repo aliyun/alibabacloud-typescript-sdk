@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6D******
@@ -13,10 +13,10 @@ export class UntagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return results:
+   * The returned result.
    * 
-   * *   true: deleted
-   * *   false: Failed
+   * - true: The deletion was successful.
+   * - false: The deletion failed.
    * 
    * @example
    * true

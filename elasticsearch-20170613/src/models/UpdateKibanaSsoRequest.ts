@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKibanaSsoRequest extends $dara.Model {
   /**
    * @remarks
+   * true: Enabled; false: shutdown
+   * 
    * This parameter is required.
    * 
    * @example

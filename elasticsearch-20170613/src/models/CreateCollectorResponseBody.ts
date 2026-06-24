@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCollectorResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the collector that is created.
+   * 
    * @example
    * ct-cn-4135is2tj194p****
    */
@@ -31,10 +34,17 @@ export class CreateCollectorResponseBodyResult extends $dara.Model {
 
 export class CreateCollectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8466BDFB-C513-4B8D-B4E3-5AB256AB****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: CreateCollectorResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

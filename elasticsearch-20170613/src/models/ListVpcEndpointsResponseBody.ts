@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of the endpoint connection. Valid values:
+   * The endpoint connection status. Valid values:
    * 
-   * *   Pending
-   * *   Connecting
-   * *   Connected
-   * *   Disconnecting
-   * *   Disconnected
-   * *   Deleting
-   * *   ServiceDeleted
+   * - Pending: Being modified.
+   * 
+   * - Connecting: Connecting.
+   * 
+   * - Connected: Connected.
+   * 
+   * - Disconnecting: Disconnecting.
+   * 
+   * - Disconnected: Not connected.
+   * 
+   * - Deleting: Being deleted.
+   * 
+   * - ServiceDeleted: The service associated with the endpoint has been deleted.
    * 
    * @example
    * Disconnected
@@ -31,8 +37,9 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
    * @remarks
    * The business status of the endpoint. Valid values:
    * 
-   * *   Normal
-   * *   FinancialLocked
+   * - Normal: Normal.
+   * 
+   * - FinancialLocked: Locked due to overdue payment.
    * 
    * @example
    * Normal
@@ -40,7 +47,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   endpointBusinessStatus?: string;
   /**
    * @remarks
-   * The domain name of the endpoint. The domain name is used for connection configuration.
+   * The endpoint domain name, which is used for connection configuration.
    * 
    * @example
    * ep-bp18s6wy9420wdi4****.epsrv-bp1bz3efowa4kc0****.cn-hangzhou.privatelink.aliyuncs.com
@@ -48,7 +55,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   endpointDomain?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
    * @example
    * ep-bp1tah7zbrwmkjef****
@@ -56,7 +63,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The name of the endpoint.
+   * The endpoint name.
    * 
    * @example
    * test
@@ -64,12 +71,15 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The status of the endpoint. Valid values:
+   * The endpoint status. Valid values:
    * 
-   * *   Creating
-   * *   Active
-   * *   Pending
-   * *   Deleting
+   * - Creating: Being created.
+   * 
+   * - Active: Available.
+   * 
+   * - Pending: Being modified.
+   * 
+   * - Deleting: Being deleted.
    * 
    * @example
    * Active
@@ -77,7 +87,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   endpointStatus?: string;
   /**
    * @remarks
-   * The ID of the endpoint service with which the endpoint is associated.
+   * The ID of the endpoint service associated with the endpoint.
    * 
    * @example
    * epsrv-bp1w0p3jdirbfmt6****
@@ -85,7 +95,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the endpoint service with which the endpoint is associated.
+   * The name of the endpoint service associated with the endpoint.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1w0p3jdirbfmt6****
@@ -139,7 +149,7 @@ export class ListVpcEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the endpoints.
+   * The endpoint details.
    */
   result?: ListVpcEndpointsResponseBodyResult[];
   static names(): { [key: string]: string } {

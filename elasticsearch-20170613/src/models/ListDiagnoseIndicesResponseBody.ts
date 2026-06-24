@@ -11,6 +11,10 @@ export class ListDiagnoseIndicesResponseBody extends $dara.Model {
    * F05ED12E-140A-4ACB-B059-3A508A69F2E1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {

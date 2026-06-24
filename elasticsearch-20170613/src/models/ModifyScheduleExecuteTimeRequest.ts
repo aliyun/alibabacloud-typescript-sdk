@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyScheduleExecuteTimeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Event ID.
+   * 
    * @example
    * eb7efbc90864a0***
    */
   eventId?: string;
   /**
+   * @remarks
+   * Scheduled execution time (UTC)
+   * 
    * @example
    * 2026-01-30T08:45:00Z
    */

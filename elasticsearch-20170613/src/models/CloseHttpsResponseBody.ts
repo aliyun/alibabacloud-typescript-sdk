@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseHttpsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DC****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result. Valid values:
+   * 
+   * - true: The HTTPS protocol is disabled.
+   * - false: The HTTPS protocol failed to be disabled.
+   * 
    * @example
    * true
    */

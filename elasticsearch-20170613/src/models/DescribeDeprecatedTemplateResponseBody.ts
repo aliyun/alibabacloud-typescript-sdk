@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeprecatedTemplateResponseBodyResultTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The alias configuration.
+   * 
    * @example
    * "{}"
    */
   aliases?: string;
   /**
+   * @remarks
+   * The mappings configuration of the index template.
+   * 
    * @example
    * "{\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}"
    */
   mappings?: string;
   /**
+   * @remarks
+   * The settings configuration of the index template.
+   * 
    * @example
    * "{\\"index.number_of_shards\\":\\"1\\"}"
    */
@@ -45,23 +54,46 @@ export class DescribeDeprecatedTemplateResponseBodyResultTemplate extends $dara.
 
 export class DescribeDeprecatedTemplateResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether automatic creation of a data stream is enabled. Valid values:
+   * 
+   * - true: Automatic creation of a data stream is enabled.
+   * - false: Automatic creation of a data stream is not enabled.
+   * 
    * @example
    * false
    */
   dataStream?: boolean;
+  /**
+   * @remarks
+   * The index pattern information.
+   */
   indexPatterns?: string[];
   /**
+   * @remarks
+   * The index template name.
+   * 
    * @example
    * openstore-index-template
    */
   indexTemplate?: string;
   /**
+   * @remarks
+   * The priority.
+   * 
    * @example
    * 100
    */
   order?: number;
+  /**
+   * @remarks
+   * The index template configuration information.
+   */
   template?: DescribeDeprecatedTemplateResponseBodyResultTemplate;
   /**
+   * @remarks
+   * The version of the index template.
+   * 
    * @example
    * 70000
    */
@@ -105,10 +137,17 @@ export class DescribeDeprecatedTemplateResponseBodyResult extends $dara.Model {
 
 export class DescribeDeprecatedTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC47D9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result information.
+   */
   result?: DescribeDeprecatedTemplateResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

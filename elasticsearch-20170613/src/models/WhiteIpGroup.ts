@@ -4,15 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class WhiteIpGroup extends $dara.Model {
   /**
+   * @remarks
+   * The type of the IP address whitelist. Valid values:
+   * 
+   * - PRIVATE_ES: Elasticsearch private network access whitelist
+   * - PUBLIC_ES: Elasticsearch public network access whitelist
+   * - PRIVATE_KIBANA: Kibana private network access whitelist
+   * - PUBLIC_KIBANA: Kibana public network access whitelist.
+   * 
    * @example
    * PRIVATE_ES
    */
   whiteIpType?: string;
   /**
+   * @remarks
+   * The name of the IP address whitelist group.
+   * 
    * @example
    * test_group
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses in the whitelist group.
+   */
   ips?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -15,6 +15,9 @@ import { ZoneInfo } from "./ZoneInfo";
 
 export class ElasticsearchAdvancedSetting extends $dara.Model {
   /**
+   * @remarks
+   * GC垃圾回收器名称。支持CMS和G1。
+   * 
    * @example
    * CMS
    */
@@ -42,191 +45,419 @@ export class ElasticsearchAdvancedSetting extends $dara.Model {
 
 export class Elasticsearch extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the new dedicated master node is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   advancedDedicateMaster?: boolean;
+  /**
+   * @remarks
+   * The advanced settings.
+   */
   advancedSetting?: ElasticsearchAdvancedSetting;
+  /**
+   * @remarks
+   * The Aliws dictionary configuration.
+   */
   aliwsDicts?: DictInfo[];
+  /**
+   * @remarks
+   * The client node configuration.
+   */
   clientNodeConfiguration?: ClientNodeConfiguration;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2018-07-13T03:58:07.253Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Indicates whether the instance contains data nodes. Valid values:
+   * 
+   * - true: The instance contains data nodes.
+   * - false: The instance does not contain data nodes.
+   * 
    * @example
    * true
    */
   dataNode?: boolean;
   /**
+   * @remarks
+   * Indicates whether the instance contains legacy dedicated master nodes (deprecated).
+   * 
    * @example
    * false
    */
   dedicateMaster?: boolean;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * es-cn-abc
    */
   description?: string;
+  /**
+   * @remarks
+   * The IK dictionary configuration.
+   */
   dictList?: DictInfo[];
   /**
+   * @remarks
+   * The private network access address of the Elasticsearch instance.
+   * 
    * @example
    * es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
    */
   domain?: string;
+  /**
+   * @remarks
+   * The elastic data node configuration.
+   */
   elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
   /**
+   * @remarks
+   * Indicates whether private network access to Kibana is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * false
    */
   enableKibanaPrivateNetwork?: boolean;
   /**
+   * @remarks
+   * Indicates whether public network access to Kibana is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enableKibanaPublicNetwork?: boolean;
   /**
+   * @remarks
+   * Indicates whether the public network address of the instance is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enablePublic?: boolean;
   /**
+   * @remarks
+   * The time when the instance expires. For pay-as-you-go instances, the default value is 100 years.
+   * 
    * @example
    * 5
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The YML file configuration of the instance.
+   */
   esConfig?: { [key: string]: string };
+  /**
+   * @remarks
+   * The private network access whitelist configuration of the instance (deprecated).
+   */
   esIPWhitelist?: string[];
   /**
+   * @remarks
+   * The instance version.
+   * 
    * @example
    * 6.3.2_with_X-Pack
    */
   esVersion?: string;
+  /**
+   * @remarks
+   * The extension parameter settings of the instance.
+   */
   extendConfigs?: { [key: string]: any }[];
   /**
+   * @remarks
+   * Indicates whether client nodes are enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * false
    */
   haveClientNode?: boolean;
   /**
+   * @remarks
+   * Indicates whether elastic data nodes are enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * false
    */
   haveElasticDataNode?: boolean;
   /**
+   * @remarks
+   * Indicates whether the instance contains Kibana nodes. Valid values:
+   * 
+   * - true: The instance contains Kibana nodes.
+   * - false: The instance does not contain Kibana nodes.
+   * 
    * @example
    * true
    */
   haveKibana?: boolean;
+  /**
+   * @remarks
+   * The IK hot dictionary configuration.
+   */
   ikHotDicts?: DictInfo[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * es-cn-3h4k3axh33th9****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The Kibana node configuration.
+   */
   kibanaConfiguration?: KibanaNodeConfiguration;
   /**
+   * @remarks
+   * The public network access address of Kibana.
+   * 
    * @example
    * es-cn-3h4k3axh33th9****.kibana.elasticsearch.aliyuncs.com
    */
   kibanaDomain?: string;
+  /**
+   * @remarks
+   * The public network access whitelist configuration of Kibana.
+   */
   kibanaIPWhitelist?: string[];
   /**
+   * @remarks
+   * The public network access port of Kibana.
+   * 
    * @example
    * 5601
    */
   kibanaPort?: number;
   /**
+   * @remarks
+   * The private network access address of Kibana.
+   * 
    * @example
    * es-cn-tl329rbpc0001****-kibana.internal.elasticsearch.aliyuncs.com
    */
   kibanaPrivateDomain?: string;
+  /**
+   * @remarks
+   * The IP whitelist configuration for private network access to Kibana.
+   */
   kibanaPrivateIPWhitelist?: string[];
   /**
+   * @remarks
+   * The private network access port of Kibana.
+   * 
    * @example
    * 5601
    */
   kibanaPrivatePort?: number;
   /**
+   * @remarks
+   * The access protocol for Kibana. Valid values: HTTP and HTTPS.
+   * 
    * @example
    * HTTPS
    */
   kibanaProtocol?: string;
+  /**
+   * @remarks
+   * The dedicated master node configuration.
+   */
   masterConfiguration?: MasterNodeConfiguration;
+  /**
+   * @remarks
+   * The network configuration of the instance.
+   */
   networkConfig?: NetworkConfig;
   /**
+   * @remarks
+   * The number of data nodes in the instance.
+   * 
    * @example
    * 2
    */
   nodeAmount?: number;
+  /**
+   * @remarks
+   * The data node configuration.
+   */
   nodeSpec?: NodeSpec;
   /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * - prepaid: subscription.
+   * - postpaid: pay-as-you-go.
+   * 
    * @example
    * prepaid
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The private network access port of the instance.
+   * 
    * @example
    * 9200
    */
   port?: number;
+  /**
+   * @remarks
+   * The private network address access whitelist configuration of the instance.
+   */
   privateNetworkIpWhiteList?: string[];
   /**
+   * @remarks
+   * The instance edition. Valid values:
+   * 
+   * - logEnhancement: Advanced Edition.
+   * - generalBusiness: general commercial edition.
+   * 
    * @example
    * generalBusiness
    */
   productType?: string;
   /**
+   * @remarks
+   * The access protocol of the instance. Valid values: HTTP and HTTPS.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The public network access address of the Elasticsearch instance.
+   * 
    * @example
    * es-cn-3h4k3axh33th9****.elasticsearch.aliyuncs.com
    */
   publicDomain?: string;
+  /**
+   * @remarks
+   * The public network access whitelist configuration of the instance.
+   */
   publicIpWhitelist?: string[];
   /**
+   * @remarks
+   * The public network access port of the Elasticsearch instance.
+   * 
    * @example
    * 9200
    */
   publicPort?: number;
+  /**
+   * @remarks
+   * The high availability configuration of the instance.
+   */
   readWritePolicy?: ReadWritePolicy;
   /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
    * @example
    * rg-aekzvowej3i****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Indicates whether the instance is in the Elasticsearch service VPC. Valid values:
+   * 
+   * - true: The instance is in the service VPC.
+   * - false: The instance is not in the service VPC.
+   * 
    * @example
    * true
    */
   serviceVpc?: boolean;
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * - active: Normal.
+   * - activating: Taking effect.
+   * - inactive: Frozen.
+   * - invalid: Expired.
+   * 
    * @example
    * active
    */
   status?: string;
+  /**
+   * @remarks
+   * The synonym dictionary configuration of the instance.
+   */
   synonymsDicts?: DictInfo[];
+  /**
+   * @remarks
+   * The instance tags.
+   */
   tags?: Tag[];
   /**
+   * @remarks
+   * The time when the instance was last updated.
+   * 
    * @example
    * 2018-07-13T03:58:07.253Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * Indicates whether warm data nodes are enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * false
    */
   warmNode?: boolean;
+  /**
+   * @remarks
+   * The warm data node configuration.
+   */
   warmNodeConfiguration?: WarmNodeConfiguration;
   /**
+   * @remarks
+   * The number of zones for the instance.
+   * 
    * @example
    * 1
    */
   zoneCount?: number;
+  /**
+   * @remarks
+   * The zone information of the instance.
+   */
   zoneInfos?: ZoneInfo[];
   static names(): { [key: string]: string } {
     return {

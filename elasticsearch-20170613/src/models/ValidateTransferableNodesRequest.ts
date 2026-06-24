@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValidateTransferableNodesRequestBody extends $dara.Model {
   /**
+   * @remarks
+   * The IP address of the node.
+   * 
    * @example
    * 172.16.xx.xx
    */
   host?: string;
   /**
+   * @remarks
+   * The access port number of the node.
+   * 
    * @example
    * 9200
    */
   port?: number;
   /**
+   * @remarks
+   * The zone ID of the instance node. For example, the ID of Zone C in the China (Shanghai) region is cn-shanghai-c.
+   * 
    * @example
    * cn-shanghai-c
    */
@@ -44,9 +53,20 @@ export class ValidateTransferableNodesRequestBody extends $dara.Model {
 }
 
 export class ValidateTransferableNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: ValidateTransferableNodesRequestBody[];
   /**
    * @remarks
+   * The node type. Valid values:
+   * 
+   * - WORKER: hot node
+   * - WORKER_WARM: warm node
+   * 
+   * > COORDINATING (client node) and KIBANA (Kibana node) are not supported.
+   * 
    * This parameter is required.
    * 
    * @example

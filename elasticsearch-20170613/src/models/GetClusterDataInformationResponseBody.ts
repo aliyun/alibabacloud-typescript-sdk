@@ -3,19 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetClusterDataInformationResponseBodyResultMetaInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The fields in the Mapping for the index.
-   */
   fields?: string[];
-  /**
-   * @remarks
-   * The index list of the cluster.
-   */
   indices?: string[];
   /**
    * @remarks
-   * The Mapping configuration of the cluster.
+   * The mapping configuration of the cluster.
    * 
    * @example
    * {\\"_doc\\":{\\"properties\\":{\\"user\\":{\\"properties\\":{\\"last\\":{\\"type\\":\\"text\\",...}}}}}}
@@ -23,16 +15,12 @@ export class GetClusterDataInformationResponseBodyResultMetaInfo extends $dara.M
   mapping?: string;
   /**
    * @remarks
-   * The Settings of the cluster.
+   * The settings configuration of the cluster.
    * 
    * @example
    * {\\n  \\"index\\": {\\n    \\"replication\\": {\\n}.....}}
    */
   settings?: string;
-  /**
-   * @remarks
-   * Specifies the type of the index.
-   */
   typeName?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -75,7 +63,7 @@ export class GetClusterDataInformationResponseBodyResultMetaInfo extends $dara.M
 export class GetClusterDataInformationResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Whether it is connectable.
+   * Indicates whether the cluster is connectable.
    * 
    * @example
    * true
@@ -83,7 +71,7 @@ export class GetClusterDataInformationResponseBodyResult extends $dara.Model {
   connectable?: boolean;
   /**
    * @remarks
-   * The metadata of the cluster.
+   * The metadata information of the cluster.
    */
   metaInfo?: GetClusterDataInformationResponseBodyResultMetaInfo;
   static names(): { [key: string]: string } {
@@ -115,7 +103,7 @@ export class GetClusterDataInformationResponseBodyResult extends $dara.Model {
 export class GetClusterDataInformationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -123,7 +111,7 @@ export class GetClusterDataInformationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return results.
+   * The returned result.
    */
   result?: GetClusterDataInformationResponseBodyResult;
   static names(): { [key: string]: string } {

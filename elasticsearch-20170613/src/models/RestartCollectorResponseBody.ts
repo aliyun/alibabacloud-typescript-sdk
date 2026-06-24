@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartCollectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 84B4038A-AF38-4BF4-9FAD-EA92A4FFF00A
@@ -13,10 +13,10 @@ export class RestartCollectorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the shipper is restarted. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true: The shipper is restarted.
-   * *   false: The shipper fails to be restarted.
+   * - true: The restart was successful.
+   * - false: The restart failed.
    * 
    * @example
    * true

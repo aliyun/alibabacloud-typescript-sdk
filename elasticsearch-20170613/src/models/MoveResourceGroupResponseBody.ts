@@ -21,10 +21,10 @@ export class MoveResourceGroupResponseBodyResultDictList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the source of the dictionary file. Valid values:
+   * The source type. Valid values:
    * 
-   * *   OSS: Object Storage Service (OSS). You must make sure that the access control list (ACL) of the related OSS bucket is public read.
-   * *   ORIGIN: previously uploaded dictionary.
+   * - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+   * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
    * ORIGIN
@@ -32,12 +32,12 @@ export class MoveResourceGroupResponseBodyResultDictList extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The type of the dictionary. Valid values:
+   * The dictionary type. Valid values:
    * 
-   * *   STOP: stopword list
-   * *   MAIN: main dictionary
-   * *   SYNONYMS: synonym dictionary
-   * *   ALI_WS: Alibaba Cloud dictionary
+   * - STOP: stopword.
+   * - MAIN: main dictionary.
+   * - SYNONYMS: synonym dictionary.
+   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * MAIN
@@ -81,7 +81,7 @@ export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage capacity. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -89,7 +89,7 @@ export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $dar
   disk?: number;
   /**
    * @remarks
-   * The storage type.
+   * The storage type of the node.
    * 
    * @example
    * cloud_ssd
@@ -97,7 +97,7 @@ export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $dar
   diskType?: string;
   /**
    * @remarks
-   * The specification category.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.n4.small
@@ -141,7 +141,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage capacity. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -149,7 +149,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
   disk?: number;
   /**
    * @remarks
-   * The storage type.
+   * The storage type of the node.
    * 
    * @example
    * cloud_ssd
@@ -157,7 +157,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
   diskType?: string;
   /**
    * @remarks
-   * The specification category.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -193,7 +193,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
 export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The network type. Only the VPC is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -201,7 +201,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -209,7 +209,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
   vpcId?: string;
   /**
    * @remarks
-   * The zone where the cluster resides.
+   * The zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-i
@@ -217,7 +217,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
   vsArea?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1k4ec6s7sjdbudw****
@@ -253,7 +253,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
 export class MoveResourceGroupResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity. Unit: GB.
+   * The storage size of the node. Unit: GB.
    * 
    * @example
    * 50
@@ -261,7 +261,7 @@ export class MoveResourceGroupResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * The storage type.
+   * The storage type of the node.
    * 
    * @example
    * cloud_ssd
@@ -269,7 +269,7 @@ export class MoveResourceGroupResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The specification category.
+   * The node specifications.
    * 
    * @example
    * elasticsearch.n4.small
@@ -319,10 +319,10 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The type of the source of the dictionary file. Valid values:
+   * The source type. Valid values:
    * 
-   * *   OSS: Object Storage Service (OSS). You must make sure that the ACL of the related OSS bucket is public read.
-   * *   ORIGIN: previously uploaded dictionary.
+   * - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+   * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
    * ORIGIN
@@ -330,12 +330,12 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
   sourceType?: string;
   /**
    * @remarks
-   * The type of the dictionary. Valid values:
+   * The dictionary type. Valid values:
    * 
-   * *   STOP: stopword list
-   * *   MAIN: main dictionary
-   * *   SYNONYMS: synonym dictionary
-   * *   ALI_WS: Alibaba Cloud dictionary
+   * - STOP: stopword.
+   * - MAIN: main dictionary.
+   * - SYNONYMS: synonym dictionary.
+   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * STOP
@@ -371,7 +371,7 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
 export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The time when the instance was created.
    * 
    * @example
    * 2020-07-06T10:18:48.662Z
@@ -379,7 +379,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The instance name.
    * 
    * @example
    * es-cn-abc
@@ -387,12 +387,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The configurations of IK dictionaries.
+   * The IK dictionary configuration.
    */
   dictList?: MoveResourceGroupResponseBodyResultDictList[];
   /**
    * @remarks
-   * The internal endpoint of the cluster.
+   * The internal endpoint of the instance.
    * 
    * @example
    * es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
@@ -400,7 +400,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The version of the cluster.
+   * The instance version.
    * 
    * @example
    * 6.7.0_with_X-Pack
@@ -408,7 +408,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The instance ID.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****
@@ -416,12 +416,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of Kibana nodes.
+   * The configuration of Kibana nodes.
    */
   kibanaConfiguration?: MoveResourceGroupResponseBodyResultKibanaConfiguration;
   /**
    * @remarks
-   * The public endpoint of the Kibana console of the cluster.
+   * The public network access address for Kibana.
    * 
    * @example
    * es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
@@ -429,7 +429,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaDomain?: string;
   /**
    * @remarks
-   * The port number that is used to access the Kibana console of the cluster over the Internet.
+   * The public port for Kibana.
    * 
    * @example
    * 5601
@@ -437,17 +437,17 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaPort?: number;
   /**
    * @remarks
-   * The configurations of dedicated master nodes.
+   * The configuration of master nodes.
    */
   masterConfiguration?: MoveResourceGroupResponseBodyResultMasterConfiguration;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    */
   networkConfig?: MoveResourceGroupResponseBodyResultNetworkConfig;
   /**
    * @remarks
-   * The number of data nodes in the cluster.
+   * The number of data nodes of the instance.
    * 
    * @example
    * 2
@@ -455,15 +455,15 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The configurations of data nodes.
+   * The configuration of data nodes.
    */
   nodeSpec?: MoveResourceGroupResponseBodyResultNodeSpec;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method of the instance. Valid values:
    * 
-   * *   prepaid: subscription
-   * *   postpaid: pay-as-you-go
+   * - prepaid: subscription.
+   * - postpaid: pay-as-you-go.
    * 
    * @example
    * postpaid
@@ -471,7 +471,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The public endpoint of the cluster.
+   * The public network access address.
    * 
    * @example
    * es-cn-n6w1o1x0w001c****.public.elasticsearch.aliyuncs.com
@@ -479,7 +479,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   publicDomain?: string;
   /**
    * @remarks
-   * The port number that is used to access the cluster over the Internet.
+   * The public port.
    * 
    * @example
    * 9200
@@ -487,12 +487,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   publicPort?: number;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The status of the instance. Valid values:
    * 
-   * *   active: The cluster is normal.
-   * *   activating: The cluster is being activated.
-   * *   Inactive: The cluster is frozen.
-   * *   invalid: The cluster is valid.
+   * - active: Normal.
+   * - activating: Taking effect.
+   * - inactive: Frozen.
+   * - invalid: Expired.
    * 
    * @example
    * active
@@ -500,12 +500,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The configurations of synonym dictionaries.
+   * The synonym dictionary configuration.
    */
   synonymsDicts?: MoveResourceGroupResponseBodyResultSynonymsDicts[];
   /**
    * @remarks
-   * The time when the cluster was last updated.
+   * The time when the instance was last updated.
    * 
    * @example
    * 2018-07-18T10:10:04.484Z
@@ -589,7 +589,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
 export class MoveResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***

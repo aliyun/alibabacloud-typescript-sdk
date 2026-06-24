@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * 请求体参数。
+   * The request body parameters.
    * 
    * @example
-   * ["cn-hangzhou-i","cn-hangzhou-h"]
+   * 空
    */
   body?: string;
   /**

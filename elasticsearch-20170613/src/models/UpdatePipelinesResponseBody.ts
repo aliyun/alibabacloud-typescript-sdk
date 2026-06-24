@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,10 +13,10 @@ export class UpdatePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the pipeline is updated. Valid values:
+   * The returned result. Valid values:
    * 
-   * *   true: The pipeline is updated.
-   * *   false: The pipeline fails to be updated.
+   * - true: The update was successful.
+   * - false: The update failed.
    * 
    * @example
    * true
