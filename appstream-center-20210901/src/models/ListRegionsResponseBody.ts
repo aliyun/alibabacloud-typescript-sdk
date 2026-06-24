@@ -35,7 +35,7 @@ export class ListRegionsResponseBodyRegionModels extends $dara.Model {
 export class ListRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region IDs.
+   * The list of region IDs.
    */
   regionModels?: ListRegionsResponseBodyRegionModels[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The image name.
+   * The name of the application image.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   appCenterImageName?: string;
   /**
    * @remarks
-   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the value.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,6 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

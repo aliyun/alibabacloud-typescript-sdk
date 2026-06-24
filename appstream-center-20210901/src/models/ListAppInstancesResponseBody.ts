@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the end user that is bound to the application instance.
+   * The ID of the end user bound to the instance.
    * 
    * @example
    * app.test
@@ -13,7 +13,7 @@ export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara
   endUserId?: string;
   /**
    * @remarks
-   * The use duration of the application instance. Unit: seconds.
+   * The usage duration of the instance. Unit: seconds.
    * 
    * @example
    * 2000
@@ -45,7 +45,7 @@ export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara
 export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-dk8p95irqfst9****
@@ -53,7 +53,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the application instance.
+   * The application instance ID.
    * 
    * @example
    * ai-8dl7dzchklmka****
@@ -61,17 +61,15 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The information about the binding between the application instance and end users.
+   * The binding information between the instance and the user.
    */
   bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
   /**
    * @remarks
-   * The billing method of the app instance. Valid values:
-   * 
-   * *   **PrePaid**: subscription.
-   * *   **PostPaid**: pay-as-you-go
-   * 
-   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+   * The billing method of the instance. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
+   * > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * PostPaid
@@ -79,7 +77,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the application instance was created.
+   * The creation time.
    * 
    * @example
    * 2023-03-07T20:29:19.000+08:00
@@ -87,7 +85,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the application instance was updated.
+   * The update time.
    * 
    * @example
    * 2023-03-07T20:29:19.000+08:00
@@ -95,7 +93,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The public IP address associated with the primary NIC. This value is returned only if `StrategyType` is set to `Mixed`.
+   * The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
    * 
    * @example
    * 10.13.13.211
@@ -105,9 +103,8 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The ID of the node on which the app instance runs.
-   * 
-   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+   * The ID of the node on which the instance runs.
+   * > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * i-bp13********
@@ -115,12 +112,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The session status. This parameter is returned only if the application instance is in the `RUNNING` state.
-   * 
-   * Valid values:
-   * 
-   * *   disconnect: disconnected
-   * *   connect: connected
+   * The session connection status. This value is returned only when the instance status is running (`RUNNING`). Otherwise, this value is empty.
    * 
    * @example
    * connect
@@ -128,7 +120,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The status of the application instance.
+   * The application instance status.
    * 
    * @example
    * BOUND
@@ -183,12 +175,12 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
 export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The app instances.
+   * The list of queried application instances.
    */
   appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
   /**
    * @remarks
-   * The page number of the returned page. We recommend that you configure this parameter.
+   * The page number of the query results to display. Specify this parameter.
    * 
    * @example
    * 1
@@ -196,7 +188,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * The number of query results per page. Maximum value: `100`. Specify this parameter.
    * 
    * @example
    * 10
@@ -212,7 +204,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 18

@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class StopWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
-   * Force restart.
+   * Specifies whether to forcibly restart the workstation. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   True.
-   * *   False
+   * - True: forcibly restart
+   * - False: do not forcibly restart.
    * 
    * @example
    * True

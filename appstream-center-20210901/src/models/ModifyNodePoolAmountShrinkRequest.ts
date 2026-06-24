@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The parameters related to the configuration change of the node pool.
+   * The node pool specification change parameters.
    * 
    * This parameter is required.
    */
@@ -23,10 +23,6 @@ export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-0bxls9m9arax6****
@@ -13,7 +13,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the app instance.
+   * The application instance ID.
    * 
    * @example
    * ai-azn3kmwruh1vl****
@@ -21,7 +21,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstanceId?: string;
   /**
    * @remarks
-   * The ID of the app instance of the persistent session type.
+   * The persistent session ID.
    * 
    * @example
    * p-0cc7s3mw2fg4j****
@@ -29,7 +29,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstancePersistentId?: string;
   /**
    * @remarks
-   * The name of the app instance of the persistent session type.
+   * The name of the persistent session application instance.
    * 
    * @example
    * test-persistent-name
@@ -37,19 +37,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstancePersistentName?: string;
   /**
    * @remarks
-   * The status of the app instance of the persistent session type.
-   * 
-   * Valid values:
-   * 
-   * *   STARTING
-   * *   RUNNING
-   * *   STOPPED
-   * *   UNAVAILABLE
-   * *   DELETING
-   * *   PENDING
-   * *   STOPPING
-   * *   DELETED
-   * *   REBUILDING
+   * The instance status of the persistent session application.
    * 
    * @example
    * RUNNING
@@ -57,19 +45,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstancePersistentStatus?: string;
   /**
    * @remarks
-   * The status of the app instance.
-   * 
-   * Valid values:
-   * 
-   * *   INIT: The app instance is being initialized.
-   * *   STARTING: The app instance is being started.
-   * *   CLOSING: The app instance is being stopped.
-   * *   CLOSED: The app instance is closed.
-   * *   RUNNING: The app instance is running.
-   * *   idle: The app instance is idle.
-   * *   BOUND: The app instance is bound to an app instance group.
-   * *   UNAVAILABLE: The app instance is unavailable.
-   * *   DELETED: The app instance is deleted.
+   * The application instance status.
    * 
    * @example
    * RUNNING
@@ -77,12 +53,12 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
   appInstanceStatus?: string;
   /**
    * @remarks
-   * The authorized users.
+   * The list of authorized usernames.
    */
   authorizedUsers?: string[];
   /**
    * @remarks
-   * The time when the app instance was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-13T03:22:18.000+00:00
@@ -129,7 +105,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
 export class ListPersistentAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the query results currently displayed.
    * 
    * @example
    * 1
@@ -137,7 +113,7 @@ export class ListPersistentAppInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of query results per page.
    * 
    * @example
    * 20
@@ -145,7 +121,7 @@ export class ListPersistentAppInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The app instances of the persistent session type.
+   * The list of persistent session application instances.
    */
   persistentAppInstanceModels?: ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels[];
   /**
@@ -158,7 +134,7 @@ export class ListPersistentAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 15

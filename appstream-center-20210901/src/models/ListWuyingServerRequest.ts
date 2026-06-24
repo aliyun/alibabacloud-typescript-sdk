@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWuyingServerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of statuses for joining a virtual node pool.
+   * 
    * @example
    * Added
    */
@@ -23,7 +26,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The billing method of the Internet access package.
+   * The billing type.
    * 
    * @example
    * PrePaid
@@ -39,7 +42,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The office network IDs.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-172301****
@@ -55,7 +58,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The page size.
    * 
    * @example
    * 100
@@ -68,7 +71,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Workstation specifications.
+   * The workstation instance type.
    * 
    * @example
    * eds.proworkstation_flagship_elite.32c64g.48g1x
@@ -76,7 +79,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   serverInstanceType?: string;
   /**
    * @remarks
-   * The status of the workstation.
+   * The workstation status.
    * 
    * @example
    * RUNNING
@@ -88,6 +91,9 @@ export class ListWuyingServerRequest extends $dara.Model {
    */
   users?: string[];
   /**
+   * @remarks
+   * The virtual node pool ID.
+   * 
    * @example
    * vnp-bp1234567890abcde
    */

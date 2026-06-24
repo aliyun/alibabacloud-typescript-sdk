@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRequestTagList extends $dara.Model {
   /**
    * @remarks
-   * The key of the custom tag.
+   * The custom tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListImageRequestTagList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the custom tag.
+   * The custom tag value.
    * 
    * @example
    * test
@@ -45,16 +45,13 @@ export class ListImageRequestTagList extends $dara.Model {
 export class ListImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The regions that are supported. The EDS images are centralized. Use this parameter to query the regions where the image is deployed.
+   * The list of supported regions.
+   * WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
    */
   bizRegionIdList?: string[];
   /**
    * @remarks
-   * The service type. This parameter is not available publicly.
-   * 
-   * Valid value:
-   * 
-   * *   1 (default)
+   * The business type. This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -62,18 +59,18 @@ export class ListImageRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The list of all service types. It is not available publicly.
+   * The list of all business types. This parameter is not publicly available.
    */
   bizTypeList?: number[];
   distro?: string;
   /**
    * @remarks
-   * The features supported by the image.
+   * The list of features supported by the image.
    */
   featureList?: string[];
   /**
    * @remarks
-   * The image version.
+   * The image version information.
    * 
    * @example
    * 2.0.3-xxxx
@@ -97,14 +94,7 @@ export class ListImageRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The type of the images.
-   * 
-   * Valid values:
-   * 
-   * *   User: a custom image.
-   * *   Shared: a shared image.
-   * *   System: a system image.
-   * *   Community: a community image.
+   * The image type.
    * 
    * @example
    * User
@@ -114,27 +104,13 @@ export class ListImageRequest extends $dara.Model {
    * @remarks
    * The language.
    * 
-   * Valid values:
-   * 
-   * *   en-US: English.
-   * *   zh-HK: Chinese, Traditional (Hong Kong, China).
-   * *   zh-CN: Simplified Chinese.
-   * *   ja-JP: Japanese.
-   * 
    * @example
    * zh-CN
    */
   languageType?: string;
   /**
    * @remarks
-   * The OS type of the image.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * *   Unknown
-   * *   Windows
-   * *   Android
+   * The operating system type of the image.
    * 
    * @example
    * Windows
@@ -142,12 +118,7 @@ export class ListImageRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The image encapsulation type.
-   * 
-   * Valid values:
-   * 
-   * *   Ecs_Container: ECS and Docker image
-   * *   Ecs: ECS image
+   * The image package type.
    * 
    * @example
    * Ecs
@@ -155,7 +126,7 @@ export class ListImageRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -163,7 +134,7 @@ export class ListImageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -171,17 +142,7 @@ export class ListImageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the operating system platform.
-   * 
-   * Valid values:
-   * 
-   * *   Ubuntu
-   * *   Debian
-   * *   Windows Server 2022
-   * *   Windows Server 2019
-   * *   Windows Server 2016
-   * *   Windows 11
-   * *   Windows 10
+   * The operating system platform name.
    * 
    * @example
    * Windows Server 2019
@@ -196,29 +157,18 @@ export class ListImageRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Valid values:
-   * 
-   * *   CloudDesktop: Elastic Desktop Service
-   * *   CloudApp: App Streaming
-   * *   WuyingServer: Workstation
-   * 
    * @example
    * CloudApp
    */
   productType?: string;
   /**
    * @remarks
-   * The list of products that are supported when the image supports multiple products.
+   * The list of products supported when the image supports multiple products.
    */
   productTypeList?: string[];
   /**
    * @remarks
    * The protocol type of the image.
-   * 
-   * Valid values:
-   * 
-   * *   HDX: the High-definition Experience (HDX) protocol
-   * *   ASP: the Alibaba Cloud-developed ASP protocol
    * 
    * @example
    * ASP
@@ -226,7 +176,7 @@ export class ListImageRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * Find images with certain fixed specifications.
+   * Queries images of specific defined specifications.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -234,14 +184,7 @@ export class ListImageRequest extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The status of the image. You can query images in the specified status. By default, all images in the Not Deleted state are queried.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The image is available.
-   * *   INIT: The image is being initialized.
-   * *   CREATE_FAILED: The image failed to be created.
-   * *   CREATING: The image is being created.
+   * The image status. Specifies the status of images to query. By default, all images that are not deleted are queried.
    * 
    * @example
    * INIT
@@ -249,7 +192,7 @@ export class ListImageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags to query.
+   * The tags for query.
    */
   tagList?: ListImageRequestTagList[];
   static names(): { [key: string]: string } {

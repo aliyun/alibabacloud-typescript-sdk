@@ -14,7 +14,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
   ipAddress?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI).
+   * The network interface controller (NIC) ID.
    * 
    * @example
    * eni-bp174p2xxxxxbyh02ix
@@ -58,7 +58,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
 export class DescribeWuyingServerEipInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the associated EIP.
+   * The EIP information.
    */
   eipInfoModel?: DescribeWuyingServerEipInfoResponseBodyEipInfoModel;
   /**

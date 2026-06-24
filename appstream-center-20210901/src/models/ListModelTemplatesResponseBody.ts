@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelTemplatesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Agent provider.
+   * 
    * @example
    * OpenClaw
    */
   agentProvider?: string;
   /**
+   * @remarks
+   * The model group configuration JSON object.
+   * 
    * @example
    * {
    * 	"defaults": {
@@ -19,18 +25,34 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The template group description.
+   * 
+   * @example
+   * 测试模型分组
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether models have been configured in the group.
+   * 
    * @example
    * true
    */
   hasModel?: boolean;
   /**
+   * @remarks
+   * The model group ID.
+   * 
    * @example
    * mt-xxxx
    */
   modelTemplateId?: string;
   /**
+   * @remarks
+   * The template group name.
+   * 
    * @example
    * model-template-001
    */
@@ -67,23 +89,39 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
 }
 
 export class ListModelTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned data objects.
+   */
   data?: ListModelTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * The page number of the current query result.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page in the query result.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries in the query result.
+   * 
    * @example
    * 30
    */

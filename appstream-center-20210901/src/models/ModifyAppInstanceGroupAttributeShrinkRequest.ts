@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -15,31 +15,28 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group.
+   * The delivery group name.
+   * 
+   * @example
+   * 办公应用
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The network settings.
+   * The network configuration.
    * 
-   * >  If you want to use this parameter, submit a ticket.
+   * > To use this parameter, submit a ticket.
    */
   networkShrink?: string;
   /**
    * @remarks
-   * The information about the resource group.
+   * The resource group object.
    */
   nodePoolShrink?: string;
   /**
    * @remarks
-   * Specifies whether only one application can be opened in a session.
-   * 
-   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to allow only one application per session.
+   * - If enabled, opening multiple applications within a delivery group allocates a separate session for each application, consuming more sessions.
    * 
    * @example
    * false
@@ -47,7 +44,7 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   perSessionPerApp?: boolean;
   /**
    * @remarks
-   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+   * The AppId of the pre-open application. If the PreOpenMode parameter is set to `SINGLE_APP`, PreOpenAppId cannot be an empty string.
    * 
    * @example
    * ca-b2ronxxd****
@@ -57,11 +54,6 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
    * @remarks
    * The pre-open mode.
    * 
-   * Valid values:
-   * 
-   * *   SINGLE_APP: enables the pre-open mode for a single application.
-   * *   OFF: disables the pre-open mode. This is the default value.
-   * 
    * @example
    * OFF
    */
@@ -69,10 +61,6 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 
@@ -87,7 +75,7 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   securityPolicyShrink?: string;
   /**
    * @remarks
-   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * The session retention duration after disconnection, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15

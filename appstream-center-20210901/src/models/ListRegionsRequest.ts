@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -14,10 +14,6 @@ export class ListRegionsRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * @example
    * CloudApp

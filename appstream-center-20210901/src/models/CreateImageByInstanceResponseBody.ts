@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageByInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the RDS image.
+   * The WUYING image ID.
    * 
    * @example
    * imgc-07hnjj5fp****
@@ -13,7 +13,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The ID of the image creation task.
+   * The task ID for creating the image.
    * 
    * @example
    * tid-0abxi0lbih******
@@ -21,7 +21,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * @example
    * iv-0abxi0lbi*****
@@ -55,7 +55,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
 export class CreateImageByInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
    * 200
@@ -63,12 +63,12 @@ export class CreateImageByInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned object.
    */
   data?: CreateImageByInstanceResponseBodyData;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * NULL
@@ -84,7 +84,7 @@ export class CreateImageByInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

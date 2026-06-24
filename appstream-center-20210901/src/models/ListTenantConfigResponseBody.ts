@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the resource expiration reminder feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether resource expiration reminders are enabled.
    * 
    * @example
    * true
@@ -48,7 +43,7 @@ export class ListTenantConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user configurations.
+   * The user configuration information.
    */
   tenantConfigModel?: ListTenantConfigResponseBodyTenantConfigModel;
   static names(): { [key: string]: string } {

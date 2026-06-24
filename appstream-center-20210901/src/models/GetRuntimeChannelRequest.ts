@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRuntimeChannelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Agent platform.
+   * 
    * @example
    * ENTERPRISE
    */
   agentPlatform?: string;
   /**
    * @remarks
+   * The Agent provider.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,21 @@ export class GetRuntimeChannelRequest extends $dara.Model {
    */
   agentProvider?: string;
   /**
+   * @remarks
+   * Specifies whether to include risk information.
+   * 
    * @example
    * true
    */
   includeRiskInfo?: boolean;
   /**
    * @remarks
+   * The Agent runtime ID. The ID mappings are as follows:
+   * 
+   * - JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
+   * - OpenClaw: cloud computer ID, in the format of ecd-xxxx.
+   * - Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +45,8 @@ export class GetRuntimeChannelRequest extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
+   * The type of the Agent runtime.
+   * 
    * This parameter is required.
    * 
    * @example

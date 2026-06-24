@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAppInstanceGroupRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * department
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * design
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class ListAppInstanceGroupRequestTag extends $dara.Model {
 export class ListAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The image ID of the app. You can obtain the ID from the Images page in the App Streaming console.
+   * The application image ID. You can obtain this value from the Image Management page in the WUYING Cloud Application console.
    * 
    * @example
    * img-8z4nztpaqvay4****
@@ -39,7 +53,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   appCenterImageId?: string;
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -47,17 +61,15 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery groups to query. Fuzzy match is used for queries. For example, if you set this parameter to `Office App`, all delivery groups whose names contain `Office App` are queried, such as `My Office Apps` and `Office App A`.
+   * The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `Office App`, all delivery groups whose names contain `Office App` are returned, such as `My Office App` and `Office App A`.
+   * 
+   * @example
+   * 办公应用
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-hangzhou: China (Hangzhou)
+   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @example
    * cn-hangzhou
@@ -70,20 +82,23 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   excludedUserGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
+   * The specification type ID of the purchased resources. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hongkong+dir-643067****
    */
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the query results to display.
    * 
    * @example
    * 1
@@ -91,7 +106,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The value cannot be greater than `100`.
+   * The number of query results per page. Maximum value: `100`.
    * 
    * @example
    * 10
@@ -101,10 +116,6 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
    * This parameter is required.
    * 
    * @example
@@ -113,7 +124,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -123,10 +134,13 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the delivery groups.
+   * The list of delivery group statuses.
    */
   status?: string[];
   /**
+   * @remarks
+   * The tags.
+   * 
    * **if can be null:**
    * true
    */

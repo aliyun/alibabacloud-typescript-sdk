@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
    * OtaTask.Running
@@ -13,7 +13,7 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * The task is running and cannot be sumitted.
@@ -29,7 +29,10 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   otaVersion?: string;
   /**
    * @remarks
-   * The version description.
+   * The version description that describes the content of the over-the-air update.
+   * 
+   * @example
+   * 测试升级
    */
   releaseNote?: string;
   /**
@@ -42,7 +45,7 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution time of the OTA update task. The time follows the ISO 8601 standard.
+   * The task execution time in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 

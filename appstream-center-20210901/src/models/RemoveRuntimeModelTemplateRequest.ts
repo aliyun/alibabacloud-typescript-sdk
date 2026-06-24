@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRuntimeModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The model group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class RemoveRuntimeModelTemplateRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
+   * The list of Agent runtime IDs.
+   * 
    * This parameter is required.
    */
   runtimeIds?: string[];
   /**
    * @remarks
+   * The Agent runtime type.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyNodePoolAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * InvalidParameter.PoolId
    */
   code?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * The parameter PoolId is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

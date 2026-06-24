@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -15,19 +15,13 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
    * @remarks
    * The authorization mode.
    * 
-   * Valid values:
-   * 
-   * *   App: authorizes access to apps.
-   * *   AppInstanceGroup: authorizes access to delivery groups.
-   * *   Session: authorizes access to sessions.
-   * 
    * @example
    * App
    */
   authMode?: string;
   /**
    * @remarks
-   * The ID of the user group.
+   * The user group ID.
    * 
    * @example
    * ug-00001
@@ -35,7 +29,10 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
   groupId?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
+   * 
+   * @example
+   * 用户组001
    */
   groupName?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +73,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 10
@@ -92,7 +89,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -100,7 +97,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the user groups.
+   * The list of user group information.
    */
   userGroups?: ListAuthorizedUserGroupsResponseBodyUserGroups[];
   static names(): { [key: string]: string } {

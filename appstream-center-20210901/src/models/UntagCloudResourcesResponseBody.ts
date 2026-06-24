@@ -15,11 +15,6 @@ export class UntagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Mo
    * @remarks
    * The tag type.
    * 
-   * Valid values:
-   * 
-   * *   Custom: custom tag.
-   * *   System: system tag.
-   * 
    * @example
    * Custom
    */
@@ -66,7 +61,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The resource ID.
    * 
    * @example
    * aig-00000001
@@ -74,14 +69,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model 
   resourceId?: string;
   /**
    * @remarks
-   * The type of the cloud resource.
-   * 
-   * Valid values:
-   * 
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
+   * The cloud resource type.
    * 
    * @example
    * AppInstanceGroupId
@@ -89,7 +77,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model 
   resourceType?: string;
   /**
    * @remarks
-   * The tags that failed to be removed from the cloud resources.
+   * The list of failed tag information.
    */
   tags?: UntagCloudResourcesResponseBodyFailedResourcesTags[];
   static names(): { [key: string]: string } {
@@ -127,7 +115,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model 
 export class UntagCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud resources whose tags failed to be removed and the corresponding tags.
+   * The list of failed resources and tag information.
    */
   failedResources?: UntagCloudResourcesResponseBodyFailedResources[];
   /**

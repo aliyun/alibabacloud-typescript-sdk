@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Agent platform.
+   * 
    * @example
    * ENTERPRISE
    */
   agentPlatform?: string;
   /**
    * @remarks
+   * The Agent provider name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,15 +23,26 @@ export class CreateModelTemplateRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
+   * The business type.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   bizType?: number;
+  /**
+   * @remarks
+   * The template group description.
+   * 
+   * @example
+   * 测试模型分组
+   */
   description?: string;
   /**
    * @remarks
+   * The template group name.
+   * 
    * This parameter is required.
    * 
    * @example

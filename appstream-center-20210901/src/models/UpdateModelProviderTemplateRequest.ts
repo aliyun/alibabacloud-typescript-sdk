@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelProviderTemplateRequestConfig extends $dara.Model {
   /**
+   * @remarks
+   * The API key of the model service, which is used for authentication. The key is encrypted after it is created.
+   * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxx
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The API protocol type.
+   * 
    * @example
    * openai-completions
    */
   apiType?: string;
   /**
+   * @remarks
+   * The base URL of the model service API.
+   * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
    */
@@ -44,16 +53,39 @@ export class UpdateModelProviderTemplateRequestConfig extends $dara.Model {
 }
 
 export class UpdateModelProviderTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The model provider configuration.
+   */
   config?: UpdateModelProviderTemplateRequestConfig;
+  /**
+   * @remarks
+   * The description of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼服务商
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the Wuying security gateway proxy.
+   * 
    * @example
    * true
    */
   enableWuyingProxy?: boolean;
+  /**
+   * @remarks
+   * The name of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼
+   */
   name?: string;
   /**
    * @remarks
+   * The ID of the model provider template.
+   * 
    * This parameter is required.
    * 
    * @example

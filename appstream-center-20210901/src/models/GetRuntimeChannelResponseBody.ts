@@ -3,14 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRuntimeChannelResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The channel avatar URL.
+   */
   avatarUrl?: string;
+  /**
+   * @remarks
+   * The channel type. Valid values: System: a system-supported channel. Custom: a custom channel.
+   */
   channelType?: string;
   /**
+   * @remarks
+   * The channel code.
+   * 
    * @example
    * dingtalk-connector
    */
   code?: string;
   /**
+   * @remarks
+   * The channel configuration JSON string.
+   * 
+   * Currently, only the simple configuration mode is supported. You must pass in AppKey and AppSecret.
+   * 
    * @example
    * {
    *     "appKey": "abc",
@@ -18,15 +34,33 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values: Simple: simple configuration mode. Custom: custom configuration mode.
+   */
   configMode?: string;
+  /**
+   * @remarks
+   * The QR code configuration notification page URL. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
+   */
   qrCodeNotifyUrl?: string;
+  /**
+   * @remarks
+   * The QR code configuration status. This parameter is returned only when the status is not in a final state.
+   */
   qrCodeStatus?: string;
   /**
+   * @remarks
+   * The risk type. This parameter is returned only when **includeRiskInfo=true**.
+   * 
    * @example
    * Normal
    */
   riskType?: string;
   /**
+   * @remarks
+   * The configuration status.
+   * 
    * @example
    * Configured
    */
@@ -69,13 +103,23 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
 }
 
 export class GetRuntimeChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned object.
+   */
   data?: GetRuntimeChannelResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 6
    */

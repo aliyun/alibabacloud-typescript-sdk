@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelProviderTemplatesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Agent platform.
+   * 
    * @example
    * ENTERPRISE
    */
   agentPlatform?: string;
   /**
    * @remarks
+   * The name of the Agent provider.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListModelProviderTemplatesShrinkRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
+   * The business type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,25 +32,41 @@ export class ListModelProviderTemplatesShrinkRequest extends $dara.Model {
    */
   bizType?: number;
   /**
+   * @remarks
+   * The model group ID to filter by.
+   * 
    * @example
    * mt-xxxx
    */
   modelTemplateId?: string;
   /**
+   * @remarks
+   * The page number, starting from 1. Values 0 and 1 return the same result.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The name of the model provider to filter by.
+   * 
    * @example
    * bailian
    */
   providerName?: string;
+  /**
+   * @remarks
+   * The model provider template IDs to filter by.
+   */
   providerTemplateIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {

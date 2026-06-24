@@ -15,15 +15,6 @@ export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
    * @remarks
    * The task status.
    * 
-   * Valid values:
-   * 
-   * *   FAILED
-   * *   RUNNING
-   * *   TERMINATED
-   * *   PART_FINISHED
-   * *   STANDBY
-   * *   FINISHED
-   * 
    * @example
    * RUNNING
    */
@@ -38,7 +29,7 @@ export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The start time of the OTA update task. The time follows the ISO 8601 standard.
+   * The task start time in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -76,7 +67,7 @@ export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
 export class ListOtaTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the query results to display.
    * 
    * @example
    * 1
@@ -84,7 +75,7 @@ export class ListOtaTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on each page.
+   * The number of query results per page.
    * 
    * @example
    * 10
@@ -100,12 +91,12 @@ export class ListOtaTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The OTA update tasks.
+   * The list of over-the-air update tasks.
    */
   taskList?: ListOtaTaskResponseBodyTaskList[];
   /**
    * @remarks
-   * The total number of OTA update tasks.
+   * The total number of over-the-air update tasks.
    * 
    * @example
    * 6

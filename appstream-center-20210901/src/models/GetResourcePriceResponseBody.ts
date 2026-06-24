@@ -14,6 +14,9 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.
   /**
    * @remarks
    * The coupon description.
+   * 
+   * @example
+   * **活动期间的优惠
    */
   promotionDesc?: string;
   /**
@@ -27,16 +30,14 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.
   /**
    * @remarks
    * The coupon name.
+   * 
+   * @example
+   * **优惠
    */
   promotionName?: string;
   /**
    * @remarks
-   * Indicates whether the coupon was used.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the coupon is selected.
    * 
    * @example
    * true
@@ -74,7 +75,7 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.
 export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency type.
+   * The currency.
    * 
    * @example
    * CNY
@@ -82,7 +83,7 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The discount amount. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 999.0
@@ -103,7 +104,7 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
   promotions?: GetResourcePriceResponseBodyPriceListPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The actual price. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 5278.0
@@ -144,12 +145,15 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
 export class GetResourcePriceResponseBodyPriceListRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the price calculation rule.
+   * The pricing rule description.
+   * 
+   * @example
+   * 用户优惠。
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the price calculation rule.
+   * The pricing rule ID.
    * 
    * @example
    * 260904273633****
@@ -188,18 +192,13 @@ export class GetResourcePriceResponseBodyPriceList extends $dara.Model {
    * @remarks
    * The price type.
    * 
-   * Valid values:
-   * 
-   * *   Connected: in use
-   * *   Standby: pending for use.
-   * 
    * @example
    * Standby
    */
   priceType?: string;
   /**
    * @remarks
-   * The price calculation rules.
+   * The pricing rules.
    */
   rules?: GetResourcePriceResponseBodyPriceListRules[];
   static names(): { [key: string]: string } {
@@ -245,6 +244,9 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara
   /**
    * @remarks
    * The coupon description.
+   * 
+   * @example
+   * **活动期间的优惠
    */
   promotionDesc?: string;
   /**
@@ -258,16 +260,14 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara
   /**
    * @remarks
    * The coupon name.
+   * 
+   * @example
+   * **优惠
    */
   promotionName?: string;
   /**
    * @remarks
-   * Indicates whether the coupon was used.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the coupon is selected.
    * 
    * @example
    * true
@@ -305,7 +305,7 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara
 export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency type.
+   * The currency.
    * 
    * @example
    * CNY
@@ -313,7 +313,7 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The discount amount. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 1.00
@@ -334,7 +334,7 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
   promotions?: GetResourcePriceResponseBodyPriceModelPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The actual price. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 10.00
@@ -375,12 +375,15 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
 export class GetResourcePriceResponseBodyPriceModelRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the price calculation rule.
+   * The pricing rule description.
+   * 
+   * @example
+   * 用户优惠
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the price calculation rule.
+   * The pricing rule ID.
    * 
    * @example
    * 102002100393****
@@ -417,7 +420,7 @@ export class GetResourcePriceResponseBodyPriceModel extends $dara.Model {
   price?: GetResourcePriceResponseBodyPriceModelPrice;
   /**
    * @remarks
-   * The price calculation rules.
+   * The pricing rules.
    */
   rules?: GetResourcePriceResponseBodyPriceModelRules[];
   static names(): { [key: string]: string } {
@@ -452,7 +455,7 @@ export class GetResourcePriceResponseBodyPriceModel extends $dara.Model {
 export class GetResourcePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InvalidParameter.ProductType
@@ -460,7 +463,7 @@ export class GetResourcePriceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The parameter ProductType is invalid.
@@ -468,16 +471,16 @@ export class GetResourcePriceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The price objects.
+   * The list of price objects.
    * 
-   * This parameter is returned only if a value is specified for AppInstanceType.
+   * This parameter is returned when the request parameter AppInstanceType has a value.
    */
   priceList?: GetResourcePriceResponseBodyPriceList[];
   /**
    * @remarks
    * The price object.
    * 
-   * This parameter is returned only if a value is specified for NodeInstanceType.
+   * This parameter is returned when the request parameter NodeInstanceType has a value.
    */
   priceModel?: GetResourcePriceResponseBodyPriceModel;
   /**

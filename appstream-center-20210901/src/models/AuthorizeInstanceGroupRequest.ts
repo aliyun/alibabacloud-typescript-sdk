@@ -17,11 +17,6 @@ export class AuthorizeInstanceGroupRequestUserMeta extends $dara.Model {
    * @remarks
    * The user type.
    * 
-   * Valid values:
-   * 
-   * *   ad: Active Directory (AD) account
-   * *   simple: convenience account
-   * 
    * @example
    * simple
    */
@@ -52,6 +47,8 @@ export class AuthorizeInstanceGroupRequestUserMeta extends $dara.Model {
 export class AuthorizeInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,29 +57,39 @@ export class AuthorizeInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * 持久会话ID。
+   * The persistent session ID.
    * 
    * @example
    * p-0cc7s3mw2fg4j****
    */
   appInstancePersistentId?: string;
   /**
+   * @remarks
+   * The list of user group IDs to be authorized.
+   * 
    * **if can be null:**
    * true
    */
   authorizeUserGroupIds?: string[];
   /**
    * @remarks
-   * The IDs of the users that you want to add to the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   * The list of usernames to be authorized for the delivery group. You can specify 1 to 100 usernames.
    */
   authorizeUserIds?: string[];
   /**
+   * @remarks
+   * The user avatar ID.
+   * 
+   * > This parameter is not available for public use.
+   * 
    * @example
    * default
    */
   avatarId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,13 +97,16 @@ export class AuthorizeInstanceGroupRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * The list of user group IDs to be deauthorized.
+   * 
    * **if can be null:**
    * true
    */
   unAuthorizeUserGroupIds?: string[];
   /**
    * @remarks
-   * The IDs of the users that you want to remove from the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   * The list of usernames to be deauthorized from the delivery group. You can specify 1 to 100 usernames.
    */
   unAuthorizeUserIds?: string[];
   /**

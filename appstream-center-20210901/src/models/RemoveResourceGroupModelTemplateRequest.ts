@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveResourceGroupModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The model group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveResourceGroupModelTemplateRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
+   * The list of resource group IDs.
+   * 
    * This parameter is required.
    */
   resourceGroupIds?: string[];

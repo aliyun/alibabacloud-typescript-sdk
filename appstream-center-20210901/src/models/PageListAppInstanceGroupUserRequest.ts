@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageListAppInstanceGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class PageListAppInstanceGroupUserRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The number of the page to return. We recommend that you configure this parameter.
+   * The page number of the query results to display. Specify this parameter.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class PageListAppInstanceGroupUserRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to be return on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * The number of query results per page. The value cannot exceed `100`. Specify this parameter.
    * 
    * @example
    * 10
@@ -32,10 +32,6 @@ export class PageListAppInstanceGroupUserRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

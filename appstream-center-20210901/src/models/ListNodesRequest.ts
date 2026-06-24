@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListNodesRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the query results to display, starting from 1.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListNodesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 200.
+   * The number of query results per page. Valid values: 1 to 200.
    * 
    * This parameter is required.
    * 
@@ -36,10 +36,6 @@ export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

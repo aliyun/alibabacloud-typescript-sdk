@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The category of data disk.
+   * The data cloud disk type.
    * 
    * @example
    * cloud_auto
@@ -23,7 +23,7 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
   dataDiskNo?: string;
   /**
    * @remarks
-   * The PL of the data disk.
+   * The performance level of the data cloud disk.
    * 
    * @example
    * PL0
@@ -31,7 +31,7 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
   dataDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the data disk. Unit: GB.
+   * The data cloud disk size. Unit: GB.
    * 
    * @example
    * 200
@@ -69,7 +69,7 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
 export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * p-0ceitx****c5
@@ -77,7 +77,7 @@ export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extend
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The network interface controller (NIC) ID.
    * 
    * @example
    * eni-uf65b****dfnt3wb
@@ -159,7 +159,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
   gpu?: string;
   /**
    * @remarks
-   * The memory size. Unit: MB.
+   * The GPU memory size. Unit: MB.
    * 
    * @example
    * 196,608
@@ -180,7 +180,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
   memory?: number;
   /**
    * @remarks
-   * Workstation specifications.
+   * The workstation instance type.
    * 
    * @example
    * eds.proworkstation_flagship_elite_ne.96c384g.192g4x
@@ -253,6 +253,9 @@ export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.
 
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   /**
+   * @remarks
+   * The status of joining a virtual node pool.
+   * 
    * @example
    * Added
    */
@@ -269,7 +272,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * Region.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -285,7 +288,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the storage resource was created.
+   * The creation time.
    * 
    * @example
    * 2025-08-02T16:52:11.000+00:00
@@ -293,7 +296,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The data disks.
+   * The list of data cloud disks.
    */
   dataDisk?: ListWuyingServerResponseBodyWuyingServerListDataDisk[];
   /**
@@ -303,7 +306,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   eniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The time when the subscription instance expires.
+   * The expiration time.
    * 
    * @example
    * 2025-09-03T16:00:00.000+00:00
@@ -316,7 +319,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   fotaVersion?: string;
   /**
    * @remarks
-   * The ID of the custom image.
+   * The image ID.
    * 
    * @example
    * imgc-06****oagaev
@@ -327,12 +330,12 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * The image name.
    * 
    * @example
-   * Ubuntu 22.04
+   * Alibaba Cloud Linux 3.2104 LTS 64位
    */
   imageName?: string;
   /**
    * @remarks
-   * The list of information about the workstation instance.
+   * The list of workstation instance information.
    */
   instanceInfoList?: ListWuyingServerResponseBodyWuyingServerListInstanceInfoList[];
   /**
@@ -342,7 +345,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The private IP address.
+   * The internal IP address.
    * 
    * @example
    * 10.80.21.149
@@ -350,7 +353,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-1b****ayv2
@@ -366,7 +369,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The type of the office network.
+   * The office network type.
    * 
    * @example
    * SIMPLE
@@ -374,7 +377,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The OS type.
+   * The operating system type.
    * 
    * @example
    * Linux
@@ -387,16 +390,20 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * Connected
    */
   resourceSessionStatus?: string;
+  /**
+   * @remarks
+   * The list of security group IDs.
+   */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The specifications.
+   * The instance type information.
    */
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
   sessions?: ListWuyingServerResponseBodyWuyingServerListSessions[];
   /**
    * @remarks
-   * The status of the workstation.
+   * The workstation status.
    * 
    * @example
    * RUNNING
@@ -409,7 +416,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * The type of the system disk.
+   * The system cloud disk type.
    * 
    * @example
    * cloud_auto
@@ -422,7 +429,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   systemDiskId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system disk.
+   * The performance level of the system cloud disk.
    * 
    * @example
    * PL0
@@ -430,7 +437,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
+   * The system cloud disk size. Unit: GB.
    * 
    * @example
    * 100
@@ -448,6 +455,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   virtualKubeletIp?: string;
   /**
+   * @remarks
+   * The virtual node pool ID.
+   * 
    * @example
    * vnp-bp1234567890abcde
    */
@@ -460,7 +470,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   vkVersion?: string;
   /**
    * @remarks
-   * The ID of the workstation.
+   * The workstation ID.
    * 
    * @example
    * ws-0byd****8wn2lwi
@@ -468,7 +478,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   wuyingServerId?: string;
   /**
    * @remarks
-   * The name of the workstation.
+   * The workstation name.
    * 
    * @example
    * exampleServerName
@@ -606,7 +616,7 @@ export class ListWuyingServerResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -622,7 +632,7 @@ export class ListWuyingServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 15

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelTemplateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The model group ID.
+   * 
    * @example
    * mt-xxxx
    */
@@ -30,8 +33,15 @@ export class CreateModelTemplateResponseBodyData extends $dara.Model {
 }
 
 export class CreateModelTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The creation result.
+   */
   data?: CreateModelTemplateResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

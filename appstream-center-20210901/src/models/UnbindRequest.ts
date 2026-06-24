@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * The delivery group ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The session ID. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * The session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
    * 
    * @example
    * ai-d297eyf83g5ni****
@@ -23,7 +23,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The ID of the persistent session. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * The persistent session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
    * 
    * @example
    * p-0bxls9m3cl7s****
@@ -42,10 +42,6 @@ export class UnbindRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

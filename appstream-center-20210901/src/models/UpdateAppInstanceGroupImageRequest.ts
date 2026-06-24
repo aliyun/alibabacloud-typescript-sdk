@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
+   * The application image ID. You can obtain this ID from the Image Management page in the WUYING Cloud Application console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   appCenterImageId?: string;
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,7 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai).
-   * *   cn-hangzhou: China (Hangzhou)
+   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * This parameter is required.
    * 
@@ -41,10 +36,6 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

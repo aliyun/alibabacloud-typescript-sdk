@@ -21,7 +21,7 @@ export class UpdateWuyingServerImageRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the workstation.
+   * The workstation ID.
    * 
    * @example
    * ws-0bw2f11****dial

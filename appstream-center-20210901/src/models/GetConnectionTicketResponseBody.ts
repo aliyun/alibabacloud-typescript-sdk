@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-53fvrq1oan****
@@ -13,7 +13,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the application instance.
+   * The application instance ID.
    * 
    * @example
    * ai-7ybdeiyoeh5e****
@@ -21,7 +21,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The ID of the persistent session.
+   * The persistent session ID.
    * 
    * @example
    * p-0bxls9m3cl7s****
@@ -42,11 +42,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The operating system.
-   * 
-   * Valid value:
-   * 
-   * *   Windows: the Windows operating system
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -72,19 +68,13 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    * @remarks
    * The task status.
    * 
-   * Valid values:
-   * 
-   * *   Finished: The task is complete.
-   * *   Failed: The task failed.
-   * *   Running: The task is being executed.
-   * 
    * @example
    * Running
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The tenant ID (Alibaba Cloud account UID).
    * 
    * @example
    * 148871678899****
@@ -92,9 +82,8 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The credential that is used to connect to App Streaming.
-   * 
-   * >  This parameter is displayed for calls other than the first call to this operation.
+   * The credentials for connecting to the cloud application.
+   * > This parameter is returned only on non-initial calls.
    * 
    * @example
    * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****

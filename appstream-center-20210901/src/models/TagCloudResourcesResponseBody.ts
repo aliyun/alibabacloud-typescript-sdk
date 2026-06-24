@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * System/Scheduler/STOP_NEW_USER_CONNECTION
    */
   key?: string;
   /**
+   * @remarks
+   * The tag type.
+   * 
    * @example
    * System
    */
   scope?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * true
    */
@@ -45,36 +54,41 @@ export class TagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Mode
 
 export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * TAG_KEY_DUPLICATED
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Duplicate tag keys exist.
    */
   message?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * aig-001
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the cloud resource.
-   * 
-   * Valid values:
-   * 
-   * *   CenterImageId: center image ID.
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
+   * The cloud resource type.
    * 
    * @example
    * AppInstanceGroupId
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of failed tag information.
+   */
   tags?: TagCloudResourcesResponseBodyFailedResourcesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +125,13 @@ export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
 export class TagCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud resources on which the operation failed and the corresponding tags.
+   * The list of failed resources and tag information.
    */
   failedResources?: TagCloudResourcesResponseBodyFailedResources[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

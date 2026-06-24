@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeliverToUserSlsRequestDeliveryScopes extends $dara.Model {
   /**
    * @remarks
+   * product type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeliverToUserSlsRequestDeliveryScopes extends $dara.Model {
 export class DeliverToUserSlsRequest extends $dara.Model {
   /**
    * @remarks
+   * List of delivery scopes
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,22 +46,33 @@ export class DeliverToUserSlsRequest extends $dara.Model {
    */
   deliveryScopes?: DeliverToUserSlsRequestDeliveryScopes[];
   /**
+   * @remarks
+   * Existing Simple Log Service project name; either this or ProjectName is required
+   * 
    * @example
    * elastic-desktop-xxx
    */
   existedProjectName?: string;
   /**
+   * @remarks
+   * LogStore name
+   * 
    * @example
    * elastic_desktop_xxx
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * Simple Log Service project name; either this or ExistedProjectName is required
+   * 
    * @example
    * elastic-desktop-xxx
    */
   projectName?: string;
   /**
    * @remarks
+   * Region ID of Simple Log Service
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +80,9 @@ export class DeliverToUserSlsRequest extends $dara.Model {
    */
   slsRegionId?: string;
   /**
+   * @remarks
+   * Data retention period (Day), default 30
+   * 
    * @example
    * 30
    */

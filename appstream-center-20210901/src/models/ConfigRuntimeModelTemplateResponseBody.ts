@@ -4,26 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigRuntimeModelTemplateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the execution fails.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned if the execution fails.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned if the execution fails.
+   * 
    * @example
    * The parameter callerUid may not be null.
    */
   message?: string;
   /**
+   * @remarks
+   * The Agent runtime ID. The ID mapping is as follows:
+   * 
+   * JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
+   * 
+   * OpenClaw: cloud computer ID, in the format of ecd-xxxx.
+   * 
+   * Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
+   * 
    * @example
    * jvs-xxxxxxxx
    */
   runtimeId?: string;
   /**
+   * @remarks
+   * Indicates whether the execution is successful.
+   * 
    * @example
    * True
    */
@@ -58,13 +79,23 @@ export class ConfigRuntimeModelTemplateResponseBodyData extends $dara.Model {
 }
 
 export class ConfigRuntimeModelTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of execution results.
+   */
   data?: ConfigRuntimeModelTemplateResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 6
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigRuntimeChannelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Agent platform (such as ENTERPRISE or JVS).
+   * 
    * @example
    * ENTERPRISE
    */
   agentPlatform?: string;
   /**
    * @remarks
+   * The Agent provider.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
+   * The third-party channel code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
+   * The channel configuration JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,22 +45,34 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
    */
   config?: string;
   /**
+   * @remarks
+   * The configuration mode.
+   * 
    * @example
    * Simple
    */
   configMode?: string;
   /**
+   * @remarks
+   * The channel name.
+   * 
+   * If you leave this parameter empty, the system automatically uses the value of Code as the name.
+   * 
    * @example
    * 钉钉
    */
   name?: string;
   /**
    * @remarks
+   * The list of runtime IDs.
+   * 
    * This parameter is required.
    */
   runtimeIds?: string[];
   /**
    * @remarks
+   * The Agent runtime type.
+   * 
    * This parameter is required.
    * 
    * @example

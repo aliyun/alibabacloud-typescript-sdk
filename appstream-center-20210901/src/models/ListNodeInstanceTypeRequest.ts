@@ -5,53 +5,81 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeInstanceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the resource resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-hangzhou: China (Hangzhou)
+   * The region ID of the resource. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The number of GPUs.
+   * 
+   * @example
+   * 1
+   */
   gpu?: number;
+  /**
+   * @remarks
+   * The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud desktops. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
   gpuMemory?: number;
   instanceTypeForModify?: string;
   /**
    * @remarks
-   * The language that you want to use.
-   * 
-   * Valid values:
-   * 
-   * *   en-US: English (US)
-   * *   zh-CN: Simplified Chinese
+   * The language type.
    * 
    * @example
    * zh-CN
    */
   language?: string;
+  /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
+   * @example
+   * 10240
+   */
   memory?: number;
   /**
    * @remarks
-   * The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
+   * The resource specification type to query. If you leave this parameter empty, all specification types are returned.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
+  /**
+   * @remarks
+   * The instance family.
+   * 
+   * @example
+   * appstreaming.vgpu
+   */
   nodeInstanceTypeFamily?: string;
+  /**
+   * @remarks
+   * CPU/Memory.
+   * 
+   * @example
+   * CPU
+   */
   orderBy?: string;
   orderType?: string;
   /**
    * @remarks
-   * The operating system that is supported.
-   * 
-   * Valid value:
-   * 
-   * *   Windows: the Windows operating system
+   * The supported operating system type.
    * 
    * @example
    * Windows
@@ -59,7 +87,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the query results to display.
    * 
    * This parameter is required.
    * 
@@ -69,7 +97,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
+   * The number of query results per page. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -81,16 +109,19 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
    * This parameter is required.
    * 
    * @example
    * CloudApp
    */
   productType?: string;
+  /**
+   * @remarks
+   * DESC/ASC.
+   * 
+   * @example
+   * ASC
+   */
   sortType?: string;
   static names(): { [key: string]: string } {
     return {

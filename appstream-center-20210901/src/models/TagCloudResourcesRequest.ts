@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagCloudResourcesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag. The value must be 1 to 128 characters in length and is case-sensitive. The name must be 1 to 128 characters in length.
+   * The tag key. This parameter is case-sensitive. The tag key must be 1 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class TagCloudResourcesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag. The value must be 1 to 128 characters in length and is case-sensitive. The name must be 1 to 128 characters in length.
+   * The tag value. This parameter is case-sensitive. The tag value must be 1 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -49,20 +49,12 @@ export class TagCloudResourcesRequestTags extends $dara.Model {
 export class TagCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
+   * The list of resource IDs. A maximum of 50 resource IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the cloud resource.
-   * 
-   * Valid values:
-   * 
-   * *   CenterImageId: center image ID.
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
+   * The cloud resource type.
    * 
    * This parameter is required.
    * 
@@ -72,16 +64,15 @@ export class TagCloudResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags that you want to remove from the cloud resources. System and custom tags are supported.
+   * The list of tags. System tags and custom tags are supported.
    * 
-   * *   Valid values for system tags:
+   * - System tag enumeration values:
+   *    - `System/Scheduler/GRAYSCALE`: canary release tag
+   *    - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents new user connections from being established for the delivery group
    * 
-   *     *   `System/Scheduler/GRAYSCALE`: canary tags.
-   *     *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
+   * - Custom tags: A maximum of 20 custom tags can be created.
    * 
-   * *   You can create up to 20 custom tags.
-   * 
-   * > Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+   * > Each tag key on the same resource can have only one tag value. If you add a tag key that already exists, the corresponding tag value is updated to the new value.
    * 
    * This parameter is required.
    */

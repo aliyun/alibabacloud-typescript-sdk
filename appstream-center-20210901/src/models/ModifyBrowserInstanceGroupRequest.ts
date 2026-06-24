@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $dara.Model {
   /**
    * @remarks
-   * The folder where the bookmark is located.
+   * The folder to which the bookmark belongs.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
   bookmarkFolder?: string;
   /**
    * @remarks
-   * The ID of the bookmark. This parameter needs to be specified only to modify the bookmark.
+   * The bookmark ID. This parameter is required only for modification.
    * 
    * @example
    * bm-12345
@@ -21,7 +21,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
   bookmarkId?: string;
   /**
    * @remarks
-   * The name of the bookmark.
+   * The bookmark name.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
   bookmarkName?: string;
   /**
    * @remarks
-   * The URL of the bookmark.
+   * The bookmark URL.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
 export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model {
   /**
    * @remarks
-   * The bookmark.
+   * The bookmarks.
    */
   bookmarks?: ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks[];
   /**
@@ -79,7 +79,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   bookmarksFilePath?: string;
   /**
    * @remarks
-   * The startup parameter.
+   * The startup parameters.
    * 
    * @example
    * --incognito
@@ -88,7 +88,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   cookiesSync?: boolean;
   /**
    * @remarks
-   * The home page.
+   * The homepage.
    * 
    * @example
    * https://www.aliyun.com
@@ -96,7 +96,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   homepage?: string;
   /**
    * @remarks
-   * The removed bookmarks.
+   * The list of bookmarks to remove.
    */
   removeBookmarks?: string[];
   static names(): { [key: string]: string } {
@@ -139,7 +139,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
 export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name. This parameter is required only when you want to modify the domain restriction configuration.
+   * The ID of the domain name configuration. This parameter is required only for modification.
    * 
    * @example
    * ru-12345
@@ -147,7 +147,7 @@ export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dar
   restrictedURLId?: string;
   /**
    * @remarks
-   * The restricted domain name.
+   * The domain name.
    * 
    * @example
    * aliyun.com
@@ -179,11 +179,7 @@ export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dar
 export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   /**
    * @remarks
-   * The type of the access control list.
-   * 
-   * Valid value:
-   * 
-   * *   ALLOW_LIST: The whitelist.
+   * The access restriction type.
    * 
    * @example
    * ALLOW_LIST
@@ -191,12 +187,12 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   accessRestriction?: string;
   /**
    * @remarks
-   * The domain names to be removed.
+   * The list of domain names to remove.
    */
   removeRestrictedURLIds?: string[];
   /**
    * @remarks
-   * The domain restriction configurations.
+   * The restricted domain name configurations.
    */
   restrictedURLs?: ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs[];
   /**
@@ -242,20 +238,13 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * @remarks
    * The clipboard policy.
    * 
-   * Valid values:
-   * 
-   * *   read: Allows copying from the local device to the cloud browser.
-   * *   readwrite: Allows copying in both directions.
-   * *   write: Allows copying from the cloud browser to the local device.
-   * *   off: Blocks copying in both directions.
-   * 
    * @example
    * off
    */
   clipboard?: string;
   /**
    * @remarks
-   * The maximum number of characters allowed when copying from the clipboard.
+   * The maximum length for clipboard read operations.
    * 
    * @example
    * 1000
@@ -264,11 +253,6 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   /**
    * @remarks
    * The clipboard control scope.
-   * 
-   * Valid values:
-   * 
-   * *   grained: fine-grained control
-   * *   global: global control
    * 
    * @example
    * global
@@ -281,7 +265,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardSizeUnit?: string;
   /**
    * @remarks
-   * The maximum number of characters allowed when copying to the clipboard.
+   * The maximum length for clipboard write operations.
    * 
    * @example
    * 1000
@@ -291,13 +275,6 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * @remarks
    * The file clipboard policy.
    * 
-   * Valid values:
-   * 
-   * *   read: Allows copying from the local device to the cloud browser.
-   * *   readwrite: Allows copying in both directions.
-   * *   write: Allows copying from the cloud browser to the local device.
-   * *   off: Blocks copying in both directions.
-   * 
    * @example
    * off
    */
@@ -305,13 +282,6 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   /**
    * @remarks
    * The rich text clipboard policy.
-   * 
-   * Valid values:
-   * 
-   * *   read: Allows copying from the local device to the cloud browser.
-   * *   readwrite: Allows copying in both directions.
-   * *   write: Allows copying from the cloud browser to the local device.
-   * *   off: Blocks copying in both directions.
    * 
    * @example
    * off
@@ -350,13 +320,6 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   /**
    * @remarks
    * The text clipboard policy.
-   * 
-   * Valid values:
-   * 
-   * *   read: Allows copying from the local device to the cloud browser.
-   * *   readwrite: Allows copying in both directions.
-   * *   write: Allows copying from the cloud browser to the local device.
-   * *   off: Blocks copying in both directions.
    * 
    * @example
    * off
@@ -472,18 +435,13 @@ export class ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
    * @remarks
    * Specifies whether to enable the watermark.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * off
    */
   watermarkSwitch?: string;
   /**
    * @remarks
-   * The watermark types.
+   * The list of watermark types.
    */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
@@ -515,17 +473,12 @@ export class ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dar
 export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   /**
    * @remarks
-   * The settings related to clipboard control.
+   * The clipboard policy settings.
    */
   clipboardPolicy?: ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy;
   /**
    * @remarks
-   * Defines what happens to a session when a user disconnects.
-   * 
-   * Valid values:
-   * 
-   * *   customTime: The session will be terminated after a custom-defined timeout.
-   * *   persistent: The session will never be automatically terminated..
+   * The data retention policy for sessions after disconnection.
    * 
    * @example
    * customTime
@@ -533,7 +486,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session persistence duration.
+   * The session retention duration after disconnection.
    * 
    * @example
    * 15
@@ -546,25 +499,31 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   fileManager?: string;
   /**
    * @remarks
-   * The file transfer policy on the web client.
+   * The file transfer policy for the web client.
    * 
    * @example
    * off
    */
   html5FileTransfer?: string;
   /**
+   * @remarks
+   * The policy for disconnecting sessions after no operation.
+   * 
    * @example
    * on
    */
   noOperationDisconnect?: string;
   /**
+   * @remarks
+   * The idle timeout period before disconnection, in seconds.
+   * 
    * @example
    * 1
    */
   noOperationDisconnectTime?: number;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-12345
@@ -573,10 +532,6 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   /**
    * @remarks
    * The policy version.
-   * 
-   * Valid value:
-   * 
-   * *   Center: center policy
    * 
    * @example
    * Center
@@ -702,11 +657,7 @@ export class ModifyBrowserInstanceGroupRequestTimers extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The timer type:
-   * 
-   * Valid value:
-   * 
-   * *   SESSION_TIMEOUT: Defines the timeout period before a disconnected session is terminated.
+   * The timer type.
    * 
    * @example
    * SESSION_TIMEOUT
@@ -738,12 +689,12 @@ export class ModifyBrowserInstanceGroupRequestTimers extends $dara.Model {
 export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The browser settings.
+   * The browser configuration.
    */
   browserConfig?: ModifyBrowserInstanceGroupRequestBrowserConfig;
   /**
    * @remarks
-   * The ID of the cloud browser to be modified.
+   * The ID of the cloud browser to modify.
    * 
    * This parameter is required.
    * 
@@ -766,7 +717,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    */
   network?: ModifyBrowserInstanceGroupRequestNetwork;
   /**
@@ -777,7 +728,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   storagePolicy?: ModifyBrowserInstanceGroupRequestStoragePolicy;
   /**
    * @remarks
-   * The timer.
+   * The timers.
    */
   timers?: ModifyBrowserInstanceGroupRequestTimers[];
   static names(): { [key: string]: string } {

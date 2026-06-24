@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartTaskForDistributeImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code if an error occurred.
+   * The error code returned if the request failed.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class StartTaskForDistributeImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the image replication task.
+   * The ID of the image copy task.
    * 
    * @example
    * tid-06xnr5lyp77e7****
@@ -21,7 +21,7 @@ export class StartTaskForDistributeImageResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message if an error occurred.
+   * The error message returned if the request failed.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class StartTaskForDistributeImageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 419F31B9-1FDF-5644-ABA3-D00026FA****
@@ -37,7 +37,7 @@ export class StartTaskForDistributeImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the task is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

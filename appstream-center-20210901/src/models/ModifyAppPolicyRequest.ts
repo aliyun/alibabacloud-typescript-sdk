@@ -7,11 +7,6 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
    * @remarks
    * The frame rate (FPS).
    * 
-   * Enumerated values:
-   * 
-   * *   30: 30 FPS
-   * *   60: 60 FPS
-   * 
    * @example
    * 60
    */
@@ -34,11 +29,11 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   sessionResolutionWidth?: number;
   /**
    * @remarks
-   * The stream mode. This parameter is used together with `Webrtc` to specify the protocol type.
+   * The streaming mode. This parameter is used together with the Webrtc parameter to specify the protocol type.
    * 
-   * *   If you set `Webrtc` to `true` and `StreamingMode` to `video`, Web Real-Time Communications (WebRTC) streams are used.
-   * *   If you set `Webrtc` to `false` and `StreamingMode` to `video`, video streams are used.
-   * *   If you set `Webrtc` to `false` and `StreamingMode` to `mix`, mixed streams are used.
+   * - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
+   * - Webrtc=`false` and StreamingMode=`video`: video stream.
+   * - Webrtc=`false` and StreamingMode=`mix`: mixed stream.
    * 
    * @example
    * video
@@ -46,10 +41,11 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   streamingMode?: string;
   /**
    * @remarks
-   * Whether to use adaptive resolution.
+   * Specifies whether to use adaptive resolution.
    * 
-   * *   `true`: The session resolution changes with the display area of the terminal. In this case, `SessionResolutionWidth` indicates the maximum resolution width and `SessionResolutionHeight` indicates the maximum resolution height.
-   * *   `false`: The session resolution does not change with the display area of the terminal. In this case, `SessionResolutionWidth` specifies the fixed resolution width and `SessionResolutionHeight` specifies the fixed resolution height.
+   * - `true`: The session resolution follows changes in the terminal display area. In this case, SessionResolutionWidth and SessionResolutionHeight specify the maximum resolution values.
+   * 
+   * - `false`: The session resolution does not follow changes in the terminal display area. In this case, the resolution is fixed to the values of SessionResolutionWidth and SessionResolutionHeight.
    * 
    * @example
    * false
@@ -57,13 +53,7 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   terminalResolutionAdaptive?: boolean;
   /**
    * @remarks
-   * The image quality policy.
-   * 
-   * Enumerated values:
-   * 
-   * *   adaptive: adaptive.
-   * *   smooth: smooth first.
-   * *   quality: quality first.
+   * The visual quality strategy.
    * 
    * @example
    * smooth
@@ -71,11 +61,11 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   visualQualityStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable WebRTC. This parameter is used together with `StreamingMode` to specify the protocol type.
+   * Specifies whether to enable WebRTC. This parameter is used together with the StreamingMode parameter to specify the protocol type.
    * 
-   * *   If you set `Webrtc` to `true` and `StreamingMode` to `video`, WebRTC streams are used.
-   * *   If you set `Webrtc` to `false` and `StreamingMode` to `video`, video streams are used.
-   * *   If you set `Webrtc` to `false` and `StreamingMode` to `mix`, mixed streams are used.
+   * - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
+   * - Webrtc=`false` and StreamingMode=`video`: video stream.
+   * - Webrtc=`false` and StreamingMode=`mix`: mixed stream.
    * 
    * @example
    * true
@@ -129,10 +119,6 @@ export class ModifyAppPolicyRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Enumerated values:
-   * 
-   * *   CloudApp: RDS Cloud App
-   * 
    * This parameter is required.
    * 
    * @example
@@ -141,7 +127,7 @@ export class ModifyAppPolicyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Displays the policy.
+   * The display policy.
    */
   videoPolicy?: ModifyAppPolicyRequestVideoPolicy;
   static names(): { [key: string]: string } {

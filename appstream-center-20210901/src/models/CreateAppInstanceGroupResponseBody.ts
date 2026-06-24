@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $da
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource group. This parameter is returned if a resource group was created.
+   * The resource group ID. This parameter is returned if a resource group is created at the same time.
    * 
    * @example
    * rg-ew7va2g1wl3vm****

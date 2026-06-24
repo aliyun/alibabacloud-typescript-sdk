@@ -5,14 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesResponseBodyNodeModels extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the resource node.
+   * The billing type of the resource node.
    * 
-   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   Prepaid: subscription
+   * > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
    * 
    * @example
    * PostPaid
@@ -20,9 +15,8 @@ export class ListNodesResponseBodyNodeModels extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the resource node.
-   * 
-   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
+   * The resource node ID.
+   * > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
    * 
    * @example
    * i-bp13********
@@ -54,7 +48,7 @@ export class ListNodesResponseBodyNodeModels extends $dara.Model {
 export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that can be returned.
    * 
    * @example
    * 100
@@ -62,12 +56,12 @@ export class ListNodesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The resource nodes.
+   * The list of resource nodes.
    */
   nodeModels?: ListNodesResponseBodyNodeModels[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size of the current page.
    * 
    * @example
    * 10
@@ -83,7 +77,7 @@ export class ListNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the currently returned data.
    * 
    * @example
    * 1

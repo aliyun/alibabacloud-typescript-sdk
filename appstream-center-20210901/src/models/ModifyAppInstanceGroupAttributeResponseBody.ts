@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceGroupAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
    * InvalidParameter.ProductType
@@ -13,7 +13,7 @@ export class ModifyAppInstanceGroupAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * The parameter ProductType is invalid.

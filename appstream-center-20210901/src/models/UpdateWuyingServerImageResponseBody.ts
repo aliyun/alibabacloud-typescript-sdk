@@ -13,7 +13,7 @@ export class UpdateWuyingServerImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the update task.
+   * The update task ID.
    * 
    * @example
    * ota-be7jzm29wrrz5****

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The JSON configuration object of the model provider template.
+   * 
    * @example
    * {
    * 	"api": "openai-completions",
@@ -12,19 +15,42 @@ export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The description of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼服务商。
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the WUYING secure gateway proxy is enabled.
+   * 
    * @example
    * true
    */
   enableWuyingProxy?: boolean;
+  /**
+   * @remarks
+   * The name of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼。
+   */
   name?: string;
   /**
+   * @remarks
+   * The name of the model provider.
+   * 
    * @example
    * bailian
    */
   providerName?: string;
   /**
+   * @remarks
+   * The ID of the model provider template.
+   * 
    * @example
    * mpt-xxxx
    */
@@ -61,8 +87,15 @@ export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetModelProviderTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: GetModelProviderTemplateResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The model configuration JSON object.
+   * 
    * @example
    * {
    * 	"id": "qwen3.6-plus",
@@ -24,28 +27,50 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The template description.
+   * 
+   * @example
+   * 千问Plus系列模型
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether this is the default model in the associated model group.
+   * 
    * @example
    * true
    */
   isDefaultModel?: boolean;
   /**
+   * @remarks
+   * The model code.
+   * 
    * @example
    * qwen3.6-plus
    */
   llmCode?: string;
   /**
+   * @remarks
+   * The model template ID.
+   * 
    * @example
    * llmt-xxxx
    */
   llmTemplateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * Qwen3.6-Plus
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the model provider template.
+   * 
    * @example
    * mpt-xxxx
    */
@@ -84,23 +109,39 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
 }
 
 export class ListLlmTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned data objects.
+   */
   data?: ListLlmTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * The page number of the current page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 20
    */

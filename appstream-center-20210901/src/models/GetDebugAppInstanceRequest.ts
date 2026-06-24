@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDebugAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group. You can call the `listAppInstanceGroup` operation to obtain the ID.
+   * The delivery group ID. You can obtain this value by calling the listAppInstanceGroup operation.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,6 @@ export class GetDebugAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

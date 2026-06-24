@@ -7,18 +7,13 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
    * @remarks
    * The account type.
    * 
-   * Valid values:
-   * 
-   * *   ad: Active Directory (AD) account
-   * *   simple: convenience account
-   * 
    * @example
    * simple
    */
   accountType?: string;
   /**
    * @remarks
-   * The app ID.
+   * The application ID.
    * 
    * @example
    * ca-fq738or6vd854****
@@ -26,7 +21,7 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-0abxhr6ce35w8****
@@ -34,7 +29,7 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the app instance.
+   * The application instance ID.
    * 
    * @example
    * ai-83oe276fre4l3****
@@ -42,7 +37,7 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The app version.
+   * The application version number.
    * 
    * @example
    * 1.0
@@ -51,12 +46,6 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid values:
-   * 
-   * *   CloudApp: App Streaming
-   * *   CloudBrowser: Cloud-based Browser
-   * *   AndroidCloud: Cloud Phone
    * 
    * @example
    * CloudApp
@@ -80,7 +69,7 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud Workspace user.
+   * The WUYING user ID.
    * 
    * @example
    * 2ca6f5a93536****
@@ -126,12 +115,12 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
 export class ListBindInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bindings.
+   * The list of binding information returned.
    */
   bindInfoModels?: ListBindInfoResponseBodyBindInfoModels[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the query results currently displayed.
    * 
    * @example
    * 1
@@ -139,7 +128,7 @@ export class ListBindInfoResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of query results per page.
    * 
    * @example
    * 10
@@ -155,7 +144,7 @@ export class ListBindInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 15

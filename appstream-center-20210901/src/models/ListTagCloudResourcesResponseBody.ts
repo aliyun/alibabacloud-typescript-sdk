@@ -15,11 +15,6 @@ export class ListTagCloudResourcesResponseBodyResourceTagsTags extends $dara.Mod
    * @remarks
    * The tag type.
    * 
-   * Valid values:
-   * 
-   * *   Custom: custom tag.
-   * *   System: system tag.
-   * 
    * @example
    * Custom
    */
@@ -68,14 +63,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the cloud resource.
-   * 
-   * Valid values:
-   * 
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
+   * The cloud resource type.
    * 
    * @example
    * AppInstanceGroupId
@@ -83,7 +71,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTagCloudResourcesResponseBodyResourceTagsTags[];
   static names(): { [key: string]: string } {
@@ -117,7 +105,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
 export class ListTagCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the next query is required.
+   * The pagination token that indicates whether more results are available for the next query.
    * 
    * @example
    * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
@@ -133,12 +121,12 @@ export class ListTagCloudResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags added to the cloud resources.
+   * The list of tags bound to the resources.
    */
   resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 15

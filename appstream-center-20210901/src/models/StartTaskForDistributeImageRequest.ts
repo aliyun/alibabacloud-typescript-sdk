@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartTaskForDistributeImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The regions to which you want to replicate the image.
+   * The list of destination regions to which the image is copied.
    */
   destinationRegionList?: string[];
   /**
@@ -22,12 +22,6 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Valid values:
-   * 
-   * *   CloudDesktop: Elastic Desktop Service
-   * *   CloudApp: App Streaming
-   * *   WuyingServer: Workstation
-   * 
    * @example
    * CloudApp
    */
@@ -42,7 +36,7 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
   retryType?: string;
   /**
    * @remarks
-   * The region where the source image is located. If you leave this parameter empty, a random region is selected.
+   * The source region from which the image is copied. If this parameter is not specified, a random region is selected.
    * 
    * @example
    * cn-shanghai
@@ -50,7 +44,7 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
   sourceRegion?: string;
   /**
    * @remarks
-   * The ID of the image version. If you do not specify this parameter, the latest image version is used by default.
+   * The image version ID. If this parameter is not specified, the latest image version is used.
    * 
    * @example
    * iv-07jyldnd9i****

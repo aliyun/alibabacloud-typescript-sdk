@@ -31,12 +31,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is applicable only to scenarios in which the instance type is Cloud Desktop. Specifies whether to clear private data of users. If this parameter is set to true, the created image clears data in directories other than Administrator and Public in the C:\\Users directory.
-   * 
-   * Valid values:
-   * 
-   * *   true: cleanup.
-   * *   false: does not clear.
+   * This parameter is applicable only when the instance type is cloud desktop. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
    * 
    * @example
    * false
@@ -52,7 +47,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * my test image v1.0
@@ -60,12 +55,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of disk data contained in the image. By default, the system disk and data disk of the instance are included.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM: only system disk.
-   * *   ALL: system disk + data disk
+   * The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
    * 
    * @example
    * ALL
@@ -73,7 +63,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * test
@@ -81,7 +71,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The ID of the RDS instance. The instance can be a CloudDesktop instance, a workstation instance. To ensure data consistency in the image, we recommend that you shut down the instance before you create an image.
+   * The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
    * 
    * @example
    * ws-0buj1s9gm******
@@ -90,11 +80,6 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type.
-   * 
-   * Valid values:
-   * 
-   * *   CloudDesktop: Cloud Desktop.
-   * *   WuyingServer: Workstation
    * 
    * @example
    * WuyingServer
@@ -110,7 +95,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the child instance. This parameter is not used in cloud computing scenarios. Workstation scenarios, you need to specify a persistent session ID to ensure that a specific instance is located.
+   * The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
    * 
    * @example
    * p-0cc7s3n1l*****

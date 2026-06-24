@@ -5,28 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-hangzhou: China (Hangzhou)
+   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+   * 
+   * - appstreaming.general.4c8g: 1 to 2.
+   * - appstreaming.general.8c16g: 1 to 4.
+   * - appstreaming.vgpu.8c16g.4g: 1 to 4.
+   * - appstreaming.vgpu.8c31g.16g: 1 to 4.
+   * - appstreaming.vgpu.14c93g.12g: 1 to 6.
+   * 
    * @example
    * 2
    */
   nodeCapacity?: number;
   /**
    * @remarks
-   * The auto scaling policy used by the delivery group.
+   * The automatic scaling policy of the delivery group.
    */
   nodePoolStrategyShrink?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-ew7va2g1wl3vm****
    */
@@ -34,10 +41,6 @@ export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * @example
    * CloudApp

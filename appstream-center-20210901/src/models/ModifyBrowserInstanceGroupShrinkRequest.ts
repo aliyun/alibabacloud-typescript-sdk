@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The browser settings.
+   * The browser configuration.
    */
   browserConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the cloud browser to be modified.
+   * The ID of the cloud browser to modify.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    */
   networkShrink?: string;
   /**
@@ -44,7 +44,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   storagePolicyShrink?: string;
   /**
    * @remarks
-   * The timer.
+   * The timers.
    */
   timersShrink?: string;
   static names(): { [key: string]: string } {

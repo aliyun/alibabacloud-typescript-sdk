@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelTemplateResourceGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxxx
    */
@@ -30,23 +33,39 @@ export class ListModelTemplateResourceGroupResponseBodyData extends $dara.Model 
 }
 
 export class ListModelTemplateResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   data?: ListModelTemplateResourceGroupResponseBodyData[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 15
    */

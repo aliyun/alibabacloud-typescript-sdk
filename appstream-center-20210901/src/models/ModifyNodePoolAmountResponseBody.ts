@@ -35,7 +35,7 @@ export class ModifyNodePoolAmountResponseBodyData extends $dara.Model {
 export class ModifyNodePoolAmountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data object.
    */
   data?: ModifyNodePoolAmountResponseBodyData;
   /**

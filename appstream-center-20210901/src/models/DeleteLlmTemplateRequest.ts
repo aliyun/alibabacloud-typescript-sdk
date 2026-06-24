@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLlmTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the model template.
+   * 
    * This parameter is required.
    * 
    * @example

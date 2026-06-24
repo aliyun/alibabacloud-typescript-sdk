@@ -13,7 +13,7 @@ export class PageListAppInstanceGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The users.
+   * The queried users.
    */
   users?: string[];
   static names(): { [key: string]: string } {

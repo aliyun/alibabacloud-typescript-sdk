@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application instance.
+   * The application instance ID.
    * 
    * @example
    * ai-gbuea*****
@@ -13,7 +13,7 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara
   appInstanceId?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code returned when an error occurs.
    * 
    * @example
    * InvalidParameter.ProductType
@@ -21,7 +21,7 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The parameter ProductType is invalid.
@@ -29,12 +29,7 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara
   message?: string;
   /**
    * @remarks
-   * Specifies whether the application instance is deleted.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the deletion is triggered.
    * 
    * @example
    * true
@@ -70,7 +65,7 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara
 export class DeleteAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of instance deletion results.
    */
   deleteAppInstanceModels?: DeleteAppInstancesResponseBodyDeleteAppInstanceModels[];
   /**

@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTenantConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the resource expiration reminder feature.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable resource expiration reminders.
    * 
    * @example
    * true

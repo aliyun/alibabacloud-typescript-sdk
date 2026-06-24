@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   /**
    * @remarks
-   * The total number of subscription nodes after the change.
+   * The total number of subscription nodes after the upgrade.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The change mode of subscription nodes.
-   * 
-   * Valid value:
-   * 
-   * *   EXPAND_FROM_POST_PAID_EXPLICIT: changes from specified pay-as-you-go nodes
+   * The modification mode for subscription nodes.
    * 
    * @example
    * EXPAND_FROM_POST_PAID_EXPLICIT
@@ -27,7 +23,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   prePaidNodeAmountModifyMode?: string;
   /**
    * @remarks
-   * The nodes for which you want to change the billing method.
+   * The list of nodes whose billing type is to be changed.
    */
   prePaidNodeAmountModifyNodeIds?: string[];
   static names(): { [key: string]: string } {
@@ -61,7 +57,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
 export class ModifyNodePoolAmountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -71,7 +67,7 @@ export class ModifyNodePoolAmountRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The parameters related to the configuration change of the node pool.
+   * The node pool specification change parameters.
    * 
    * This parameter is required.
    */
@@ -79,10 +75,6 @@ export class ModifyNodePoolAmountRequest extends $dara.Model {
   /**
    * @remarks
    * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
    * 
    * This parameter is required.
    * 

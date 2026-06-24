@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the application instance.
+   * The application instance ID.
    * 
    * @example
    * ai-azn3kmwruh1vl****
@@ -23,7 +23,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The IDs of the application instances. Up to 100 IDs can be specified.
+   * The list of application instance IDs. A maximum of 100 IDs can be specified.
    * 
    * **if can be null:**
    * false
@@ -31,12 +31,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceIdList?: string[];
   /**
    * @remarks
-   * Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to query information about deleted instances. If this parameter is set to true, the AppInstanceIdList parameter is required. Otherwise, a parameter error is returned.
    * 
    * @example
    * true
@@ -44,7 +39,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   includeDeleted?: boolean;
   /**
    * @remarks
-   * The page number. Default value: `1`. We recommend that you specify this parameter.
+   * The page number of the query results to display. Default value: `1`. Specify this parameter.
    * 
    * @example
    * 1
@@ -52,7 +47,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
+   * The number of query results per page. Maximum value: `100`. Default value: `20`. Specify this parameter.
    * 
    * @example
    * 20
@@ -60,7 +55,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the application instances.
+   * The list of application instance statuses.
    * 
    * **if can be null:**
    * false
@@ -68,7 +63,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The user IDs. You can specify up to 100 IDs.
+   * The list of user IDs. A maximum of 100 IDs can be specified.
    */
   userIdList?: string[];
   static names(): { [key: string]: string } {

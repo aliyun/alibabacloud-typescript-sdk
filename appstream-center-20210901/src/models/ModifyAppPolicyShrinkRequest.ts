@@ -17,10 +17,6 @@ export class ModifyAppPolicyShrinkRequest extends $dara.Model {
    * @remarks
    * The product type.
    * 
-   * Enumerated values:
-   * 
-   * *   CloudApp: RDS Cloud App
-   * 
    * This parameter is required.
    * 
    * @example
@@ -29,7 +25,7 @@ export class ModifyAppPolicyShrinkRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Displays the policy.
+   * The display policy.
    */
   videoPolicyShrink?: string;
   static names(): { [key: string]: string } {

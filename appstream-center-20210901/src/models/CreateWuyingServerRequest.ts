@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The data disk category.
-   * 
-   * Valid values:
-   * 
-   * *   cloud_auto.
+   * The type of the data cloud disk.
    * 
    * @example
    * cloud_auto
@@ -17,7 +13,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The PL of the data disk.
+   * The performance level of the data cloud disk.
    * 
    * @example
    * PL0
@@ -25,7 +21,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   dataDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The data disk size.
+   * The size of the data cloud disk.
    * 
    * @example
    * 100
@@ -59,7 +55,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
 export class CreateWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
-   * Quantity.
+   * The number of workstations to create.
    * 
    * @example
    * 1
@@ -67,7 +63,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Auto payment.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * false
@@ -75,7 +71,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Auto-renewal.
+   * Specifies whether to enable auto-renewal.
    * 
    * @example
    * false
@@ -83,7 +79,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * bandwidth value, the NetworkStrategyType is valid for DirectIp. Unit: Mbps, range 2~100
+   * The bandwidth value. This parameter takes effect only when NetworkStrategyType is set to DirectIp. Unit: Mbit/s. Valid values: 2 to 100.
    * 
    * @example
    * 10
@@ -91,7 +87,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * Region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -101,23 +97,48 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * @remarks
    * The billing method.
    * 
-   * Valid values:
-   * 
-   * *   PrePaid: subscription
-   * 
    * @example
    * PrePaid
    */
   chargeType?: string;
   /**
    * @remarks
-   * The list of data disks.
+   * The list of data cloud disks.
    */
   dataDisk?: CreateWuyingServerRequestDataDisk[];
+  /**
+   * @remarks
+   * The hostname. The following limits apply:
+   * 
+   * - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive periods or hyphens are not allowed.
+   * 
+   * - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.), consecutive hyphens, or consist entirely of digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
+   * 
+   * - Linux workstations:
+   * 
+   *   - The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain uppercase and lowercase letters, digits, and hyphens (-).
+   * 
+   *   - You can use the placeholder `${instance_id}` to include the instance ID in the HostName parameter. For example, if you set `HostName=k8s-${instance_id}` and the ECS instance ID is `i-123abc****`, the hostname is `k8s-i-123abc****`.
+   * 
+   * - When you create multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` format to assign sequential hostnames. For example, if you set HostName to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
+   * 
+   *   - `name_prefix`: the prefix of the hostname.
+   * 
+   *   - `[begin_number,bits]`: the sequential number in the hostname.
+   * 
+   *     - `begin_number`: the starting number. Valid values: 0 to 999999. Default value: 0. If the value is invalid, 0 is used.
+   * 
+   *     - `bits`: the number of digits. Valid values: 1 to 6. Default value: 6. If the value is invalid, 6 is used.
+   * 
+   *   - `name_suffix`: the suffix of the hostname.
+   * 
+   * @example
+   * testhost
+   */
   hostName?: string;
   /**
    * @remarks
-   * Idempotence token to ensure operation uniqueness
+   * The idempotence token that ensures the uniqueness of the operation.
    * 
    * @example
    * 6a1b8c3d
@@ -125,7 +146,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   idempotenceToken?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * img-bp13mu****
@@ -134,7 +155,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The type of the network policy (in invitational preview).
+   * The network policy type (in invitational preview).
    * 
    * @example
    * DirectIp
@@ -142,7 +163,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   networkStrategyType?: string;
   /**
    * @remarks
-   * The office network IDs.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-643067****
@@ -150,7 +171,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * Workstation login password.
+   * The logon password of the workstation.
    * 
    * @example
    * YourPassword123
@@ -158,7 +179,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The subscription period.
+   * The subscription duration.
    * 
    * @example
    * 1
@@ -166,12 +187,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
+   * The unit of the subscription duration.
    * 
    * @example
    * Month
@@ -179,9 +195,10 @@ export class CreateWuyingServerRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the discount.
+   * The promotion ID.
    * 
-   * >  If PromotionId is set, it will try to apply the corresponding discount.
+   * 
+   * > If PromotionId is specified, the corresponding discount is applied.
    * 
    * @example
    * 17440009****
@@ -190,7 +207,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   savingPlanId?: string;
   /**
    * @remarks
-   * Workstation specifications.
+   * The workstation instance type.
    * 
    * @example
    * eds.proworkstation_flagship_elite_ne.96c384g.192g4x
@@ -200,11 +217,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * The system disk category.
-   * 
-   * Valid values:
-   * 
-   * *   cloud_auto.
+   * The type of the system cloud disk.
    * 
    * @example
    * cloud_auto
@@ -212,7 +225,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system disk.
+   * The performance level of the system cloud disk.
    * 
    * @example
    * PL0
@@ -220,7 +233,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GB.
+   * The size of the system cloud disk. Unit: GB.
    * 
    * @example
    * 100
@@ -228,7 +241,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The list of office network vSwitches.
+   * The list of vSwitches in the office network.
    */
   vSwitchIds?: string[];
   /**
@@ -238,7 +251,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   virtualNodePoolId?: string;
   /**
    * @remarks
-   * The name of the workstation. The numeric suffix is automatically added when multiple workstations are created.
+   * The workstation name. When you create multiple workstations, a numeric suffix is automatically appended.
    * 
    * @example
    * exampleServerName

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The model group ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -22,6 +22,9 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
   /**
    * @remarks
    * The application name.
+   * 
+   * @example
+   * 办公应用
    */
   appName?: string;
   /**
@@ -34,7 +37,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
   appVersion?: string;
   /**
    * @remarks
-   * The name of the application version.
+   * The application version name.
+   * 
+   * @example
+   * 初始版本
    */
   appVersionName?: string;
   static names(): { [key: string]: string } {
@@ -69,7 +75,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @remarks
-   * The number of destination resources.
+   * The target resource count.
    * 
    * @example
    * 5
@@ -77,7 +83,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
   amount?: number;
   /**
    * @remarks
-   * The end time of the scaling policy. Format: HH:mm.
+   * The end time. Format: HH:mm.
    * 
    * @example
    * 11:00
@@ -85,7 +91,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
   endTime?: string;
   /**
    * @remarks
-   * The start time of the scaling policy. Format: HH:mm.
+   * The start time. Format: HH:mm.
    * 
    * @example
    * 09:30
@@ -119,7 +125,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
-   * The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
+   * The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
    * 
    * @example
    * Weekly
@@ -127,12 +133,12 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
   recurrenceType?: string;
   /**
    * @remarks
-   * The days of each week on which the scaling policy is executed.
+   * The list of values for the policy execution cycle.
    */
   recurrenceValues?: number[];
   /**
    * @remarks
-   * The time periods during which the scaling policy can be executed.
+   * The list of time periods for the policy execution cycle.
    */
   timerPeriods?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods[];
   static names(): { [key: string]: string } {
@@ -177,7 +183,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   amount?: number;
   /**
    * @remarks
-   * 空闲会话数上限。指定该值时，当会话使用率超过`ScalingUsageThreshold`且当前交付组空闲会话数小于`MaxIdleAppInstanceAmount`时，才会触发自动扩容，否则认为交付组空闲会话已足够使用，不自动扩容。该参数可用于灵活控制弹性扩容行为和降低使用成本。
+   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and no automatic scale-out is performed. This parameter allows you to flexibly control elastic scaling behavior and reduce costs.
    * 
    * @example
    * 3
@@ -185,7 +191,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   maxIdleAppInstanceAmount?: number;
   /**
    * @remarks
-   * The maximum number of resources that can be created for scale-out.
+   * The maximum number of resources that can be created during scale-out.
    * 
    * @example
    * 8
@@ -193,7 +199,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   maxScalingAmount?: number;
   /**
    * @remarks
-   * The total number of subscription resources.
+   * The total number of current subscription resources.
    * 
    * @example
    * 1
@@ -201,13 +207,13 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeAmount?: number;
   /**
    * @remarks
-   * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+   * The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary by resource specification:
    * 
-   * *   appstreaming.general.4c8g: 1 to 2
-   * *   appstreaming.general.8c16g: 1 to 4
-   * *   appstreaming.vgpu.8c16g.4g: 1 to 4
-   * *   appstreaming.vgpu.8c31g.16g: 1 to 4
-   * *   appstreaming.vgpu.14c93g.12g: 1 to 6
+   * - appstreaming.general.4c8g: 1 to 2.
+   * - appstreaming.general.8c16g: 1 to 4.
+   * - appstreaming.vgpu.8c16g.4g: 1 to 4.
+   * - appstreaming.vgpu.8c31g.16g: 1 to 4.
+   * - appstreaming.vgpu.14c93g.12g: 1 to 6.
    * 
    * @example
    * 2
@@ -215,7 +221,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeCapacity?: number;
   /**
    * @remarks
-   * The ID of the resource type that you purchase.
+   * The instance type ID of the purchased resource.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -223,7 +229,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeInstanceType?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-g6922kced36hx****
@@ -231,12 +237,15 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodePoolId?: string;
   /**
    * @remarks
-   * The name of the resource type.
+   * The resource specification name.
+   * 
+   * @example
+   * 无影-通用型_4核8G
    */
   nodeTypeName?: string;
   /**
    * @remarks
-   * The number of subscription resources that are in use.
+   * The resource count of subscription resources in use.
    * 
    * @example
    * 1
@@ -244,12 +253,12 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   nodeUsed?: number;
   /**
    * @remarks
-   * The schedules of the scaling policy.
+   * The list of policy execution cycles.
    */
   recurrenceSchedules?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules[];
   /**
    * @remarks
-   * The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, automatic scale-in is triggered. Default value: 5.
+   * The idle duration without session connections, in minutes. When a resource remains without session connections for the specified duration, automatic scale-in is triggered. Default value: 5.
    * 
    * @example
    * 5
@@ -257,7 +266,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingDownAfterIdleMinutes?: number;
   /**
    * @remarks
-   * The total number of scalable resources.
+   * The total number of elastic resources.
    * 
    * @example
    * 8
@@ -265,7 +274,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingNodeAmount?: number;
   /**
    * @remarks
-   * The number of scalable resources that are in use.
+   * The resource count of elastic resources in use.
    * 
    * @example
    * 4
@@ -273,7 +282,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingNodeUsed?: number;
   /**
    * @remarks
-   * The number of resources that are created each time resources are scaled out. Valid values: 1 to 10.
+   * The number of resources created during each scale-out event. Valid values: 1 to 10.
    * 
    * @example
    * 2
@@ -281,7 +290,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingStep?: number;
   /**
    * @remarks
-   * The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The session usage is calculated as follows: `Session usage = Number of current sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
    * 
    * @example
    * 85
@@ -289,7 +298,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The expiration date of the scaling policy. Format: yyyy-MM-dd.
+   * The date when the policy expires. Format: yyyy-MM-dd.
    * 
    * @example
    * 2022-09-08
@@ -297,7 +306,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   strategyDisableDate?: string;
   /**
    * @remarks
-   * The effective date of the scaling policy. Format: yyyy-MM-dd.
+   * The date when the policy takes effect. Format: yyyy-MM-dd.
    * 
    * @example
    * 2022-08-01
@@ -305,15 +314,9 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   strategyEnableDate?: string;
   /**
    * @remarks
-   * The type of the scaling policy.
+   * The elastic policy type.
    * 
-   * >  `NODE_SCALING_BY_USAGE` is returned for this parameter only if ChargeType is set to `PrePaid`. `NODE_SCALING_BY_SCHEDULE` is returned for this parameter only if ChargeType is set to `PostPaid`.
-   * 
-   * Valid values:
-   * 
-   * *   NODE_FIXED: No scalable resources are used.
-   * *   NODE_SCALING_BY_SCHEDULE: Scheduled scaling is used.
-   * *   NODE_SCALING_BY_USAGE: Resources are scaled based on usage.
+   * > `NODE_SCALING_BY_USAGE` (usage-based scaling policy) applies only to `PrePaid` (subscription) resources. `NODE_SCALING_BY_SCHEDULE` (scheduled scaling policy) applies only to `PostPaid` (pay-as-you-go) resources.
    * 
    * @example
    * NODE_FIXED
@@ -321,7 +324,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   strategyType?: string;
   /**
    * @remarks
-   * Indicates whether the warmup policy is enabled for resources.
+   * Indicates whether the resource prefetch policy is enabled.
    * 
    * @example
    * false
@@ -390,7 +393,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $dara.Model {
   /**
    * @remarks
-   * The new OTA version. A null value indicates that no new version is available.
+   * The new OTA version. An empty value indicates that no new version is available.
    * 
    * @example
    * 0.0.1-D-20220630.11****
@@ -406,7 +409,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
   otaVersion?: string;
   /**
    * @remarks
-   * The ID of the OTA update task.
+   * The OTA upgrade task ID.
    * 
    * @example
    * ota-e49929gv8acz5****
@@ -440,7 +443,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $dara.Model {
   /**
    * @remarks
-   * 标签键。
+   * The tag key.
    * 
    * @example
    * department
@@ -448,7 +451,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $
   key?: string;
   /**
    * @remarks
-   * 标签类型。
+   * The tag type.
    * 
    * @example
    * Custom
@@ -456,7 +459,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $
   scope?: string;
   /**
    * @remarks
-   * 标签值。
+   * The tag value.
    * 
    * @example
    * design
@@ -490,7 +493,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   /**
    * @remarks
-   * 接入类型。
+   * The access type.
    * 
    * @example
    * INTERNET
@@ -498,7 +501,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   accessType?: string;
   /**
    * @remarks
-   * The number of subscription resources. Minimum value: 1.
+   * The number of subscription resources configured by the user. Minimum value: 1.
    * 
    * @example
    * 1
@@ -506,7 +509,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   amount?: number;
   /**
    * @remarks
-   * The image ID of the application.
+   * The application image ID.
    * 
    * @example
    * img-8z4nztpaqvay4****
@@ -514,7 +517,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appCenterImageId?: string;
   /**
    * @remarks
-   * The image name of the application.
+   * The application image name.
    * 
    * @example
    * OfficeApps
@@ -522,7 +525,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appCenterImageName?: string;
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -530,12 +533,15 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group.
+   * The delivery group name.
+   * 
+   * @example
+   * 办公应用
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The resource type of the delivery group.
+   * The instance type of the delivery group.
    * 
    * @example
    * __dynamic__
@@ -543,7 +549,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appInstanceType?: string;
   /**
    * @remarks
-   * The name of the resource type of the delivery group.
+   * The name of the instance type of the delivery group.
    * 
    * @example
    * test001
@@ -551,7 +557,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appInstanceTypeName?: string;
   /**
    * @remarks
-   * The policy ID of the application.
+   * The application policy ID.
    * 
    * @example
    * pg-g3k5wa2ms2****
@@ -559,12 +565,12 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appPolicyId?: string;
   /**
    * @remarks
-   * The applications.
+   * The list of application information.
    */
   apps?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
   /**
    * @remarks
-   * 授权模式。
+   * The authorization mode.
    * 
    * @example
    * App
@@ -574,11 +580,6 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * @remarks
    * The sales mode.
    * 
-   * Valid values:
-   * 
-   * *   AppInstance: by session
-   * *   Node: by resource
-   * 
    * @example
    * Node
    */
@@ -587,18 +588,13 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * @remarks
    * The billing method.
    * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
-   * 
    * @example
    * PrePaid
    */
   chargeType?: string;
   /**
    * @remarks
-   * The time when the delivery group expires.
+   * The expiration time of the delivery group.
    * 
    * @example
    * 2022-04-27T16:00:00.000+00:00
@@ -606,7 +602,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   expiredTime?: string;
   /**
    * @remarks
-   * The time when the delivery group was created.
+   * The creation time.
    * 
    * @example
    * 2022-04-26T15:06:16.000+00:00
@@ -630,12 +626,12 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   minAmount?: number;
   /**
    * @remarks
-   * The information about the resource group.
+   * The resource group information.
    */
   nodePool?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
   /**
    * @remarks
-   * 办公网络ID。
+   * The office network ID.
    * 
    * @example
    * cn-beijing+dir-172301****
@@ -643,7 +639,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the operating system.
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -651,7 +647,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   osType?: string;
   /**
    * @remarks
-   * The information about the over-the-air (OTA) update task.
+   * The OTA upgrade task information.
    */
   otaInfo?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
   /**
@@ -664,7 +660,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   productType?: string;
   /**
    * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @example
    * cn-hangzhou
@@ -672,7 +668,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   regionId?: string;
   /**
    * @remarks
-   * The percentage of reserved instances. The value indicates the percentage of unused sessions in the delivery group. Valid values: 0 to 99.
+   * The percentage of reserved instances, which represents the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
    * 
    * @example
    * 20
@@ -680,7 +676,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   reserveAmountRatio?: string;
   /**
    * @remarks
-   * The maximum number of reserved instances. The value indicates the maximum number of unused sessions in the delivery group. Minimum value: 1.
+   * The maximum number of reserved instances, which represents the maximum number of unused sessions in the delivery group. Minimum value: 1.
    * 
    * @example
    * 5
@@ -688,7 +684,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   reserveMaxAmount?: number;
   /**
    * @remarks
-   * The minimum number of reserved instances. The value indicates the minimum number of unused sessions in the delivery group. Minimum value: 1.
+   * The minimum number of reserved instances, which represents the minimum number of unused sessions in the delivery group. Minimum value: 1.
    * 
    * @example
    * 1
@@ -704,7 +700,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   resourceStatus?: string;
   /**
    * @remarks
-   * The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, automatic scale-in is triggered. Minimum value: 0.
+   * The idle duration without session connections, in minutes. When a resource remains without session connections for the specified duration, automatic scale-in is triggered. Minimum value: 0.
    * 
    * @example
    * 5
@@ -712,7 +708,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingDownAfterIdleMinutes?: number;
   /**
    * @remarks
-   * The number of sessions that are created each time the delivery group is scaled out. Minimum value: 1.
+   * The number of sessions created during each scale-out event. Minimum value: 1.
    * 
    * @example
    * 10
@@ -720,7 +716,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingStep?: number;
   /**
    * @remarks
-   * The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage rate is calculated by using the following formula: Session usage rate = Number of sessions in use/Total number of sessions × 100%. Valid values: 0 to 99.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The session usage is calculated as follows: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
    * 
    * @example
    * 85
@@ -728,7 +724,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15
@@ -736,7 +732,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   sessionTimeout?: string;
   /**
    * @remarks
-   * 会话类型。
+   * The session type.
    * 
    * @example
    * NORMAL
@@ -744,12 +740,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   sessionType?: string;
   /**
    * @remarks
-   * Indicates whether user permission verification is skipped.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false: This is the default value.
+   * Indicates whether user authorization verification is skipped.
    * 
    * @example
    * false
@@ -757,7 +748,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   skipUserAuthCheck?: boolean;
   /**
    * @remarks
-   * The specification ID that uniquely corresponds to the ID of the delivery group.
+   * The ID that uniquely corresponds to the delivery group ID.
    * 
    * @example
    * spec-8o18t8uc31qib0****
@@ -765,18 +756,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   specId?: string;
   /**
    * @remarks
-   * The status of the delivery group.
-   * 
-   * Valid values:
-   * 
-   * *   PUBLISHED: The delivery group is published.
-   * *   FAILED: The delivery group failed to be published.
-   * *   MAINTAIN_FAILED: The delivery group failed to be updated.
-   * *   EXPIRED: The delivery group is expired.
-   * *   MAINTAINING: The delivery group is being updated.
-   * *   CEASED: The delivery group has overdue payments.
-   * *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
-   * *   DEPLOYING: The delivery group is being published.
+   * The delivery group status.
    * 
    * @example
    * PUBLISHED
@@ -785,7 +765,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   supportUserGroupMixedAuth?: boolean;
   /**
    * @remarks
-   * 资源标签列表。
+   * The list of resource tags.
    */
   tags?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
   /**

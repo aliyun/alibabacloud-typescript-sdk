@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnassignWuyingServerPrivateAddressesResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

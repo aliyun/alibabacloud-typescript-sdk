@@ -13,7 +13,10 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
   optionCode?: string;
   /**
    * @remarks
-   * The coupon description.
+   * The coupon descriptions.
+   * 
+   * @example
+   * **活动
    */
   promotionDesc?: string;
   /**
@@ -27,16 +30,14 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
   /**
    * @remarks
    * The coupon name.
+   * 
+   * @example
+   * **活动
    */
   promotionName?: string;
   /**
    * @remarks
-   * Indicates whether the coupon was used.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the coupon is selected.
    * 
    * @example
    * true
@@ -74,7 +75,7 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
 export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency type.
+   * The currency.
    * 
    * @example
    * CNY
@@ -82,7 +83,7 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The discount amount. The actual price is calculated by subtracting the discount amount from the original price.
    * 
    * @example
    * 1
@@ -98,12 +99,12 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   originalPrice?: string;
   /**
    * @remarks
-   * The coupon description.
+   * The coupon descriptions.
    */
   promotions?: GetResourceRenewPriceResponseBodyDataPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * The actual price. The actual price is calculated by subtracting the discount amount from the original price.
    * 
    * @example
    * 10
@@ -144,12 +145,15 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
 export class GetResourceRenewPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the price calculation rule.
+   * The pricing rule description.
+   * 
+   * @example
+   * **活动
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the price calculation rule.
+   * The pricing rule ID.
    * 
    * @example
    * 20002****
@@ -186,7 +190,7 @@ export class GetResourceRenewPriceResponseBodyData extends $dara.Model {
   price?: GetResourceRenewPriceResponseBodyDataPrice;
   /**
    * @remarks
-   * The price calculation rules.
+   * The pricing rules.
    */
   rules?: GetResourceRenewPriceResponseBodyDataRules[];
   static names(): { [key: string]: string } {

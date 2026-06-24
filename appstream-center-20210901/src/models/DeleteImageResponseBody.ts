@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code:
+   * The status code:
    * 
-   * *   `200`: Success.
-   * *   `400`: An error occurred.
+   * - `200`: Success.
+   * - `400`: Error.
    * 
    * @example
    * 200
@@ -16,12 +16,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Whether the deletion is successful.
-   * 
-   * Enumerated values:
-   * 
-   * *   true:Deleted successfully.
-   * *   false:Deletion failure.
+   * Indicates whether the deletion is successful.
    * 
    * @example
    * true
@@ -29,7 +24,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error message.
+   * The error message returned when an error occurs.
    * 
    * @example
    * successful
@@ -45,7 +40,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

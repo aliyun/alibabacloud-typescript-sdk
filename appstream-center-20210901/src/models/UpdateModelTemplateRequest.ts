@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The model group configuration JSON object.
+   * 
    * @example
    * {
    * 	"defaults": {
@@ -14,9 +17,18 @@ export class UpdateModelTemplateRequest extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The template group description.
+   * 
+   * @example
+   * 测试模型分组
+   */
   description?: string;
   /**
    * @remarks
+   * The model group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +36,9 @@ export class UpdateModelTemplateRequest extends $dara.Model {
    */
   modelTemplateId?: string;
   /**
+   * @remarks
+   * The template group name.
+   * 
    * @example
    * model-template-001
    */

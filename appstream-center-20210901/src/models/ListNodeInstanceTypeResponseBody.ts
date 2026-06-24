@@ -21,7 +21,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   gpu?: string;
   /**
    * @remarks
-   * The GPU size. Unit: MB.
+   * The GPU memory size. Unit: MB.
    * 
    * @example
    * 8192
@@ -29,13 +29,24 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   gpuMemory?: number;
   /**
    * @remarks
-   * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+   * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
    * 
-   * *   appstreaming.general.4c8g: 1 to 2
-   * *   appstreaming.general.8c16g: 1 to 4
-   * *   appstreaming.vgpu.8c16g.4g: 1 to 4
-   * *   appstreaming.vgpu.8c31g.16g: 1 to 4
-   * *   appstreaming.vgpu.14c93g.12g: 1 to 6
+   * - appstreaming.general.2c4g: 1
+   * - appstreaming.general.4c8g: 1 to 2
+   * - appstreaming.general.8c16g: 1 to 4
+   * - appstreaming.vgpu.8c16g.4g: 1 to 4
+   * - appstreaming.vgpu.8c31g.16g: 1 to 4
+   * - appstreaming.vgpu.14c93g.12g: 1 to 7
+   * - appstreaming.vgpu.4c10g.2gt4: 1 to 2
+   * - appstreaming.vgpu.4c16g.2ga10: 1 to 2
+   * - appstreaming.vgpu.8c16g.4g: 1 to 4
+   * - appstreaming.vgpu.8c31g.16g: 1 to 4
+   * - appstreaming.vgpu.8c16g.4gt4: 1 to 4
+   * - appstreaming.vgpu.8c32g.4ga10: 1 to 4
+   * - appstreaming.vgpu.12c46g.11g28: 1 to 6
+   * - appstreaming.vgpu.14c93g.12g: 1 to 7
+   * - appstreaming.vgpu.16c32g.8g: 1 to 8
+   * - appstreaming.vgpu.16c62g.8ga10: 1 to 8.
    * 
    * @example
    * 4
@@ -51,7 +62,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   memory?: number;
   /**
    * @remarks
-   * The ID of the resource type.
+   * The ID of the resource specification type.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -59,12 +70,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   nodeInstanceType?: string;
   /**
    * @remarks
-   * The resource type family.
-   * 
-   * Valid values:
-   * 
-   * *   appstreaming.general: WUYING - General
-   * *   appstreaming.vgpu: WUYING - Graphics
+   * The resource specification family.
    * 
    * @example
    * appstreaming.vgpu
@@ -72,10 +78,10 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   nodeInstanceTypeFamily?: string;
   /**
    * @remarks
-   * The name of the resource type.
+   * The name of the resource specification.
    * 
    * @example
-   * WUYING - General - 4 vCPUs 8 GB Memory
+   * 无影-通用型_4核8G
    */
   nodeTypeName?: string;
   static names(): { [key: string]: string } {
@@ -116,12 +122,12 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
 export class ListNodeInstanceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource types.
+   * The list of resource specifications.
    */
   nodeInstanceTypeModels?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the query results currently displayed.
    * 
    * @example
    * 1
@@ -129,7 +135,7 @@ export class ListNodeInstanceTypeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on each page.
+   * The number of query results per page.
    * 
    * @example
    * 10
@@ -145,7 +151,7 @@ export class ListNodeInstanceTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 6

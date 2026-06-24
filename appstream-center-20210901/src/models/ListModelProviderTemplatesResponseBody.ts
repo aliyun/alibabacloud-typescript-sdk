@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The model provider configuration as a JSON object.
+   * 
    * @example
    * {
    * 	"api": "openai-completions",
@@ -12,24 +15,50 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @remarks
+   * The description of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼服务商
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the WUYING secure gateway proxy is enabled.
+   * 
    * @example
    * true
    */
   enableWuyingProxy?: boolean;
+  /**
+   * @remarks
+   * The name of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼
+   */
   name?: string;
   /**
+   * @remarks
+   * The name of the model provider.
+   * 
    * @example
    * bailian
    */
   providerName?: string;
   /**
+   * @remarks
+   * The model provider template ID.
+   * 
    * @example
    * mpt-xxxx
    */
   providerTemplateId?: string;
   /**
+   * @remarks
+   * The model provider type.
+   * 
    * @example
    * WuyingCredit
    */
@@ -68,23 +97,39 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
 }
 
 export class ListModelProviderTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned data objects.
+   */
   data?: ListModelProviderTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * The page number of the current query result.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page in the query result.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 30
    */

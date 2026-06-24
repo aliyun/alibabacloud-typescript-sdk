@@ -3,16 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateModelProviderTemplateShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The model provider configuration.
+   */
   configShrink?: string;
+  /**
+   * @remarks
+   * The description of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼服务商
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the Wuying security gateway proxy.
+   * 
    * @example
    * true
    */
   enableWuyingProxy?: boolean;
+  /**
+   * @remarks
+   * The name of the model provider template.
+   * 
+   * @example
+   * 阿里云百炼
+   */
   name?: string;
   /**
    * @remarks
+   * The ID of the model provider template.
+   * 
    * This parameter is required.
    * 
    * @example
