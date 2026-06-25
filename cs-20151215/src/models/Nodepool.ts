@@ -632,8 +632,11 @@ export class NodepoolNodeComponentsConfig extends $dara.Model {
   /**
    * @remarks
    * 节点组件自定义配置。
+   * 
+   * @example
+   * {"cpuManagerPolicy":"static"}
    */
-  customConfig?: { [key: string]: string };
+  customConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       customConfig: 'custom_config',
@@ -642,7 +645,7 @@ export class NodepoolNodeComponentsConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1573,7 +1576,7 @@ export class Nodepool extends $dara.Model {
   autoScaling?: NodepoolAutoScaling;
   /**
    * @remarks
-   * [This field is deprecated. Use desired_size instead.]
+   * This parameter is deprecated. Use desired_size instead.
    * 
    * The number of nodes in the node pool.
    * 
@@ -1585,7 +1588,7 @@ export class Nodepool extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * [This field is deprecated.]
+   * This parameter is deprecated.
    * 
    * The edge node pool configuration.
    * 
@@ -1594,7 +1597,7 @@ export class Nodepool extends $dara.Model {
   interconnectConfig?: NodepoolInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. This value is valid only for node pools whose `type` is `edge`. Valid values:
+   * The network type of the edge node pool. This parameter is valid only for node pools whose `type` is `edge`. Valid values:
    * 
    * - `basic`: basic.
    * - `private`: dedicated. Supported in version 1.22 and later.
@@ -1643,7 +1646,7 @@ export class Nodepool extends $dara.Model {
   scalingGroup?: NodepoolScalingGroup;
   /**
    * @remarks
-   * The confidential computing node pool configuration.
+   * The confidential computing configuration of the node pool.
    */
   teeConfig?: NodepoolTeeConfig;
   static names(): { [key: string]: string } {

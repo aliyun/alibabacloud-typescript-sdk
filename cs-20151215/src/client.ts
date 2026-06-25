@@ -1347,7 +1347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical collection of nodes with the same attributes, allowing unified management and O&M of nodes, such as node upgrades and auto scaling. You can further leverage the automated O&M capabilities of node pools to use features such as automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, reducing O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @param headers - map
@@ -1440,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A node pool is a logical collection of nodes that share the same attributes. Node pools allow unified management and operations, such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical collection of nodes with the same attributes, allowing unified management and O&M of nodes, such as node upgrades and auto scaling. You can further leverage the automated O&M capabilities of node pools to use features such as automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, reducing O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @returns CreateClusterNodePoolResponse
@@ -2827,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of a specified node pool in a cluster by node pool ID.
+   * You can call the DescribeClusterNodePoolDetail operation to query the configuration of a specified node pool in a cluster by node pool ID.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2852,7 +2852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of a specified node pool in a cluster by node pool ID.
+   * You can call the DescribeClusterNodePoolDetail operation to query the configuration of a specified node pool in a cluster by node pool ID.
    * @returns DescribeClusterNodePoolDetailResponse
    */
   async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<$_model.DescribeClusterNodePoolDetailResponse> {

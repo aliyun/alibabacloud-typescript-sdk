@@ -6,8 +6,11 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
   /**
    * @remarks
    * The custom configuration of the component.
+   * 
+   * @example
+   * {"cpuManagerPolicy":"static"}
    */
-  customConfig?: { [key: string]: string };
+  customConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       customConfig: 'customConfig',
@@ -16,7 +19,7 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -35,7 +38,7 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
 export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches during the upgrade. Unit: seconds.
+   * The interval between batches during the upgrade, in seconds.
    * 
    * @example
    * 0
@@ -51,7 +54,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The automatic pause policy during node upgrades.
+   * The automatic pause policy during the node upgrade process.
    * 
    * @example
    * NotPause

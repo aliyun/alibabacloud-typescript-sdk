@@ -6,8 +6,11 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
   /**
    * @remarks
    * The custom configuration of the component.
+   * 
+   * @example
+   * {"cpuManagerPolicy":"static"}
    */
-  customConfig?: { [key: string]: string };
+  customConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       customConfig: 'customConfig',
@@ -16,7 +19,7 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
-      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 

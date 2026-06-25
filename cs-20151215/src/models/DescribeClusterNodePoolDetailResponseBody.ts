@@ -13,7 +13,7 @@ import { Taint } from "./Taint";
 export class DescribeClusterNodePoolDetailResponseBodyAutoMode extends $dara.Model {
   /**
    * @remarks
-   * Whether it is enabled.
+   * Whether to enable
    * 
    * @example
    * false
@@ -43,9 +43,9 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoMode extends $dara.Mod
 export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.Model {
   /**
    * @remarks
-   * The peak bandwidth of the EIP.
+   * EIP peak bandwidth.
    * 
-   * Valid values: [1,100]. Unit: Mbit/s.
+   * Valid values: [1,100]. Unit: Mbps.
    * 
    * @example
    * 5
@@ -53,10 +53,10 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.
   eipBandwidth?: number;
   /**
    * @remarks
-   * The billing method of the EIP. Valid values:
+   * EIP billing type. Valid values:
    * 
-   * - `PayByBandwidth`: pay-by-bandwidth.
-   * - `PayByTraffic`: pay-by-data-transfer.
+   * - `PayByBandwidth`: billed by fixed bandwidth.
+   * - `PayByTraffic`: billed by data transfer.
    * 
    * @example
    * PayByBandwidth
@@ -64,13 +64,14 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.
   eipInternetChargeType?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. Valid values:
+   * Whether auto scaling is enabled. Valid values:
    * 
-   * - `true`: Enables the auto scaling feature for the node pool. When the cluster capacity planning cannot meet the scheduling requirements of application pods, ACK automatically scales node resources based on the configured minimum and maximum instance counts. Clusters of version 1.24 or later use instant elastic scaling by default. Clusters of versions earlier than 1.24 use auto scaling by default. For more information, see [Node scaling](https://help.aliyun.com/document_detail/2746785.html).
+   * - `true`: enables the auto scaling feature for the node pool. When the cluster capacity cannot meet Pod scheduling requirements, ACK automatically scales node resources based on the configured minimum and maximum instance counts. Clusters of version 1.24 and later enable instant node elasticity by default;
+   * clusters of versions earlier than 1.24 enable node auto scaling by default. For more information, see [Node scaling](https://help.aliyun.com/document_detail/2746785.html).
    * 
-   * - `false`: Disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured desired node count and maintains the node count at the desired value.
+   * - `false`: disables auto scaling. ACK adjusts the number of nodes in the node pool to match the configured desired number of nodes.
    * 
-   * When this parameter is set to false, other configuration parameters in `auto_scaling` do not take effect.
+   * When the value is false, other configuration parameters in `auto_scaling` do not take effect.
    * 
    * @example
    * true
@@ -78,10 +79,10 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.
   enable?: boolean;
   /**
    * @remarks
-   * Specifies whether to associate an EIP. Valid values:
+   * Whether to bind an EIP. Valid values:
    * 
-   * - `true`: Associates an EIP.
-   * - `false`: Does not associate an EIP.
+   * - `true`: bind an EIP.
+   * - `false`: do not bind an EIP.
    * 
    * @example
    * true
@@ -105,12 +106,12 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.
   minInstances?: number;
   /**
    * @remarks
-   * The auto scaling type, categorized by instance type. Valid values:
+   * Auto scaling type, classified by auto scaling instance type. Valid values:
    * 
    * - `cpu`: regular instance type.
    * - `gpu`: GPU instance type.
-   * - `gpushare`: GPU sharing type.
-   * - `spot`: spot instance type.
+   * - `gpushare`: GPU-shared type.
+   * - `spot`: preemptible instance type.
    * 
    * @example
    * cpu
@@ -186,9 +187,9 @@ export class DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup extends $dar
 export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends $dara.Model {
   /**
    * @remarks
-   * [Deprecated]
+   * [This field is deprecated]
    * 
-   * The network bandwidth of the edge enhanced node pool, in Mbps.
+   * Network bandwidth of the enhanced edge node pool, in Mbps.
    * 
    * @example
    * 10
@@ -198,7 +199,7 @@ export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends
    * @remarks
    * [This field is deprecated]
    * 
-   * The Cloud Connect Network (CCN) instance ID bound to the enhanced edge node pool.
+   * The Cloud Connect Network (CCN) instance ID bound to the enhanced edge node pool (CCNID).
    * 
    * @example
    * ccn-qm5i0i0q9yi*******
@@ -208,8 +209,7 @@ export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends
    * @remarks
    * [This field is deprecated]
    * 
-   * The region of the CCN instance bound to the enhanced edge node pool.
-   * [_single.resp.200.
+   * The region of the Cloud Connect Network (CCN) instance bound to the enhanced edge node pool.
    * 
    * @example
    * cn-shanghai
@@ -219,7 +219,7 @@ export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends
    * @remarks
    * [This field is deprecated]
    * 
-   * The Cloud Enterprise Network (CEN) instance ID bound to the enhanced edge node pool.
+   * The Cloud Enterprise Network (CEN) instance ID bound to the enhanced edge node pool (CENID).
    * 
    * @example
    * cen-ey9k9nfhz0f*******
@@ -227,9 +227,9 @@ export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends
   cenId?: string;
   /**
    * @remarks
-   * [Deprecated]
+   * [This field is deprecated]
    * 
-   * The subscription duration of the edge enhanced node pool, in months.
+   * Purchase duration of the enhanced edge node pool, in months.
    * 
    * @example
    * 1
@@ -267,10 +267,10 @@ export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends
 export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to install the CloudMonitor agent on ECS nodes. After installation, you can view monitoring information of the created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
+   * Whether to install CloudMonitor on ECS nodes. After installation, you can view the monitoring information of created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
    * 
-   * - `true`: Installs the CloudMonitor agent on ECS nodes.
-   * - `false`: Does not install the CloudMonitor agent on ECS nodes.
+   * - `true`: install CloudMonitor on ECS nodes.
+   * - `false`: do not install CloudMonitor on ECS nodes.
    * 
    * @example
    * true
@@ -278,10 +278,10 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   cmsEnabled?: boolean;
   /**
    * @remarks
-   * The CPU management policy for nodes. The following two policies are supported for clusters of version 1.12.6 or later:
+   * Node CPU management policy. The following two policies are supported when the cluster version is 1.12.6 or later:
    * 
-   * - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-   * - `none`: Uses the existing default CPU affinity scheme.
+   * - `static`: allows enhanced CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
+   * - `none`: enables the existing default CPU affinity scheme.
    * 
    * @example
    * none
@@ -289,19 +289,19 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   cpuPolicy?: string;
   /**
    * @remarks
-   * The node tag.
+   * Node labels.
    */
   labels?: Tag[];
   /**
    * @remarks
-   * The custom node name.
+   * Custom node name.
    * 
-   * A node name consists of three parts: prefix + node IP address substring + suffix:
+   * The node name consists of three parts: prefix \\+ node IP address substring \\+ suffix:
    *  
-   * - Both the prefix and suffix can consist of one or more parts separated by ".". Each part can contain lowercase letters, digits, and hyphens (-). The node name must start and end with a lowercase letter or digit.
+   * - Both the prefix and suffix can consist of one or more parts separated by ".". Each part can contain lowercase letters, digits, and "-". The node name must start and end with a lowercase letter or digit.
    * - The IP address segment length specifies the number of digits taken from the end of the node IP address. Valid values: 5 to 12.
    *  
-   * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP address segment length is 5, and the suffix is test, the node name is aliyun.com00055test.
+   * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP address segment length is 5, and the suffix is test, then the node name is aliyun.com00055test.
    * 
    * @example
    * aliyun.com192.XX.YY.55test
@@ -309,7 +309,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   nodeNameMode?: string;
   /**
    * @remarks
-   * The pre-initialization custom data of the node pool, which is a script that runs before node initialization. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
+   * Node pool pre-custom data, which is a script that runs before node initialization. For more information, see [Generate instance custom data](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * dGhpcyBpcyBhIGV4YW1wbGU
@@ -317,11 +317,11 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   preUserData?: string;
   /**
    * @remarks
-   * The container runtime name. ACK supports the following three container runtimes:
+   * Container runtime name. ACK supports the following three container runtimes.
    * 
-   * - containerd: recommended. Supported by all cluster versions.
-   * - Sandboxed-Container.runv: sandboxed container that provides higher isolation. Supported by clusters of version 1.31 and earlier.
-   * - docker: no longer maintained. Supported by clusters of version 1.22 and earlier.
+   * - containerd: recommended, supported by all cluster versions.
+   * - Sandboxed-Container.runv: sandboxed container, provides higher isolation, supported by clusters of version 1.31 and earlier.
+   * - docker: no longer maintained, supported by clusters of version 1.22 and earlier.
    * 
    * @example
    * containerd
@@ -329,7 +329,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   runtime?: string;
   /**
    * @remarks
-   * The container runtime version.
+   * Container runtime version.
    * 
    * @example
    * 1.6.38
@@ -337,16 +337,16 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   runtimeVersion?: string;
   /**
    * @remarks
-   * The node taint information. Taints work together with tolerations to prevent pods from being scheduled to inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+   * Node taint information. Taints and tolerations work together to prevent Pods from being scheduled on inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
    */
   taints?: Taint[];
   /**
    * @remarks
-   * Specifies whether the scaled-out nodes are unschedulable.
+   * Whether nodes are unschedulable after scaling.
    * 
-   * - true: Unschedulable.
+   * - true: unschedulable.
    * 
-   * - false: Schedulable.
+   * - false: schedulable.
    * 
    * @example
    * true
@@ -354,7 +354,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   unschedulable?: boolean;
   /**
    * @remarks
-   * The custom data of the node pool, which is a script that runs after node initialization. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
+   * Node pool custom data, which is a script that runs after node initialization. For more information, see [Generate instance custom data](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFDSyEi
@@ -408,7 +408,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether manual approval is required for node repair.
+   * Whether manual approval is required for node repair.
    * 
    * @example
    * false
@@ -416,7 +416,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
   approvalRequired?: boolean;
   /**
    * @remarks
-   * The auto repair policy ID.
+   * Auto repair policy ID
    * 
    * @example
    * r-xxxxxxxxxx
@@ -424,10 +424,10 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
   autoRepairPolicyId?: string;
   /**
    * @remarks
-   * Specifies whether to allow node restarts. This parameter takes effect only when `auto_repair=true`.
+   * Whether to allow node restart. Takes effect only when `auto_repair=true`.
    * 
-   * - `true`: Allows node restarts.
-   * - `false`: Does not allow node restarts.
+   * - `true`: allow node restart.
+   * - `false`: do not allow node restart.
    * 
    * @example
    * true
@@ -461,9 +461,9 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow automatic kubelet upgrades. This parameter takes effect only when `auto_upgrade=true`. Valid values:
-   * - `true`: Allows automatic kubelet upgrades.
-   * - `false`: Does not allow automatic kubelet upgrades.
+   * Whether to allow auto upgrade of kubelet. Takes effect only when `auto_upgrade=true`. Valid values:
+   * - `true`: allow auto upgrade of kubelet.
+   * - `false`: do not allow auto upgrade of kubelet.
    * 
    * @example
    * true
@@ -493,7 +493,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolic
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy extends $dara.Model {
   /**
    * @remarks
-   * The packages that should be excluded during vulnerability fixes.
+   * Packages that should be excluded during vulnerability fixing.
    * 
    * @example
    * kernel
@@ -501,9 +501,9 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy
   excludePackages?: string;
   /**
    * @remarks
-   * Specifies whether to allow node restarts. This parameter takes effect only when `auto_vul_fix=true`. Valid values:
-   * - `true`: Allows node restarts.
-   * - `false`: Does not allow node restarts.
+   * Whether to allow node restart. Takes effect only when `auto_vul_fix=true`. Valid values:
+   * - `true`: allow node restart.
+   * - `false`: do not allow node restart.
    * 
    * @example
    * true
@@ -511,11 +511,11 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy
   restartNode?: boolean;
   /**
    * @remarks
-   * The vulnerability levels that are allowed for automatic fixes, separated by commas.
+   * Vulnerability levels allowed for automatic fixing, separated by commas.
    * 
    * - `asap`: high
    * - `later`: medium
-   * - `nntf`: low.
+   * - `nntf`: low
    * 
    * @example
    * asap,nntf
@@ -549,10 +549,10 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy
 export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic upgrades. Valid values:
+   * Whether to enable auto upgrade. Valid values:
    * 
-   * - `true`: Enables automatic upgrades.
-   * - `false`: Disables automatic upgrades.
+   * - `true`: enable auto upgrade.
+   * - `false`: disable auto upgrade.
    * 
    * @example
    * true
@@ -560,7 +560,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig ex
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * The maximum number of unavailable nodes. Valid values: [1,1000\\].
+   * Maximum number of unavailable nodes. Valid values: [1,1000\\].
    * 
    * Default value: 1.
    * 
@@ -570,7 +570,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig ex
   maxUnavailable?: number;
   /**
    * @remarks
-   * The number of extra nodes. You can set this parameter or surge_percentage, but not both.
+   * Number of extra nodes. Mutually exclusive with surge_percentage.
    * 
    * @example
    * 5
@@ -578,9 +578,9 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig ex
   surge?: number;
   /**
    * @remarks
-   * The percentage of extra nodes. You can set this parameter or `surge`, but not both.
+   * The percentage of extra nodes. Mutually exclusive with `surge`.
    * 
-   * Number of extra nodes = Extra node percentage × Number of nodes. For example, if the extra node percentage is set to 50% and there are 6 existing nodes, the number of extra nodes = 50% × 6 = 3.
+   * Extra nodes = extra node percentage x number of nodes. For example, if the extra node percentage is set to 50% and there are 6 existing nodes, the number of extra nodes = 50% x 6, which means 3 extra nodes will be generated.
    * 
    * @example
    * 50
@@ -617,10 +617,10 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   autoFaultDiagnosis?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto repair. This parameter takes effect only when `enable=true`.
+   * Auto repair. Takes effect only when `enable=true`.
    * 
-   * - `true`: Enables auto repair.
-   * - `false`: Disables auto repair.
+   * - `true`: enable auto repair.
+   * - `false`: disable auto repair.
    * 
    * @example
    * true
@@ -628,14 +628,14 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   autoRepair?: boolean;
   /**
    * @remarks
-   * The auto repair policy for nodes.
+   * Auto repair node policy.
    */
   autoRepairPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy;
   /**
    * @remarks
-   * Specifies whether to enable automatic node upgrades. This parameter takes effect only when `enable=true`.
-   * - `true`: Enables automatic upgrades.
-   * - `false`: Disables automatic upgrades.
+   * Whether to automatically upgrade nodes. Takes effect only when `enable=true`.
+   * - `true`: enable auto upgrade.
+   * - `false`: disable auto upgrade.
    * 
    * @example
    * true
@@ -643,15 +643,15 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * The automatic upgrade policy.
+   * Auto upgrade policy.
    */
   autoUpgradePolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy;
   /**
    * @remarks
-   * Specifies whether to automatically fix CVEs. This parameter takes effect only when `enable=true`.
+   * Whether to automatically fix CVEs. Takes effect only when `enable=true`.
    * 
-   * - `true`: Allows automatic CVE fixes.
-   * - `false`: Does not allow automatic CVE fixes.
+   * - `true`: allow automatic CVE fixing.
+   * - `false`: do not allow automatic CVE fixing.
    * 
    * @example
    * true
@@ -659,15 +659,15 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   autoVulFix?: boolean;
   /**
    * @remarks
-   * The automatic CVE fix policy.
+   * Auto CVE fix policy.
    */
   autoVulFixPolicy?: DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy;
   /**
    * @remarks
-   * Specifies whether to enable the managed node pool. Valid values:
+   * Whether managed node pool is enabled. Valid values:
    * 
-   * - `true`: Enables the managed node pool.
-   * - `false`: Disables the managed node pool. Other related configurations take effect only when `enable=true`.
+   * - `true`: enable managed node pool.
+   * - `false`: disable managed node pool. Other related configurations take effect only when `enable=true`.
    * 
    * @example
    * true
@@ -675,7 +675,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   enable?: boolean;
   /**
    * @remarks
-   * The automatic upgrade configuration. This parameter takes effect only when `enable=true`.
+   * Auto upgrade configuration. Takes effect only when `enable=true`.
    */
   upgradeConfig?: DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig;
   static names(): { [key: string]: string } {
@@ -731,8 +731,11 @@ export class DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig exten
   /**
    * @remarks
    * Node component custom configuration.
+   * 
+   * @example
+   * {"cpuManagerPolicy":"static"}
    */
-  customConfig?: { [key: string]: string };
+  customConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       customConfig: 'custom_config',
@@ -741,7 +744,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig exten
 
   static types(): { [key: string]: any } {
     return {
-      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -810,7 +813,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodeComponents extends $da
 export class DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig extends $dara.Model {
   /**
    * @remarks
-   * The Hugepage configuration.
+   * Hugepage configuration.
    */
   hugepage?: Hugepage;
   static names(): { [key: string]: string } {
@@ -840,12 +843,12 @@ export class DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig ext
 export class DescribeClusterNodePoolDetailResponseBodyNodeConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubelet parameter settings.
+   * Kubelet parameter configuration.
    */
   kubeletConfiguration?: KubeletConfig;
   /**
    * @remarks
-   * The node operating system configuration.
+   * Node operating system configuration.
    */
   nodeOsConfig?: DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig;
   static names(): { [key: string]: string } {
@@ -888,10 +891,10 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   created?: string;
   /**
    * @remarks
-   * Indicates whether the node pool is the default node pool. A cluster typically has only one default node pool. Valid values:
+   * Whether the node pool is the default node pool. A cluster usually has only one default node pool. Valid values:
    * 
-   * - `true`: The node pool is the default node pool.
-   * - `false`: The node pool is not the default node pool.
+   * - `true`: the default node pool.
+   * - `false`: not the default node pool.
    * 
    * @example
    * true
@@ -899,7 +902,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   isDefault?: boolean;
   /**
    * @remarks
-   * The node pool name.
+   * Node pool name.
    * 
    * @example
    * default-nodepool
@@ -907,7 +910,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   name?: string;
   /**
    * @remarks
-   * The node pool ID.
+   * Node pool ID.
    * 
    * @example
    * np615c0e0966124216a0412e10afe0****
@@ -915,7 +918,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   nodepoolId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-beijing
@@ -923,7 +926,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-acfmyvw3wjmb****
@@ -931,8 +934,8 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node pool type. Valid values:
-   * - `ess`: regular node pool (includes managed and automatic elastic scaling features).
+   * Node pool type.
+   * - `ess`: standard node pool (includes managed and auto scaling features).
    * - `edge`: edge node pool.
    * - `lingjun`: Lingjun node pool.
    * 
@@ -986,7 +989,7 @@ export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $dara
 export class DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The private pool ID.
+   * Private node pool ID.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -994,13 +997,13 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOpt
   id?: string;
   /**
    * @remarks
-   * The private pool type, which specifies the capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instance launch. Valid values:
+   * Private node pool type, the private pool capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool capacity is generated for instance launch. Valid values:
    * 
-   * - `Open`: open mode. Automatically matches open private pool capacity. If no matching private pool capacity is available, public pool resources are used.
+   * - `Open`: open mode. Automatically matches open-type private pool capacity. If no matching private pool capacity is available, public pool resources are used for launch.
    * 
    * - `Target`: targeted mode. Uses the specified private pool capacity to launch instances. If the specified private pool capacity is unavailable, the instance fails to launch.
    * 
-   * - `None`: none mode. Private pool capacity is not used for instance launch.
+   * - `None`: do not use mode. Instance launch does not use private pool capacity.
    * 
    * @example
    * Open
@@ -1037,10 +1040,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOp
   privatePoolIds?: string[];
   /**
    * @remarks
-   * The resource pool policy used for instance creation. Valid values:
+   * The resource pool policy used when creating instances. Valid values:
    * PrivatePoolFirst: private pool first.
    * PrivatePoolOnly: private pool only.
-   * None: no resource pool policy.
+   * None: do not use resource pool policy.
    * 
    * @example
    * PrivatePoolFirst
@@ -1075,7 +1078,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOp
 export class DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit extends $dara.Model {
   /**
    * @remarks
-   * The spot instance type.
+   * Preemptible instance type.
    * 
    * @example
    * ecs.c6.large
@@ -1083,14 +1086,14 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit
   instanceType?: string;
   /**
    * @remarks
-   * The market price of a single instance.
+   * Market price per instance.
    * 
    * <props="china">Unit: CNY/hour.
    * 
    * 
    * 
    * 
-   * <props="intl">Unit: USD/hour..
+   * <props="intl">Unit: USD/hour.
    * 
    * @example
    * 0.39
@@ -1122,10 +1125,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit
 export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`. Valid values:
+   * Whether auto-renewal is enabled for nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`. Valid values:
    * 
-   * - `true`: Enables auto-renewal.
-   * - `false`: Disables auto-renewal.
+   * - `true`: enable auto-renewal.
+   * - `false`: disable auto-renewal.
    * 
    * @example
    * false
@@ -1133,7 +1136,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   autoRenew?: boolean;
   /**
    * @remarks
-   * The duration of each auto-renewal cycle. Valid values:
+   * The duration of each auto-renewal. Valid values:
    * - When PeriodUnit=Week: 1, 2, 3.
    * - When PeriodUnit=Month: 1, 2, 3, 6, 12, 24, 36, 48, 60.
    * 
@@ -1153,10 +1156,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   cisEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to price or inventory reasons. This parameter takes effect only when `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
+   * When `multi_az_policy` is set to `COST_OPTIMIZED`, whether to allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances when preemptible instances cannot be created due to price or inventory reasons. Valid values:
    * 
-   * - `true`: Allows automatic creation of pay-as-you-go instances.
-   * - `false`: Does not allow automatic creation of pay-as-you-go instances.
+   * - `true`: allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
+   * - `false`: do not allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
    * 
    * @example
    * true
@@ -1164,12 +1167,12 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The configurations of data cloud disks, including disk type and size.
+   * The combination of data disk type, size, and other configurations for nodes.
    */
   dataDisks?: DataDisk[];
   /**
    * @remarks
-   * The deployment set ID.
+   * Deployment set ID.
    * 
    * @example
    * ds-bp1d19mmbsv3jf6xxxxx
@@ -1177,7 +1180,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   deploymentsetId?: string;
   /**
    * @remarks
-   * The desired number of nodes in the node pool.
+   * Desired number of nodes in the node pool.
    * 
    * @example
    * 2
@@ -1185,12 +1188,12 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   desiredSize?: number;
   /**
    * @remarks
-   * The block device initialization configuration.
+   * Block device initialization configuration.
    */
   diskInit?: DiskInit[];
   /**
    * @remarks
-   * The custom image ID.
+   * Custom image ID.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20241218.vhd
@@ -1198,17 +1201,17 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   imageId?: string;
   /**
    * @remarks
-   * The operating system image type. Valid values:
+   * Operating system image type.
    * - `AliyunLinux`: Alinux2 image.
-   * - `AliyunLinuxSecurity`: Alinux2 UEFI image.
+   * - `AliyunLinuxSecurity`: Alinux2 image UEFI edition.
    * - `AliyunLinux3`: Alinux3 image.
-   * - `AliyunLinux3Arm64`: Alinux3 ARM image.
-   * - `AliyunLinux3Security`: Alinux3 UEFI image.
+   * - `AliyunLinux3Arm64`: Alinux3 image ARM edition.
+   * - `AliyunLinux3Security`: Alinux3 image UEFI edition.
    * - `CentOS`: CentOS image.
    * - `Windows`: Windows image.
    * - `WindowsCore`: WindowsCore image.
    * - `ContainerOS`: container-optimized image.
-   * - `AliyunLinux3ContainerOptimized`: Alinux3 container-optimized image.
+   * - `AliyunLinux3ContainerOptimized`: Alinux3 image container-optimized edition.
    * 
    * @example
    * AliyunLinux3
@@ -1216,7 +1219,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   imageType?: string;
   /**
    * @remarks
-   * The billing method of nodes in the node pool. Valid values:
+   * Node pool node billing type. Valid values:
    * 
    * - `PrePaid`: subscription.
    * - `PostPaid`: pay-as-you-go.
@@ -1227,12 +1230,12 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   instanceChargeType?: string;
   /**
    * @remarks
-   * The metadata access configuration of ECS instances.
+   * Metadata access configuration for ECS instances.
    */
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
-   * The instance attribute configurations.
+   * Instance attribute configuration.
    */
   instancePatterns?: InstancePatterns[];
   /**
@@ -1242,10 +1245,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   instanceTypes?: string[];
   /**
    * @remarks
-   * The billing method for the public IP address of nodes.
+   * Node public IP billing type.
    * 
-   * - PayByBandwidth: pay-by-bandwidth.
-   * - PayByTraffic: pay-by-data-transfer.
+   * - PayByBandwidth: billed by fixed bandwidth.
+   * - PayByTraffic: billed by data transfer.
    * 
    * @example
    * PayByBandwidth
@@ -1253,7 +1256,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound bandwidth of the public IP address of nodes. Unit: Mbit/s. Valid values: 1 to 100.
+   * Maximum outbound bandwidth for node public IP, in Mbps (Megabits per second). Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -1261,7 +1264,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The key pair name. You can set this parameter or `login_password`, but not both. For managed node pools, only `key_pair` is supported.
+   * Key pair name. Mutually exclusive with `login_password`. For managed node pools, only `key_pair` is supported.
    * 
    * @example
    * pro-nodepool
@@ -1269,11 +1272,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   keyPair?: string;
   /**
    * @remarks
-   * Specifies whether the scaled-out ECS instances use a non-root user for logon.
+   * Whether the launched ECS instances log in as a non-root user.
    * 
-   * - true: Logs on as a non-root user (ecs-user).
+   * - true: log in as a non-root user (ecs-user).
    * 
-   * - false: Logs on as the root user.
+   * - false: log in as the root user.
    * 
    * @example
    * true
@@ -1281,9 +1284,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   loginAsNonRoot?: boolean;
   /**
    * @remarks
-   * The SSH logon password. You can set this parameter or `key_pair`, but not both. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * SSH login password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
-   * For security purposes, the password is encrypted in the query result.
+   * For security purposes, the password is encrypted in query results.
    * 
    * @example
    * ********
@@ -1291,15 +1294,15 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   loginPassword?: string;
   /**
    * @remarks
-   * The scaling policy for ECS instances in a multi-zone scaling group. Valid values:
+   * Multi-zone scaling group ECS instance scaling policy. Valid values:
    * 
-   * - `PRIORITY`: Scales based on the vSwitches (VSwitchIds.N) that you define. When ECS instances cannot be created in the zone of a higher-priority vSwitch, the system automatically uses the next-priority vSwitch.
+   * - `PRIORITY`: scales based on the vSwitches (VSwitchIds.N) that you defined. When ECS instances cannot be created in the zone of a higher-priority vSwitch, the system automatically uses the next-priority vSwitch to create ECS instances.
    * 
-   * - `COST_OPTIMIZED`: Creates instances in ascending order of vCPU unit price. When the scaling configuration sets the spot billing method for multiple instance types, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory or other reasons.
+   * - `COST_OPTIMIZED`: attempts to create instances in order of vCPU unit price from low to high. When the scaling configuration specifies multiple instance types with preemptible billing, preemptible instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically attempt to create pay-as-you-go instances when preemptible instances cannot be created due to insufficient inventory.
    * 
-   *   >`COST_OPTIMIZED` takes effect only when the scaling configuration sets multiple instance types or uses spot instances.
+   *   >`COST_OPTIMIZED` takes effect only when multiple instance types are specified or preemptible instances are selected in the scaling configuration.
    * 
-   * - `BALANCE`: Distributes ECS instances evenly across the active zones specified in the scaling group. If zones become unbalanced due to insufficient inventory, you can call the RebalanceInstances operation to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+   * - `BALANCE`: evenly distributes ECS instances across the multiple zones specified by the scaling group. If zones become unbalanced due to insufficient inventory, you can use the RebalanceInstances API to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
    * 
    * Default value: `PRIORITY`.
    * 
@@ -1317,7 +1320,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   onDemandBaseCapacity?: number;
   /**
    * @remarks
-   * The percentage of pay-as-you-go instances among the instances that exceed the minimum pay-as-you-go instance count (`on_demand_base_capacity`). Valid values: [0,100\\].
+   * After the scaling group meets the minimum number of pay-as-you-go instances (`on_demand_base_capacity`), the percentage of pay-as-you-go instances among the excess instances. Valid values: [0,100\\].
    * 
    * @example
    * 20
@@ -1325,7 +1328,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration of nodes. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+   * Node subscription duration. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
    * 
    * - When `period_unit=Week`, valid values of `period`: {1, 2, 3, 4}.
    * - When `period_unit=Month`, valid values of `period`: {1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, 60}.
@@ -1336,10 +1339,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   period?: number;
   /**
    * @remarks
-   * The billing cycle of nodes. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
+   * Node billing period unit. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
    * 
-   * - `Month`: uses month as the billing cycle.
-   * - `Week`: uses week as the billing cycle.
+   * - `Month`: billed on a monthly basis.
+   * - `Week`: billed on a weekly basis.
    * 
    * @example
    * Month
@@ -1347,12 +1350,12 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   periodUnit?: string;
   /**
    * @remarks
-   * The operating system distribution. Valid values:
+   * Operating system distribution. Valid values:
    * 
    * - `CentOS`
    * - `AliyunLinux`
    * - `Windows`
-   * - `WindowsCore`.
+   * - `WindowsCore`
    * 
    * @example
    * AliyunLinux
@@ -1360,7 +1363,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   platform?: string;
   /**
    * @remarks
-   * The private pool configuration.
+   * Private node pool configuration.
    */
   privatePoolOptions?: DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions;
   /**
@@ -1373,7 +1376,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   ramPolicy?: string;
   /**
    * @remarks
-   * The worker RAM role name.
+   * Worker RAM role name.
    * 
    * @example
    * KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
@@ -1381,17 +1384,17 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   ramRoleName?: string;
   /**
    * @remarks
-   * The list of RDS instances. If specified, the ECS instances of the cluster nodes are automatically added to the RDS access whitelist.
+   * If an RDS instance list is specified, the cluster node ECS instances are automatically added to the RDS access whitelist.
    */
   rdsInstances?: string[];
   /**
    * @remarks
-   * The resource pool and resource pool policy used for instance creation.
+   * The resource pool and resource pool policy used when creating instances.
    */
   resourcePoolOptions?: DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOptions;
   /**
    * @remarks
-   * The scaling group ID.
+   * Scaling group ID.
    * 
    * @example
    * asg-2zeieod8giqmov7z****
@@ -1399,10 +1402,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   scalingGroupId?: string;
   /**
    * @remarks
-   * The scaling group mode. Valid values:
+   * Scaling group mode. Valid values:
    * 
    * - `release`: standard mode. Scales by creating and releasing ECS instances based on resource usage.
-   * - `recycle`: swift mode. Scales by creating, stopping, and starting instances to improve subsequent scaling speed. (Compute resources are not charged during the stopped state. Only storage fees are charged, except for local disk instance types.).
+   * - `recycle`: swift mode. Scales by creating, stopping, and starting ECS instances, which improves the speed of subsequent scaling operations (compute resources are not charged during stopped state, only storage fees are charged, except for local disk instance types).
    * 
    * @example
    * release
@@ -1410,7 +1413,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   scalingPolicy?: string;
   /**
    * @remarks
-   * The security group ID of the node pool. When the node pool is associated with multiple security groups, this is the first value in `security_group_ids`.
+   * Node pool security group ID. When the node pool is bindded to multiple security groups, this is the first value in `security_group_ids`.
    * 
    * @example
    * sg-2ze60ockeekspl3d****
@@ -1418,15 +1421,15 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   securityGroupId?: string;
   /**
    * @remarks
-   * The list of security group IDs for the node pool.
+   * The list of node pool security group IDs.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
+   * Alibaba Cloud OS security hardening. Valid values:
    * 
-   * - `true`: Enables Alibaba Cloud OS security hardening.
-   * - `false`: Disables Alibaba Cloud OS security hardening.
+   * - `true`: enable Alibaba Cloud OS security hardening.
+   * - `false`: disable Alibaba Cloud OS security hardening.
    * 
    * Default value: `false`.
    * 
@@ -1436,7 +1439,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   securityHardeningOs?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable MLPS 2.0 security hardening. This feature can be enabled for nodes only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides baseline check standards and scanning programs that comply with classified protection compliance for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
+   * Whether to enable China classified protection hardening. This feature can be enabled for nodes only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 China Classified Protection 2.0 Level 3 images.
    * 
    * @example
    * false
@@ -1444,7 +1447,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   socEnabled?: boolean;
   /**
    * @remarks
-   * The number of available instance types. The scaling group creates spot instances across multiple types at the lowest cost. Valid values: [1,10\\].
+   * The number of available instance types specified. The scaling group creates preemptible instances in a balanced manner using the instance types with the lowest cost. Valid values: [1,10\\].
    * 
    * @example
    * 5
@@ -1452,10 +1455,10 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   spotInstancePools?: number;
   /**
    * @remarks
-   * Specifies whether to enable spot instance supplementation. When enabled, the scaling group attempts to create new instances to replace spot instances that are about to be reclaimed. Valid values:
+   * Whether to enable supplementing preemptible instances. When enabled, the scaling group attempts to create new instances to replace preemptible instances that are about to be reclaimed when the system notification is received. Valid values:
    * 
-   * - `true`: Enables spot instance supplementation.
-   * - `false`: Disables spot instance supplementation.
+   * - `true`: enable supplementing preemptible instances.
+   * - `false`: disable supplementing preemptible instances.
    * 
    * @example
    * false
@@ -1463,17 +1466,17 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * The price limit configurations for spot instances.
+   * Preemptible instance market price range configuration.
    */
   spotPriceLimit?: DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit[];
   /**
    * @remarks
-   * The spot instance type. Valid values:
-   * - NoSpot: non-spot instance.
-   * - SpotWithPriceLimit: spot instance with a price limit.
-   * - SpotAsPriceGo: spot instance priced at the market rate.
+   * Preemptible instance type. Valid values:
+   * - NoSpot: non-preemptible instance.
+   * - SpotWithPriceLimit: specifies the maximum price for the preemptible instance.
+   * - SpotAsPriceGo: the system automatically bids at the current market price.
    * 
-   * For more information, see [Spot instances](https://help.aliyun.com/document_detail/157759.html).
+   * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/157759.html).
    * 
    * @example
    * NoSpot
@@ -1481,11 +1484,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable burst (performance bursting) for the system cloud disk of nodes. Valid values:
-   * - true: Enabled. When fluctuating workloads encounter sudden data read/write pressure, the cloud disk temporarily boosts performance based on actual business conditions until the workload stabilizes.
-   * - false: Disabled.
+   * Whether to enable Burst (performance bursting) for the node system disk. Valid values:
+   * - true: enable. When enabled, the disk temporarily increases its performance during burst data read/write pressure from fluctuating workloads until the workload returns to a steady state.
+   * - false: disable.
    * 
-   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -1493,17 +1496,17 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The multi-disk types for the system cloud disk. When a higher-priority disk type is unavailable, the system automatically attempts the next-priority disk type to create the system cloud disk.
+   * Multiple disk types for the system disk. When a higher-priority disk type is unavailable, the system automatically attempts the next-priority disk type for creating the system disk.
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * The system cloud disk type of nodes. Valid values:
-   * - `cloud_efficiency`: ultra cloud disk.
-   * - `cloud_ssd`: standard SSD.
-   * - `cloud_essd`: Enterprise SSD (ESSD).
-   * - `cloud_auto`: ESSD AutoPL cloud disk.
-   * - `cloud_essd_entry`: ESSD Entry cloud disk.
+   * Node system disk type. Valid values:
+   * - `cloud_efficiency`: ultra disk.
+   * - `cloud_ssd`: SSD.
+   * - `cloud_essd`: ESSD.
+   * - `cloud_auto`: ESSD AutoPL disk.
+   * - `cloud_essd_entry`: ESSD Entry disk.
    * 
    * @example
    * cloud_efficiency
@@ -1511,7 +1514,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The encryption algorithm used for the system cloud disk. Valid values: aes-256.
+   * The encryption algorithm used by the system disk. Valid values: aes-256.
    * 
    * @example
    * aes-256
@@ -1519,9 +1522,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskEncryptAlgorithm?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the system cloud disk. Valid values:
-   * - `true`: Encrypted.
-   * - `false`: Not encrypted.
+   * Whether to encrypt the system disk. Valid values:
+   * - `true`: encrypt.
+   * - `false`: do not encrypt.
    * 
    * @example
    * false
@@ -1529,7 +1532,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskEncrypted?: boolean;
   /**
    * @remarks
-   * The KMS key ID used for the system cloud disk.
+   * The KMS key ID used by the system disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -1537,11 +1540,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * The performance level of the system cloud disk. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the disk size. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-   * - PL0: moderate maximum concurrent I/O performance with relatively stable read/write latency.
-   * - PL1: moderate maximum concurrent I/O performance with relatively stable read/write latency.
-   * - PL2: high maximum concurrent I/O performance with stable read/write latency.
-   * - PL3: ultra-high maximum concurrent I/O performance with extremely stable read/write latency.
+   * Node system disk performance level, effective only for ESSD disks. The performance level is related to the disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+   * - PL0: moderate maximum concurrent I/O performance, with relatively stable read/write latency.
+   * - PL1: moderate maximum concurrent I/O performance, with relatively stable read/write latency.
+   * - PL2: high maximum concurrent I/O performance, with stable read/write latency.
+   * - PL3: ultra-high maximum concurrent I/O performance, with extremely stable read/write latency.
    * 
    * @example
    * PL1
@@ -1549,11 +1552,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the system cloud disk of nodes.
+   * Pre-configured read/write IOPS for the node system disk.
    * 
-   * Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50000}.
+   * Valid values: 0 to min{50,000, 1000\\*capacity - baseline performance}. Baseline performance = min{1,800+50\\*capacity, 50000}.
    * 
-   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 1000
@@ -1561,7 +1564,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system cloud disk of nodes. Unit: GiB.
+   * Node system disk size, in GiB.
    * 
    * Valid values: [20,2048\\].
    * 
@@ -1571,7 +1574,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskSize?: number;
   /**
    * @remarks
-   * The snapshot policy for the system cloud disk.
+   * System disk snapshot policy
    * 
    * @example
    * sp-bp11g8z59rawcud9****
@@ -1579,7 +1582,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The ECS instance tags.
+   * ECS instance tags.
    */
   tags?: Tag[];
   /**
@@ -1760,7 +1763,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $
   lastTransitionTime?: string;
   /**
    * @remarks
-   * The detailed information.
+   * Details.
    * 
    * @example
    * AutoUpgradeDisabled
@@ -1768,7 +1771,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $
   message?: string;
   /**
    * @remarks
-   * The reason.
+   * Reason.
    * 
    * @example
    * UpgradeDisabled
@@ -1776,7 +1779,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $
   reason?: string;
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * True
@@ -1784,7 +1787,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $
   status?: string;
   /**
    * @remarks
-   * The type.
+   * Type.
    * 
    * @example
    * ImageUpgradeReady
@@ -1822,7 +1825,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $
 export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model {
   /**
    * @remarks
-   * The current conditions of the node pool, which represent status information across different dimensions.
+   * The current conditions of the node pool, indicating status information across different dimensions of the node pool.
    */
   conditions?: DescribeClusterNodePoolDetailResponseBodyStatusConditions[];
   /**
@@ -1843,7 +1846,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
   healthyNodes?: number;
   /**
    * @remarks
-   * The number of nodes that are being created.
+   * The number of nodes being created.
    * 
    * @example
    * 0
@@ -1859,7 +1862,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
   offlineNodes?: number;
   /**
    * @remarks
-   * The number of nodes that are being removed.
+   * The number of nodes being removed.
    * 
    * @example
    * 0
@@ -1875,13 +1878,13 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
   servingNodes?: number;
   /**
    * @remarks
-   * The node pool status. Valid values:
+   * Node pool status. Valid values:
    * 
-   * - `active`: The node pool is active.
-   * - `scaling`: The node pool is being scaled.
-   * - `removing`: Nodes are being removed.
-   * - `deleting`: The node pool is being deleted.
-   * - `updating`: The node pool is being updated.
+   * - `active`: active.
+   * - `scaling`: scaling.
+   * - `removing`: removing nodes.
+   * - `deleting`: deleting.
+   * - `updating`: updating.
    * 
    * @example
    * active
@@ -1938,10 +1941,10 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
 export class DescribeClusterNodePoolDetailResponseBodyTeeConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the confidential computing cluster. Valid values:
+   * Whether to enable confidential computing for the cluster. Valid values:
    * 
-   * - `true`: Enabled.
-   * - `false`: Disabled.
+   * - `true`: enable.
+   * - `false`: disable.
    * 
    * @example
    * false
@@ -1976,14 +1979,14 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   autoMode?: DescribeClusterNodePoolDetailResponseBodyAutoMode;
   /**
    * @remarks
-   * The auto scaling configuration of the node pool.
+   * Auto scaling node pool configuration.
    */
   autoScaling?: DescribeClusterNodePoolDetailResponseBodyAutoScaling;
   efloNodeGroup?: DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup;
   /**
    * @remarks
-   * Whether the Pod network uses host network mode.
-   * - `true`: host network. Pods directly use the host network stack and share IP addresses and ports with the host.
+   * Whether the Pod network mode uses host network mode.
+   * - `true`: host network. Pods directly use the host\\"s network stack and share the IP address and ports with the host.
    * - `false`: container network. Pods have their own independent network stack and do not occupy host network ports.
    * 
    * @example
@@ -1994,15 +1997,15 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
    * @remarks
    * [This field is deprecated]
    * 
-   * The network configuration of the edge node pool. This value is meaningful only for edge-type node pools.
+   * Network-related configuration for the edge node pool. This value is meaningful only for edge-type node pools.
    */
   interconnectConfig?: DescribeClusterNodePoolDetailResponseBodyInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. This parameter takes effect only for node pools whose `type` is `edge`. Valid values:
+   * Network type of the edge node pool. This parameter takes effect only for node pools whose `type` is `edge`. Valid values:
    * 
-   * - `basic`: public network. Nodes in the node pool interact with cloud nodes over the public network, and applications in the node pool cannot directly access the cloud VPC.
-   * - `private`: private network. Nodes in the node pool connect to the cloud through leased lines, VPNs, or CEN, providing higher cloud-edge communication quality and more effective security.
+   * - `basic`: public network. Nodes in the node pool interact with cloud nodes through the public network, and applications in the node pool cannot directly access the cloud VPC intranet.
+   * - `private`: private network. Nodes in the node pool connect to the cloud through leased lines, VPN, or CEN, providing higher cloud-edge communication quality and more effective security.
    * 
    * @example
    * basic
@@ -2010,9 +2013,9 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   interconnectMode?: string;
   /**
    * @remarks
-   * Whether nodes within the edge node pool have Layer 3 network connectivity.
-   * - `true`: connected. All nodes in this node pool have Layer 3 network connectivity.
-   * - `false`: not connected. All hosts in this node pool do not have Layer 3 network connectivity.
+   * Whether nodes are interconnected at the Layer 3 network within the edge node pool.
+   * - `true`: interconnected. All nodes within the node pool are interconnected at the Layer 3 network.
+   * - `false`: not interconnected. All hosts within the node pool are not interconnected at the Layer 3 network.
    * 
    * @example
    * true
@@ -2020,19 +2023,19 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   intranet?: boolean;
   /**
    * @remarks
-   * The cluster-related configuration.
+   * Cluster-related configuration.
    */
   kubernetesConfig?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig;
   /**
    * @remarks
-   * The managed node pool configuration.
+   * Managed node pool configuration.
    */
   management?: DescribeClusterNodePoolDetailResponseBodyManagement;
   /**
    * @remarks
-   * [Deprecated]
+   * [This field is deprecated]
    * 
-   * The maximum number of nodes that the edge node pool can contain.
+   * The maximum number of nodes allowed in the edge node pool.
    * 
    * @example
    * 10
@@ -2040,12 +2043,12 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   maxNodes?: number;
   /**
    * @remarks
-   * Node component list.
+   * The list of node components.
    */
   nodeComponents?: DescribeClusterNodePoolDetailResponseBodyNodeComponents[];
   /**
    * @remarks
-   * The node configuration.
+   * Node configuration.
    */
   nodeConfig?: DescribeClusterNodePoolDetailResponseBodyNodeConfig;
   /**
@@ -2055,17 +2058,17 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   nodepoolInfo?: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo;
   /**
    * @remarks
-   * The scaling group configuration of the node pool.
+   * Node pool scaling group configuration.
    */
   scalingGroup?: DescribeClusterNodePoolDetailResponseBodyScalingGroup;
   /**
    * @remarks
-   * The node pool status.
+   * Node pool status.
    */
   status?: DescribeClusterNodePoolDetailResponseBodyStatus;
   /**
    * @remarks
-   * The confidential computing cluster configuration.
+   * Confidential computing cluster configuration.
    */
   teeConfig?: DescribeClusterNodePoolDetailResponseBodyTeeConfig;
   static names(): { [key: string]: string } {
