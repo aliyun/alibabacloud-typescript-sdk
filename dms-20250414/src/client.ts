@@ -2138,12 +2138,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * Retrieves chat content from a specific checkpoint by specifying the session ID and AgentId.
    * 
    * @remarks
-   * ## Request
-   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
-   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
+   * ## Request Description
+   * - The response is returned as an SSE stream, where each event follows the `SSEEvent` schema and contains meta-information such as the message level.
+   * - The `content` field in each SSE event may carry actual message text or a JSON object, depending on the value of `content_type`.
    * 
    * @param request - GetChatContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2200,12 +2200,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * Retrieves chat content from a specific checkpoint by specifying the session ID and AgentId.
    * 
    * @remarks
-   * ## Request
-   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
-   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
+   * ## Request Description
+   * - The response is returned as an SSE stream, where each event follows the `SSEEvent` schema and contains meta-information such as the message level.
+   * - The `content` field in each SSE event may carry actual message text or a JSON object, depending on the value of `content_type`.
    * 
    * @param request - GetChatContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2248,12 +2248,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * Retrieves chat content from a specific checkpoint by specifying the session ID and AgentId.
    * 
    * @remarks
-   * ## Request
-   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
-   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
+   * ## Request Description
+   * - The response is returned as an SSE stream, where each event follows the `SSEEvent` schema and contains meta-information such as the message level.
+   * - The `content` field in each SSE event may carry actual message text or a JSON object, depending on the value of `content_type`.
    * 
    * @param request - GetChatContentRequest
    * @returns GetChatContentResponse
@@ -2754,6 +2754,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the operation logs of the SQL window.
+   * 
+   * @param request - GetSqlConsoleOperationLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSqlConsoleOperationLogResponse
+   */
+  async getSqlConsoleOperationLogWithOptions(request: $_model.GetSqlConsoleOperationLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSqlConsoleOperationLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.sqlType)) {
+      query["SqlType"] = request.sqlType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSqlConsoleOperationLog",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSqlConsoleOperationLogResponse>(await this.callApi(params, req, runtime), new $_model.GetSqlConsoleOperationLogResponse({}));
+  }
+
+  /**
+   * Queries the operation logs of the SQL window.
+   * 
+   * @param request - GetSqlConsoleOperationLogRequest
+   * @returns GetSqlConsoleOperationLogResponse
+   */
+  async getSqlConsoleOperationLog(request: $_model.GetSqlConsoleOperationLogRequest): Promise<$_model.GetSqlConsoleOperationLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSqlConsoleOperationLogWithOptions(request, runtime);
+  }
+
+  /**
    * Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
    * 
    * @remarks
@@ -3074,7 +3144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of Data Agent session descriptions.
+   * Retrieves the list of historical session descriptions for a Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3101,6 +3171,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.isSaved)) {
       query["IsSaved"] = request.isSaved;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -3141,7 +3215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of Data Agent session descriptions.
+   * Retrieves the list of historical session descriptions for a Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
    * @returns ListDataAgentSessionResponse
@@ -4858,16 +4932,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or cancels a session.
+   * Send a user message to a specified session or cancel the session.
    * 
    * @remarks
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
-   * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-   * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of a previous user message.
-   * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of the user\\"s previous message.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4946,6 +5020,10 @@ export default class Client extends OpenApi {
       query["TaskConfig"] = request.taskConfigShrink;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4964,16 +5042,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or cancels a session.
+   * Send a user message to a specified session or cancel the session.
    * 
    * @remarks
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
-   * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-   * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of a previous user message.
-   * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of the user\\"s previous message.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse

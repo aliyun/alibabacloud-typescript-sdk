@@ -3,13 +3,77 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Model {
+  /**
+   * @remarks
+   * The brief description of the artifact. This value may be empty.
+   * 
+   * @example
+   * a simple report
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
+   * 
+   * @example
+   * 1778743587
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId returned by the SendChatMessage operation.
+   * 
+   * @example
+   * bab******33e1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The artifact name. This is typically a string concatenated by the system. It is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+   * 
+   * @example
+   * report_****_2026****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
+   * 
+   * @example
+   * 1778743587
+   */
   receiveTime?: string;
+  /**
+   * @remarks
+   * The time when the backend actually started running the artifact task. This is a UNIX timestamp accurate to the second.
+   * 
+   * @example
+   * 1778743587
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The artifact status. Valid values:
+   * 
+   * - PENDING: The backend has received the task but has not started it.
+   * 
+   * - RUNNING: The backend has started the task but has not completed it.
+   * 
+   * - SUCCESS: The task succeeded. You can query the file information by calling the ListFileUpload operation.
+   * 
+   * - FAILED: The task failed.
+   * 
+   * @example
+   * PENDING
+   */
   status?: string;
+  /**
+   * @remarks
+   * The artifact type. Valid values: TextReport and WebReport.
+   * 
+   * @example
+   * WebReport
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,7 +151,27 @@ export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extend
 }
 
 export class DescribeDataAgentSessionResponseBodyDataDataSources extends $dara.Model {
+  /**
+   * @remarks
+   * The data source category. Valid values:
+   * 
+   * - **CHAT**: specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
+   * 
+   * - **CUSTOM_AGENT**: from the preset analysis data scope in a custom agent.
+   * 
+   * @example
+   * CHAT
+   */
   category?: string;
+  /**
+   * @remarks
+   * The data source details.
+   * 
+   * When Category is CHAT or CUSTOM_AGENT, the structure of Detail is aligned with the structure of a single element in the DataSources parameter of the SendChatMessage operation.
+   * 
+   * @example
+   * {}
+   */
   detail?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,8 +197,29 @@ export class DescribeDataAgentSessionResponseBodyDataDataSources extends $dara.M
 }
 
 export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the recalled knowledge chunk.
+   * 
+   * @example
+   * sky is blue
+   */
   content?: string;
+  /**
+   * @remarks
+   * The similarity score of this data entry. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
+   * 
+   * @example
+   * 0.65
+   */
   score?: number;
+  /**
+   * @remarks
+   * The type of recalled knowledge.
+   * 
+   * @example
+   * memory
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,8 +258,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * - **debug**: Debug stage.
-   * - **prod**: Production stage.
+   * - **debug**: the debugging stage.
+   * - **prod**: the production stage.
    * 
    * @example
    * debug
@@ -168,8 +273,26 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
    * True
    */
   enableSearch?: boolean;
+  /**
+   * @remarks
+   * The encryption key for storing artifacts in OSS (including built-in and user-specified OSS). This is typically specified in CreateDataAgentSession.
+   * 
+   * @example
+   * ay***1Te
+   */
   encryptKey?: string;
+  /**
+   * @remarks
+   * The encryption type for storing artifacts in OSS (including built-in and user-specified OSS).
+   * 
+   * @example
+   * null
+   */
   encryptType?: string;
+  /**
+   * @remarks
+   * The list of knowledge base IDs for this session.
+   */
   kbUuidList?: string[];
   /**
    * @remarks
@@ -189,20 +312,33 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The mode. Valid values:
-   * - **ASK_DATA**: Ask data mode.
-   * - **ANALYSIS**: Analysis mode.
-   * - **INSIGHT**: Insight mode.
+   * - **ASK_DATA**: the data query mode.
+   * - **ANALYSIS**: the analysis mode.
+   * - **INSIGHT**: the insight mode.
    * 
    * @example
    * ANALYSIS
    */
   mode?: string;
+  /**
+   * @remarks
+   * The report page width.
+   * 
+   * @example
+   * 300mm
+   */
   reportPageWidth?: number;
+  /**
+   * @remarks
+   * The report watermark.
+   * 
+   * @example
+   * ""
+   */
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user OSS bucket.
-   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+   * The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -274,6 +410,10 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
    * RUNNING
    */
   agentStatus?: string;
+  /**
+   * @remarks
+   * The list of artifacts produced by the session. Currently, only reports are included.
+   */
   artifacts?: DescribeDataAgentSessionResponseBodyDataArtifacts[];
   /**
    * @remarks
@@ -282,16 +422,20 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   chatHistoryLocations?: DescribeDataAgentSessionResponseBodyDataChatHistoryLocations[];
   /**
    * @remarks
-   * The session creation time.
+   * The time when the session was created.
    * 
    * @example
    * 1731645908000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The list of data sources used in the current session.
+   */
   dataSources?: DescribeDataAgentSessionResponseBodyDataDataSources[];
   /**
    * @remarks
-   * Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
+   * Indicates whether the session is saved to favorites in the workspace by the current user.
    * 
    * @example
    * true
@@ -305,10 +449,14 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
    * f-8*******01m
    */
   file?: string;
+  /**
+   * @remarks
+   * The recall results from the knowledge base and memory for this session.
+   */
   recallResults?: DescribeDataAgentSessionResponseBodyDataRecallResults[];
   /**
    * @remarks
-   * Indicates whether the session is saved as a favorite by the current logged-in user.
+   * Indicates whether the session is saved to favorites by the current user.
    * 
    * @example
    * true
@@ -449,8 +597,8 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
    * @remarks
    * The return value. Valid values:
    * 
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * true

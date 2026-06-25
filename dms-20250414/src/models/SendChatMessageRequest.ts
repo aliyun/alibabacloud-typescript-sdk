@@ -13,7 +13,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database respectively.
+   * The data source type. Valid values: `[remote_data_center, database]`, which indicate whether the current analysis is for a file or a database respectively.
    * 
    * @example
    * remote_data_center
@@ -37,7 +37,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the database in Data Management.
+   * The ID of the database in DMS.
    * 
    * @example
    * 23******
@@ -45,7 +45,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dmsDatabaseId?: string;
   /**
    * @remarks
-   * The ID of the instance in Data Management.
+   * The ID of the instance in DMS.
    * 
    * @example
    * 12******
@@ -143,7 +143,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values: [remote_data_center, database], indicating that the analysis is performed on a file or a database respectively.
+   * The data source type. Valid values: [remote_data_center, database], which indicate whether the current analysis is for a file or a database respectively.
    * 
    * @example
    * remote_data_center
@@ -167,7 +167,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the database in Data Management.
+   * The ID of the database in DMS.
    * 
    * @example
    * 123****
@@ -175,7 +175,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dmsDatabaseId?: string;
   /**
    * @remarks
-   * The ID of the instance in Data Management.
+   * The ID of the instance in DMS.
    * 
    * @example
    * 248*****
@@ -265,7 +265,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
 export class SendChatMessageRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
-   * Deprecated. Use the input parameters of CreateAgentSession instead.
+   * Deprecated. The value specified in CreateAgentSession takes precedence.
    * 
    * @example
    * null
@@ -273,7 +273,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * Deprecated. Use the input parameters of CreateAgentSession instead.
+   * Deprecated. The value specified in CreateAgentSession takes precedence.
    * 
    * @example
    * null
@@ -281,24 +281,62 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   customAgentStage?: string;
   /**
    * @remarks
-   * Only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
+   * Currently only Chinese and English are supported. The default is Chinese. Only uppercase values are supported.
    * 
    * @example
    * ENGLISH
    */
   language?: string;
+  /**
+   * @remarks
+   * The mode:
+   *  - **ASK_DATA**: Ask Data mode
+   *  - **ANALYSIS**: Analysis mode
+   *  - **INSIGHT**: Insight mode
+   * 
+   * @example
+   * ANALYSIS
+   */
   mode?: string;
   /**
    * @remarks
-   * The text of up to 64 characters that is used as a watermark in the generated PDF report.
+   * You can enter text of up to 64 characters, which will be used as a watermark in the generated PDF report.
    * 
    * @example
    * 示例水印
    */
   reportWaterMark?: string;
+  /**
+   * @remarks
+   * Specifies whether to disable user inquiries during the process.
+   * 
+   * @example
+   * True
+   */
   skipAskHuman?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip the plan confirmation step.
+   * 
+   * @example
+   * True
+   */
   skipPlan?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip all SQL confirmations.
+   * 
+   * @example
+   * False
+   */
   skipSqlConfirm?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip the web report generation confirmation.
+   * 
+   * @example
+   * True
+   */
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -338,8 +376,29 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
 }
 
 export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The prompt that this report should follow.
+   * 
+   * @example
+   * generate a report
+   */
   reportPrompt?: string;
+  /**
+   * @remarks
+   * The report theme. Currently supported values: [default, journal, legacy, neobrutalism].
+   * 
+   * @example
+   * default
+   */
   reportTheme?: string;
+  /**
+   * @remarks
+   * The service type. Valid values: TextReport and WebReport, which indicate whether this task generates a text report or a web report. Currently, only the WebReport type is supported.
+   * 
+   * @example
+   * WebReport
+   */
   reportType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -367,6 +426,10 @@ export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
 }
 
 export class SendChatMessageRequestTaskConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The report rule configuration. Only when MessageType is REPORT, a report task will be executed based on this configuration.
+   */
   reportConfig?: SendChatMessageRequestTaskConfigReportConfig;
   static names(): { [key: string]: string } {
     return {
@@ -395,7 +458,7 @@ export class SendChatMessageRequestTaskConfig extends $dara.Model {
 export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
+   * The agent ID. This is a required field. You can obtain the current AgentId from the return value of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to pass in each request may change.
    * 
    * This parameter is required.
    * 
@@ -405,7 +468,7 @@ export class SendChatMessageRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to ap-southeast-1.
+   * The DMS unit you are currently in. If you choose to analyze a database, this information will be used to correctly connect to your DMS instance through DMS. You can go to the DMS console to check your current DMS unit. If you are a China site user of Alibaba Cloud, you can directly enter cn-hangzhou.
    * 
    * @example
    * cn-hangzhou
@@ -413,17 +476,20 @@ export class SendChatMessageRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data source information. This parameter is optional.
+   * The data source information. This parameter can be left empty. Only one data source can be passed in through this parameter. We recommend that you use the DataSources parameter instead.
+   * 
+   * @example
+   * null
    */
   dataSource?: SendChatMessageRequestDataSource;
   /**
    * @remarks
-   * The detailed data source information. This parameter is optional.
+   * The detailed data source information. This parameter can be left empty.
    */
   dataSources?: SendChatMessageRequestDataSources[];
   /**
    * @remarks
-   * The message content to send to the Agent in this request.
+   * The content of the message to be sent to the Agent.
    * 
    * This parameter is required.
    * 
@@ -433,7 +499,15 @@ export class SendChatMessageRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message type. Default value: `[primary]`. When the message is a response to the Agent\\"s human-in-the-loop question, set this parameter to `[additional]`. When the message is intended to cancel the current session, set this parameter to `[cancel]`.
+   * The message type. Default value: `[primary]`.
+   * 
+   * - In normal cases, when interacting with the Agent, the message type is `[primary]`.
+   * 
+   * - When the message is a response to the Agent\\"s Human-in-Loop question, the type should be `[additional]`.
+   * 
+   * - When the message is intended to trigger a report generation, the type should be `[report]`.
+   * 
+   * - When the message is intended to cancel the current session, the type should be `[cancel]`.
    * 
    * @example
    * primary
@@ -449,7 +523,7 @@ export class SendChatMessageRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * The specific question that the Agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
+   * This field is required when the message type is `additional`. Pass in the specific question that the Agent asked the user through Human-in-Loop.
    * 
    * @example
    * 请提供计算GMV的口径。
@@ -457,7 +531,7 @@ export class SendChatMessageRequest extends $dara.Model {
   question?: string;
   /**
    * @remarks
-   * The quoted content, typically used during interaction with the Agent.
+   * Pass in the current quoted content, typically used when interacting with the Agent.
    * 
    * @example
    * {"version":"v0"}
@@ -465,7 +539,11 @@ export class SendChatMessageRequest extends $dara.Model {
   quotedMessage?: string;
   /**
    * @remarks
-   * Indicates which Agent message this message responds to. Set this parameter to the largest Checkpoint sequence number currently received. Set it to 0 for the first message. This field is used for message deduplication in case of occasional network issues or duplicate message delivery.
+   * **Important**
+   * 
+   * When this message is a reply to an Agent message (for example, when the Agent asks for clarification through ASK_HUMAN), reply_to must be set to the exact Checkpoint number carried in that Agent message. If this message is not a specific reply, such as requesting the Agent for further in-depth analysis after analysis is completed, reply_to can be left empty or set to "0".
+   * 
+   * This field affects how the Agent decides to process the message. Passing an incorrect value may lead to analysis results that do not meet expectations.
    * 
    * @example
    * 0
@@ -473,7 +551,7 @@ export class SendChatMessageRequest extends $dara.Model {
   replyTo?: string;
   /**
    * @remarks
-   * The special configuration for this session. For the same session, only the configuration included in the first SendMessage call takes effect.
+   * The special configuration for this session. For the same session, only the configuration passed in the first SendMessage call takes effect.
    * 
    * **if can be null:**
    * true
@@ -481,7 +559,7 @@ export class SendChatMessageRequest extends $dara.Model {
   sessionConfig?: SendChatMessageRequestSessionConfig;
   /**
    * @remarks
-   * The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
+   * The session ID. This is a required field. You can obtain the SessionId by calling CreateAgentSession.
    * 
    * This parameter is required.
    * 
@@ -489,7 +567,12 @@ export class SendChatMessageRequest extends $dara.Model {
    * sess_***
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * The configuration items that only affect the current task.
+   */
   taskConfig?: SendChatMessageRequestTaskConfig;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
@@ -505,6 +588,7 @@ export class SendChatMessageRequest extends $dara.Model {
       sessionConfig: 'SessionConfig',
       sessionId: 'SessionId',
       taskConfig: 'TaskConfig',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -523,6 +607,7 @@ export class SendChatMessageRequest extends $dara.Model {
       sessionConfig: SendChatMessageRequestSessionConfig,
       sessionId: 'string',
       taskConfig: SendChatMessageRequestTaskConfig,
+      workspaceId: 'string',
     };
   }
 

@@ -13,7 +13,7 @@ export class GetChatContentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The service returns output starting from this checkpoint.
+   * The backend will return output starting from this checkpoint.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetChatContentRequest extends $dara.Model {
   checkpoint?: string;
   /**
    * @remarks
-   * The DMS unit. For users on the Alibaba Cloud China site, the default value is cn-hangzhou.
+   * The current DMS unit. Chinese mainland users of Alibaba Cloud should use cn-hangzhou by default.
    * 
    * @example
    * cn-hangzhou

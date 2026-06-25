@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * Session creation end time
+   * The end time of the session creation period.
    * 
    * @example
    * 1770912000000
@@ -13,7 +13,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   createEndTime?: number;
   /**
    * @remarks
-   * Session creation start time
+   * The start time of the session creation period.
    * 
    * @example
    * 1770825600000
@@ -21,7 +21,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   createStartTime?: number;
   /**
    * @remarks
-   * Custom Agent ID
+   * The custom agent ID.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
@@ -29,7 +29,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * Current DMS unit
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -37,15 +37,16 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * Whether to return only saved sessions
+   * Specifies whether to retrieve only favorited sessions.
    * 
    * @example
    * true
    */
   isSaved?: boolean;
+  mode?: string;
   /**
    * @remarks
-   * Page number for pagination
+   * The page number.
    * 
    * @example
    * 1
@@ -53,7 +54,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -61,7 +62,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Session type. Required when you specify a collaboration workspace.
+   * The session type. This parameter is required if a workspace is specified.
    * 
    * @example
    * myFavorite
@@ -69,7 +70,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * Data Agent title (supports fuzzy search)
+   * The Data Agent title. Fuzzy match is supported.
    * 
    * @example
    * 帮我分析一下这份数据
@@ -77,7 +78,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Collaboration workspace ID
+   * The workspace ID.
    * 
    * @example
    * 20923*****7291
@@ -90,6 +91,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
       customAgentId: 'CustomAgentId',
       DMSUnit: 'DMSUnit',
       isSaved: 'IsSaved',
+      mode: 'Mode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       queryType: 'QueryType',
@@ -105,6 +107,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
       customAgentId: 'string',
       DMSUnit: 'string',
       isSaved: 'boolean',
+      mode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       queryType: 'string',

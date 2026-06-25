@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Model {
   /**
    * @remarks
-   * Custom Agent ID
+   * The custom agent ID.
    * 
    * @example
    * ca-e*******ckd
@@ -13,11 +13,9 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   customAgentId?: string;
   /**
    * @remarks
-   * Custom Agent usage stage:
-   * 
-   * - **debug** Debug stage
-   * 
-   * - **prod** Production stage
+   * The usage stage of the custom agent. Valid values:
+   * - **debug**: Debug stage.
+   * - **prod**: Production stage.
    * 
    * @example
    * prod
@@ -25,7 +23,7 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   customAgentStage?: string;
   /**
    * @remarks
-   * Whether web search is enabled
+   * Specifies whether to enable web search.
    * 
    * @example
    * true
@@ -33,11 +31,9 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   enableSearch?: boolean;
   /**
    * @remarks
-   * Language
-   * 
-   * - **CHINESE** Chinese
-   * 
-   * - **ENGLISH** English
+   * The language. Valid values:
+   * - **CHINESE**: Chinese.
+   * - **ENGLISH**: English.
    * 
    * @example
    * CHINESE
@@ -45,13 +41,10 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   language?: string;
   /**
    * @remarks
-   * Mode:
-   * 
-   * - **ASK_DATA** Quick Inquiry Mode
-   * 
-   * - **ANALYSIS** Analysis mode
-   * 
-   * - **INSIGHT** Insight mode
+   * The mode. Valid values:
+   *  - **ASK_DATA**: Ask data mode.
+   *  - **ANALYSIS**: Analysis mode.
+   *  - **INSIGHT**: Insight mode.
    * 
    * @example
    * ANALYSIS
@@ -59,9 +52,9 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   mode?: string;
   /**
    * @remarks
-   * User OSS bucket name
+   * The name of the user OSS bucket.
    * 
-   * - Files and reports generated during analysis can be uploaded to the user-specified OSS bucket.
+   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -101,7 +94,7 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
 export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current Agent ID
+   * The current agent ID.
    * 
    * @example
    * cu0cs*******mf
@@ -109,7 +102,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Current Agent status
+   * The current agent status.
    * 
    * @example
    * RUNNING
@@ -117,7 +110,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   agentStatus?: string;
   /**
    * @remarks
-   * Session creation time
+   * The session creation time.
    * 
    * @example
    * 1731645908000
@@ -125,7 +118,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Whether the session is saved by the current user in the workspace
+   * Indicates whether the session is favorited by the current logged-in user in the workspace.
    * 
    * @example
    * true
@@ -133,7 +126,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   favoriteInWorkspace?: boolean;
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * @example
    * f-8*******01m
@@ -141,7 +134,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   file?: string;
   /**
    * @remarks
-   * Whether the session is saved by the current user
+   * Indicates whether the session is favorited by the current logged-in user.
    * 
    * @example
    * true
@@ -149,12 +142,12 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   saved?: boolean;
   /**
    * @remarks
-   * Session configuration
+   * The session configuration item.
    */
   sessionConfig?: ListDataAgentSessionResponseBodyDataSessionConfig;
   /**
    * @remarks
-   * Data Agent session ID
+   * The Data Agent session ID.
    * 
    * @example
    * h8r********4fch
@@ -162,7 +155,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Session status
+   * The session status.
    * 
    * @example
    * RUNNING
@@ -170,7 +163,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
    * 分析一下这份文件，给出报告。
@@ -178,7 +171,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Session owner ID
+   * The ID of the session owner.
    * 
    * @example
    * 2096******
@@ -231,12 +224,12 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
 export class ListDataAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response data
+   * The response struct.
    */
   data?: ListDataAgentSessionResponseBodyData[];
   /**
    * @remarks
-   * Error code. Returned when the request fails.
+   * The error code returned if the request fails.
    * 
    * @example
    * success
@@ -244,7 +237,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message returned when the call fails.
+   * The error message returned if the request fails.
    * 
    * @example
    * UnknownError
@@ -252,7 +245,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -260,7 +253,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Current page size
+   * The current page size.
    * 
    * @example
    * 10
@@ -268,7 +261,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * Id of the request
    * 
    * @example
    * E0D21075-CD3E-4D98-8264-****
@@ -276,11 +269,10 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request succeeded. Possible values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
@@ -288,7 +280,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 3
@@ -296,7 +288,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1

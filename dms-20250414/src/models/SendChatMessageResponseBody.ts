@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AgentId
+   * The agent ID.
    * 
    * @example
    * 3jqqdiuxun******
@@ -13,16 +13,23 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Message
+   * The message.
    * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * 922d7fd2-77fb-4549-9091-d51da225d47f
+   */
   messageId?: string;
   /**
    * @remarks
-   * SessionId
+   * The session ID.
    * 
    * @example
    * 6zbqbho********
@@ -87,7 +94,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
