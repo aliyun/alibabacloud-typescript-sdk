@@ -5,23 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScreenshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances. You can create multiple snapshots simultaneously.
+   * The list of instance IDs. Batch screenshots are supported.
    * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
   /**
    * @remarks
-   * The name of the OSS bucket. The name must start with "cloudphone-saved-bucket-". The OSS bucket and the cloud phone instance must be in the same region. If you leave this parameter empty, the system will create a default OSS bucket named “cloudphone-saved-bucket-{Region of the cloud phone instance}-{AliUid}.”
+   * The custom OSS bucket. The bucket name must start with the cloudphone-saved-bucket- prefix. The cloud phone instance and the OSS bucket must be in the same region. If you leave this parameter empty, a default bucket named cloudphone-saved-bucket-{RegionOfCloudPhone}-{AliUid} is created.
    * 
    * @example
    * cloudphone-saved-bucket-cn-shanghai-default
    */
   ossBucketName?: string;
+  /**
+   * @remarks
+   * The screenshot ID. The generated screenshot is named "ScreenshotId_AndroidInstanceId.png."
+   * 
+   * >Notice: 
+   * 
+   * The ScreenshotId must be 2 to 128 characters long, beginning with a letter, but cannot start with http\\:// or https\\://. Allowed characters include letters, digits, underscores (_), and hyphens (-).
+   * 
+   * @example
+   * image
+   */
   screenshotId?: string;
   /**
    * @remarks
-   * Specifies whether to bypass the snapshot policy control. Default value: false.
+   * Specifies whether to skip the screenshot policy check. The default value is false.
    * 
    * @example
    * false

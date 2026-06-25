@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResumeAgentTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * An additional prompt to guide the task. This parameter applies only when a task is in the `PAUSED` state, for example, while waiting for user input.
+   * 
+   * @example
+   * 验证码为***。
+   */
   additionalPrompt?: string;
   /**
    * @remarks
+   * A list of task IDs.
+   * 
    * This parameter is required.
    */
   taskIds?: string[];

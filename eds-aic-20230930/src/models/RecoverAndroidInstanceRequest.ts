@@ -5,26 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class RecoverAndroidInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of instance IDs.
+   * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
   /**
+   * @remarks
+   * The ID of the backup file.
+   * 
    * @example
    * bf-azhps4rdyi2th****
    */
   backupFileId?: string;
   /**
    * @remarks
+   * The OSS URL where the backup file is uploaded.
+   * 
    * This parameter is required.
    */
   backupFilePath?: string;
   /**
+   * @remarks
+   * The region where the backup is located.
+   * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
    */
   uploadEndpoint?: string;
   /**
    * @remarks
+   * The upload type.
+   * 
    * This parameter is required.
    * 
    * @example

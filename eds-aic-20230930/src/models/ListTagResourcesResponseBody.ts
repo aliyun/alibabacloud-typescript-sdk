@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID. This is the ID of the cloud phone instance.
+   * 
    * @example
-   * acp-123456abc****
+   * acp-8jwttemxb4t6y****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
-   * ALIYUN::ACP::INSTANC
+   * ALIYUN::ACP::INSTANCE
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
-   * For
+   * department
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TF
    */
@@ -52,15 +64,25 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token that marks the position from which to start the next query. If this parameter is empty, all results have been returned.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 20393E53-8FF1-524C-B494-B478A5369733
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A collection of resources and their tag information.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {

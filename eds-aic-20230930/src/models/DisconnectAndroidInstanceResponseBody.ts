@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisconnectAndroidInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E5138F7E-46B5-526A-8C99-82DEAE6B****
    */

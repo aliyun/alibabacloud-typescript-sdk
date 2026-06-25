@@ -20,12 +20,6 @@ export class OperateAppRequest extends $dara.Model {
    * @remarks
    * The type of the operation.
    * 
-   * Valid values:
-   * 
-   * *   stop: closes the app.
-   * *   restart: reopens the app.
-   * *   start: open the app.
-   * 
    * @example
    * start
    */

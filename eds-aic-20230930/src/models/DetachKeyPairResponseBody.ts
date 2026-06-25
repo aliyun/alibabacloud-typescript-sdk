@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKeyPairResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances from which the ADB key pair is successfully detached.
+   * A list of IDs of the instances from which the key pair was successfully detached.
    */
   detachedInstanceIds?: string[];
   /**
    * @remarks
-   * The number of the cloud phone instances from which the ADB key pair failed to be detached.
+   * The number of instances from which the key pair failed to detach.
    * 
    * @example
    * 0
@@ -26,7 +26,7 @@ export class DetachKeyPairResponseBodyData extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The total number of the cloud phone instances.
+   * The total number of instances for which the detach operation was attempted.
    * 
    * @example
    * 10
@@ -65,12 +65,12 @@ export class DetachKeyPairResponseBodyData extends $dara.Model {
 export class DetachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that is returned.
+   * The result object.
    */
   data?: DetachKeyPairResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****

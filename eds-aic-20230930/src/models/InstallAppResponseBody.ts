@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallAppResponseBodyChildTaskInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appId?: string;
   /**
+   * @remarks
+   * The child task ID.
+   * 
    * @example
    * t-ybde48cevxxxx
    */
   childTaskId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * acp-ty3bnd7b9xxxx
    */
@@ -40,10 +50,14 @@ export class InstallAppResponseBodyChildTaskInfo extends $dara.Model {
 }
 
 export class InstallAppResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The child task objects.
+   */
   childTaskInfo?: InstallAppResponseBodyChildTaskInfo[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E5138F7E-46B5-526A-8C99-82DEAE6B****
@@ -51,7 +65,7 @@ export class InstallAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * t-14xwibw7yp73q****

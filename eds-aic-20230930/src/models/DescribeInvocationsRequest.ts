@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+   * The IDs of the cloud phone instances. A single request can query the execution results for up to 50 instances.
    * 
    * This parameter is required.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the execution. You can retrieve the output of a command once by using either the execution ID or the cloud phone instance ID.
+   * The ID of the command execution. Use this ID and the cloud phone instance ID to query the result of a command execution.
    * 
    * This parameter is required.
    * 

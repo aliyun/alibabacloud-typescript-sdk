@@ -13,9 +13,16 @@ export class DescribeAppsRequest extends $dara.Model {
    * The name of the application.
    * 
    * @example
-   * defaultAppName
+   * Application name
    */
   appName?: string;
+  /**
+   * @remarks
+   * > This parameter is for internal use now.
+   * 
+   * @example
+   * -
+   */
   appType?: string;
   /**
    * @remarks
@@ -31,12 +38,17 @@ export class DescribeAppsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   INSTALLFAILED: The application failed to be installed.
-   * *   UNINSTALLING: The application is being uninstalled.
-   * *   INSTALLING: The application is being installed.
-   * *   UNINSTALLED: The application is uninstalled.
-   * *   INSTALLED: The application is installed.
-   * *   UNINSTALLFAILED: The application failed to be uninstalled.
+   * - INSTALLFAILED: The application failed to be installed.
+   * 
+   * - UNINSTALLING: The application is being uninstalled.
+   * 
+   * - INSTALLING: The application is being installed.
+   * 
+   * - UNINSTALLED: The application is uninstalled.
+   * 
+   * - INSTALLED: The application is installed.
+   * 
+   * - UNINSTALLFAILED: The application failed to be uninstalled.
    * 
    * @example
    * INSTALLING
@@ -47,7 +59,7 @@ export class DescribeAppsRequest extends $dara.Model {
    * The value of MD5.
    * 
    * @example
-   * THCIEH73KEK3334
+   * 009ee07fe13a29fa0c180ed0b6bc****
    */
   MD5?: string;
   /**
@@ -69,12 +81,6 @@ export class DescribeAppsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the application.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The application failed to be created.
-   * *   NORMAL: The application is available.
-   * *   CREATING: The application is being created.
    * 
    * @example
    * NORMAL

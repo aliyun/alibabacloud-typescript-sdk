@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKeyPairRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+   * The IDs of the cloud phone instances. You can specify up to 50 instance IDs.
    */
   instanceIds?: string[];
   /**

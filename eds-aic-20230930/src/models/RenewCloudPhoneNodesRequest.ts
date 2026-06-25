@@ -3,15 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RenewCloudPhoneNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. The default value is false.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-renewal feature. In this case, the system automatically renews the instance upon expiration.
-   * *   false (default): disables the auto-renewal feature. In this case, you need to manually renew the instance upon expiration.
+   * Specifies whether to enable auto-renewal.
    * 
    * @example
    * true
@@ -19,16 +21,17 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The cloud phone matrix IDs.
+   * A list of cloud phone matrix IDs.
    */
   nodeIds?: string[];
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
+   * The renewal duration. The `PeriodUnit` parameter specifies the unit.
    * 
-   * *   When `PeriodUnit` is set to **year**: 1.
-   * *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
+   * - If `PeriodUnit` is **Year**, the value must be 1.
+   * 
+   * - If `PeriodUnit` is **Month**, the valid values are 1, 2, 3, and 6.
    * 
    * @example
    * 1
@@ -36,17 +39,16 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month (default)
-   * *   Year
+   * The unit of the renewal duration.
    * 
    * @example
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * The promotion ID.
+   */
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyPolicyGroupRequestNetRedirectPolicyRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule type.
+   * 
+   * @example
+   * domain
+   */
   ruleType?: string;
+  /**
+   * @remarks
+   * The application package name or domain name.
+   * 
+   * @example
+   * example.com
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +45,7 @@ export class ModifyPolicyGroupRequestNetRedirectPolicyRules extends $dara.Model 
 export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to manually configure a custom proxy.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to manually configure a transparent proxy.
    * 
    * @example
    * off
@@ -44,7 +53,7 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   customProxy?: string;
   /**
    * @remarks
-   * The IPv4 address of the custom proxy.
+   * The IP address of the transparent proxy. The value must be an IPv4 address.
    * 
    * @example
    * 47.100.XX.XX
@@ -54,18 +63,13 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
    * @remarks
    * Specifies whether to enable network redirection.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * off
    */
   netRedirect?: string;
   /**
    * @remarks
-   * The port of the custom proxy. Valid values: 1 to 65535.
+   * The port for the transparent proxy. The port number must be an integer from 1 to 65535.
    * 
    * @example
    * 1145
@@ -73,7 +77,7 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
+   * The password for the proxy. The password must be 1 to 256 characters in length and cannot contain Chinese characters or spaces.
    * 
    * @example
    * password
@@ -81,11 +85,7 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyPassword?: string;
   /**
    * @remarks
-   * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
+   * The proxy protocol type.
    * 
    * @example
    * socks5
@@ -93,12 +93,16 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
+   * The username for the proxy. The username must be 1 to 256 characters in length and cannot contain Chinese characters or spaces.
    * 
    * @example
    * username
    */
   proxyUserName?: string;
+  /**
+   * @remarks
+   * The proxy rules.
+   */
   rules?: ModifyPolicyGroupRequestNetRedirectPolicyRules[];
   static names(): { [key: string]: string } {
     return {
@@ -139,11 +143,50 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
 }
 
 export class ModifyPolicyGroupRequestWatermark extends $dara.Model {
+  /**
+   * @remarks
+   * The font color of the watermark. Valid values: 0 to 16777215.
+   * 
+   * @example
+   * 0
+   */
   watermarkColor?: number;
+  /**
+   * @remarks
+   * The custom text for the watermark. The text can be up to 10 characters in length and cannot contain emoji characters.
+   * 
+   * @example
+   * custom text
+   */
   watermarkCustomText?: string;
+  /**
+   * @remarks
+   * The font size of the watermark. Valid values: 10 to 20.
+   * 
+   * @example
+   * 12
+   */
   watermarkFontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the screen watermark.
+   * 
+   * @example
+   * off
+   */
   watermarkSwitch?: string;
+  /**
+   * @remarks
+   * The opacity of the watermark. A larger value makes the watermark more opaque. Valid values: 10 to 100.
+   * 
+   * @example
+   * 25
+   */
   watermarkTransparencyValue?: number;
+  /**
+   * @remarks
+   * The content of the screen watermark.
+   */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -182,12 +225,7 @@ export class ModifyPolicyGroupRequestWatermark extends $dara.Model {
 export class ModifyPolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to enable local camera redirection.
    * 
    * @example
    * off
@@ -195,13 +233,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
+   * The clipboard permission.
    * 
    * @example
    * readwrite
@@ -209,14 +241,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   clipboard?: string;
   /**
    * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
+   * The file transfer policy for the Wuying web client.
    * 
    * @example
    * off
@@ -224,13 +249,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
+   * The local disk mapping permission.
    * 
    * @example
    * off
@@ -240,23 +259,18 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to lock the resolution.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * off
    */
   lockResolution?: string;
   /**
    * @remarks
-   * The network redirection policy.
+   * Network redirection.
    */
   netRedirectPolicy?: ModifyPolicyGroupRequestNetRedirectPolicy;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-4bi18ebi9tfjh****
@@ -264,10 +278,10 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
-   * defaultPolicyGroup
+   * Default policy
    */
   policyGroupName?: string;
   /**
@@ -286,6 +300,10 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
    * 720
    */
   resolutionWidth?: number;
+  /**
+   * @remarks
+   * The screen watermark.
+   */
   watermark?: ModifyPolicyGroupRequestWatermark;
   static names(): { [key: string]: string } {
     return {

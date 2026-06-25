@@ -2,23 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyPolicyGroupResponseBody extends $dara.Model {
+export class DeleteMobileAgentPackageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of 200 indicates success.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * Success.
+   */
+  message?: string;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 552B7EED-D434-511F-B838-29EA4E906034
+   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }

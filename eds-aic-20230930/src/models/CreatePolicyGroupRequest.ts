@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyGroupRequestNetRedirectPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The type of the rule.
-   * 
-   * Valid values:
-   * 
-   * *   prc: an application package name.
-   * *   domain: a domain name.
+   * The rule type.
    * 
    * @example
    * domain
@@ -18,10 +13,10 @@ export class CreatePolicyGroupRequestNetRedirectPolicyRules extends $dara.Model 
   ruleType?: string;
   /**
    * @remarks
-   * The name of the application package or domain name.
+   * The application package name or domain name.
    * 
    * @example
-   * *.example.com
+   * *.baidu.com
    */
   target?: string;
   static names(): { [key: string]: string } {
@@ -50,12 +45,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicyRules extends $dara.Model 
 export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to manually configure a custom proxy.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to manually configure a transparent proxy.
    * 
    * @example
    * off
@@ -63,7 +53,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   customProxy?: string;
   /**
    * @remarks
-   * The IPv4 address of the custom proxy.
+   * The IP address of the transparent proxy. The IP address must be in IPv4 format.
    * 
    * @example
    * 47.100.XX.XX
@@ -71,12 +61,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   hostAddr?: string;
   /**
    * @remarks
-   * Specifies whether to enable the network redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to enable network redirection.
    * 
    * @example
    * off
@@ -84,7 +69,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   netRedirect?: string;
   /**
    * @remarks
-   * The port of the custom proxy. Valid values: 1 to 65535.
+   * The port of the transparent proxy. Valid values: 1 to 65535.
    * 
    * @example
    * 1145
@@ -92,7 +77,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
+   * The proxy password. The password must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
    * 
    * @example
    * password
@@ -100,11 +85,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyPassword?: string;
   /**
    * @remarks
-   * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
+   * The proxy protocol type.
    * 
    * @example
    * socks5
@@ -112,7 +93,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
+   * The proxy username. The username must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
    * 
    * @example
    * username
@@ -120,7 +101,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyUserName?: string;
   /**
    * @remarks
-   * The proxy rules. You can create up to 100 proxy rules.
+   * The list of proxy rules. You can specify up to 100 rules.
    */
   rules?: CreatePolicyGroupRequestNetRedirectPolicyRules[];
   static names(): { [key: string]: string } {
@@ -162,11 +143,50 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
 }
 
 export class CreatePolicyGroupRequestWatermark extends $dara.Model {
+  /**
+   * @remarks
+   * The font color of the watermark. Valid values: 0 to 16777215.
+   * 
+   * @example
+   * 0
+   */
   watermarkColor?: number;
+  /**
+   * @remarks
+   * The custom text for the watermark. The text can be up to 10 characters long and cannot contain emojis.
+   * 
+   * @example
+   * custom text
+   */
   watermarkCustomText?: string;
+  /**
+   * @remarks
+   * The font size of the watermark. Valid values: 10 to 20.
+   * 
+   * @example
+   * 12
+   */
   watermarkFontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the screen watermark.
+   * 
+   * @example
+   * off
+   */
   watermarkSwitch?: string;
+  /**
+   * @remarks
+   * The opacity of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
+   * 
+   * @example
+   * 25
+   */
   watermarkTransparencyValue?: number;
+  /**
+   * @remarks
+   * The screen watermark content.
+   */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -205,12 +225,7 @@ export class CreatePolicyGroupRequestWatermark extends $dara.Model {
 export class CreatePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to enable local camera redirection.
    * 
    * @example
    * off
@@ -218,13 +233,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
+   * The clipboard permission.
    * 
    * @example
    * readwrite
@@ -232,14 +241,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   clipboard?: string;
   /**
    * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
+   * The file transfer policy for the web client.
    * 
    * @example
    * off
@@ -247,13 +249,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
+   * The local disk mapping permission.
    * 
    * @example
    * off
@@ -263,32 +259,34 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to lock the resolution.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * off
    */
   lockResolution?: string;
   /**
    * @remarks
-   * The network redirection policy.
+   * Network redirection.
    */
   netRedirectPolicy?: CreatePolicyGroupRequestNetRedirectPolicy;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
-   * defaultPolicy
+   * Default policy
    */
   policyGroupName?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * Instance
+   */
   policyType?: string;
   /**
    * @remarks
-   * The height of the resolution. Unit: pixels.
+   * The resolution height, in pixels.
    * 
    * @example
    * 1280
@@ -296,12 +294,16 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution. Unit: pixels.
+   * The resolution width, in pixels.
    * 
    * @example
    * 720
    */
   resolutionWidth?: number;
+  /**
+   * @remarks
+   * Screen watermark.
+   */
   watermark?: CreatePolicyGroupRequestWatermark;
   static names(): { [key: string]: string } {
     return {

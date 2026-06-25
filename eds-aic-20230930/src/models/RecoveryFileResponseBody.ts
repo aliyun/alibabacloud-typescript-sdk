@@ -16,7 +16,7 @@ export class RecoveryFileResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * t-5prhfo7wv1gjx****
+   * t-ehs0yoedsskom****
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -48,7 +48,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
    * The number of restored instances.
    * 
    * @example
-   * 97
+   * 1
    */
   count?: number;
   /**
@@ -72,7 +72,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
    * The ID of the batch task.
    * 
    * @example
-   * t-5prhfo7wv1gjx****
+   * t-3eourrxaoliqq****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

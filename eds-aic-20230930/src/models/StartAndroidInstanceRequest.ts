@@ -8,6 +8,13 @@ export class StartAndroidInstanceRequest extends $dara.Model {
    * List of instances.
    */
   androidInstanceIds?: string[];
+  /**
+   * @remarks
+   * The billing mode. This parameter is deprecated.
+   * 
+   * @example
+   * Instance
+   */
   saleMode?: string;
   static names(): { [key: string]: string } {
     return {

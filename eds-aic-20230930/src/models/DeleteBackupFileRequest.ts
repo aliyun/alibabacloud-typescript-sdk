@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupFileRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of backup file IDs.
+   * 
    * This parameter is required.
    */
   backupFileIdList?: string[];

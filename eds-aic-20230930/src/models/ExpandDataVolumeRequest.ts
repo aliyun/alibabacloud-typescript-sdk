@@ -4,20 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExpandDataVolumeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic payment. The default value is false.
+   * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The IDs of the cloud phone matrices.
+   */
   nodeIds?: string[];
   paidCallBackUrl?: string;
+  /**
+   * @remarks
+   * The size of the instance storage. Unit: GiB.
+   * 
+   * @example
+   * 100
+   */
   phoneDataVolume?: number;
+  /**
+   * @remarks
+   * The promotion ID.
+   * 
+   * @example
+   * 50003308011****
+   */
   promotionId?: string;
   /**
+   * @remarks
+   * The size of the shared storage for the matrix. Unit: GiB.
+   * 
    * @example
    * 100
    */

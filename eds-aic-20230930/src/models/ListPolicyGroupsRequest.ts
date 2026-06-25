@@ -29,9 +29,16 @@ export class ListPolicyGroupsRequest extends $dara.Model {
    * The name of the policy.
    * 
    * @example
-   * defaultPolicyGroup
+   * Default policy
    */
   policyGroupName?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * Instance
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {

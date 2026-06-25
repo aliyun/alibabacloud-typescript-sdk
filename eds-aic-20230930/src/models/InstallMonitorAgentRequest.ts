@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallMonitorAgentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   androidInstanceIds?: string[];
   /**
+   * @remarks
+   * The monitoring type.
+   * 
+   * - Instance mode: Instance
+   * 
+   * - Node mode: Node
+   * 
    * @example
    * NODE
    */

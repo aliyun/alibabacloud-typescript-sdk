@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-cuv4scs4obxch****
@@ -13,7 +13,7 @@ export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $d
   instanceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the instances.
+   * The instance IDs.
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
@@ -71,18 +71,18 @@ export class CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel exte
 export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The instance groups.
+   * The created instance groups.
    */
   instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
   networkPackageOrderModel?: CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 22365781890****
@@ -90,7 +90,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1A923337-44D9-5CAD-9A53-95084BD4****

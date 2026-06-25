@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBucketsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the OSS file.
+   * 
+   * > This parameter is not yet available.
+   * 
    * @example
    * docx
    */

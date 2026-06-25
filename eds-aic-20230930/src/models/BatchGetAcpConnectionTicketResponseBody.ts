@@ -11,7 +11,15 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
    * aig-1uzb6heg797z3****
    */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-0caoetkqi8kj****
+   */
   appInstanceId?: string;
+  /**
+   * @example
+   * InvalidResourceId.NotFound
+   */
   errorCode?: string;
   /**
    * @remarks
@@ -21,7 +29,18 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
    * acp-ajxvwo1u0hqvd****
    */
   instanceId?: string;
+  /**
+   * @example
+   * p-abdywvcksdb****
+   */
   persistentAppInstanceId?: string;
+  /**
+   * @remarks
+   * The port used for establishing a connection.
+   * 
+   * @example
+   * 10000
+   */
   port?: number;
   /**
    * @remarks
@@ -33,7 +52,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   taskId?: string;
   /**
    * @remarks
-   * The state of the task.
+   * The state of the task. If FINISHED is returned, it indicates that a value can be retrieved from the Ticket field. If the returned value is not FINISHED, you still need to use this operation to query the Ticket generation result by using TaskId.
    * 
    * @example
    * FINISHED

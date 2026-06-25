@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EndCoordinationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of task IDs.
+   * 
    * This parameter is required.
    */
   taskIds?: string[];

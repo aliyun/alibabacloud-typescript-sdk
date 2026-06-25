@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartInstanceAdbResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
    */

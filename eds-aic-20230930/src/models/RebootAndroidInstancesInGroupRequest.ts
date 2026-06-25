@@ -5,23 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * A list of instance IDs.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enforce a restart operation. If a cloud phone instance fails to stop due to system or network issues, a forced restart can be triggered, though it may result in data loss.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to forcefully reboot the instances. If a Cloud Phone instance cannot be shut down because of system or network errors, you can force a reboot. This operation may cause data loss.
    * 
    * @example
    * false
    */
   forceStop?: boolean;
   ignoreParamValidation?: boolean;
+  /**
+   * @remarks
+   * The sales mode. This parameter is deprecated.
+   * 
+   * @example
+   * Instance
+   */
   saleMode?: string;
   static names(): { [key: string]: string } {
     return {

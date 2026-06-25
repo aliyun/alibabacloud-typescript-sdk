@@ -5,15 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class FetchFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * A list of cloud phone instance IDs.
    * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * A client-generated token, up to 100 characters long, that ensures the idempotency of the request.
+   * 
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   clientToken?: string;
   /**
    * @remarks
-   * The path to the file that you want to pull from the cloud phone instance.
+   * The path of the file or folder to fetch from the cloud phone.
    * 
    * This parameter is required.
    * 
@@ -23,21 +30,21 @@ export class FetchFileRequest extends $dara.Model {
   sourceFilePath?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket in which you want to store the pulled file.
+   * The endpoint for uploading files to OSS.
    * 
-   * >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve upload speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+   * > If the cloud phone and the destination OSS bucket are in the same region, you can use an internal endpoint to accelerate the transfer and avoid public network charges. For example, in the China (Hangzhou) region, use `oss-cn-hangzhou-internal.aliyuncs.com`. For a complete list of endpoints, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * oss-cn-hangzhou.aliyuncs.com
+   * oss-cn-hangzhou-internal.aliyuncs.com
    */
   uploadEndpoint?: string;
   /**
    * @remarks
-   * The type of the storage service.
+   * The type of storage service for the fetched file.
    * 
-   * >  Currently, only OSS is supported.
+   * > Currently, only Object Storage Service (OSS) is supported.
    * 
    * This parameter is required.
    * 
@@ -47,11 +54,14 @@ export class FetchFileRequest extends $dara.Model {
   uploadType?: string;
   /**
    * @remarks
-   * The OSS URL of the pulled file.
+   * The destination URL in OSS.
    * 
-   * >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>.
+   * > The destination bucket name must be prefixed with `cloudphone-saved-bucket-`. For example, `cloudphone-saved-bucket-example`. You must also create a folder in the bucket to serve as the destination directory. The `UploadUrl` must follow the format: `oss://<bucket_name>/<folder_name>`.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://cloudphone-saved-bucket-example/received
    */
   uploadUrl?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-payment feature. Default value: false.
+   * Specifies whether to enable auto-payment. The default value is `false`.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature. Default value: false.
+   * Specifies whether to enable auto-renewal. The default value is `false`.
    * 
    * @example
    * false
@@ -21,9 +21,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The new billing method for the instance groups.
    * 
-   * >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
+   * > You can only change the billing method from pay-as-you-go to subscription.
    * 
    * This parameter is required.
    * 
@@ -33,14 +33,14 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The instance group IDs.
    * 
    * This parameter is required.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
+   * The subscription duration. The PeriodUnit parameter specifies the unit. Valid subscription durations are 1, 2, 3, and 6 months, and 1 year.
    * 
    * @example
    * 1
@@ -48,15 +48,20 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * The unit for the subscription duration. Valid values:
    * 
-   * *   **Month**
-   * *   **Year**
+   * - **Month**
+   * 
+   * - **Year**
    * 
    * @example
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * The promotion or coupon ID.
+   */
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {

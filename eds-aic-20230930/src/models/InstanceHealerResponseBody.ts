@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstanceHealerResponseBodyInstanceHealerModel extends $dara.Model {
   /**
+   * @remarks
+   * The result of the task execution.
+   * 
    * @example
    * True
    */
@@ -30,8 +33,15 @@ export class InstanceHealerResponseBodyInstanceHealerModel extends $dara.Model {
 }
 
 export class InstanceHealerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The diagnosis result object.
+   */
   instanceHealerModel?: InstanceHealerResponseBodyInstanceHealerModel;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
    */

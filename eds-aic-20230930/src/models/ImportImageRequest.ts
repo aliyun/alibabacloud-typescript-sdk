@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportImageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the image.
+   * 
    * @example
    * android 12 custom image
    */
   imageDescription?: string;
   /**
+   * @remarks
+   * The URL of the image. This must be an Alibaba Cloud OSS address.
+   * 
    * @example
    * https://xxx.oss-xxx/xxxx.tgz
    */
   imageFileURL?: string;
   /**
+   * @remarks
+   * The name of the image.
+   * 
    * @example
    * import custom image
    */

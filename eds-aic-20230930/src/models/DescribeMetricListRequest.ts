@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricListRequestProcessInfos extends $dara.Model {
+  /**
+   * @remarks
+   * A list of process IDs.
+   */
   processIds?: number[];
   /**
+   * @remarks
+   * The process name.
+   * 
    * @example
    * php-fpm
    */
@@ -36,35 +43,74 @@ export class DescribeMetricListRequestProcessInfos extends $dara.Model {
 }
 
 export class DescribeMetricListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * For instance-level monitoring, enter a list of Cloud Phone instance IDs.
+   * 
+   * <props="china">
+   * 
+   * For matrix-level monitoring, enter a list of matrix IDs.
+   */
   androidInstanceIds?: string[];
   /**
+   * @remarks
+   * The end time for the query.
+   * 
    * @example
    * 2019-01-31 11:00:00
    */
   endTime?: string;
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The number of entries to return on each page for a paged query.
+   * 
+   * Default value: 1000. This means that 1000 monitoring data records are returned per page.
+   * 
    * @example
    * 1000
    */
   length?: string;
   /**
    * @remarks
+   * The monitoring metrics.
+   * 
    * This parameter is required.
    */
   metricNames?: string[];
   /**
+   * @remarks
+   * A token that marks the position from which the query starts. Leave it empty to start from the beginning.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The statistic period of the monitoring data.
+   * 
+   * Valid values: 60, 900, and 3600.
+   * 
+   * Unit: seconds.
+   * 
    * @example
    * 60
    */
   period?: number;
+  /**
+   * @remarks
+   * A list of process monitoring metrics.
+   */
   processInfos?: DescribeMetricListRequestProcessInfos[];
   /**
+   * @remarks
+   * The start time for the query.
+   * 
    * @example
    * 2019-01-31 10:00:00
    */

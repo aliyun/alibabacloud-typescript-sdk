@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAndroidInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class DescribeAndroidInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value
@@ -45,22 +45,38 @@ export class DescribeAndroidInstancesRequestTag extends $dara.Model {
 export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The list of instance IDs.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * name
    */
   androidInstanceName?: string;
+  /**
+   * @remarks
+   * The application management policy ID.
+   * 
+   * @example
+   * amp-shigvudbyeuib****
+   */
   appManagePolicyId?: string;
+  /**
+   * @remarks
+   * The user ID assigned to the instance, which is the China Wuying convenience account ID.
+   * 
+   * @example
+   * user
+   */
   authorizedUserId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the regions where Cloud Phone is supported.
+   * <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition/Matrix Edition).
+   * 
+   * <props="intl">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones..
    * 
    * @example
    * cn-shanghai
@@ -68,12 +84,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
+   * The billing type.
    * 
    * @example
    * PostPaid
@@ -81,7 +92,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-25nt4kk9whjh****
@@ -89,12 +100,12 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   instanceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The name of the instance group.
+   * The instance group name.
    * 
    * @example
    * test
@@ -111,7 +122,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 100.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 20
@@ -119,7 +130,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -127,7 +138,8 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * <props="china">The matrix ID.
+   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * node_id
@@ -135,23 +147,34 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node.
+   * <props="china">The name of the matrix.
+   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * node_name
    */
   nodeName?: string;
+  /**
+   * @remarks
+   * The cloud phone network ID.
+   */
   officeSiteIds?: string[];
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 10.0.162.136
+   */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The public network rate limiting rule group ID. The rate limiting rule for instances in the basic shared network.
+   */
   qosRuleIds?: string[];
   /**
    * @remarks
    * The sales mode.
-   * 
-   * Valid values:
-   * 
-   * *   Instance: the standard mode.
-   * *   Node: the node mode.
    * 
    * @example
    * Instance
@@ -161,25 +184,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * The state of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   BACKUPING: The instance is being backed up.
-   * *   STARTING: The instance is being started.
-   * *   RUNNING: The instance group is available.
-   * *   DELETING: The instance is being deleted.
-   * *   BACKUP_FAILED: The backup operation failed.
-   * *   DELETED: The instance is deleted.
-   * *   FAILED: The instance failed to be created.
-   * *   STOPPED: The instance is stopped.
-   * *   RECOVERING: The instance has an ongoing file recovery task.
-   * *   UNAVAILABLE: The instance has an exception.
-   * *   REBOOTING: The instance is being restarted.
-   * *   RESETTING: The instance is being reset.
-   * *   STOPPING: The instance is being stopped.
-   * *   RECOVER_FAILED: The file recovery task failed.
-   * *   CREATING: The instance is being created.
+   * The instance status.
    * 
    * @example
    * RUNNING
@@ -187,7 +192,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the resources.
+   * The tags of the resource.
    */
   tag?: DescribeAndroidInstancesRequestTag[];
   static names(): { [key: string]: string } {

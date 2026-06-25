@@ -4,33 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Model {
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 2026-10-30 00:00:00
    */
   expiredAt?: string;
+  /**
+   * @remarks
+   * The list of node instance IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The total package credit.
+   * 
    * @example
    * 8000
    */
   packageCredit?: string;
   /**
+   * @remarks
+   * The package ID.
+   * 
    * @example
    * cmag-bp19i1yxu60r7twy****
    */
   packageId?: string;
   /**
+   * @remarks
+   * The package specification.
+   * 
    * @example
    * advanced
    */
   packageSpec?: string;
   packageSpecName?: string;
   /**
+   * @remarks
+   * The package status.
+   * 
    * @example
    * ACTIVE
    */
   packageStatus?: string;
   /**
+   * @remarks
+   * The amount of credit used.
+   * 
    * @example
    * 1000
    */
@@ -75,22 +97,38 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
 
 export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success.
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of packages.
+   */
   packageList?: DescribeMobileAgentPackageResponseBodyPackageList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 30
    */

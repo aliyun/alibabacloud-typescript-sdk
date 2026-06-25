@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   /**
    * @remarks
-   * Number of CPU cores.
+   * The number of CPU cores.
    * 
    * @example
    * 8
@@ -13,7 +13,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   core?: number;
   /**
    * @remarks
-   * The maximum number of cloud phone instances.
+   * The maximum number of instances.
    * 
    * @example
    * 40
@@ -21,7 +21,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   maxPhoneCount?: string;
   /**
    * @remarks
-   * Memory size.
+   * The memory size in GB.
    * 
    * @example
    * 16
@@ -29,25 +29,31 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The minimum number of cloud phone instances.
+   * The minimum number of instances.
    * 
    * @example
    * 4
    */
   minPhoneCount?: string;
   /**
+   * @remarks
+   * The number of instances.
+   * 
    * @example
    * 2
    */
   phoneCount?: string;
   /**
+   * @remarks
+   * The resolution of the cloud phone instance.
+   * 
    * @example
    * 1920*1080
    */
   resolution?: string;
   /**
    * @remarks
-   * Specification ID.
+   * The specification ID.
    * 
    * @example
    * acp.basic.small
@@ -55,7 +61,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   specId?: string;
   /**
    * @remarks
-   * Specification status.
+   * The specification status.
    * 
    * @example
    * Available
@@ -63,7 +69,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   specStatus?: string;
   /**
    * @remarks
-   * Specification type.
+   * The specification type.
    * 
    * @example
    * ARM
@@ -71,7 +77,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * System disk size, in GB.
+   * The size of the system disk, in GB.
    * 
    * @example
    * 32
@@ -119,7 +125,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
 export class DescribeSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates the current read position returned by this call. An empty value means that all data has been read.
+   * The token to use for the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -127,7 +133,7 @@ export class DescribeSpecResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9888DAD-331E-5FBC-B5A0-F2445115****
@@ -135,12 +141,12 @@ export class DescribeSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The specifications.
+   * The specification information.
    */
   specInfoModel?: DescribeSpecResponseBodySpecInfoModel[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 4

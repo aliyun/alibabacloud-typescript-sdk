@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstancePropertiesResponseBodyPropertyTemplateModel extends $dara.Model {
   /**
+   * @remarks
+   * The instance properties.
+   * 
+   * > Format: `{ "propties":{"key1":"value1"}}`.
+   * 
    * @example
    * { "propties":{"key1":"value1"}}
    */
@@ -30,10 +35,14 @@ export class GetInstancePropertiesResponseBodyPropertyTemplateModel extends $dar
 }
 
 export class GetInstancePropertiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance properties.
+   */
   propertyTemplateModel?: GetInstancePropertiesResponseBodyPropertyTemplateModel;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC******

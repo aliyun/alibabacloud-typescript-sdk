@@ -34,7 +34,7 @@ export class RunCommandResponseBodyRunCommandInfos extends $dara.Model {
 export class RunCommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command execution. You can use the command execution ID to query the output of a command.
+   * The command execution ID. Use this ID to query the execution result.
    * 
    * @example
    * t-gov2ujrk32v4****
@@ -42,7 +42,7 @@ export class RunCommandResponseBody extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****

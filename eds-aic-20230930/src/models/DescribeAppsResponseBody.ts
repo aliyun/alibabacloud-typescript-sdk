@@ -16,7 +16,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * Apk size.
    * 
    * @example
-   * 10244893
+   * 2.7
    */
   apkSize?: string;
   /**
@@ -35,6 +35,13 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * testapp
    */
   appName?: string;
+  /**
+   * @remarks
+   * The application type.
+   * 
+   * @example
+   * Normal
+   */
   appType?: string;
   /**
    * @remarks
@@ -49,7 +56,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * default description.
+   * CustomApp
    */
   description?: string;
   /**
@@ -82,12 +89,17 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   INSTALLFAILED: The application failed to be installed.
-   * *   UNINSTALLING: The application is being uninstalled.
-   * *   INSTALLING: The application is being installed.
-   * *   UNINSTALLED: The application is uninstalled.
-   * *   INSTALLED: The application is installed.
-   * *   UNINSTALLFAILED: The application failed to be uninstalled.
+   * - INSTALLFAILED: The application failed to be installed.
+   * 
+   * - UNINSTALLING: The application is being uninstalled.
+   * 
+   * - INSTALLING: The application is being installed.
+   * 
+   * - UNINSTALLED: The application is uninstalled.
+   * 
+   * - INSTALLED: The application is installed.
+   * 
+   * - UNINSTALLFAILED: The application failed to be uninstalled.
    * 
    * @example
    * INSTALLING
@@ -103,7 +115,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * The value of MD5.
    * 
    * @example
-   * THCIEH73KEK3334
+   * 009ee07fe13a29fa0c180ed0b6bc****
    */
   MD5?: string;
   /**
@@ -111,7 +123,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * The name of the application package.
    * 
    * @example
-   * cn.rdstar.rdstarandroid
+   * com.example.chinalife
    */
   packageName?: string;
   /**
@@ -120,9 +132,11 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   FAILED: The application failed to be created.
-   * *   NORMAL: The application is available.
-   * *   CREATING: The application is being created.
+   * - FAILED: The application failed to be created.
+   * 
+   * - NORMAL: The application is available.
+   * 
+   * - CREATING: The application is being created.
    * 
    * @example
    * NORMAL

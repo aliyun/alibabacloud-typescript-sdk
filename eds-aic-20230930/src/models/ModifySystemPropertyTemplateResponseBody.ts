@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySystemPropertyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the property template.
+   * 
    * @example
    * ap-angyvganxlf****
    */

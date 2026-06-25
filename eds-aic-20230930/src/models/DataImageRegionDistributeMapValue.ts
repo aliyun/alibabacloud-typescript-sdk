@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataImageRegionDistributeMapValue extends $dara.Model {
   /**
    * @remarks
-   * The status of the image distribution task.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The task is ready.
-   * *   DELETE: The task is deleted.
-   * *   INIT: The task is being initialized.
-   * *   CREATE_FAILED: The task failed to be created.
-   * *   CREATING: The task is being created.
+   * The distribution status.
    * 
    * @example
    * AVAILABLE
@@ -21,7 +13,7 @@ export class DataImageRegionDistributeMapValue extends $dara.Model {
   distributeStatus?: string;
   /**
    * @remarks
-   * The distribution progress of the image.
+   * The distribution progress.
    * 
    * @example
    * 100%

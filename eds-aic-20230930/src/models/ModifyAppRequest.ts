@@ -16,7 +16,7 @@ export class ModifyAppRequest extends $dara.Model {
    * The name of the application.
    * 
    * @example
-   * defaultAppName
+   * Application name
    */
   appName?: string;
   /**
@@ -24,7 +24,7 @@ export class ModifyAppRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * default description.
+   * Application description
    */
   description?: string;
   /**

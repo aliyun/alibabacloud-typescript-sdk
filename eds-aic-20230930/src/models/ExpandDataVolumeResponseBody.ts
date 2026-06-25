@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExpandDataVolumeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 22326560487****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
    */

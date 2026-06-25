@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -13,23 +13,23 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
-   * defaultInstanceName
+   * Test cloud phone
    */
   androidInstanceName?: string;
   /**
    * @remarks
-   * Indicates whether the whole instance is backed up.
+   * Specifies whether to perform a full device backup.
    * 
    * @example
-   * true
+   * false
    */
   backupAll?: boolean;
   /**
    * @remarks
-   * The ID of the backup file.
+   * The backup file ID.
    * 
    * @example
    * bf-b0qbg3pbpjkn7****
@@ -37,7 +37,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The name of the backup file.
+   * The backup file name.
    * 
    * @example
    * a-58ftsoo90p0qa****.ab
@@ -45,18 +45,19 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The directory in which the backup file is stored.
+   * The directory where the backup file is stored.
    * 
    * @example
    * oss://cloudphone-saved-bucket-cn-shanghai/backup/aic-58ftsoo90p0qa****.ab
    */
   backupFilePath?: string;
+  channel?: string;
   /**
    * @remarks
    * The description of the backup file.
    * 
    * @example
-   * This is default description.
+   * Backup file for /data/media directory.
    */
   description?: string;
   /**
@@ -69,7 +70,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The total size of the source files.
+   * The total size of the source backup files.
    * 
    * @example
    * 10227168
@@ -77,7 +78,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The time when the backup file was created.
+   * The creation time.
    * 
    * @example
    * 2024-05-15 17:33:59
@@ -85,7 +86,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the backup file was last updated.
+   * The modification time.
    * 
    * @example
    * 2024-05-15 17:33:59
@@ -93,7 +94,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance ID.
    * 
    * @example
    * ag-58ftsoo90p0qi****
@@ -109,22 +110,17 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The names of the application packages that are backed up.
+   * The list of backed-up application package names.
    */
   sourceAppInfoList?: string[];
   /**
    * @remarks
-   * The directories of the source files.
+   * The list of source backup file directories.
    */
   sourceFilePathList?: string[];
   /**
    * @remarks
-   * The status of the backup file.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE
-   * *   RECOVERING
+   * The backup file status.
    * 
    * @example
    * AVAILABLE
@@ -141,7 +137,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket that stores the backup file.
+   * The domain name of the upload endpoint.
    * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
@@ -149,11 +145,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   uploadEndpoint?: string;
   /**
    * @remarks
-   * The type of the backup.
-   * 
-   * Valid values:
-   * 
-   * *   OSS: backup files are stored in OSS buckets. .
+   * The backup type.
    * 
    * @example
    * OSS
@@ -167,6 +159,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
       backupFileId: 'BackupFileId',
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
+      channel: 'Channel',
       description: 'Description',
       endUserId: 'EndUserId',
       fileSize: 'FileSize',
@@ -192,6 +185,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
       backupFileId: 'string',
       backupFileName: 'string',
       backupFilePath: 'string',
+      channel: 'string',
       description: 'string',
       endUserId: 'string',
       fileSize: 'number',
@@ -227,12 +221,12 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
 export class DescribeBackupFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup files that are returned.
+   * The list of returned result objects.
    */
   data?: DescribeBackupFilesResponseBodyData[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The maximum number of entries returned in this call.
    * 
    * @example
    * 10
@@ -240,7 +234,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -248,7 +242,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request. If the request fails, provide this ID to technical support to assist in diagnosing the issue.
+   * The request ID. If you encounter an issue, provide this request ID for troubleshooting.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -256,7 +250,7 @@ export class DescribeBackupFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 91

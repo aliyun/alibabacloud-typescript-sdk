@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end time of the command execution.
+   * The time when the command finished running.
    * 
    * @example
    * 2022-08-11 17:45:03
@@ -13,7 +13,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The ID of the cloud phone instance on which the command is executed.
+   * The ID of the instance where the command was run.
    * 
    * @example
    * acp-uto81vfd8t8z****
@@ -21,7 +21,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the execution.
+   * The ID of the command execution.
    * 
    * @example
    * t-15775dc8****
@@ -29,18 +29,10 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   invocationId?: string;
   /**
    * @remarks
-   * The execution state of the command.
-   * 
-   * Valid values:
-   * 
-   * *   Failed: The execution of the command failed.
-   * *   Timeout: The execution of the command timed out.
-   * *   Running: The command is being executed.
-   * *   Success: The execution of the command is successful.
-   * *   Pending: The command is waiting to be executed.
+   * The status of the command execution.
    * 
    * @example
-   * RUNNING
+   * Running
    */
   invocationStatus?: string;
   /**
@@ -53,7 +45,7 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The start time of the command execution.
+   * The time when the command started to run.
    * 
    * @example
    * 2022-08-11 17:45:03
@@ -93,12 +85,12 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
 export class DescribeInvocationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * The list of returned results.
    */
   data?: DescribeInvocationsResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
@@ -106,7 +98,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

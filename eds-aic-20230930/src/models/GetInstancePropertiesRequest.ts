@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstancePropertiesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cpn-2ofr9kf41apy3****-014
    */

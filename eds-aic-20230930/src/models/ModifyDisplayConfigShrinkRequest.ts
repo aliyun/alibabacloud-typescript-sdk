@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDisplayConfigShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   androidInstanceIds?: string[];
+  /**
+   * @remarks
+   * The display settings.
+   */
   displayConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {

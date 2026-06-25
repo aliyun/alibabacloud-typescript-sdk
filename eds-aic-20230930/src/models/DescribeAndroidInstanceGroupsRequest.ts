@@ -3,7 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify 1 to 20 tag keys.
+   * >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://..
+   * 
+   * @example
+   * phone
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`..
+   * 
+   * @example
+   * 2025
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +47,7 @@ export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
 export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,12 +55,8 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
+   * The billing type.
+   * [_single.params.ChargeType.enum. PrePaid]Subscription.
    * 
    * @example
    * PostPaid
@@ -52,15 +64,15 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The name of the instance group. Instance groups support fuzzy search by name.
+   * The instance group name. Fuzzy match is supported.
    * 
    * @example
-   * defaultInstanceGroup
+   * Cloud phone
    */
   instanceGroupName?: string;
   instanceVersion?: string;
@@ -74,7 +86,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Value range: 0 to 100. Default value: 100.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 10
@@ -82,7 +94,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that indicates the position from which the current read operation starts. Leave this parameter empty to read from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -90,7 +102,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-1b77w6xrqfubi****
@@ -98,12 +110,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The purchase mode of cloud phone instances.
-   * 
-   * Valid values:
-   * 
-   * *   Instance (default): the instance group mode.
-   * *   Node: the matrix mode [whitelisted].
+   * The purchase mode of the cloud phone.
    * 
    * @example
    * standard
@@ -111,23 +118,16 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   saleMode?: string;
   /**
    * @remarks
-   * The status of the instance group.
-   * 
-   * Valid values:
-   * 
-   * *   UPDATING_FAILED: The image update for the instance group failed.
-   * *   FAILED: The instance group failed to be created.
-   * *   RUNNING: The instance group is available.
-   * *   EXPIRED: The instance group expired.
-   * *   DELETING: The instance group is being deleted.
-   * *   DELETED: The instance group is deleted.
-   * *   UPDATING: The instance group is undergoing an image update.
-   * *   CREATING: The instance group is being created.
+   * The instance group status.
    * 
    * @example
    * CREATING
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the instance group. You can bind up to 20 tags to each instance.
+   */
   tags?: DescribeAndroidInstanceGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {

@@ -3,24 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMobileAgentPackageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * An array of node instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * An array of package IDs.
+   */
   packageIds?: string[];
   /**
+   * @remarks
+   * The package specification.
+   * 
    * @example
    * advanced
    */
   packageSpec?: string;
   /**
+   * @remarks
+   * The package status.
+   * 
    * @example
    * ACTIVE
    */
   packageStatus?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */

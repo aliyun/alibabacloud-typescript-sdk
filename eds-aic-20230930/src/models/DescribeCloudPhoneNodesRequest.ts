@@ -29,6 +29,13 @@ export class DescribeCloudPhoneNodesRequestTags extends $dara.Model {
 }
 
 export class DescribeCloudPhoneNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the bandwidth plan instance.
+   * 
+   * @example
+   * cbwp-bp17psa7fhxqmm*****
+   */
   bandwidthPackageId?: string;
   /**
    * @remarks
@@ -48,7 +55,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -56,7 +63,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If a query doesn\\"t return all results, the response includes a NextToken value for pagination. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token for the next query. If a query does not return all results, NextToken is not empty. Use the returned NextToken in your next query to continue.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -64,12 +71,12 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The matrix IDs.
+   * A list of Cloud Phone matrix IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * The matrix name.
+   * The name of the Cloud Phone matrix.
    * 
    * @example
    * node_name
@@ -78,28 +85,15 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   nodeNameList?: string[];
   /**
    * @remarks
-   * The matrix specification.
-   * 
-   * Valid values:
-   * 
-   * *   cpm.gn6.gx1
+   * The instance type of the Cloud Phone matrix.
    * 
    * @example
-   * cpm.gn6.gx1
+   * cpm.gx7.10xlarge
    */
   serverType?: string;
   /**
    * @remarks
-   * The matrix status.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The matrix failed to be created.
-   * *   RUNNING: The matrix is available.
-   * *   DELETING: The matrix is being deleted.
-   * *   NODE_READY: The matrix is ready, and cloud phone instances are being created.
-   * *   DELETED: The matrix is deleted.
-   * *   CREATING: The matrix is being created.
+   * The status of the Cloud Phone matrix.
    * 
    * @example
    * CREATING

@@ -45,7 +45,7 @@ export class CreateAndroidInstanceGroupShrinkRequestTag extends $dara.Model {
 export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of instance groups. Default value: 1. Maximum value: 1.
+   * The number of instance groups to create. Valid values: 1 to 100. Default value: 1.
    * 
    * @example
    * 8
@@ -55,23 +55,13 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Default value: false.
    * 
-   * Valid values:
-   * 
-   * *   true: enables automatic payment. Make sure that your Alibaba Cloud account has sufficient balance.
-   * *   false: disables automatic payment. You must manually complete the payment.
-   * 
    * @example
    * false
    */
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true: automatically renew resource upon expiration.
-   * *   false: manually renew resources upon expiration.
+   * Specifies whether to enable auto-renewal for subscription resources. Default value: false.
    * 
    * @example
    * false
@@ -81,16 +71,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the DescribeRegions operation to query the regions where Cloud Phone is supported.
-   * 
-   * Valid values:
-   * 
-   * *   cn-shenzhen: China (Shenzhen).
-   * *   cn-beijing: China (Beijing).
-   * *   cn-shanghai: China (Shanghai).
-   * *   cn-hongkong: China (Hong Kong).
-   * *   ap-southeast-1: Singapore.
-   * *   cn-hangzhou: China (Hangzhou).
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Cloud Phone instances are available.
    * 
    * This parameter is required.
    * 
@@ -102,26 +83,21 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The billing method.
    * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
    * @example
    * PostPaid
    */
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. The value cannot exceed 100 characters in length.
+   * A client-generated token to ensure request idempotence. This parameter prevents duplicate requests. The token can be up to 100 characters in length.
    * 
    * @example
-   * asadbuvwiabdbvchjsbj
+   * asadbuvwiabdbvchj****
    */
   clientToken?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -131,18 +107,13 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable GPU acceleration.
    * 
-   * Valid values:
-   * 
-   * *   true: enables GPU acceleration.
-   * *   false (default): disables GPU acceleration.
-   * 
    * @example
    * false
    */
   gpuAcceleration?: boolean;
   /**
    * @remarks
-   * The ID of the image. You can call the [DescribeImageList](https://help.aliyun.com/document_detail/2807324.html) operation to query images.
+   * The image ID. You can call the [DescribeImageList](~~DescribeImageList~~) operation to query available images for Cloud Phone instances.
    * 
    * This parameter is required.
    * 
@@ -154,21 +125,15 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The name of the instance group.
    * 
-   * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with `http://` or `https://`.
+   * > The name can be up to 30 characters in length. It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain only Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
-   * defaultInstanceGroup
+   * Cloud phoneA
    */
   instanceGroupName?: string;
   /**
    * @remarks
-   * The specifications of the instance group. You can call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the available specifications.
-   * 
-   * Valid values:
-   * 
-   * *   acp.perf.large: Performance (8 vCPUs, 16 GiB of memory, and 32 GiB of storage.
-   * *   acp.basic.small: Lightweight (2 vCPUs, 4 GiB of memory, and 32 GiB of storage).
-   * *   acp.std.large: Standard (4 vCPUs, 8 GiB of memory, and 32 GiB of storage).
+   * The instance group specification. You can call the [DescribeSpec](~~DescribeSpec~~) operation to query the specifications that are available for Cloud Phone instances.
    * 
    * This parameter is required.
    * 
@@ -179,7 +144,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   instanceVersion?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -187,9 +152,9 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   ipv6Bandwidth?: number;
   /**
    * @remarks
-   * The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually bind key pairs to individual cloud phone instances.
+   * The key pair ID. If you specify a valid key pair ID when you create the instance group, the system attaches the key pair to all successfully created instances. No separate API call is required to attach the key pair.
    * 
-   * >  Binding key pairs to cloud phone instances is currently not supported during instance group resizing.
+   * > Attaching a key pair during a scale-out operation is not supported.
    * 
    * @example
    * kp-7o9xywwfutc1l****
@@ -199,7 +164,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The number of cloud phones in the instance group. Maximum value: 100.
+   * The number of instances in the instance group. The maximum value is 100.
    * 
    * @example
    * 1
@@ -207,10 +172,11 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   numberOfInstances?: number;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
-   * *   This parameter is required if you assign a shared network to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **shared network**. If no shared network is available in the Cloud Phone console, you can leave this parameter empty. The system automatically creates one when you create an instance group.
-   * *   This parameter is required if you assign a virtual private cloud (VPC) to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **VPC**. If no VPC is available in the Cloud Phone console, you must first create one.
+   * - To create instances in a Shared Network: This parameter is optional. Specify the ID of a **Shared Network**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no Shared Network is available in the console, you can omit this parameter. The system automatically creates a Shared Network when you create the instance group.
+   * 
+   * - To create instances in a VPC: This parameter is required. Specify the ID of a **VPC**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC is available in the console, you must create one first.
    * 
    * @example
    * cn-hangzhou+dir-745976****
@@ -223,7 +189,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration. The unit is specified by PeriodUnit.
+   * The subscription duration. The PeriodUnit parameter specifies the unit.
    * 
    * @example
    * 1
@@ -233,19 +199,13 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The unit of the subscription duration.
    * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * *   Hour (Note that this unit is supported only by pay-as-you-go.)
-   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the policy. You can call the [ListPolicyGroups](https://help.aliyun.com/document_detail/2807352.html) operation to query policies.
+   * The policy ID. You can call the [ListPolicyGroups](~~ListPolicyGroups~~) operation to query available policies.
    * 
    * @example
    * pg-b7bxrrwxkijjh****
@@ -256,15 +216,16 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   streamMode?: number;
   /**
    * @remarks
-   * The tags
+   * The resource tags.
    */
   tag?: CreateAndroidInstanceGroupShrinkRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query vSwitches.
+   * The vSwitch ID. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query available vSwitches.
    * 
-   * *   This parameter is not required if you assign a shared network to cloud phones.
-   * *   This parameter is required if you assign a VPC to cloud phones. The vSwitch specified by this parameter is used to create cloud phones.
+   * - If you create instances in a Shared Network, omit this parameter.
+   * 
+   * - If you create instances in a VPC, this parameter is required. The system creates the instances in the specified vSwitch.
    * 
    * @example
    * vsw-uf61uvzhz8ejaw776****

@@ -5,26 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class BackupAndroidInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of instance IDs.
+   * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
   /**
+   * @remarks
+   * The name of the backup file.
+   * 
    * @example
    * abc
    */
   backupFileName?: string;
   /**
    * @remarks
+   * The upload URL for the backup file.
+   * 
    * This parameter is required.
    */
   backupFilePath?: string;
   /**
+   * @remarks
+   * The description of the full instance backup.
+   * 
    * @example
    * this is a backup android instance
    */
   description?: string;
   /**
    * @remarks
+   * The region where the backup is stored.
+   * 
    * This parameter is required.
    * 
    * @example

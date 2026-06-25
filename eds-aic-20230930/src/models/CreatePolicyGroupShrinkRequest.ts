@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Specifies whether to enable local camera redirection.
    * 
    * @example
    * off
@@ -18,13 +13,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
+   * The clipboard permission.
    * 
    * @example
    * readwrite
@@ -32,14 +21,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   clipboard?: string;
   /**
    * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
+   * The file transfer policy for the web client.
    * 
    * @example
    * off
@@ -47,13 +29,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
+   * The local disk mapping permission.
    * 
    * @example
    * off
@@ -63,32 +39,34 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to lock the resolution.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * off
    */
   lockResolution?: string;
   /**
    * @remarks
-   * The network redirection policy.
+   * Network redirection.
    */
   netRedirectPolicyShrink?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
-   * defaultPolicy
+   * Default policy
    */
   policyGroupName?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * Instance
+   */
   policyType?: string;
   /**
    * @remarks
-   * The height of the resolution. Unit: pixels.
+   * The resolution height, in pixels.
    * 
    * @example
    * 1280
@@ -96,12 +74,16 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The width of the resolution. Unit: pixels.
+   * The resolution width, in pixels.
    * 
    * @example
    * 720
    */
   resolutionWidth?: number;
+  /**
+   * @remarks
+   * Screen watermark.
+   */
   watermarkShrink?: string;
   static names(): { [key: string]: string } {
     return {

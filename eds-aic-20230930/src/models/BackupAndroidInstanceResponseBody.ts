@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BackupAndroidInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cloud phone instance ID.
+   * 
    * @example
    * acp-34pqe4r0kd9kn****
    */
   androidInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the backup file.
+   * 
    * @example
    * bf-b0qbg3pbpjkn7****
    */
   backupFileId?: string;
   /**
+   * @remarks
+   * The name of the backup file.
+   * 
    * @example
    * a-58ftsoo90p0qa****.ab
    */
   backupFileName?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * t-bp67acfmxazb4p****
    */
@@ -52,17 +64,30 @@ export class BackupAndroidInstanceResponseBodyData extends $dara.Model {
 
 export class BackupAndroidInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of instances that were backed up.
+   * 
    * @example
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * The returned result objects.
+   */
   data?: BackupAndroidInstanceResponseBodyData[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 440D7342-5FC2-5E7C-B2DB-D0B4EAC2BDF1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * t-14xwibw7pyrjd****
    */

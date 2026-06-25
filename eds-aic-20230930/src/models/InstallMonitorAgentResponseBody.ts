@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallMonitorAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DB070C80-45AC-52CA-8101-937C25DA****
    */

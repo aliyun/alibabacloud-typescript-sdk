@@ -43,6 +43,13 @@ export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $dara.Model
 }
 
 export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The connection mode.
+   * 
+   * @example
+   * custom
+   */
   connectionMode?: string;
   /**
    * @remarks
@@ -67,7 +74,7 @@ export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The instance connection tasks.
+   * The instance connection task, which is used to query whether the ticket retrieval task is completed.
    */
   instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
   ports?: string[];

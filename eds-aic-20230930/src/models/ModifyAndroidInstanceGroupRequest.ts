@@ -15,9 +15,7 @@ export class ModifyAndroidInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The new name of the instance group.
    * 
-   * > 
-   * 
-   * *   The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
+   * > The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http\\:// or https\\://.
    * 
    * @example
    * newName
@@ -31,6 +29,13 @@ export class ModifyAndroidInstanceGroupRequest extends $dara.Model {
    * pg-2w97kp89gnsif****
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * Specifies the streaming mode for instances within the instance group. If this parameter is omitted, the mode defaults to 1 (Preemptive).
+   * 
+   * @example
+   * 1
+   */
   streamMode?: number;
   static names(): { [key: string]: string } {
     return {

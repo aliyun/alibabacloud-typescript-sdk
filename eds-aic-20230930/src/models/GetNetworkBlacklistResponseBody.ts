@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNetworkBlacklistResponseBodyNetworkBlacklistModel extends $dara.Model {
+  /**
+   * @remarks
+   * The list of blacklisted domain names.
+   */
   domainBlacklist?: string[];
+  /**
+   * @remarks
+   * The list of blacklisted IP addresses.
+   */
   ipBlacklist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +43,15 @@ export class GetNetworkBlacklistResponseBodyNetworkBlacklistModel extends $dara.
 }
 
 export class GetNetworkBlacklistResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The network blacklist.
+   */
   networkBlacklistModel?: GetNetworkBlacklistResponseBodyNetworkBlacklistModel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A578AD3A-8E7C-54FE-A09F-B060941*****
    */

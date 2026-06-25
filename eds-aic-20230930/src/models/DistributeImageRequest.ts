@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DistributeImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The regions to which you want to distribute an image.
+   * The list of destination regions.
    * 
    * This parameter is required.
    */
   distributeRegionList?: string[];
   /**
    * @remarks
-   * The ID of the image that you want to distribute.
+   * The ID of the image.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 1234
@@ -13,7 +13,7 @@ export class CreateAppResponseBody extends $dara.Model {
   appId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E5138F7E-46B5-526A-8C99-82DEAE6B****

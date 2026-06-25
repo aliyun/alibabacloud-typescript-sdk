@@ -29,7 +29,7 @@ export class CreateKeyPairResponseBodyData extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The private key of the key pair. The PEM-encoded private key that is in PKCS#8 format and adheres to the ADB connection specification.
+   * The private key of the key pair. The private key is PEM-encoded in PKCS#8 format and is compatible with ADB.
    * 
    * @example
    * MIIEpAIBAAKCAQEAtReyMzLIcBH78EV2zj****
@@ -65,7 +65,7 @@ export class CreateKeyPairResponseBodyData extends $dara.Model {
 export class CreateKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * The returned data.
    */
   data?: CreateKeyPairResponseBodyData;
   /**

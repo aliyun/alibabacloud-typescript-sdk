@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceGroupImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateInstanceGroupImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * A list of instance group IDs.
    * 
    * This parameter is required.
    */

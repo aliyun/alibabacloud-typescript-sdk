@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * acp-h3m8b5dusopp5****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the public network bandwidth throttling rule. This rule applies only to premium bandwidth.
+   * 
+   * @example
+   * qos-3kh93uu0vdbka****
+   */
   qosRuleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,18 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 }
 
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules extends $dara.Model {
+  /**
+   * @remarks
+   * The public network bandwidth throttling rules bound to the instance.
+   */
   instanceQosRule?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule[];
+  /**
+   * @remarks
+   * The total number of public network bandwidth throttling rules for the instance group.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -60,7 +85,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $dara.Model {
   /**
    * @remarks
-   * The size of the disk. Unit: GB.
+   * The disk size, in GB.
    * 
    * @example
    * 32
@@ -68,7 +93,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks ex
   diskSize?: number;
   /**
    * @remarks
-   * The type of the disk.
+   * The disk type.
    * 
    * @example
    * SYSTEM
@@ -98,7 +123,21 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks ex
 }
 
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * phone
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 2025
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,7 +165,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags ext
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-48xr63m4dybjk****
@@ -134,7 +173,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The type of the architecture.
+   * The architecture type.
    * 
    * @example
    * ARM
@@ -142,18 +181,51 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   architectureType?: string;
   /**
    * @remarks
-   * The number of available instances.
+   * The number of active instances.
    * 
-   * >  Available instances are those not in the Deleting or Deleted state.
+   * > An instance is considered active if its instance status is not "Deleting" or "Deleted".
    * 
    * @example
-   * 5
+   * 2
    */
   availableInstanceAmount?: number;
+  /**
+   * @remarks
+   * The ID of the bandwidth package.
+   * 
+   * @example
+   * np-0q6ixs7vpxciz****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The status of the bandwidth package.
+   * Valid values:
+   * - Creating: being created.
+   * - Releasing: being released.
+   * - InUse: in use.
+   * - Failed: failed.
+   * - Expired: expired.
+   * - Available: unbound and being billed.
+   * 
+   * @example
+   * Creating
+   */
   bandwidthPackageStatus?: string;
+  /**
+   * @remarks
+   * The type of the bandwidth package.
+   * 
+   * @example
+   * cbwp_ecd
+   */
   bandwidthPackageType?: string;
+  /**
+   * @remarks
+   * The public network bandwidth throttling rules for the instance group.
+   */
   bindQosRules?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules;
+  channel?: string;
   /**
    * @remarks
    * The billing method.
@@ -164,7 +236,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   chargeType?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of CPU cores.
    * 
    * @example
    * 8
@@ -172,25 +244,28 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   cpu?: string;
   /**
    * @remarks
-   * The disks.
+   * The disk information.
    */
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * true
    */
   enableIpv6?: boolean;
   /**
    * @remarks
-   * The cause of the creation failure.
+   * The reason for the creation failure.
    * 
    * @example
-   * 0
+   * InternalError
    */
   errorCode?: string;
   /**
    * @remarks
-   * The time when the instance group was created.
+   * The creation time.
    * 
    * @example
    * 2024-02-01 10:56:36
@@ -198,7 +273,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the subscription instance group expires.
+   * The expiration time of the subscription instance group.
    * 
    * @example
    * 2027-06-29 07:25:31
@@ -206,7 +281,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   gmtExpired?: string;
   /**
    * @remarks
-   * The time when the instance group was updated.
+   * The update time.
    * 
    * @example
    * 2024-02-01 10:56:36
@@ -214,24 +289,31 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * imgc-06zyt9m93zwax****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The image version.
+   * 
+   * @example
+   * 25.09.2
+   */
   imageVersion?: string;
   /**
    * @remarks
    * The list of installed applications.
    * 
    * @example
-   * "TikTok","WeChat"
+   * "抖音","淘宝"
    */
   installedAppList?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-h67a2cs0zprfdh****
@@ -239,15 +321,15 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupId?: string;
   /**
    * @remarks
-   * The name of the instance group.
+   * The instance group name.
    * 
    * @example
-   * defaultInstanceGroup
+   * Cloud phoneA
    */
   instanceGroupName?: string;
   /**
    * @remarks
-   * The specifications of the instance group.
+   * The instance group specifications.
    * 
    * @example
    * acp.basic.small
@@ -263,13 +345,16 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   instanceGroupSpecDescribe?: string;
   /**
    * @remarks
-   * The status of the instance group.
+   * The instance group status.
    * 
    * @example
    * RUNNING
    */
   instanceGroupStatus?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * 50
    */
@@ -282,6 +367,15 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * 8
    */
   memory?: number;
+  /**
+   * @remarks
+   * The network type of the instance.
+   * 
+   * > This field is returned only for instance groups with a standard network.
+   * 
+   * @example
+   * network_pro_ecd
+   */
   networkType?: string;
   /**
    * @remarks
@@ -293,15 +387,16 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   numberOfInstances?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * cn-shanghai+dir-030598****
    */
   officeSiteId?: string;
+  packageId?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * @example
    * pg-c6n38xucps8kl****
@@ -309,7 +404,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   policyGroupId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -317,13 +412,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   regionId?: string;
   /**
    * @remarks
-   * The rendering mode of the instance group.
-   * 
-   * Valid values:
-   * 
-   * *   GPURemote: GPU remote rendering.
-   * *   CPU: CPU rendering.
-   * *   GPUocal: GPU local rendering.
+   * The rendering type of the instance group.
    * 
    * @example
    * CPU
@@ -355,21 +444,32 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   saleMode?: string;
   /**
    * @remarks
-   * The version of the operating system.
+   * The system version.
    * 
    * @example
    * Android 12
    */
   systemVersion?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags[];
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID in the VPC.
    * 
    * @example
    * vsw-t4n0yqs009ho024wt****
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -380,6 +480,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       bandwidthPackageStatus: 'BandwidthPackageStatus',
       bandwidthPackageType: 'BandwidthPackageType',
       bindQosRules: 'BindQosRules',
+      channel: 'Channel',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
@@ -401,6 +502,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       networkType: 'NetworkType',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
+      packageId: 'PackageId',
       policyGroupId: 'PolicyGroupId',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
@@ -423,6 +525,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       bandwidthPackageStatus: 'string',
       bandwidthPackageType: 'string',
       bindQosRules: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules,
+      channel: 'string',
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
@@ -444,6 +547,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       networkType: 'string',
       numberOfInstances: 'string',
       officeSiteId: 'string',
+      packageId: 'string',
       policyGroupId: 'string',
       regionId: 'string',
       renderingType: 'string',
@@ -478,12 +582,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
 export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance group.
+   * The details of the instance group.
    */
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that indicates the position where the current call returns. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -491,7 +595,7 @@ export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
@@ -499,7 +603,7 @@ export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

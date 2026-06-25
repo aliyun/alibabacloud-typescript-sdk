@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCreditPackageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the credit package.
+   * 
    * @example
    * crp-xagydbhfkah****
    */
   creditPackageId?: string;
   /**
+   * @remarks
+   * The status of the credit package.
+   * 
    * @example
    * ACTIVE
    */

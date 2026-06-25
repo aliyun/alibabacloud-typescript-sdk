@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstanceAdbRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of Android instance IDs. You can specify 1 to 100 IDs.
+   * 
    * This parameter is required.
    */
   instanceIds?: string[];

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   /**
+   * @remarks
+   * The credit limit.
+   * 
    * @example
    * 10
    */
   creditLimit?: number;
   /**
+   * @remarks
+   * The credit limit period.
+   * 
    * @example
    * day
    */
@@ -38,13 +44,27 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
 
 export class ModifyJVSInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to apply the configuration to all instances.
+   * 
    * @example
    * true
    */
   applyToAll?: boolean;
+  /**
+   * @remarks
+   * The credit limit configuration. New configurations overwrite existing ones.
+   */
   creditConfig?: ModifyJVSInstanceRequestCreditConfig[];
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The new instance name.
+   * 
    * @example
    * defaultInstanceName
    */

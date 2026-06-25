@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDisplayConfigResponseBodyDisplayConfigModel extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cpn-jewjt8xryuituz4qn-****
    */
   androidInstanceId?: string;
   /**
+   * @remarks
+   * The dots per inch (DPI). The value ranges from 72 to 600.
+   * 
    * @example
    * 240
    */
   dpi?: number;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   fps?: number;
   /**
+   * @remarks
+   * Indicates whether the resolution is locked.
+   * 
    * @example
    * off
    */
   lockResolution?: string;
   /**
+   * @remarks
+   * The height of the resolution. Unit: pixels.
+   * 
    * @example
    * 1280
    */
   resolutionHeight?: number;
   /**
+   * @remarks
+   * The width of the resolution. Unit: pixels.
+   * 
    * @example
    * 720
    */
@@ -65,8 +83,15 @@ export class DescribeDisplayConfigResponseBodyDisplayConfigModel extends $dara.M
 }
 
 export class DescribeDisplayConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of display settings.
+   */
   displayConfigModel?: DescribeDisplayConfigResponseBodyDisplayConfigModel[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FFEF7EFE-1E36-56D1-B5BF-5BACE43B****
    */

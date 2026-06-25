@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos extends $dara.Model {
   /**
+   * @remarks
+   * The key of the custom property.
+   * 
    * @example
    * propKey
    */
   propertyName?: string;
   /**
+   * @remarks
+   * The value of the custom property.
+   * 
    * @example
    * propValue
    */
@@ -37,78 +43,127 @@ export class ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomProperty
 }
 
 export class ModifySystemPropertyTemplateRequestSystemPropertyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The information about custom properties.
+   */
   customPropertyInfos?: ModifySystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos[];
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBootloader?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildDisplayId?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildFingerprint?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildHost?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildId?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildProduct?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildTags?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildType?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roBuildUser?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roProductBoard?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roProductBrand?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roProductDevice?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roProductManufacturer?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
   roProductModel?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * null
    */
@@ -169,21 +224,43 @@ export class ModifySystemPropertyTemplateRequestSystemPropertyInfo extends $dara
 
 export class ModifySystemPropertyTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically generate preset system properties.
+   * 
    * @example
    * true
    */
   enableAuto?: boolean;
   /**
+   * @remarks
+   * The URL of the property template file. The system synchronously parses the file. If the file format is invalid, a parsing error is returned.
+   * 
+   * > File template format: `{ "properties":{"key1":"value1", "key2":"value2"}}`.
+   * 
    * @example
    * https://filepath****.com
    */
   filePath?: string;
+  /**
+   * @remarks
+   * The information about the system property template.
+   */
   systemPropertyInfo?: ModifySystemPropertyTemplateRequestSystemPropertyInfo;
   /**
+   * @remarks
+   * The ID of the property template.
+   * 
    * @example
    * ap-angyvganxlf****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * Template 1
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {

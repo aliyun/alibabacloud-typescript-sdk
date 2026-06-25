@@ -4,7 +4,21 @@ import { DataImageRegionDistributeMapValue } from "./DataImageRegionDistributeMa
 
 
 export class DescribeImageListResponseBodyDataImageBizTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +54,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The description of the image.
+   * The description.
    * 
    * @example
    * description
@@ -62,10 +76,14 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
    * 2024-02-01 10:56:36
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * An array of tag objects.
+   */
   imageBizTags?: DescribeImageListResponseBodyDataImageBizTags[];
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * imgc-075cllfeuazh****
@@ -73,7 +91,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * IMAGE
@@ -81,31 +99,33 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The region where the image is distributed. The key is the region and the value is the distribution information.
+   * The image distribution information by region. The key is the region and the value is the distribution information.
    */
   imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
   /**
    * @remarks
-   * The list of regions.
+   * The list of available regions.
    */
   imageRegionList?: string[];
   /**
    * @remarks
-   * The type of the image.
-   * 
-   * Valid values:
-   * 
-   * *   User: custom images.
-   * *   System: system images.
+   * The image type.
    * 
    * @example
    * System
    */
   imageType?: string;
+  /**
+   * @remarks
+   * The image version.
+   * 
+   * @example
+   * 20241204102337
+   */
   imageVersion?: string;
   /**
    * @remarks
-   * The language of the image.
+   * The language.
    * 
    * @example
    * zh
@@ -123,27 +143,13 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
    * @remarks
    * The rendering type.
    * 
-   * Valid values:
-   * 
-   * *   GPURemote
-   * *   CPU
-   * *   GPULocal
-   * 
    * @example
    * CPU
    */
   renderingType?: string;
   /**
    * @remarks
-   * The state of the image.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The image is available.
-   * *   DELETE: The image is deleted.
-   * *   INIT: The image is being initialized.
-   * *   CREATE_FAILED: The image failed to be created.
-   * *   CREATING: The image is being created.
+   * The image status.
    * 
    * @example
    * AVAILABLE
@@ -151,7 +157,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The OS type of the image.
+   * The operating system type.
    * 
    * @example
    * Android 12
@@ -220,12 +226,12 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
 export class DescribeImageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The images.
+   * The returned data.
    */
   data?: DescribeImageListResponseBodyData[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query. An empty value indicates that all data has been returned.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -233,7 +239,7 @@ export class DescribeImageListResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 620740FF-492F-5956-B1BA-361E966C0269
@@ -241,7 +247,7 @@ export class DescribeImageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30

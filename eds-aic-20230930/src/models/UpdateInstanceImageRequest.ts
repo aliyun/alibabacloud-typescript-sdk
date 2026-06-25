@@ -5,11 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceImageRequest extends $dara.Model {
   ignoreParamValidation?: boolean;
   /**
+   * @remarks
+   * The ID of the image. Call [](t2730769.xdita#)to query the list of images for cloud phones.
+   * 
    * @example
    * imgc-075cllfeuazh0****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instanceIdList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to reset the instance. If you reset the instance, all user data on the instance is cleared.
+   * 
+   * @example
+   * false
+   */
   reset?: boolean;
   static names(): { [key: string]: string } {
     return {

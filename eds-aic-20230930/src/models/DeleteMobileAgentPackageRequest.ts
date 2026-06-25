@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyPolicyGroupResponseBody extends $dara.Model {
+export class DeleteMobileAgentPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 552B7EED-D434-511F-B838-29EA4E906034
+   * The list of packages.
    */
-  requestId?: string;
+  packageIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      packageIds: 'PackageIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      packageIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.packageIds)) {
+      $dara.Model.validateArray(this.packageIds);
+    }
     super.validate();
   }
 

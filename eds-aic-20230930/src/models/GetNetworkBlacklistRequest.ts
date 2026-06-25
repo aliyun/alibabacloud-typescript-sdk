@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNetworkBlacklistRequest extends $dara.Model {
   /**
+   * @remarks
+   * The query type. Valid values: IP and Domain. If you do not specify this parameter, information for both types is returned.
+   * 
    * @example
    * IP
    * 

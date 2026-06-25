@@ -3,7 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetNetworkBlacklistRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Domain name blacklist.
+   * 
+   * > Supports a maximum of 200 domain names.
+   */
   domainBlacklist?: string[];
+  /**
+   * @remarks
+   * IP address blacklist.
+   * 
+   * > Supports a maximum of 200 IP addresses or IP address segments.
+   */
   ipBlacklist?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunSyncCommandResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when command execution finished.
+   * 
    * @example
    * 2022-08-11 17:45:03
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The ID of the instance on which the command was executed.
+   * 
    * @example
    * acp-uto81vfd8t8z****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The invocation ID.
+   * 
    * @example
    * t-15775dc8****
    */
   invocationId?: string;
   /**
+   * @remarks
+   * The command execution status.
+   * 
    * @example
    * RUNNING
    */
   invocationStatus?: string;
   /**
+   * @remarks
+   * The command output.
+   * 
    * @example
    * success
    */
   output?: string;
   /**
+   * @remarks
+   * The time when command execution began.
+   * 
    * @example
    * 2022-10-11T08:53:32Z
    */
@@ -65,13 +83,23 @@ export class RunSyncCommandResponseBodyData extends $dara.Model {
 }
 
 export class RunSyncCommandResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of objects, where each object contains the execution result for a single instance.
+   */
   data?: RunSyncCommandResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 31
    */

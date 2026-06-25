@@ -5,29 +5,45 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * The IDs of one or more cloud phone instances.
    * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to automatically install the application after the file is uploaded.
+   * 
+   * @example
+   * true
+   */
   autoInstall?: boolean;
+  /**
+   * @remarks
+   * A client-generated token that ensures request idempotence and prevents duplicate submissions. The token can contain up to 100 characters.
+   * 
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   clientToken?: string;
   fileMd5?: string;
   /**
    * @remarks
-   * The path to which you want to upload the pushed file in the cloud phone instance.
+   * The destination path on the cloud phone.
+   * 
+   * > If `UploadType` is `OSS` or `OSS_BRIDGED`, `SourceFilePath` must specify a directory, for example, `/sdcard/Download/`. If `UploadType` is `DOWNLOAD_URL`, `SourceFilePath` must specify a full file path, for example, `/sdcard/Download/MyFile.txt`.
    * 
    * This parameter is required.
    * 
    * @example
-   * /data
+   * /sdcard/Download
    */
   sourceFilePath?: string;
   /**
    * @remarks
-   * The name of the file uploaded from the Object Storage Service (OSS) to the cloud phone instance.
+   * The name for the destination file on the cloud phone.
    * 
-   * >  If UploadType is set to OSS, you must specify TargetFileName. If TargetFileName is empty, the file uploaded from the OSS bucket to the cloud phone instance retains its original name. If TargetFileName is provided with a value, the uploaded file in the SourceFilePath directory uses the specified name (TargetFileName). If UploadType is set to DOWNLOAD_URL, TargetFileName does not take effect.
+   * > This parameter is optional and takes effect only when `UploadType` is set to `OSS` or `OSS_BRIDGED`. If you specify this parameter, the file is saved with this name in the path specified by `SourceFilePath`. If you leave this parameter empty, the source file name is used. This parameter is ignored when `UploadType` is set to `DOWNLOAD_URL`.
    * 
    * @example
    * test.txt
@@ -35,19 +51,23 @@ export class SendFileRequest extends $dara.Model {
   targetFileName?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket in which the file is stored.
+   * The service endpoint of Object Storage Service (OSS). This parameter is required if `UploadType` is `OSS` or `OSS_BRIDGED`.
    * 
-   * >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve transfer speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+   * > If the cloud phone instance and the OSS bucket are in the same region, you can specify an internal endpoint to accelerate data transfer and avoid public data transfer costs. For example, the internal endpoint for the China (Hangzhou) region is `oss-cn-hangzhou-internal.aliyuncs.com`. For a complete list of endpoints, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
    * 
    * @example
-   * oss-cn-hangzhou.aliyuncs.com
+   * oss-cn-hangzhou-internal.aliyuncs.com
    */
   uploadEndpoint?: string;
   /**
    * @remarks
-   * The storage type of the file that you want to upload.
+   * The storage type of the source file. Valid values:
    * 
-   * *   Set the value to OSS.
+   * - **OSS**: The file is stored in Object Storage Service (OSS).
+   * 
+   * - **DOWNLOAD_URL**: The file is accessible via a public download link.
+   * 
+   * - **OSS_BRIDGED**: The service first downloads the file from a public download link to an internal OSS bucket, and then distributes it to the cloud phone instances over the internal network.
    * 
    * This parameter is required.
    * 
@@ -57,11 +77,16 @@ export class SendFileRequest extends $dara.Model {
   uploadType?: string;
   /**
    * @remarks
-   * The OSS URL of the file.
+   * - If `UploadType` is `OSS`, this parameter specifies the URI of the source object in Object Storage Service (OSS).
    * 
-   * >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>\\<FileName>.
+   * > The URI must be in the `oss://<bucket-name>/<object-key>` format. The specified OSS bucket name must have the `cloudphone-saved-bucket-` prefix, for example, `cloudphone-saved-bucket-example`.
+   * 
+   * - If `UploadType` is `DOWNLOAD_URL` or `OSS_BRIDGED`, this parameter specifies the public download link of the source file.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://cloudphone-saved-bucket-example/send/a.txt
    */
   uploadUrl?: string;
   static names(): { [key: string]: string } {

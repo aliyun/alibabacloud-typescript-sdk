@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -13,7 +13,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance. Fuzzy match is supported.
+   * The instance name. Fuzzy match is supported.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -21,20 +21,15 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Specifies whether the whole instance is backed up.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to perform a full device backup.
    * 
    * @example
-   * true
+   * false
    */
   backupAll?: boolean;
   /**
    * @remarks
-   * The ID of the backup file.
+   * The backup file ID.
    * 
    * @example
    * bf-dxrh5jrv0zpb8****
@@ -42,23 +37,23 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The name of the backup file. Fuzzy match is supported.
+   * The backup file name. Fuzzy match is supported.
    * 
    * @example
-   * defaulBackupFile
+   * abc
    */
   backupFileName?: string;
   /**
    * @remarks
-   * The description of the backup file. Fuzzy match is supported.
+   * The description. Fuzzy match is supported.
    * 
    * @example
-   * default description.
+   * desc
    */
   description?: string;
   /**
    * @remarks
-   * The end of the period for querying generated backup files.
+   * Queries backup files created before the specified time.
    * 
    * @example
    * 2024-05-20 10:00:00
@@ -74,7 +69,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the instance group.
+   * The instance group ID.
    * 
    * @example
    * ag-fxdx91jsfyiy3****
@@ -82,7 +77,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   instanceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -90,7 +85,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
@@ -99,7 +94,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   saleMode?: string;
   /**
    * @remarks
-   * The beginning of the period for querying generated backup files.
+   * Queries backup files created after the specified time.
    * 
    * @example
    * 2024-05-23 10:00:00
@@ -107,7 +102,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the backup files.
+   * The list of backup file statuses.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {

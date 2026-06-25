@@ -7,11 +7,12 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The display language of the console. Valid values:
    * 
-   * *   cn: Simplified Chinese
-   * *   en: English
+   * - cn: Simplified Chinese
+   * 
+   * - en: English
    * 
    * @example
-   * en
+   * cn
    */
   acceptLanguage?: string;
   /**
@@ -20,8 +21,9 @@ export class DescribeRegionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Instance: the instance group mode. [Default]
-   * *   Node: the matrix mode. [Whitelist required]
+   * - Instance: the instance group mode. [Default]
+   * 
+   * - Node: the matrix mode. [Whitelist required]
    * 
    * @example
    * Instance

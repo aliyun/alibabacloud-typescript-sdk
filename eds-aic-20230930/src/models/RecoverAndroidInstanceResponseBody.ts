@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RecoverAndroidInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * acp-34pqe4r0kd9kn****
    */
   androidInstanceId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * t-bp67acfmxazb4p****
    */
@@ -38,17 +44,30 @@ export class RecoverAndroidInstanceResponseBodyData extends $dara.Model {
 
 export class RecoverAndroidInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of restored instances.
+   * 
    * @example
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * The returned result objects.
+   */
   data?: RecoverAndroidInstanceResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The batch task ID.
+   * 
    * @example
    * t-1ljew7on6ay0j****
    */

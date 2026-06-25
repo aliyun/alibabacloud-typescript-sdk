@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopAndroidInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E38B41A8-8E00-5AE4-A957-6636ACB8****

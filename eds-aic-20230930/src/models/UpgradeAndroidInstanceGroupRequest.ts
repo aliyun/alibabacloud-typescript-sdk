@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-payment feature. Make sure that your Alibaba Cloud account has sufficient balance.
-   * *   false: disables the auto-payment feature. You need to manually complete the payment process.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
@@ -18,10 +13,10 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The number of instances that you want to increase.
+   * The number of instances to add to the instance group.
    * 
    * @example
-   * 10
+   * 2
    */
   increaseNumberOfInstance?: number;
   /**
@@ -33,6 +28,10 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
    */
   instanceGroupId?: string;
   paidCallBackUrl?: string;
+  /**
+   * @remarks
+   * The promotion ID.
+   */
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {

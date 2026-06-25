@@ -15,7 +15,7 @@ export class RecoveryFileRequest extends $dara.Model {
    * Specifies whether to back up the whole instance.
    * 
    * @example
-   * true
+   * false
    */
   backupAll?: boolean;
   /**
@@ -30,7 +30,7 @@ export class RecoveryFileRequest extends $dara.Model {
    * @remarks
    * The OSS path to which the backup file is uploaded.
    * 
-   * >  When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss://${bucketName}/${key}.
+   * > When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss\\://${bucketName}/${key}.
    */
   backupFilePath?: string;
   /**
@@ -46,10 +46,6 @@ export class RecoveryFileRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the backup.
-   * 
-   * Valid values:
-   * 
-   * *   OSS: backup files are stored in OSS buckets.
    * 
    * @example
    * OSS

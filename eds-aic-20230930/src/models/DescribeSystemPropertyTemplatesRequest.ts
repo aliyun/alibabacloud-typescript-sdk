@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSystemPropertyTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The starting position for reading. If this parameter is empty, reading starts from the beginning.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6k****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The property template ID.
+   */
   templateIds?: string[];
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {

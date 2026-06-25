@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Internet Shared Bandwidth instance.
+   * 
+   * @example
+   * cbwp-uf63gsv8j0ir53*****
+   */
   bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The order ID of the bandwidth package.
+   * 
+   * @example
+   * 25954415983*****
+   */
   bandwidthPackageOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +45,12 @@ export class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel extends $d
 export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * A list of Cloud Phone instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the cloud phone matrix.
+   * The ID of the Cloud Phone matrix.
    * 
    * @example
    * cpn-e5kxgjyt8s1mb****
@@ -69,10 +83,14 @@ export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
 }
 
 export class CreateCloudPhoneNodeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the bandwidth package order.
+   */
   networkPackageOrderModel?: CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel;
   /**
    * @remarks
-   * The cloud phone matrixes.
+   * A list of Cloud Phone matrices.
    */
   nodeInfos?: CreateCloudPhoneNodeResponseBodyNodeInfos[];
   /**

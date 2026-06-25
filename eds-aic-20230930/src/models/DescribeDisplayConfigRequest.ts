@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDisplayConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   androidInstanceIds?: string[];
   static names(): { [key: string]: string } {
     return {

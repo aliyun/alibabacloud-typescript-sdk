@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos extends $dara.Model {
   /**
+   * @remarks
+   * The key of the custom property.
+   * 
    * @example
    * propKey
    */
   propertyName?: string;
   /**
+   * @remarks
+   * The value of the custom property.
+   * 
    * @example
    * propValue
    */
@@ -37,78 +43,127 @@ export class CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomProperty
 }
 
 export class CreateSystemPropertyTemplateRequestSystemPropertyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom properties.
+   */
   customPropertyInfos?: CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfos[];
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBootloader?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildDisplayId?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildFingerprint?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildHost?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildId?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildProduct?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildTags?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildType?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roBuildUser?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roProductBoard?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roProductBrand?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roProductDevice?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roProductManufacturer?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
   roProductModel?: string;
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
@@ -169,16 +224,41 @@ export class CreateSystemPropertyTemplateRequestSystemPropertyInfo extends $dara
 
 export class CreateSystemPropertyTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically generate preset system properties.
+   * 
    * @example
    * true
    */
   enableAuto?: boolean;
   /**
+   * @remarks
+   * The URL of the property template file. The API parses the file synchronously. An error is returned if the file format is invalid.
+   * 
+   * > The file must be in the following format: `{ "properties":{"key1":"value1"}}`.
+   * 
    * @example
    * https://filepath****.com
    */
   filePath?: string;
+  /**
+   * @remarks
+   * The information about the system property template.
+   */
   systemPropertyInfo?: CreateSystemPropertyTemplateRequestSystemPropertyInfo;
+  /**
+   * @remarks
+   * The name of the template. The name must meet the following requirements:
+   * 
+   * - Be 2 to 32 characters in length.
+   * 
+   * - Start with an uppercase or lowercase letter or a Chinese character. It cannot start with `http://` or `https://`.
+   * 
+   * - Contain letters, digits, colons (:), underscores (_), and hyphens (-). Periods (.) are not supported.
+   * 
+   * @example
+   * Template1
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {

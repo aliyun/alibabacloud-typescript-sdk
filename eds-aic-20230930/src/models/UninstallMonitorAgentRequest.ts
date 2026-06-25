@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UninstallMonitorAgentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   androidInstanceIds?: string[];
   /**
+   * @remarks
+   * The monitoring type.
+   * 
    * @example
    * Node
    */

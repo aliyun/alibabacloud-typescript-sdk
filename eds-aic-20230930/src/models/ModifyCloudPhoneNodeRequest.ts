@@ -19,6 +19,13 @@ export class ModifyCloudPhoneNodeRequest extends $dara.Model {
    * cpn-0ugbptfu473fy****
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Specifies the streaming mode for instances in the cloud phone matrix. If this parameter is left empty, the exclusive mode is used.
+   * 
+   * @example
+   * 1
+   */
   streamMode?: number;
   static names(): { [key: string]: string } {
     return {

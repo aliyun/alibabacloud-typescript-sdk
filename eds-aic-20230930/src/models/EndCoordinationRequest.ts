@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EndCoordinationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user ID of the coordination participant.
+   * 
    * @example
    * lina
    */
   coordinatorUserId?: string;
   /**
+   * @remarks
+   * The ID of the instance that is in a coordination session.
+   * 
    * @example
    * acp-2zecay9ponatdc4m****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The user ID of the coordination initiator.
+   * 
    * @example
    * xiaoming
    */

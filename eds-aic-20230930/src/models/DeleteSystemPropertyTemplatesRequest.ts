@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSystemPropertyTemplatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the property templates.
+   */
   templateIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -72,7 +72,7 @@ export class RebootAndroidInstancesInGroupResponseBodyTasks extends $dara.Model 
 export class RebootAndroidInstancesInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 227CBB4C-F5DC-589D-A667-C5CA3D52****

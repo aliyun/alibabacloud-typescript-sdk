@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAndroidInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * A list of instance group IDs.
    */
   instanceGroupIds?: string[];
   static names(): { [key: string]: string } {

@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMobileAgentPackageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of package IDs.
+   */
   mobileAgentPackageIds?: string[];
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 22326560487****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
    */

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAndroidInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The IDs of instances created during the scale-out.
    * 
    * @example
-   * [\\"acp-3vzqq4y3f31f3z3df\\"]
+   * [\\"acp-2iowaqjyw9nrd****\\", \\"acp-2iowaqjyw9nrd****\\"]
    */
   instanceIds?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 223684716098****

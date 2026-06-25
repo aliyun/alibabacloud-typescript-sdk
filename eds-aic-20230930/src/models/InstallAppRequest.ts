@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the apps that you want to install.
+   * The application IDs.
    */
   appIdList?: string[];
   /**
    * @remarks
-   * The IDs of the instance groups.
+   * The instance group IDs.
    */
   instanceGroupIdList?: string[];
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * The instance IDs.
    */
   instanceIdList?: string[];
   static names(): { [key: string]: string } {

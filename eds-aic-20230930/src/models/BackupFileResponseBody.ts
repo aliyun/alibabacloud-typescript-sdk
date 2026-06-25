@@ -24,7 +24,7 @@ export class BackupFileResponseBodyData extends $dara.Model {
    * The name of the backup file.
    * 
    * @example
-   * a-58ftsoo90p0qa****.ab
+   * MyBackup
    */
   backupFileName?: string;
   /**
@@ -32,7 +32,7 @@ export class BackupFileResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * t-22ex666a5mco5****
+   * t-22ex666a653gq****
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -68,12 +68,12 @@ export class BackupFileResponseBody extends $dara.Model {
    * The number of instances that are backed up.
    * 
    * @example
-   * 100
+   * 1
    */
   count?: number;
   /**
    * @remarks
-   * The object that is returned.
+   * The result object.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
@@ -81,7 +81,7 @@ export class BackupFileResponseBody extends $dara.Model {
   data?: BackupFileResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
@@ -89,10 +89,10 @@ export class BackupFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the batch task.
+   * The batch task ID.
    * 
    * @example
-   * t-22ex666a5mco5****
+   * t-14xwibw7pyrjd****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

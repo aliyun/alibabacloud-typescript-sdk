@@ -13,7 +13,7 @@ export class FetchFileResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the task created for this specific instance.
    * 
    * @example
    * t-bp67acfmxazb4p****
@@ -45,7 +45,7 @@ export class FetchFileResponseBodyData extends $dara.Model {
 export class FetchFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * An array of results, with one entry for each instance specified in the request.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -53,7 +53,7 @@ export class FetchFileResponseBody extends $dara.Model {
   data?: FetchFileResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
+   * The request ID. Provide this ID when contacting support for troubleshooting.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -61,7 +61,7 @@ export class FetchFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the batch task.
+   * The batch task ID.
    * 
    * @example
    * t-ehs0yoedj0xe9****

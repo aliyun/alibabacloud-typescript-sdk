@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -13,7 +13,7 @@ export class SendFileResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the individual task for a specific cloud phone.
    * 
    * @example
    * t-4ks224ujixw****
@@ -45,7 +45,7 @@ export class SendFileResponseBodyData extends $dara.Model {
 export class SendFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * The details of the created tasks.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -53,7 +53,7 @@ export class SendFileResponseBody extends $dara.Model {
   data?: SendFileResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
+   * A unique identifier for the request. If you encounter an issue, provide this request ID to technical support for troubleshooting.
    * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
@@ -61,7 +61,7 @@ export class SendFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the batch task.
+   * The batch task ID.
    * 
    * @example
    * t-ehs0yoedj0xe9****

@@ -3,34 +3,66 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricTopRequest extends $dara.Model {
+  /**
+   * @remarks
+   * For instance-level monitoring, specify a list of cloud phone instance IDs.
+   * 
+   * <props="china">
+   * 
+   * For matrix-level monitoring, specify a list of matrix IDs.
+   */
   androidInstanceIds?: string[];
   /**
+   * @remarks
+   * The end time of the query.
+   * 
    * @example
    * 2019-01-31 11:00:00
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of instance IDs.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The number of entries to return on each page. This parameter is used for paged queries.
+   * 
+   * > The maximum value is 100 when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+   * 
    * @example
    * 100
    */
   length?: string;
   /**
    * @remarks
+   * The list of metrics.
+   * 
    * This parameter is required.
    */
   metricNames?: string[];
   /**
+   * @remarks
+   * The token that marks the start of the next page of results. If you leave this parameter empty, the query starts from the beginning.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The statistical period of the monitoring data.
+   * Unit: seconds.
+   * 
    * @example
    * 60
    */
   period?: number;
   /**
+   * @remarks
+   * The start time of the query.
+   * 
    * @example
    * 2019-01-31 10:00:00
    */

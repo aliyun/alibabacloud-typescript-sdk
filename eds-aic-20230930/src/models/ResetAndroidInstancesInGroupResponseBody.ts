@@ -72,7 +72,7 @@ export class ResetAndroidInstancesInGroupResponseBodyTasks extends $dara.Model {
 export class ResetAndroidInstancesInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****

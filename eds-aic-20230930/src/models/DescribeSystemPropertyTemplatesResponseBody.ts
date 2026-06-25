@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos extends $dara.Model {
   /**
+   * @remarks
+   * The property name.
+   * 
    * @example
    * propKey
    */
   propertyName?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * propValue
    */
@@ -37,8 +43,15 @@ export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateMo
 }
 
 export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The custom property information.
+   */
   customPropertyInfos?: DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfoCustomPropertyInfos[];
   /**
+   * @remarks
+   * > This parameter is not yet available for use.
+   * 
    * @example
    * null
    */
@@ -71,26 +84,49 @@ export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateMo
 
 export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether preset system properties can be automatically generated.
+   * 
    * @example
    * true
    */
   enableAuto?: boolean;
   /**
+   * @remarks
+   * The URL path of the property template file.
+   * 
    * @example
    * https://filepath****.com
    */
   filePath?: string;
   /**
+   * @remarks
+   * The template status.
+   * 
    * @example
    * init
    */
   status?: string;
+  /**
+   * @remarks
+   * The system property template information.
+   */
   systemPropertyInfo?: DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModelSystemPropertyInfo;
   /**
+   * @remarks
+   * The property template ID.
+   * 
    * @example
    * ap-0caoenwutkkx****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -128,20 +164,30 @@ export class DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateMo
 
 export class DescribeSystemPropertyTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token used to start the next query. An empty value indicates that all results have been returned.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU****
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of property template objects.
+   */
   systemPropertyTemplateModel?: DescribeSystemPropertyTemplatesResponseBodySystemPropertyTemplateModel[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */

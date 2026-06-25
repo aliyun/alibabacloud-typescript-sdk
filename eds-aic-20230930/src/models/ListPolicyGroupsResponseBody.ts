@@ -7,11 +7,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules 
    * @remarks
    * The type of the rule.
    * 
-   * Valid values:
-   * 
-   * *   prc: an application package name.
-   * *   domain: a domain name.
-   * 
    * @example
    * domain
    */
@@ -21,7 +16,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules 
    * The name of the application package or domain name.
    * 
    * @example
-   * *.example.com
+   * *.baidu.com
    */
   target?: string;
   static names(): { [key: string]: string } {
@@ -50,12 +45,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules 
 export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a custom proxy is manually configured.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Indicates whether to manually configure a custom proxy.
    * 
    * @example
    * off
@@ -72,11 +62,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   /**
    * @remarks
    * Indicates whether the network redirection feature is enabled. When this feature is enabled, network traffic is automatically redirected to the on-premises network by default.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
    * 
    * @example
    * off
@@ -101,10 +86,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   /**
    * @remarks
    * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
    * 
    * @example
    * socks5
@@ -162,7 +143,15 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
 }
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources extends $dara.Model {
+  /**
+   * @remarks
+   * The instance group IDs.
+   */
   androidInstanceGroupIds?: string[];
+  /**
+   * @remarks
+   * The matrix IDs.
+   */
   cloudPhoneMatrixIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -194,11 +183,50 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources 
 }
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark extends $dara.Model {
+  /**
+   * @remarks
+   * The font color of the watermark. Valid values: 0 to 16777215.
+   * 
+   * @example
+   * 0
+   */
   watermarkColor?: number;
+  /**
+   * @remarks
+   * The custom text for the watermark. The text can be up to 10 characters in length and cannot contain emoji characters.
+   * 
+   * @example
+   * custom text
+   */
   watermarkCustomText?: string;
+  /**
+   * @remarks
+   * The font size of the watermark. Valid values: 10 to 20.
+   * 
+   * @example
+   * 12
+   */
   watermarkFontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the screen watermark.
+   * 
+   * @example
+   * off
+   */
   watermarkSwitch?: string;
+  /**
+   * @remarks
+   * The opacity of the watermark. A larger value makes the watermark more opaque. Valid values: 10 to 100.
+   * 
+   * @example
+   * 25
+   */
   watermarkTransparencyValue?: number;
+  /**
+   * @remarks
+   * The content of the screen watermark.
+   */
   watermarkTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -239,11 +267,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * @remarks
    * Specifies whether to enable the webcam redirection feature.
    * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
    * @example
    * on
    */
@@ -251,12 +274,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   /**
    * @remarks
    * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
    * 
    * @example
    * readwrite
@@ -274,13 +291,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * @remarks
    * The file transfer policy of the HTML5 client.
    * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
    * @example
    * download
    */
@@ -289,12 +299,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * @remarks
    * The read/write permissions on the on-premises drive.
    * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write denied.
-   * 
    * @example
    * off
    */
@@ -302,11 +306,6 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   /**
    * @remarks
    * Identifies whether the resolution is locked.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
    * 
    * @example
    * off
@@ -330,9 +329,13 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * The name of the policy.
    * 
    * @example
-   * Default Policy
+   * Default policy.
    */
   policyGroupName?: string;
+  /**
+   * @remarks
+   * The resources associated with the policy.
+   */
   policyRelatedResources?: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources;
   /**
    * @remarks
@@ -350,6 +353,10 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * 1920
    */
   sessionResolutionWidth?: number;
+  /**
+   * @remarks
+   * The screen watermark.
+   */
   watermark?: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark;
   static names(): { [key: string]: string } {
     return {
