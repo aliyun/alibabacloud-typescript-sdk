@@ -3,13 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDatasetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the dataset\\"s visibility.
+   * 
+   * - `PUBLIC`: The dataset is publicly accessible.
+   * 
+   * - `PRIVATE`: The dataset is privately accessible.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
    * @remarks
-   * The storage types of the data source. Multiple data source types are separated by commas (,). Valid values:
+   * The data source type. To specify multiple types, separate them with commas (,). Valid values:
    * 
-   * *   NAS: File Storage NAS (NAS).
-   * *   OSS: Object Storage Service (OSS).
+   * - `NAS`: The data source is NAS.
+   * 
+   * - `OSS`: The data source is OSS.
    * 
    * @example
    * OSS
@@ -17,23 +29,47 @@ export class ListDatasetsRequest extends $dara.Model {
   dataSourceTypes?: string;
   /**
    * @remarks
-   * The dataset types. Multiple dataset types are separated by commas (,). Valid values:
+   * The data type of the dataset. To specify multiple data types, separate them with commas (,). Valid values:
    * 
-   * *   Video: video
-   * *   COMMON: common
-   * *   TEXT: text
-   * *   PIC: picture
-   * *   AUDIO: audio
+   * - `VIDEO`: video.
+   * 
+   * - `COMMON`: general.
+   * 
+   * - `TEXT`: text.
+   * 
+   * - `PIC`: image.
+   * 
+   * - `AUDIO`: audio.
    * 
    * @example
    * COMMON,TEXT
    */
   dataTypes?: string;
+  /**
+   * @remarks
+   * A comma-separated list of dataset IDs.
+   * 
+   * @example
+   * d-rcdg3wxxxxxhc5jk87
+   */
   datasetIds?: string;
+  /**
+   * @remarks
+   * The dataset edition. Valid values:
+   * 
+   * - `BASIC`: Basic edition. Does not support file metadata management.
+   * 
+   * - `ADVANCED`: Advanced edition. This edition is supported only for OSS datasets. Each version can manage metadata for up to 1 million files.
+   * 
+   * - `LOGICAL`: Logical edition. This edition is supported only for OSS datasets and is suitable for most use cases. Each version can manage metadata for up to 1 million files. You must use an SDK with this edition.
+   * 
+   * @example
+   * BASIC
+   */
   edition?: string;
   /**
    * @remarks
-   * The dataset tag, which is used to filter datasets. Datasets whose tag key or tag value contains a specified string are filtered.
+   * A label used to filter datasets. The operation returns datasets whose label key or value contains the specified string.
    * 
    * @example
    * test
@@ -41,7 +77,7 @@ export class ListDatasetsRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The dataset name. Fuzzy search based on the dataset name is supported.
+   * The dataset name. Fuzzy search is supported.
    * 
    * @example
    * myName
@@ -49,10 +85,11 @@ export class ListDatasetsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The order of specific fields of the entries on the returned page. Valid values: ASC and DESC. Default value: ASC.
+   * The sort order for the results, based on the `SortBy` parameter. The default is `ASC`.
    * 
-   * *   ASC: The entries are sorted in ascending order.
-   * *   DESC: The entries are sorted in descending order.
+   * - `ASC`: ascending order.
+   * 
+   * - `DESC`: descending order.
    * 
    * @example
    * ASC
@@ -60,7 +97,7 @@ export class ListDatasetsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number for the paged query. Starts at 1. The default is 1.
    * 
    * @example
    * 1
@@ -68,7 +105,7 @@ export class ListDatasetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of datasets to return per page. The default is 10.
    * 
    * @example
    * 10
@@ -76,10 +113,11 @@ export class ListDatasetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The dataset properties. Multiple properties are separated by commas (,). Valid values:
+   * The dataset properties. To specify multiple properties, separate them with commas (,). Valid values:
    * 
-   * *   DIRECTORY
-   * *   FILE
+   * - `DIRECTORY`: A folder.
+   * 
+   * - `FILE`: A file.
    * 
    * @example
    * FILE
@@ -87,16 +125,29 @@ export class ListDatasetsRequest extends $dara.Model {
   properties?: string;
   /**
    * @remarks
-   * The dataset provider. If the value pai is returned, the dataset is a public dataset provided by PAI.
+   * The dataset provider. Set this parameter to `pai` to query public datasets on the PAI platform.
    * 
    * @example
    * pai
    */
   provider?: string;
+  /**
+   * @remarks
+   * A filter for shared datasets.
+   * 
+   * - `TO_ME`: Returns only datasets shared with you.
+   * 
+   * - `BY_ME`: Returns only datasets that you have shared with others and displays details of the sharing configuration.
+   * 
+   * - If this parameter is omitted or empty, the operation returns all datasets in the current workspace, including those shared with you.
+   * 
+   * @example
+   * BY_ME
+   */
   shareScope?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The sort field.
    * 
    * @example
    * GmtCreateTime
@@ -104,7 +155,7 @@ export class ListDatasetsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The ID of the iTAG labeled dataset that is used as the source dataset.
+   * The source dataset ID for an iTAG annotation set.
    * 
    * @example
    * d-rcdg3wxxxxxhc5jk87
@@ -112,11 +163,13 @@ export class ListDatasetsRequest extends $dara.Model {
   sourceDatasetId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The source ID. The value of this parameter varies based on the `SourceTypes` value:
    * 
-   * *   If SourceType is set to USER, the value of SourceId is a custom string.
-   * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
-   * *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
+   * - If `SourceTypes` is `USER`, you can specify a custom value for `SourceId`.
+   * 
+   * - If `SourceTypes` is `ITAG`, `SourceId` is the ID of the iTAG task.
+   * 
+   * - If `SourceTypes` is `PAI_PUBLIC_DATASET`, this parameter is empty by default.
    * 
    * @example
    * d-rbvg5wzljzjhc9ks92
@@ -124,11 +177,7 @@ export class ListDatasetsRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The source types. Multiple source types are separated by commas (,). Valid values:
-   * 
-   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
-   * *   ITAG: a dataset generated from a labeling job of iTAG.
-   * *   USER: a dataset registered by a user.
+   * The source type. To specify multiple types, separate them with commas (,).
    * 
    * @example
    * USER,ITAG
@@ -136,7 +185,8 @@ export class ListDatasetsRequest extends $dara.Model {
   sourceTypes?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID. If you do not specify this parameter, the default workspace is used. If the default workspace does not exist, an error is reported.
+   * The ID of the workspace that contains the dataset. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * If this parameter is not specified, the default workspace is used. An error is returned if the default workspace does not exist.
    * 
    * @example
    * 324**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentRequestOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to exactly match the experiment by name. Valid values: true and false.
+   * Specifies whether to perform an exact match for the name. Valid values are "true" and "false".
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class ListExperimentRequestOptions extends $dara.Model {
 export class ListExperimentRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`.
+   * The filter conditions for labels. Separate multiple conditions with commas (,). A single filter condition must be in the `Key=Value` format.
    * 
    * @example
    * is_evaluation:true
@@ -43,7 +43,7 @@ export class ListExperimentRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of entries in the request. Default value: 10.
+   * The maximum number of results to return. The default is 10.
    * 
    * @example
    * 10
@@ -51,7 +51,7 @@ export class ListExperimentRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The experiment name.
+   * The name of the experiment.
    * 
    * @example
    * exp-test
@@ -59,15 +59,16 @@ export class ListExperimentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The optional parameters.
+   * Optional parameters.
    */
   options?: ListExperimentRequestOptions;
   /**
    * @remarks
-   * The order of specific fields of results in a paged query (ascending or descending).
+   * The order in which to sort the results of a paged query. Valid values:
    * 
-   * *   ASC: ascending order
-   * *   DESC: descending order. This is the default value.
+   * - ASC: ascending order.
+   * 
+   * - DESC (default): descending order.
    * 
    * @example
    * DESC
@@ -75,7 +76,7 @@ export class ListExperimentRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The strings used for sorting. The following fields can be used for sorting: GmtCreateTime, Name, GmtModifiedTime, and ExperimentId. The sorting order can be ASC (default) and DESC.
+   * A list of sorting methods as strings. You can sort by the following fields: GmtCreateTime, Name, GmtModifiedTime, or ExperimentId. The sorting methods are DESC and ASC. The default is ASC.
    * 
    * @example
    * GmtCreateTime DESC,Name ASC
@@ -83,7 +84,7 @@ export class ListExperimentRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -99,7 +100,7 @@ export class ListExperimentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pagination token, which starts from 0. Default value: 0.
+   * The paging token. It starts from 0. The default is 0.
    * 
    * @example
    * 0
@@ -107,7 +108,7 @@ export class ListExperimentRequest extends $dara.Model {
   pageToken?: number;
   /**
    * @remarks
-   * The field used for sorting. The GmtCreateTime field is used.
+   * The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is supported for sorting.
    * 
    * @example
    * GmtCreateTime
@@ -115,7 +116,7 @@ export class ListExperimentRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Specifies whether to obtain the LatestRun value that is related to the experiment.
+   * Specifies whether to retrieve the LatestRun information related to the experiment.
    * 
    * @example
    * false
@@ -123,12 +124,12 @@ export class ListExperimentRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The ID of the workspace to which the experiment belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace where the experiment resides. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
-   * >  If you do not specify a workspace ID, the system returns the experiments in the default workspace.
+   * > If you do not specify a workspace ID, the system returns the list of experiments in the default workspace.
    * 
    * @example
-   * 151739
+   * 1517**
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

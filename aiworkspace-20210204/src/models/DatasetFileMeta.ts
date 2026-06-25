@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetFileMeta extends $dara.Model {
   /**
    * @remarks
-   * The MIME Type of the file.
+   * The MIME type of the file. It includes a type and a subtype.
    * 
    * @example
    * image/jpeg
@@ -13,7 +13,7 @@ export class DatasetFileMeta extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The size of the file in bytes.
    * 
    * @example
    * 120000
@@ -21,7 +21,7 @@ export class DatasetFileMeta extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The metadata ID of the dataset file.
+   * The ID of the dataset file metadata.
    * 
    * @example
    * 07914c9534586e4e7aa6e9dbca5009082df******fd8a0d857b33296c59bf6
@@ -32,12 +32,12 @@ export class DatasetFileMeta extends $dara.Model {
    * The download URL of the file.
    * 
    * @example
-   * https://test-bucket.oss-cn-shanghai.aliyuncs.com/dataset/cat.png?Expires=1712801702&OSSAccessKeyId=****************&Signature=x4oSjZcXOn7FHMCT1D****NuNjs%3D
+   * https://test-bucket.oss-cn-shanghai.aliyuncs.com/dataset/cat.png?Expires=171280****&OSSAccessKeyId=LTAI************&Signature=****jZcXOn7FHMCT1DLE22NuNjs%3D
    */
   downloadUrl?: string;
   /**
    * @remarks
-   * The time when the file was created. A UTC timestamp in the ISO 8601 format.
+   * The time when the file was created. The time is in UTC and in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -47,7 +47,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The file fingerprint, used to determine the uniqueness of the file content. This value changes after the file content is modified. OSS files use ETags, and NAS files use MD5 values.
+   * The file fingerprint. This value ensures the uniqueness of the file content and changes if the content is modified. The ETag is used for OSS files, and the MD5 value is used for NAS files.
    * 
    * @example
    * D41D8CD98F*****E9800998ECF8
@@ -55,7 +55,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileFingerPrint?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * cat.png
@@ -63,7 +63,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file. This corresponds to the main type of a Multipurpose Internet Mail Extensions (MIME) type.
    * 
    * @example
    * image
@@ -71,7 +71,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The last modified time of the file. A UTC timestamp in the ISO 8601 format.
+   * The time when the file was last modified. The time is in Coordinated Universal Time (UTC) and in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -81,7 +81,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileUpdateTime?: string;
   /**
    * @remarks
-   * The specific metadata of the file. For example, the width and height of an image file, or the bitrate and resolution of a video file. This parameter cannot be used for retrieval. In JSON String format.
+   * Specific metadata for the file, such as the width and height of an image or the bitrate and resolution of a video. Currently, this metadata cannot be used for retrieval. The format is a JSON string.
    * 
    * @example
    * {     "ImageHeight": 400,     "ImageWidth": 800 }
@@ -97,7 +97,7 @@ export class DatasetFileMeta extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The ID of the last semantic indexing job.
+   * The ID of the job that last built the semantic index.
    * 
    * @example
    * dsjob-klfwtjto****scvt3
@@ -105,7 +105,7 @@ export class DatasetFileMeta extends $dara.Model {
   semanticIndexJobId?: string;
   /**
    * @remarks
-   * The last update time of the semantic index. A UTC timestamp in the ISO 8601 format.
+   * The time when the semantic index was last updated. The time is in UTC and in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -113,31 +113,47 @@ export class DatasetFileMeta extends $dara.Model {
    * 2021-01-12T14:36:01.000Z
    */
   semanticIndexUpdateTime?: string;
+  /**
+   * @remarks
+   * The current status of the metadata:
+   * \\- ACTIVE: Active.
+   * \\- DELETED: Deleted.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   /**
    * @remarks
-   * The tags of the metadata, in JSON string format. Including:
+   * A collection of tags for the metadata, in JSON string format. The collection includes the following groups:
    * 
-   * *   Algorithm tag group:
+   * - Algorithm tag group:
    * 
-   *     *   ai: tags from all algorithm tagging tasks on this metadata.
+   *   - ai: A list of tag names aggregated from all algorithm-based tagging tasks for a single metadata record.
    * 
-   * *   User-defined tag group:
+   * - User-defined tag group:
    * 
-   *     *   user: tags added by the user to this metadata.
-   *     *   user-delete-ai-tags: tags from the algorithm tag group that the user needs to delete.
+   *   - user: A list of tag names that a user adds to a single metadata record.
+   * 
+   *   - user-delete-ai-tags: A list of tag names from the algorithm tag group that the user deletes from a single metadata record.
    * 
    * @example
    * {
    *     "ai":
    *     [
-   *         "Felis catus",
-   *         "Shorthair"
+   *         "Lane line",
+   *         "Water horse",
+   *         "Sunny day"
    *     ],
    *     "user":
    *     [
-   *         "cat",
-   *         "White"
+   *         "Everett",
+   *         "Intelligent driving Dataset 1",
+   *         "Cloudy day"
+   *     ],
+   *     "user-delete-ai-tags":
+   *     [
+   *         "Sunny day"
    *     ]
    * }
    */
@@ -152,15 +168,31 @@ export class DatasetFileMeta extends $dara.Model {
   thumbnailUrl?: string;
   /**
    * @remarks
-   * The URI of the file. Used to record the unique path of the file. File paths in Object Storage Service (OSS) and File Storage NAS (NAS) are supported.
+   * The unique URI of the file. It records the unique path of the file. Paths for files in OSS and NAS are supported.
    * 
-   * **OSS**
+   * <details>
    * 
-   * oss://${bucket}/${path}
+   * <summary>
    * 
-   * **NAS**
+   * OSS
    * 
-   * nas://${fileSystemId}/${path}
+   * </summary>
+   * 
+   * oss\\://${bucket}/${path}
+   * 
+   * </details>
+   * 
+   * <details>
+   * 
+   * <summary>
+   * 
+   * NAS
+   * 
+   * </summary>
+   * 
+   * nas\\://${fileSystemId}/${path}
+   * 
+   * </details>
    * 
    * @example
    * oss://test-bucket/dataset/cat.png

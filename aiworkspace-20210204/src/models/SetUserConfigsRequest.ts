@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetUserConfigsRequestConfigs extends $dara.Model {
   /**
    * @remarks
-   * The category. Only DataPrivacyConfig is supported.
+   * The classification. Only DataPrivacyConfig is supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item.
+   * The configuration key.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
 export class SetUserConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations list.
+   * The list of configurations.
    */
   configs?: SetUserConfigsRequestConfigs[];
   static names(): { [key: string]: string } {

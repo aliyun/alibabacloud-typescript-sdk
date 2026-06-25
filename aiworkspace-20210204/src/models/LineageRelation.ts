@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class LineageRelation extends $dara.Model {
   /**
    * @remarks
-   * DestEntityQualifiedName
+   * The fully qualified name of the target entity in the relationship.
    */
   destEntityQualifiedName?: string;
   /**
    * @remarks
-   * RelationshipGuid
+   * The system-assigned unique identifier (GUID) for the relationship.
    */
   relationshipGuid?: string;
   /**
    * @remarks
-   * SrcEntityQualifiedName
+   * The fully qualified name of the source entity in the relationship.
    */
   srcEntityQualifiedName?: string;
   static names(): { [key: string]: string } {

@@ -6,7 +6,7 @@ import { DatasetJobConfig } from "./DatasetJobConfig";
 export class ListDatasetJobConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dataset job configurations.
+   * A list of dataset job configurations.
    */
   datasetJobConfigs?: DatasetJobConfig[];
   /**

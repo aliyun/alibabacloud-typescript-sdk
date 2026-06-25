@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dataset job.
+   * The dataset task ID.
    * 
    * @example
    * dsjob-9jx1******uj9e

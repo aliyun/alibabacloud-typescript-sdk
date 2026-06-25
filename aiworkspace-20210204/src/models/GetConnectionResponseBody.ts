@@ -6,6 +6,9 @@ export class GetConnectionResponseBodyModels extends $dara.Model {
   /**
    * @remarks
    * The display name of the model.
+   * 
+   * @example
+   * 测试语言模型。
    */
   displayName?: string;
   /**
@@ -20,9 +23,11 @@ export class GetConnectionResponseBodyModels extends $dara.Model {
    * @remarks
    * The model type. Valid values:
    * 
-   * *   LLM
-   * *   Embedding
-   * *   ReRank
+   * - LLM: A large language model (LLM).
+   * 
+   * - Embedding: An embedding model.
+   * 
+   * - ReRank: A reranking model.
    * 
    * @example
    * LLM
@@ -30,10 +35,11 @@ export class GetConnectionResponseBodyModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Indicates whether a tool can be called by using ToolCall. Valid values:
+   * Indicates whether tool calling is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Tool calling is supported.
+   * 
+   * - false: Tool calling is not supported.
    * 
    * @example
    * true
@@ -67,6 +73,13 @@ export class GetConnectionResponseBodyModels extends $dara.Model {
 }
 
 export class GetConnectionResponseBodyResourceMeta extends $dara.Model {
+  /**
+   * @remarks
+   * Additional configuration information.
+   * 
+   * @example
+   * {"vpcId":"vpc-xxxx"}
+   */
   extra?: string;
   /**
    * @remarks
@@ -79,6 +92,9 @@ export class GetConnectionResponseBodyResourceMeta extends $dara.Model {
   /**
    * @remarks
    * The instance name.
+   * 
+   * @example
+   * Test instance.
    */
   instanceName?: string;
   static names(): { [key: string]: string } {
@@ -109,10 +125,11 @@ export class GetConnectionResponseBodyResourceMeta extends $dara.Model {
 export class GetConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource accessibility. Valid values:
+   * The visibility of the resource. Valid values:
    * 
-   * *   PUBLIC: All members in the workspace can access the workspace.
-   * *   PRIVATE: Only the creator can access the workspace.
+   * - PUBLIC: All members in the current workspace can access the resource.
+   * 
+   * - PRIVATE: Only the creator can access the resource.
    * 
    * @example
    * PRIVATE
@@ -120,7 +137,7 @@ export class GetConnectionResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The connection configuration.
+   * The configuration information of the connection.
    */
   configs?: { [key: string]: string };
   /**
@@ -133,22 +150,33 @@ export class GetConnectionResponseBody extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The connection name.
+   * The name of the connection.
+   * 
+   * @example
+   * Database connection
    */
   connectionName?: string;
   /**
    * @remarks
    * The type of the connection. Valid values:
    * 
-   * *   DashScopeConnection: Alibaba Cloud Model Studio connection.
-   * *   OpenLLMConnection: Open source model connection.
-   * *   MilvusConnection: Milvus connection.
-   * *   OpenSearchConnection: OpenSearch connection.
-   * *   LindormConnection: Lindorm connection.
-   * *   ElasticsearchConnection: Elasticsearch connection.
-   * *   HologresConnection: Hologres connection.
-   * *   RDSConnection: RDS connection.
-   * *   CustomConnection: Custom connection.
+   * - DashScopeConnection: A connection to a Model Studio service.
+   * 
+   * - OpenLLMConnection: A connection to an open-source model.
+   * 
+   * - MilvusConnection: A connection to Milvus.
+   * 
+   * - OpenSearchConnection: A connection to OpenSearch.
+   * 
+   * - LindormConnection: A connection to Lindorm.
+   * 
+   * - ElasticsearchConnection: A connection to Elasticsearch.
+   * 
+   * - HologresConnection: A connection to Hologres.
+   * 
+   * - RDSConnection: A connection to RDS.
+   * 
+   * - CustomConnection: A custom connection.
    * 
    * @example
    * OpenSearchConnection
@@ -164,12 +192,15 @@ export class GetConnectionResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The connection description.
+   * The description of the connection.
+   * 
+   * @example
+   * 用于数据集检索。
    */
   description?: string;
   /**
    * @remarks
-   * The time when the connection is created, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the connection was created. The time is in the ISO 8601 format.
    * 
    * @example
    * 2025-03-07T07:54:56Z
@@ -177,7 +208,7 @@ export class GetConnectionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the connection is modified, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the connection was last modified. The time is in the ISO 8601 format.
    * 
    * @example
    * 2025-03-07T07:54:56Z
@@ -185,12 +216,12 @@ export class GetConnectionResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The models, which apply to model service connections.
+   * The list of models. This parameter is applicable to connections of the model service type.
    */
   models?: GetConnectionResponseBodyModels[];
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
@@ -198,12 +229,12 @@ export class GetConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance resource information of the connection, which applies to database connections.
+   * The instance resource information of the connection. This parameter is typically used for database connections.
    */
   resourceMeta?: GetConnectionResponseBodyResourceMeta;
   /**
    * @remarks
-   * The encrypted configuration, in key-value pairs. Examples: the database logon password and the key of the model connection.
+   * The key-value pairs that need to be encrypted. Examples include the logon password for a database and the key for a model connection.
    */
   secrets?: { [key: string]: string };
   /**

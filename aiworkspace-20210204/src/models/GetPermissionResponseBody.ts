@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
   /**
    * @remarks
-   * The accessibility. Valid values:
+   * The access type. Valid values:
    * 
-   * *   PUBLIC: All members can access the workspace.
-   * *   PRIVATE: Only the creator can access the workspace.
-   * *   ANY: All users can access the workspace.
+   * - PUBLIC: All members in the current workspace can perform the operation.
+   * 
+   * - PRIVATE: Only the creator can perform the operation.
+   * 
+   * - ANY: Both the creator and non-creators can perform the operation.
    * 
    * @example
    * PRIVATE
@@ -17,10 +19,13 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The access type. If you set Accessibility to PUBLIC, all users can access the workspace. This parameter is invalid. If you set Accessibility to PRIVATE, the value of this parameter can be:
+   * The access type.
+   * This parameter is invalid when Accessibility is set to PUBLIC because all users can perform the operation.
+   * When Accessibility is set to PRIVATE, EntityAccessType supports the following values:
    * 
-   * *   PRIVATE: Only the creator can access the workspace.
-   * *   ANY: All users can access the workspace.
+   * - CREATOR: Only the creator can perform the operation.
+   * 
+   * - ANY: Both the creator and non-creators can perform the operation.
    * 
    * @example
    * CREATOR
@@ -52,7 +57,7 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
 export class GetPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The permission name, which is unique in a region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
+   * The name of the permission. The name is unique within the same region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
    * 
    * @example
    * PaiDLC:ListJobs
@@ -60,7 +65,7 @@ export class GetPermissionResponseBody extends $dara.Model {
   permissionCode?: string;
   /**
    * @remarks
-   * The permission rules.
+   * The list of permission rules.
    */
   permissionRules?: GetPermissionResponseBodyPermissionRules[];
   /**

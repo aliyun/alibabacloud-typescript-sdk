@@ -6,7 +6,7 @@ import { LabelInfo } from "./LabelInfo";
 export class SetExperimentLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * A list of labels.
    */
   labels?: LabelInfo[];
   static names(): { [key: string]: string } {

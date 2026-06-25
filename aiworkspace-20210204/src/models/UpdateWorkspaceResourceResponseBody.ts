@@ -13,7 +13,7 @@ export class UpdateWorkspaceResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The updated resource IDs.
+   * An array of IDs for the resources that were updated.
    * 
    * @example
    * Resource-dks******jkf

@@ -6,12 +6,12 @@ import { DatasetVersion } from "./DatasetVersion";
 export class ListDatasetVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dataset versions.
+   * The list of dataset versions.
    */
   datasetVersions?: DatasetVersion[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListDatasetVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListDatasetVersionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0648C5BB-68D0-54D2-92A5-607135B8806B
@@ -35,7 +35,7 @@ export class ListDatasetVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of dataset versions that meet the filter conditions.
+   * The number of resources that match the filter conditions.
    * 
    * @example
    * 5

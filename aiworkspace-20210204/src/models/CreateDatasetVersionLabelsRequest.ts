@@ -6,7 +6,7 @@ import { Label } from "./Label";
 export class CreateDatasetVersionLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The list of labels.
    * 
    * This parameter is required.
    */

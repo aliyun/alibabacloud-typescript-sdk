@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetPermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The accessibility. Valid values:
+   * The access type. Valid values:
    * 
-   * *   PUBLIC: All members in the workspace can access the workspace.
-   * *   PRIVATE: Only the creator can access the workspace.
+   * - PUBLIC: All members in the workspace can perform the operation.
+   * 
+   * - PRIVATE: Only the creator can perform the operation.
    * 
    * @example
    * PUBLIC
@@ -18,7 +19,7 @@ export class GetPermissionShrinkRequest extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that is used to create the workspace.
+   * The UID of the Alibaba Cloud account that created the workspace permission.
    * 
    * @example
    * 17915******4216
@@ -27,10 +28,11 @@ export class GetPermissionShrinkRequest extends $dara.Model {
   labelsShrink?: string;
   /**
    * @remarks
-   * The configuration. Separate multiple configurations with commas (,). Valid values:
+   * Optional configurations. Separate multiple configurations with commas (,). Valid values:
    * 
-   * *   ResourceEmpty: The Resource parameter is not configured.
-   * *   DisableRam: The RAM check is not performed.
+   * - ResourceEmpty: The resource is empty. This value is used if you do not set the Resource parameter.
+   * 
+   * - DisableRam: RAM verification is disabled.
    * 
    * @example
    * ResourceEmpty,DisableRam

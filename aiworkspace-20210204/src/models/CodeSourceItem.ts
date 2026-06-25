@@ -7,13 +7,18 @@ export class CodeSourceItem extends $dara.Model {
    * @remarks
    * The visibility of the code source. Valid values:
    * 
-   * *   PRIVATE: Visible only to you and the administrator in the workspace.
-   * *   PUBLIC: Visible to all users in the workspace.
+   * - `PRIVATE`: Visible only to you and workspace administrators.
+   * 
+   * - `PUBLIC`: Visible to all workspace members.
    * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The clone type.
+   */
   cloneType?: number;
   /**
    * @remarks
@@ -25,7 +30,7 @@ export class CodeSourceItem extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The code commit ID
+   * The commit ID.
    * 
    * @example
    * 44da10**********
@@ -33,7 +38,7 @@ export class CodeSourceItem extends $dara.Model {
   codeCommit?: string;
   /**
    * @remarks
-   * The address of the code repository.
+   * The code repository URL.
    * 
    * @example
    * https://code.aliyun.com/****
@@ -41,12 +46,12 @@ export class CodeSourceItem extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The token used to access the code repository.
+   * The access token for the code repository.
    */
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username of the code repository.
+   * The username for the code repository.
    * 
    * @example
    * user
@@ -62,7 +67,7 @@ export class CodeSourceItem extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The code source description.
+   * The description of the code source.
    * 
    * @example
    * code source of dlc examples
@@ -70,7 +75,7 @@ export class CodeSourceItem extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The code source name.
+   * The display name of the code source.
    * 
    * @example
    * MyCodeSourceName1
@@ -78,7 +83,7 @@ export class CodeSourceItem extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the code source was created.
    * 
    * @example
    * 2021-01-18T12:52:15Z
@@ -86,7 +91,7 @@ export class CodeSourceItem extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The time when the code source was last modified.
    * 
    * @example
    * 2021-01-18T12:52:15Z
@@ -94,7 +99,7 @@ export class CodeSourceItem extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The local mount path of the code.
+   * The local mount path for the code repository.
    * 
    * @example
    * /root/code/

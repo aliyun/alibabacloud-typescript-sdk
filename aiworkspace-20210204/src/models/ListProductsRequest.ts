@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProductsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The product codes, separated by commas.
+   * 
    * @example
    * PAI_isolate
    */
   productCodes?: string;
   /**
+   * @remarks
+   * The service codes, separated by commas.
+   * 
    * @example
    * oss
    */

@@ -6,7 +6,7 @@ import { DatasetFileMetaContentGet } from "./DatasetFileMetaContentGet";
 export class GetDatasetFileMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried metadata records of dataset files.
+   * The details of the dataset file metadata.
    */
   datasetFileMeta?: DatasetFileMetaContentGet;
   /**
@@ -19,7 +19,7 @@ export class GetDatasetFileMetaResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The dataset version.
+   * The name of the dataset version.
    * 
    * @example
    * v1

@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetJobConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration content. Format:
+   * The configuration content.
+   * The format is as follows:
    * 
-   * *   MultimodalIntelligentTag
+   * - MultimodalIntelligentTag
    * 
-   * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+   * {
+   * "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
+   * }
    * 
-   * *   MultimodalSemanticIndex
+   * - MultimodalSemanticIndex
    * 
-   * { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+   * {
+   * "defaultModelId": "xxx",
+   * "defaultModelVersion":"1.0.0"
+   * }
    * 
    * This parameter is required.
    * 
@@ -25,17 +31,19 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
    * @remarks
    * The configuration type.
    * 
-   * Valid values:
-   * 
-   * *   MultimodalIntelligentTag
-   * *   MultimodalSemanticIndex
-   * 
    * This parameter is required.
    * 
    * @example
    * MultimodalIntelligentTag
    */
   configType?: string;
+  /**
+   * @remarks
+   * The name of the dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
   /**
    * @remarks

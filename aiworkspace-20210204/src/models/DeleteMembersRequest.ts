@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of member IDs. Separate multiple member IDs with commas (,). You can call [ListMembers](https://help.aliyun.com/document_detail/449135.html) to obtain the member ID.
+   * A list of member IDs. Separate multiple member IDs with commas (,). For more information about how to obtain member IDs, see [ListMembers](https://help.aliyun.com/document_detail/449135.html).
    * 
    * This parameter is required.
    * 

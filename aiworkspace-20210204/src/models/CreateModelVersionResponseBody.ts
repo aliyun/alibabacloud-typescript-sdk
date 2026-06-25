@@ -13,7 +13,7 @@ export class CreateModelVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version of the model.
+   * The model version.
    * 
    * @example
    * 0.1.0

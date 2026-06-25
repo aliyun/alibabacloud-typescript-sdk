@@ -6,12 +6,12 @@ import { Connection } from "./Connection";
 export class ListConnectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connection list.
+   * List of connections.
    */
   connections?: Connection[];
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * Maximum number of entries per page.
    * 
    * @example
    * 10
@@ -19,7 +19,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the start position from which to retrieve data on the next page.
+   * Token for retrieving the next page of results.
    * 
    * @example
    * 15
@@ -27,7 +27,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID. Used for troubleshooting.
    * 
    * @example
    * B2C51F93-1C07-5477-9705-5FDB****F19F
@@ -35,7 +35,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of connections that meet the filter conditions.
+   * Total number of connections that match the query conditions.
    * 
    * @example
    * 27

@@ -7,9 +7,11 @@ export class UpdateModelVersionRequest extends $dara.Model {
    * @remarks
    * The approval status. Valid values:
    * 
-   * *   Pending
-   * *   Approved
-   * *   Rejected
+   * - Pending: The model is pending approval.
+   * 
+   * - Approved: The model is approved to be published.
+   * 
+   * - Rejected: The model is not approved to be published.
    * 
    * @example
    * Approved
@@ -23,6 +25,13 @@ export class UpdateModelVersionRequest extends $dara.Model {
    * {}
    */
   compressionSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * The distillation configuration.
+   * 
+   * @example
+   * {}
+   */
   distillationSpec?: { [key: string]: any };
   /**
    * @remarks
@@ -34,7 +43,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
   evaluationSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The additional information.
+   * Other information.
    * 
    * @example
    * {
@@ -45,15 +54,19 @@ export class UpdateModelVersionRequest extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * Describes how to apply to downstream inference services. For example, describes the processor and container of Elastic Algorithm Service (EAS). Example: `{ "processor": "tensorflow_gpu_1.12" }`.
+   * Describes how to apply the model to downstream inference applications. For example, describe the processor and container for Elastic Algorithm Service (EAS). Example:
+   * `{ "processor": "tensorflow_gpu_1.12" }`.
    * 
    * @example
-   * {     "processor": "tensorflow_gpu_1.12" }
+   * {
+   * 	"processor": "tensorflow_gpu_1.12"
+   * }
    */
   inferenceSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The model metrics. The length after serialization is limited to 8,192.
+   * The model metrics.
+   * The length cannot exceed 8,192 characters after serialization.
    * 
    * @example
    * {
@@ -77,7 +90,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
   metrics?: { [key: string]: any };
   /**
    * @remarks
-   * The extended field, which is of the JsonString type.
+   * The extended field. This field is a JSON string.
    * 
    * @example
    * {}
@@ -87,19 +100,23 @@ export class UpdateModelVersionRequest extends $dara.Model {
    * @remarks
    * The source ID.
    * 
-   * *   If the source type is Custom, this field is not limited.
-   * *   If the source type is PAIFlow or TrainingService, the format is:
+   * - If the source type is Custom, this field has no restrictions.
    * 
-   * <!---->
+   * - If the source is PAIFlow or TrainingService, the format is as follows:
    * 
-   *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * ```
+   * region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * ```
    * 
-   * Take note of the following parameters:
+   * The parameters are described as follows:
    * 
-   * *   region is the region ID.
-   * *   workspaceId is the ID of the workspace.
-   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
-   * *   id is a unique identifier.
+   * - region: the Alibaba Cloud region ID.
+   * 
+   * - workspaceId: the workspace ID.
+   * 
+   * - kind: the type. Valid values: PipelineRun (PAI pipeline) or ServiceJob (training service).
+   * 
+   * - id: the unique identifier.
    * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
@@ -107,11 +124,13 @@ export class UpdateModelVersionRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The type of the model source. Valid values:
+   * The source type of the model. Valid values:
    * 
-   * *   Custom (default)
-   * *   PAIFlow
-   * *   TrainingService
+   * - Custom (default): The model is a custom model.
+   * 
+   * - PAIFlow: The model is from a PAI pipeline.
+   * 
+   * - TrainingService: The model is from a PAI training service.
    * 
    * @example
    * PAIFlow
@@ -119,7 +138,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The training configurations used for fine-tuning and incremental training.
+   * The training configuration. This is used for fine-tuning and incremental training.
    * 
    * @example
    * {}
@@ -127,7 +146,10 @@ export class UpdateModelVersionRequest extends $dara.Model {
   trainingSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The model version description.
+   * The description of the model version.
+   * 
+   * @example
+   * General sentiment analysis.
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {

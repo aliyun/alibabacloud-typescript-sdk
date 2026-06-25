@@ -13,7 +13,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   completedFileCount?: number;
   /**
    * @remarks
-   * The time when the job is started.
+   * The time when the task was started.
    * 
    * @example
    * 2024-11-15T07:06:42Z
@@ -21,7 +21,10 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The job description.
+   * The task description.
+   * 
+   * @example
+   * This is a task description.
    */
   description?: string;
   /**
@@ -34,7 +37,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   failedFileCount?: number;
   /**
    * @remarks
-   * The time when the job ends.
+   * The time when the task was finished.
    * 
    * @example
    * 2024-07-16T02:03:23Z
@@ -42,13 +45,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The action that is performed on the job.
-   * 
-   * Valid values:
-   * 
-   * *   SemanticIndex: semantic indexing
-   * *   IntelligentTag: smart labeling
-   * *   FileMetaExport: metadata export
+   * The task operation.
    * 
    * @example
    * SemanticIndex
@@ -56,11 +53,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   jobAction?: string;
   /**
    * @remarks
-   * The job mode.
-   * 
-   * Valid value:
-   * 
-   * *   Full: full data mode.
+   * The task pattern.
    * 
    * @example
    * Full
@@ -68,7 +61,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The job details.
+   * The task details.
    * 
    * @example
    * {\\"modelId\\":\\"xxx\\"}
@@ -76,7 +69,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   jobSpec?: string;
   /**
    * @remarks
-   * The job logs.
+   * The list of task logs.
    */
   logs?: string[];
   /**
@@ -89,17 +82,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job state.
-   * 
-   * Valid values:
-   * 
-   * *   Succeeded
-   * *   Failed
-   * *   Running
-   * *   Pending
-   * *   PartialFailed
-   * *   Deleting
-   * *   ManuallyStop
+   * The task status.
    * 
    * @example
    * Running
@@ -107,7 +90,7 @@ export class GetDatasetJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of job files.
+   * The total number of files for the task.
    * 
    * @example
    * 1000

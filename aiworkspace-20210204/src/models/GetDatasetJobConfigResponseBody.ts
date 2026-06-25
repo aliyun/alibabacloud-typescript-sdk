@@ -5,13 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatasetJobConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration content. Configuration format for MultimodalIntelligentTag:
+   * The configuration content. The format depends on the ConfigType value.
+   * If ConfigType is MultimodalIntelligentTag, the format is as follows:
    * 
-   * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+   * {
+   * "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx"
+   * }
    * 
-   * MultimodalSemanticIndex
+   * If ConfigType is MultimodalSemanticIndex, the format is as follows:
    * 
-   * { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+   * {
+   * "defaultModelId": "xxx",
+   * "defaultModelVersion":"1.0.0"
+   * }
    * 
    * @example
    * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
@@ -19,10 +25,11 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The configuration type. Valid values:
+   * The configuration type.
    * 
-   * *   MultimodalIntelligentTag
-   * *   MultimodalSemanticIndex
+   * - MultimodalIntelligentTag
+   * 
+   * - MultimodalSemanticIndex
    * 
    * @example
    * MultimodalIntelligentTag
@@ -30,7 +37,7 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The time when the configuration is created.
+   * The time when the configuration was created.
    * 
    * @example
    * 2024-10-16T01:44:10Z
@@ -46,7 +53,7 @@ export class GetDatasetJobConfigResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The time when the configuration is modified.
+   * The time when the configuration was last modified.
    * 
    * @example
    * 2024-12-26T02:17:18Z

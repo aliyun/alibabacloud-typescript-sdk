@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration item keys. Currently, only customizePAIAssumedRole.
+   * The configuration key. Only customizePAIAssumedRole is supported.
    * 
    * @example
    * tempStoragePath

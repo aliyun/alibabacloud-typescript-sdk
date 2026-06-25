@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the experiment that the run belongs.
+   * The ID of the experiment to which the run belongs.
    * 
    * @example
    * exp-1zpfthdx******
@@ -21,10 +21,11 @@ export class ListRunsRequest extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The label. Exact match is supported. Valid values:
+   * The labels of the run for an exact match. The following formats are supported:
    * 
-   * *   Single-label query: Set the value to is_evaluation.
-   * *   Multi-label query (not recommended in non-special scenarios and may have performance issues): Set the value to is_evaluation:true,LLM_evaluation:true. Multiple labels are separated with commas (,), indicating that the key-value pairs of multiple labels must be matched at the same time.
+   * - Single-label query: "is_evaluation:true"
+   * 
+   * - Multi-label query: "is_evaluation:true,LLM_evaluation:true". This method is not recommended for common scenarios because it may degrade performance. Use commas (,) to separate multiple labels. The system matches all specified key-value pairs.
    * 
    * @example
    * is_evaluation:true
@@ -32,7 +33,7 @@ export class ListRunsRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of entries in the request. Default value: 10.
+   * The maximum number of results to return. The default value is 10.
    * 
    * @example
    * 10
@@ -40,7 +41,7 @@ export class ListRunsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The run name.
+   * The name of the run.
    * 
    * @example
    * myName
@@ -48,10 +49,11 @@ export class ListRunsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy.
+   * The sort order for the paged query. Use this parameter with SortBy.
    * 
-   * *   ASC
-   * *   DESC (default)
+   * - ASC: ascending order.
+   * 
+   * - DESC (default): descending order.
    * 
    * @example
    * DESC
@@ -59,7 +61,7 @@ export class ListRunsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The strings by which the results are sorted. The following parameters can be used to sort the results: GmtCreateTime and Name. The sorting order can be ASC (default) and DESC. Separate multiple strings with commas (,).
+   * The fields to sort by and the sort order. You can sort by GmtCreateTime and Name. Valid sort orders are DESC and ASC. The default is ASC. To sort by multiple fields, separate them with a comma (,).
    * 
    * @example
    * GmtCreateTime DESC,Name ASC
@@ -75,7 +77,7 @@ export class ListRunsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display on each page.
    * 
    * @example
    * 10
@@ -83,7 +85,7 @@ export class ListRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pagination token, which starts from 0. Default value: 0.
+   * The paging token. The value starts from 0. The default value is 0.
    * 
    * @example
    * 0
@@ -91,10 +93,11 @@ export class ListRunsRequest extends $dara.Model {
   pageToken?: number;
   /**
    * @remarks
-   * The field used for sorting. Valid values:
+   * The field to use for sorting. Valid values:
    * 
-   * *   Name: the name of the run.
-   * *   GmtCreateTime: the time when the run is created.
+   * - Name: the name of the run.
+   * 
+   * - GmtCreateTime (default): the time when the run was created.
    * 
    * @example
    * GmtCreateTime
@@ -102,7 +105,7 @@ export class ListRunsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The ID of the workload associated with the run.
+   * The ID of the PAI workload associated with the run.
    * 
    * @example
    * job-rbvg5wzlj****
@@ -110,7 +113,7 @@ export class ListRunsRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The type of the workload associated with the run.
+   * The type of the PAI workload associated with the run.
    * 
    * @example
    * TrainingService
@@ -118,10 +121,11 @@ export class ListRunsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Specifies whether to show detailed information, including Metrics, Params, and Labels. Valid values:
+   * Specifies whether to display details, including Metrics, Params, and Labels. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: displays details.
+   * 
+   * - false (default): does not display details.
    * 
    * @example
    * true
@@ -129,12 +133,12 @@ export class ListRunsRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The ID of the workspace to which the experiment belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace where the experiment resides. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
-   * >  If you do not specify a workspace ID, the system returns the runs of the default workspace.
+   * > If you do not specify a workspace ID, the system returns the list of runs in the default workspace.
    * 
    * @example
-   * 22840
+   * 228**
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

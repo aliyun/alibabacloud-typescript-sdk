@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeaturesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Feature names, separated by commas.
+   * 
    * @example
    * PaiConsole:IntegrateWithWorkspace
    */

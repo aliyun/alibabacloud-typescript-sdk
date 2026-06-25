@@ -6,11 +6,22 @@ export class CreateConnectionRequestModels extends $dara.Model {
   /**
    * @remarks
    * The display name of the model.
+   * 
+   * @example
+   * Language model
    */
   displayName?: string;
   /**
    * @remarks
-   * The model identifier.
+   * The context length.
+   * 
+   * @example
+   * 4096
+   */
+  maxModelLength?: number;
+  /**
+   * @remarks
+   * The model identifier. This value corresponds to the `model` parameter in an OpenAI API request.
    * 
    * @example
    * model_001
@@ -18,11 +29,7 @@ export class CreateConnectionRequestModels extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The model type. Valid values:
-   * 
-   * *   LLM
-   * *   Embedding
-   * *   ReRank
+   * The model type.
    * 
    * @example
    * LLM
@@ -30,10 +37,31 @@ export class CreateConnectionRequestModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Specifies whether a tool can be called by using ToolCall. Valid values:
+   * Specifies whether the model supports deep reasoning and can output the reasoning process as `reasoning_content`.
    * 
-   * *   true
-   * *   false
+   * @example
+   * true
+   */
+  supportReasoning?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the model supports structured output in the OpenAI API\\"s JSON Schema format.
+   * 
+   * @example
+   * true
+   */
+  supportResponseSchema?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the model supports visual understanding.
+   * 
+   * @example
+   * false
+   */
+  supportVision?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the model supports tool calling.
    * 
    * @example
    * true
@@ -42,8 +70,12 @@ export class CreateConnectionRequestModels extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
+      maxModelLength: 'MaxModelLength',
       model: 'Model',
       modelType: 'ModelType',
+      supportReasoning: 'SupportReasoning',
+      supportResponseSchema: 'SupportResponseSchema',
+      supportVision: 'SupportVision',
       toolCall: 'ToolCall',
     };
   }
@@ -51,8 +83,12 @@ export class CreateConnectionRequestModels extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       displayName: 'string',
+      maxModelLength: 'number',
       model: 'string',
       modelType: 'string',
+      supportReasoning: 'boolean',
+      supportResponseSchema: 'boolean',
+      supportVision: 'boolean',
       toolCall: 'boolean',
     };
   }
@@ -67,6 +103,13 @@ export class CreateConnectionRequestModels extends $dara.Model {
 }
 
 export class CreateConnectionRequestResourceMeta extends $dara.Model {
+  /**
+   * @remarks
+   * Additional configuration information.
+   * 
+   * @example
+   * {"vpcId":"vpc-xxxx"}
+   */
   extra?: string;
   /**
    * @remarks
@@ -79,6 +122,9 @@ export class CreateConnectionRequestResourceMeta extends $dara.Model {
   /**
    * @remarks
    * The instance name.
+   * 
+   * @example
+   * Test instance.
    */
   instanceName?: string;
   static names(): { [key: string]: string } {
@@ -109,10 +155,7 @@ export class CreateConnectionRequestResourceMeta extends $dara.Model {
 export class CreateConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The accessibility of the workspace. Valid values:
-   * 
-   * *   PRIVATE: The workspace is accessible only to you and the administrator of the workspace. This is the default value.
-   * *   PUBLIC: The workspace is accessible to all users in the workspace.
+   * The visibility of the workspace. The default value is `PRIVATE`.
    * 
    * @example
    * PRIVATE
@@ -120,14 +163,14 @@ export class CreateConnectionRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The connection configurations, in key-value pairs. The key varies based on the connection type. For more information, see the supplementary notes below the request parameters.
+   * Configuration properties for the connection, provided as key-value pairs. The required keys depend on the connection type. For details, see the supplementary parameter information.
    * 
    * This parameter is required.
    */
   configs?: { [key: string]: string };
   /**
    * @remarks
-   * The connection name.
+   * The name of the connection.
    * 
    * This parameter is required.
    * 
@@ -137,17 +180,7 @@ export class CreateConnectionRequest extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The connection type. Valid values:
-   * 
-   * *   DashScopeConnection: Alibaba Cloud Model Studio connection
-   * *   OpenLLMConnection: open source model connection
-   * *   MilvusConnection: Milvus connection
-   * *   OpenSearchConnection: OpenSearch connection
-   * *   LindormConnection: Lindorm connection
-   * *   ElasticsearchConnection: Elasticsearch connection
-   * *   HologresConnection: Hologres connection
-   * *   RDSConnection: RDS connection
-   * *   CustomConnection: custom connection
+   * The type of the connection.
    * 
    * @example
    * DashScopeConnection
@@ -155,27 +188,30 @@ export class CreateConnectionRequest extends $dara.Model {
   connectionType?: string;
   /**
    * @remarks
-   * The connection description.
+   * The description of the connection.
+   * 
+   * @example
+   * Open-source LLM service connection.
    */
   description?: string;
   /**
    * @remarks
-   * The models, which apply to model service connections.
+   * A list of models. This parameter applies to model service connections.
    */
   models?: CreateConnectionRequestModels[];
   /**
    * @remarks
-   * The instance resource information of the connection, which applies to database connections.
+   * Resource metadata for the connection. This parameter is typically used for database connection types.
    */
   resourceMeta?: CreateConnectionRequestResourceMeta;
   /**
    * @remarks
-   * The configuration to be encrypted. Examples: the database logon account and password and the key of the model service.
+   * Sensitive connection properties that require encryption, such as database credentials or an API key for a model service.
    */
   secrets?: { [key: string]: string };
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace. To get this ID, call the [`ListWorkspaces`](https://help.aliyun.com/document_detail/449124.html) operation.
    * 
    * @example
    * 123**45

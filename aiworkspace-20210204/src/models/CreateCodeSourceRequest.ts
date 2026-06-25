@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCodeSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the code build. Valid values:
+   * The visibility of the code configuration. Valid values:
    * 
-   * *   PUBLIC: The code build is visible to all members in the workspace.
-   * *   PRIVATE: The code build is visible only to you and the administrator of the workspace.
+   * - PUBLIC: The configuration is visible to everyone in the workspace.
+   * 
+   * - PRIVATE: The configuration is visible only to you and workspace administrators.
    * 
    * @example
    * PRIVATE
@@ -23,6 +24,10 @@ export class CreateCodeSourceRequest extends $dara.Model {
    * master
    */
   codeBranch?: string;
+  /**
+   * @remarks
+   * The commit ID of the code. \\`CodeCommit\\` takes precedence over \\`CodeBranch\\`. If you specify \\`CodeCommit\\`, \\`CodeBranch\\` is ignored.
+   */
   codeCommit?: string;
   /**
    * @remarks
@@ -34,7 +39,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The token used to access the code repository.
+   * The access token for the code repository.
    * 
    * @example
    * ***
@@ -42,7 +47,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username of the code repository.
+   * The username for the code repository.
    * 
    * @example
    * use***
@@ -50,7 +55,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The description of the code build, which helps you distinguish between code builds.
+   * The description of the code configuration, which helps distinguish it from other configurations.
    * 
    * @example
    * code source of dlc examples
@@ -58,7 +63,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the code build.
+   * The name of the code configuration.
    * 
    * This parameter is required.
    * 
@@ -68,7 +73,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The local mount path of the code. By default, the code is mounted to the /root/code/ path.
+   * The local mount path for the code. The default is `/root/code/`.
    * 
    * @example
    * /root/code/code-source-1
@@ -76,7 +81,7 @@ export class CreateCodeSourceRequest extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

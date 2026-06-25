@@ -6,14 +6,14 @@ import { DatasetFileMetaConentUpdate } from "./DatasetFileMetaConentUpdate";
 export class UpdateDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
-   * The metadata records to be updated for the dataset files.
+   * A list of dataset file metadata to update.
    * 
    * This parameter is required.
    */
   datasetFileMetas?: DatasetFileMetaConentUpdate[];
   /**
    * @remarks
-   * The dataset version.
+   * The name of the dataset version.
    * 
    * @example
    * v1
@@ -21,7 +21,7 @@ export class UpdateDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The ID of the tagging job that is associated with the metadata tag of the dataset file.
+   * The ID of the tagging job for updating metadata tags.
    * 
    * @example
    * dsjob-hv0b1****u8taig3y
@@ -29,7 +29,7 @@ export class UpdateDatasetFileMetasRequest extends $dara.Model {
   tagJobId?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the dataset belongs. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The ID of the workspace that contains the dataset. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 796**

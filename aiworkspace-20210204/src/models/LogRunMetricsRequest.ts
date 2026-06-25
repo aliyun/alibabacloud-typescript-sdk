@@ -6,7 +6,7 @@ import { RunMetric } from "./RunMetric";
 export class LogRunMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The metrics.
+   * The list of metrics.
    */
   metrics?: RunMetric[];
   static names(): { [key: string]: string } {

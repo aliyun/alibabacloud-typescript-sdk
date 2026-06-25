@@ -4,18 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMembersResponseBodyMembers extends $dara.Model {
   /**
+   * @remarks
+   * Account name of the member.
+   * 
    * @example
    * testAccount
    */
   accountName?: string;
   /**
+   * @remarks
+   * Account type. Valid values:
+   * 
+   * - 1: Alibaba Cloud account
+   * 
+   * - 5: RAM user
+   * 
+   * - 6: RAM role
+   * 
    * @example
    * 5
    */
   accountType?: string;
   /**
    * @remarks
-   * The display name of the member.
+   * Display name of the member.
    * 
    * @example
    * myDisplayName
@@ -23,7 +35,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the user is created, in UTC. The time follows the ISO 8601 standard.
+   * Time when the member was added, in UTC. Format: ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -31,7 +43,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The member ID.
+   * Member ID.
    * 
    * @example
    * 14588*****51688039
@@ -39,7 +51,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
-   * The username.
+   * Username of the member.
    * 
    * @example
    * user1
@@ -47,12 +59,12 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
-   * The list of roles.
+   * Roles assigned to the member.
    */
   roles?: string[];
   /**
    * @remarks
-   * The user ID.
+   * Alibaba Cloud account ID of the member.
    * 
    * @example
    * 215139******88039
@@ -99,7 +111,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
 export class ListMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The members.
+   * The list of workspace members.
    */
   members?: ListMembersResponseBodyMembers[];
   /**
@@ -112,7 +124,7 @@ export class ListMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of members that meet the filter conditions.
+   * Total number of members that match the filter criteria.
    * 
    * @example
    * 1

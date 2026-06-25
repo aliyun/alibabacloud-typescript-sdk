@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageBuildResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The image build ID.
    * 
    * @example
    * build-****ks92
    */
   imageBuildId?: string;
   /**
+   * @remarks
+   * The build task ID.
+   * 
    * @example
    * dlc-****ks92
    */

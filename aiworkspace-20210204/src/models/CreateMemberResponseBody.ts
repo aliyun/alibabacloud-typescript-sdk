@@ -65,7 +65,7 @@ export class CreateMemberResponseBodyMembers extends $dara.Model {
 export class CreateMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned members.
+   * The list of members.
    */
   members?: CreateMemberResponseBodyMembers[];
   /**

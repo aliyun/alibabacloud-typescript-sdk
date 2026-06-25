@@ -6,7 +6,7 @@ import { Label } from "./Label";
 export class CreateModelLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The list of labels.
    */
   labels?: Label[];
   static names(): { [key: string]: string } {

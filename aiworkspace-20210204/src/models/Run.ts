@@ -8,77 +8,110 @@ import { RunParam } from "./RunParam";
 export class Run extends $dara.Model {
   /**
    * @remarks
-   * The visibility.
+   * The visibility of the run.
+   * 
+   * @example
+   * PRIVATE
    */
   accessibility?: string;
   /**
    * @remarks
-   * The ID of the experiment that corresponds to the run.
+   * The ID of the experiment associated with the run.
+   * 
+   * @example
+   * exp-1zpfthdx******
    */
   experimentId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the run was created.
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The time when the run was last modified.
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The labels added to the run.
+   * The list of labels for the run.
    */
   labels?: RunLabel[];
   /**
    * @remarks
-   * The metrics of the run.
+   * The list of metrics for the run.
    */
   metrics?: RunMetric[];
   /**
    * @remarks
-   * Parameter
+   * Name
+   * 
+   * @example
+   * testrun
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the owner account.
+   * The ID of the owner\\"s root account.
+   * 
+   * @example
+   * 163104*****3440
    */
   ownerId?: string;
   /**
    * @remarks
-   * The hyperparameters of the run.
+   * The list of hyperparameters for the run.
    */
   params?: RunParam[];
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
    * @remarks
-   * The run ID.
+   * The unique ID of the run.
+   * 
+   * @example
+   * run-1qJhzJ2YXgX****
    */
   runId?: string;
   /**
    * @remarks
    * The ID of the source PAI workload.
+   * 
+   * @example
+   * train9s0afvjkf
    */
   sourceId?: string;
   /**
    * @remarks
    * The type of the source PAI workload.
+   * 
+   * @example
+   * TrainingService
    */
   sourceType?: string;
   /**
    * @remarks
-   * The owner ID.
+   * The ID of the owner.
    */
   userId?: string;
   /**
    * @remarks
    * The ID of the workspace to which the run belongs.
+   * 
+   * @example
+   * 145883
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

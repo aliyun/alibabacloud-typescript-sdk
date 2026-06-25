@@ -5,16 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection where the model is located. You can specify multiple collections and separate them with commas (,).
+   * The collections to which the model belongs. You can specify multiple collections. Separate them with commas (,).
    * 
    * @example
    * AI4D,QuickStart
    */
   collections?: string;
+  /**
+   * @remarks
+   * The conditions.
+   */
   conditionsShrink?: string;
   /**
    * @remarks
-   * The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
+   * The domain. This parameter is used to filter the model list by domain. Examples: nlp (natural language processing) and cv (computer vision).
    * 
    * @example
    * nlp
@@ -22,7 +26,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The label. Models whose label key or label value contains a specific label are filtered.
+   * The label string. This parameter is used to filter the list. Models are returned if their label keys or values contain the specified string.
    * 
    * @example
    * key1
@@ -30,7 +34,10 @@ export class ListModelsShrinkRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The model name used to filter the returned models.
+   * The model name. This parameter is used to filter the model list.
+   * 
+   * @example
+   * Sentiment analysis
    */
   modelName?: string;
   /**
@@ -43,10 +50,11 @@ export class ListModelsShrinkRequest extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted by the specific field on the returned page. Default value: ASC.
+   * The order in which to sort the results of a paged query. The default value is ASC.
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC: ascending order.
+   * 
+   * - DESC: descending order.
    * 
    * @example
    * DESC
@@ -54,7 +62,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The model source used to filter the models that belong to a community or organization, such as ModelScope and Hugging Face.
+   * The model source. This parameter is used to filter the model list by community or organization. Examples: ModelScope and HuggingFace.
    * 
    * @example
    * ModelScope
@@ -62,7 +70,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the model list. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -70,7 +78,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of models to display on each page in a paged query. The default value is 10.
    * 
    * @example
    * 10
@@ -78,7 +86,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The provider. If you configure this parameter, only the models exposed by the provider are returned. If you leave this parameter empty, only models owned by the user are returned.
+   * The provider. If you specify a provider, only the public models from that provider are returned. If you leave this parameter empty, your own models are returned.
    * 
    * @example
    * pai
@@ -86,7 +94,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The query condition. For example, if you set the value to nlp, all models that match ModelName, Domain, Task, LabelKey, and LabelValue are returned.
+   * The query condition. This parameter performs a fuzzy match on ModelName, Domain, Task, LabelKey, and LabelValue. For example, if you enter nlp, models that match in any of these fields are returned.
    * 
    * @example
    * nlp
@@ -94,7 +102,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The field used to sort the results. The GmtCreateTime field is used for sorting.
+   * The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is supported.
    * 
    * @example
    * GmtCreateTime
@@ -102,12 +110,15 @@ export class ListModelsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The tags of the model.
+   * The list of tags.
+   * 
+   * @example
+   * Endpoint
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The task used to filter the models that belong to the task type. Example: text-classification.
+   * The task. This parameter is used to filter the model list by task type. Example: text-classification.
    * 
    * @example
    * text-classification
@@ -115,7 +126,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   task?: string;
   /**
    * @remarks
-   * The workspace ID. Only models in this workspace are queried. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. The returned list contains only the models in the specified workspace. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 324**

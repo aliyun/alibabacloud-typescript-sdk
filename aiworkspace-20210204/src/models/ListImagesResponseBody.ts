@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesResponseBodyImagesLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * system.chipType
@@ -13,7 +13,7 @@ export class ListImagesResponseBodyImagesLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * GPU
@@ -45,10 +45,11 @@ export class ListImagesResponseBodyImagesLabels extends $dara.Model {
 export class ListImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The accessibility of the image. Valid values:
+   * The visibility of the image. Valid values:
    * 
-   * *   PUBLIC: All members can access the image.
-   * *   PRIVATE: Only the creator can access the image.
+   * - PUBLIC: All members in the current workspace can perform operations on the image.
+   * 
+   * - PRIVATE: Only the creator can perform operations on the image.
    * 
    * @example
    * PUBLIC
@@ -64,7 +65,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the image was created. The time is in UTC and the format is ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -72,7 +73,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the image was last modified. The time is in UTC and the format is ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -88,12 +89,12 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image address, which includes the version number.
+   * The image URL, which includes the version number.
    */
   imageUri?: string;
   /**
    * @remarks
-   * The image tags.
+   * The list of image labels.
    */
   labels?: ListImagesResponseBodyImagesLabels[];
   /**
@@ -106,15 +107,15 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The UID of the Alibaba Cloud account that created the image.
    * 
    * @example
-   * 15577******82932
+   * 155**********904
    */
   parentUserId?: string;
   /**
    * @remarks
-   * The image size. Unit: GB.
+   * The image size in bytes.
    * 
    * @example
    * 2
@@ -122,20 +123,20 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * 镜像来源 ID
+   * The ID of the image source.
    */
   sourceId?: string;
   /**
    * @remarks
-   * 镜像来源类型
+   * The type of the image source.
    */
   sourceType?: string;
   /**
    * @remarks
-   * The user ID.
+   * The UID of the Alibaba Cloud account that created the image.
    * 
    * @example
-   * 15577******82932
+   * 155**********904
    */
   userId?: string;
   /**
@@ -199,7 +200,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
 export class ListImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The images.
+   * The list of images.
    */
   images?: ListImagesResponseBodyImages[];
   /**

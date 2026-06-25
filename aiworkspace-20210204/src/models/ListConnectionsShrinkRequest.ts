@@ -3,29 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectionsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Visibility of the connection. Valid values:
+   * 
+   * - PUBLIC: visible to all workspace members.
+   * 
+   * - PRIVATE: visible only to the creator.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
    * @remarks
-   * The list of connection IDs.
+   * List of connection IDs to filter by.
    */
   connectionIdsShrink?: string;
   /**
    * @remarks
-   * The connection name.
+   * Connection name. Supports fuzzy matching.
+   * 
+   * @example
+   * Database connection
    */
   connectionName?: string;
   /**
    * @remarks
-   * The list of connection types.
+   * List of connection types to filter by.
    */
   connectionTypesShrink?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud account ID of the creator.
+   * 
+   * @example
+   * 12908*******3242
+   */
   creator?: string;
   /**
    * @remarks
-   * The encryption settings. Valid values:
+   * Encryption option for sensitive fields in the response. Valid values:
    * 
-   * *   PlainText
-   * *   Secret
+   * - PlainText: returns values in plaintext.
+   * 
+   * - Secret: returns values in ciphertext.
    * 
    * @example
    * PlainText
@@ -33,7 +55,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   encryptOption?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * Maximum number of entries per page.
    * 
    * @example
    * 10
@@ -41,7 +63,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The model identifier.
+   * Model identifier. Filters connections associated with this model.
    * 
    * @example
    * model_001
@@ -49,12 +71,12 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The list of model types.
+   * List of model types to filter by.
    */
   modelTypesShrink?: string;
   /**
    * @remarks
-   * The pagination token that indicates the start position from which to retrieve data on the next page.
+   * The token that marks the starting position for the next page of results.
    * 
    * @example
    * 15
@@ -62,10 +84,11 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy.
+   * Sort order. Use with the SortBy parameter. Valid values:
    * 
-   * *   ASC: ascending order.
-   * *   DESC: descending order. This is the default value.
+   * - ASC: ascending order.
+   * 
+   * - DESC (default): descending order.
    * 
    * @example
    * DESC
@@ -73,9 +96,9 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field used to sort the results in queries by page. Default value: GmtCreateTime. Valid value:
+   * Field by which to sort results. Default value: GmtCreateTime. Valid values:
    * 
-   * *   GmtCreateTime: The results are sorted by creation time. This is the default value.
+   * - GmtCreateTime (default): sorts by creation time.
    * 
    * @example
    * GmtCreateTime
@@ -83,10 +106,11 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Specifies whether a tool can be called by using ToolCall. Valid values:
+   * Whether tool calling is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: supported.
+   * 
+   * - false: not supported.
    * 
    * @example
    * true
@@ -94,7 +118,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   toolCall?: boolean;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * Workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
    * 
    * @example
    * 478**

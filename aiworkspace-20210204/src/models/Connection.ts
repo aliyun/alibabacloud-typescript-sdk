@@ -7,7 +7,10 @@ import * as $dara from '@darabonba/typescript';
 export class ConnectionModels extends $dara.Model {
   /**
    * @remarks
-   * The display name of the model.
+   * The model\\"s display name.
+   * 
+   * @example
+   * BGE model deploy.
    */
   displayName?: string;
   /**
@@ -22,9 +25,11 @@ export class ConnectionModels extends $dara.Model {
    * @remarks
    * The model type. Valid values:
    * 
-   * *   LLM
-   * *   Embedding
-   * *   ReRank
+   * - LLM (large language model)
+   * 
+   * - Embedding (Embedding model)
+   * 
+   * - ReRank (ReRank model)
    * 
    * @example
    * LLM
@@ -32,10 +37,11 @@ export class ConnectionModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Indicates whether tool calling was supported. Valid values:
+   * Indicates whether tool calling is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Supported
+   * 
+   * - false: Not supported
    * 
    * @example
    * true
@@ -69,6 +75,13 @@ export class ConnectionModels extends $dara.Model {
 }
 
 export class ConnectionResourceMeta extends $dara.Model {
+  /**
+   * @remarks
+   * Extra configuration information.
+   * 
+   * @example
+   * {"vpcId":"vpc-xxxx"}
+   */
   extra?: string;
   /**
    * @remarks
@@ -81,6 +94,9 @@ export class ConnectionResourceMeta extends $dara.Model {
   /**
    * @remarks
    * The instance name.
+   * 
+   * @example
+   * lindorm-xxxxxxx
    */
   instanceName?: string;
   static names(): { [key: string]: string } {
@@ -111,10 +127,11 @@ export class ConnectionResourceMeta extends $dara.Model {
 export class Connection extends $dara.Model {
   /**
    * @remarks
-   * The workspace accessibility. Valid values:
+   * The workspace visibility. Valid values:
    * 
-   * *   PRIVATE (default): accessible only to you and the administrator of the workspace.
-   * *   PUBLIC: accessible to all members in the workspace.
+   * - PRIVATE (default): The connection is visible only to you and administrators in the workspace.
+   * 
+   * - PUBLIC: The connection is visible to all users in the workspace.
    * 
    * @example
    * PRIVATE
@@ -122,7 +139,7 @@ export class Connection extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The connection configuration.
+   * The connection configurations.
    */
   configs?: { [key: string]: string };
   /**
@@ -135,22 +152,33 @@ export class Connection extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The connection name.
+   * The name of the connection.
+   * 
+   * @example
+   * lindorm-connection
    */
   connectionName?: string;
   /**
    * @remarks
    * The connection type. Valid values:
    * 
-   * *   DashScopeConnection
-   * *   OpenLLMConnection
-   * *   MilvusConnection
-   * *   OpenSearchConnection
-   * *   LindormConnection
-   * *   ElasticsearchConnection
-   * *   HologresConnection
-   * *   RDSConnection
-   * *   CustomConnection
+   * - DashScopeConnection: A service connection to Alibaba Cloud Model Studio.
+   * 
+   * - OpenLLMConnection: An open source model connection.
+   * 
+   * - MilvusConnection: A Milvus connection.
+   * 
+   * - OpenSearchConnection: An OpenSearch connection.
+   * 
+   * - LindormConnection: A Lindorm connection.
+   * 
+   * - ElasticsearchConnection: An Elasticsearch connection.
+   * 
+   * - HologresConnection: A Hologres connection.
+   * 
+   * - RDSConnection: An RDS connection.
+   * 
+   * - CustomConnection: A custom connection.
    * 
    * @example
    * ElasticsearchConnection
@@ -158,7 +186,7 @@ export class Connection extends $dara.Model {
   connectionType?: string;
   /**
    * @remarks
-   * The connection creator.
+   * The creator of the connection.
    * 
    * @example
    * 20925961****557803
@@ -167,11 +195,14 @@ export class Connection extends $dara.Model {
   /**
    * @remarks
    * The connection description.
+   * 
+   * @example
+   * This is a description of a database connection.
    */
   description?: string;
   /**
    * @remarks
-   * The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the connection was created. The time is in UTC and follows the ISO 8601 format.
    * 
    * @example
    * 2025-03-07T07:54:56Z
@@ -179,7 +210,7 @@ export class Connection extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the connection was last modified. The time is in UTC and follows the ISO 8601 format.
    * 
    * @example
    * 2025-03-07T07:54:56Z
@@ -187,17 +218,17 @@ export class Connection extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The models.
+   * The model list.
    */
   models?: ConnectionModels[];
   /**
    * @remarks
-   * The connection resource. This parameter is used for the connection configuration of the database type.
+   * The resource information for the connection. This usually applies to database connection configurations.
    */
   resourceMeta?: ConnectionResourceMeta;
   /**
    * @remarks
-   * The key-value configuration to be encrypted, such as the database logon password and the key for model connection.
+   * The key-value configurations to encrypt, such as database logon passwords and model connection keys.
    */
   secrets?: { [key: string]: string };
   /**

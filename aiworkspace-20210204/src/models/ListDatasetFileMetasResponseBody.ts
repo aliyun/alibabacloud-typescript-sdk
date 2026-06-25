@@ -6,7 +6,7 @@ import { DatasetFileMeta } from "./DatasetFileMeta";
 export class ListDatasetFileMetasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metadata records of the dataset files.
+   * The detailed metadata of the dataset files.
    */
   datasetFileMetas?: DatasetFileMeta[];
   /**
@@ -19,20 +19,23 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The dataset version.
+   * The version name of the dataset.
    * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The maximum number of results returned per page when you use the \\`NextToken\\` parameter.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If the number of results exceeds the maximum number of entries allowed per page, a pagination token is returned. This token can be used as an input parameter to obtain the next page of results. If all results are obtained, no token is returned.
+   * The pagination token. If the number of results that match the query exceeds the page size, this token is returned. To retrieve the next page of data, use the returned token in your next request. Repeat this process until no token is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * 90******-f5c5-4cd4-927e-1f45e1cb8b62_1729644433000
@@ -40,7 +43,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30

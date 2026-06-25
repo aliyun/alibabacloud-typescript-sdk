@@ -49,6 +49,9 @@ export class Model extends $dara.Model {
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * 最后版本更新时间。
+   * 
    * @example
    * 2021-01-21T17:12:35Z
    */
@@ -74,6 +77,9 @@ export class Model extends $dara.Model {
   /**
    * @remarks
    * The model description.
+   * 
+   * @example
+   * 情感分析。
    */
   modelDescription?: string;
   /**
@@ -95,6 +101,9 @@ export class Model extends $dara.Model {
   /**
    * @remarks
    * The model name.
+   * 
+   * @example
+   * 情感分析
    */
   modelName?: string;
   /**
@@ -130,6 +139,9 @@ export class Model extends $dara.Model {
    */
   ownerId?: string;
   /**
+   * @remarks
+   * 参数量，单位M。
+   * 
    * @example
    * 1024
    */
@@ -142,6 +154,10 @@ export class Model extends $dara.Model {
    * pai
    */
   provider?: string;
+  /**
+   * @remarks
+   * 标签列表
+   */
   tags?: Label[];
   /**
    * @remarks

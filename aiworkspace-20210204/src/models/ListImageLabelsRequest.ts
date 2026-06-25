@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The image ID. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image ID.
+   * The image ID. For more information about how to obtain an image ID, see [ListImages](https://help.aliyun.com/document_detail/449118.html).
    * 
    * @example
    * image-4c62******53uor
@@ -13,7 +13,9 @@ export class ListImageLabelsRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The tag filter conditions, separated with commas (,). The format of a single condition filter is `key=value`. Takes effect independently from LabelKeys.
+   * The filter conditions for labels. Separate multiple conditions with commas.
+   * The format for a single condition is `key=value`.
+   * This parameter works independently of the LabelKeys parameter.
    * 
    * @example
    * system.framework=XGBoost 1.6.0,system.official=true
@@ -21,7 +23,8 @@ export class ListImageLabelsRequest extends $dara.Model {
   labelFilter?: string;
   /**
    * @remarks
-   * The tag keys, separated with commas (,). System tags start with system and take effect independently from LabelFilter.
+   * The list of tag keys. Separate multiple keys with commas (,).
+   * System tags start with "system". This parameter works independently of the LabelFilter parameter.
    * 
    * @example
    * system.framework,system.official
@@ -37,7 +40,7 @@ export class ListImageLabelsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 12345

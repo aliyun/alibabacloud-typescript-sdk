@@ -22,7 +22,7 @@ export class ListModelVersionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The model versions.
+   * The list of model versions.
    */
   versions?: ModelVersion[];
   static names(): { [key: string]: string } {

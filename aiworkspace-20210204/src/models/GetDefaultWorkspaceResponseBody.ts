@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
   /**
    * @remarks
-   * The returned status code. HTTP status code 200 indicates that the request was successful. Other HTTP status codes indicate that the request failed.
+   * The status code. A value of 200 indicates that the request was successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message. If the returned status code is 200, this parameter is empty.
+   * The error message. This parameter is empty if the status code is 200.
    * 
    * @example
    * Create Failed
@@ -23,10 +23,13 @@ export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * *   CREATING: The workspace is being created.
-   * *   WORKSPACE_CREATED: The workspace is created.
-   * *   MEMBERS_ADDED: The member is added.
-   * *   ENABLED: The workspace is created and the member is added.
+   * - CREATING: Creating.
+   * 
+   * - WORKSPACE_CREATED: The workspace is created.
+   * 
+   * - MEMBERS_ADDED: Members are added.
+   * 
+   * - ENABLED: The process is complete.
    * 
    * @example
    * CREATING
@@ -60,7 +63,7 @@ export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
 export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The UID of the user.
    * 
    * @example
    * 17915******4216
@@ -68,7 +71,7 @@ export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The UID of the user.
    * 
    * @example
    * 17915******4216
@@ -110,12 +113,12 @@ export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
 export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The conditions of the default workspace in the creation process.
+   * The details about the creation stages of the default workspace.
    */
   conditions?: GetDefaultWorkspaceResponseBodyConditions[];
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account.
+   * The Alibaba Cloud account that created the workspace.
    * 
    * @example
    * 17915******4216
@@ -123,7 +126,7 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The workspace description.
+   * The description of the workspace.
    * 
    * @example
    * workspace description example
@@ -139,15 +142,16 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environments of the workspace. Valid values:
+   * The environments in the workspace.
    * 
-   * *   Workspaces in basic mode can run only in the production environment.
-   * *   Workspaces in standard mode can run in both the development and production environments.
+   * - A workspace in basic mode contains only the production (prod) environment.
+   * 
+   * - A workspace in standard mode contains the development (dev) and production (prod) environments.
    */
   envTypes?: string[];
   /**
    * @remarks
-   * The time when the workspace was created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the workspace was created. The time is in Coordinated Universal Time (UTC) and is formatted in ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -155,7 +159,7 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the workspace was modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the workspace was last modified. The time is in UTC and is formatted in ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -163,7 +167,7 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account.
+   * The Alibaba Cloud account that created the workspace.
    */
   owner?: GetDefaultWorkspaceResponseBodyOwner;
   /**
@@ -176,14 +180,19 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values:
+   * The status of the workspace. Valid values:
    * 
-   * *   ENABLED
-   * *   INITIALIZING
-   * *   FAILURE
-   * *   DISABLED
-   * *   FROZEN
-   * *   UPDATING
+   * - ENABLED: Normal.
+   * 
+   * - INITIALIZING: Initializing.
+   * 
+   * - FAILURE: Failed.
+   * 
+   * - DISABLED: Disabled.
+   * 
+   * - FROZEN: Frozen due to an overdue payment.
+   * 
+   * - UPDATING: The workspace is being updated.
    * 
    * @example
    * ENABLED
@@ -199,7 +208,7 @@ export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name, which is unique in a region.
+   * The name of the workspace. The name must be unique within the same region.
    * 
    * @example
    * workspace-example

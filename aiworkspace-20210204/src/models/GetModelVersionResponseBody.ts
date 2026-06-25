@@ -8,9 +8,11 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * @remarks
    * The approval status. Valid values:
    * 
-   * *   Pending
-   * *   Approved
-   * *   Rejected
+   * - Pending: The model is pending approval.
+   * 
+   * - Approved: The model is approved for publishing.
+   * 
+   * - Rejected: The model is rejected for publishing.
    * 
    * @example
    * Approved
@@ -24,6 +26,13 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * {}
    */
   compressionSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * The distillation configuration.
+   * 
+   * @example
+   * {}
+   */
   distillationSpec?: { [key: string]: any };
   /**
    * @remarks
@@ -35,7 +44,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   evaluationSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The additional information.
+   * Other information.
    * 
    * @example
    * {
@@ -48,16 +57,25 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * @remarks
    * The model format. Valid values:
    * 
-   * *   OfflineModel
-   * *   SavedModel
-   * *   Keras H5
-   * *   Frozen Pb
-   * *   Caffe Prototxt
-   * *   TorchScript
-   * *   XGBoost
-   * *   PMML
-   * *   AlinkModel
-   * *   ONNX
+   * - OfflineModel
+   * 
+   * - SavedModel
+   * 
+   * - Keras H5
+   * 
+   * - Frozen Pb
+   * 
+   * - Caffe Prototxt
+   * 
+   * - TorchScript
+   * 
+   * - XGBoost
+   * 
+   * - PMML
+   * 
+   * - AlinkModel
+   * 
+   * - ONNX
    * 
    * @example
    * SavedModel
@@ -67,12 +85,18 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * @remarks
    * The model framework. Valid values:
    * 
-   * *   Pytorch -XGBoost
-   * *   Keras
-   * *   Caffe
-   * *   Alink
-   * *   Xflow
-   * *   TensorFlow
+   * - Pytorch
+   *   -XGBoost
+   * 
+   * - Keras
+   * 
+   * - Caffe
+   * 
+   * - Alink
+   * 
+   * - Xflow
+   * 
+   * - TensorFlow
    * 
    * @example
    * TensorFlow
@@ -80,7 +104,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   frameworkType?: string;
   /**
    * @remarks
-   * The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the model was created. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -88,7 +112,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the model was last updated. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -96,7 +120,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Describes how to apply to downstream inference services. For example, describes the processor and container of Elastic Algorithm Service (EAS).
+   * Describes how to apply the model to a downstream inference service. For example, this can describe the processor and container for Elastic Algorithm Service (EAS).
    * 
    * @example
    * {
@@ -106,7 +130,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   inferenceSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The labels.
+   * The list of labels for the model version.
    */
   labels?: Label[];
   /**
@@ -119,7 +143,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   metrics?: { [key: string]: any };
   /**
    * @remarks
-   * The extended field. The value of this parameter is a JSON string.
+   * The extended field. This field is a JSON string.
    * 
    * @example
    * {}
@@ -145,19 +169,23 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * @remarks
    * The source ID.
    * 
-   * *   If the source type is Custom, this field is not limited.
-   * *   If the source type is PAIFlow or TrainingService, the format is:
+   * - If the source type is Custom, this field has no limits.
    * 
-   * <!---->
+   * - If the source is PAIFlow or TrainingService, the format is:
    * 
-   *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * ```
+   * region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * ```
    * 
-   * Take note of the following parameters:
+   * The parameters are:
    * 
-   * *   region is the region ID.
-   * *   workspaceId is the ID of the workspace.
-   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
-   * *   id is a unique identifier.
+   * - region: The ID of the Alibaba Cloud region.
+   * 
+   * - workspaceId: The workspace ID.
+   * 
+   * - kind: The type. Valid values: PipelineRun (PAI pipeline) and ServiceJob (training service).
+   * 
+   * - id: The unique identifier.
    * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
@@ -167,9 +195,11 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * @remarks
    * The source type of the model. Valid values:
    * 
-   * *   Custom
-   * *   PAIFlow
-   * *   TrainingService
+   * - Custom: The model is a custom model.
+   * 
+   * - PAIFlow: The model is from a PAI pipeline.
+   * 
+   * - TrainingService: The model is from a PAI training service.
    * 
    * @example
    * PAIFlow
@@ -177,7 +207,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The training configurations used for fine-tuning and incremental training.
+   * The training configuration. This is the configuration for fine-tuning and incremental training.
    * 
    * @example
    * {}
@@ -185,10 +215,11 @@ export class GetModelVersionResponseBody extends $dara.Model {
   trainingSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The URI of the model version, which is the location where the model is stored. Valid values:
+   * The URI of the model version. This is the storage location of the model. Valid values:
    * 
-   * *   The HTTP(S) address of the model. Example: `https://myweb.com/mymodel.tar.gz`.
-   * *   The Object Storage Service (OSS) path of the model, in the format of `oss://<bucket>.<endpoint>/object`. For endpoint, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
+   * - The HTTP or HTTPS URL of the model. Example: `https://myweb.com/mymodel.tar.gz`.
+   * 
+   * - If the model is stored in Object Storage Service (OSS), the format is `oss://<bucket>.<endpoint>/object`. For more information about how to configure the endpoint, see [Endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
    */
   uri?: string;
   /**
@@ -201,7 +232,10 @@ export class GetModelVersionResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version description.
+   * The description of the model version.
+   * 
+   * @example
+   * General sentiment analysis.
    */
   versionDescription?: string;
   /**

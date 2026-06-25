@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotasRequest extends $dara.Model {
   /**
    * @remarks
-   * The quota name. Fuzzy search is supported.
+   * The name of the resource quota. Fuzzy search is supported.
    * 
    * @example
    * quota-name

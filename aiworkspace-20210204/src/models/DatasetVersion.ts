@@ -6,7 +6,7 @@ import { Label } from "./Label";
 export class DatasetVersion extends $dara.Model {
   /**
    * @remarks
-   * DataCount
+   * The total number of data items in the version.
    * 
    * @example
    * 10000
@@ -14,7 +14,7 @@ export class DatasetVersion extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * DataSize
+   * The total size of the data in the version, in bytes.
    * 
    * @example
    * 10000
@@ -22,7 +22,7 @@ export class DatasetVersion extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * DataSourceType
+   * The data source type. For example, the value `OSS` indicates Object Storage Service.
    * 
    * @example
    * OSS
@@ -30,7 +30,7 @@ export class DatasetVersion extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * Description
+   * A custom description for the dataset version.
    * 
    * @example
    * base model v1
@@ -38,7 +38,7 @@ export class DatasetVersion extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * create time
+   * The creation time of the dataset version, in UTC.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -46,7 +46,7 @@ export class DatasetVersion extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * modify time
+   * The time the dataset version was last modified, in UTC.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -54,7 +54,7 @@ export class DatasetVersion extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * ImportInfo
+   * Information about the import source, in JSON format.
    * 
    * @example
    * {
@@ -68,12 +68,12 @@ export class DatasetVersion extends $dara.Model {
   importInfo?: string;
   /**
    * @remarks
-   * Labels
+   * A list of labels applied to the dataset version.
    */
   labels?: Label[];
   /**
    * @remarks
-   * MountAccess
+   * The access permission for the mounted dataset. For example, `RO` means read-only.
    * 
    * @example
    * RO
@@ -81,7 +81,7 @@ export class DatasetVersion extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * Options
+   * Additional configurations for the dataset version, in JSON format.
    * 
    * @example
    * {
@@ -91,7 +91,7 @@ export class DatasetVersion extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * property
+   * The data format of the dataset.
    * 
    * @example
    * FILE
@@ -99,7 +99,7 @@ export class DatasetVersion extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * SourceId
+   * The ID of the source from which the version was created.
    * 
    * @example
    * d-65mrsr5fub4u74lej3
@@ -107,7 +107,7 @@ export class DatasetVersion extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * SourceType
+   * The method used to create the dataset version.
    * 
    * @example
    * USER
@@ -115,7 +115,7 @@ export class DatasetVersion extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Uri
+   * The URI of the data source.
    * 
    * @example
    * OSS://xxx
@@ -123,7 +123,7 @@ export class DatasetVersion extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * version name
+   * The name of the dataset version.
    * 
    * @example
    * v1

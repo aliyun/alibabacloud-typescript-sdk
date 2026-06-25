@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class Relationship extends $dara.Model {
   /**
    * @remarks
-   * Attributes
+   * A collection of key-value pairs providing additional details about the relationship.
    */
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * DataChannel
+   * The channel or system through which the relationship is established.
    */
   dataChannel?: string;
   /**
    * @remarks
-   * RelationshipGuid
+   * The globally unique identifier (GUID) for the relationship.
    */
   relationshipGuid?: string;
   /**
    * @remarks
-   * RelationshipType
+   * Specifies the type of relationship.
    */
   relationshipType?: string;
   static names(): { [key: string]: string } {

@@ -16,7 +16,7 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * 1234
+   * 12**
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

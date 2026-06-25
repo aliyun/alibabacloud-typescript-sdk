@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageResponseBodyLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * system.chipType
@@ -13,7 +13,7 @@ export class GetImageResponseBodyLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * GPU
@@ -45,10 +45,11 @@ export class GetImageResponseBodyLabels extends $dara.Model {
 export class GetImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The accessibility of the image. Valid values:
+   * The visibility of the image. Valid values:
    * 
-   * *   PUBLIC: All members can access the workspace.
-   * *   PRIVATE: Only the creator can access the workspace.
+   * - PUBLIC: All members in the current workspace can perform operations on the image.
+   * 
+   * - PRIVATE: Only the creator can perform operations on the image.
    * 
    * @example
    * PUBLIC
@@ -56,12 +57,15 @@ export class GetImageResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The image description.
+   * The description of the image.
+   * 
+   * @example
+   * NLP model compression training image
    */
   description?: string;
   /**
    * @remarks
-   * The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the image was created. The time is in UTC and the format is ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -69,7 +73,7 @@ export class GetImageResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the image was last modified. The time is in UTC and the format is ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -77,7 +81,7 @@ export class GetImageResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The image address, which contains the version number.
+   * The URL of the image, including the version number.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.******ession/nlp:gpu
@@ -85,12 +89,13 @@ export class GetImageResponseBody extends $dara.Model {
   imageUri?: string;
   /**
    * @remarks
-   * The image tags, which are of the array data type. Each element in the array contains a key-value pair. The key of official tags is system.official and the tag value is true.
+   * A list of image labels. This is an array. Each item in the array contains a Key and a Value field.
+   * Official images have the following label: the key is system.official and the value is true.
    */
   labels?: GetImageResponseBodyLabels[];
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * nlp-compression
@@ -114,7 +119,7 @@ export class GetImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The size of the image. Unit: GB.
+   * The size of the image in bytes.
    * 
    * @example
    * 10
@@ -122,17 +127,17 @@ export class GetImageResponseBody extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * 镜像来源 ID
+   * The ID of the image source.
    */
   sourceId?: string;
   /**
    * @remarks
-   * 镜像来源类型
+   * The type of the image source.
    */
   sourceType?: string;
   /**
    * @remarks
-   * The user ID of the image.
+   * The UID of the user who created the image.
    * 
    * @example
    * 15577******8921
@@ -140,7 +145,7 @@ export class GetImageResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace to which the image belongs.
    * 
    * @example
    * 15945

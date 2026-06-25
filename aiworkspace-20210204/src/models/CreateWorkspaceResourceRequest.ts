@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The key of the tag.
    * 
    * @example
    * system.support.eas
@@ -13,7 +13,7 @@ export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the tag.
    * 
    * @example
    * true
@@ -45,7 +45,8 @@ export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
 export class CreateWorkspaceResourceRequestResourcesQuotas extends $dara.Model {
   /**
    * @remarks
-   * The quota ID. You can call [ListQuotas](https://help.aliyun.com/document_detail/449144.html) to obtain the quota ID.
+   * The ID of the resource quota. To obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/449144.html). This parameter is required only for subscription MaxCompute resources.
+   * For ECS, Lingjun, and ACS resources, you do not need to specify this parameter. Their quota information is configured in the `Spec` parameter.
    * 
    * @example
    * 232892******92912
@@ -77,8 +78,9 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
    * @remarks
    * The environment type. Valid values:
    * 
-   * *   dev: development environment
-   * *   prod: production environment
+   * - `dev`: development environment
+   * 
+   * - `prod`: production environment
    * 
    * This parameter is required.
    * 
@@ -88,7 +90,7 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The name of the resource group, which is unique within your Alibaba Cloud account. This parameter is required for MaxCompute, Elastic Compute Service (ECS), Lingjun, Alibaba Cloud Container Compute Service (ACS), and Realtime Compute for Apache Flink resources.
+   * The name of the resource group. The name must be unique within an Alibaba Cloud account. This parameter is required for MaxCompute, ECS, Lingjun, ACS, and Flink resources.
    * 
    * @example
    * groupName
@@ -96,10 +98,11 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+   * Indicates whether this is the default resource for its type. Each resource type can have only one default resource.
    * 
-   * *   false (default)
-   * *   true
+   * - `false` (default): The resource is not the default resource.
+   * 
+   * - `true`: The resource is the default resource.
    * 
    * @example
    * false
@@ -107,15 +110,18 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The labels added to the resource.
+   * An array of resource tags.
    */
   labels?: CreateWorkspaceResourceRequestResourcesLabels[];
   /**
    * @remarks
    * The resource name. The name must meet the following requirements:
    * 
-   * *   The name must be 3 to 28 characters in length, and can contain only letters, digits, and underscores (_). The name must start with a letter.
-   * *   The name must be unique in the region.
+   * - Must be 3 to 28 characters long, start with a letter, and can contain only letters, digits, and underscores (_).
+   * 
+   * - Must be unique within the same region.
+   * 
+   * - If `Option` is set to `Attach` and `ResourceType` is set to `MaxCompute`, this parameter specifies the project name.
    * 
    * This parameter is required.
    * 
@@ -125,7 +131,7 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * **This parameter is no longer used and will be removed. Use the ResourceType parameter instead.
+   * **[Deprecated]** This parameter is deprecated and will be removed in a future version. Use the `ResourceType` parameter instead.
    * 
    * @example
    * MaxCompute
@@ -133,18 +139,28 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The quotas. Only MaxCompute quotas are available.
+   * The resource quotas. Currently, only MaxCompute resources have resource quotas.
    */
   quotas?: CreateWorkspaceResourceRequestResourcesQuotas[];
   /**
    * @remarks
-   * The resource types. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   MaxCompute
-   * *   ECS
-   * *   Lingjun
-   * *   ACS
-   * *   FLINK
+   * - `MaxCompute`: MaxCompute resources
+   * 
+   * - `ECS`: general-purpose computing resources
+   * 
+   * - `Lingjun`: Lingjun intelligent computing resources
+   * 
+   * - `ACS`: ACS computing resources
+   * 
+   * - `Flink`: Flink resources
+   * 
+   * - `SelfManagedAckPro`: unified managed cluster resource (AckPro)
+   * 
+   * - `SelfManagedAckLingjun`: unified managed cluster resource (AckLingjun)
+   * 
+   * - `SelfManagedASI`: unified managed cluster resource for third-party clouds (ASI)
    * 
    * @example
    * MaxCompute
@@ -152,12 +168,31 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource specifications in the JSON format.
+   * The resource specification in JSON format. For ECS and Lingjun resources, the format is as follows:
+   * {<br>
+   * "clusterType": "The type of the cluster",
+   * "resourceId": "The ID of the quota",
+   * "resourceName": "The name of the quota"
+   * }
+   * The `clusterType` parameter can have the following values:<br>
+   * 
+   * - `share`: shared resource group
+   * 
+   * - `private`: dedicated resource group
+   * 
+   * - `FullyManaged`: fully managed ACS resource
+   * 
+   * @example
+   * {
+   *         "clusterType": "private",
+   *         "resourceId": "quota1c******b4",
+   *         "resourceName": "unif******90"
+   *       }
    */
   spec?: { [key: string]: any };
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace to which the resource belongs. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 
@@ -216,12 +251,13 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
 export class CreateWorkspaceResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform. Valid values:
+   * The creation behavior. Valid values:
    * 
-   * *   CreateAndAttach: creates resources and associates the resources with a workspace.
-   * *   Attach: associates resources with a workspace.
+   * - `CreateAndAttach`: Creates a resource and attaches it to the workspace.
    * 
-   * >  MaxCompute supports only the Attach operation.
+   * - `Attach`: Attaches an existing resource to the workspace. This option requires you to specify the `Name`, `ResourceType`, `GroupName`, and `EnvType` parameters.
+   * 
+   * > MaxCompute resources only support the `Attach` option.
    * 
    * @example
    * CreateAndAttach
@@ -229,7 +265,7 @@ export class CreateWorkspaceResourceRequest extends $dara.Model {
   option?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    * 
    * This parameter is required.
    */

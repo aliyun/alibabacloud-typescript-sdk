@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageLabelsResponseBodyLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * system.chipType
@@ -13,7 +13,7 @@ export class ListImageLabelsResponseBodyLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * GPU
@@ -45,7 +45,7 @@ export class ListImageLabelsResponseBodyLabels extends $dara.Model {
 export class ListImageLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image tags.
+   * The list of image labels.
    */
   labels?: ListImageLabelsResponseBodyLabels[];
   /**
@@ -58,7 +58,7 @@ export class ListImageLabelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the images that meet the filter conditions.
+   * The total number of image labels that meet the filter conditions.
    * 
    * @example
    * 2

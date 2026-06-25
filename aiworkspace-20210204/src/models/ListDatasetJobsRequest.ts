@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset version name.
+   * The name of the dataset version.
    * 
    * @example
    * v1
@@ -13,16 +13,27 @@ export class ListDatasetJobsRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The action to be performed on the job.
+   * The job action.
    * 
    * @example
    * SemanticIndex
    */
   jobAction?: string;
+  /**
+   * @remarks
+   * The order in which to sort the results. This parameter is used with `SortBy`. Default: DESC.
+   * 
+   * - ASC: ascending order.
+   * 
+   * - DESC: descending order.
+   * 
+   * @example
+   * DESC
+   */
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages are 1-indexed. Default: 1.
    * 
    * @example
    * 1
@@ -36,12 +47,26 @@ export class ListDatasetJobsRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The field by which to sort the results. By default, the results are sorted by `CreateTime` in descending order.
+   * 
+   * @example
+   * CreateTime
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The job status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   withLogs?: boolean;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace. To obtain this ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 1234

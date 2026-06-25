@@ -13,12 +13,15 @@ export class CreateProductOrdersResponseBody extends $dara.Model {
   buyProductRequestId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the purchase.
+   * 
+   * @example
+   * Normal
    */
   message?: string;
   /**
    * @remarks
-   * The purchase order ID.
+   * The ID of the purchase order.
    * 
    * @example
    * 210292536260646

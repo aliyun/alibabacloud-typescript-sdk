@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset version.
+   * The name of the dataset version.
    * 
    * @example
    * v1
@@ -13,18 +13,27 @@ export class CreateDatasetJobRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The job description.
+   * The description.
+   * 
+   * @example
+   * This is a job description.
    */
   description?: string;
   /**
    * @remarks
-   * The job action.
+   * The task operation.
    * 
-   * Valid values:
+   * - SemanticIndex: semantic index
    * 
-   * *   SemanticIndex
-   * *   IntelligentTag
-   * *   FileMetaExport
+   * - IntelligentTag: intelligent tagging
+   * 
+   * - FileMetaExport: metadata export
+   * 
+   * - FileMetaBuild: build and update metadata
+   * 
+   * - IntelligentTagRevert: revoke intelligent tagging
+   * 
+   * - FileMetaImport: metadata import
    * 
    * This parameter is required.
    * 
@@ -34,11 +43,11 @@ export class CreateDatasetJobRequest extends $dara.Model {
   jobAction?: string;
   /**
    * @remarks
-   * The job mode.
+   * The task type.
    * 
-   * Valid values:
+   * - Full (default): forces the processing of all metadata. This task takes a long time to execute.
    * 
-   * *   Full: full mode.
+   * - Increment: processes only changed or unsuccessfully processed metadata. The SemanticIndex and IntelligentTag tasks support Increment and Full. Other tasks support only Full.
    * 
    * @example
    * Full
@@ -46,7 +55,7 @@ export class CreateDatasetJobRequest extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The task details.
    * 
    * This parameter is required.
    * 
@@ -56,7 +65,7 @@ export class CreateDatasetJobRequest extends $dara.Model {
   jobSpec?: string;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

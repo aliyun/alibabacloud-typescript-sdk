@@ -5,29 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class RunLabel extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * Time when the label was created
    */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modified time.
+   * Time when the label was last modified
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The label key.
+   * Key of the label
    * 
    * This parameter is required.
    */
   key?: string;
   /**
    * @remarks
-   * The ID of the run.
+   * ID of the Run that owns this label
    */
   runId?: string;
   /**
    * @remarks
-   * The label value.
+   * Value of the label
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
-   * The names of the administrator accounts.
+   * The list of administrator account names.
    */
   adminNames?: string[];
   /**
@@ -18,20 +18,21 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The workspace description.
    * 
    * @example
    * workspace description example
    */
   description?: string;
+  displayName?: string;
   /**
    * @remarks
-   * The environment types of the workspace.
+   * The list of environments in the workspace.
    */
   envTypes?: string[];
   /**
    * @remarks
-   * the additional information. Only contains TenantId.
+   * The extended information. Currently, this includes TenantId, which represents the tenant ID.
    * 
    * @example
    * {"TenantId": "4286******98"}
@@ -39,7 +40,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   extraInfos?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the workspace was created. The time (UTC+0) follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss.SSSZ format.
+   * The time when the workspace was created. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -47,7 +48,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the workspace was modified. The time (UTC+0) follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ss.SSSZ format.
+   * The time when the workspace was last modified. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -63,7 +64,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The status of the workspace.
+   * The workspace status.
    * 
    * @example
    * ENABLED
@@ -79,7 +80,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * workspace-example
@@ -98,6 +99,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       adminNames: 'AdminNames',
       creator: 'Creator',
       description: 'Description',
+      displayName: 'DisplayName',
       envTypes: 'EnvTypes',
       extraInfos: 'ExtraInfos',
       gmtCreateTime: 'GmtCreateTime',
@@ -115,6 +117,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       adminNames: { 'type': 'array', 'itemType': 'string' },
       creator: 'string',
       description: 'string',
+      displayName: 'string',
       envTypes: { 'type': 'array', 'itemType': 'string' },
       extraInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreateTime: 'string',
@@ -156,15 +159,15 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type and quantity of resources that can be activated in a workspace. This list is returned when the Option is set to GetResourceLimits. Valid values:
-   * 
-   * *   MaxCompute_share: pay-as-you-go MaxCompute
-   * *   MaxCompute_isolate: subscription MaxCompute
-   * *   DLC_share: pay-as-you-go DLC
-   * *   PAI_Isolate: subscription PAI
-   * *   PAI_share: pay-as-you-go PAI
-   * *   DataWorks_isolate: subscription DataWorks
-   * *   DataWorks_share: pay-as-you-go DataWorks
+   * The resource types and quantity limits that a user can activate within a workspace. This list is returned when Option is set to GetResourceLimits.
+   * Currently supported resource types include:
+   * * MaxCompute_share: MaxCompute pay-as-you-go.
+   * * MaxCompute_isolate: MaxCompute subscription.
+   * * DLC_share: DLC pay-as-you-go.
+   * * PAI_isolate: PAI subscription.
+   * * PAI_share: PAI pay-as-you-go.
+   * * DataWorks_isolate: DataWorks subscription.
+   * * DataWorks_share: DataWorks pay-as-you-go.
    * 
    * @example
    * {
@@ -176,7 +179,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   resourceLimits?: { [key: string]: any };
   /**
    * @remarks
-   * The number of workspaces that meet the query conditions.
+   * The total number of workspaces that match the query conditions.
    * 
    * @example
    * 1

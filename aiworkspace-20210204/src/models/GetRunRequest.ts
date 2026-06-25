@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRunRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to obtain the Metrics, Params, and Labels information. Default value: false.
+   * Specifies whether to get information about metrics, parameters, and labels. This parameter is optional. The default value is false.
    * 
    * @example
    * true

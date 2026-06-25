@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetJobConfig extends $dara.Model {
   /**
    * @remarks
-   * The content of the dataset job configuration, in the JSON format.
+   * The content of the dataset job configuration, in JSON format.
    * 
    * @example
    * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
@@ -21,7 +21,7 @@ export class DatasetJobConfig extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The time when the dataset job was created.
+   * The creation time of the dataset job configuration.
    * 
    * @example
    * 2025-01-14T01:37:37Z
@@ -29,7 +29,7 @@ export class DatasetJobConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the dataset job configuration.
+   * The unique ID for the dataset job configuration.
    * 
    * @example
    * dscfg-xxxxxxxxxxxx
@@ -38,7 +38,7 @@ export class DatasetJobConfig extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The time when the dataset job was modified.
+   * The last modification time of the dataset job configuration.
    * 
    * @example
    * 2024-10-11T02:18:54Z
@@ -46,7 +46,7 @@ export class DatasetJobConfig extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 234*34

@@ -5,14 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * Aggregates statistics based on the specified metadata field. The value is not case-sensitive. If not specified, the total number of dataset file metadata will be returned, instead of aggregation lists. Valid values:
+   * The metadata field used for statistical aggregation. The value is not case-sensitive. If you do not specify this parameter, the total number of file metadata entries in the dataset is returned, and the aggregation list is not returned.
+   * Valid values:
    * 
-   * *   filedir: the directory path of the file
-   * *   file_type: the file type
-   * *   tags.user: user-defined tag
-   * *   tags.user-delete-ai-tags: algorithm tags deleted by the user
-   * *   tags.ai: algorithm tags (aggregated by all tagging tasks)
-   * *   tags.all: algorithm tags and user-defined tags (excluding alogorithm tags deleted by the user)
+   * - filedir: The directory path of the file.
+   * 
+   * - filetype: The file type.
+   * 
+   * - tags.user: Custom user tags.
+   * 
+   * - tags.user-delete-ai-tags: Algorithm tags deleted by the user.
+   * 
+   * - tags.ai: Algorithm tags that are aggregated from all labeling tasks.
+   * 
+   * - tags.all: A combination of algorithm tags and custom user tags, excluding any algorithm tags deleted by the user.
    * 
    * @example
    * filedir
@@ -20,7 +26,7 @@ export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   aggregateBy?: string;
   /**
    * @remarks
-   * The dataset version.
+   * The name of the dataset version.
    * 
    * This parameter is required.
    * 
@@ -30,7 +36,7 @@ export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The maximum number of results to be returned from a single query when the NextToken parameter is used in the query. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of results to return for each query that uses the NextToken parameter. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -38,7 +44,7 @@ export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

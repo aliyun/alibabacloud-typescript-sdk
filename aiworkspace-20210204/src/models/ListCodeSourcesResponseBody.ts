@@ -6,7 +6,7 @@ import { CodeSourceItem } from "./CodeSourceItem";
 export class ListCodeSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code sources.
+   * A list of code source configurations.
    */
   codeSources?: CodeSourceItem[];
   /**
@@ -19,7 +19,7 @@ export class ListCodeSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of code sources that meet the filter conditions.
+   * The total number of code source configurations that meet the filter conditions.
    * 
    * @example
    * 2

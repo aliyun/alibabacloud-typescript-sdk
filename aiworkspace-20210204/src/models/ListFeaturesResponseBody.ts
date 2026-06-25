@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFeaturesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of features.
+   */
   features?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of features.
+   * 
    * @example
    * 2
    */

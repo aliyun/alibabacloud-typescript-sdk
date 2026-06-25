@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * value1
@@ -45,13 +45,17 @@ export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The key of the configuration item. Supported keys:
+   * The key of the configuration item. The following keys are supported:
    * 
-   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-   * *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-   * *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
-   * *   predefinedTags: The predefined tags of the workspace. All created resources must have tags
+   * - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
+   * 
+   * - isAutoRecycle: The automatic recycling configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
+   * 
+   * - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * 
+   * - quotaMaximumDuration: The configuration for the maximum runtime of a DLC task in a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
+   * 
+   * - predefinedTags: The predefined labels for the workspace. Resources that you create must have these labels.
    * 
    * @example
    * tempTableLifecycle
@@ -69,7 +73,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The tags of the configuration item.
+   * The list of labels for the configuration item.
    */
   labels?: ListConfigsResponseBodyConfigsLabels[];
   static names(): { [key: string]: string } {
@@ -107,12 +111,12 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
 export class ListConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration items.
+   * The list of configuration items.
    */
   configs?: ListConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A******C83E
@@ -120,7 +124,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of items returned.
+   * The total number of entries returned.
    * 
    * @example
    * 15

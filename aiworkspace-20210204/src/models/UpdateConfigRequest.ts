@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigRequestLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class UpdateConfigRequestLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * value1
@@ -45,14 +45,19 @@ export class UpdateConfigRequestLabels extends $dara.Model {
 export class UpdateConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the configuration item. Valid values:
+   * The classification of the configuration item. The following classifications are supported:
    * 
-   * *   CommonResourceConfig
-   * *   DLCAutoRecycle
-   * *   DLCPriorityConfig
-   * *   DSWPriorityConfig
-   * *   QuotaMaximumDuration
-   * *   CommonTagConfig
+   * - CommonResourceConfig: The common resource configuration.
+   * 
+   * - DLCAutoRecycle: The DLC auto-recycle configuration.
+   * 
+   * - DLCPriorityConfig: The DLC priority settings.
+   * 
+   * - DSWPriorityConfig: The DSW priority settings.
+   * 
+   * - QuotaMaximumDuration: The maximum runtime of a DLC task for a quota.
+   * 
+   * - CommonTagConfig: The tag settings.
    * 
    * @example
    * CommonResourceConfig
@@ -60,13 +65,17 @@ export class UpdateConfigRequest extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item. Valid values:
+   * The key of the configuration item. The following keys are supported:
    * 
-   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-   * *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-   * *   priorityConfig: Priority configuration. This key can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
-   * *   predefinedTags: Preset tags of the workspace. Created resources must include tags.
+   * - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
+   * 
+   * - isAutoRecycle: The auto-recycle configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
+   * 
+   * - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * 
+   * - quotaMaximumDuration: The maximum runtime of a DLC task for a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
+   * 
+   * - predefinedTags: The predefined tags for the workspace. Created resources must have these tags.
    * 
    * @example
    * tempStoragePath
@@ -82,7 +91,7 @@ export class UpdateConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The tags of the configuration item.
+   * The list of labels for the configuration item.
    */
   labels?: UpdateConfigRequestLabels[];
   static names(): { [key: string]: string } {

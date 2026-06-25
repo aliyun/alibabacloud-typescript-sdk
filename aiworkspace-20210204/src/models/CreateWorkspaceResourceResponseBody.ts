@@ -43,7 +43,7 @@ export class CreateWorkspaceResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * A list of resources.
    */
   resources?: CreateWorkspaceResourceResponseBodyResources[];
   /**

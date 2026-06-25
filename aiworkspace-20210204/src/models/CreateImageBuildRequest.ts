@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   /**
    * @remarks
+   * The build type. The following types are supported:
+   * 
+   * - **PackageInstallation**: Installs software packages based on a specified image.
+   * 
+   * - **CustomDockerfile**: Builds an image based on a custom Dockerfile.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +19,7 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
-   * Dockerfile文件内容
+   * The content of the Dockerfile to be built.
    * 
    * This parameter is required.
    * 
@@ -23,6 +29,9 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
    */
   dockerfile?: string;
   /**
+   * @remarks
+   * The authentication information for the private image repository. You can specify the authentication information for an ACR image repository that does not belong to you. The format is \\`{"user_registry_domain":{"Auth":"base64 encoded auth"}}\\`.
+   * 
    * @example
    * {
    *   "user-test-registry-vpc.cn-wulanchabu.cr.aliyuncs.com": {
@@ -61,11 +70,17 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
 
 export class CreateImageBuildRequestImageLabels extends $dara.Model {
   /**
+   * @remarks
+   * The key of the image label.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the image label.
+   * 
    * @example
    * value1
    */
@@ -94,10 +109,29 @@ export class CreateImageBuildRequestImageLabels extends $dara.Model {
 }
 
 export class CreateImageBuildRequestImage extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the image.
+   * 
+   * @example
+   * Build test image
+   */
   description?: string;
+  /**
+   * @remarks
+   * The image labels.
+   */
   labels?: CreateImageBuildRequestImageLabels[];
   /**
    * @remarks
+   * The name of the image. The name must meet the following requirements:
+   * 
+   * - The name must be 1 to 50 characters in length.
+   * 
+   * - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
+   * 
+   * - The name must be unique within the same workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -106,6 +140,8 @@ export class CreateImageBuildRequestImage extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The image URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -144,11 +180,17 @@ export class CreateImageBuildRequestImage extends $dara.Model {
 
 export class CreateImageBuildRequestResourceResourceConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 4
    */
   CPU?: string;
   /**
+   * @remarks
+   * The memory size.
+   * 
    * @example
    * 8Gi
    */
@@ -179,19 +221,29 @@ export class CreateImageBuildRequestResourceResourceConfig extends $dara.Model {
 export class CreateImageBuildRequestResource extends $dara.Model {
   /**
    * @remarks
-   * 后付费资源规格
+   * The instance type of the pay-as-you-go resource. This parameter is required when you use the public resource group.
    * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
+  /**
+   * @remarks
+   * The resource configuration. Specify this parameter when you use subscription resources. Leave it empty when you use the public resource group.
+   */
   resourceConfig?: CreateImageBuildRequestResourceResourceConfig;
   /**
+   * @remarks
+   * The resource quota ID. This parameter applies only to subscription resources. Do not set this parameter for pay-as-you-go resources.
+   * 
    * @example
    * quotaadzoqup693z
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The type of the subscription resource. Currently, only Lingjun resources are supported. Specify this parameter when you use subscription resources.
+   * 
    * @example
    * Lingjun
    */
@@ -228,12 +280,17 @@ export class CreateImageBuildRequestResource extends $dara.Model {
 
 export class CreateImageBuildRequestTargetRegistry extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the image repository instance. This parameter is required when you use ACR as the image repository.
+   * 
    * @example
    * cri-**abcd
    */
   instanceId?: string;
   /**
    * @remarks
+   * The type of the target image repository. Only ACR Enterprise Edition is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -266,7 +323,9 @@ export class CreateImageBuildRequestTargetRegistry extends $dara.Model {
 export class CreateImageBuildRequestUserVpc extends $dara.Model {
   /**
    * @remarks
-   * 默认路由网卡出口
+   * The default route.
+   * 
+   * - eth1: Indicates that the user\\"s elastic network interface (ENI) is used to access the external network through a private gateway. For more information, see [Configure a Distribution Switch (DSW) instance to access the Internet through a private NAT gateway](https://help.aliyun.com/zh/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway?spm=a2c4g.11186623.0.0.3b3965f6SZWm85).
    * 
    * @example
    * eth1
@@ -274,12 +333,16 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
   defaultRoute?: string;
   /**
    * @remarks
-   * 扩展网段
+   * The extended CIDR blocks.
+   * 
+   * - If you do not specify a vSwitch ID, you can leave this parameter empty. The system automatically obtains all CIDR blocks of the VPC.
+   * 
+   * - If you specify a vSwitch ID, you must specify this parameter. For best results, include all CIDR blocks of the VPC.
    */
   extendedCidrs?: string[];
   /**
    * @remarks
-   * 安全组 ID
+   * The security group ID. This parameter is required when you configure a VPC.
    * 
    * @example
    * sg-abcdef**
@@ -287,7 +350,7 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * 交换机 ID
+   * The vSwitch ID. This parameter is optional.
    * 
    * @example
    * vs-abcdef**
@@ -295,7 +358,7 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * 专有网络 ID
+   * The VPC ID. If the build task needs to access your ACR Enterprise Edition instance, specify a VPC that is in the access control list of the instance.
    * 
    * @example
    * vpc-abcdef**
@@ -334,10 +397,21 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
 }
 
 export class CreateImageBuildRequest extends $dara.Model {
+  /**
+   * @remarks
+   * An idempotence token.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   /**
    * @remarks
-   * 镜像构建的可见性，可能值： - PUBLIC：当前工作空间所有成员都可以操作。 - PRIVATE：只有创建者可以操作。
+   * The visibility of the image.
+   * 
+   * - **PUBLIC**: The image is public.
+   * 
+   * - **PRIVATE**: The image is private.
    * 
    * @example
    * PUBLIC
@@ -345,51 +419,61 @@ export class CreateImageBuildRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * 构建配置，指定待构建的 Dockerfile 文件内容。
+   * **The build configuration. Specify the content of the Dockerfile to be built.**
    * 
    * This parameter is required.
    */
   buildConfig?: CreateImageBuildRequestBuildConfig;
   /**
    * @remarks
+   * The metadata of the image.
+   * 
    * This parameter is required.
    */
   image?: CreateImageBuildRequestImage;
   /**
+   * @remarks
+   * The name of the image build task.
+   * 
    * @example
    * build-my-image
    */
   imageBuildJobName?: string;
   /**
    * @remarks
-   * 是否覆盖更新 ACR 镜像仓库中已存在的镜像 tag。
+   * Specifies whether to overwrite an existing image version in the image repository.
    */
   overwriteImageTag?: boolean;
   /**
    * @remarks
-   * 代表region的资源属性字段
+   * The region ID.
+   * 
+   * @example
+   * cn-wulanchabu
    */
   regionId?: string;
   /**
    * @remarks
-   * 构建任务运行资源
+   * The resources used to run the task.
    * 
    * This parameter is required.
    */
   resource?: CreateImageBuildRequestResource;
   /**
    * @remarks
+   * **The configuration of the target image repository.**
+   * 
    * This parameter is required.
    */
   targetRegistry?: CreateImageBuildRequestTargetRegistry;
   /**
    * @remarks
-   * 用户专有网络信息。使用企业版 ACR 实例时，此参数必填，指定在用户 ACR 实例的访问控制里已添加的专有网络。
+   * The information about the user\\"s virtual private cloud (VPC). This parameter is required when you use the public resource group.
    */
   userVpc?: CreateImageBuildRequestUserVpc;
   /**
    * @remarks
-   * 镜像构建所属的工作空间ID。
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

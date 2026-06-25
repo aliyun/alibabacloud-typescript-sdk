@@ -14,7 +14,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The code commit ID.
+   * The commit ID.
    * 
    * @example
    * 3a6*****
@@ -22,7 +22,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeCommit?: string;
   /**
    * @remarks
-   * The address of the code repository.
+   * The URL of the code repository.
    * 
    * @example
    * https://code.aliyun.com/******
@@ -30,7 +30,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The access token corresponding to the username.
+   * The access token for the username.
    * 
    * @example
    * ***
@@ -38,7 +38,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username used to access the code repository.
+   * The username for the code repository.
    * 
    * @example
    * demo-user
@@ -46,12 +46,15 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The description of the code build.
+   * The description of the code source.
+   * 
+   * @example
+   * Training code for XX
    */
   description?: string;
   /**
    * @remarks
-   * The name of the code build.
+   * The name of the code source.
    * 
    * @example
    * MyCodeSource1

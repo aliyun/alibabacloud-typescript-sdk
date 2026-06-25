@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetJob extends $dara.Model {
   /**
    * @remarks
-   * The number of completed files.
+   * The total number of completed files.
    * 
    * @example
    * 990
@@ -13,7 +13,7 @@ export class DatasetJob extends $dara.Model {
   completedFileCount?: number;
   /**
    * @remarks
-   * The job creation time (UTC).
+   * The time when the job was created (UTC).
    * 
    * @example
    * 2023-06-20T04:05:59Z
@@ -38,11 +38,14 @@ export class DatasetJob extends $dara.Model {
   /**
    * @remarks
    * The job description.
+   * 
+   * @example
+   * 这是一个数据集任务描述。
    */
   description?: string;
   /**
    * @remarks
-   * The number of failed files.
+   * The total number of failed files.
    * 
    * @example
    * 10
@@ -50,7 +53,7 @@ export class DatasetJob extends $dara.Model {
   failedFileCount?: number;
   /**
    * @remarks
-   * The job finish time (UTC).
+   * The time when the job was finished (UTC).
    * 
    * @example
    * 2023-06-20T06:03:48Z
@@ -58,7 +61,7 @@ export class DatasetJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The job action.
+   * The job operation.
    * 
    * @example
    * SemanticIndex
@@ -68,17 +71,13 @@ export class DatasetJob extends $dara.Model {
    * @remarks
    * The job mode.
    * 
-   * Valid value:
-   * 
-   * *   Full
-   * 
    * @example
    * Full
    */
   jobMode?: string;
   /**
    * @remarks
-   * The job details.
+   * The job specifications.
    * 
    * @example
    * {\\"modelId\\":\\"xxx\\"}
@@ -86,7 +85,7 @@ export class DatasetJob extends $dara.Model {
   jobSpec?: string;
   /**
    * @remarks
-   * The job logs.
+   * A list of task logs.
    */
   logs?: string[];
   /**
@@ -99,7 +98,7 @@ export class DatasetJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of job files.
+   * The total number of files for the job.
    * 
    * @example
    * 1000

@@ -4,6 +4,10 @@ import { DatasetShareRelationship } from "./DatasetShareRelationship";
 
 
 export class UpdateDatasetRequestSharingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The sharing relationships of the dataset.
+   */
   sharedTo?: DatasetShareRelationship[];
   static names(): { [key: string]: string } {
     return {
@@ -30,26 +34,55 @@ export class UpdateDatasetRequestSharingConfig extends $dara.Model {
 }
 
 export class UpdateDatasetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility of the dataset in the workspace. Valid values:
+   * 
+   * - `PRIVATE` (default): The dataset is visible only to its owner and administrators.
+   * 
+   * - `PUBLIC`: The dataset is visible to all users in the workspace.
+   * 
+   * - `ROLE_PUBLIC`: The dataset is visible to users in specific workspace roles. You must specify the roles in the `AccessibleRoleIdList` parameter. The dataset owner and administrators can always view the dataset.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  /**
+   * @remarks
+   * This parameter takes effect only when `Accessibility` is set to `ROLE_PUBLIC`. It specifies the list of workspace roles that can view the dataset. Role IDs that start with `PAI` are basic role IDs, and role IDs that start with `role-` are custom role IDs.
+   */
   accessibleRoleIdList?: string[];
   /**
    * @remarks
    * The description of the dataset.
+   * 
+   * @example
+   * This is a description of the dataset.
    */
   description?: string;
+  /**
+   * @remarks
+   * The dataset edition. You can upgrade a dataset from `BASIC` to `ADVANCED`.
+   * 
+   * @example
+   * ADVANCED
+   */
   edition?: string;
   /**
    * @remarks
-   * The list of role names in the workspace that have read and write permissions on the mounted database. The names starting with PAI are basic role names, and the names starting with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+   * A list of workspace roles that have read and write permissions on the mounted dataset. Role IDs that start with `PAI` are basic role IDs, and role IDs that start with `role-` are custom role IDs. If the list contains an asterisk (`*`), all roles are granted read and write permissions.
    * 
-   * *   If you set the value to ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"], the account of the specified role is granted the read and write permissions.
-   * *   If you set the value to ["\\*"], all accounts are granted the read and write permissions.
-   * *   If you set the value to [], only the creator of the dataset has the read and write permissions.
+   * - To specify roles: ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"]
+   * 
+   * - To specify all roles: ["\\*"]
+   * 
+   * - To specify only the dataset creator: []
    */
   mountAccessReadWriteRoleIdList?: string[];
   /**
    * @remarks
-   * The dataset name. You can call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to obtain the dataset name.
+   * The dataset name. For information about how to obtain the dataset name, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
    * 
    * @example
    * myName
@@ -57,7 +90,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can set mountPath to specify the default mount path of the dataset.
+   * An extended field in a JSON string format. When you use the dataset with Data Lake Compute (DLC), you can configure the `mountPath` field to specify the default mount path.
    * 
    * @example
    * {
@@ -66,6 +99,9 @@ export class UpdateDatasetRequest extends $dara.Model {
    */
   options?: string;
   /**
+   * @remarks
+   * The sharing configuration of the dataset.
+   * 
    * **if can be null:**
    * true
    */

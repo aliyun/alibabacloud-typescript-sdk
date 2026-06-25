@@ -3,19 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListProductsResponseBodyProducts extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the user has permission to purchase the product.
+   */
   hasPermissionToPurchase?: boolean;
   /**
+   * @remarks
+   * Indicates whether the product is purchased.
+   * 
    * @example
    * true
    */
   isPurchased?: boolean;
   /**
+   * @remarks
+   * The product code.
+   * 
    * @example
    * DataWorks_isolate
    */
   productCode?: string;
   productId?: string;
   /**
+   * @remarks
+   * The purchase URL.
+   * 
    * @example
    * https://common-buy.aliy
    */
@@ -51,12 +64,22 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
 
 export class ListProductsResponseBodyServices extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the service is activated.
+   * 
    * @example
    * true
    */
   isOpen?: boolean;
+  /**
+   * @remarks
+   * The activation URL.
+   */
   openUrl?: string;
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * oss
    */
@@ -87,12 +110,23 @@ export class ListProductsResponseBodyServices extends $dara.Model {
 }
 
 export class ListProductsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of products.
+   */
   products?: ListProductsResponseBodyProducts[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1e195c5116124202371861018d5bde
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of services.
+   */
   services?: ListProductsResponseBodyServices[];
   static names(): { [key: string]: string } {
     return {

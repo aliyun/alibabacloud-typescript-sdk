@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key1
@@ -45,14 +45,19 @@ export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
 export class UpdateConfigsRequestConfigs extends $dara.Model {
   /**
    * @remarks
-   * The category of the configuration item. Supported categories:
+   * The category of the configuration item. The following categories are supported:
    * 
-   * *   CommonResourceConfig
-   * *   DLCAutoRecycle
-   * *   DLCPriorityConfig
-   * *   DSWPriorityConfig
-   * *   QuotaMaximumDuration
-   * *   CommonTagConfig
+   * - CommonResourceConfig: General resource configuration.
+   * 
+   * - DLCAutoRecycle: DLC automatic recycling.
+   * 
+   * - DLCPriorityConfig: DLC priority settings.
+   * 
+   * - DSWPriorityConfig: DSW priority settings.
+   * 
+   * - QuotaMaximumDuration: Configuration for the maximum runtime of a DLC job within a quota.
+   * 
+   * - CommonTagConfig: Tag settings.
    * 
    * @example
    * CommonResourceConfig
@@ -60,13 +65,17 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item. Supported keys:
+   * The key of the configuration item. The following keys are supported:
    * 
-   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-   * *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
-   * *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
-   * *   predefinedTags: The predefined tags of the workspace. All created resources must have tags.
+   * - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
+   * 
+   * - isAutoRecycle: The configuration for automatic resource recycling. This key is valid only when CategoryName is set to DLCAutoRecycle.
+   * 
+   * - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * 
+   * - quotaMaximumDuration: The maximum runtime configuration for a DLC job within a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
+   * 
+   * - predefinedTags: The predefined tags for the workspace. Created resources must have these tags.
    * 
    * @example
    * tempStoragePath
@@ -76,7 +85,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
    * @remarks
    * The value of the configuration item.
    * 
-   * *   When ConfigKey is predefinedTags, the ConfigValue follows this format: [{"Type":"Tag","Key":"Key1","Value":"{"Products":"DLC,DSW,EAS","Values":"value1,value2,value3"}"}]. "Products" indicates the products that use the predefined tags.
+   * - If ConfigKey is set to predefinedTags, the format of ConfigValue is [{"Type":"Tag","Key":"Key1","Value":"{\\\\"Products\\\\":\\\\"DLC,DSW,EAS\\\\",\\\\"Values\\\\":\\\\"value1,value2,value3\\\\"}"}]. The Products field specifies which products use the predefined tags.
    * 
    * @example
    * oss://test/s/
@@ -84,7 +93,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The tags of the configuration item.
+   * A list of tags for the configuration item.
    */
   labels?: UpdateConfigsRequestConfigsLabels[];
   static names(): { [key: string]: string } {
@@ -120,7 +129,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
 export class UpdateConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of workspace configurations to update or add.
+   * A list of workspace configurations to update or add.
    */
   configs?: UpdateConfigsRequestConfigs[];
   static names(): { [key: string]: string } {

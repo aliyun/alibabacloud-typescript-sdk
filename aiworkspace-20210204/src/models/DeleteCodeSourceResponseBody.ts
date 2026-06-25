@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted code source.
+   * The ID of the deleted code source configuration.
    * 
    * @example
    * code-20210111103721-85qz78ia96lu
@@ -13,7 +13,7 @@ export class DeleteCodeSourceResponseBody extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941

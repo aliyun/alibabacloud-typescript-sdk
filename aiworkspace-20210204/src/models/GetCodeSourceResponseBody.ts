@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the code source. Valid values:
+   * The visibility of the code configuration. Valid values:
    * 
-   * *   PRIVATE: Visible only to you and the administrator of the workspace.
-   * *   PUBLIC: Visible to all members in the workspace.
+   * - PRIVATE: The configuration is visible only to you and the administrator in the workspace.
+   * 
+   * - PUBLIC: The configuration is visible to everyone in the workspace.
    * 
    * @example
    * PRIVATE
@@ -17,7 +18,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   cloneType?: number;
   /**
    * @remarks
-   * The code repository branch.
+   * The branch of the code repository.
    * 
    * @example
    * master
@@ -25,7 +26,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The code commit ID.
+   * The commit ID of the code.
    * 
    * @example
    * 44da10***********
@@ -33,7 +34,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeCommit?: string;
   /**
    * @remarks
-   * The address of the code repository.
+   * The URL of the code repository.
    * 
    * @example
    * https://code.aliyun.com/pai-dlc/examples.git
@@ -49,7 +50,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username of the code repository.
+   * The username for the code repository.
    * 
    * @example
    * user1
@@ -57,7 +58,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The ID of the code source.
+   * The ID of the code source configuration.
    * 
    * @example
    * code-202**********
@@ -65,7 +66,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The description of the code source.
+   * The detailed description of the code configuration.
    * 
    * @example
    * This is my data source 1.
@@ -73,7 +74,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the code source.
+   * The name of the code source configuration.
    * 
    * @example
    * MyCodeSource1
@@ -81,7 +82,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the code source was created, in the ISO8601 format.
+   * The time when the code configuration was created. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-12T23:36:01.123Z
@@ -89,7 +90,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the code source was modified, in the ISO8601 format.
+   * The time when the code configuration was last modified. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-12T23:36:01.123Z
@@ -97,7 +98,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The local mount path of the code.
+   * The local mount path for the code.
    * 
    * @example
    * /root/code
@@ -113,7 +114,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The ID of the user who created the code source configuration.
    * 
    * @example
    * 1722********
@@ -121,7 +122,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 1234

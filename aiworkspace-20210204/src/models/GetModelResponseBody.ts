@@ -7,10 +7,11 @@ import { ModelVersion } from "./ModelVersion";
 export class GetModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the workspace.
+   * The visibility of the workspace. Valid values:
    * 
-   * *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
-   * *   PUBLIC: The workspace is visible to all users.
+   * - PRIVATE: The model is visible only to you and administrators in the workspace.
+   * 
+   * - PUBLIC: The model is visible to everyone in the workspace.
    * 
    * @example
    * PUBLIC
@@ -18,7 +19,7 @@ export class GetModelResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The domain. This parameter specifies the domain for which the model is developed. Valid values: nlp and cv. nlp indicates natural language processing and cv indicates computer vision.
+   * The domain. This indicates the domain of the problem that the model is designed to solve, such as natural language processing (NLP) and computer vision (CV).
    * 
    * @example
    * cv
@@ -42,16 +43,23 @@ export class GetModelResponseBody extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the model is created, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the model was created. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The time when the latest version was updated.
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
+   */
   gmtLatestVersionModifiedTime?: string;
   /**
    * @remarks
-   * The time when the model is last modified, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time when the model was last updated. The time is in the ISO 8601 format.
    * 
    * @example
    * 2021-01-30T12:51:33.028Z
@@ -59,7 +67,7 @@ export class GetModelResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The model tags.
+   * The list of labels for the model.
    */
   labels?: Label[];
   /**
@@ -70,11 +78,14 @@ export class GetModelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The model description.
+   * 
+   * @example
+   * General sentiment analysis.
    */
   modelDescription?: string;
   /**
    * @remarks
-   * The documentation of the model.
+   * The model document.
    * 
    * @example
    * https://***.md
@@ -91,6 +102,9 @@ export class GetModelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The model name.
+   * 
+   * @example
+   * Sentiment analysis
    */
   modelName?: string;
   /**
@@ -103,7 +117,7 @@ export class GetModelResponseBody extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The sequence number of the model.
+   * The ordinal number.
    * 
    * @example
    * 1
@@ -111,7 +125,7 @@ export class GetModelResponseBody extends $dara.Model {
   orderNumber?: number;
   /**
    * @remarks
-   * The source of the model. The community or organization to which the model belongs, such as ModelScope or HuggingFace.
+   * The source of the model. This indicates the community or organization to which the source model belongs, such as ModelScope and HuggingFace.
    * 
    * @example
    * ModelScope
@@ -125,6 +139,13 @@ export class GetModelResponseBody extends $dara.Model {
    * 1234567890******
    */
   ownerId?: string;
+  /**
+   * @remarks
+   * The number of parameters, in millions.
+   * 
+   * @example
+   * 3000
+   */
   parameterSize?: number;
   /**
    * @remarks
@@ -144,7 +165,7 @@ export class GetModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task of the model. This parameter describes specific issues that the model solves, such as text-classification.
+   * The task. This indicates the specific problem that the model is designed to solve, such as text classification.
    * 
    * @example
    * text-classification

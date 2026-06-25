@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class LineageEntity extends $dara.Model {
   /**
    * @remarks
-   * Attributes
+   * The entity\\"s attributes.
    */
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * EntityType
+   * The entity type.
    */
   entityType?: string;
   /**
    * @remarks
-   * Name
+   * The entity\\"s name.
    */
   name?: string;
   /**
    * @remarks
-   * QualifiedName
+   * The entity\\"s qualified name.
    */
   qualifiedName?: string;
   static names(): { [key: string]: string } {

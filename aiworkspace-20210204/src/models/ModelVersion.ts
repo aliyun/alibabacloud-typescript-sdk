@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModelVersionLabels extends $dara.Model {
+  /**
+   * @remarks
+   * 标签的key
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * 标签的value
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,6 +63,13 @@ export class ModelVersion extends $dara.Model {
    * {}
    */
   compressionSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * 蒸馏配置。
+   * 
+   * @example
+   * {}
+   */
   distillationSpec?: { [key: string]: any };
   /**
    * @remarks
@@ -231,6 +252,9 @@ export class ModelVersion extends $dara.Model {
   /**
    * @remarks
    * The model version description.
+   * 
+   * @example
+   * 情感分析。
    */
   versionDescription?: string;
   /**

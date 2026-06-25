@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelVersionLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to be deleted. Separate multiple tag keys with commas (,).
+   * The keys of the labels that you want to delete. Separate multiple keys with commas (,).
    * 
    * @example
    * key1,key2

@@ -7,17 +7,25 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
    * @remarks
    * The configuration type.
    * 
-   * *   MultimodalIntelligentTag
-   * *   MultimodalSemanticIndex
+   * - MultimodalIntelligentTag
+   * 
+   * - MultimodalSemanticIndex
    * 
    * @example
    * MultimodalIntelligentTag
    */
   configType?: string;
+  /**
+   * @remarks
+   * The name of the dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -25,7 +33,7 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries per page. The default value is 10.
    * 
    * @example
    * 10

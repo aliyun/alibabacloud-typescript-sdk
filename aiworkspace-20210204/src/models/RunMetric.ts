@@ -12,12 +12,12 @@ export class RunMetric extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The step number that generated the metric.
+   * The step when the metric was recorded.
    */
   step?: number;
   /**
    * @remarks
-   * The timestamp when the metric was generated.
+   * The timestamp when the metric was recorded.
    */
   timestamp?: number;
   /**

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display supplementary information such as the workspace owner. Valid values:
+   * Specifies whether to return additional information, such as the workspace owner. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default): Does not return additional information.
+   * 
+   * - true: Returns additional information.
    * 
    * @example
    * true

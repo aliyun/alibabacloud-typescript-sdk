@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The encryption settings. Valid values:
+   * The encryption setting. Valid values:
    * 
-   * *   PlainText
-   * *   Secret
+   * - PlainText: The value is in plaintext.
+   * 
+   * - Secret: The value is in ciphertext.
    * 
    * @example
    * PlainText

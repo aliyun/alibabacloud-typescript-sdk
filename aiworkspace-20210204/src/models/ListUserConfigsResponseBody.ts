@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The category. Currently, only DataPrivacyConfig is supported.
+   * The category. Only DataPrivacyConfig is supported.
    * 
    * @example
    * DataPrivacyConfig
@@ -13,7 +13,7 @@ export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item.
+   * The configuration key.
    * 
    * @example
    * customizePAIAssumedRole
@@ -21,7 +21,7 @@ export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * @example
    * role
@@ -29,7 +29,7 @@ export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The scope. Currently, subUser and owner are supported.
+   * The scope. Supported values are subUser and owner.
    * 
    * @example
    * subUser
@@ -65,7 +65,7 @@ export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
 export class ListUserConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations list.
+   * The list of configurations.
    */
   configs?: ListUserConfigsResponseBodyConfigs[];
   /**
@@ -78,7 +78,7 @@ export class ListUserConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of items returned.
+   * The total number of entries.
    * 
    * @example
    * 15

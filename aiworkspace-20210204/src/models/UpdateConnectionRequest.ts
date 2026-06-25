@@ -23,9 +23,11 @@ export class UpdateConnectionRequestModels extends $dara.Model {
    * @remarks
    * The model type. Valid values:
    * 
-   * *   LLM
-   * *   Embedding
-   * *   ReRank
+   * - LLM
+   * 
+   * - Embedding
+   * 
+   * - ReRank
    * 
    * @example
    * LLM
@@ -35,8 +37,9 @@ export class UpdateConnectionRequestModels extends $dara.Model {
    * @remarks
    * Indicates whether tool calling is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Tool calling is supported.
+   * 
+   * - false: Tool calling is not supported.
    * 
    * @example
    * true
@@ -72,22 +75,25 @@ export class UpdateConnectionRequestModels extends $dara.Model {
 export class UpdateConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection configuration. The connection configuration is in the key-value format. The keys configured for different connection types are different. For more information, see the supplementary description of the request parameters in CreateConnection.
+   * The configuration of the connection, specified as key-value pairs. The keys in the Configs parameter vary based on the connection type. For more information, see the request parameters in the CreateConnection topic.
    */
   configs?: { [key: string]: string };
   /**
    * @remarks
-   * The connection description.
+   * The description of the connection.
+   * 
+   * @example
+   * Connection for data labeling.
    */
   description?: string;
   /**
    * @remarks
-   * The models.
+   * A list of model information.
    */
   models?: UpdateConnectionRequestModels[];
   /**
    * @remarks
-   * The key-value configuration to be encrypted, such as the database logon password and the key for model connection.
+   * Key-value pairs that require encryption, such as database logon passwords and keys for model connections.
    */
   secrets?: { [key: string]: string };
   static names(): { [key: string]: string } {

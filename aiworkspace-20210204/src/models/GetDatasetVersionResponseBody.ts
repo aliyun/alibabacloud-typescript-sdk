@@ -6,7 +6,7 @@ import { Label } from "./Label";
 export class GetDatasetVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of data records.
+   * The number of data entries.
    * 
    * @example
    * 10000
@@ -25,11 +25,14 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    * The type of the data source.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OSS
    */
   dataSourceType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the dataset.
    * 
    * @example
    * d-dkdbnnap0g7b6su4yg
@@ -37,12 +40,15 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The version description.
+   * The description of the version.
+   * 
+   * @example
+   * This is a description of the dataset version.
    */
   description?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the dataset version was created.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -50,7 +56,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the dataset version was last modified.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -58,17 +64,57 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The dataset configurations to be imported to a storage, such as Object Storage Service (OSS), File Storage NAS (NAS), or Cloud Parallel File Storage (CPFS).
+   * The storage import configuration of the dataset. Supported storage services include OSS, NAS, and CPFS.
    * 
-   * **OSS**
+   * <details>
    * 
-   * { "region": "${region}",// The region ID. $bucket = $options["bucket"]; // The bucket name. "path": "${path}" // The file path. }
+   * <summary>
    * 
-   * **NAS**
+   * OSS
    * 
-   * **CPFS**
+   * </summary>
    * 
-   * **CPFS for Lingjun**
+   * {
+   * "region": "${region}",// Region ID
+   * "bucket": "${bucket}",// Bucket name
+   * "path": "${path}" // File path
+   * }
+   * 
+   * </details>
+   * 
+   * <details>
+   * 
+   * <summary>
+   * 
+   * NAS
+   * 
+   * </summary>
+   * 
+   * </details>
+   * 
+   * <details>
+   * 
+   * <summary>
+   * 
+   * CPFS
+   * 
+   * </summary>
+   * 
+   * Block content
+   * 
+   * </details>
+   * 
+   * <details>
+   * 
+   * <summary>
+   * 
+   * AI Computing CPFS
+   * 
+   * </summary>
+   * 
+   * Block content
+   * 
+   * </details>
    * 
    * @example
    * {
@@ -82,15 +128,16 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   importInfo?: string;
   /**
    * @remarks
-   * The resource tags.
+   * The tags of the resource.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The access permission on the dataset when the dataset is mounted. Valid values:
+   * The access permissions when the dataset is mounted.
    * 
-   * *   RO: read-only permissions
-   * *   RW: read and write permissions
+   * - RO: Read-only mount
+   * 
+   * - RW: Read-write mount
    * 
    * @example
    * RO
@@ -98,7 +145,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * The extended fields.
+   * Additional options.
    * 
    * @example
    * {
@@ -118,7 +165,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * C55DF3DA-F120-5E37-A374-F49365531701
@@ -126,7 +173,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the source dataset.
+   * The ID of the dataset source.
    * 
    * @example
    * d-rbvg5wzljzjhc9ks92
@@ -134,7 +181,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The source type.
    * 
    * @example
    * USER
@@ -142,7 +189,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The sample URI of the dataset.
+   * The URI of the dataset version.
    * 
    * This parameter is required.
    * 
@@ -152,7 +199,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * The version name of the dataset.
+   * The name of the dataset version.
    * 
    * @example
    * v1

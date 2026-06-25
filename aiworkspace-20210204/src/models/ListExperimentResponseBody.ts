@@ -11,7 +11,7 @@ export class ListExperimentResponseBody extends $dara.Model {
   experiments?: Experiment[];
   /**
    * @remarks
-   * The pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page. Save this token and include it in the next request to retrieve the next page of results.
    * 
    * @example
    * 0
@@ -19,7 +19,7 @@ export class ListExperimentResponseBody extends $dara.Model {
   nextPageToken?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 5

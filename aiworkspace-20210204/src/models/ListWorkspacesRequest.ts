@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of returned fields of workspace details. Used to limit the fields in the returned results. Separate multiple fields with commas (,). Currently, only Id is supported, which is the workspace ID.
+   * The list of return fields for workspace details. This parameter limits the workspace properties returned in the result.
+   * Separate multiple properties with commas (,). Currently, only Id is supported, which represents the workspace ID.
    * 
    * @example
    * Id
@@ -13,7 +14,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   fields?: string;
   /**
    * @remarks
-   * The modules, separated by commas (,). Default value: PAI.
+   * The comma-separated list of modules. Default value: PAI.
    * 
    * @example
    * PAI
@@ -21,10 +22,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   moduleList?: string;
   /**
    * @remarks
-   * The query options. Valid values:
-   * 
-   * *   GetWorkspaces (default): Obtains a list of Workspaces.
-   * *   GetResourceLimits: Obtains a list of ResourceLimits.
+   * The query option. Valid values:
+   * * GetWorkspaces (default): retrieves the workspace list. The Workspaces parameter is returned.
+   * * GetResourceLimits: retrieves resource limits. The ResourceLimits parameter is returned.
    * 
    * @example
    * GetWorkspaces
@@ -32,10 +32,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   option?: string;
   /**
    * @remarks
-   * The order of results (ascending or descending). Valid values:
-   * 
-   * *   ASC: ascending order. This is the default value.
-   * *   DESC: descending order.
+   * The sort order for the specified sort field in a paged query. Valid values:
+   * * ASC (default): ascending order.
+   * * DESC: descending order.
    * 
    * @example
    * ASC
@@ -43,7 +42,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number of the workspace list. Pages start from page 1. Default value: 1.
+   * The page number of the workspace list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -51,7 +50,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -59,7 +58,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID. To obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The resource group ID. For information about how to view the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmwp7rky****
@@ -67,10 +66,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies how to sort the results. Default value: GmtCreateTime. Valid values:
-   * 
-   * *   GmtCreateTime: Sort by the time when created.
-   * *   GmtModifiedTime: Sort by the time when modified.
+   * The field used for sorting in a paged query. Default value: GmtCreateTime. Valid values:
+   * * GmtCreateTime (default): sorts by creation time.
+   * * GmtModifiedTime: sorts by modification time.
    * 
    * @example
    * GmtCreateTime
@@ -80,12 +78,12 @@ export class ListWorkspacesRequest extends $dara.Model {
    * @remarks
    * The workspace status. Valid values:
    * 
-   * *   ENABLED
-   * *   INITIALIZING
-   * *   FAILURE
-   * *   DISABLED
-   * *   FROZEN
-   * *   UPDATING
+   * - ENABLED: Normal.
+   * - INITIALIZING: Being initialized.
+   * - FAILURE: Failed.
+   * - DISABLED: Manually disabled.
+   * - FROZEN: Frozen due to overdue payment.
+   * - UPDATING: Being updated.
    * 
    * @example
    * ENABLED
@@ -94,10 +92,9 @@ export class ListWorkspacesRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Specifies whether to display workspace details. Valid values:
-   * 
-   * *   false (default)
-   * *   true
+   * Specifies whether to display detailed workspace information. Valid values:
+   * - false (default): does not display detailed information.
+   * - true: displays detailed information.
    * 
    * @example
    * true
@@ -105,7 +102,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The workspace IDs. Separate multiple IDs by commas (,).
+   * The list of workspace IDs. Separate multiple workspace IDs with commas (,).
    * 
    * @example
    * 123,234
@@ -113,7 +110,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   workspaceIds?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * abc

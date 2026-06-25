@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created code build.
+   * The ID of the created code configuration.
    * 
    * @example
    * code-20********

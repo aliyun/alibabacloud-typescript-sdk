@@ -53,6 +53,27 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "aiworkspace.aliyuncs.com",
       'me-east-1': "aiworkspace.aliyuncs.com",
       'rus-west-1-pop': "aiworkspace.aliyuncs.com",
+      'us-west-1': "aiworkspace.us-west-1.aliyuncs.com",
+      'us-southeast-1': "aiworkspace.us-southeast-1.aliyuncs.com",
+      'us-east-1': "aiworkspace.us-east-1.aliyuncs.com",
+      'na-south-1': "aiworkspace.na-south-1.aliyuncs.com",
+      'eu-central-1': "aiworkspace.eu-central-1.aliyuncs.com",
+      'cn-wulanchabu': "aiworkspace.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "aiworkspace.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "aiworkspace.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "aiworkspace.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "aiworkspace.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "aiworkspace.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou': "aiworkspace.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "aiworkspace.cn-guangzhou.aliyuncs.com	",
+      'cn-beijing': "aiworkspace.cn-beijing.aliyuncs.com",
+      'ap-southeast-8': "aiworkspace.ap-southeast-8.aliyuncs.com",
+      'ap-southeast-7': "aiworkspace.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-3': "aiworkspace.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "aiworkspace.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "aiworkspace.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "aiworkspace.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "aiworkspace.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aiworkspace", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -72,10 +93,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Receives and processes system event messages sent by DataWorks.
+   * PAI accepts and processes system event messages from DataWorks.
    * 
    * @remarks
-   * This operation can be called only by the internal system and cannot be called by external users.
+   * This API is for internal system calls only.
    * 
    * @param request - AcceptDataworksEventRequest
    * @param headers - map
@@ -112,10 +133,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Receives and processes system event messages sent by DataWorks.
+   * PAI accepts and processes system event messages from DataWorks.
    * 
    * @remarks
-   * This operation can be called only by the internal system and cannot be called by external users.
+   * This API is for internal system calls only.
    * 
    * @param request - AcceptDataworksEventRequest
    * @returns AcceptDataworksEventResponse
@@ -208,7 +229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to an image.
+   * Adds labels to a specified image.
    * 
    * @param request - AddImageLabelsRequest
    * @param headers - map
@@ -241,7 +262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to an image.
+   * Adds labels to a specified image.
    * 
    * @param request - AddImageLabelsRequest
    * @returns AddImageLabelsResponse
@@ -253,7 +274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+   * Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
    * 
    * @param request - AddMemberRoleRequest
    * @param headers - map
@@ -280,7 +301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+   * Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
    * 
    * @param request - AddMemberRoleRequest
    * @returns AddMemberRoleResponse
@@ -292,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a resource belongs based on the ID.
+   * Changes the resource group of a specified resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -333,7 +354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a resource belongs based on the ID.
+   * Changes the resource group of a specified resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -345,7 +366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+   * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
    * 
    * @param request - CreateCodeSourceRequest
    * @param headers - map
@@ -418,7 +439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+   * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
    * 
    * @param request - CreateCodeSourceRequest
    * @returns CreateCodeSourceResponse
@@ -430,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+   * Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
    * 
    * @param request - CreateConnectionRequest
    * @param headers - map
@@ -495,7 +516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+   * Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
    * 
    * @param request - CreateConnectionRequest
    * @returns CreateConnectionResponse
@@ -648,7 +669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the metadata records of multiple files in a dataset at a time.
+   * Creates file metadata records for a dataset in a batch.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @param headers - map
@@ -689,7 +710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the metadata records of multiple files in a dataset at a time.
+   * Creates file metadata records for a dataset in a batch.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @returns CreateDatasetFileMetasResponse
@@ -766,7 +787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job configuration for a dataset.
+   * Creates a dataset Job configuration.
    * 
    * @param request - CreateDatasetJobConfigRequest
    * @param headers - map
@@ -811,7 +832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job configuration for a dataset.
+   * Creates a dataset Job configuration.
    * 
    * @param request - CreateDatasetJobConfigRequest
    * @returns CreateDatasetJobConfigResponse
@@ -823,12 +844,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags for a dataset.
+   * Adds labels to a dataset.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
-   * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+   * When you call this operation, note the following:
+   * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+   * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
    * 
    * @param request - CreateDatasetLabelsRequest
    * @param headers - map
@@ -861,12 +882,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags for a dataset.
+   * Adds labels to a dataset.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
-   * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+   * When you call this operation, note the following:
+   * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+   * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
    * 
    * @param request - CreateDatasetLabelsRequest
    * @returns CreateDatasetLabelsResponse
@@ -963,7 +984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags for a dataset version.
+   * Creates labels for a dataset version.
    * 
    * @param request - CreateDatasetVersionLabelsRequest
    * @param headers - map
@@ -996,7 +1017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags for a dataset version.
+   * Creates labels for a dataset version.
    * 
    * @param request - CreateDatasetVersionLabelsRequest
    * @returns CreateDatasetVersionLabelsResponse
@@ -1069,7 +1090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建镜像构建任务
+   * Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+   * 
+   * @remarks
+   * ## Description
    * 
    * @param request - CreateImageBuildRequest
    * @param headers - map
@@ -1144,7 +1168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建镜像构建任务
+   * Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+   * 
+   * @remarks
+   * ## Description
    * 
    * @param request - CreateImageBuildRequest
    * @returns CreateImageBuildResponse
@@ -1156,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a user to a workspace as a member. You can add multiple users as members.
+   * Adds one or more users to a workspace.
    * 
    * @param request - CreateMemberRequest
    * @param headers - map
@@ -1189,7 +1216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a user to a workspace as a member. You can add multiple users as members.
+   * Adds one or more users to a workspace.
    * 
    * @param request - CreateMemberRequest
    * @returns CreateMemberResponse
@@ -1201,7 +1228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+   * Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
    * 
    * @param request - CreateModelRequest
    * @param headers - map
@@ -1286,7 +1313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+   * Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
    * 
    * @param request - CreateModelRequest
    * @returns CreateModelResponse
@@ -1298,7 +1325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag for a model.
+   * Creates labels for a model.
    * 
    * @param request - CreateModelLabelsRequest
    * @param headers - map
@@ -1331,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag for a model.
+   * Creates labels for a model.
    * 
    * @param request - CreateModelLabelsRequest
    * @returns CreateModelLabelsResponse
@@ -1343,7 +1370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new version for the specified model.
+   * Adds a new version to a specified model.
    * 
    * @param request - CreateModelVersionRequest
    * @param headers - map
@@ -1440,7 +1467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new version for the specified model.
+   * Adds a new version to a specified model.
    * 
    * @param request - CreateModelVersionRequest
    * @returns CreateModelVersionResponse
@@ -1452,7 +1479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag for a model version.
+   * Creates labels for a model version.
    * 
    * @param request - CreateModelVersionLabelsRequest
    * @param headers - map
@@ -1485,7 +1512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag for a model version.
+   * Creates labels for a model version.
    * 
    * @param request - CreateModelVersionLabelsRequest
    * @returns CreateModelVersionLabelsResponse
@@ -1497,7 +1524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+   * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
    * 
    * @param request - CreateProductOrdersRequest
    * @param headers - map
@@ -1534,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+   * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
    * 
    * @param request - CreateProductOrdersRequest
    * @returns CreateProductOrdersResponse
@@ -1546,7 +1573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+   * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
    * 
    * @param request - CreateRunRequest
    * @param headers - map
@@ -1599,7 +1626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+   * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
    * 
    * @param request - CreateRunRequest
    * @returns CreateRunResponse
@@ -1672,7 +1699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates resources with a workspace.
+   * Add a resource reference to a workspace.
    * 
    * @param request - CreateWorkspaceResourceRequest
    * @param headers - map
@@ -1709,7 +1736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates resources with a workspace.
+   * Add a resource reference to a workspace.
    * 
    * @param request - CreateWorkspaceResourceRequest
    * @returns CreateWorkspaceResourceResponse
@@ -1721,7 +1748,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a code source based on the provided ID.
+   * Creates a workspace role.
+   * 
+   * @param request - CreateWorkspaceRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceRoleResponse
+   */
+  async createWorkspaceRoleWithOptions(WorkspaceId: string, request: $_model.CreateWorkspaceRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceRoleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modulePermissions)) {
+      body["ModulePermissions"] = request.modulePermissions;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      body["RoleName"] = request.roleName;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspaceRole",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/roles`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceRoleResponse({}));
+  }
+
+  /**
+   * Creates a workspace role.
+   * 
+   * @param request - CreateWorkspaceRoleRequest
+   * @returns CreateWorkspaceRoleResponse
+   */
+  async createWorkspaceRole(WorkspaceId: string, request: $_model.CreateWorkspaceRoleRequest): Promise<$_model.CreateWorkspaceRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkspaceRoleWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a code source configuration by its ID.
    * 
    * @param request - DeleteCodeSourceRequest
    * @param headers - map
@@ -1748,7 +1828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a code source based on the provided ID.
+   * Deletes a code source configuration by its ID.
    * 
    * @param request - DeleteCodeSourceRequest
    * @returns DeleteCodeSourceResponse
@@ -1760,7 +1840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes workspace configurations.
+   * Deletes a workspace configuration.
    * 
    * @param request - DeleteConfigRequest
    * @param headers - map
@@ -1797,7 +1877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes workspace configurations.
+   * Deletes a workspace configuration.
    * 
    * @param request - DeleteConfigRequest
    * @returns DeleteConfigResponse
@@ -1887,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the metadata records of multiple files in a dataset at a time.
+   * Deletes file metadata records from a dataset in batches.
    * 
    * @param request - DeleteDatasetFileMetasRequest
    * @param headers - map
@@ -1928,7 +2008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the metadata records of multiple files in a dataset at a time.
+   * Deletes file metadata records from a dataset in batches.
    * 
    * @param request - DeleteDatasetFileMetasRequest
    * @returns DeleteDatasetFileMetasResponse
@@ -1940,7 +2020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset job.
+   * Deletes a dataset Job.
    * 
    * @param request - DeleteDatasetJobRequest
    * @param headers - map
@@ -1967,7 +2047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset job.
+   * Deletes a dataset Job.
    * 
    * @param request - DeleteDatasetJobRequest
    * @returns DeleteDatasetJobResponse
@@ -1979,7 +2059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job configuration for a dataset.
+   * Deletes a dataset job configuration.
    * 
    * @param request - DeleteDatasetJobConfigRequest
    * @param headers - map
@@ -2012,7 +2092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job configuration for a dataset.
+   * Deletes a dataset job configuration.
    * 
    * @param request - DeleteDatasetJobConfigRequest
    * @returns DeleteDatasetJobConfigResponse
@@ -2024,7 +2104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset tag.
+   * Deletes labels from a dataset.
    * 
    * @param request - DeleteDatasetLabelsRequest
    * @param headers - map
@@ -2057,7 +2137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset tag.
+   * Deletes labels from a dataset.
    * 
    * @param request - DeleteDatasetLabelsRequest
    * @returns DeleteDatasetLabelsResponse
@@ -2069,7 +2149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+   * Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
    * 
    * @param request - DeleteDatasetVersionRequest
    * @param headers - map
@@ -2096,7 +2176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+   * Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
    * 
    * @param request - DeleteDatasetVersionRequest
    * @returns DeleteDatasetVersionResponse
@@ -2108,7 +2188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes tags for a dataset version.
+   * Deletes labels from a dataset version.
    * 
    * @param request - DeleteDatasetVersionLabelsRequest
    * @param headers - map
@@ -2141,7 +2221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes tags for a dataset version.
+   * Deletes labels from a dataset version.
    * 
    * @param request - DeleteDatasetVersionLabelsRequest
    * @returns DeleteDatasetVersionLabelsResponse
@@ -2192,7 +2272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an experiment tag.
+   * Deletes a label from an experiment.
    * 
    * @param request - DeleteExperimentLabelRequest
    * @param headers - map
@@ -2219,7 +2299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an experiment tag.
+   * Deletes a label from an experiment.
    * 
    * @param request - DeleteExperimentLabelRequest
    * @returns DeleteExperimentLabelResponse
@@ -2231,7 +2311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a member from a workspace.
+   * Deletes members from a workspace.
    * 
    * @param request - DeleteMembersRequest
    * @param headers - map
@@ -2264,7 +2344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a member from a workspace.
+   * Deletes members from a workspace.
    * 
    * @param request - DeleteMembersRequest
    * @returns DeleteMembersResponse
@@ -2315,7 +2395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the labels of a model.
+   * Deletes model labels.
    * 
    * @param request - DeleteModelLabelsRequest
    * @param headers - map
@@ -2348,7 +2428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the labels of a model.
+   * Deletes model labels.
    * 
    * @param request - DeleteModelLabelsRequest
    * @returns DeleteModelLabelsResponse
@@ -2399,7 +2479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a model version tag.
+   * Deletes labels from a model version.
    * 
    * @param request - DeleteModelVersionLabelsRequest
    * @param headers - map
@@ -2432,7 +2512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a model version tag.
+   * Deletes labels from a model version.
    * 
    * @param request - DeleteModelVersionLabelsRequest
    * @returns DeleteModelVersionLabelsResponse
@@ -2483,7 +2563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag that is added to a run.
+   * Deletes a label from a run.
    * 
    * @param request - DeleteRunLabelRequest
    * @param headers - map
@@ -2510,7 +2590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag that is added to a run.
+   * Deletes a label from a run.
    * 
    * @param request - DeleteRunLabelRequest
    * @returns DeleteRunLabelResponse
@@ -2522,7 +2602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes user configurations.
+   * Deletes a user configuration.
    * 
    * @param request - DeleteUserConfigRequest
    * @param headers - map
@@ -2559,7 +2639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes user configurations.
+   * Deletes a user configuration.
    * 
    * @param request - DeleteUserConfigRequest
    * @returns DeleteUserConfigResponse
@@ -2571,7 +2651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+   * Deletes a workspace. This operation does not release associated resources. You must release them manually.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param headers - map
@@ -2598,7 +2678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+   * Deletes a workspace. This operation does not release associated resources. You must release them manually.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -2610,7 +2690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+   * Detaches a resource from a workspace. This operation does not delete the underlying resource.
    * 
    * @param request - DeleteWorkspaceResourceRequest
    * @param headers - map
@@ -2663,7 +2743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+   * Detaches a resource from a workspace. This operation does not delete the underlying resource.
    * 
    * @param request - DeleteWorkspaceResourceRequest
    * @returns DeleteWorkspaceResourceResponse
@@ -2675,7 +2755,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a code source.
+   * Deletes one or more roles from a workspace.
+   * 
+   * @param request - DeleteWorkspaceRolesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceRolesResponse
+   */
+  async deleteWorkspaceRolesWithOptions(WorkspaceId: string, request: $_model.DeleteWorkspaceRolesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceRolesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.roleIds)) {
+      body["RoleIds"] = request.roleIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspaceRoles",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/roles/action/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceRolesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceRolesResponse({}));
+  }
+
+  /**
+   * Deletes one or more roles from a workspace.
+   * 
+   * @param request - DeleteWorkspaceRolesRequest
+   * @returns DeleteWorkspaceRolesResponse
+   */
+  async deleteWorkspaceRoles(WorkspaceId: string, request: $_model.DeleteWorkspaceRolesRequest): Promise<$_model.DeleteWorkspaceRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkspaceRolesWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Gets the details of a specified code source configuration.
    * 
    * @param request - GetCodeSourceRequest
    * @param headers - map
@@ -2702,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a code source.
+   * Gets the details of a specified code source configuration.
    * 
    * @param request - GetCodeSourceRequest
    * @returns GetCodeSourceResponse
@@ -2714,7 +2839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a workspace configuration item.
+   * Retrieves the configurations of a workspace.
    * 
    * @param request - GetConfigRequest
    * @param headers - map
@@ -2755,7 +2880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a workspace configuration item.
+   * Retrieves the configurations of a workspace.
    * 
    * @param request - GetConfigRequest
    * @returns GetConfigResponse
@@ -2767,7 +2892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the connection details.
+   * Retrieves the details of a connection.
    * 
    * @param request - GetConnectionRequest
    * @param headers - map
@@ -2800,7 +2925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the connection details.
+   * Retrieves the details of a connection.
    * 
    * @param request - GetConnectionRequest
    * @returns GetConnectionResponse
@@ -2812,7 +2937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a dataset.
+   * Retrieves a dataset.
    * 
    * @param request - GetDatasetRequest
    * @param headers - map
@@ -2839,7 +2964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a dataset.
+   * Retrieves a dataset.
    * 
    * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
@@ -2851,7 +2976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata records of specific files in a dataset.
+   * Retrieves the metadata record of a specified file in a dataset.
    * 
    * @param request - GetDatasetFileMetaRequest
    * @param headers - map
@@ -2888,7 +3013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata records of specific files in a dataset.
+   * Retrieves the metadata record of a specified file in a dataset.
    * 
    * @param request - GetDatasetFileMetaRequest
    * @returns GetDatasetFileMetaResponse
@@ -2900,7 +3025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains metadata statistics of a dataset.
+   * Retrieves statistics for metadata in a dataset.
    * 
    * @param request - GetDatasetFileMetasStatisticsRequest
    * @param headers - map
@@ -2945,7 +3070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains metadata statistics of a dataset.
+   * Retrieves statistics for metadata in a dataset.
    * 
    * @param request - GetDatasetFileMetasStatisticsRequest
    * @returns GetDatasetFileMetasStatisticsResponse
@@ -2957,7 +3082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a dataset job.
+   * Retrieves a dataset job.
    * 
    * @param request - GetDatasetJobRequest
    * @param headers - map
@@ -2994,7 +3119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a dataset job.
+   * Retrieves a dataset job.
    * 
    * @param request - GetDatasetJobRequest
    * @returns GetDatasetJobResponse
@@ -3006,7 +3131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a job configuration for a dataset.
+   * Retrieves the configuration of a dataset job.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @param headers - map
@@ -3039,7 +3164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a job configuration for a dataset.
+   * Retrieves the configuration of a dataset job.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @returns GetDatasetJobConfigResponse
@@ -3051,7 +3176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about a specified version of a dataset.
+   * Retrieves information about a specific dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @param headers - map
@@ -3078,7 +3203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about a specified version of a dataset.
+   * Retrieves information about a specific dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @returns GetDatasetVersionResponse
@@ -3090,7 +3215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the default workspace.
+   * Retrieves the details of the default workspace.
    * 
    * @param request - GetDefaultWorkspaceRequest
    * @param headers - map
@@ -3123,7 +3248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the default workspace.
+   * Retrieves the details of the default workspace.
    * 
    * @param request - GetDefaultWorkspaceRequest
    * @returns GetDefaultWorkspaceResponse
@@ -3135,7 +3260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an experiment.
+   * Retrieves an experiment.
    * 
    * @param request - GetExperimentRequest
    * @param headers - map
@@ -3168,7 +3293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an experiment.
+   * Retrieves an experiment.
    * 
    * @param request - GetExperimentRequest
    * @returns GetExperimentResponse
@@ -3180,7 +3305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an image.
+   * Retrieves the details of an image.
    * 
    * @param request - GetImageRequest
    * @param headers - map
@@ -3213,7 +3338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an image.
+   * Retrieves the details of an image.
    * 
    * @param request - GetImageRequest
    * @returns GetImageResponse
@@ -3225,7 +3350,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a member in a workspace.
+   * Gets the details of a job.
+   * 
+   * @param request - GetInstanceJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceJobResponse
+   */
+  async getInstanceJobWithOptions(InstanceJobId: string, request: $_model.GetInstanceJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceJobResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceJob",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instancejobs/${$dara.URL.percentEncode(InstanceJobId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceJobResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceJobResponse({}));
+  }
+
+  /**
+   * Gets the details of a job.
+   * 
+   * @param request - GetInstanceJobRequest
+   * @returns GetInstanceJobResponse
+   */
+  async getInstanceJob(InstanceJobId: string, request: $_model.GetInstanceJobRequest): Promise<$_model.GetInstanceJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceJobWithOptions(InstanceJobId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a member of a workspace.
    * 
    * @param request - GetMemberRequest
    * @param headers - map
@@ -3262,7 +3426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a member in a workspace.
+   * Retrieves a member of a workspace.
    * 
    * @param request - GetMemberRequest
    * @returns GetMemberResponse
@@ -3274,7 +3438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified model.
+   * Gets the details of a specified model.
    * 
    * @param request - GetModelRequest
    * @param headers - map
@@ -3301,7 +3465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified model.
+   * Gets the details of a specified model.
    * 
    * @param request - GetModelRequest
    * @returns GetModelResponse
@@ -3313,7 +3477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a model version.
+   * Retrieves a model version.
    * 
    * @param request - GetModelVersionRequest
    * @param headers - map
@@ -3340,7 +3504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a model version.
+   * Retrieves a model version.
    * 
    * @param request - GetModelVersionRequest
    * @returns GetModelVersionResponse
@@ -3352,7 +3516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains permissions on a workspace.
+   * Retrieves the permissions of a workspace.
    * 
    * @param tmpReq - GetPermissionRequest
    * @param headers - map
@@ -3419,7 +3583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains permissions on a workspace.
+   * Retrieves the permissions of a workspace.
    * 
    * @param request - GetPermissionRequest
    * @returns GetPermissionResponse
@@ -3431,7 +3595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run information.
+   * Retrieves run details.
    * 
    * @param request - GetRunRequest
    * @param headers - map
@@ -3464,7 +3628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run information.
+   * Retrieves run details.
    * 
    * @param request - GetRunRequest
    * @returns GetRunResponse
@@ -3476,7 +3640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a workspace.
+   * Retrieves the details of a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @param headers - map
@@ -3509,7 +3673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a workspace.
+   * Retrieves the details of a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -3521,7 +3685,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists code sources. Pagination, sorting, and filtering by condition are supported.
+   * Gets information about a specific role within a workspace.
+   * 
+   * @param request - GetWorkspaceRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceRoleResponse
+   */
+  async getWorkspaceRoleWithOptions(WorkspaceId: string, RoleId: string, request: $_model.GetWorkspaceRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceRoleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceRole",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/roles/${$dara.URL.percentEncode(RoleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceRoleResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceRoleResponse({}));
+  }
+
+  /**
+   * Gets information about a specific role within a workspace.
+   * 
+   * @param request - GetWorkspaceRoleRequest
+   * @returns GetWorkspaceRoleResponse
+   */
+  async getWorkspaceRole(WorkspaceId: string, RoleId: string, request: $_model.GetWorkspaceRoleRequest): Promise<$_model.GetWorkspaceRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceRoleWithOptions(WorkspaceId, RoleId, request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of code source configurations with support for paging, sorting, and filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @param headers - map
@@ -3574,7 +3777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists code sources. Pagination, sorting, and filtering by condition are supported.
+   * Queries a list of code source configurations with support for paging, sorting, and filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @returns ListCodeSourcesResponse
@@ -3586,7 +3789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of workspace configurations.
+   * Lists the configurations for a workspace.
    * 
    * @param request - ListConfigsRequest
    * @param headers - map
@@ -3631,7 +3834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of workspace configurations.
+   * Lists the configurations for a workspace.
    * 
    * @param request - ListConfigsRequest
    * @returns ListConfigsResponse
@@ -3643,7 +3846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists connections.
+   * Queries a list of connections.
    * 
    * @param tmpReq - ListConnectionsRequest
    * @param headers - map
@@ -3742,7 +3945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists connections.
+   * Queries a list of connections.
    * 
    * @param request - ListConnectionsRequest
    * @returns ListConnectionsResponse
@@ -3754,7 +3957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of dataset files.
+   * Queries the files in a dataset.
    * 
    * @param tmpReq - ListDatasetFileMetasRequest
    * @param headers - map
@@ -3921,7 +4124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of dataset files.
+   * Queries the files in a dataset.
    * 
    * @param request - ListDatasetFileMetasRequest
    * @returns ListDatasetFileMetasResponse
@@ -3933,7 +4136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dataset job configurations at a time.
+   * Lists dataset job configurations in batches.
    * 
    * @param request - ListDatasetJobConfigsRequest
    * @param headers - map
@@ -3982,7 +4185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dataset job configurations at a time.
+   * Lists dataset job configurations in batches.
    * 
    * @param request - ListDatasetJobConfigsRequest
    * @returns ListDatasetJobConfigsResponse
@@ -3994,7 +4197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists jobs in a dataset.
+   * Lists dataset jobs.
    * 
    * @param request - ListDatasetJobsRequest
    * @param headers - map
@@ -4059,7 +4262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists jobs in a dataset.
+   * Lists dataset jobs.
    * 
    * @param request - ListDatasetJobsRequest
    * @returns ListDatasetJobsResponse
@@ -4071,7 +4274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists dataset versions.
+   * Retrieves a list of dataset versions.
    * 
    * @param request - ListDatasetVersionsRequest
    * @param headers - map
@@ -4136,7 +4339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists dataset versions.
+   * Retrieves a list of dataset versions.
    * 
    * @param request - ListDatasetVersionsRequest
    * @returns ListDatasetVersionsResponse
@@ -4261,7 +4464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists experiments.
+   * Retrieves a list of experiments.
    * 
    * @param tmpReq - ListExperimentRequest
    * @param headers - map
@@ -4344,7 +4547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists experiments.
+   * Retrieves a list of experiments.
    * 
    * @param request - ListExperimentRequest
    * @returns ListExperimentResponse
@@ -4356,7 +4559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of features.
+   * Retrieves a list of features.
    * 
    * @param request - ListFeaturesRequest
    * @param headers - map
@@ -4389,7 +4592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of features.
+   * Retrieves a list of features.
    * 
    * @param request - ListFeaturesRequest
    * @returns ListFeaturesResponse
@@ -4401,7 +4604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all tags of an image.
+   * Queries a list of image labels.
    * 
    * @param request - ListImageLabelsRequest
    * @param headers - map
@@ -4450,7 +4653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all tags of an image.
+   * Queries a list of image labels.
    * 
    * @param request - ListImageLabelsRequest
    * @returns ListImageLabelsResponse
@@ -4547,7 +4750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the members in a workspace.
+   * Lists members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -4596,7 +4799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the members in a workspace.
+   * Lists members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -4608,7 +4811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of model versions.
+   * Retrieves a list of model versions.
    * 
    * @param request - ListModelVersionsRequest
    * @param headers - map
@@ -4681,7 +4884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of model versions.
+   * Retrieves a list of model versions.
    * 
    * @param request - ListModelVersionsRequest
    * @returns ListModelVersionsResponse
@@ -4693,7 +4896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of models.
+   * Retrieves a list of models.
    * 
    * @param tmpReq - ListModelsRequest
    * @param headers - map
@@ -4796,7 +4999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of models.
+   * Retrieves a list of models.
    * 
    * @param request - ListModelsRequest
    * @returns ListModelsResponse
@@ -4808,7 +5011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the permissions that a user has in a workspace.
+   * Retrieves a list of user permissions in a workspace.
    * 
    * @param request - ListPermissionsRequest
    * @param headers - map
@@ -4835,7 +5038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the permissions that a user has in a workspace.
+   * Retrieves a list of user permissions in a workspace.
    * 
    * @param request - ListPermissionsRequest
    * @returns ListPermissionsResponse
@@ -4847,7 +5050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举产品
+   * Lists products.
    * 
    * @param request - ListProductsRequest
    * @param headers - map
@@ -4888,7 +5091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举产品
+   * Lists products.
    * 
    * @param request - ListProductsRequest
    * @returns ListProductsResponse
@@ -4900,7 +5103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the list of quotas.
+   * Retrieves a list of resource quotas.
    * 
    * @param request - ListQuotasRequest
    * @param headers - map
@@ -4933,7 +5136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the list of quotas.
+   * Retrieves a list of resource quotas.
    * 
    * @param request - ListQuotasRequest
    * @returns ListQuotasResponse
@@ -4945,7 +5148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated with a workspace.
+   * Lists resources associated with a workspace.
    * 
    * @param request - ListResourcesRequest
    * @param headers - map
@@ -5022,7 +5225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated with a workspace.
+   * Lists resources associated with a workspace.
    * 
    * @param request - ListResourcesRequest
    * @returns ListResourcesResponse
@@ -5034,7 +5237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the metrics for a run.
+   * Retrieves a list of metric records for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @param headers - map
@@ -5075,7 +5278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the metrics for a run.
+   * Retrieves a list of metric records for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @returns ListRunMetricsResponse
@@ -5087,7 +5290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of runs.
+   * Retrieves a list of runs.
    * 
    * @param request - ListRunsRequest
    * @param headers - map
@@ -5176,7 +5379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of runs.
+   * Retrieves a list of runs.
    * 
    * @param request - ListRunsRequest
    * @returns ListRunsResponse
@@ -5188,7 +5391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user information.
+   * Retrieves user configurations.
    * 
    * @param request - ListUserConfigsRequest
    * @param headers - map
@@ -5225,7 +5428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user information.
+   * Retrieves user configurations.
    * 
    * @param request - ListUserConfigsRequest
    * @returns ListUserConfigsResponse
@@ -5237,7 +5440,84 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+   * Lists the roles in a specified workspace.
+   * 
+   * @param request - ListWorkspaceRolesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspaceRolesResponse
+   */
+  async listWorkspaceRolesWithOptions(WorkspaceId: string, request: $_model.ListWorkspaceRolesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspaceRolesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.roleIds)) {
+      query["RoleIds"] = request.roleIds;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      query["RoleType"] = request.roleType;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.verboseFields)) {
+      query["VerboseFields"] = request.verboseFields;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaceRoles",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/roles`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspaceRolesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspaceRolesResponse({}));
+  }
+
+  /**
+   * Lists the roles in a specified workspace.
+   * 
+   * @param request - ListWorkspaceRolesRequest
+   * @returns ListWorkspaceRolesResponse
+   */
+  async listWorkspaceRoles(WorkspaceId: string, request: $_model.ListWorkspaceRolesRequest): Promise<$_model.ListWorkspaceRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkspaceRolesWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Lists users that can be added as members to a workspace.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @param headers - map
@@ -5274,7 +5554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+   * Lists users that can be added as members to a workspace.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @returns ListWorkspaceUsersResponse
@@ -5286,10 +5566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all workspaces in a region.
+   * Retrieves the list of workspaces in a specified region.
    * 
    * @remarks
-   * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+   * You can specify different query options by using the option parameter to retrieve different workspace-related information.
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -5370,10 +5650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all workspaces in a region.
+   * Retrieves the list of workspaces in a specified region.
    * 
    * @remarks
-   * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+   * You can specify different query options by using the option parameter to retrieve different workspace-related information.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -5385,7 +5665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs multiple metrics for a run at a time.
+   * Records the metrics of a run in a batch.
    * 
    * @param request - LogRunMetricsRequest
    * @param headers - map
@@ -5418,7 +5698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs multiple metrics for a run at a time.
+   * Records the metrics of a run in a batch.
    * 
    * @param request - LogRunMetricsRequest
    * @returns LogRunMetricsResponse
@@ -5430,7 +5710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a private code source to a workspace to make the code source publicly accessible.
+   * Publishes a private code source, making it public in a workspace.
    * 
    * @param request - PublishCodeSourceRequest
    * @param headers - map
@@ -5457,7 +5737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a private code source to a workspace to make the code source publicly accessible.
+   * Publishes a private code source, making it public in a workspace.
    * 
    * @param request - PublishCodeSourceRequest
    * @returns PublishCodeSourceResponse
@@ -5508,7 +5788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+   * Publishes an image and changes its visibility from PRIVATE to PUBLIC.
    * 
    * @param request - PublishImageRequest
    * @param headers - map
@@ -5535,7 +5815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+   * Publishes an image and changes its visibility from PRIVATE to PUBLIC.
    * 
    * @param request - PublishImageRequest
    * @returns PublishImageResponse
@@ -5547,7 +5827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an image.
+   * Deletes an image.
    * 
    * @param request - RemoveImageRequest
    * @param headers - map
@@ -5574,7 +5854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an image.
+   * Deletes an image.
    * 
    * @param request - RemoveImageRequest
    * @returns RemoveImageResponse
@@ -5586,7 +5866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an image tag.
+   * Removes a label from an image.
    * 
    * @param request - RemoveImageLabelsRequest
    * @param headers - map
@@ -5613,7 +5893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an image tag.
+   * Removes a label from an image.
    * 
    * @param request - RemoveImageLabelsRequest
    * @returns RemoveImageLabelsResponse
@@ -5625,7 +5905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a member role.
+   * Removes a role from a member.
    * 
    * @param request - RemoveMemberRoleRequest
    * @param headers - map
@@ -5652,7 +5932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a member role.
+   * Removes a role from a member.
    * 
    * @param request - RemoveMemberRoleRequest
    * @returns RemoveMemberRoleResponse
@@ -5664,7 +5944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a experiment tag.
+   * Updates the labels of an experiment.
    * 
    * @param request - SetExperimentLabelsRequest
    * @param headers - map
@@ -5697,7 +5977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a experiment tag.
+   * Updates the labels of an experiment.
    * 
    * @param request - SetExperimentLabelsRequest
    * @returns SetExperimentLabelsResponse
@@ -5709,7 +5989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the user configurations.
+   * Updates user configurations.
    * 
    * @param request - SetUserConfigsRequest
    * @param headers - map
@@ -5742,7 +6022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the user configurations.
+   * Updates user configurations.
    * 
    * @param request - SetUserConfigsRequest
    * @returns SetUserConfigsResponse
@@ -5754,7 +6034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a dataset job.
+   * Stops a dataset Job.
    * 
    * @param request - StopDatasetJobRequest
    * @param headers - map
@@ -5791,7 +6071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a dataset job.
+   * Stops a dataset Job.
    * 
    * @param request - StopDatasetJobRequest
    * @returns StopDatasetJobResponse
@@ -5803,7 +6083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a code build.
+   * Updates a code source.
    * 
    * @param request - UpdateCodeSourceRequest
    * @param headers - map
@@ -5868,7 +6148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a code build.
+   * Updates a code source.
    * 
    * @param request - UpdateCodeSourceRequest
    * @returns UpdateCodeSourceResponse
@@ -5880,7 +6160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates or adds a workspace configuration item.
+   * Updates or creates workspace configurations.
    * 
    * @param request - UpdateConfigRequest
    * @param headers - map
@@ -5925,7 +6205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates or adds a workspace configuration item.
+   * Updates or creates workspace configurations.
    * 
    * @param request - UpdateConfigRequest
    * @returns UpdateConfigResponse
@@ -5937,7 +6217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates or adds workspace configurations in batches.
+   * Updates or creates workspace configurations in batches.
    * 
    * @param request - UpdateConfigsRequest
    * @param headers - map
@@ -5970,7 +6250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates or adds workspace configurations in batches.
+   * Updates or creates workspace configurations in batches.
    * 
    * @param request - UpdateConfigsRequest
    * @returns UpdateConfigsResponse
@@ -5982,7 +6262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a connection.
+   * Updates a connection configuration.
    * 
    * @param request - UpdateConnectionRequest
    * @param headers - map
@@ -6027,7 +6307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a connection.
+   * Updates a connection configuration.
    * 
    * @param request - UpdateConnectionRequest
    * @returns UpdateConnectionResponse
@@ -6039,7 +6319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and other information about a dataset.
+   * Updates the properties of a dataset, such as its name and description.
    * 
    * @param request - UpdateDatasetRequest
    * @param headers - map
@@ -6100,7 +6380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and other information about a dataset.
+   * Updates the properties of a dataset, such as its name and description.
    * 
    * @param request - UpdateDatasetRequest
    * @returns UpdateDatasetResponse
@@ -6112,7 +6392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata records of multiple files in a dataset at a time.
+   * Updates multiple file metadata records in a dataset.
    * 
    * @param request - UpdateDatasetFileMetasRequest
    * @param headers - map
@@ -6157,7 +6437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata records of multiple files in a dataset at a time.
+   * Updates multiple file metadata records in a dataset.
    * 
    * @param request - UpdateDatasetFileMetasRequest
    * @returns UpdateDatasetFileMetasResponse
@@ -6222,7 +6502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job configuration for a dataset.
+   * Updates a dataset job configuration.
    * 
    * @param request - UpdateDatasetJobConfigRequest
    * @param headers - map
@@ -6263,7 +6543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job configuration for a dataset.
+   * Updates a dataset job configuration.
    * 
    * @param request - UpdateDatasetJobConfigRequest
    * @returns UpdateDatasetJobConfigResponse
@@ -6275,7 +6555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified version of a dataset.
+   * Updates the information for a specific version of a dataset.
    * 
    * @param request - UpdateDatasetVersionRequest
    * @param headers - map
@@ -6320,7 +6600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified version of a dataset.
+   * Updates the information for a specific version of a dataset.
    * 
    * @param request - UpdateDatasetVersionRequest
    * @returns UpdateDatasetVersionResponse
@@ -6332,7 +6612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies a workspace as the default workspace.
+   * Sets a workspace as the default.
    * 
    * @param request - UpdateDefaultWorkspaceRequest
    * @param headers - map
@@ -6365,7 +6645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies a workspace as the default workspace.
+   * Sets a workspace as the default.
    * 
    * @param request - UpdateDefaultWorkspaceRequest
    * @returns UpdateDefaultWorkspaceResponse
@@ -6426,7 +6706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic configuration information about a model.
+   * Updates the basic configuration of a model.
    * 
    * @param request - UpdateModelRequest
    * @param headers - map
@@ -6499,7 +6779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic configuration information about a model.
+   * Updates the basic configuration of a model.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -6600,7 +6880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the run information.
+   * Updates the details of a run.
    * 
    * @param request - UpdateRunRequest
    * @param headers - map
@@ -6641,7 +6921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the run information.
+   * Updates the details of a run.
    * 
    * @param request - UpdateRunRequest
    * @returns UpdateRunResponse
@@ -6702,7 +6982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resources of a workspace.
+   * Updates resources in a workspace.
    * 
    * @param request - UpdateWorkspaceResourceRequest
    * @param headers - map
@@ -6759,7 +7039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resources of a workspace.
+   * Updates resources in a workspace.
    * 
    * @param request - UpdateWorkspaceResourceRequest
    * @returns UpdateWorkspaceResourceResponse
@@ -6771,7 +7051,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证连接
+   * Updates a role in a workspace.
+   * 
+   * @param request - UpdateWorkspaceRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceRoleResponse
+   */
+  async updateWorkspaceRoleWithOptions(WorkspaceId: string, RoleId: string, request: $_model.UpdateWorkspaceRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceRoleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modulePermissions)) {
+      body["ModulePermissions"] = request.modulePermissions;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      body["RoleName"] = request.roleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspaceRole",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/roles/${$dara.URL.percentEncode(RoleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceRoleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceRoleResponse({}));
+  }
+
+  /**
+   * Updates a role in a workspace.
+   * 
+   * @param request - UpdateWorkspaceRoleRequest
+   * @returns UpdateWorkspaceRoleResponse
+   */
+  async updateWorkspaceRole(WorkspaceId: string, RoleId: string, request: $_model.UpdateWorkspaceRoleRequest): Promise<$_model.UpdateWorkspaceRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkspaceRoleWithOptions(WorkspaceId, RoleId, request, headers, runtime);
+  }
+
+  /**
+   * Validates a connection.
    * 
    * @param request - ValidateConnectionRequest
    * @param headers - map
@@ -6824,7 +7153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证连接
+   * Validates a connection.
    * 
    * @param request - ValidateConnectionRequest
    * @returns ValidateConnectionResponse

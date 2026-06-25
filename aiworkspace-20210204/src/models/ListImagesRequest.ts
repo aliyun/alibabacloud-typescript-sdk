@@ -7,8 +7,9 @@ export class ListImagesRequest extends $dara.Model {
    * @remarks
    * The visibility of the image. This parameter is valid only for custom images.
    * 
-   * *   PUBLIC: The image is visible to all users.
-   * *   PRIVATE: The image is visible only to you and the administrator of the workspace.
+   * - PUBLIC: The image is public.
+   * 
+   * - PRIVATE: The image is private.
    * 
    * @example
    * PUBLIC
@@ -17,26 +18,45 @@ export class ListImagesRequest extends $dara.Model {
   imageUri?: string;
   /**
    * @remarks
-   * The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`. The following keys are supported:
+   * The filter conditions for labels. Separate multiple conditions with commas (,).
+   * The format for a single filter condition is `Key=Value`.
+   * The supported values for Key are:
    * 
-   * *   system.chipType
-   * *   system.dsw.cudaVersion
-   * *   system.dsw.fromImageId
-   * *   system.dsw.fromInstanceId
-   * *   system.dsw.id
-   * *   system.dsw.os
-   * *   system.dsw.osVersion
-   * *   system.dsw.resourceType
-   * *   system.dsw.rootImageId
-   * *   system.dsw.stage
-   * *   system.dsw.tag
-   * *   system.dsw.type
-   * *   system.framework
-   * *   system.origin
-   * *   system.pythonVersion
-   * *   system.source
-   * *   system.supported.dlc
-   * *   system.supported.dsw
+   * - system.chipType
+   * 
+   * - system.dsw\\.cudaVersion
+   * 
+   * - system.dsw\\.fromImageId
+   * 
+   * - system.dsw\\.fromInstanceId
+   * 
+   * - system.dsw\\.id
+   * 
+   * - system.dsw\\.os
+   * 
+   * - system.dsw\\.osVersion
+   * 
+   * - system.dsw\\.resourceType
+   * 
+   * - system.dsw\\.rootImageId
+   * 
+   * - system.dsw\\.stage
+   * 
+   * - system.dsw\\.tag
+   * 
+   * - system.dsw\\.type
+   * 
+   * - system.framework
+   * 
+   * - system.origin
+   * 
+   * - system.pythonVersion
+   * 
+   * - system.source
+   * 
+   * - system.supported.dlc
+   * 
+   * - system.supported.dsw
    * 
    * @example
    * system.framework=XGBoost 1.6.0,system.official=true
@@ -44,7 +64,7 @@ export class ListImagesRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The image name. Fuzzy match is supported.
+   * The name of the image. Fuzzy search is supported.
    * 
    * @example
    * tensorflow_2.9
@@ -52,10 +72,11 @@ export class ListImagesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy. Default value: ASC. Valid values:
+   * The order in which to sort the results of a paged query. This parameter is used with SortBy. The default value is ASC.
    * 
-   * *   ASC: ascending order
-   * *   DESC: descending order.
+   * - ASC: ascending order.
+   * 
+   * - DESC: descending order.
    * 
    * @example
    * DESC
@@ -63,7 +84,7 @@ export class ListImagesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the image list. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -71,7 +92,7 @@ export class ListImagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries to return on each page for a paged query. The default value is 20.
    * 
    * @example
    * 20
@@ -79,7 +100,7 @@ export class ListImagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The image name and description that are used for fuzzy search.
+   * Performs a fuzzy search by image name and description.
    * 
    * @example
    * name
@@ -87,7 +108,7 @@ export class ListImagesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The field used for sorting. The GmtCreateTime field is used.
+   * The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is used for sorting.
    * 
    * @example
    * GmtCreateTime
@@ -95,10 +116,11 @@ export class ListImagesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Specifies whether to display non-essential information, which contains tags. Valid values:
+   * Specifies whether to display non-essential information. Non-essential information currently includes Labels. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Includes non-essential information.
+   * 
+   * - false: Does not include non-essential information.
    * 
    * @example
    * true
@@ -106,7 +128,7 @@ export class ListImagesRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 20******55

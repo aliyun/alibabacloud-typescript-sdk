@@ -5,26 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class AddImageLabelsRequestLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The following keys can be added:
+   * The key of the label. The following keys are supported:
    * 
-   * *   system.chipType
-   * *   system.dsw.cudaVersion
-   * *   system.dsw.fromImageId
-   * *   system.dsw.fromInstanceId
-   * *   system.dsw.id
-   * *   system.dsw.os
-   * *   system.dsw.osVersion
-   * *   system.dsw.resourceType
-   * *   system.dsw.rootImageId
-   * *   system.dsw.stage
-   * *   system.dsw.tag
-   * *   system.dsw.type
-   * *   system.framework
-   * *   system.origin
-   * *   system.pythonVersion
-   * *   system.source
-   * *   system.supported.dlc
-   * *   system.supported.dsw
+   * - system.chipType
+   * 
+   * - system.dsw\\.cudaVersion
+   * 
+   * - system.dsw\\.fromImageId
+   * 
+   * - system.dsw\\.fromInstanceId
+   * 
+   * - system.dsw\\.id
+   * 
+   * - system.dsw\\.os
+   * 
+   * - system.dsw\\.osVersion
+   * 
+   * - system.dsw\\.resourceType
+   * 
+   * - system.dsw\\.rootImageId
+   * 
+   * - system.dsw\\.stage
+   * 
+   * - system.dsw\\.tag
+   * 
+   * - system.dsw\\.type
+   * 
+   * - system.framework
+   * 
+   * - system.origin
+   * 
+   * - system.pythonVersion
+   * 
+   * - system.source
+   * 
+   * - system.supported.dlc
+   * 
+   * - system.supported.dsw
    * 
    * @example
    * system.chipType
@@ -32,7 +49,7 @@ export class AddImageLabelsRequestLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * GPU
@@ -64,7 +81,7 @@ export class AddImageLabelsRequestLabels extends $dara.Model {
 export class AddImageLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of image tags.
+   * A list of image labels.
    * 
    * This parameter is required.
    */

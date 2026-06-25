@@ -13,7 +13,7 @@ export class ListQuotasResponseBodyQuotasSpecs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The specification type. The parameter can be left empty.
+   * The type. This parameter can be empty.
    * 
    * @example
    * string
@@ -55,7 +55,10 @@ export class ListQuotasResponseBodyQuotasSpecs extends $dara.Model {
 export class ListQuotasResponseBodyQuotas extends $dara.Model {
   /**
    * @remarks
-   * The alias of the quota.
+   * The alias of the resource quota.
+   * 
+   * @example
+   * 默认Quota。
    */
   displayName?: string;
   /**
@@ -70,8 +73,9 @@ export class ListQuotasResponseBodyQuotas extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   isolate: subscription
-   * *   share: pay-as-you-go
+   * - isolate: subscription.
+   * 
+   * - share: pay-as-you-go.
    * 
    * @example
    * isolate
@@ -87,28 +91,29 @@ export class ListQuotasResponseBodyQuotas extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The product code. Valid values:
+   * The product name. Valid values:
    * 
-   * *   PAI_isolate: CPU subscription resource groups of PAI
-   * *   PAI_share: GPU pay-as-you-go resource groups of PAI
+   * - PAI_isolate: a subscription PAI resource group (PAI CPU).
+   * 
+   * - PAI_share: a pay-as-you-go PAI resource group (PAI GPU).
    * 
    * @example
-   * MaxCompute_share
+   * PAI_share
    */
   productCode?: string;
   /**
    * @remarks
-   * The quota type. Valid value:
+   * The type of the resource quota. Valid value:
    * 
-   * PAI: indicates GPU resource groups of MaxCompute.
+   * PAI: a GPU resource group cluster of MaxCompute.
    * 
    * @example
-   * MaxCompute
+   * PAI
    */
   quotaType?: string;
   /**
    * @remarks
-   * The quota specifications.
+   * The list of specification descriptions.
    * 
    * @example
    * {\\"cu\\":\\"11500\\",\\"minCu\\":\\"2300\\",\\"parentId\\":\\"0\\"}
@@ -153,7 +158,7 @@ export class ListQuotasResponseBodyQuotas extends $dara.Model {
 export class ListQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned quotas.
+   * The list of resource quotas.
    */
   quotas?: ListQuotasResponseBodyQuotas[];
   /**
@@ -166,7 +171,7 @@ export class ListQuotasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of quotas that meet the filter conditions.
+   * The number of resource quotas that meet the filter condition.
    * 
    * @example
    * 1

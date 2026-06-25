@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the code build.
+   * The ID of the code source.
    * 
    * @example
    * code-20********

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The member ID. You must specify only one of the following parameters: UserId and MemberId.
+   * The member UID. You must specify either UserId or MemberId. You cannot specify both.
    * 
    * @example
    * 145883-21513926******88039
@@ -13,7 +13,7 @@ export class GetMemberRequest extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You can call [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html) to obtain the ID of the Alibaba Cloud account. You must specify only one of the following parameters: UserId and MemberId.
+   * The user UID. For more information about how to view the user UID, see [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html). You must specify either UserId or MemberId. You cannot specify both.
    * 
    * @example
    * 21513926******88039

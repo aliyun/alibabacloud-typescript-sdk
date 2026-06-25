@@ -21,7 +21,7 @@ export class GetWorkspaceResponseBodyOwner extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The user UID.
    * 
    * @example
    * 1157******94123
@@ -65,12 +65,12 @@ export class GetWorkspaceResponseBodyOwner extends $dara.Model {
 export class GetWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The names of the administrator accounts.
+   * The list of administrator account names.
    */
   adminNames?: string[];
   /**
    * @remarks
-   * The ID of the user who creates the workspace.
+   * The ID of the user who created the workspace.
    * 
    * @example
    * 1157******94123
@@ -94,15 +94,16 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environment information of the workspace.
+   * The environments that the workspace contains. Valid values:
    * 
-   * *   Workspaces in basic mode can run only in the production environment.
-   * *   Workspaces in standard mode can run in both the development and production environments.
+   * - A workspace in basic mode has only the production environment (prod).
+   * 
+   * - A workspace in standard mode has both the development environment (dev) and the production environment (prod).
    */
   envTypes?: string[];
   /**
    * @remarks
-   * The additional information, which only contains the TenantId field.
+   * Additional information. This parameter currently contains the tenant ID (TenantId).
    * 
    * @example
    * {"TenantId": "4286******98"}
@@ -110,7 +111,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   extraInfos?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the workspace is created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the workspace was created. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -118,7 +119,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the workspace is modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the workspace was last modified. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -128,8 +129,9 @@ export class GetWorkspaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the workspace is the default workspace. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: The workspace is not the default workspace.
+   * 
+   * - true: The workspace is the default workspace.
    * 
    * @example
    * true
@@ -137,7 +139,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The information about the workspace owner. This parameter is valid only when Verbose is set to true.
+   * The information about the workspace owner. This parameter is returned only when Verbose is set to true.
    */
   owner?: GetWorkspaceResponseBodyOwner;
   /**
@@ -158,14 +160,19 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The workspace state. Valid values:
+   * The status of the workspace. Valid values:
    * 
-   * *   ENABLED
-   * *   INITIALIZING
-   * *   FAILURE:
-   * *   DISABLED
-   * *   FROZEN
-   * *   UPDATING
+   * - ENABLED: The workspace is running as normal.
+   * 
+   * - INITIALIZING: The workspace is being initialized.
+   * 
+   * - FAILURE: The workspace failed to be created.
+   * 
+   * - DISABLED: The workspace is manually disabled.
+   * 
+   * - FROZEN: The workspace is frozen due to an overdue payment.
+   * 
+   * - UPDATING: The workspace is being updated.
    * 
    * @example
    * ENABLED
@@ -181,7 +188,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * workspace-example

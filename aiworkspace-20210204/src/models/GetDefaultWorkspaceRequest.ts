@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDefaultWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to show the details of the default workspace. The details include the conditions of the workspace in different phases. Valid values:
+   * Specifies whether to return detailed information about the default workspace. The detailed information includes the Conditions list. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default): Detailed information is not returned.
+   * 
+   * - true: Detailed information is returned.
    * 
    * @example
    * false

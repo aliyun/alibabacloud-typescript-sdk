@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetVersionLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 8D7B2E70-F770-505B-A672-09F1D8F2EC1E

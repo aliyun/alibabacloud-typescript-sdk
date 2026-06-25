@@ -14,7 +14,7 @@ export class GetMemberResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the workspace is created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the member was created. The time is in Coordinated Universal Time (UTC) and the format is ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z

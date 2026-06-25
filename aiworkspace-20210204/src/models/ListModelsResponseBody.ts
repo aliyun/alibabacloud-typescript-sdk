@@ -6,7 +6,7 @@ import { Model } from "./Model_";
 export class ListModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The models.
+   * The list of models.
    */
   models?: Model[];
   /**

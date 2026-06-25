@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceResourceRequestLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * system.******
@@ -13,7 +13,7 @@ export class UpdateWorkspaceResourceRequestLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * True
@@ -53,7 +53,7 @@ export class UpdateWorkspaceResourceRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether the resource is the default resource. This parameter can only be set to true and cannot be set to false.
+   * Specifies whether to set the resource as the default resource for the workspace. Currently, only `true` is a valid value.
    * 
    * @example
    * true
@@ -61,12 +61,12 @@ export class UpdateWorkspaceResourceRequest extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The resource tags. If you specify multiple tags, only resources that meet all the specified tag-based filter conditions are returned.
+   * An array of tags. The update affects only resources that have all of the specified tags.
    */
   labels?: UpdateWorkspaceResourceRequestLabels[];
   /**
    * @remarks
-   * **This field is no longer used and will be removed. Use the ResourceType field.
+   * **This parameter is deprecated. Use `ResourceType` instead.**
    * 
    * @example
    * MaxCompute
@@ -74,20 +74,30 @@ export class UpdateWorkspaceResourceRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * An array of resource IDs.
    * 
-   * You cannot leave both GroupName and ResourceIds empty. If you specify both the parameters, the value of GroupName of each resource ID in the dataset must be the same.
+   * You cannot leave both `GroupName` and `ResourceIds` empty. If you specify both parameters, the group name must be the same for all specified resource IDs.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource type. Valid values are:
    * 
-   * *   MaxCompute
-   * *   ECS
-   * *   Lingjun
-   * *   ACS
-   * *   FLINK
+   * - MaxCompute: MaxCompute resources.
+   * 
+   * - ECS: General-purpose computing resources.
+   * 
+   * - Lingjun: Lingjun intelligent computing resources.
+   * 
+   * - ACS: ACS computing resources.
+   * 
+   * - Flink: Flink resources.
+   * 
+   * - SelfManagedAckPro: Resources for self-managed ACK Pro clusters.
+   * 
+   * - SelfManagedAckLingjun: Resources for self-managed ACK Lingjun clusters.
+   * 
+   * - SelfManagedASI: Resources for self-managed clusters on third-party clouds.
    * 
    * @example
    * MaxCompute
@@ -95,7 +105,7 @@ export class UpdateWorkspaceResourceRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The specification of the resource.
+   * The specifications of the resource.
    * 
    * @example
    * {

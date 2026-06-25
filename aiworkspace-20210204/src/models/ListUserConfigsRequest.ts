@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The category. Currently, only DataPrivacyConfig is supported.
+   * The category. Only DataPrivacyConfig is supported.
    * 
    * @example
    * DataPrivacyConfig
@@ -13,7 +13,7 @@ export class ListUserConfigsRequest extends $dara.Model {
   categoryNames?: string;
   /**
    * @remarks
-   * The configuration item keys. Currently, only customizePAIAssumedRole is supported.
+   * A collection of configuration keys. Only customizePAIAssumedRole is supported.
    * 
    * @example
    * customizePAIAssumedRole

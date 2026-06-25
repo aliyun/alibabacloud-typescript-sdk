@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941

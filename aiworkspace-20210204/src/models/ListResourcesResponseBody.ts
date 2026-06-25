@@ -13,7 +13,7 @@ export class ListResourcesResponseBodyResourcesEncryption extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * Indicates whether the resources are encrypted.
+   * Indicates whether encryption is enabled.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ListResourcesResponseBodyResourcesEncryption extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The primary key for the encryption.
+   * The encryption key.
    * 
    * @example
    * DEFAULT
@@ -55,7 +55,7 @@ export class ListResourcesResponseBodyResourcesEncryption extends $dara.Model {
 export class ListResourcesResponseBodyResourcesExecutor extends $dara.Model {
   /**
    * @remarks
-   * This parameter is invalid and deprecated.
+   * **Deprecated.** This parameter is no longer used.
    * 
    * @example
    * 110973******7793
@@ -85,7 +85,7 @@ export class ListResourcesResponseBodyResourcesExecutor extends $dara.Model {
 export class ListResourcesResponseBodyResourcesLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the label.
    * 
    * @example
    * system.supported.dsw
@@ -93,7 +93,7 @@ export class ListResourcesResponseBodyResourcesLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the label.
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class ListResourcesResponseBodyResourcesQuotasSpecs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The specification description.
+   * The specification value.
    * 
    * @example
    * 11500
@@ -165,18 +165,22 @@ export class ListResourcesResponseBodyResourcesQuotasSpecs extends $dara.Model {
 export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
   /**
    * @remarks
-   * The resource group type. Valid values:
+   * The card type. Valid values:
    * 
-   * *   CPU
-   * *   GPU
+   * - `CPU`
+   * 
+   * - `GPU`
    * 
    * @example
-   * cpu
+   * CPU
    */
   cardType?: string;
   /**
    * @remarks
-   * The alias of the quota.
+   * The display name of the quota.
+   * 
+   * @example
+   * 默认后付费Quota
    */
   displayName?: string;
   /**
@@ -191,11 +195,12 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   isolate: subscription
-   * *   share: pay-as-you-go
+   * - `isolate`: subscription
+   * 
+   * - `share`: pay-as-you-go
    * 
    * @example
-   * develop
+   * isolate
    */
   mode?: string;
   /**
@@ -210,13 +215,19 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
    * @remarks
    * The product code. Valid values:
    * 
-   * *   PAI_isolate: CPU subscription resource groups of PAI
-   * *   PAI_share: GPU pay-as-you-go resource groups of PAI
-   * *   MaxCompute_share: pay-as-you-go resource groups of MaxCompute
-   * *   MaxCompute_isolate: subscription resource groups of MaxCompute
-   * *   DataWorks_isolate: subscription resource groups of DataWorks
-   * *   DataWorks_share: pay-as-you-go resource groups of DataWorks
-   * *   DLC_share: pay-as-you-go resource groups of Deep Learning Containers (DLC)
+   * - `PAI_isolate`: PAI subscription resource group (PAI CPU)
+   * 
+   * - `PAI_share`: PAI pay-as-you-go resource group (PAI GPU)
+   * 
+   * - `MaxCompute_share`: MaxCompute pay-as-you-go resource group
+   * 
+   * - `MaxCompute_isolate`: MaxCompute subscription resource group
+   * 
+   * - `DataWorks_isolate`: DataWorks subscription resource group
+   * 
+   * - `DataWorks_share`: DataWorks pay-as-you-go resource group
+   * 
+   * - `DLC_share`: DLC pay-as-you-go resource group
    * 
    * @example
    * MaxCompute_isolate
@@ -226,9 +237,11 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
    * @remarks
    * The quota type. Valid values:
    * 
-   * *   PAI
-   * *   MaxCompute
-   * *   DLC
+   * - `PAI`
+   * 
+   * - `MaxCompute`
+   * 
+   * - `DLC`
    * 
    * @example
    * MaxCompute
@@ -236,7 +249,7 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
   quotaType?: string;
   /**
    * @remarks
-   * The quota specifications.
+   * The list of specifications.
    * 
    * @example
    * {\\"cu\\":\\"11500\\",\\"minCu\\":\\"2300\\",\\"parentId\\":\\"0\\"}
@@ -283,15 +296,16 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
 export class ListResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The encryption information, which is valid only for MaxCompute resources.
+   * The encryption details. This parameter is valid only for MaxCompute resources.
    */
   encryption?: ListResourcesResponseBodyResourcesEncryption;
   /**
    * @remarks
    * The environment type. Valid values:
    * 
-   * *   dev: development environment
-   * *   prod: production environment
+   * - `dev`: development environment
+   * 
+   * - `prod`: production environment
    * 
    * @example
    * prod
@@ -299,12 +313,12 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * This parameter is invalid and deprecated.
+   * **Deprecated.** This parameter is no longer used.
    */
   executor?: ListResourcesResponseBodyResourcesExecutor;
   /**
    * @remarks
-   * The time when the resource group is created, in UTC. The time follows the ISO 8601 standard.
+   * The time when the resource was created. The time is displayed in UTC and is formatted in ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -312,7 +326,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The name of the resource group, which is unique within the Alibaba Cloud account.
+   * The name of the resource group. The name must be unique within an Alibaba Cloud account.
    * 
    * @example
    * groupName
@@ -328,10 +342,11 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+   * Indicates whether the resource is the default resource of its type. Each resource type has only one default resource. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The resource is the default resource.
+   * 
+   * - `false`: The resource is not the default resource.
    * 
    * @example
    * true
@@ -339,7 +354,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The tags.
+   * The list of labels.
    */
   labels?: ListResourcesResponseBodyResourcesLabels[];
   /**
@@ -352,7 +367,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * **This field is no longer used and will be removed. Use the ResourceType field.
+   * **Deprecated.** This parameter is deprecated and will be removed in a future release. Use the `ResourceType` parameter instead.
    * 
    * @example
    * MaxCompute
@@ -360,16 +375,28 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The quotas.
+   * The list of quotas.
    */
   quotas?: ListResourcesResponseBodyResourcesQuotas[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The type of the resource. Valid values:
    * 
-   * *   MaxCompute
-   * *   DLC
-   * *   FLINK
+   * - `MaxCompute`: MaxCompute resources
+   * 
+   * - `ECS`: ECS resources
+   * 
+   * - `Lingjun`: Lingjun intelligent computing resources
+   * 
+   * - `ACS`: ACS computing resources
+   * 
+   * - `Flink`: Flink resources
+   * 
+   * - `SelfManagedAckPro`: self-managed cluster resources for AckPro
+   * 
+   * - `SelfManagedAckLingjun`: self-managed cluster resources for AckLingjun
+   * 
+   * - `SelfManagedASI`: self-managed cluster resources for ASI (third-party cloud)
    * 
    * @example
    * MaxCompute
@@ -377,7 +404,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource specification.
+   * The resource specifications.
    * 
    * @example
    * 对于MaxCompute {"Endpoint": "odps.alibaba-inc.com", "Project": "mignshi"}
@@ -385,7 +412,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   spec?: { [key: string]: any };
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace to which the resource belongs.
    * 
    * @example
    * 123
@@ -464,12 +491,12 @@ export class ListResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    */
   resources?: ListResourcesResponseBodyResources[];
   /**
    * @remarks
-   * The number of resources that meet the filter conditions.
+   * The total number of entries that match the filter criteria.
    * 
    * @example
    * 2
