@@ -3,12 +3,63 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CompareSimilarByImageResponseBodyAccessDeniedDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The action for the authentication request.
+   * 
+   * @example
+   * xxx
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * The authentication principal information.
+   * 
+   * @example
+   * 111
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the authentication principal.
+   * 
+   * @example
+   * 222
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
+   * @example
+   * SubUser
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * The encrypted diagnostic message.
+   * 
+   * @example
+   * xxxxxx
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * Valid values:
+   * - ImplicitDeny: no policy is matched.
+   * - ExplicitDeny: an explicit Deny policy is matched.
+   * 
+   * @example
+   * ImplicitDeny
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * The type of the policy that caused the access denial.
+   * 
+   * @example
+   * AccountLevelIdentityBasedPolicy
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,28 +95,49 @@ export class CompareSimilarByImageResponseBodyAccessDeniedDetail extends $dara.M
 }
 
 export class CompareSimilarByImageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication response details.
+   */
   accessDeniedDetail?: CompareSimilarByImageResponseBodyAccessDeniedDetail;
   /**
+   * @remarks
+   * The error code. Valid values:
+   * - 0: success.
+   * - Non-zero: failure.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   msg?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B3137727-7D6E-488C-BA21-0E034C38A879
    */
   requestId?: string;
   /**
+   * @remarks
+   * The image similarity score. Valid values: 0 to 1.
+   * 
    * @example
    * 0.85
    */
   score?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncreaseInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 500
@@ -13,11 +13,10 @@ export class IncreaseInstanceResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The status of the task.
-   * 
-   * *   PROCESSING: in progress
-   * *   FAIL: failed
-   * *   SUCCESS: successful
+   * The status of the batch task. Valid values:
+   * - PROCESSING: The task is being processed.
+   * - FAIL: The task failed.
+   * - SUCCESS: The task is complete.
    * 
    * @example
    * PROCESSING
@@ -49,12 +48,12 @@ export class IncreaseInstanceResponseBodyData extends $dara.Model {
 export class IncreaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the task.
+   * The returned result of the task.
    */
   data?: IncreaseInstanceResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
@@ -62,7 +61,7 @@ export class IncreaseInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

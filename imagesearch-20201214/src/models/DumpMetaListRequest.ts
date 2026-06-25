@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DumpMetaListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the export task.
+   * The ID of the metadata export task.
+   * >To obtain the export task ID, call the [metadata export](https://help.aliyun.com/document_detail/377466.html) operation first and retrieve the ID from the response.
    * 
    * @example
    * 500
@@ -14,6 +15,9 @@ export class DumpMetaListRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the Image Search instance. The name can be up to 20 characters in length.
+   * If you have purchased an Image Search instance, log on to the [Image Search console](https://imagesearch.console.aliyun.com/) to view the instance name.
+   * If you have not purchased an Image Search instance, refer to [Activate the service](https://help.aliyun.com/document_detail/179178.html) and [Create an instance](https://help.aliyun.com/document_detail/66569.html).
+   * >The instance name is not the instance ID. The instance name must be unique within the same region. Make sure you distinguish between the two.
    * 
    * This parameter is required.
    * 
@@ -23,7 +27,7 @@ export class DumpMetaListRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the returned results. Default value: 1. Maximum value: 30.
    * 
    * @example
    * 1
@@ -31,7 +35,7 @@ export class DumpMetaListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of images to return on each page. Default value: 10.
+   * The number of entries to return. Default value: 10. Maximum value: 30.
    * 
    * @example
    * 10

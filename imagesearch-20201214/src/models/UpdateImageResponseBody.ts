@@ -5,37 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
-   * *   A value of 0 indicates that the operation is successful.
-   * *   Values other than 0 indicate errors.
-   * 
-   * @example
-   * 0
+   * - 0: The request was successful.
+   * - Non-zero: The request failed.
    */
   code?: number;
   /**
    * @remarks
-   * Id of the request
-   * 
-   * @example
-   * success
+   * The error message.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E0845DE6-52AF-4B50-9F15-51ED4044E6AB
+   * The request ID.
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * @example
-   * true
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

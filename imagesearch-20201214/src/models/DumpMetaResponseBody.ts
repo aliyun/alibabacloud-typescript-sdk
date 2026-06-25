@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DumpMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status of the export task.
-   * 
-   * *   PROCESSING: in progress
-   * *   FAIL: failed
-   * *   SUCCESS: successful
+   * The status of the metadata export task. Valid values:
+   * - PROCESSING: The task is being processed.
+   * - FAIL: The task failed.
+   * - SUCCESS: The task is completed.
    * 
    * @example
    * PROCESSING
@@ -17,7 +16,7 @@ export class DumpMetaResponseBodyData extends $dara.Model {
   dumpMetaStatus?: string;
   /**
    * @remarks
-   * The ID of the export task.
+   * The task ID.
    * 
    * @example
    * 500
@@ -49,12 +48,12 @@ export class DumpMetaResponseBodyData extends $dara.Model {
 export class DumpMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the export task.
+   * The returned result of the task execution.
    */
   data?: DumpMetaResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1

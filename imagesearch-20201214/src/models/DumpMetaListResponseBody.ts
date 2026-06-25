@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code. Valid values:
    * 
-   * *   A value of 0 indicates that the operation is successful.
-   * *   Values other than 0 indicate errors.
+   * - 0: Succeeded.
+   * - Non-zero: Failed.
    * 
    * @example
    * 0
@@ -16,7 +16,7 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 500
@@ -24,7 +24,7 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The address where you can download the metadata. The address is valid for 2 hours.
+   * The URL for downloading the result. The URL is valid for two hours.
    * 
    * @example
    * https://imagesearchname.oss-cn-shanghai.aliyuncs.com/xxx
@@ -32,7 +32,7 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   metaUrl?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * success
@@ -40,11 +40,10 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The status of the export task.
-   * 
-   * *   PROCESSING: in progress
-   * *   FAIL: failed
-   * *   SUCCESS: successful
+   * The task status. Valid values:
+   * - PROCESSING: The task is being processed.
+   * - FAIL: The task failed.
+   * - SUCCESS: The task is completed.
    * 
    * @example
    * SUCCESS
@@ -60,7 +59,7 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
   utcCreate?: string;
   /**
    * @remarks
-   * The time when the task was updated. Unit: milliseconds.
+   * The time when the task was last updated. Unit: milliseconds.
    * 
    * @example
    * 1629095760000
@@ -102,12 +101,12 @@ export class DumpMetaListResponseBodyDataDumpMetaList extends $dara.Model {
 export class DumpMetaListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of tasks that are used to export metadata.
+   * The collection of metadata export tasks.
    */
   dumpMetaList?: DumpMetaListResponseBodyDataDumpMetaList[];
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -115,7 +114,7 @@ export class DumpMetaListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries returned.
    * 
    * @example
    * 10
@@ -162,12 +161,12 @@ export class DumpMetaListResponseBodyData extends $dara.Model {
 export class DumpMetaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the task that is used to export metadata.
+   * The metadata export information.
    */
   data?: DumpMetaListResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B3137727-7D6E-488C-BA21-0E034C38A879

@@ -82,7 +82,7 @@ export class IncreaseListResponseBodyData extends $dara.Model {
   increments?: IncreaseListResponseBodyDataIncrements;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -90,7 +90,7 @@ export class IncreaseListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries returned.
    * 
    * @example
    * 10
@@ -137,12 +137,12 @@ export class IncreaseListResponseBodyData extends $dara.Model {
 export class IncreaseListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the batch task.
+   * The batch task information.
    */
   data?: IncreaseListResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B3137727-7D6E-488C-BA21-0E034C38A879

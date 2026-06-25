@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AddImageResponseBodyPicInfoAllCategories extends $dara.Model {
+  /**
+   * @remarks
+   * The category ID.
+   * 
+   * @example
+   * 88888888
+   */
   id?: number;
+  /**
+   * @remarks
+   * The category name.
+   * 
+   * @example
+   * Other
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +45,13 @@ export class AddImageResponseBodyPicInfoAllCategories extends $dara.Model {
 }
 
 export class AddImageResponseBodyPicInfoMultiRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The subject identification result. The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
+   * 
+   * @example
+   * 94,691,206,650
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,19 +75,28 @@ export class AddImageResponseBodyPicInfoMultiRegion extends $dara.Model {
 }
 
 export class AddImageResponseBodyPicInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The information about all categories supported by the system.
+   */
   allCategories?: AddImageResponseBodyPicInfoAllCategories[];
   /**
    * @remarks
-   * The result of category prediction. If a category is specified in the request, the specified category prevails.
+   * The category prediction result. If the user specifies a category in the request, the specified category is used.
    * 
    * @example
    * 88888888
    */
   categoryId?: number;
+  /**
+   * @remarks
+   * The collection of subject identification results.
+   * > Upgrade to V3.1.1 or later to use this feature.
+   */
   multiRegion?: AddImageResponseBodyPicInfoMultiRegion[];
   /**
    * @remarks
-   * The result of subject identification. The subject area of the image is in the format of `x1,x2,y1,y2`. `x1 and y1` represent the position in the upper-left corner, in pixels. `x2 and y2` represent the position in the lower-right corner, in pixels. If a subject area is specified in the request, the specified subject area prevails.
+   * The subject identification result. The subject region of the image, in the format of `x1,x2,y1,y2`, where `x1,y1` is the upper-left point and `x2,y2` is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
    * 
    * @example
    * 94,691,206,650
@@ -108,10 +138,10 @@ export class AddImageResponseBodyPicInfo extends $dara.Model {
 export class AddImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code returned.
+   * The error code.
    * 
-   * *   A value of 0 indicates that the request was successful.
-   * *   Values other than 0 indicate that the request failed.
+   * - 0: success.
+   * - Non-zero: failure.
    * 
    * @example
    * 0
@@ -119,9 +149,8 @@ export class AddImageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
-   * 
-   * > No value is returned if the request was successful, and an error message is returned if the request failed.
+   * The error message.
+   * > No data is returned for successful requests. Error messages are returned for failed requests.
    * 
    * @example
    * success
@@ -129,7 +158,7 @@ export class AddImageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The results of category prediction and subject identification.
+   * The category prediction and subject identification results.
    */
   picInfo?: AddImageResponseBodyPicInfo;
   /**
@@ -142,7 +171,7 @@ export class AddImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

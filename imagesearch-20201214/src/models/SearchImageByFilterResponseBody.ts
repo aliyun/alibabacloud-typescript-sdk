@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
+export class SearchImageByFilterResponseBodyAuctions extends $dara.Model {
   /**
    * @remarks
-   * Image category.
+   * The image category.
    * 
    * @example
-   * 88888888
+   * 8888888
    */
   categoryId?: number;
   /**
    * @remarks
-   * User-defined content.
+   * The user-defined content.
    * 
    * @example
    * zidingyi
@@ -21,7 +21,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   customContent?: string;
   /**
    * @remarks
-   * Integer-type property.
+   * The integer type attribute.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   intAttr?: number;
   /**
    * @remarks
-   * Integer-type property.
+   * The integer type attribute.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   intAttr2?: number;
   /**
    * @remarks
-   * Integer-type property.
+   * The integer type attribute.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   intAttr3?: number;
   /**
    * @remarks
-   * Integer-type property.
+   * The integer type attribute.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   intAttr4?: number;
   /**
    * @remarks
-   * Image name.
+   * The image name.
    * 
    * @example
    * 2092061_1.jpg
@@ -61,7 +61,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   picName?: string;
   /**
    * @remarks
-   * Product ID.
+   * The product ID.
    * 
    * @example
    * 2092061_1
@@ -69,7 +69,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * String-type property.
+   * The string type attribute.
    * 
    * @example
    * test
@@ -77,7 +77,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   strAttr?: string;
   /**
    * @remarks
-   * String-type property.
+   * The string type attribute.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   strAttr2?: string;
   /**
    * @remarks
-   * String-type property.
+   * The string type attribute.
    * 
    * @example
    * test
@@ -93,7 +93,7 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   strAttr3?: string;
   /**
    * @remarks
-   * String-type property.
+   * The string type attribute.
    * 
    * @example
    * test
@@ -142,17 +142,17 @@ export class CheckImageExistsResponseBodyAuctions extends $dara.Model {
   }
 }
 
-export class CheckImageExistsResponseBody extends $dara.Model {
+export class SearchImageByFilterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Description information of all returned products.
+   * The product description information returned.
    */
-  auctions?: CheckImageExistsResponseBodyAuctions;
+  auctions?: SearchImageByFilterResponseBodyAuctions[];
   /**
    * @remarks
-   * Error code.  
-   * - 0: Succeeded.  
-   * - Non-zero: Failed.
+   * The error code.
+   * - 0: success.
+   * - Non-zero: failure.
    * 
    * @example
    * 0
@@ -160,15 +160,7 @@ export class CheckImageExistsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the image exists.
-   * 
-   * @example
-   * true
-   */
-  exists?: boolean;
-  /**
-   * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -176,7 +168,7 @@ export class CheckImageExistsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B3137727-7D6E-488C-BA21-0E034C38A879
@@ -184,7 +176,7 @@ export class CheckImageExistsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -194,7 +186,6 @@ export class CheckImageExistsResponseBody extends $dara.Model {
     return {
       auctions: 'Auctions',
       code: 'Code',
-      exists: 'Exists',
       msg: 'Msg',
       requestId: 'RequestId',
       success: 'Success',
@@ -203,9 +194,8 @@ export class CheckImageExistsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      auctions: CheckImageExistsResponseBodyAuctions,
+      auctions: { 'type': 'array', 'itemType': SearchImageByFilterResponseBodyAuctions },
       code: 'number',
-      exists: 'boolean',
       msg: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -213,8 +203,8 @@ export class CheckImageExistsResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.auctions && typeof (this.auctions as any).validate === 'function') {
-      (this.auctions as any).validate();
+    if(Array.isArray(this.auctions)) {
+      $dara.Model.validateArray(this.auctions);
     }
     super.validate();
   }

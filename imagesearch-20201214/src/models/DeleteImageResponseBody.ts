@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name (PicName) of the deleted image.
+   * The deleted PicName.
    * 
    * @example
    * 5555.jpg
@@ -38,10 +38,9 @@ export class DeleteImageResponseBodyData extends $dara.Model {
 export class DeleteImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
-   * 
-   * *   A value of 0 indicates that the operation is successful.
-   * *   Values other than 0 indicate errors.
+   * The error code. Valid values:
+   * - 0: success.
+   * - Non-zero value: failure.
    * 
    * @example
    * 0
@@ -49,12 +48,12 @@ export class DeleteImageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the deleted images.
+   * The deletion result.
    */
   data?: DeleteImageResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * success
@@ -62,7 +61,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0703956F-9BCC-48FA-99F7-96C0BF449C69
@@ -70,7 +69,7 @@ export class DeleteImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

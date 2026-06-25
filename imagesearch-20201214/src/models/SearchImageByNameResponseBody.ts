@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   /**
    * @remarks
-   * The category of the image.
+   * The image category.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The user-defined content.
+   * The custom content defined by the user.
    * 
    * @example
    * zidingyi
@@ -21,22 +21,39 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   customContent?: string;
   /**
    * @remarks
-   * The attribute, which is an integer.
+   * The integer attribute.
    * 
    * @example
    * 2
    */
   intAttr?: number;
   /**
+   * @remarks
+   * The integer attribute.
+   * 
    * @example
    * 20
    */
   intAttr2?: number;
+  /**
+   * @remarks
+   * The integer attribute. This field can be used for filtering during queries and is returned in query results.
+   * 
+   * @example
+   * 1
+   */
   intAttr3?: number;
+  /**
+   * @remarks
+   * The integer attribute. This field can be used for filtering during queries and is returned in query results.
+   * 
+   * @example
+   * 1
+   */
   intAttr4?: number;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * 2092061_1.jpg
@@ -44,7 +61,7 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   picName?: string;
   /**
    * @remarks
-   * The ID of the product.
+   * The product ID.
    * 
    * @example
    * 2092061_1
@@ -52,9 +69,8 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The similarity score of the returned image. Valid values: 0 to 1.
-   * 
-   * >  To use this feature, you must upgrade the SDK to version 3.1.1.
+   * The image similarity score. Valid values: 0 to 1.
+   * > You must upgrade to V3.1.1 or later to use this field.
    * 
    * @example
    * 1
@@ -62,12 +78,11 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The score information about the image.
-   * 
-   * > *   This parameter is not supported. We recommend that you use the Score parameter.
-   * >*   The SortExprValues parameter indicates a 2-tuple in which values are separated by a semicolon (;). The first value indicates the correlation score of the returned image. A greater value indicates a higher correlation with the sample image. Different algorithms are used.
-   * >*   If the value of CategoryId is within the value range from 0 to 2, the value range of SortExprValues is from 0 to 7.33136443711219e+24.
-   * >*   If the value of CategoryId is not within the value range from 0 to 2, the value range of SortExprValues is from 0 to 5.37633353624177e+24. If the returned image is identical with the sample image, the highest correlation score is generated.
+   * The system scoring information.
+   * > - This field is deprecated. Use Score instead.
+   * - SortExprValues is a semicolon-separated pair. The first value indicates the relevance score of the image. A higher value indicates higher relevance to the query image. The scoring varies depending on the algorithm model.
+   * - When the category is 0 to 2, the value range of SortExprValues is 0 to 7.33136443711219e+24.
+   * - For other category values, the value range of SortExprValues is 0 to 5.37633353624177e+24. This score reaches its maximum when two images are identical.
    * 
    * @example
    * 5.37633353624177e+24;0
@@ -75,18 +90,35 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
   sortExprValues?: string;
   /**
    * @remarks
-   * The attribute, which is a string.
+   * The string attribute.
    * 
    * @example
    * ss
    */
   strAttr?: string;
   /**
+   * @remarks
+   * The string attribute.
+   * 
    * @example
    * test
    */
   strAttr2?: string;
+  /**
+   * @remarks
+   * The string attribute. The maximum length is 128 characters. This field can be used for filtering during queries and is returned in query results.
+   * 
+   * @example
+   * test
+   */
   strAttr3?: string;
+  /**
+   * @remarks
+   * The string attribute. The maximum length is 128 characters. This field can be used for filtering during queries and is returned in query results.
+   * 
+   * @example
+   * test
+   */
   strAttr4?: string;
   static names(): { [key: string]: string } {
     return {
@@ -138,7 +170,7 @@ export class SearchImageByNameResponseBodyAuctions extends $dara.Model {
 export class SearchImageByNameResponseBodyHead extends $dara.Model {
   /**
    * @remarks
-   * The number of images returned.
+   * The number of results returned.
    * 
    * @example
    * 10
@@ -146,7 +178,7 @@ export class SearchImageByNameResponseBodyHead extends $dara.Model {
   docsFound?: number;
   /**
    * @remarks
-   * The number of images that match the search conditions on the Image Search instance.
+   * The number of matched results in the instance.
    * 
    * @example
    * 10000
@@ -154,7 +186,7 @@ export class SearchImageByNameResponseBodyHead extends $dara.Model {
   docsReturn?: number;
   /**
    * @remarks
-   * The time it takes to complete the search process. Unit: milliseconds.
+   * The search duration, in milliseconds.
    * 
    * @example
    * 95
@@ -188,18 +220,18 @@ export class SearchImageByNameResponseBodyHead extends $dara.Model {
 export class SearchImageByNameResponseBodyPicInfoAllCategories extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
-   * other
+   * 88888888
    */
   id?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * 88888888
+   * other
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -228,9 +260,8 @@ export class SearchImageByNameResponseBodyPicInfoAllCategories extends $dara.Mod
 export class SearchImageByNameResponseBodyPicInfoMultiRegion extends $dara.Model {
   /**
    * @remarks
-   * The result of subject recognition.
-   * 
-   * The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
+   * The subject identification result.
+   * The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
    * 
    * @example
    * 280,486,232,351
@@ -260,14 +291,13 @@ export class SearchImageByNameResponseBodyPicInfoMultiRegion extends $dara.Model
 export class SearchImageByNameResponseBodyPicInfo extends $dara.Model {
   /**
    * @remarks
-   * The categories that are supported by the system.
+   * The information about all categories supported by the system.
    */
   allCategories?: SearchImageByNameResponseBodyPicInfoAllCategories[];
   /**
    * @remarks
-   * The category selected by the system.
-   * 
-   * If a category is specified in the request, the specified category prevails.
+   * The category prediction result.
+   * If the user specifies a category in the request, the specified category is used.
    * 
    * @example
    * 20
@@ -275,14 +305,13 @@ export class SearchImageByNameResponseBodyPicInfo extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The recognized subjects.
+   * The subject identification collection.
    */
   multiRegion?: SearchImageByNameResponseBodyPicInfoMultiRegion[];
   /**
    * @remarks
-   * The result of subject recognition.
-   * 
-   * The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
+   * The subject identification result.
+   * The subject region of the image, in the format of x1,x2,y1,y2, where x1,y1 is the upper-left point and x2,y2 is the lower-right point. If the user specifies a subject region in the request, the specified region is used.
    * 
    * @example
    * 280,486,232,351
@@ -324,15 +353,14 @@ export class SearchImageByNameResponseBodyPicInfo extends $dara.Model {
 export class SearchImageByNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The product descriptions returned.
+   * The descriptions of all returned products.
    */
   auctions?: SearchImageByNameResponseBodyAuctions[];
   /**
    * @remarks
-   * The error code returned.
-   * 
-   * *   A value of 0 indicates that the operation is successful.
-   * *   Values other than 0 indicate errors.
+   * The error code. Valid values:
+   * - 0: success.
+   * - Non-zero: failure.
    * 
    * @example
    * 0
@@ -340,12 +368,12 @@ export class SearchImageByNameResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The summary of the search result.
+   * The overview of the search results.
    */
   head?: SearchImageByNameResponseBodyHead;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * success
@@ -353,12 +381,12 @@ export class SearchImageByNameResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The information such as the system-selected category and result of subject recognition.
+   * The information such as category prediction and subject identification results.
    */
   picInfo?: SearchImageByNameResponseBodyPicInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
@@ -366,7 +394,7 @@ export class SearchImageByNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

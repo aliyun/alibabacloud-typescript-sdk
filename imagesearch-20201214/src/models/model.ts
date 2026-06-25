@@ -12,6 +12,7 @@ export { IncreaseInstanceResponseBodyData } from './IncreaseInstanceResponseBody
 export { IncreaseListResponseBodyDataIncrementsInstance } from './IncreaseListResponseBody';
 export { IncreaseListResponseBodyDataIncrements } from './IncreaseListResponseBody';
 export { IncreaseListResponseBodyData } from './IncreaseListResponseBody';
+export { SearchImageByFilterResponseBodyAuctions } from './SearchImageByFilterResponseBody';
 export { SearchImageByNameResponseBodyAuctions } from './SearchImageByNameResponseBody';
 export { SearchImageByNameResponseBodyHead } from './SearchImageByNameResponseBody';
 export { SearchImageByNameResponseBodyPicInfoAllCategories } from './SearchImageByNameResponseBody';
@@ -56,6 +57,9 @@ export { IncreaseInstanceResponse } from './IncreaseInstanceResponse';
 export { IncreaseListRequest } from './IncreaseListRequest';
 export { IncreaseListResponseBody } from './IncreaseListResponseBody';
 export { IncreaseListResponse } from './IncreaseListResponse';
+export { SearchImageByFilterRequest } from './SearchImageByFilterRequest';
+export { SearchImageByFilterResponseBody } from './SearchImageByFilterResponseBody';
+export { SearchImageByFilterResponse } from './SearchImageByFilterResponse';
 export { SearchImageByNameRequest } from './SearchImageByNameRequest';
 export { SearchImageByNameResponseBody } from './SearchImageByNameResponseBody';
 export { SearchImageByNameResponse } from './SearchImageByNameResponse';
