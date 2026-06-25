@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * Filters instances by billing method. Valid values:
    * 
-   * *   PrePaid: subscription.
-   * *   PostPaid: pay-as-you-go.
+   * - PrePaid: subscription.
+   * 
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -16,7 +17,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The keyword used to query instances. Instances can be queried by instance ID or instance IP address.
+   * A keyword for the search. You can search by instance ID or IP address.
    * 
    * @example
    * 10.224.xx.xx
@@ -32,15 +33,15 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceIP?: string;
   /**
    * @remarks
-   * The instance ID. For more information about how to query the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+   * Filter by instance ID. For more information, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
    * 
    * @example
-   * i-bp1jd6x3uotsv****
+   * i-bp1jd6x3uots****a
    */
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * Filter by instance name.
    * 
    * @example
    * e-xxxx***
@@ -48,103 +49,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance state.
-   * 
-   * Valid values:
-   * 
-   * *   Ready-SchedulingDisabled
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instance is available but unschedulable
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Ready
-   * 
-   *     <!-- -->
-   * 
-   *     : The instance
-   * 
-   *     <!-- -->
-   * 
-   *     is running
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   NotReady
-   * 
-   *     <!-- -->
-   * 
-   *     : The instance is unready.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopped
-   * 
-   *     <!-- -->
-   * 
-   *     : The instance has stopped.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NotReady-SchedulingDisabled
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instance is unavailable and unschedulable
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Attaching
-   * 
-   *     <!-- -->
-   * 
-   *     : The instance
-   * 
-   *     <!-- -->
-   * 
-   *     is starting
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Deleting
-   * 
-   *     <!-- -->
-   * 
-   *     : The instance is being deleted.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CreateFailed: The instance failed to be created.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the instance.
    * 
    * @example
    * Ready
@@ -152,32 +57,12 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The tag.
+   * Filter by label.
    */
   labelShrink?: string;
   /**
    * @remarks
-   * The sorting order.
-   * 
-   * Valid values:
-   * 
-   * *   asc: The instances are sorted in ascending order.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   desc
-   * 
-   *     <!-- -->
-   * 
-   *     : The instances are sorted in descending order.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The sort order.
    * 
    * @example
    * desc
@@ -185,7 +70,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -193,7 +78,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of instances to return on each page. Default value: 100.
    * 
    * @example
    * 20
@@ -201,70 +86,19 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field that you use to sort the query results.
-   * 
-   * Valid values:
-   * 
-   * *   CreateTime
-   * 
-   *     <!-- -->
-   * 
-   *     : The instances are sorted based on the time when the instances were created.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   MemoryUsed
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instances are sorted based on the memory usage of the instances
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   GpuUsed
-   * 
-   *     <!-- -->
-   * 
-   *     : The instances are sorted based on the
-   * 
-   *     <!-- -->
-   * 
-   *     GPU usage of the instances.
-   * 
-   *     <!-- -->
-   * 
-   * *   ExpireTime: The instances are sorted based on the time when the instances expired.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CpuUsed
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instances are sorted based on the CPU utilization of the instances.
-   * 
-   *     <!-- -->
+   * The sort field.
    * 
    * @example
    * CreateTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The zone of the instance.
+   * 
+   * @example
+   * J
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {

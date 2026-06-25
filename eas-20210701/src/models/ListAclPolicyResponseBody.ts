@@ -16,7 +16,7 @@ export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends
    * The IP CIDR block in the VPC that can access the private gateway over the Internet.
    * 
    * @example
-   * 10.23.XX.XX/32
+   * 0.0.0.0/0
    */
   entry?: string;
   static names(): { [key: string]: string } {
@@ -78,7 +78,7 @@ export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList exte
    * The comment on the IP CIDR block in the VPC that can access the private gateway over the internal network.
    * 
    * @example
-   * Test Entry
+   * default
    */
   comment?: string;
   /**
@@ -86,7 +86,7 @@ export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList exte
    * The IP CIDR block in the VPC that can access the private gateway over the internal network.
    * 
    * @example
-   * 192.168.XX.XX/24
+   * 0.0.0.0/0
    */
   entry?: string;
   static names(): { [key: string]: string } {

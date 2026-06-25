@@ -13,7 +13,7 @@ export class DescribeResourceDLinkResponseBody extends $dara.Model {
    * The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
    * 
    * @example
-   * 72.16.0.0/16
+   * 172.16.0.0/16
    */
   destinationCIDRs?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeResourceDLinkResponseBody extends $dara.Model {
    * The ID of the VPC that is directly connected.
    * 
    * @example
-   * vpc-uf66uio7md****
+   * vpc-uf66uio7m****1
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

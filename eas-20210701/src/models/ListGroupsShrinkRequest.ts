@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListGroupsRequest extends $dara.Model {
+export class ListGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The filter name. Fuzzy match is supported.
@@ -15,7 +15,7 @@ export class ListGroupsRequest extends $dara.Model {
    * @remarks
    * The user-defined labels.
    */
-  labels?: { [key: string]: string };
+  labelsShrink?: string;
   /**
    * @remarks
    * The sort order of the results.
@@ -67,7 +67,7 @@ export class ListGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
-      labels: 'Labels',
+      labelsShrink: 'Labels',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -80,7 +80,7 @@ export class ListGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      labelsShrink: 'string',
       order: 'string',
       pageNumber: 'string',
       pageSize: 'string',
@@ -91,9 +91,6 @@ export class ListGroupsRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.labels) {
-      $dara.Model.validateMap(this.labels);
-    }
     super.validate();
   }
 

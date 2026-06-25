@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   Desc
-   * *   Asc
+   * - `Desc`: descending order
+   * 
+   * - `Asc`: ascending order
    * 
    * @example
    * Desc
@@ -16,7 +17,7 @@ export class ListResourcesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class ListResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the ID of the resource group.
+   * The resource group ID. The [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation returns this ID.
    * 
    * @example
    * eas-r-h7lcw24dyqztwxxxxxx
@@ -40,7 +41,7 @@ export class ListResourcesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the name of the resource group.
+   * The resource group name. The [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation returns this name.
    * 
    * @example
    * MyResource
@@ -56,10 +57,11 @@ export class ListResourcesRequest extends $dara.Model {
   resourceStatus?: string;
   /**
    * @remarks
-   * The type of the resource group. Valid values:
+   * The resource group type. Valid values:
    * 
-   * *   Dedicated: the dedicated resource group.
-   * *   SelfManaged: the self-managed resource group.
+   * - `Dedicated`: dedicated resource group
+   * 
+   * - `SelfManaged`: self-managed resource group
    * 
    * @example
    * Dedicated
@@ -67,25 +69,19 @@ export class ListResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The condition by which the results are sorted. By default, the query results are sorted by the timestamp type in descending order.
-   * 
-   * Valid values:
-   * 
-   * *   PrePaidInstanceCount
-   * *   CpuCount
-   * *   Memory
-   * *   CreateTime
-   * *   PostPaidInstanceCount
-   * *   MemoryUsed
-   * *   GpuCount
-   * *   GpuUsed
-   * *   CpuUsed
-   * *   ServiceCount
+   * The sort field. Timestamp fields are sorted in descending order by default.
    * 
    * @example
    * CreateTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * The usage mode of the resource group. The default value is `inference`.
+   * 
+   * @example
+   * inference
+   */
   usageMode?: string;
   static names(): { [key: string]: string } {
     return {

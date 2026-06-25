@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The target number of instances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ScaleServiceRequest extends $dara.Model {
    */
   instance?: number;
   /**
+   * @remarks
+   * A list of instance names to prioritize for removal during a scale-in operation.
+   * 
    * **if can be null:**
    * true
    */

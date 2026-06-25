@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateGroupRequestNetwork extends $dara.Model {
+export class CreateGroupRequestNetwork extends $dara.Model {
   /**
    * @remarks
    * The dedicated gateway ID.
    * 
    * @example
-   * gw-rcgxxxxxxzytgq9zrj
+   * gw-248xxxxxxvlkhtbrda
    */
   gatewayId?: string;
   /**
@@ -16,7 +16,7 @@ export class UpdateGroupRequestNetwork extends $dara.Model {
    * The security group ID.
    * 
    * @example
-   * sg-uf6xxxxxxc3lysxabg72i
+   * sg-584xxxxxx7h08llvoww5tv5gl
    */
   securityGroupId?: string;
   /**
@@ -24,7 +24,7 @@ export class UpdateGroupRequestNetwork extends $dara.Model {
    * The vSwitch ID.
    * 
    * @example
-   * vsw-bp1xxxxxxjeqwbo3z2pux
+   * vsw-bp1xxxxxxwmssgq28gye8
    */
   vSwitchId?: string;
   /**
@@ -32,7 +32,7 @@ export class UpdateGroupRequestNetwork extends $dara.Model {
    * The VPC ID.
    * 
    * @example
-   * vpc-bp1xxxxxx17e0qrykjr9b
+   * vpc-bp1xxxxxx0qrykjr9b
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -62,7 +62,7 @@ export class UpdateGroupRequestNetwork extends $dara.Model {
   }
 }
 
-export class UpdateGroupRequest extends $dara.Model {
+export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined labels.
@@ -70,32 +70,40 @@ export class UpdateGroupRequest extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The VPC configuration.
-   */
-  network?: UpdateGroupRequestNetwork;
-  /**
-   * @remarks
-   * The traffic mode. Valid values:
-   * - auto: automatically assigns weights based on the proportion of instances.
-   * - customized: distributes traffic based on custom fixed weights.
+   * The name of the group.
    * 
    * @example
-   * auto
+   * foo
    */
-  trafficMode?: string;
+  name?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configuration.
+   */
+  network?: CreateGroupRequestNetwork;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 12xx34
+   */
+  workSpaceId?: string;
   static names(): { [key: string]: string } {
     return {
       labels: 'Labels',
+      name: 'Name',
       network: 'Network',
-      trafficMode: 'TrafficMode',
+      workSpaceId: 'WorkSpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      network: UpdateGroupRequestNetwork,
-      trafficMode: 'string',
+      name: 'string',
+      network: CreateGroupRequestNetwork,
+      workSpaceId: 'string',
     };
   }
 

@@ -75,7 +75,7 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
 export class ListVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned list of virtual resource groups.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of virtual resource groups returned on each page.
    * 
    * @example
    * 20
@@ -91,7 +91,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -99,7 +99,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of virtual resource groups.
    * 
    * @example
    * 100
@@ -107,7 +107,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The virtual resource groups.
+   * The list of virtual resource groups.
    */
   virtualResources?: ListVirtualResourceResponseBodyVirtualResources[];
   static names(): { [key: string]: string } {

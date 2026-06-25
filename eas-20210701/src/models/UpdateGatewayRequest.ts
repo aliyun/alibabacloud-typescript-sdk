@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Internet access. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable public network access. The default value is false.
    * 
    * @example
    * false
@@ -18,12 +13,7 @@ export class UpdateGatewayRequest extends $dara.Model {
   enableInternet?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable private access. Default value: true.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable intranet access. The default value is true.
    * 
    * @example
    * true
@@ -31,7 +21,7 @@ export class UpdateGatewayRequest extends $dara.Model {
   enableIntranet?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP to HTTPS redirection. Default value: false.
+   * Specifies whether to enable HTTP to HTTPS redirection. The default value is false.
    * 
    * @example
    * false
@@ -39,20 +29,23 @@ export class UpdateGatewayRequest extends $dara.Model {
   enableSSLRedirection?: boolean;
   /**
    * @remarks
-   * The instance type used by the private gateway. Valid values:
+   * The instance type of the private gateway. Valid values:
    * 
-   * *   2c4g
-   * *   4c8g
-   * *   8c16g
-   * *   16c32g
+   * - 2c4g
+   * 
+   * - 4c8g
+   * 
+   * - 8c16g
+   * 
+   * - 16c32g
    * 
    * @example
-   * ecs.c6.4xlarge
+   * 2c4g
    */
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether it is the default private gateway.
+   * Specifies whether the gateway is the default private gateway.
    * 
    * @example
    * true
@@ -68,13 +61,24 @@ export class UpdateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of nodes in the private gateway.
+   * The number of private gateway nodes.
    * 
    * @example
    * 2
    */
   replicas?: number;
+  /**
+   * @remarks
+   * The list of vSwitches. This parameter applies only to application-type dedicated gateways.
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The VPC where the gateway resides. This parameter applies only to application-type dedicated gateways.
+   * 
+   * @example
+   * vpc-bp1jkde2******3mew
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

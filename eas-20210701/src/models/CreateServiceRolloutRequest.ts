@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceRolloutRequestBatch extends $dara.Model {
   /**
+   * @remarks
+   * The number of instances to update in each batch.
+   * 
    * @example
    * 1
    */
   batchSize?: string;
   /**
+   * @remarks
+   * The wait interval after each batch completes.
+   * 
    * @example
    * 5m
    */
@@ -38,6 +44,9 @@ export class CreateServiceRolloutRequestBatch extends $dara.Model {
 
 export class CreateServiceRolloutRequestPartition extends $dara.Model {
   /**
+   * @remarks
+   * The number of instances to update to the new version.
+   * 
    * @example
    * 1
    */
@@ -64,9 +73,20 @@ export class CreateServiceRolloutRequestPartition extends $dara.Model {
 }
 
 export class CreateServiceRolloutRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for the Batch strategy.
+   */
   batch?: CreateServiceRolloutRequestBatch;
+  /**
+   * @remarks
+   * The configuration for the Partition strategy.
+   */
   partition?: CreateServiceRolloutRequestPartition;
   /**
+   * @remarks
+   * Specifies whether to pause the rollout.
+   * 
    * @example
    * False
    */

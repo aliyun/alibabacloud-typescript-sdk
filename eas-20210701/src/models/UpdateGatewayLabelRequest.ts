@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayLabelRequest extends $dara.Model {
   /**
    * @remarks
+   * The custom gateway labels.
+   * 
    * This parameter is required.
    */
   labels?: { [key: string]: string };

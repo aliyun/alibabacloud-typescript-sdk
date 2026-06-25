@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that owns the VPC.
+   * 
+   * @example
+   * 161*******66
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * Indicates whether authoritative DNS resolution is enabled. Default value: false.
+   * 
+   * @example
+   * true
+   */
   authoritativeDnsEnabled?: boolean;
   /**
    * @remarks
@@ -15,7 +29,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
   ip?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-2ze4pgstgszvgq******
@@ -23,33 +37,11 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
   securityGroupId?: string;
   /**
    * @remarks
-   * The state of the private gateway.
+   * The status. Valid values:
    * 
-   * Valid values:
+   * - Creating: The endpoint is being created.
    * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The private gateway is being created.
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The private gateway is running.
-   * 
-   *     <!-- -->
+   * - Running: The endpoint is running.
    * 
    * @example
    * Running
@@ -57,7 +49,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the virtual switch.
    * 
    * @example
    * vsw-8vb2qjoiio6m9pg******
@@ -65,7 +57,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-2zetuli9ws0qgjd******
@@ -107,7 +99,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
 export class ListGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The private gateway ID.
+   * The ID of the private gateway.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -115,7 +107,7 @@ export class ListGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The internal endpoints.
+   * The list of internal access endpoints.
    */
   intranetLinkedVpcList?: ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList[];
   /**

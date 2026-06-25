@@ -6,12 +6,12 @@ import { ResourceInstance } from "./ResourceInstance";
 export class ListResourceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The list of instances.
    */
   instances?: ResourceInstance[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned list of instances.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListResourceInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of instances returned on each page.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class ListResourceInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of instances.
    * 
    * @example
    * 2

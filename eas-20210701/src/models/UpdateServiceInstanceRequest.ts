@@ -3,15 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateServiceInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the instance is a replica.
+   * 
+   * @example
+   * false
+   */
   isReplica?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to fence the service instance. After an instance is fenced, it is no longer managed by the VPC controller and a new instance is created. The fenced instance is reserved for troubleshooting or debugging. Note: You cannot unfence an instance. Valid values:
+   * 
+   * - true: Fences the instance.
+   * 
+   * @example
+   * true
+   */
   detach?: boolean;
+  /**
+   * @remarks
+   * > This parameter is for an invitational preview. It is not generally available.
+   * 
+   * @example
+   * 0
+   */
   hibernate?: boolean;
   /**
    * @remarks
-   * Specifies whether to isolate the service instance. Valid values:
+   * Specifies whether to isolate the instance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The instance is isolated and does not receive traffic.
+   * 
+   * - false: The instance is not isolated and receives traffic.
    * 
    * @example
    * true

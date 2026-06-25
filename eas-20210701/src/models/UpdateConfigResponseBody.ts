@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time the configuration was created.
    * 
    * @example
    * 2024-01-15T10:30:00Z
@@ -13,7 +13,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 配置键名
+   * The dynamic parameter name.
    * 
    * @example
    * llm_gateway.route_policy
@@ -21,7 +21,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time the configuration was last updated.
    * 
    * @example
    * 2024-01-15T11:00:00Z
@@ -29,7 +29,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * 配置值
+   * The dynamic parameter value.
    * 
    * @example
    * {"model": "gpt-4-turbo"}

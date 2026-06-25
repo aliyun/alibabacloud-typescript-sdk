@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time when the dynamic parameter was created, in UTC and ISO 8601 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -13,7 +13,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 配置项键名
+   * The name of the dynamic parameter.
    * 
    * @example
    * rate_limit
@@ -21,7 +21,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time when the dynamic parameter was last updated, in UTC and ISO 8601 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -29,7 +29,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * 配置值
+   * The value of the dynamic parameter.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
 export class ListConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 配置项列表
+   * The list of dynamic parameters.
    * 
    * @example
    * [{"Key": "rate_limit", "Value": "{\\"limit\\": 100}", "CreatedAt": "2024-01-15T10:30:00Z", "UpdatedAt": "2024-01-15T10:30:00Z"}]
@@ -73,7 +73,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   configs?: ListConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * 是否有更多数据
+   * Indicates if more entries are available. `true` if more entries exist; otherwise, `false`.
    * 
    * @example
    * true
@@ -81,7 +81,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * 服务名称
+   * The service name.
    * 
    * @example
    * my-service
@@ -89,7 +89,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries on the current page.
    * 
    * @example
    * 100
@@ -105,7 +105,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 总数量
+   * The total number of entries found.
    * 
    * @example
    * 150
@@ -113,7 +113,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * 配置类型
+   * The configuration type.
    * 
    * @example
    * Service

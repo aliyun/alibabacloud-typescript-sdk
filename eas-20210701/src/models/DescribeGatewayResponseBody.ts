@@ -37,10 +37,17 @@ export class DescribeGatewayResponseBodyLabels extends $dara.Model {
 }
 
 export class DescribeGatewayResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   /**
    * @remarks
-   * The time when the private gateway was created. The time is displayed in UTC.
+   * The time when the private gateway was created. The time is in Coordinated Universal Time (UTC).
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -72,17 +79,10 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The instance type used by the private gateway.
-   * 
-   * Valid values:
-   * 
-   * *   8c16g
-   * *   4c8g
-   * *   2c4g
-   * *   16c32g
+   * The instance type of the private gateway.
    * 
    * @example
-   * ecs.c6.4xlarge
+   * 2c4g
    */
   instanceType?: string;
   /**
@@ -90,12 +90,12 @@ export class DescribeGatewayResponseBody extends $dara.Model {
    * The public endpoint.
    * 
    * @example
-   * gw-1uhcqmsc7x22******-1801786532******.cn-hangzhou.pai-eas.aliyuncs.com
+   * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   internetDomain?: string;
   /**
    * @remarks
-   * Indicates whether Internet access is enabled.
+   * Indicates whether public network access is enabled.
    * 
    * @example
    * true
@@ -103,15 +103,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether Internet access is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   Creating: Internet access is being enabled.
-   * *   Failed: Internet access failed to be enabled or deleted.
-   * *   Running: Internet access is running.
-   * *   Deleted: Internet access is deleted.
-   * *   Deleting: Internet access is being deleted.
+   * The status of public network access.
    * 
    * @example
    * Running
@@ -119,16 +111,16 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetStatus?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The private endpoint.
    * 
    * @example
-   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
+   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether it is the default private gateway.
+   * Indicates whether the gateway is the default private gateway.
    * 
    * @example
    * true
@@ -137,7 +129,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   labels?: DescribeGatewayResponseBodyLabels[];
   /**
    * @remarks
-   * The number of nodes in the private gateway.
+   * The number of private gateway nodes.
    * 
    * @example
    * 2
@@ -153,7 +145,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the HTTP to HTTPS redirection is enabled.
+   * Indicates whether HTTP to HTTPS redirection is enabled.
    * 
    * @example
    * true
@@ -163,23 +155,13 @@ export class DescribeGatewayResponseBody extends $dara.Model {
    * @remarks
    * The status of the private gateway.
    * 
-   * Valid values:
-   * 
-   * *   Creating
-   * *   Stopped
-   * *   Failed
-   * *   Running
-   * *   Deleted
-   * *   Deleting
-   * *   Waiting
-   * 
    * @example
-   * PrivateGatewayRunning
+   * Running
    */
   status?: string;
   /**
    * @remarks
-   * The time when the private gateway was updated. The time is displayed in UTC.
+   * The time when the private gateway was last updated. The time is in UTC.
    * 
    * @example
    * 2021-02-24T11:52:17Z

@@ -16,7 +16,7 @@ export class CreateAppServiceRequest extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * 123456
+   * 12****
    */
   workspaceId?: string;
   /**

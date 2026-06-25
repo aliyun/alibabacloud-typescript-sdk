@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGatewayLabelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Succeed to delete gateway labels.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */

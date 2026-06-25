@@ -8,7 +8,7 @@ export class DeleteResourceResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Resource [eas-r-asdasdasd] is deleted.
+   * Resource [eas-r-asdasdasd****] is deleted.
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteResourceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 40325405-579C-4D82-9624-EC2B1779848E
+   * 40325405-579C-4D82-9624-EC2B1779****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

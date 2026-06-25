@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The dynamic parameter name.
+   * 
    * @example
    * model-config
    */
   key?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * The dynamic parameter value.
+   * 
    * @example
    * {"model": "gpt-4"}
    */

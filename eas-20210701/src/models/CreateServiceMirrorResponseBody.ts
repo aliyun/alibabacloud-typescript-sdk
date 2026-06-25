@@ -8,7 +8,7 @@ export class CreateServiceMirrorResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Traffic mirroring is ON for service [foo] in region [cn-shanghia], ratio [70%]
+   * Traffic mirroring is ON for service [foo] in region [cn-shanghai], ratio [70%]
    */
   message?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Instance(s) [foo-rdsb,foo-rdsa]  for service [foo] in region [cn-shanghai] was deleted successfully

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResourceInstanceWorker extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of CPU cores.
+   * The CPU core limit.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   cpuLimit?: number;
   /**
    * @remarks
-   * The number of CPU cores that you applied for.
+   * The number of CPU cores requested.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   cpuRequest?: number;
   /**
    * @remarks
-   * The maximum number of GPUs.
+   * The GPU limit.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   gpuLimit?: number;
   /**
    * @remarks
-   * The number of GPUs that you applied for.
+   * The number of GPUs requested.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   gpuRequest?: number;
   /**
    * @remarks
-   * The maximum memory size.
+   * The memory limit.
    * 
    * @example
    * 400
@@ -45,7 +45,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   memoryLimit?: number;
   /**
    * @remarks
-   * The memory size that you applied for.
+   * The requested memory.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the instance worker is ready.
+   * Indicates whether the instance is ready.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   ready?: boolean;
   /**
    * @remarks
-   * The number of times the instance worker restarted.
+   * The number of times the instance has been restarted.
    * 
    * @example
    * 3
@@ -77,7 +77,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   restartCount?: number;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * test-in****
@@ -85,7 +85,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The time when the instance worker started.
+   * The start time of the instance, in UTC (ISO 8601 format).
    * 
    * @example
    * 2021-05-09T09:56:19Z
@@ -93,57 +93,7 @@ export class ResourceInstanceWorker extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The instance state.
-   * 
-   * Valid values:
-   * 
-   * *   Terminating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Succeeded
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Unknown
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Failed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Pending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the instance.
    * 
    * @example
    * Running

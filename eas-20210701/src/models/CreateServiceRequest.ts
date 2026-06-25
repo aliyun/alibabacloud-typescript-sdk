@@ -47,76 +47,76 @@ export class CreateServiceRequest extends $dara.Model {
    * The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
    * 
    * @example
-   * Service deployment by using an image:
+   * Image deployment service:
    * {
-   *   "name": "foo",
-   *   "metadata": {
-   *     "instance": 2,
-   *     "memory": 7000,
-   *     "cpu": 4
-   *     },
-   *   "containers": [
-   *     {
-   *       "image": "****",
-   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
-   *       "port": 8000
-   *     }
-   *   ],
-   *   "storage": [
-   *     {
-   *       "oss": {
-   *         "path": "oss://examplebuket/data111/",
-   *         "readOnly": false
-   *       },
-   *       "properties": {
-   *         "resource_type": "model"
-   *       },
-   *       "mount_path": "/data"
-   *     }
-   *   ]
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 2,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *     },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebuket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *         "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
    * }
-   * AI-Web application deployment by using an image:
+   * image deploymentAI-Web application:
    * {
-   *   "name": "foo",
-   *   "metadata": {
-   *     "instance": 1,
-   *     "memory": 7000,
-   *     "cpu": 4,
-   *     "enable_webservice": true
-   *   },
-   *   "containers": [
-   *     {
-   *       "image": "****",
-   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
-   *       "port": 8000
-   *     }
-   *   ],
-   *   "storage": [
-   *     {
-   *       "oss": {
-   *         "path": "oss://examplebucket/data111/",
-   *         "readOnly": false
-   *       },
-   *       "properties": {
-   *       "resource_type": "model"
-   *       },
-   *       "mount_path": "/data"
-   *     }
-   *   ]
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4,
+   *     "enable_webservice": true
+   *   },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebucket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *       "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
    * }
-   * Service deployment by using models and processors:
+   * model+processor deployment service:
    * {
-   *   "metadata": {
-   *     "instance": 1,
-   *     "memory": 7000,
-   *     "cpu": 4
-   *   },
-   *   "name": "foo",
-   *   "model_config": {},
-   *   "processor_type": "python",
-   *   "processor_path": "oss://****",
-   *   "processor_entry": "a.py",
-   *   "model_path": "oss://****"
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *   },
+   *   "name": "foo",
+   *   "model_config": {},
+   *   "processor_type": "python",
+   *   "processor_path": "oss://****",
+   *   "processor_entry": "a.py",
+   *   "model_path": "oss://****"
    * }
    */
   body?: string;

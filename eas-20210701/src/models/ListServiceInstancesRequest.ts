@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword used to query instances. Instances can be queried based on instance name, instance IP address, IP address of the server where the instance resides, and instance type.
+   * A keyword for the search. You can search by instance name, instance IP address, host IP address, or instance type.
    * 
    * @example
    * 10.118.xx.xx
@@ -13,7 +13,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The IP address of the server where the instance resides.
+   * The IP address of the host where the service instance is deployed.
    * 
    * @example
    * 10.224.xx.xx
@@ -21,7 +21,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   hostIP?: string;
   /**
    * @remarks
-   * The IP address of the instance.
+   * The IP address of the service instance.
    * 
    * @example
    * 10.224.xx.xx
@@ -29,7 +29,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   instanceIP?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the service instance.
    * 
    * @example
    * foo-bdc5xxxx-8l7rk
@@ -37,7 +37,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance state.
+   * The status of the service instance.
    * 
    * @example
    * Running
@@ -53,43 +53,31 @@ export class ListServiceInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether the instance is a preemptible instance.
+   * Specifies whether the instance is a spot instance.
    * 
    * @example
    * false
    */
   isSpot?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to query the list of instance replicas.
+   * 
+   * @example
+   * true
+   */
   listReplica?: boolean;
+  /**
+   * @remarks
+   * The type of the sub-service. This parameter is valid only for aggregation services.
+   * 
+   * @example
+   * LLMDecode
+   */
   memberType?: string;
   /**
    * @remarks
-   * The sorting order.
-   * 
-   * Valid values:
-   * 
-   * *   asc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The instances are sorted in ascending order.
-   * 
-   * *   desc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The instances are sorted in descending order.
+   * The sort order.
    * 
    * @example
    * desc
@@ -97,7 +85,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -105,36 +93,39 @@ export class ListServiceInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of entries to return on each page. The default value is 100.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * quota1****
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The name of the instance replica.
+   * 
+   * @example
+   * cbh-qwen3-a1bc-prefill-ep1tp4dp
+   */
   replicaName?: string;
+  /**
+   * @remarks
+   * The resource group to which the instance belongs.
+   * 
+   * @example
+   * eas-r-xxxxxxx
+   */
   resource?: string;
   /**
    * @remarks
-   * The type of the resource group to which the instance belongs.
-   * 
-   * Valid values:
-   * 
-   * *   PublicResource
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DedicatedResource
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The type of the resource group to which the service instance belongs.
    * 
    * @example
    * PublicResource
@@ -142,65 +133,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service role.
-   * 
-   * Valid values:
-   * 
-   * *   DataSet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     dataset service
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   SDProxy
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     Stable-Diffusion proxy service
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Standard
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     standard service
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Queue
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     queue service
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The role of the service.
    * 
    * @example
    * Queue
@@ -208,19 +141,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The field that you use to sort the query results.
-   * 
-   * *   Set the value to StartTime.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The value specifies that the query results are sorted based on the time when the instances were created
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The field to use for sorting.
    * 
    * @example
    * StartTime

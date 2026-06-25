@@ -15,11 +15,18 @@ export class MigrateResourceInstanceRequest extends $dara.Model {
   destResourceId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The IDs of the instances.
    * 
    * This parameter is required.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * Specifies whether to migrate the instances to a general computing resource group. If set to true, specify the ID of the general computing resource group.
+   * 
+   * @example
+   * false
+   */
   migrateToHybrid?: boolean;
   static names(): { [key: string]: string } {
     return {

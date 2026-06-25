@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Instance extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time of the instance.
+   * 
+   * @example
+   * 2021-05-27T09:46:05Z
+   */
   createTime?: string;
   /**
    * @remarks
@@ -12,10 +19,17 @@ export class Instance extends $dara.Model {
    * 0.444
    */
   currentAmount?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance is removed from active service rotation.
+   * 
+   * @example
+   * false
+   */
   detached?: boolean;
   /**
    * @remarks
-   * The IP address of the instance in the user-created VPC.
+   * The IP address of the instance in your VPC.
    * 
    * @example
    * 192.168.1.100
@@ -23,7 +37,7 @@ export class Instance extends $dara.Model {
   externalIP?: string;
   /**
    * @remarks
-   * The port number of the instance in the user-created VPC.
+   * The port number of the instance in your VPC.
    * 
    * @example
    * 8080
@@ -31,7 +45,7 @@ export class Instance extends $dara.Model {
   externalInstancePort?: number;
   /**
    * @remarks
-   * The IP address of the host where the instance resides.
+   * The IP address of the instance\\"s host.
    * 
    * @example
    * 11.0.XX.XX
@@ -39,7 +53,7 @@ export class Instance extends $dara.Model {
   hostIP?: string;
   /**
    * @remarks
-   * The name of the host where the instance resides.
+   * The name of the instance\\"s host.
    * 
    * @example
    * smart-scene-cls-854dbdc99d-****
@@ -55,7 +69,7 @@ export class Instance extends $dara.Model {
   innerIP?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * foo-5fc8946767-v****
@@ -71,13 +85,27 @@ export class Instance extends $dara.Model {
   instancePort?: number;
   /**
    * @remarks
-   * The instance specification.
+   * The instance type.
    * 
    * @example
    * ecs.c7.large
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is running the latest version.
+   * 
+   * @example
+   * true
+   */
   isLatest?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the instance is a replica.
+   * 
+   * @example
+   * false
+   */
   isReplica?: boolean;
   /**
    * @remarks
@@ -89,7 +117,7 @@ export class Instance extends $dara.Model {
   isSpot?: boolean;
   /**
    * @remarks
-   * Indicates whether the instance is isolated.
+   * Indicates whether the instance accepts traffic.
    * 
    * @example
    * false
@@ -97,7 +125,7 @@ export class Instance extends $dara.Model {
   isolated?: boolean;
   /**
    * @remarks
-   * The last state of the instance.
+   * The status of the instance when it last exited.
    */
   lastState?: { [key: string]: any }[];
   /**
@@ -110,7 +138,7 @@ export class Instance extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The original hourly price of the spot instance before a discount is used.
+   * The original price of the spot instance before discounts.
    * 
    * @example
    * 2.2
@@ -118,7 +146,7 @@ export class Instance extends $dara.Model {
   originalAmount?: number;
   /**
    * @remarks
-   * The number of processes that have started for the instance.
+   * The number of processes that have started in the instance.
    * 
    * @example
    * 1
@@ -126,16 +154,23 @@ export class Instance extends $dara.Model {
   readyProcesses?: number;
   /**
    * @remarks
-   * The reason for which the instance is in the current state.
+   * The identifier for the current status of the instance.
    * 
    * @example
    * RUNNING
    */
   reason?: string;
+  /**
+   * @remarks
+   * The name of the replica.
+   * 
+   * @example
+   * xwq-sglang-dist-7dff0
+   */
   replicaName?: string;
   /**
    * @remarks
-   * The type of the resource group to which the instance belongs. Valid values: PublicResource and PrivateResource.
+   * The type of the resource group to which the instance belongs. Valid values include PublicResource and PrivateResource.
    * 
    * @example
    * PublicResource
@@ -143,7 +178,7 @@ export class Instance extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The number of times for which the instance is restarted.
+   * The number of times the instance has been restarted.
    * 
    * @example
    * 1
@@ -151,7 +186,7 @@ export class Instance extends $dara.Model {
   restartCount?: number;
   /**
    * @remarks
-   * The service role of the instance. Valid values: Queue, DataLoader, and Standard.
+   * The server role of the instance. Valid values include Queue, DataLoader, and Standard.
    * 
    * @example
    * Standard
@@ -159,7 +194,7 @@ export class Instance extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The time when the instance was started. This parameter is deprecated. StartTime is used instead.
+   * The start time of the instance. (Deprecated. Use StartTime instead.)
    * 
    * @example
    * 2021-05-27T09:46:05Z
@@ -169,7 +204,7 @@ export class Instance extends $dara.Model {
   startAt?: string;
   /**
    * @remarks
-   * The time when the instance was started.
+   * The start time of the instance.
    * 
    * @example
    * 2021-05-27T09:46:05Z
@@ -177,16 +212,7 @@ export class Instance extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The current state of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Terminating
-   * *   Succeeded
-   * *   Unknown
-   * *   Failed
-   * *   Running
-   * *   Pending
+   * The status of the instance.
    * 
    * @example
    * Running
@@ -194,7 +220,7 @@ export class Instance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IP address of the host in the VPC.
+   * The IP address of the host in the dedicated network.
    * 
    * @example
    * 192.168.xx.xx
@@ -202,7 +228,7 @@ export class Instance extends $dara.Model {
   tenantHostIP?: string;
   /**
    * @remarks
-   * The IP address of the instance in the VPC.
+   * The IP address of the instance in the dedicated network.
    * 
    * @example
    * 192.168.xx.xx
@@ -210,7 +236,7 @@ export class Instance extends $dara.Model {
   tenantInstanceIP?: string;
   /**
    * @remarks
-   * The total number of processes that the instance contains.
+   * The total number of processes for the instance.
    * 
    * @example
    * 1
@@ -218,7 +244,7 @@ export class Instance extends $dara.Model {
   totalProcesses?: number;
   /**
    * @remarks
-   * The zone to which the instance belongs.
+   * The zone where the instance is located.
    * 
    * @example
    * cn-shanghai-a

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource group ID. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * The name of the resource group. For more information, see the ResourceName field that is returned by the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation when ResourceType is SelfManaged.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
@@ -15,16 +15,18 @@ export class CreateGatewayRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default): Auto-renewal is disabled.
+   * 
+   * - true: Auto-renewal is enabled.
    */
   autoRenewal?: boolean;
   /**
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PrePaid: subscription.
-   * *   PostPaid: pay-as-you-go.
+   * - PrePaid: subscription.
+   * 
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -32,12 +34,7 @@ export class CreateGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether to enable Internet access. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable public network access. The default value is false.
    * 
    * @example
    * false
@@ -45,12 +42,7 @@ export class CreateGatewayRequest extends $dara.Model {
   enableInternet?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable private access. Default value: true.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable internal network access. The default value is true.
    * 
    * @example
    * true
@@ -59,15 +51,18 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The instance type used by the private gateway. Valid values:
+   * The instance type of the private gateway. Valid values:
    * 
-   * *   2c4g
-   * *   4c8g
-   * *   8c16g
-   * *   16c32g
+   * - 2c4g
+   * 
+   * - 4c8g
+   * 
+   * - 8c16g
+   * 
+   * - 16c32g
    * 
    * @example
-   * ecs.c6.4xlarge
+   * 2c4g
    */
   instanceType?: string;
   /**
@@ -80,7 +75,7 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of nodes in the private gateway.
+   * The number of nodes for the private gateway.
    * 
    * @example
    * 2

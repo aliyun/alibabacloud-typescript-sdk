@@ -3,10 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceInstanceWorkerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The sort order.
+   * 
+   * - Asc: ascending order.
+   * 
+   * - Desc: descending order.
+   * 
+   * @example
+   * Desc
+   */
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -14,19 +25,47 @@ export class ListResourceInstanceWorkerRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of entries to return on each page. The default value is 100.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Indicates whether the health check passed.
+   * 
+   * @example
+   * true
+   */
   ready?: boolean;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * echo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The field to sort by.
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
+  /**
+   * @remarks
+   * The status of the worker instance.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   /**
    * @remarks
-   * The worker name.
+   * The name of the worker instance.
    * 
    * @example
    * test-fd95xxxxx-xxxxxx

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * A message that indicates a successful operation.
    * 
    * @example
-   * Success
+   * instance xxxx isolation updated to true。
    */
   message?: string;
   /**

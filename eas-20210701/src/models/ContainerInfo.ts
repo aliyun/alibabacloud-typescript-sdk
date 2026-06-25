@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ContainerInfo extends $dara.Model {
   /**
    * @remarks
-   * The reason why the container is in the current state.
+   * The reason for the current status.
    * 
    * @example
    * PodInitializing
@@ -13,11 +13,10 @@ export class ContainerInfo extends $dara.Model {
   currentReaon?: string;
   /**
    * @remarks
-   * The current state of the container. Valid values:
-   * 
-   * *   Waiting
-   * *   Running
-   * *   Terminated
+   * The current status. Valid values:
+   * - Waiting: waiting
+   * - Running: running
+   * - Terminated: terminated.
    * 
    * @example
    * Waiting
@@ -25,7 +24,7 @@ export class ContainerInfo extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The time when the container entered the current state.
+   * The time when the current status occurred.
    * 
    * @example
    * 2022-03-21T06:17:57Z
@@ -41,7 +40,7 @@ export class ContainerInfo extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The reason why the container is in the last state.
+   * The reason for the previous status.
    * 
    * @example
    * Error
@@ -49,11 +48,10 @@ export class ContainerInfo extends $dara.Model {
   lastReason?: string;
   /**
    * @remarks
-   * The last state of the container. Valid values:
-   * 
-   * *   Waiting
-   * *   Running
-   * *   Terminated
+   * The previous status. Valid values:
+   * - Waiting: waiting
+   * - Running: running
+   * - Terminated: terminated.
    * 
    * @example
    * Terminated
@@ -61,7 +59,7 @@ export class ContainerInfo extends $dara.Model {
   lastStatus?: string;
   /**
    * @remarks
-   * The time when the container entered the last state.
+   * The time when the previous status occurred.
    * 
    * @example
    * 2022-03-21T05:17:57Z
@@ -77,7 +75,7 @@ export class ContainerInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 8080
@@ -85,25 +83,7 @@ export class ContainerInfo extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Indicates whether the container passed the health check.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the health check is passed.
    * 
    * @example
    * true
@@ -111,7 +91,7 @@ export class ContainerInfo extends $dara.Model {
   ready?: boolean;
   /**
    * @remarks
-   * The number of times the container restarted.
+   * The number of restarts.
    * 
    * @example
    * 0

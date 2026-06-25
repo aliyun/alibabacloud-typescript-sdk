@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the resource group belongs.
+   * The ID of the cluster that contains the resource group.
    * 
    * @example
    * cn-shanghai
@@ -18,7 +18,7 @@ export class CreateResourceResponseBody extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The user ID (UID) of the resource group owner.
+   * The UID of the resource group owner.
    * 
    * @example
    * 14401087478****
@@ -34,7 +34,7 @@ export class CreateResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * eas-r-h7lcw24dyqztwxxxxxx

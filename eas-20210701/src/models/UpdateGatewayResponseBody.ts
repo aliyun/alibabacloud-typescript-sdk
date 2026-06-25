@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway.
+   * The ID of the private gateway.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -21,7 +21,7 @@ export class UpdateGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82***

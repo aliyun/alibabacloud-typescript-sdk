@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Resource extends $dara.Model {
   /**
    * @remarks
-   * The information about the clusters.
+   * The ID of the cluster where the resource group is located.
    * 
    * @example
    * cn-shanghai
@@ -13,16 +13,23 @@ export class Resource extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The total number of CPU cores.
+   * The total number of CPU cores in the resource group.
    * 
    * @example
    * 64
    */
   cpuCount?: number;
+  /**
+   * @remarks
+   * The number of used CPU cores in the resource group.
+   * 
+   * @example
+   * 8
+   */
   cpuUsed?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time the resource group was created, in ISO 8601 format.
    * 
    * @example
    * 2019-02-26T17:52:49Z
@@ -30,38 +37,84 @@ export class Resource extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The additional information.
+   * Additional information.
    * 
    * @example
    * {}
    */
   extraData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The features supported by the resource group.
+   */
   features?: string[];
   /**
    * @remarks
-   * The total number of GPUs.
+   * The total number of GPUs in the resource group.
    * 
    * @example
    * 1
    */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The number of used GPUs in the resource group.
+   * 
+   * @example
+   * 1
+   */
   gpuUsed?: number;
   /**
    * @remarks
-   * The total number of instances. It is equal to the number of subscription instances plus the number of pay-as-you-go instances.
+   * The total number of instances (prepaid and postpaid) in the resource group.
    * 
    * @example
    * 4
    */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The maximum number of allocatable CPU cores per node.
+   * 
+   * @example
+   * 16
+   */
   instanceMaxAllocatableCPU?: number;
+  /**
+   * @remarks
+   * The maximum number of allocatable GPUs per node.
+   * 
+   * @example
+   * 2
+   */
   instanceMaxAllocatableGPU?: number;
+  /**
+   * @remarks
+   * The maximum allocatable memory per node in the resource group.
+   * 
+   * @example
+   * 2048
+   */
   instanceMaxAllocatableMemory?: number;
+  /**
+   * @remarks
+   * The total memory of the resource group, in MB.
+   * 
+   * @example
+   * 8192
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The amount of used memory in the resource group, in MB.
+   * 
+   * @example
+   * 2048
+   */
   memoryUsed?: number;
   /**
    * @remarks
-   * The latest message about the resource group.
+   * The latest status message for the resource group.
    * 
    * @example
    * Resource is ready
@@ -69,7 +122,7 @@ export class Resource extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of pay-as-you-go instances.
+   * The number of postpaid instances.
    * 
    * @example
    * 2
@@ -77,7 +130,7 @@ export class Resource extends $dara.Model {
   postPaidInstanceCount?: number;
   /**
    * @remarks
-   * The number of subscription instances.
+   * The number of prepaid instances.
    * 
    * @example
    * 2
@@ -85,7 +138,7 @@ export class Resource extends $dara.Model {
   prePaidInstanceCount?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The unique identifier of the resource group.
    * 
    * @example
    * eas-r-asdasdasd
@@ -103,39 +156,49 @@ export class Resource extends $dara.Model {
    * @remarks
    * The type of the resource group. Valid values:
    * 
-   * *   Dedicated: the dedicated resource group.
-   * *   SelfManaged: the self-managed resource group.
+   * - `Dedicated`: A dedicated resource group.
+   * 
+   * - `SelfManaged`: A self-managed resource group.
    * 
    * @example
    * Dedicated
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The number of services deployed in the resource group.
+   * 
+   * @example
+   * 1
+   */
   serviceCount?: number;
   /**
    * @remarks
    * The status of the resource group.
    * 
    * @example
-   * ResouceReady
+   * ResourceReady
    */
   status?: string;
   /**
    * @remarks
-   * The time when the instance was last updated.
+   * The time the resource group was last updated, in ISO 8601 format.
    * 
    * @example
    * 2019-02-26T19:52:49Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The usage mode of the resource group.
+   * 
+   * @example
+   * inference
+   */
   usageMode?: string;
   /**
    * @remarks
-   * The vendor of the resource group instances.
-   * 
-   * Valid values:
-   * 
-   * *   ECS
-   * *   BareMetal
+   * The provider of the compute instances in the resource group, such as ECS.
    * 
    * @example
    * ECS

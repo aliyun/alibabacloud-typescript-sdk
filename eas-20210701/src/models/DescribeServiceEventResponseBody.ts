@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The returned message. The message is formatted and returned in the JSON format.
+   * The event message, which is a JSON-formatted string.
    * 
    * @example
    * {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
@@ -13,16 +13,27 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cause of the event. The information about the change in the service status is returned.
+   * The reason for the event, which indicates a change in the service status.
    * 
    * @example
    * Updating
    */
   reason?: string;
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Service: a service.
+   * 
+   * - Pod: a service instance.
+   * 
+   * @example
+   * Service
+   */
   resource?: string;
   /**
    * @remarks
-   * The time when the event occurred. The time must be in UTC.
+   * The time when the event occurred, in UTC.
    * 
    * @example
    * 2022-04-09 06:30:00
@@ -32,8 +43,9 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * *   Normal
-   * *   Warning
+   * - Normal: a normal event.
+   * 
+   * - Warning: a warning event.
    * 
    * @example
    * Normal
@@ -71,12 +83,12 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
 export class DescribeServiceEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * The list of events.
    */
   events?: DescribeServiceEventResponseBodyEvents[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -92,7 +104,7 @@ export class DescribeServiceEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count of events.
    * 
    * @example
    * 29
@@ -100,7 +112,7 @@ export class DescribeServiceEventResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 12

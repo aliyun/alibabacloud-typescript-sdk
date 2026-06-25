@@ -7,10 +7,13 @@ export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The backend access ID, which varies based on the value of the EndpointType parameter.
    * 
-   * *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
-   * *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
-   * *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
-   * *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
+   * - If you set EndpointType to DefaultGateway, the value of this parameter is default.
+   * 
+   * - If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
+   * 
+   * - If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
+   * 
+   * - If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
    * 
    * @example
    * gw-26340kjxjx8l3r****
@@ -20,10 +23,13 @@ export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The service endpoint type. Valid values:
    * 
-   * *   DefaultGateway: the shared gateway.
-   * *   PrivateGateway: the dedicated gateway.
-   * *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
-   * *   Nacos: Associate the service with the Nacos instance.
+   * - DefaultGateway: the shared gateway.
+   * 
+   * - PrivateGateway: the dedicated gateway.
+   * 
+   * - Nlb: Associate the service with the Network Load Balancer (NLB) instance.
+   * 
+   * - Nacos: Associate the service with the Nacos instance.
    * 
    * @example
    * PrivateGateway
@@ -43,7 +49,7 @@ export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The path type. Valid values:
    * 
-   * *   Group: the path of the service group.
+   * - Group: the path of the service group.
    * 
    * @example
    * Group
@@ -113,7 +119,7 @@ export class DescribeGroupEndpointsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * Execution successful.
+   * Execution succeeded.
    */
   message?: string;
   /**

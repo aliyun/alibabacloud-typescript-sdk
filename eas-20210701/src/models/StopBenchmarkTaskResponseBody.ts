@@ -8,7 +8,7 @@ export class StopBenchmarkTaskResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Benchmark task [benchmark-larec-test-1076] is Stopping
+   * Benchmark task [benchmark-larec-test-dbe5] is Stopping
    */
   message?: string;
   /**

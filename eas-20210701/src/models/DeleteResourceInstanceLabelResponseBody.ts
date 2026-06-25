@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceInstanceLabelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message.
+   * The response message.
    * 
    * @example
    * success

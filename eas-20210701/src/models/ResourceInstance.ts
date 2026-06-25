@@ -2,12 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ResourceInstanceLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance.
+   * The label key.
    * 
    * @example
    * key
@@ -15,7 +13,7 @@ export class ResourceInstanceLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The tag value of the instance.
+   * The label value.
    * 
    * @example
    * value
@@ -63,7 +61,7 @@ export class ResourceInstance extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The billing method of the instance.
+   * The billing method for the instance.
    * 
    * @example
    * PrePaid
@@ -87,7 +85,7 @@ export class ResourceInstance extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The number of CPU cores for the instance.
+   * The number of CPUs for the instance.
    * 
    * @example
    * 4
@@ -103,7 +101,7 @@ export class ResourceInstance extends $dara.Model {
   instanceGpuCount?: number;
   /**
    * @remarks
-   * The GPU memory size of the instance.
+   * The VRAM size of the instance.
    * 
    * @example
    * 0G
@@ -141,16 +139,17 @@ export class ResourceInstance extends $dara.Model {
    * eas01122713204*****
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The lifecycle phase of the instance.
+   * 
+   * @example
+   * succeeded
+   */
   instancePhase?: string;
   /**
    * @remarks
-   * The instance status.
-   * 
-   * Valid values:
-   * 
-   * *   Ready-SchedulingDisabled
-   * *   Ready
-   * *   NotReady
+   * The status of the instance.
    * 
    * @example
    * Ready
@@ -166,10 +165,10 @@ export class ResourceInstance extends $dara.Model {
   instanceSystemDiskSize?: number;
   /**
    * @remarks
-   * The IP address of the instance in the VPC.
+   * The IP address of the instance in a dedicated network.
    * 
    * @example
-   * 192.168.xx.xx
+   * 192.168.XX.XX
    */
   instanceTenantIp?: string;
   /**
@@ -182,7 +181,7 @@ export class ResourceInstance extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of CPU cores used by the instance.
+   * The number of CPUs in use.
    * 
    * @example
    * 2.4
@@ -190,7 +189,7 @@ export class ResourceInstance extends $dara.Model {
   instanceUsedCpu?: number;
   /**
    * @remarks
-   * The number of GPUs used by the instance.
+   * The number of GPUs in use.
    * 
    * @example
    * 0
@@ -198,7 +197,7 @@ export class ResourceInstance extends $dara.Model {
   instanceUsedGpu?: number;
   /**
    * @remarks
-   * The size of the GPU memory used by the instance.
+   * The amount of VRAM in use.
    * 
    * @example
    * 470M
@@ -206,7 +205,7 @@ export class ResourceInstance extends $dara.Model {
   instanceUsedGpuMemory?: string;
   /**
    * @remarks
-   * The size of the memory used by the instance.
+   * The amount of memory in use.
    * 
    * @example
    * 1000M
@@ -214,14 +213,28 @@ export class ResourceInstance extends $dara.Model {
   instanceUsedMemory?: string;
   /**
    * @remarks
-   * The instance tags.
+   * The labels of the instance.
    */
   labels?: ResourceInstanceLabels[];
+  /**
+   * @remarks
+   * The operator who performed the last cordon.
+   * 
+   * @example
+   * 24340xxxxxxxx
+   */
   lastCordonOperator?: string;
+  /**
+   * @remarks
+   * The reason for the last cordon.
+   * 
+   * @example
+   * operating
+   */
   lastCordonReason?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -237,7 +250,7 @@ export class ResourceInstance extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the instance belongs.
+   * The zone of the instance.
    * 
    * @example
    * cn-hangzhou-b

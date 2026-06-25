@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
   /**
    * @remarks
-   * The name of the CronHPA job.
+   * The name of the scheduled auto scaling task.
    * 
    * @example
    * scale-job-1
@@ -13,7 +13,7 @@ export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+   * The cron expression that specifies when to run the scaling task. For more information about cron expressions, see the **Cron expressions** section in this topic.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * The number of instances that you want to configure for the CronHPA job.
+   * The target number of instances for the scaling task.
    * 
    * This parameter is required.
    * 
@@ -31,6 +31,13 @@ export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
    * 2
    */
   targetSize?: number;
+  /**
+   * @remarks
+   * The time zone for the cron expression.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,12 +69,12 @@ export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
 export class UpdateServiceCronScalerRequest extends $dara.Model {
   /**
    * @remarks
-   * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+   * The cron expressions for the dates to exclude from the schedule.
    */
   excludeDates?: string[];
   /**
    * @remarks
-   * The description of the CronHPA job.
+   * The scheduled scaling tasks.
    * 
    * This parameter is required.
    */

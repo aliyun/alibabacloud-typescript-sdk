@@ -4,23 +4,63 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeServiceEndpointsResponseBodyEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the backend service. The value of this parameter varies based on the value of EndpointType:
+   * 
+   * - If EndpointType is DefaultGateway, this parameter is set to default.
+   * 
+   * - If EndpointType is PrivateGateway, this parameter is the ID of the dedicated gateway.
+   * 
+   * - If EndpointType is Nlb, this parameter is the ID of the NLB instance.
+   * 
+   * - If EndpointType is Nacos, this parameter is the ID of the Nacos instance.
+   * 
    * @example
    * nlb-5q4sp7u6oorkha****
    */
   backendId?: string;
   /**
+   * @remarks
+   * The connection type of the service endpoint. Valid values:
+   * 
+   * - DefaultGateway: The service is connected using a shared gateway.
+   * 
+   * - PrivateGateway: The service is connected using a dedicated gateway.
+   * 
+   * - Nlb: The service is attached to a Network Load Balancer (NLB) instance.
+   * 
+   * - Nacos: The service is attached to a Nacos instance.
+   * 
    * @example
    * Nlb
    */
   endpointType?: string;
+  /**
+   * @remarks
+   * The list of internet-facing endpoints.
+   */
   internetEndpoints?: string[];
+  /**
+   * @remarks
+   * The list of internal endpoints.
+   */
   intranetEndpoints?: string[];
   /**
+   * @remarks
+   * The type of the endpoint. Valid values:
+   * 
+   * - Group: The endpoint of an audience group.
+   * 
+   * - Service: The endpoint of a service.
+   * 
    * @example
    * Service
    */
   pathType?: string;
   /**
+   * @remarks
+   * The port number. This parameter is returned only when the service is attached to an NLB or Nacos instance.
+   * 
    * @example
    * 9090
    */
@@ -73,15 +113,15 @@ export class DescribeServiceEndpointsResponseBody extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The service endpoints.
+   * The list of service endpoints.
    */
   endpoints?: DescribeServiceEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
-   * Execution successful.
+   * Execution succeeded.
    */
   message?: string;
   /**

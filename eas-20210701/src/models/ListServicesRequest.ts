@@ -8,16 +8,33 @@ export class ListServicesRequest extends $dara.Model {
    * PUBLIC
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Auto Scaling for the service.
+   * 
+   * @example
+   * true
+   */
   autoscalerEnabled?: boolean;
   /**
+   * @remarks
+   * The UID of the account that created the service.
+   * 
    * @example
    * 19989224166xxxxxxx
    */
   callerUid?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable scheduled auto scaling for the service.
+   * 
+   * @example
+   * true
+   */
   cronscalerEnabled?: boolean;
   /**
    * @remarks
-   * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
+   * The keyword for a fuzzy search. This parameter supports fuzzy searches by service name only.
    * 
    * @example
    * foo
@@ -33,24 +50,32 @@ export class ListServicesRequest extends $dara.Model {
   gateway?: string;
   /**
    * @remarks
-   * The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * The name of the service group. To learn how to obtain this name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
    * 
    * @example
    * foo
    */
   groupName?: string;
+  /**
+   * @remarks
+   * Specifies whether to include services that do not belong to any workspace. The default value is true.
+   * 
+   * @example
+   * true
+   */
   includeNoWorkspace?: boolean;
   /**
    * @remarks
-   * The tag that is used to filter services.
+   * Filters services by label.
    */
   label?: { [key: string]: string };
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   desc (default): The query results are sorted in descending order.
-   * *   asc: The query results are sorted in ascending order.
+   * - `desc` (default): descending.
+   * 
+   * - `asc`: ascending.
    * 
    * @example
    * asc
@@ -58,7 +83,7 @@ export class ListServicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the results to return. The default value is 1.
    * 
    * @example
    * 1
@@ -66,7 +91,7 @@ export class ListServicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of services to return per page. The default value is 100.
    * 
    * @example
    * 100
@@ -74,7 +99,7 @@ export class ListServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the primary service that corresponds to the Band member service.
+   * The UID of the primary service. This parameter applies to member services in a service group.
    * 
    * @example
    * eas-m-ijafy3c8cxxxx
@@ -85,15 +110,36 @@ export class ListServicesRequest extends $dara.Model {
    * The quota ID.
    * 
    * @example
-   * quota12345
+   * quota1****
    */
   quotaId?: string;
+  /**
+   * @remarks
+   * The custom name of the resource group.
+   * 
+   * @example
+   * example
+   */
   resourceAliasName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable a burstable resource pool for the service.
+   * 
+   * @example
+   * true
+   */
   resourceBurstable?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group. To learn how to query for this ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * 
+   * @example
+   * eas-r-asdas****
+   */
   resourceId?: string;
   /**
    * @remarks
-   * The name or ID of the resource group to which the service belongs.
+   * The name or ID of the service\\"s resource group.
    * 
    * @example
    * eas-r-hd0qwy8cxxxx
@@ -101,22 +147,25 @@ export class ListServicesRequest extends $dara.Model {
    * @deprecated
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of resource the service uses. Valid values:
+   * 
+   * - PublicResource
+   * 
+   * - DedicatedResource
+   * 
+   * - Lingjun
+   * 
+   * - SelfManagedLingjun
+   * 
+   * @example
+   * PublicResource
+   */
   resourceType?: string;
   /**
    * @remarks
-   * The server role.
-   * 
-   * Valid values:
-   * 
-   * *   DataLoader
-   * *   FrontEnd
-   * *   DataSet
-   * *   SDProxy
-   * *   LLMSscheduler
-   * *   ScalableJob
-   * *   LLMGateway
-   * *   Job
-   * *   Queue
+   * The service role.
    * 
    * @example
    * LLMGateway
@@ -132,153 +181,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service state.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopped
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Failed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Complete
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Cloning
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopping
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Updating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Waiting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   HotUpdate
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Committing
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Starting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DeleteFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Developing
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Scaling
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleted
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Pending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the service.
    * 
    * @example
    * Running
@@ -288,44 +191,29 @@ export class ListServicesRequest extends $dara.Model {
    * @remarks
    * The service type. Valid values:
    * 
-   * *   Async
-   * *   Standard
-   * *   Offline Task
-   * *   Proxima
+   * - Async
    * 
-   * Valid values:
+   * - Standard
    * 
-   * *   Async
+   * - Queue
    * 
-   *     <!-- -->
+   * - LLM
    * 
-   *     <!-- -->
+   * - RAG
    * 
-   *     <!-- -->
+   * - Serverless
    * 
-   * *   Standard
+   * - LLMGatewayService
    * 
-   *     <!-- -->
+   * - OfflineTask
    * 
-   *     <!-- -->
+   * - SDCluster
    * 
-   *     <!-- -->
+   * - ScalableJob
    * 
-   * *   OfflineTask
+   * - ScalableJobService
    * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Proxima
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * - AssistantJob
    * 
    * @example
    * Standard
@@ -333,7 +221,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The user ID (UID) of the service.
+   * The service UID.
    * 
    * @example
    * eas-m-c9iw3yitxxxx
@@ -341,19 +229,26 @@ export class ListServicesRequest extends $dara.Model {
   serviceUid?: string;
   /**
    * @remarks
-   * The sort field. By default, the query results are sorted by the timestamp type in descending order.
+   * The sort field. By default, results are sorted by timestamp in descending order.
    * 
    * @example
    * CreateTime
    */
   sort?: string;
+  /**
+   * @remarks
+   * Specifies whether the service accepts group traffic. This parameter applies only to services within a service group.
+   * 
+   * @example
+   * grouping
+   */
   trafficState?: string;
   /**
    * @remarks
    * The workspace ID.
    * 
    * @example
-   * 123456
+   * 1234**
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

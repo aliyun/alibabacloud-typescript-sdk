@@ -14,6 +14,9 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
    * The region name.
+   * 
+   * @example
+   * 华东 2（上海）
    */
   regionName?: string;
   static names(): { [key: string]: string } {

@@ -15,9 +15,11 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
    * @remarks
    * Indicates whether the image is available. Valid values:
    * 
-   * *   true: The image is available.
-   * *   false: The image is unavailable.
-   * *   unknown: The availability of the image is unknown.
+   * - true: The image is available.
+   * 
+   * - false: The image is unavailable.
+   * 
+   * - unknown: The availability of the image is unknown.
    * 
    * @example
    * true
@@ -58,9 +60,11 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
    * @remarks
    * Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
    * 
-   * *   true: EAS is activated.
-   * *   false: EAS is not activated.
-   * *   unknown: The activation of EAS is unknown.
+   * - true: EAS is activated.
+   * 
+   * - false: EAS is not activated.
+   * 
+   * - unknown: The activation of EAS is unknown.
    * 
    * @example
    * true

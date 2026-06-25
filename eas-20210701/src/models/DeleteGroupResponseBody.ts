@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteResourceInstancesResponseBody extends $dara.Model {
+export class DeleteGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
-   * Instances eas-i-01122713****,eas-i-01122713**** are deleting
+   * Delete service group foo successfully
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteResourceInstancesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 40325405-579C-4D82****
+   * 40325405-579C-4D82********
    */
   requestId?: string;
   static names(): { [key: string]: string } {

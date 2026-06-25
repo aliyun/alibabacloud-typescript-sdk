@@ -16,7 +16,7 @@ export class UpdateResourceResponseBody extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * eas-r-asdasdasd
+   * eas-r-asdasdasd****
    */
   resourceId?: string;
   /**

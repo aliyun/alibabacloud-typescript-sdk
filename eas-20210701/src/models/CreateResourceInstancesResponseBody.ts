@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs.
+   * A list of machine instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for a successful operation.
    * 
    * @example
    * Create 5 new ecs instance(s) in resource [eas-r-asdasdasd] successfully

@@ -6,7 +6,7 @@ import { ResourceInstanceWorker } from "./ResourceInstanceWorker";
 export class ListResourceInstanceWorkerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class ListResourceInstanceWorkerResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -22,7 +22,7 @@ export class ListResourceInstanceWorkerResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workers.
+   * The list of workers.
    */
   pods?: ResourceInstanceWorker[];
   /**
@@ -35,7 +35,7 @@ export class ListResourceInstanceWorkerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of workers.
    * 
    * @example
    * 1

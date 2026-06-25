@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The keys of the labels that you want to delete.
+   * 
    * This parameter is required.
    */
   labelKeysShrink?: string;

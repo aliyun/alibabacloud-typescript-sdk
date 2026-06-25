@@ -3,18 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The expiration date of the certificate.
+   * 
+   * @example
+   * 2023-10-25
+   */
   certificateEndDate?: string;
   /**
    * @remarks
-   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * The ID of the SSL certificate attached to the domain name. To obtain the certificate ID, upload or purchase a certificate in the [Digital Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
    * 
    * @example
    * 1473**25
    */
   certificateId?: string;
+  /**
+   * @remarks
+   * The name of the SSL certificate.
+   * 
+   * @example
+   * cert-9955038
+   */
   certificateName?: string;
+  /**
+   * @remarks
+   * The issuance date of the certificate.
+   * 
+   * @example
+   * 2018-07-13
+   */
   certificateStartDate?: string;
+  /**
+   * @remarks
+   * The status of the domain name.
+   * 
+   * @example
+   * Succeeded
+   */
   certificateStatus?: string;
+  /**
+   * @remarks
+   * The time when the domain name was created.
+   * 
+   * @example
+   * 2020-05-19T14:19:42Z
+   */
   createTime?: string;
   /**
    * @remarks
@@ -26,17 +61,19 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain name type.
-   * 
-   * Valid value:
-   * 
-   * *   intranet: internal network.
-   * *   internet: public network.
+   * The type of the domain name.
    * 
    * @example
    * intranet
    */
   type?: string;
+  /**
+   * @remarks
+   * The time when the domain name was last updated.
+   * 
+   * @example
+   * 2021-05-19T14:19:42Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,12 +115,12 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
 export class ListGatewayDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom domain names.
+   * The list of custom domain names.
    */
   customDomains?: ListGatewayDomainsResponseBodyCustomDomains[];
   /**
    * @remarks
-   * The message that is returned.
+   * The message returned for the request.
    * 
    * @example
    * Successfully get custom domains
@@ -91,7 +128,7 @@ export class ListGatewayDomainsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****

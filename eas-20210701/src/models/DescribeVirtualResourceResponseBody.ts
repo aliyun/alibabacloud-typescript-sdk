@@ -13,7 +13,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * The scheduling priority of the resource. A larger value indicates a higher priority.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The instance type of the public resource group.
+   * The ID of the Lingjun resource quota.
    * 
    * @example
    * quota185lqxxxxxx
@@ -29,7 +29,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The region where the resource resides.
+   * The region where the resource is located.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in a public resource group.
+   * The maximum price for a spot instance in the public resource group.
    * 
    * @example
    * 10.05
@@ -93,16 +93,20 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the retention period of preemptible instances was disabled.
+   * Indicates whether the protection period for spot instances is disabled.
    * 
    * @example
    * true
    */
   disableSpotProtectionPeriod?: boolean;
+  /**
+   * @remarks
+   * The collection of features for the virtual resource group. This identifies the attributes that the resource group supports.
+   */
   features?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****

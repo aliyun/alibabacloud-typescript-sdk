@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   /**
    * @remarks
-   * The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
+   * The ID of the private gateway. You can obtain the ID from the private_gateway_id field in the response of the ListResources operation.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -14,19 +21,44 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The private gateway alias.
+   * The alias of the private gateway.
    * 
    * @example
    * mygateway1
    */
   gatewayName?: string;
+  /**
+   * @remarks
+   * The type of the gateway.
+   * 
+   * @example
+   * Application
+   */
   gatewayType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable access over the public network.
+   * 
+   * @example
+   * true
+   */
   internetEnabled?: boolean;
+  /**
+   * @remarks
+   * Filter by tag.
+   */
   labelShrink?: string;
+  /**
+   * @remarks
+   * The sort order.
+   * 
+   * @example
+   * asc
+   */
   order?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the gateway list to return. The default value is 1.
    * 
    * @example
    * 1
@@ -34,7 +66,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of gateways to return on each page. The default value is 100.
    * 
    * @example
    * 100
@@ -42,13 +74,27 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * The ID of the resource group. You can obtain the ID from the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The field to sort by.
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
+  /**
+   * @remarks
+   * The status of the gateway.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

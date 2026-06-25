@@ -7,11 +7,12 @@ export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $dara.M
    * @remarks
    * The metric name. Valid values:
    * 
-   * *   QPS
-   * *   CPU
+   * - QPS
+   * 
+   * - CPU
    * 
    * @example
-   * qps
+   * QPS
    */
   metricName?: string;
   /**
@@ -60,8 +61,9 @@ export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $dara.
    * @remarks
    * The metric name. Valid values:
    * 
-   * *   QPS: the queries per second (QPS) for an individual instance.
-   * *   CPU: the CPU utilization.
+   * - QPS: the queries per second (QPS) for an individual instance.
+   * 
+   * - CPU: the CPU utilization.
    * 
    * @example
    * QPS
@@ -79,8 +81,9 @@ export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $dara.
    * @remarks
    * The threshold of the metric that triggers auto scaling.
    * 
-   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
-   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+   * - If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+   * 
+   * - If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that are available for stress testing.
+   * The number of available stress testing instances.
    * 
    * @example
    * 2
@@ -16,12 +16,12 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
    * The time when the stress testing task was created.
    * 
    * @example
-   * 2020-12-04T02:43:15Z
+   * 2020-02-04T02:43:15Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The returned message.
+   * A summary of the task.
    * 
    * @example
    * Benchmark task [benchmark-larec-test-1076] is Running
@@ -29,7 +29,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The region ID of the stress testing task.
+   * The region where the stress testing task is located.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The name of the service on which you want to perform a stress testing.
+   * The name of the service to be stress tested.
    * 
    * @example
    * test_quota
@@ -45,81 +45,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The state of the stress testing task.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Starting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DeleteFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopping
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Error
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Updating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CreateFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the stress testing task.
    * 
    * @example
    * Running
@@ -143,7 +69,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The time when the stress testing task was updated.
+   * The time when the stress testing task was last updated.
    * 
    * @example
    * 2020-06-24T03:11:30Z
@@ -189,7 +115,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
 export class ListBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned list of tasks.
    * 
    * @example
    * 1
@@ -197,7 +123,7 @@ export class ListBenchmarkTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of tasks to return on each page.
    * 
    * @example
    * 20
@@ -213,15 +139,15 @@ export class ListBenchmarkTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The stress testing tasks.
+   * The list of tasks.
    */
   tasks?: ListBenchmarkTaskResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of tasks.
    * 
    * @example
-   * 2
+   * 1
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

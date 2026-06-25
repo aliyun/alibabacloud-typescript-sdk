@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores in the instance type.
+   * The number of CPU cores of the instance type.
    * 
    * @example
    * 32
@@ -13,7 +13,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   CPU?: number;
   /**
    * @remarks
-   * The GPU type in the instance type. If the instance type is not a GPU-based instance type, this parameter does not exist.
+   * The GPU model of the instance type. This field is not returned for non-GPU instance types.
    * 
    * @example
    * GU30
@@ -29,7 +29,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   GPUAmount?: number;
   /**
    * @remarks
-   * The GPU memory in the instance type. Unit: GB.
+   * The GPU memory size of the instance type, in GB.
    * 
    * @example
    * 24
@@ -37,7 +37,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   GPUMemory?: number;
   /**
    * @remarks
-   * The name of the instance type.
+   * The instance type name.
    * 
    * @example
    * ml.gu7i.c32m188.1-gu30
@@ -45,7 +45,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Indicates whether the instance type is available.
+   * Indicates whether the instance type is currently available.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   isAvailable?: boolean;
   /**
    * @remarks
-   * The memory size in the instance type. Unit: GB.
+   * The memory size of the instance type, in GB.
    * 
    * @example
    * 188
@@ -61,7 +61,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The minimum discount that can be accepted when the preemptible instance type does not include a usage duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+   * The minimum discount currently offered for a spot instance in no-protection mode. A value of 0.1 indicates a 90% discount. If this field is not returned, the instance type does not support spot instances.
    * 
    * @example
    * 0.1
@@ -69,7 +69,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   nonProtectSpotDiscount?: number;
   /**
    * @remarks
-   * The minimum discount that can be accepted when the preemptible instance type has the 1-hour protection duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+   * The current lowest discount for a spot instance with a 1-hour protection period. A value of 0.1 indicates a 90% discount. If this field is not returned, the instance type does not support spot instances.
    * 
    * @example
    * 0.12
@@ -79,12 +79,6 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
    * @remarks
    * The inventory status of the instance type.
    * 
-   * Valid values:
-   * 
-   * *   WithStock
-   * *   ClosedWithStock
-   * *   NoStock
-   * 
    * @example
    * WithStock
    */
@@ -92,12 +86,6 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   /**
    * @remarks
    * The source of the instance type.
-   * 
-   * Valid values:
-   * 
-   * *   ECS
-   * *   BareMetal
-   * *   Lingjun
    * 
    * @example
    * ECS
@@ -147,7 +135,7 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
 export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
   /**
    * @remarks
-   * Valid values:
+   * The valid values for the number of CPU cores.
    * 
    * @example
    * 1
@@ -155,7 +143,7 @@ export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
   CPU?: number;
   /**
    * @remarks
-   * The optional values for memory when CPU is set to a specific value as above.
+   * The valid memory values for the specified number of CPU cores.
    */
   memory?: number[];
   static names(): { [key: string]: string } {
@@ -187,7 +175,7 @@ export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
 export class DescribeMachineSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance types when the resources are specified.
+   * A list of available instance types for deployment.
    */
   instanceMetas?: DescribeMachineSpecResponseBodyInstanceMetas[];
   /**
@@ -200,7 +188,7 @@ export class DescribeMachineSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The values that can be supported when the number of CPUs and memory size are specified for deployment.
+   * The supported combinations of CPU and memory values for deployment.
    */
   types?: DescribeMachineSpecResponseBodyTypes[];
   static names(): { [key: string]: string } {

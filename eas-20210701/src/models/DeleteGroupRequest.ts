@@ -2,30 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteGatewayLabelRequest extends $dara.Model {
+export class DeleteGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The keys of the labels that you want to delete.
+   * Specifies whether to perform a cascade delete. If enabled, deleting the service group automatically deletes all services within the service group. This feature is disabled by default.
    * 
-   * This parameter is required.
+   * @example
+   * false
    */
-  labelKeys?: string[];
+  cascadeDelete?: string;
   static names(): { [key: string]: string } {
     return {
-      labelKeys: 'LabelKeys',
+      cascadeDelete: 'CascadeDelete',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      labelKeys: { 'type': 'array', 'itemType': 'string' },
+      cascadeDelete: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.labelKeys)) {
-      $dara.Model.validateArray(this.labelKeys);
-    }
     super.validate();
   }
 

@@ -6,7 +6,7 @@ import { Resource } from "./Resource";
 export class ListResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -30,12 +30,12 @@ export class ListResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource groups.
+   * A list of resource groups.
    */
   resources?: Resource[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of resource groups.
    * 
    * @example
    * 1

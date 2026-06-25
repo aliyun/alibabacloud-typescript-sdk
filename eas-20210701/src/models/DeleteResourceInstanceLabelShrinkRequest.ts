@@ -5,21 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   * Specifies whether the operation takes effect on all instances in the resource group. If this parameter is set to true, the InstanceIds parameter does not take effect.
    */
   allInstances?: boolean;
   /**
    * @remarks
-   * The instance IDs.
+   * The machine instance IDs.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The keys of the tags that you want to delete.
+   * The tags to delete. (Deprecated. Use LabelKeys instead.).
    * 
    * @deprecated
    */
   keysShrink?: string;
+  /**
+   * @remarks
+   * The tags to delete.
+   */
   labelKeysShrink?: string;
   static names(): { [key: string]: string } {
     return {

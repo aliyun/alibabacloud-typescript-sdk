@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceRolloutResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * A message that indicates the result of the operation.
+   * 
    * @example
    * Rollout created successfully
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID. Use this ID for troubleshooting and traceability.
+   * 
    * @example
    * 40325405-579C-4D82****
    */

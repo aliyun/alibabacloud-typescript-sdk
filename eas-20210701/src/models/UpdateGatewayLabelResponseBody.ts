@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayLabelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Succeed to update gateway gw-1uhcqmsc7x22****** labels.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */

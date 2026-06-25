@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The private gateway ID.
+   * The ID of the private gateway.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -13,7 +13,7 @@ export class CreateGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * Successfully add intranet linked vpc for gateway

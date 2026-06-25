@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. By default, the current point in time is the end of the time range to query.
+   * The end time of the query range, in UTC. The default value is the current time.
    * 
    * @example
    * 2006-01-02 15:04:05
@@ -15,8 +15,9 @@ export class DescribeServiceEventRequest extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * *   Normal
-   * *   Warning
+   * - Normal: a normal event.
+   * 
+   * - Warning: a warning event.
    * 
    * @example
    * Normal
@@ -24,7 +25,7 @@ export class DescribeServiceEventRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The instance name. For more information about how to obtain the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+   * The name of the service instance. To obtain this name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
    * 
    * @example
    * echo-test-784xxxx85d-hhnd8
@@ -32,7 +33,7 @@ export class DescribeServiceEventRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number to return. Default value: 1.
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class DescribeServiceEventRequest extends $dara.Model {
   pageNum?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of events to return per page. Default value: 100.
    * 
    * @example
    * 20
@@ -48,7 +49,7 @@ export class DescribeServiceEventRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time must be in UTC. The default value is seven days ago.
+   * The start time of the query range, in UTC. The default value is 7 days ago.
    * 
    * @example
    * 2006-01-02 15:04:05

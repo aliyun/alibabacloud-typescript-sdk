@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFaultInjectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The message returned for the request.
+   * 
    * @example
    * Addon prometheus_discovery is successfully reinstalled
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 40325405-579C-4D82***

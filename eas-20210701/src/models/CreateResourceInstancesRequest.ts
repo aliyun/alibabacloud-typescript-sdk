@@ -7,8 +7,9 @@ export class CreateResourceInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default): Auto-renewal is disabled.
+   * 
+   * - true: Auto-renewal is enabled.
    * 
    * @example
    * false
@@ -16,10 +17,11 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   PrePaid: subscription.
-   * *   PostPaid: pay-as-you-go.
+   * - PrePaid: subscription.
+   * 
+   * - PostPaid: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -29,7 +31,7 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The number of instances that you want to create. Valid values: 1 to 100.
+   * The number of new instances to create. The value must be between 1 and 100.
    * 
    * This parameter is required.
    * 
@@ -39,7 +41,7 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   ecsInstanceCount?: number;
   /**
    * @remarks
-   * The type of the Elastic Compute Service (ECS) instance.
+   * The instance type. This corresponds to an ECS instance type.
    * 
    * This parameter is required.
    * 
@@ -49,12 +51,12 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   ecsInstanceType?: string;
   /**
    * @remarks
-   * The custom service tag.
+   * The user-defined tags.
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+   * The size of the system disk, in GiB. The value must be between 200 and 2,000. If you do not configure this parameter, the default value is 200 GiB.
    * 
    * @example
    * 200
@@ -62,7 +64,7 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The user-defined information. This parameter is not in use.
+   * The custom user data. This parameter is not currently used.
    * 
    * @example
    * x112223333
@@ -72,7 +74,7 @@ export class CreateResourceInstancesRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The zone to which the instance belongs.
+   * The zone where the instance belongs.
    * 
    * @example
    * cn-shanghai-f

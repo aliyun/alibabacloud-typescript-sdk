@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceInstanceTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
   requestId?: string;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * ***
    */
   streamlogUrl?: string;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * ***
    */
   token?: string;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * ***
    */
   url?: string;
+  /**
+   * @remarks
+   * URL for logging on to the container using Workbench.
+   */
   workbenchUrl?: string;
   static names(): { [key: string]: string } {
     return {

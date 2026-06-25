@@ -6,12 +6,12 @@ import { Group } from "./Group";
 export class ListGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The service groups.
+   * The list of service groups.
    */
   groups?: Group[];
   /**
    * @remarks
-   * The page number.
+   * The current page number of the returned group list.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of groups displayed per page.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of service groups.
    * 
    * @example
    * 5

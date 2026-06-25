@@ -1,9 +1,12 @@
+export { GroupLabels } from './Group';
+export { GroupNetwork } from './Group';
 export { ResourceInstanceLabels } from './ResourceInstance';
 export { ServiceInstanceCountInResource } from './Service';
 export { ServiceLabels } from './Service';
 export { AttachGatewayDomainRequestCustomDomain } from './AttachGatewayDomainRequest';
 export { CreateAclPolicyRequestAclPolicyList } from './CreateAclPolicyRequest';
 export { CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs } from './CreateGatewayIntranetLinkedVpcPeerRequest';
+export { CreateGroupRequestNetwork } from './CreateGroupRequest';
 export { CreateResourceRequestSelfManagedResourceOptionsNodeTolerations } from './CreateResourceRequest';
 export { CreateResourceRequestSelfManagedResourceOptions } from './CreateResourceRequest';
 export { CreateServiceAutoScalerRequestBehaviorOnZero } from './CreateServiceAutoScalerRequest';
@@ -54,6 +57,7 @@ export { ListServiceInstanceFaultInjectionInfoResponseBodyFaultInfoList } from '
 export { ListServiceVersionsResponseBodyVersions } from './ListServiceVersionsResponseBody';
 export { ListTenantAddonsResponseBodyAddons } from './ListTenantAddonsResponseBody';
 export { ListVirtualResourceResponseBodyVirtualResources } from './ListVirtualResourceResponseBody';
+export { UpdateGroupRequestNetwork } from './UpdateGroupRequest';
 export { UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations } from './UpdateResourceRequest';
 export { UpdateResourceRequestSelfManagedResourceOptions } from './UpdateResourceRequest';
 export { UpdateServiceAutoScalerRequestBehaviorOnZero } from './UpdateServiceAutoScalerRequest';
@@ -109,6 +113,9 @@ export { CreateGatewayIntranetLinkedVpcPeerRequest } from './CreateGatewayIntran
 export { CreateGatewayIntranetLinkedVpcPeerShrinkRequest } from './CreateGatewayIntranetLinkedVpcPeerShrinkRequest';
 export { CreateGatewayIntranetLinkedVpcPeerResponseBody } from './CreateGatewayIntranetLinkedVpcPeerResponseBody';
 export { CreateGatewayIntranetLinkedVpcPeerResponse } from './CreateGatewayIntranetLinkedVpcPeerResponse';
+export { CreateGroupRequest } from './CreateGroupRequest';
+export { CreateGroupResponseBody } from './CreateGroupResponseBody';
+export { CreateGroupResponse } from './CreateGroupResponse';
 export { CreateResourceRequest } from './CreateResourceRequest';
 export { CreateResourceResponseBody } from './CreateResourceResponseBody';
 export { CreateResourceResponse } from './CreateResourceResponse';
@@ -167,6 +174,9 @@ export { DeleteGatewayLabelRequest } from './DeleteGatewayLabelRequest';
 export { DeleteGatewayLabelShrinkRequest } from './DeleteGatewayLabelShrinkRequest';
 export { DeleteGatewayLabelResponseBody } from './DeleteGatewayLabelResponseBody';
 export { DeleteGatewayLabelResponse } from './DeleteGatewayLabelResponse';
+export { DeleteGroupRequest } from './DeleteGroupRequest';
+export { DeleteGroupResponseBody } from './DeleteGroupResponseBody';
+export { DeleteGroupResponse } from './DeleteGroupResponse';
 export { DeleteResourceRequest } from './DeleteResourceRequest';
 export { DeleteResourceResponseBody } from './DeleteResourceResponseBody';
 export { DeleteResourceResponse } from './DeleteResourceResponse';
@@ -308,6 +318,7 @@ export { ListGatewayIntranetSupportedZoneRequest } from './ListGatewayIntranetSu
 export { ListGatewayIntranetSupportedZoneResponseBody } from './ListGatewayIntranetSupportedZoneResponseBody';
 export { ListGatewayIntranetSupportedZoneResponse } from './ListGatewayIntranetSupportedZoneResponse';
 export { ListGroupsRequest } from './ListGroupsRequest';
+export { ListGroupsShrinkRequest } from './ListGroupsShrinkRequest';
 export { ListGroupsResponseBody } from './ListGroupsResponseBody';
 export { ListGroupsResponse } from './ListGroupsResponse';
 export { ListResourceInstanceWorkerRequest } from './ListResourceInstanceWorkerRequest';

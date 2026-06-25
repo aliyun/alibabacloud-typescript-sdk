@@ -6,12 +6,12 @@ import { Instance } from "./Instance";
 export class ListServiceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The list of service instances.
    */
   instances?: Instance[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListServiceInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class ListServiceInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of instances.
    * 
    * @example
    * 1

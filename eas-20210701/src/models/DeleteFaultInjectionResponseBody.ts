@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFaultInjectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * A message that indicates the result of the operation.
+   * 
    * @example
    * Successfully delete acl policy for gateway
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****

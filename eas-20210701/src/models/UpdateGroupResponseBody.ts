@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The response message.
+   * 
+   * @example
+   * Update service group foo successfully
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -13,12 +21,14 @@ export class UpdateGroupResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       requestId: 'string',
     };
   }

@@ -20,7 +20,16 @@ export class UpdateServiceRequest extends $dara.Model {
    * The request body. The body includes the request parameters that you want to update. For more information about the request parameters, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
    * 
    * @example
-   * {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
+   * {
+   *       "name": "foo",
+   *       "model_path": "http://path/to/model.tar.gz",
+   *       "processor": "tensorflow_cpu",
+   *       "metadata": {
+   *             "instance": 2,
+   *             "memory": 7000,
+   *             "cpu": 4
+   *       }
+   * }
    */
   body?: string;
   static names(): { [key: string]: string } {

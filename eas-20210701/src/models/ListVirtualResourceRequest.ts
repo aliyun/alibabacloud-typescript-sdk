@@ -3,10 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirtualResourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * - Desc: Descending order.
+   * 
+   * - Asc: Ascending order.
+   * 
+   * @example
+   * Desc
+   */
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number for the list of virtual resource groups. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -14,12 +25,19 @@ export class ListVirtualResourceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of virtual resource groups to display on each page. The default value is 100.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The field that is used to sort the results. By default, the results are sorted by timestamp in descending order.
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
   /**
    * @remarks

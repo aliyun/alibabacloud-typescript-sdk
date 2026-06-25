@@ -8,7 +8,7 @@ export class DeleteResourceLogResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Log service for resource [eas-r-asdasdasd] is deleting
+   * Log service for resource [eas-r-asdas****] is deleting
    */
   message?: string;
   /**

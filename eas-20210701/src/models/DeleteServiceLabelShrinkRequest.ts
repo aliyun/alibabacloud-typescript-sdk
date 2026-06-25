@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The service tags that you want to delete.
+   * The keys of the service labels that you want to delete. This parameter is deprecated. Use the LabelKeys parameter instead.
    * 
    * @deprecated
    */
   keysShrink?: string;
+  /**
+   * @remarks
+   * The keys of the service labels that you want to delete.
+   */
   labelKeysShrink?: string;
   static names(): { [key: string]: string } {
     return {

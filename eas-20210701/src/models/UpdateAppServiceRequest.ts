@@ -16,7 +16,7 @@ export class UpdateAppServiceRequest extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * 123456
+   * 1234**
    */
   workspaceId?: string;
   /**

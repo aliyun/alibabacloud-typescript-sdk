@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs extends $dara.Model {
   /**
    * @remarks
-   * The region where the VPC peer resides.
+   * The region where the peer VPC is located.
    * 
    * @example
    * cn-shanghai
@@ -14,7 +14,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC peer.
+   * The ID of the peer VPC.
    * 
    * @example
    * vpc-uf66uio7md****
@@ -48,7 +48,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
 export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the VPC peers.
+   * A list of peer VPC IDs.
    */
   peerVpcs?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs[];
   /**
@@ -88,7 +88,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $da
 export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private gateway.
+   * The private gateway ID.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -96,12 +96,12 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The VPC peers.
+   * A list of peer VPCs.
    */
   peerVpcList?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****
