@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCalendarRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the calendar.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CreateCalendarRequest extends $dara.Model {
    */
   calendarName?: string;
   /**
+   * @remarks
+   * A client token to ensure request idempotence. Generate a unique value for this parameter on your client. The token can contain only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the Request ID as the client token. The Request ID may be different for each request.
+   * 
    * @example
    * 123456789
    */
   clientToken?: string;
   /**
    * @remarks
+   * The Cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/28147.html) operation to query Cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class CreateCalendarRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The days of each month, specified in a JSON array.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +56,8 @@ export class CreateCalendarRequest extends $dara.Model {
   months?: string;
   /**
    * @remarks
+   * The year.
+   * 
    * This parameter is required.
    * 
    * @example

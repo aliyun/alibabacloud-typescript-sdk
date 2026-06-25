@@ -13,8 +13,6 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * ID。
-   * 
    * This parameter is required.
    * 
    * @example

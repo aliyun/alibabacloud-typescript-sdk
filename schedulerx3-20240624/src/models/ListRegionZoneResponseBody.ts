@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegionZoneResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Local name.
+   * 
    * @example
    * E
    */
@@ -41,6 +44,9 @@ export class ListRegionZoneResponseBodyData extends $dara.Model {
 
 export class ListRegionZoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * 200
    */
@@ -51,21 +57,35 @@ export class ListRegionZoneResponseBody extends $dara.Model {
    */
   data?: ListRegionZoneResponseBodyData[];
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * IllegalRequest
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Parameter check error
    */
   message?: string;
   /**
+   * @remarks
+   * Request UUID.
+   * 
    * @example
    * 438737AC-760A-57D9-B646-B7EF79426243
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded.
+   * - **true**: The invocation succeeded.
+   * - **false**: Failed to invoke.
+   * 
    * @example
    * true
    */

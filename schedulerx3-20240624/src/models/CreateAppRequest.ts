@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppRequest extends $dara.Model {
   /**
+   * @remarks
+   * The access token.
+   * 
    * @example
    * ltk1ZXHv6LvibZypFkPHzRA
    */
   accessToken?: string;
   /**
    * @remarks
+   * The app name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class CreateAppRequest extends $dara.Model {
    */
   appName?: string;
   /**
+   * @remarks
+   * The app type.
+   * 
    * @example
    * 1
    */
   appType?: number;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,19 +40,36 @@ export class CreateAppRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Indicates whether to enable logging.
+   * 
    * @example
    * true
    */
   enableLog?: boolean;
+  /**
+   * @remarks
+   * The label routing strategy.
+   */
   labelRouteStrategy?: number;
   /**
+   * @remarks
+   * The maximum concurrency.
+   * 
+   * > This parameter specifies the maximum number of task instances that can run concurrently for the app. Task instances that exceed this limit are not discarded. They are queued for execution.
+   * 
    * @example
    * 10
    */
   maxConcurrency?: number;
   /**
    * @remarks
+   * The title of the app.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test
    */
   title?: string;
   static names(): { [key: string]: string } {

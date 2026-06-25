@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class UpdateClusterRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * xx-test-1107
    */

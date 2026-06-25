@@ -4,13 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateClusterResponseBodyData extends $dara.Model {
   /**
-   * @example
-   * xxljob-b21969c2309
+   * @remarks
+   * The cluster ID.
    */
   clusterId?: string;
   /**
-   * @example
-   * 229317760970086
+   * @remarks
+   * The order ID.
    */
   orderId?: number;
   static names(): { [key: string]: string } {
@@ -38,33 +38,32 @@ export class CreateClusterResponseBodyData extends $dara.Model {
 
 export class CreateClusterResponseBody extends $dara.Model {
   /**
-   * @example
-   * 200
+   * @remarks
+   * The response code.
    */
   code?: number;
-  /**
-   * @remarks
-   * -
-   */
   data?: CreateClusterResponseBodyData;
   /**
-   * @example
-   * INVALID_PARAMETER
+   * @remarks
+   * The error code.
    */
   errorCode?: string;
   /**
-   * @example
-   * Parameter error: content is null.
+   * @remarks
+   * The error message.
    */
   message?: string;
   /**
-   * @example
-   * B8733786-C045-59F1-8D79-99A52863F62D
+   * @remarks
+   * The request ID. Alibaba Cloud generates a unique ID for each request.
+   * You can use this ID for troubleshooting.
    */
   requestId?: string;
   /**
-   * @example
-   * true
+   * @remarks
+   * The status of the request. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

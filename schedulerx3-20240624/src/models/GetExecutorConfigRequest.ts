@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetExecutorConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetExecutorConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example

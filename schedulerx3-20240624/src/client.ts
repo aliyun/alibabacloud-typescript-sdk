@@ -11,7 +11,21 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'eu-central-1': "schedulerx3.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "schedulerx3.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "schedulerx3.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "schedulerx3.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "schedulerx3.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "schedulerx3.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "schedulerx3.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "schedulerx3.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "schedulerx3.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "schedulerx3.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "schedulerx3.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "schedulerx3.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("schedulerx3", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +44,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application.
+   * Creates an app.
    * 
    * @param request - CreateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application.
+   * Creates an app.
    * 
    * @param request - CreateAppRequest
    * @returns CreateAppResponse
@@ -100,7 +114,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建日历
+   * Creates a custom calendar.
+   * 
+   * @remarks
+   * Creates a custom calendar for SchedulerX.
    * 
    * @param request - CreateCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -147,7 +164,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建日历
+   * Creates a custom calendar.
+   * 
+   * @remarks
+   * Creates a custom calendar for SchedulerX.
    * 
    * @param request - CreateCalendarRequest
    * @returns CreateCalendarResponse
@@ -206,6 +226,10 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
+    }
+
     if (!$dara.isNull(request.vSwitchesShrink)) {
       body["VSwitches"] = request.vSwitchesShrink;
     }
@@ -244,7 +268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据源
+   * Create a data source
    * 
    * @param request - CreateDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -295,7 +319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据源
+   * Create a data source
    * 
    * @param request - CreateDatasourceRequest
    * @returns CreateDatasourceResponse
@@ -307,6 +331,9 @@ export default class Client extends OpenApi {
 
   /**
    * 添加执行器组
+   * 
+   * @remarks
+   * 手动导入执行器
    * 
    * @param request - CreateExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -387,6 +414,9 @@ export default class Client extends OpenApi {
   /**
    * 添加执行器组
    * 
+   * @remarks
+   * 手动导入执行器
+   * 
    * @param request - CreateExecutorGroupRequest
    * @returns CreateExecutorGroupResponse
    */
@@ -396,7 +426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器
+   * Imports one or more executors.
+   * 
+   * @remarks
+   * Imports one or more executors.
    * 
    * @param request - CreateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -439,7 +472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器
+   * Imports one or more executors.
+   * 
+   * @remarks
+   * Imports one or more executors.
    * 
    * @param request - CreateExecutorsRequest
    * @returns CreateExecutorsResponse
@@ -450,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job.
+   * Creates a node.
    * 
    * @param tmpReq - CreateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -603,7 +639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job.
+   * Creates a node.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -614,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates a workflow.
    * 
    * @param request - CreateWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates a workflow.
    * 
    * @param request - CreateWorkflowRequest
    * @returns CreateWorkflowResponse
@@ -696,7 +732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application group.
+   * Deletes an App Group.
    * 
    * @param request - DeleteAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -731,7 +767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application group.
+   * Deletes an App Group.
    * 
    * @param request - DeleteAppRequest
    * @returns DeleteAppResponse
@@ -742,7 +778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除日历
+   * Deletes the specified calendar.
    * 
    * @param request - DeleteCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -781,7 +817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除日历
+   * Deletes the specified calendar.
    * 
    * @param request - DeleteCalendarRequest
    * @returns DeleteCalendarResponse
@@ -834,7 +870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据源
+   * Delete data source
    * 
    * @param request - DeleteDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -869,7 +905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据源
+   * Delete data source
    * 
    * @param request - DeleteDatasourceRequest
    * @returns DeleteDatasourceResponse
@@ -930,7 +966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple jobs at a time.
+   * Deletes multiple jobs in a batch.
    * 
    * @param tmpReq - DeleteJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -975,7 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple jobs at a time.
+   * Deletes multiple jobs in a batch.
    * 
    * @param request - DeleteJobsRequest
    * @returns DeleteJobsResponse
@@ -986,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * Deletes a Workflow.
    * 
    * @param request - DeleteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,7 +1065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * Deletes a Workflow.
    * 
    * @param request - DeleteWorkflowRequest
    * @returns DeleteWorkflowResponse
@@ -1040,7 +1076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除工作流
+   * Deletes one or more workflows.
    * 
    * @param tmpReq - DeleteWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除工作流
+   * Deletes one or more workflows.
    * 
    * @param request - DeleteWorkflowsRequest
    * @returns DeleteWorkflowsResponse
@@ -1100,7 +1136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the information about jobs at a time.
+   * Exports job information in bulk.
    * 
    * @param tmpReq - ExportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the information about jobs at a time.
+   * Exports job information in bulk.
    * 
    * @param request - ExportJobsRequest
    * @returns ExportJobsResponse
@@ -1160,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导出工作流信息
+   * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
    * 
    * @param tmpReq - ExportWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1205,7 +1241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导出工作流信息
+   * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
    * 
    * @param request - ExportWorkflowsRequest
    * @returns ExportWorkflowsResponse
@@ -1216,7 +1252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定应用
+   * Retrieves the details of a specified application.
    * 
    * @param request - GetAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1251,7 +1287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定应用
+   * Retrieves the details of a specified application.
    * 
    * @param request - GetAppRequest
    * @returns GetAppResponse
@@ -1262,7 +1298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日历信息
+   * Retrieves the details of a specified calendar.
    * 
    * @param request - GetCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日历信息
+   * Retrieves the details of a specified calendar.
    * 
    * @param request - GetCalendarRequest
    * @returns GetCalendarResponse
@@ -1312,7 +1348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Obtains the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1339,7 +1375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Obtains the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
@@ -1350,7 +1386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified machine.
+   * Retrieves the designation information for a job.
    * 
    * @param request - GetDesigateInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1377,7 +1413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified machine.
+   * Retrieves the designation information for a job.
    * 
    * @param request - GetDesigateInfoRequest
    * @returns GetDesigateInfoResponse
@@ -1388,7 +1424,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行器配置信息
+   * Retrieves the configuration for a specified Executor.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+   * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+   * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetExecutorConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1423,7 +1465,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行器配置信息
+   * Retrieves the configuration for a specified Executor.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+   * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+   * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetExecutorConfigRequest
    * @returns GetExecutorConfigResponse
@@ -1434,7 +1482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行的详细信息
+   * Returns the details of a Task Execution.
    * 
    * @param request - GetJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,7 +1525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行的详细信息
+   * Returns the details of a Task Execution.
    * 
    * @param request - GetJobExecutionRequest
    * @returns GetJobExecutionResponse
@@ -1488,7 +1536,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the execution details of a job.
+   * Gets the details of a sharding task execution.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+   * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1515,7 +1569,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the execution details of a job.
+   * Gets the details of a sharding task execution.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+   * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @returns GetJobExecutionProgressResponse
@@ -1526,7 +1586,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务的线程堆栈
+   * Retrieves the thread dump for a specific job execution.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+   * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionThreadDumpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1619,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务的线程堆栈
+   * Retrieves the thread dump for a specific job execution.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+   * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionThreadDumpRequest
    * @returns GetJobExecutionThreadDumpResponse
@@ -1564,7 +1636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries logs.
+   * Retrieves log entries.
    * 
    * @param request - GetLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1591,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries logs.
+   * Retrieves log entries.
    * 
    * @param request - GetLogRequest
    * @returns GetLogResponse
@@ -1602,7 +1674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件
+   * Query Events.
    * 
    * @param request - GetLogEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,7 +1701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件
+   * Query Events.
    * 
    * @param request - GetLogEventRequest
    * @returns GetLogEventResponse
@@ -1641,6 +1713,12 @@ export default class Client extends OpenApi {
 
   /**
    * 获取分页日志
+   * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetPageLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1713,6 +1791,12 @@ export default class Client extends OpenApi {
   /**
    * 获取分页日志
    * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * 
    * @param request - GetPageLogRequest
    * @returns GetPageLogResponse
    */
@@ -1722,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流
+   * Retrieves the basic information for a specified workflow.
    * 
    * @param request - GetWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1761,7 +1845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流
+   * Retrieves the basic information for a specified workflow.
    * 
    * @param request - GetWorkflowRequest
    * @returns GetWorkflowResponse
@@ -1772,7 +1856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流的DAG信息
+   * Gets the Directed Acyclic Graph (DAG) of a workflow.
    * 
    * @param request - GetWorkflowDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1811,7 +1895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流的DAG信息
+   * Gets the Directed Acyclic Graph (DAG) of a workflow.
    * 
    * @param request - GetWorkflowDAGRequest
    * @returns GetWorkflowDAGResponse
@@ -1822,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流的DAG信息
+   * Gets the DAG for a previous workflow version.
    * 
    * @param request - GetWorkflowDAGPreviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1865,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流的DAG信息
+   * Gets the DAG for a previous workflow version.
    * 
    * @param request - GetWorkflowDAGPreviewRequest
    * @returns GetWorkflowDAGPreviewResponse
@@ -1876,7 +1960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流实例DAG信息
+   * Retrieve the DAG information for a workflow instance.
    * 
    * @param request - GetWorkflowExecutionDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1915,7 +1999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流实例DAG信息
+   * Retrieve the DAG information for a workflow instance.
    * 
    * @param request - GetWorkflowExecutionDAGRequest
    * @returns GetWorkflowExecutionDAGResponse
@@ -1980,7 +2064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports jobs at a time.
+   * Imports jobs in bulk.
    * 
    * @param request - ImportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2023,7 +2107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports jobs at a time.
+   * Imports jobs in bulk.
    * 
    * @param request - ImportJobsRequest
    * @returns ImportJobsResponse
@@ -2034,7 +2118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入工作流
+   * Imports one or more workflows.
    * 
    * @param request - ImportWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2077,7 +2161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入工作流
+   * Imports one or more workflows.
    * 
    * @param request - ImportWorkflowsRequest
    * @returns ImportWorkflowsResponse
@@ -2088,7 +2172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of alert events.
+   * Retrieves alert events.
    * 
    * @param request - ListAlarmEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2115,7 +2199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of alert events.
+   * Retrieves alert events.
    * 
    * @param request - ListAlarmEventRequest
    * @returns ListAlarmEventResponse
@@ -2126,7 +2210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of application names.
+   * Returns a list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2153,7 +2237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of application names.
+   * Returns a list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @returns ListAppNamesResponse
@@ -2164,7 +2248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of applications.
+   * Get the list of applications.
    * 
    * @param request - ListAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2191,7 +2275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of applications.
+   * Get the list of applications.
    * 
    * @param request - ListAppsRequest
    * @returns ListAppsResponse
@@ -2202,7 +2286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of calendar names.
+   * Lists all Calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2229,7 +2313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of calendar names.
+   * Lists all Calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @returns ListCalendarNamesResponse
@@ -2240,7 +2324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日历
+   * Retrieves a list of calendars.
    * 
    * @param request - ListCalendarsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2291,7 +2375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日历
+   * Retrieves a list of calendars.
    * 
    * @param request - ListCalendarsRequest
    * @returns ListCalendarsResponse
@@ -2302,7 +2386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Query the list of instances.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2329,7 +2413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Query the list of instances.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -2340,7 +2424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源列表
+   * Retrieve the data source list
    * 
    * @param request - ListDatasourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2395,7 +2479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源列表
+   * Retrieve the data source list
    * 
    * @param request - ListDatasourcesRequest
    * @returns ListDatasourcesResponse
@@ -2407,6 +2491,12 @@ export default class Client extends OpenApi {
 
   /**
    * 获取执行器组列表
+   * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2463,6 +2553,12 @@ export default class Client extends OpenApi {
   /**
    * 获取执行器组列表
    * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * 
    * @param request - ListExecutorGroupRequest
    * @returns ListExecutorGroupResponse
    */
@@ -2472,7 +2568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of executors.
+   * Lists executors.
    * 
    * @param request - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2499,7 +2595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of executors.
+   * Lists executors.
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -2510,7 +2606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of job instances.
+   * Returns a list of task instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2581,7 +2677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of job instances.
+   * Returns a list of task instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @returns ListJobExecutionsResponse
@@ -2592,7 +2688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务脚本历史列表
+   * Lists the script history for a job.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2639,7 +2735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务脚本历史列表
+   * Lists the script history for a job.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @returns ListJobScriptHistoryResponse
@@ -2650,7 +2746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of jobs.
+   * Returns a task list.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2717,7 +2813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of jobs.
+   * Returns a task list.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -2728,7 +2824,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取k8s资源列表
+   * Lists k8s resources.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+   * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListK8sResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2775,7 +2877,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取k8s资源列表
+   * Lists k8s resources.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+   * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListK8sResourceRequest
    * @returns ListK8sResourceResponse
@@ -2786,7 +2894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of tags of an executor.
+   * Retrieves a list of labels for an Executor.
    * 
    * @param request - ListLablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2813,7 +2921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of tags of an executor.
+   * Retrieves a list of labels for an Executor.
    * 
    * @param request - ListLablesRequest
    * @returns ListLablesResponse
@@ -2824,7 +2932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of zones.
+   * Obtain the zone list.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionZoneResponse
@@ -2846,7 +2954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of zones.
+   * Obtain the zone list.
    * @returns ListRegionZoneResponse
    */
   async listRegionZone(): Promise<$_model.ListRegionZoneResponse> {
@@ -2855,7 +2963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of all regions.
+   * Obtain the List of all Regions.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
@@ -2877,7 +2985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of all regions.
+   * Obtain the List of all Regions.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -2886,7 +2994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scheduling events.
+   * Lists scheduled events.
    * 
    * @param request - ListScheduleEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2913,7 +3021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scheduling events.
+   * Lists scheduled events.
    * 
    * @param request - ListScheduleEventRequest
    * @returns ListScheduleEventResponse
@@ -2924,7 +3032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+   * Retrieves the next five scheduled times based on the specified time type and time expression.
    * 
    * @param request - ListScheduleTimesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2951,7 +3059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+   * Retrieves the next five scheduled times based on the specified time type and time expression.
    * 
    * @param request - ListScheduleTimesRequest
    * @returns ListScheduleTimesResponse
@@ -2962,7 +3070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取流程实例列表
+   * Retrieves a list of workflow instances.
    * 
    * @param request - ListWorkflowExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3037,7 +3145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取流程实例列表
+   * Retrieves a list of workflow instances.
    * 
    * @param request - ListWorkflowExecutionsRequest
    * @returns ListWorkflowExecutionsResponse
@@ -3048,7 +3156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前工作流版本列表
+   * Lists the versions for a specified workflow.
    * 
    * @param request - ListWorkflowVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3095,7 +3203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前工作流版本列表
+   * Lists the versions for a specified workflow.
    * 
    * @param request - ListWorkflowVersionsRequest
    * @returns ListWorkflowVersionsResponse
@@ -3106,7 +3214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流列表
+   * Lists your workflows.
    * 
    * @param request - ListWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3173,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流列表
+   * Lists your workflows.
    * 
    * @param request - ListWorkflowsRequest
    * @returns ListWorkflowsResponse
@@ -3184,7 +3292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 补数工作流
+   * Backfills historical data for a specified workflow.
    * 
    * @param request - OperateBackfillWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3231,7 +3339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 补数工作流
+   * Backfills historical data for a specified workflow.
    * 
    * @param request - OperateBackfillWorkflowRequest
    * @returns OperateBackfillWorkflowResponse
@@ -3242,7 +3350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 连接数据源
+   * Connect to a data source
    * 
    * @param request - OperateConnectDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3285,7 +3393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 连接数据源
+   * Connect to a data source
    * 
    * @param request - OperateConnectDatasourceRequest
    * @returns OperateConnectDatasourceResponse
@@ -3296,7 +3404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designates executors.
+   * Designates one or more executors for a job.
    * 
    * @param tmpReq - OperateDesignateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3353,7 +3461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designates executors.
+   * Designates one or more executors for a job.
    * 
    * @param request - OperateDesignateExecutorsRequest
    * @returns OperateDesignateExecutorsResponse
@@ -3364,7 +3472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables multiple jobs at a time.
+   * Disables multiple jobs.
    * 
    * @param tmpReq - OperateDisableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3409,7 +3517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables multiple jobs at a time.
+   * Disables multiple jobs.
    * 
    * @param request - OperateDisableJobsRequest
    * @returns OperateDisableJobsResponse
@@ -3420,7 +3528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量禁用工作流
+   * Disables one or more workflows.
+   * 
+   * @remarks
+   * Disables one or more specified workflows.
    * 
    * @param tmpReq - OperateDisableWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3465,7 +3576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量禁用工作流
+   * Disables one or more workflows.
+   * 
+   * @remarks
+   * Disables one or more specified workflows.
    * 
    * @param request - OperateDisableWorkflowsRequest
    * @returns OperateDisableWorkflowsResponse
@@ -3476,7 +3590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables multiple jobs at a time.
+   * Enables multiple jobs in a batch.
    * 
    * @param tmpReq - OperateEnableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3521,7 +3635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables multiple jobs at a time.
+   * Enables multiple jobs in a batch.
    * 
    * @param request - OperateEnableJobsRequest
    * @returns OperateEnableJobsResponse
@@ -3532,7 +3646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量启用工作流
+   * Enables one or more workflows.
    * 
    * @param tmpReq - OperateEnableWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3577,7 +3691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量启用工作流
+   * Enables one or more workflows.
    * 
    * @param request - OperateEnableWorkflowsRequest
    * @returns OperateEnableWorkflowsResponse
@@ -3588,7 +3702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a job once.
+   * Executes a job on demand.
    * 
    * @param request - OperateExecuteJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3639,7 +3753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a job once.
+   * Executes a job on demand.
    * 
    * @param request - OperateExecuteJobRequest
    * @returns OperateExecuteJobResponse
@@ -3650,7 +3764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行一次工作流
+   * Executes a workflow.
+   * 
+   * @remarks
+   * This operation starts a new workflow instance.
    * 
    * @param request - OperateExecuteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3689,7 +3806,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行一次工作流
+   * Executes a workflow.
+   * 
+   * @remarks
+   * This operation starts a new workflow instance.
    * 
    * @param request - OperateExecuteWorkflowRequest
    * @returns OperateExecuteWorkflowResponse
@@ -3700,7 +3820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hold住任务实例
+   * Holds a pending job execution.
    * 
    * @param request - OperateHoldJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hold住任务实例
+   * Holds a pending job execution.
    * 
    * @param request - OperateHoldJobExecutionRequest
    * @returns OperateHoldJobExecutionResponse
@@ -3750,7 +3870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流中未开始的节点置为Held状态
+   * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
    * 
    * @param request - OperateHoldWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3789,7 +3909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流中未开始的节点置为Held状态
+   * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
    * 
    * @param request - OperateHoldWorkflowExecutionRequest
    * @returns OperateHoldWorkflowExecutionResponse
@@ -3800,7 +3920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标记任务实例为成功状态
+   * Marks a job execution as successful.
    * 
    * @param request - OperateMarkSuccessJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3839,7 +3959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标记任务实例为成功状态
+   * Marks a job execution as successful.
    * 
    * @param request - OperateMarkSuccessJobExecutionRequest
    * @returns OperateMarkSuccessJobExecutionResponse
@@ -3850,7 +3970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流实例标记为成功
+   * Marks a workflow execution as successful.
    * 
    * @param request - OperateMarkSuccessWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3889,7 +4009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流实例标记为成功
+   * Marks a workflow execution as successful.
    * 
    * @param request - OperateMarkSuccessWorkflowExecutionRequest
    * @returns OperateMarkSuccessWorkflowExecutionResponse
@@ -3900,7 +4020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reprocesses the historical data of a job.
+   * Reruns historical data for a job within a specified time range.
    * 
    * @param request - OperateRerunJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3951,7 +4071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reprocesses the historical data of a job.
+   * Reruns historical data for a job within a specified time range.
    * 
    * @param request - OperateRerunJobRequest
    * @returns OperateRerunJobResponse
@@ -3962,7 +4082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns failed job instances.
+   * Retries a failed Job Instance.
    * 
    * @param tmpReq - OperateRetryJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,7 +4135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns failed job instances.
+   * Retries a failed Job Instance.
    * 
    * @param request - OperateRetryJobExecutionRequest
    * @returns OperateRetryJobExecutionResponse
@@ -4026,7 +4146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑工作流实例
+   * Retries a workflow execution.
    * 
    * @param request - OperateRetryWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4069,7 +4189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑工作流实例
+   * Retries a workflow execution.
    * 
    * @param request - OperateRetryWorkflowExecutionRequest
    * @returns OperateRetryWorkflowExecutionResponse
@@ -4080,7 +4200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 跳过任务实例
+   * Skips a job execution.
    * 
    * @param request - OperateSkipJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4119,7 +4239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 跳过任务实例
+   * Skips a job execution.
    * 
    * @param request - OperateSkipJobExecutionRequest
    * @returns OperateSkipJobExecutionResponse
@@ -4130,7 +4250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops running instances.
+   * Stops a running Job Execution.
    * 
    * @param tmpReq - OperateStopJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4179,7 +4299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops running instances.
+   * Stops a running Job Execution.
    * 
    * @param request - OperateStopJobExecutionRequest
    * @returns OperateStopJobExecutionResponse
@@ -4190,7 +4310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止正在运行的工作流实例
+   * Stops a running workflow execution.
    * 
    * @param request - OperateStopWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4229,7 +4349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止正在运行的工作流实例
+   * Stops a running workflow execution.
    * 
    * @param request - OperateStopWorkflowExecutionRequest
    * @returns OperateStopWorkflowExecutionResponse
@@ -4240,7 +4360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将held状态的任务恢复
+   * Resumes a Job Execution that is in the Hold state.
    * 
    * @param request - OperateUnholdJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4279,7 +4399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将held状态的任务恢复
+   * Resumes a Job Execution that is in the Hold state.
    * 
    * @param request - OperateUnholdJobExecutionRequest
    * @returns OperateUnholdJobExecutionResponse
@@ -4290,7 +4410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流中held状态的节点恢复
+   * Resumes a workflow execution that is on hold.
    * 
    * @param request - OperateUnholdWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4329,7 +4449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将工作流中held状态的节点恢复
+   * Resumes a workflow execution that is on hold.
    * 
    * @param request - OperateUnholdWorkflowExecutionRequest
    * @returns OperateUnholdWorkflowExecutionResponse
@@ -4340,7 +4460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将skipped状态的任务恢复
+   * Resumes a skipped job execution.
    * 
    * @param request - OperateUnskipJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4379,7 +4499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将skipped状态的任务恢复
+   * Resumes a skipped job execution.
    * 
    * @param request - OperateUnskipJobExecutionRequest
    * @returns OperateUnskipJobExecutionResponse
@@ -4390,7 +4510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步任务
+   * Synchronizes jobs.
    * 
    * @param tmpReq - SyncJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4443,7 +4563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步任务
+   * Synchronizes jobs.
    * 
    * @param request - SyncJobsRequest
    * @returns SyncJobsResponse
@@ -4524,7 +4644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新日历
+   * Updates a calendar.
    * 
    * @param request - UpdateCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4575,7 +4695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新日历
+   * Updates a calendar.
    * 
    * @param request - UpdateCalendarRequest
    * @returns UpdateCalendarResponse
@@ -4636,7 +4756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源
+   * Update data source
    * 
    * @param request - UpdateDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4687,7 +4807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源
+   * Update data source
    * 
    * @param request - UpdateDatasourceRequest
    * @returns UpdateDatasourceResponse
@@ -4699,6 +4819,12 @@ export default class Client extends OpenApi {
 
   /**
    * 更新执行器组
+   * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - UpdateExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4779,6 +4905,12 @@ export default class Client extends OpenApi {
   /**
    * 更新执行器组
    * 
+   * @remarks
+   * # 引入增强插件
+   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * 
    * @param request - UpdateExecutorGroupRequest
    * @returns UpdateExecutorGroupResponse
    */
@@ -4788,7 +4920,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行器
+   * Updates the configuration of one or more Executors.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+   * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - UpdateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4831,7 +4969,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行器
+   * Updates the configuration of one or more Executors.
+   * 
+   * @remarks
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+   * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - UpdateExecutorsRequest
    * @returns UpdateExecutorsResponse
@@ -4842,7 +4986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the job information.
+   * Update task details.
    * 
    * @param tmpReq - UpdateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4983,7 +5127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the job information.
+   * Update task details.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse
@@ -4994,7 +5138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务实例
+   * Update task instance
    * 
    * @param request - UpdateJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5037,7 +5181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务实例
+   * Update task instance
    * 
    * @param request - UpdateJobExecutionRequest
    * @returns UpdateJobExecutionResponse
@@ -5048,7 +5192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务脚本内容
+   * Updates a job script.
    * 
    * @param request - UpdateJobScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5095,7 +5239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务脚本内容
+   * Updates a job script.
    * 
    * @param request - UpdateJobScriptRequest
    * @returns UpdateJobScriptResponse
@@ -5106,7 +5250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * Updates an existing workflow.
    * 
    * @param request - UpdateWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5177,7 +5321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * Updates an existing workflow.
    * 
    * @param request - UpdateWorkflowRequest
    * @returns UpdateWorkflowResponse
@@ -5188,7 +5332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流DAG
+   * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
    * 
    * @param tmpReq - UpdateWorkflowDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流DAG
+   * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
    * 
    * @param request - UpdateWorkflowDAGRequest
    * @returns UpdateWorkflowDAGResponse
@@ -5252,7 +5396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换工作流DAG版本
+   * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
    * 
    * @param request - UpdateWorkflowDAGVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5295,7 +5439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换工作流DAG版本
+   * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
    * 
    * @param request - UpdateWorkflowDAGVersionRequest
    * @returns UpdateWorkflowDAGVersionResponse

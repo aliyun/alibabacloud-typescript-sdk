@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCalendarRequest extends $dara.Model {
   /**
    * @remarks
+   * The calendar name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class UpdateCalendarRequest extends $dara.Model {
    */
   calendarName?: string;
   /**
+   * @remarks
+   * A client-generated token that ensures request idempotence. This token must be unique for each request and be no more than 64 ASCII characters long.
+   * 
    * @example
    * D0DE9C33-992A-580B-89C4-B609A292748D
    */
   clientToken?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,21 @@ export class UpdateCalendarRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to perform an incremental update. Default value: `false`.
+   * 
+   * - `false`: Replaces all existing calendar data with the data in this request, deleting configurations for any unspecified months.
+   * 
+   * - `true`: Updates only the data for the specified months, preserving existing configurations for all other months.
+   * 
    * @example
    * false
    */
   incremental?: boolean;
   /**
    * @remarks
+   * A JSON string that defines the days for one or more months.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,8 @@ export class UpdateCalendarRequest extends $dara.Model {
   months?: string;
   /**
    * @remarks
+   * The year.
+   * 
    * This parameter is required.
    * 
    * @example

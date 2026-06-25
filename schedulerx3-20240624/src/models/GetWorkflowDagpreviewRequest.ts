@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowDAGPreviewRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetWorkflowDAGPreviewRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The unique identifier for the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetWorkflowDAGPreviewRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The version of the workflow DAG.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class GetWorkflowDAGPreviewRequest extends $dara.Model {
    */
   dagVersion?: string;
   /**
+   * @remarks
+   * The unique identifier for the workflow.
+   * 
    * @example
    * 20
    */

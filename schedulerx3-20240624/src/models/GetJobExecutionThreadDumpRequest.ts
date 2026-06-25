@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetJobExecutionThreadDumpRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * xxl-job-executor-sample
    */
   appName?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The executor address.
+   * 
    * @example
    * http://192.168.0.215:9966/
    */
   executorAddr?: string;
   /**
+   * @remarks
+   * The job execution ID.
+   * 
    * @example
    * 1310630367761285120
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExportJobsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,13 +24,16 @@ export class ExportJobsRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The type of jobs to export. The default value is 1.
+   * 
    * @example
    * 1
    */
   exportJobType?: number;
   /**
    * @remarks
-   * -
+   * A list of job IDs.
    */
   jobIds?: number[];
   static names(): { [key: string]: string } {

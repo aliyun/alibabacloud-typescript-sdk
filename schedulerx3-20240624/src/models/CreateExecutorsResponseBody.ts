@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExecutorsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The App Group ID.
+   * 
    * @example
    * test-app
    */
   appGroupId?: number;
   /**
+   * @remarks
+   * The application type.
+   * 
    * @example
    * 1
    */
   appType?: number;
   /**
+   * @remarks
+   * A list of Kubernetes Services that failed to import.
+   * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
    */
   failedService?: string;
   /**
+   * @remarks
+   * The ID of the worker. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
+   * 
    * @example
    * ins-95mfvqrtg6fkijt1uko000
    */
   workerId?: number;
   /**
+   * @remarks
+   * The worker type.
+   * 
    * @example
    * k8s_service
    */
   workerType?: string;
   /**
+   * @remarks
+   * A JSON string that represents the list of imported workers.
+   * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
    */
@@ -66,25 +84,42 @@ export class CreateExecutorsResponseBodyData extends $dara.Model {
 
 export class CreateExecutorsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateExecutorsResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * F131C3E0-3FAA-5FA4-A6F3-E974D69EF3C5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

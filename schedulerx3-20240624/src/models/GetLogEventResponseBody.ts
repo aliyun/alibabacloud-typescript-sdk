@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLogEventResponseBodyDataRecords extends $dara.Model {
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * portal-dev
    */
   appName?: string;
   /**
+   * @remarks
+   * The log content.
+   * 
    * @example
    * hello word
    */
   content?: string;
   /**
+   * @remarks
+   * The severity level of the event.
+   * 
    * @example
    * info
    */
   event?: string;
   /**
+   * @remarks
+   * The type of the event.
+   * 
    * @example
    * JOB
    */
   eventType?: string;
   /**
+   * @remarks
+   * The job execution ID.
+   * 
    * @example
    * 101
    */
   jobExecutionId?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * test
    */
   jobName?: string;
   /**
+   * @remarks
+   * The time when the log was recorded. The time is in the `yyyy-MM-dd HH:mm:ss` format.
+   * 
    * @example
    * 2024-10-31 16:43:51
    */
   time?: string;
   /**
+   * @remarks
+   * The address of the worker that runs the job.
+   * 
    * @example
    * 030225016025_9357_60125@127.0.0.1:51363
    */
   workerAddr?: string;
   /**
+   * @remarks
+   * The workflow execution ID.
+   * 
    * @example
    * 1450568762586578000
    */
   workflowExecutionId?: string;
   /**
+   * @remarks
+   * The name of the workflow.
+   * 
    * @example
    * 工作流0001
    */
@@ -94,11 +124,17 @@ export class GetLogEventResponseBodyDataRecords extends $dara.Model {
 
 export class GetLogEventResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
@@ -109,6 +145,9 @@ export class GetLogEventResponseBodyData extends $dara.Model {
    */
   records?: GetLogEventResponseBodyDataRecords[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 33
    */
@@ -145,6 +184,9 @@ export class GetLogEventResponseBodyData extends $dara.Model {
 
 export class GetLogEventResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. A value of `200` indicates a successful request.
+   * 
    * @example
    * 200
    */
@@ -155,16 +197,29 @@ export class GetLogEventResponseBody extends $dara.Model {
    */
   data?: GetLogEventResponseBodyData;
   /**
+   * @remarks
+   * The error message that is returned if the request fails.
+   * 
    * @example
    * Parameter check error
    */
   message?: string;
   /**
+   * @remarks
+   * The unique, server-generated ID for the request. This ID is used for troubleshooting purposes.
+   * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
+   * 
    * @example
    * true
    */

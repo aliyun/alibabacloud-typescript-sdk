@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateRetryWorkflowExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateRetryWorkflowExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class OperateRetryWorkflowExecutionRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Set to `true` to rerun only failed nodes.
+   * 
    * @example
    * true
    */
   onlyFailed?: boolean;
   /**
    * @remarks
+   * The workflow execution ID.
+   * 
    * This parameter is required.
    * 
    * @example

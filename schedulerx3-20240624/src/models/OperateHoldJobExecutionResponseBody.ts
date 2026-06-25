@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateHoldJobExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * not support query script history, please upgrade engine version to 2.2.2+
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2ECA6FC9-7557-5576-AF5F-FC3E7BCC9C21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

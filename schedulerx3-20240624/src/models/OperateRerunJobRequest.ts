@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateRerunJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateRerunJobRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The unique identifier of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OperateRerunJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The specific time of day for which to rerun the data. The format is `HH:mm:ss`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class OperateRerunJobRequest extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
+   * The end of the time range to rerun, specified as a Unix timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class OperateRerunJobRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
+   * The unique identifier of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +55,8 @@ export class OperateRerunJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
+   * The start of the time range to rerun, specified as a Unix timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

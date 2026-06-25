@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportWorkflowsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
    * @remarks
-   * A short description of struct
+   * The ID of the cluster where the Workflow is located.
    * 
    * This parameter is required.
    * 
@@ -18,6 +21,10 @@ export class ExportWorkflowsShrinkRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * An array of Workflow IDs to export.
+   */
   workflowIdShrink?: string;
   static names(): { [key: string]: string } {
     return {

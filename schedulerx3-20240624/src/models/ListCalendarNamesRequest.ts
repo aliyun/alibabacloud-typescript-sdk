@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCalendarNamesRequest extends $dara.Model {
   /**
    * @remarks
+   * The Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

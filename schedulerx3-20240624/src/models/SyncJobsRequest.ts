@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SyncJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of job IDs.
+   * 
    * This parameter is required.
    */
   jobIds?: number[];
   /**
    * @remarks
+   * The name of the source application that contains the jobs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class SyncJobsRequest extends $dara.Model {
   originalAppName?: string;
   /**
    * @remarks
+   * The ID of the source cluster that contains the jobs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +32,8 @@ export class SyncJobsRequest extends $dara.Model {
   originalClusterId?: string;
   /**
    * @remarks
+   * The name of the destination application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +42,8 @@ export class SyncJobsRequest extends $dara.Model {
   targetAppName?: string;
   /**
    * @remarks
+   * The ID of the destination cluster.
+   * 
    * This parameter is required.
    * 
    * @example

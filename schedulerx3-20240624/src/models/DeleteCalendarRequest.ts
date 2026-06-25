@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCalendarRequest extends $dara.Model {
   /**
    * @remarks
+   * The calendar name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteCalendarRequest extends $dara.Model {
   calendarName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteCalendarRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The year.
+   * 
    * This parameter is required.
    * 
    * @example

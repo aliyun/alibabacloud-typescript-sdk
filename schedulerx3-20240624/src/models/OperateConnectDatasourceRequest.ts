@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateConnectDatasourceRequest extends $dara.Model {
   /**
    * @remarks
+   * Cluster ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateConnectDatasourceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Connection parameters of the data source
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OperateConnectDatasourceRequest extends $dara.Model {
   connectionParams?: string;
   /**
    * @remarks
+   * Password of the database user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class OperateConnectDatasourceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * Type of the data source.
+   * 
    * This parameter is required.
    * 
    * @example

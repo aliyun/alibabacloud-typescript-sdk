@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExecutorsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateExecutorsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class UpdateExecutorsRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The Worker type.
+   * 
    * @example
    * k8s_service
    */
   workerType?: string;
   /**
+   * @remarks
+   * A JSON-formatted string that contains a list of Workers.
+   * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
    */

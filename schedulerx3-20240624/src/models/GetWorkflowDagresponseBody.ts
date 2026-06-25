@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkflowDAGResponseBodyDataEdges extends $dara.Model {
   /**
+   * @remarks
+   * The Job ID of the source Node.
+   * 
    * @example
    * 3
    */
   source?: number;
   /**
+   * @remarks
+   * The Job ID of the target Node.
+   * 
    * @example
    * 4
    */
@@ -38,21 +44,33 @@ export class GetWorkflowDAGResponseBodyDataEdges extends $dara.Model {
 
 export class GetWorkflowDAGResponseBodyDataNodesCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Optional. The height of the Node.
+   * 
    * @example
    * 20
    */
   height?: number;
   /**
+   * @remarks
+   * Optional. The width of the Node.
+   * 
    * @example
    * 100
    */
   width?: number;
   /**
+   * @remarks
+   * The x-coordinate of the Node.
+   * 
    * @example
    * 50
    */
   x?: number;
   /**
+   * @remarks
+   * The y-coordinate of the Node.
+   * 
    * @example
    * 50
    */
@@ -86,32 +104,58 @@ export class GetWorkflowDAGResponseBodyDataNodesCoordinate extends $dara.Model {
 
 export class GetWorkflowDAGResponseBodyDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * The Application Name.
+   * 
    * @example
    * oak-payment-async-job
    */
   appName?: string;
+  /**
+   * @remarks
+   * The coordinates of the Node.
+   */
   coordinate?: GetWorkflowDAGResponseBodyDataNodesCoordinate;
   /**
+   * @remarks
+   * The Dependency Strategy.
+   * 
    * @example
    * all_success
    */
   dependentStrategy?: number;
   /**
+   * @remarks
+   * The Job ID.
+   * 
    * @example
    * 5
    */
   id?: number;
   /**
+   * @remarks
+   * The Job type.
+   * 
    * @example
    * script_shell
    */
   jobType?: string;
   /**
+   * @remarks
+   * The Job name.
+   * 
    * @example
    * job1
    */
   name?: string;
   /**
+   * @remarks
+   * The Job Status.
+   * 
+   * - 0: Disabled
+   * 
+   * - 1: Enabled
+   * 
    * @example
    * 1
    */
@@ -153,7 +197,15 @@ export class GetWorkflowDAGResponseBodyDataNodes extends $dara.Model {
 }
 
 export class GetWorkflowDAGResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Edges in the Workflow DAG.
+   */
   edges?: GetWorkflowDAGResponseBodyDataEdges[];
+  /**
+   * @remarks
+   * A list of Nodes in the Workflow DAG.
+   */
   nodes?: GetWorkflowDAGResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -186,25 +238,38 @@ export class GetWorkflowDAGResponseBodyData extends $dara.Model {
 
 export class GetWorkflowDAGResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The Response Code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetWorkflowDAGResponseBodyData;
   /**
+   * @remarks
+   * The Error Message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The Request ID.
    * 
    * @example
    * 5EF879D0-3B43-5AD1-9BF7-52418F9C5E73
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

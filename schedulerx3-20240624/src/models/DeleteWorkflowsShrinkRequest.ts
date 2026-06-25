@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkflowsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteWorkflowsShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class DeleteWorkflowsShrinkRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * If set to `true`, all jobs within the specified workflows are also deleted.
+   * 
    * @example
    * false
    */
   deleteJobs?: boolean;
   /**
    * @remarks
+   * A list of workflow IDs to delete.
+   * 
    * This parameter is required.
    */
   workflowIdsShrink?: string;

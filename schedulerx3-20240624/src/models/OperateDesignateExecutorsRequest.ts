@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class OperateDesignateExecutorsRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of machine addresses to designate.
+   * 
    * This parameter is required.
    */
   addressList?: string[];
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +32,12 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The designation type. Valid values:
+   * 
+   * - **1**: By worker.
+   * 
+   * - **2**: By label.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +46,8 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   designateType?: number;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +55,9 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
    */
   jobId?: number;
   /**
+   * @remarks
+   * Specifies whether to enable failover.
+   * 
    * @example
    * true
    */

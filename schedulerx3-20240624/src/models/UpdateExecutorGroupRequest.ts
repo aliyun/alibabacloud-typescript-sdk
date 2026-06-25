@@ -30,8 +30,6 @@ export class UpdateExecutorGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * ID。
-   * 
    * This parameter is required.
    * 
    * @example

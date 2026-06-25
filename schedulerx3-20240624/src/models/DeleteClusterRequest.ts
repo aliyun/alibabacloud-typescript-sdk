@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example

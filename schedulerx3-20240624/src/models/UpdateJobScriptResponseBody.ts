@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateJobScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * not support update script, please upgrade engine version to 2.2.2+
    */
   message?: string;
   /**
+   * @remarks
+   * The Request ID. Alibaba Cloud generates this unique identifier for each request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * 29ED6209-5DE6-5E1D-89B0-B7B1D823A1BF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. `true` indicates success, and `false` indicates failure.
+   * 
    * @example
    * true
    */

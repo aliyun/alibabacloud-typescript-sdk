@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +14,49 @@ export class ListDatasourcesRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Maximum data volume to read in this request. Default value is 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Job Name.
+   * 
+   * @example
+   * 修正券统计数据
+   */
   name?: string;
   /**
+   * @remarks
+   * Indicates the current read position returned by the call. An empty value means all data has been read. This parameter is not required for the first query.
+   * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Grafana dashboard type, including: dash-db: Dashboard; dash-folder: Folder (which can contain dashboards).
+   * 
    * @example
    * REDIS
    */

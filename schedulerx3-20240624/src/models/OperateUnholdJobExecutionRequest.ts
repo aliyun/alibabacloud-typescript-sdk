@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateUnholdJobExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The Application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateUnholdJobExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class OperateUnholdJobExecutionRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The Job Execution ID.
+   * 
    * @example
    * 1310630367761285120
    */

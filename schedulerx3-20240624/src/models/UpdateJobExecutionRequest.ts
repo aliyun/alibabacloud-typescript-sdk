@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * AppName
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateJobExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateJobExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Job execution ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class UpdateJobExecutionRequest extends $dara.Model {
    */
   jobExecutionId?: string;
   /**
+   * @remarks
+   * Schedule time
+   * 
    * @example
    * 2023-10-01 12:00:00
    */

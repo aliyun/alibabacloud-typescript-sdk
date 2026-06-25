@@ -151,10 +151,6 @@ export class ListExecutorGroupResponseBodyData extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * -
-   */
   records?: ListExecutorGroupResponseBodyDataRecords[];
   /**
    * @example
@@ -217,9 +213,6 @@ export class ListExecutorGroupResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 5EF879D0-3B43-5AD1-9BF7-52418F9C5E73
    */

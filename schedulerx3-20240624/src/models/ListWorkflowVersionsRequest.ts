@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowVersionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListWorkflowVersionsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,25 @@ export class ListWorkflowVersionsRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The maximum number of results to return. The default value is 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. Omit this parameter for the first request.
+   * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
    */
   nextToken?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example

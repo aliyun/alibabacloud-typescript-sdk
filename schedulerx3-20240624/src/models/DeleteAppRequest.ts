@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the App Group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAppRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

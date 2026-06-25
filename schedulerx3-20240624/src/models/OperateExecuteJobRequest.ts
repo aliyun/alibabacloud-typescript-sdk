@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateExecuteJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateExecuteJobRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class OperateExecuteJobRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The custom parameters for the job instance.
+   * 
    * @example
    * name=zhangsan
    */
   instanceParameters?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,13 +42,19 @@ export class OperateExecuteJobRequest extends $dara.Model {
    */
   jobId?: number;
   /**
+   * @remarks
+   * The label used to select a specific worker.
+   * 
    * @example
    * gray
    */
   label?: string;
   /**
+   * @remarks
+   * The address (`workerAddr`) of a specific worker.
+   * 
    * @example
-   * http://192.168.1.5:9999/
+   * http://192.168.***.5:9999/
    */
   worker?: string;
   static names(): { [key: string]: string } {

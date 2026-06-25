@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClusterRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,13 +38,13 @@ export class CreateClusterRequestTag extends $dara.Model {
 
 export class CreateClusterRequestVSwitches extends $dara.Model {
   /**
-   * @example
-   * vsw-2ze745n3r2sfqtahhubpl
+   * @remarks
+   * The ID of the vSwitch.
    */
   vSwitchId?: string;
   /**
-   * @example
-   * cn-hangzhou-j
+   * @remarks
+   * The zone ID of the vSwitch.
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -64,51 +72,80 @@ export class CreateClusterRequestVSwitches extends $dara.Model {
 
 export class CreateClusterRequest extends $dara.Model {
   /**
+   * @remarks
+   * The billing type.
+   * 
    * @example
    * POSTPAY
    */
   chargeType?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The name of the cluster.
    * 
-   * @example
-   * qianxi-test-0812
+   * This parameter is required.
    */
   clusterName?: string;
   /**
-   * @example
-   * scx.dev.x1
+   * @remarks
+   * The cluster specification. Valid values:
+   * - scx.dev.x1
+   * - scx.small.x1
+   * - scx.small.x2
+   * - scx.medium.x1
+   * - scx.medium.x2.
    */
   clusterSpec?: string;
   /**
+   * @remarks
+   * The cluster type.
+   * 
    * @example
    * 1
    */
   clusterType?: number;
   /**
+   * @remarks
+   * The duration.
+   * 
    * @example
    * 3
    */
   duration?: number;
   /**
-   * @example
-   * xxljob
+   * @remarks
+   * The engine type. Valid values: xxljob.
    */
   engineType?: string;
   /**
+   * @remarks
+   * The pricing cycle.
+   * 
    * @example
    * Year
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * The source.
+   * 
+   * @example
+   * schedulerx
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The list of tags. A maximum of 20 tags are supported.
+   */
   tag?: CreateClusterRequestTag[];
+  /**
+   * @remarks
+   * The information about the vSwitches.
+   */
   vSwitches?: CreateClusterRequestVSwitches[];
   /**
    * @remarks
-   * VPC id
-   * 
-   * @example
-   * vpc-aa1a18236n90rqhuhhnhh
+   * The ID of the VPC.
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -120,6 +157,7 @@ export class CreateClusterRequest extends $dara.Model {
       duration: 'Duration',
       engineType: 'EngineType',
       pricingCycle: 'PricingCycle',
+      source: 'Source',
       tag: 'Tag',
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
@@ -135,6 +173,7 @@ export class CreateClusterRequest extends $dara.Model {
       duration: 'number',
       engineType: 'string',
       pricingCycle: 'string',
+      source: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitches: { 'type': 'array', 'itemType': CreateClusterRequestVSwitches },
       vpcId: 'string',

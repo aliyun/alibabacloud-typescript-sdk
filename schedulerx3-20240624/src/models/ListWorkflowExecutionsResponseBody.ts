@@ -4,51 +4,107 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
+   * @remarks
+   * The data time of the workflow execution.
+   * 
    * @example
    * 2024-11-12 14:52:42
    */
   dataTime?: string;
   /**
+   * @remarks
+   * The end time of the workflow execution.
+   * 
    * @example
    * 2024-11-12 14:52:42
    */
   endTime?: string;
   /**
+   * @remarks
+   * The executor ID.
+   * 
    * @example
    * 1827811800526000
    */
   executor?: string;
   /**
+   * @remarks
+   * The schedule time of the workflow execution.
+   * 
    * @example
    * 2024-11-12 14:52:42
    */
   scheduleTime?: string;
   /**
+   * @remarks
+   * The start time of the workflow execution.
+   * 
    * @example
    * 2025-11-04 01:09:27
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the workflow execution. Valid values:
+   * 
+   * - 0: UNKNOWN
+   * 
+   * - 1: WAITING
+   * 
+   * - 2: READY
+   * 
+   * - 3: RUNNING
+   * 
+   * - 4: SUCCESS
+   * 
+   * - 5: FAILED
+   * 
+   * - 6: PAUSED
+   * 
+   * - 7: SUBMITTED
+   * 
+   * - 8: REJECTED
+   * 
+   * - 9: ACCEPTED
+   * 
+   * - 10: PARTIAL_FAILED
+   * 
+   * - 11: SKIPPED
+   * 
+   * - 12: REMOVED
+   * 
    * @example
    * 4
    */
   status?: number;
   /**
+   * @remarks
+   * The workflow execution ID.
+   * 
    * @example
    * 100
    */
   workflowExecutionId?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * 10
    */
   workflowId?: string;
   /**
+   * @remarks
+   * The workflow name.
+   * 
    * @example
    * myWorkflow
    */
@@ -94,11 +150,17 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
 
 export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
@@ -109,6 +171,9 @@ export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
    */
   records?: ListWorkflowExecutionsResponseBodyDataRecords[];
   /**
+   * @remarks
+   * The total number of matching workflow executions.
+   * 
    * @example
    * 65
    */
@@ -145,6 +210,9 @@ export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
 
 export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of `200` indicates a successful request.
+   * 
    * @example
    * 200
    */
@@ -155,12 +223,17 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
    */
   data?: ListWorkflowExecutionsResponseBodyData;
   /**
+   * @remarks
+   * The maximum number of entries to return per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
+   * The response message. If the request fails, this parameter provides details about the error.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -168,19 +241,29 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
    */
   message?: string;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
+   * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID. Use this ID to troubleshoot issues.
    * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

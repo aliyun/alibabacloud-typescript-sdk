@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateEnableJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateEnableJobsShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +25,7 @@ export class OperateEnableJobsShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * -
+   * The IDs of the jobs to enable.
    */
   jobIdsShrink?: string;
   static names(): { [key: string]: string } {

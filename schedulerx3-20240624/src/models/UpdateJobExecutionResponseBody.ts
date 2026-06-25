@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateJobExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * Parameter error: content is null.
    */
@@ -22,6 +28,11 @@ export class UpdateJobExecutionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded.  
+   * - true: The invocation succeeded.  
+   * - false: Failed to Invocate.
+   * 
    * @example
    * true
    */

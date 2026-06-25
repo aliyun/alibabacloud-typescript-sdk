@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobScriptRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateJobScriptRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,15 +25,35 @@ export class UpdateJobScriptRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 74
    */
   jobId?: number;
+  /**
+   * @remarks
+   * The script content.
+   * 
+   * @example
+   * #!/bin/bash
+   * echo "xxl-job: hello shell"
+   * 
+   * echo "脚本位置: $0"
+   * echo "任务参数: $1"
+   * echo "分片序号 = $2"
+   * echo "分片总数 = $3"
+   * 
+   * echo "Good bye!"
+   * exit 0
+   */
   scriptContent?: string;
   /**
    * @remarks
+   * The description of the script version.
+   * 
    * This parameter is required.
    * 
    * @example

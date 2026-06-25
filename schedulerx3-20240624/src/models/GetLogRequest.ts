@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLogRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,59 +22,93 @@ export class GetLogRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The end time. This value is a UNIX timestamp.
+   * 
    * @example
    * 1721636220
    */
   endTime?: number;
   /**
+   * @remarks
+   * The job execution ID.
+   * 
    * @example
    * 1310630367761285120
    */
   jobExecutionId?: string;
   /**
+   * @remarks
+   * The keyword to search for.
+   * 
    * @example
    * hello word
    */
   keyword?: string;
   /**
+   * @remarks
+   * The log level.
+   * 
    * @example
    * INFO
    */
   level?: string;
   /**
    * @remarks
-   * LineNum
+   * The number of log entries to return.
    * 
    * @example
    * 2
    */
   lineNum?: number;
   /**
+   * @remarks
+   * The log ID.
+   * 
    * @example
    * 344008
    */
   logId?: number;
   /**
+   * @remarks
+   * The offset.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
+   * @remarks
+   * Specifies whether to sort the results in descending order.
+   * 
+   * - **true**: sorts the results in descending order.
+   * 
+   * - **false**: sorts the results in ascending order.
+   * 
    * @example
    * true
    */
   reverse?: boolean;
   /**
+   * @remarks
+   * The time when the job was scheduled. This value is a UNIX timestamp.
+   * 
    * @example
    * 2023-10-01 12:00:00
    */
   scheduleTime?: number;
   /**
+   * @remarks
+   * The start time. This value is a UNIX timestamp.
+   * 
    * @example
    * 1721636220
    */
   startTime?: number;
   /**
+   * @remarks
+   * The worker address.
+   * 
    * @example
    * 192.168.1.100
    */

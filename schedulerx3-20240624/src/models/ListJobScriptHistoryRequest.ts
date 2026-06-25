@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobScriptHistoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,11 +34,17 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
    */
   jobId?: number;
   /**
+   * @remarks
+   * The maximum number of entries to return per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. You do not need to set this parameter for the first request.
+   * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
    */

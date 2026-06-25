@@ -4,28 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppsRequest extends $dara.Model {
   /**
-   * @example
-   * test-app
+   * @remarks
+   * The application name.
    */
   appName?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The cluster ID.
    * 
-   * @example
-   * xxljob-b6ec1xxxx
+   * This parameter is required.
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The title.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

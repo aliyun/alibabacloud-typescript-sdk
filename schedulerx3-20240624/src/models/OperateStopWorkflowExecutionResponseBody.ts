@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateStopWorkflowExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter check error
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D0DE9C33-992A-580B-89C4-B609A292748D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

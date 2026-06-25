@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowDAGShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateWorkflowDAGShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,16 +25,23 @@ export class UpdateWorkflowDAGShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The directed acyclic graph (DAG) of the workflow.
+   * 
    * This parameter is required.
    */
   dagShrink?: string;
   /**
+   * @remarks
+   * The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+   * 
    * @example
    * 1137005
    */
   dagVersion?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example

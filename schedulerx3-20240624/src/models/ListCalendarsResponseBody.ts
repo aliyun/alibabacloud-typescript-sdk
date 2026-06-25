@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
   /**
+   * @remarks
+   * The name of the calendar.
+   * 
    * @example
    * workday
    */
   calendarName?: string;
   /**
+   * @remarks
+   * A JSON string that represents an array of months and their corresponding days.
+   * 
    * @example
    * [
    *   {"month":1,"days":[1,2,3,6,7,8,9,10,13,14,15,16,17,20,21,22,23,24,27,28,29,30,31]},
@@ -27,6 +33,9 @@ export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
    */
   months?: string;
   /**
+   * @remarks
+   * The year.
+   * 
    * @example
    * 2025
    */
@@ -58,17 +67,30 @@ export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
 
 export class ListCalendarsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results. If this parameter is not returned, all results have been retrieved.
+   * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * A list of calendars.
+   */
   records?: ListCalendarsResponseBodyDataRecords[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
@@ -105,29 +127,42 @@ export class ListCalendarsResponseBodyData extends $dara.Model {
 
 export class ListCalendarsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
    * @remarks
-   * -
+   * - The returned data.
    */
   data?: ListCalendarsResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

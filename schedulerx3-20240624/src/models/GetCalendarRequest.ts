@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCalendarRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the calendar.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCalendarRequest extends $dara.Model {
   calendarName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetCalendarRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The year.
+   * 
    * This parameter is required.
    * 
    * @example

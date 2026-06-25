@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCalendarResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the calendar.
+   * 
    * @example
    * workday
    */
   calendarName?: string;
   /**
+   * @remarks
+   * A JSON string that represents an array of objects. Each object specifies the days for a particular month.
+   * 
    * @example
    * [
    *   {"month":1,"days":[1,2,3,6,7,8,9,10,13,14,15,16,17,20,21,22,23,24,27,28,29,30,31]},
@@ -27,6 +33,9 @@ export class GetCalendarResponseBodyData extends $dara.Model {
    */
   months?: string;
   /**
+   * @remarks
+   * The year.
+   * 
    * @example
    * 2030
    */
@@ -58,29 +67,42 @@ export class GetCalendarResponseBodyData extends $dara.Model {
 
 export class GetCalendarResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
    * @remarks
-   * -
+   * - The data returned.
    */
   data?: GetCalendarResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - **true**
+   * 
+   * - **false**
+   * 
    * @example
    * true
    */

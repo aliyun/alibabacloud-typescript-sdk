@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateStopJobExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the Application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateStopJobExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the Cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +25,18 @@ export class OperateStopJobExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the Job Execution.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1310630367761285120
    */
   jobExecutionId?: string;
+  /**
+   * @remarks
+   * A list of Task IDs.
+   */
   taskList?: string[];
   static names(): { [key: string]: string } {
     return {

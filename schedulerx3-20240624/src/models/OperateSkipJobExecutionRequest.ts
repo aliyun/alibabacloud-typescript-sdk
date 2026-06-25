@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSkipJobExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateSkipJobExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class OperateSkipJobExecutionRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The job execution ID.
+   * 
    * @example
    * 1310630367761285120
    */

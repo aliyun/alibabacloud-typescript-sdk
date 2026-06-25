@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateMarkSuccessWorkflowExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of `200` indicates a successful request.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional details about the result.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request, used for troubleshooting.
    * 
    * @example
    * 1DF6732E-15D8-5E1F-95E3-C10077F556B5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the operation succeeded.
+   * 
+   * - `true`: The operation succeeded.
+   * 
+   * - `false`: The operation failed.
+   * 
    * @example
    * true
    */

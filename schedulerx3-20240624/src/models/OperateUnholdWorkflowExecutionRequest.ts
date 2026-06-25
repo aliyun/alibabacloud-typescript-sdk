@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateUnholdWorkflowExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateUnholdWorkflowExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OperateUnholdWorkflowExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The workflow execution ID.
+   * 
    * This parameter is required.
    * 
    * @example

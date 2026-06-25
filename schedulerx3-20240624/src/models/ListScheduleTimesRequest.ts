@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduleTimesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListScheduleTimesRequest extends $dara.Model {
    */
   appName?: string;
   /**
+   * @remarks
+   * The name of the calendar to use for scheduling, such as a business day calendar.
+   * 
    * @example
    * workday
    */
   calendar?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListScheduleTimesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The time expression, such as a cron expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,10 @@ export class ListScheduleTimesRequest extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
+   * The time type. The only supported type is cron.
+   * 
+   * - 1: cron
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +54,9 @@ export class ListScheduleTimesRequest extends $dara.Model {
    */
   timeType?: number;
   /**
+   * @remarks
+   * The time zone used to evaluate the time expression.
+   * 
    * @example
    * Asia/Beijing
    */

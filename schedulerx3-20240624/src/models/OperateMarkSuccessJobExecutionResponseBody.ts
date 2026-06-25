@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateMarkSuccessJobExecutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter check error
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * AA3538A0-FBE6-5E31-AD88-A02C6FF0DACC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
+   * 
    * @example
    * true
    */

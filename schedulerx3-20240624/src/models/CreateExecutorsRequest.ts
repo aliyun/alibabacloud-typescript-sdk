@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExecutorsRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateExecutorsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateExecutorsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The worker type. The only valid value is `k8s_service`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateExecutorsRequest extends $dara.Model {
   workerType?: string;
   /**
    * @remarks
+   * A JSON string that contains an array of workers.
+   * 
    * This parameter is required.
    * 
    * @example

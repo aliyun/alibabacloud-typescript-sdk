@@ -14,9 +14,6 @@ export class DeleteExecutorGroupResponseBody extends $dara.Model {
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
    */

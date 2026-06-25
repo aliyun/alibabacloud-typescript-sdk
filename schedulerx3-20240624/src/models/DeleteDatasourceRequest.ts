@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatasourceRequest extends $dara.Model {
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDatasourceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * DataSource ID, which can be obtained by invoking the ListDatasources API.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateBackfillWorkflowRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The end date of the backfill, in YYYY-MM-DD format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
+   * The start date of the backfill, in YYYY-MM-DD format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example

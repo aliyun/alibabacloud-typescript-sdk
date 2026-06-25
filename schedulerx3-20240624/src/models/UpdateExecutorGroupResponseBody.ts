@@ -91,10 +91,6 @@ export class UpdateExecutorGroupResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * -
-   */
   data?: UpdateExecutorGroupResponseBodyData;
   /**
    * @example
@@ -102,9 +98,6 @@ export class UpdateExecutorGroupResponseBody extends $dara.Model {
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * C78E2AD2-5985-515B-BAD2-31A248AFC263
    */

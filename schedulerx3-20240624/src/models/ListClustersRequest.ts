@@ -30,11 +30,17 @@ export class ListClustersRequestTag extends $dara.Model {
 
 export class ListClustersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * xxljob-d6a5243b6fa
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * cluster-test
    */
@@ -45,11 +51,17 @@ export class ListClustersRequest extends $dara.Model {
    */
   clusterType?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 5
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page for paginated queries.
+   * 
    * @example
    * 10
    */

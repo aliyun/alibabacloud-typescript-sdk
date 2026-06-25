@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppNamesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the application group.
+   * 
    * @example
    * test-app
    */
   appGroupId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
+   * @remarks
+   * The app type.
+   * 
    * @example
    * 1
    */
   appType?: number;
   /**
+   * @remarks
+   * The unique identifier.
+   * 
    * @example
    * 15
    */
   id?: number;
+  /**
+   * @remarks
+   * The application title.
+   * 
+   * @example
+   * 测试应用
+   */
   title?: string;
   /**
+   * @remarks
+   * The registry type for manually registered workers.
+   * 
    * @example
    * k8s_service
    */
@@ -62,6 +84,9 @@ export class ListAppNamesResponseBodyData extends $dara.Model {
 
 export class ListAppNamesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
@@ -72,16 +97,29 @@ export class ListAppNamesResponseBody extends $dara.Model {
    */
   data?: ListAppNamesResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID. Use this ID for troubleshooting.
+   * 
    * @example
    * 3881C59F-59F1-5B2E-8110-7D689CA9B207
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request succeeded.
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

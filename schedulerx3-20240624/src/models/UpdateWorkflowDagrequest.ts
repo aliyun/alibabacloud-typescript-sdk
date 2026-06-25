@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateWorkflowDAGRequestDagEdges extends $dara.Model {
   /**
+   * @remarks
+   * The job ID of the source node.
+   * 
    * @example
    * 3
    */
   source?: number;
   /**
+   * @remarks
+   * The job ID of the target node.
+   * 
    * @example
    * 4
    */
@@ -38,21 +44,33 @@ export class UpdateWorkflowDAGRequestDagEdges extends $dara.Model {
 
 export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Optional. The height of the node.
+   * 
    * @example
    * 20
    */
   height?: number;
   /**
+   * @remarks
+   * Optional. The width of the node.
+   * 
    * @example
    * 100
    */
   width?: number;
   /**
+   * @remarks
+   * The x-coordinate.
+   * 
    * @example
    * 50
    */
   x?: number;
   /**
+   * @remarks
+   * The y-coordinate.
+   * 
    * @example
    * 50
    */
@@ -86,6 +104,9 @@ export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
 
 export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
   /**
+   * @remarks
+   * The logical expression of the node.
+   * 
    * @example
    * {
    *     "logicType": "status_branch",
@@ -142,8 +163,15 @@ export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
    * }
    */
   content?: string;
+  /**
+   * @remarks
+   * The coordinates of the node.
+   */
   coordinate?: UpdateWorkflowDAGRequestDagNodesCoordinate;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 1
    */
@@ -177,7 +205,15 @@ export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
 }
 
 export class UpdateWorkflowDAGRequestDag extends $dara.Model {
+  /**
+   * @remarks
+   * A list of edges in the workflow.
+   */
   edges?: UpdateWorkflowDAGRequestDagEdges[];
+  /**
+   * @remarks
+   * A list of nodes in the workflow.
+   */
   nodes?: UpdateWorkflowDAGRequestDagNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -211,6 +247,8 @@ export class UpdateWorkflowDAGRequestDag extends $dara.Model {
 export class UpdateWorkflowDAGRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -219,6 +257,8 @@ export class UpdateWorkflowDAGRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -227,16 +267,23 @@ export class UpdateWorkflowDAGRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The directed acyclic graph (DAG) of the workflow.
+   * 
    * This parameter is required.
    */
   dag?: UpdateWorkflowDAGRequestDag;
   /**
+   * @remarks
+   * The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+   * 
    * @example
    * 1137005
    */
   dagVersion?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example

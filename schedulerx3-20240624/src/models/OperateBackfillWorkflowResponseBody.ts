@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateBackfillWorkflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. A value of `200` indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID generated for the request.
    * 
    * @example
    * 5EF879D0-3B43-5AD1-9BF7-52418F9C5E73
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

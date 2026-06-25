@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppNamesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test-app
    */
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

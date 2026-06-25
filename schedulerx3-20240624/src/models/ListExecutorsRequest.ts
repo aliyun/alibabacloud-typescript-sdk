@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListExecutorsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class ListExecutorsRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 74
    */
   jobId?: number;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * gray
    */

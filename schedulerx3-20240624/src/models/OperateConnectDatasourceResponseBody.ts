@@ -4,24 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateConnectDatasourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded.  
+   * - true: The invocation succeeded.  
+   * - false: The invocation failed.
+   * 
    * @example
    * true
    */
