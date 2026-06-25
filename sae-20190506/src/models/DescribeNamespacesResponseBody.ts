@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   /**
    * @remarks
-   * The ACM-specific AccessKey ID. It can be used to manage data in an Application Configuration Management (ACM) namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
+   * The access key ID for Application Configuration Management (ACM), used to manage data in an ACM namespace. For more information, see [Differences between an Alibaba Cloud access key and an ACM-specific access key](https://help.aliyun.com/document_detail/68941.html).
    * 
    * @example
    * b34dbe3315c64f9f99b58ea447ec****
@@ -13,7 +13,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The endpoint of the host.
+   * The service endpoint.
    * 
    * @example
    * addr-bj-internal.edas.aliyun.com
@@ -37,7 +37,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   namespaceDescription?: string;
   /**
    * @remarks
-   * The ID of the namespace. You cannot query, modify, or delete the default namespace.
+   * The namespace ID. The default namespace cannot be queried, modified, or deleted.
    * 
    * @example
    * cn-beijing:test
@@ -53,7 +53,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region. For example, \\"cn-beijing\\" indicates China (Beijing).
    * 
    * @example
    * cn-beijing
@@ -61,7 +61,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ACM-specific AccessKey secret. It can be used to manage data in an ACM namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
+   * The secret access key for Application Configuration Management (ACM), used to manage data in an ACM namespace. For more information, see [Differences between an Alibaba Cloud access key and an ACM-specific access key](https://help.aliyun.com/document_detail/68941.html).
    * 
    * @example
    * G/w6sseK7+nb3S6HBmANDBMD****
@@ -115,7 +115,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
 export class DescribeNamespacesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -123,12 +123,12 @@ export class DescribeNamespacesResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   namespaces?: DescribeNamespacesResponseBodyDataNamespaces[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -175,12 +175,15 @@ export class DescribeNamespacesResponseBodyData extends $dara.Model {
 export class DescribeNamespacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -188,23 +191,25 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information of namespaces.
+   * The details of the namespaces.
    */
   data?: DescribeNamespacesResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - This parameter is returned only if the request fails.
+   * 
+   * - For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The message returned by the system.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns a specific error message if the request fails.
    * 
    * @example
    * success
@@ -220,10 +225,11 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of namespaces was queried. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**: The list was queried.
-   * *   **false**: The list failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -231,7 +237,7 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID that can be used to query the details of a call.
    * 
    * @example
    * 0a981dd515966966104121683d****

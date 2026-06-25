@@ -45,7 +45,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildrenTags extends $d
 export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.Model {
   /**
    * @remarks
-   * If is deleting this application.
+   * Indicates whether the canary release application is being deleted.
    * 
    * @example
    * false
@@ -56,12 +56,12 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
    * The application description.
    * 
    * @example
-   * Test
+   * Test application
    */
   appDescription?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the canary release application.
    * 
    * @example
    * xxx-xxx-xxx-xxx
@@ -69,7 +69,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the canary release application.
    * 
    * @example
    * app1
@@ -77,7 +77,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   appName?: string;
   /**
    * @remarks
-   * The way to deploy applications.
+   * The application\\"s deployment method.
    * 
    * @example
    * Image
@@ -85,7 +85,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   appType?: string;
   /**
    * @remarks
-   * The base application ID.
+   * The ID of the base application.
    * 
    * @example
    * ee99cce6-1c8e-4bfa-96c3-3e2fa9******
@@ -93,21 +93,29 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   baseAppId?: string;
   /**
    * @remarks
-   * The CPU sepcification.
+   * The CPU specification.
    * 
    * @example
    * 2000
    */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates if the application is configured to stop automatically when idle.
+   */
   enableIdle?: string;
   /**
    * @remarks
-   * The number of instances.
+   * The configured number of instances for the canary release application.
    * 
    * @example
    * 2
    */
   instances?: number;
+  /**
+   * @remarks
+   * Indicates whether the canary release application is stateful.
+   */
   isStateful?: boolean;
   /**
    * @remarks
@@ -119,7 +127,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   mem?: number;
   /**
    * @remarks
-   * If this application has enabled MSE.
+   * Indicates whether Microservices Engine (MSE) is enabled for the application.
    * 
    * @example
    * true
@@ -143,11 +151,13 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   namespaceName?: string;
   /**
    * @remarks
-   * The application edition.
+   * The edition of the application:
    * 
-   * - lite: the lightweight edition.
-   * - std: the standard edition.
-   * - pro: the professional edition.
+   * - lite: Lite
+   * 
+   * - std: Standard
+   * 
+   * - pro: Pro
    * 
    * @example
    * pro
@@ -155,7 +165,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   newSaeVersion?: string;
   /**
    * @remarks
-   * The programming language of this application.
+   * The programming language of the application.
    * 
    * @example
    * java
@@ -169,10 +179,14 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   */
   resourceType?: string;
   /**
    * @remarks
-   * The number of instances in running state.
+   * The number of running instances.
    * 
    * @example
    * 2
@@ -180,7 +194,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   runningInstances?: number;
   /**
    * @remarks
-   * If the scale rule is enabled.
+   * Indicates whether an auto scaling policy is enabled.
    * 
    * @example
    * false
@@ -188,7 +202,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   scaleRuleEnabled?: boolean;
   /**
    * @remarks
-   * The type of the scale rule.
+   * The type of the auto scaling policy.
    * 
    * @example
    * timing
@@ -196,7 +210,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   scaleRuleType?: string;
   /**
    * @remarks
-   * The application tag.
+   * An array of tags assigned to the canary release application.
    */
   tags?: ListApplicationsResponseBodyDataApplicationsChildrenTags[];
   static names(): { [key: string]: string } {
@@ -268,7 +282,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
 export class ListApplicationsResponseBodyDataApplicationsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key
@@ -276,7 +290,7 @@ export class ListApplicationsResponseBodyDataApplicationsTags extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value
@@ -310,8 +324,9 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    * @remarks
    * Indicates whether the application is being deleted. Valid values:
    * 
-   * *   **true**: The application is being deleted.
-   * *   **false**: The application is not being deleted.
+   * - **true**: The application is being deleted.
+   * 
+   * - **false**: The application is not being deleted.
    * 
    * @example
    * false
@@ -327,7 +342,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   appDescription?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * f7730764-d88f-4b9a-8d8e-cd8efbfe****
@@ -343,7 +358,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application type.
+   * The application\\"s deployment method.
    * 
    * @example
    * Image
@@ -351,7 +366,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The base app ID. Only gray-release applications have this property.
+   * The ID of the base application. This parameter is returned only for canary release applications.
    * 
    * @example
    * xxx-xxx-xx-xxx
@@ -359,20 +374,26 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   baseAppId?: string;
   /**
    * @remarks
-   * The gray-release application list of this application.
+   * An array of canary release applications associated with this application.
    */
   children?: ListApplicationsResponseBodyDataApplicationsChildren[];
   /**
    * @remarks
-   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * The CPU allocated to each instance, measured in millicores. This value cannot be 0. Valid values:
    * 
-   * *   **500**
-   * *   **1000**
-   * *   **2000**
-   * *   **4000**
-   * *   **8000**
-   * *   **16000**
-   * *   **32000**
+   * - **500**
+   * 
+   * - **1000**
+   * 
+   * - **2000**
+   * 
+   * - **4000**
+   * 
+   * - **8000**
+   * 
+   * - **16000**
+   * 
+   * - **32000**
    * 
    * @example
    * 1000
@@ -380,7 +401,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The disk size. Unit: GB.
+   * The disk size in GB.
    * 
    * @example
    * 20
@@ -388,7 +409,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * If the idle mode is enabled.
+   * Indicates if the application is configured to stop automatically when idle.
    * 
    * @example
    * false
@@ -396,7 +417,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   enableIdle?: string;
   /**
    * @remarks
-   * The image URL.
+   * The URL of the container image.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/sae-serverless-demo/sae-demo:microservice-java-provider-v1.0
@@ -404,28 +425,45 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The number of application instances.
+   * The configured number of application instances.
    * 
    * @example
    * 2
    */
   instances?: number;
+  /**
+   * @remarks
+   * Indicates whether the application is stateful.
+   */
   isStateful?: boolean;
+  /**
+   * @remarks
+   * The labels of the application.
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * The memory allocated to each instance, measured in megabytes (MB). This value cannot be 0 and must be compatible with the CPU allocation. The following options are available:
    * 
-   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
-   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
-   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
-   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
-   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
-   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
-   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
-   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * - **1024**: For a CPU allocation of 500 or 1,000 millicores.
+   * 
+   * - **2048**: For a CPU allocation of 500, 1,000, or 2,000 millicores.
+   * 
+   * - **4096**: For a CPU allocation of 1,000, 2,000, or 4,000 millicores.
+   * 
+   * - **8192**: For a CPU allocation of 2,000, 4,000, or 8,000 millicores.
+   * 
+   * - **12288**: For a CPU allocation of 12,000 millicores.
+   * 
+   * - **16384**: For a CPU allocation of 4,000, 8,000, or 16,000 millicores.
+   * 
+   * - **24576**: For a CPU allocation of 12,000 millicores.
+   * 
+   * - **32768**: For a CPU allocation of 16,000 millicores.
+   * 
+   * - **65536**: For a CPU allocation of 8,000, 16,000, or 32,000 millicores.
+   * 
+   * - **131072**: For a CPU allocation of 32,000 millicores.
    * 
    * @example
    * 1024
@@ -433,7 +471,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   mem?: number;
   /**
    * @remarks
-   * The application has enabled MSE or not.
+   * Indicates whether Microservices Engine (MSE) is enabled for the application.
    * 
    * @example
    * true
@@ -441,11 +479,13 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   mseEnabled?: boolean;
   /**
    * @remarks
-   * The name space of MSE:
+   * The ID of the MSE namespace. This value determines the service edition.
    * 
-   * - default: the free edition.
-   * - sae-pro: the professional edition.
-   * - sae-ent: the enterprise eiditon.
+   * - default: Free edition
+   * 
+   * - sae-pro: Professional edition
+   * 
+   * - sae-ent: Enterprise edition
    * 
    * @example
    * sae-ent
@@ -453,7 +493,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   mseNamespaceId?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:demo
@@ -469,11 +509,13 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The application edition.
+   * The edition of the application:
    * 
-   * - lite: the lightweight edition.
-   * - std: the standard edition.
-   * - pro: the professional edition.
+   * - lite: Lite
+   * 
+   * - std: Standard
+   * 
+   * - pro: Pro
    * 
    * @example
    * pro
@@ -481,7 +523,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   newSaeVersion?: string;
   /**
    * @remarks
-   * The package URL.
+   * The URL of the application\\"s deployment package.
    */
   packageUrl?: string;
   /**
@@ -494,12 +536,16 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   programmingLanguage?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region where the application is deployed.
    * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   */
   resourceType?: string;
   /**
    * @remarks
@@ -511,12 +557,12 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   runningInstances?: number;
   /**
    * @remarks
-   * The tags of the application.
+   * An array of tags assigned to the application.
    */
   tags?: ListApplicationsResponseBodyDataApplicationsTags[];
   /**
    * @remarks
-   * VPC ID.
+   * The ID of the VPC.
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -604,7 +650,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
 export class ListApplicationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried applications.
+   * An array of application objects.
    */
   applications?: ListApplicationsResponseBodyDataApplications[];
   /**
@@ -617,7 +663,7 @@ export class ListApplicationsResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of records in each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -625,7 +671,7 @@ export class ListApplicationsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of applications.
+   * The total number of applications.
    * 
    * @example
    * 2
@@ -664,11 +710,14 @@ export class ListApplicationsResponseBodyData extends $dara.Model {
 export class ListApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Take note of the following rules:
+   * The HTTP status code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * - **3xx**: The call was redirected.
-   * - **4xx**: The call failed.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
    * - **5xx**: A server error occurred.
    * 
    * @example
@@ -677,7 +726,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The current page number.
+   * Current page number.
    * 
    * @example
    * 1
@@ -685,23 +734,21 @@ export class ListApplicationsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The queried applications.
+   * The object that contains pagination details and the array of applications.
    */
   data?: ListApplicationsResponseBodyData;
   /**
    * @remarks
-   * The returned error code. Valid values:
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - A successful request does not return the **ErrorCode** field.
    * 
-   * @example
-   * The ID of the request.
+   * - A failed request returns the **ErrorCode** field. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional message.
+   * Additional information about the call result.
    * 
    * @example
    * success
@@ -709,7 +756,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page size.
+   * Page size.
    * 
    * @example
    * 20
@@ -717,7 +764,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The unique ID of the request.
    * 
    * @example
    * B4D805CA-926D-41B1-8E63-7AD0C1ED****
@@ -727,8 +774,9 @@ export class ListApplicationsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -736,7 +784,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The number of applications.
+   * Total number of applications.
    * 
    * @example
    * 2

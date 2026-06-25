@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The application ID.
    * 
    * This parameter is required.
    * 

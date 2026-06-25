@@ -70,13 +70,15 @@ export class CreateSecretRequest extends $dara.Model {
    * @remarks
    * The supported Secret type. Valid values:
    * 
-   * *   **kubernetes.io/dockerconfigjson**: the Secret for the username and password of the image repository. The Secret is used for authentication when images are pulled during application deployment.
+   * - **kubernetes.io/dockerconfigjson**: the Secret for the username and password of the image repository. The Secret is used for authentication when images are pulled during application deployment.
    * 
    * Valid values:
    * 
-   * *   Opaque
-   * *   kubernetes.io/dockerconfigjson
-   * *   kubernetes.io/tls
+   * - Opaque
+   * 
+   * - kubernetes.io/dockerconfigjson
+   * 
+   * - kubernetes.io/tls
    * 
    * This parameter is required.
    * 

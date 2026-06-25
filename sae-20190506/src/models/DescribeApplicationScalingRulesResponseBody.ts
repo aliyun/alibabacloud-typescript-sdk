@@ -5,13 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics extends $dara.Model {
   /**
    * @remarks
-   * The limit on the metric.
+   * The target value for the metric. The unit varies based on the value of `MetricType`.
    * 
-   * *   The limit on the CPU utilization. Unit: percentage.
-   * *   The limit on the memory usage. Unit: percentage.
-   * *   The limit on the average number of active TCP connections per second.
-   * *   The limit on the queries per second (QPS) of the Internet-facing Server Load Balancer (SLB) instance.
-   * *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * - Target CPU usage, in percent.
+   * 
+   * - Target memory usage, in percent.
+   * 
+   * - Target QPS, in queries per second.
+   * 
+   * - Target response time, in milliseconds.
+   * 
+   * - Target number of active TCP connections.
+   * 
+   * - Target QPS of a public-facing SLB instance, in queries per second.
+   * 
+   * - Target response time of a public-facing SLB instance, in milliseconds.
+   * 
+   * - Target QPS of a private SLB instance, in queries per second.
+   * 
+   * - Target response time of a private SLB instance, in milliseconds.
    * 
    * @example
    * 20
@@ -19,34 +31,58 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   metricTargetAverageUtilization?: number;
   /**
    * @remarks
-   * The metric that is used to trigger the auto scaling policy. Valid values:
+   * The metric used to trigger the auto scaling policy. Valid values:
    * 
-   * *   **CPU**: the CPU utilization.
-   * *   **MEMORY**: the memory usage.
-   * *   **tcpActiveConn**: the average number of active TCP connections per second of an application instance in 30 seconds.
-   * *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance in 15 seconds.
-   * *   **SLB_RT**: the average response time of the Internet-facing SLB instance in 15 seconds.
+   * - **CPU**: CPU usage.
+   * 
+   * - **MEMORY**: memory usage.
+   * 
+   * - **QPS**: Average queries per second (QPS) per instance over a 1-minute period. This metric applies to Java applications only.
+   * 
+   * - **RT**: Average response time of all service interfaces in a Java application over a 1-minute period.
+   * 
+   * - **tcpActiveConn**: Average number of active TCP connections per instance over a 30-second period.
+   * 
+   * - **SLB_QPS**: Average QPS per instance for a public-facing SLB instance over a 15-second period.
+   * 
+   * - **SLB_RT**: Average response time of a public-facing SLB instance over a 15-second period.
+   * 
+   * - **INTRANET_SLB_QPS**: Average QPS per instance for a private SLB instance over a 15-second period.
+   * 
+   * - **INTRANET_SLB_RT**: Average response time of a private SLB instance over a 15-second period.
    * 
    * @example
    * CPU
    */
   metricType?: string;
   /**
+   * @remarks
+   * The ID of the SLB instance.
+   * 
    * @example
    * lb-xxx
    */
   slbId?: string;
   /**
+   * @remarks
+   * The Logstore in Log Service that stores SLB access logs.
+   * 
    * @example
    * test
    */
   slbLogstore?: string;
   /**
+   * @remarks
+   * The project in Log Service that stores SLB access logs.
+   * 
    * @example
    * test
    */
   slbProject?: string;
   /**
+   * @remarks
+   * The monitored port of the SLB instance.
+   * 
    * @example
    * 80
    */
@@ -85,7 +121,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics extends $dara.Model {
   /**
    * @remarks
-   * The current value of the metric.
+   * The current value.
    * 
    * @example
    * 0
@@ -93,13 +129,25 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   currentValue?: number;
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the trigger condition.
    * 
-   * *   **cpu**: the CPU utilization.
-   * *   **memory**: the memory usage.
-   * *   **tcpActiveConn**: the number of active TCP connections.
-   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
-   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * - **cpu**: CPU usage.
+   * 
+   * - **memory**: memory usage.
+   * 
+   * - **arms_incall_qps_v2**: QPS of a Java application.
+   * 
+   * - **arms_incall_rt**: Response time of a Java application.
+   * 
+   * - **tcpActiveConn**: The number of active TCP connections.
+   * 
+   * - **slb_incall_qps**: QPS of a public-facing SLB instance.
+   * 
+   * - **slb_incall_rt**: Response time of a public-facing SLB instance.
+   * 
+   * - **intranet_slb_incall_qps**: QPS of a private SLB instance.
+   * 
+   * - **intranet_slb_incall_rt**: Response time of a private SLB instance.
    * 
    * @example
    * cpu
@@ -107,11 +155,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   name?: string;
   /**
    * @remarks
-   * The type of the data. This parameter corresponds to the metric.
+   * The data type. This parameter is associated with the specified metric.
    * 
-   * *   **Resource**: used when the metric is the **CPU utilization** or **memory usage**.
-   * *   **Pods**: used when the metric is the **number of active TCP connections**.
-   * *   **External**: used when the metric is about the **SLB** instance or from **Application Real-Time Monitoring Service (ARMS)**.
+   * - **Resource**: The metric value for **cpu** or **memory**.
+   * 
+   * - **Pods**: The metric value for **tcpActiveConn**.
+   * 
+   * - **External**: The metric value for **arms** or **slb**.
    * 
    * @example
    * Resource
@@ -145,13 +195,25 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the trigger condition.
    * 
-   * *   **cpu**: the CPU utilization.
-   * *   **memory**: the memory usage.
-   * *   **tcpActiveConn**: the number of active TCP connections.
-   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
-   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * - **cpu**: CPU usage.
+   * 
+   * - **memory**: memory usage.
+   * 
+   * - **arms_incall_qps_v2**: QPS of a Java application.
+   * 
+   * - **arms_incall_rt**: Response time of a Java application.
+   * 
+   * - **tcpActiveConn**: The number of active TCP connections.
+   * 
+   * - **slb_incall_qps**: QPS of a public-facing SLB instance.
+   * 
+   * - **slb_incall_rt**: Response time of a public-facing SLB instance.
+   * 
+   * - **intranet_slb_incall_qps**: QPS of a private SLB instance.
+   * 
+   * - **intranet_slb_incall_rt**: Response time of a private SLB instance.
    * 
    * @example
    * cpu
@@ -159,7 +221,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   name?: string;
   /**
    * @remarks
-   * The metric value as a percentage that triggers the application scale-in next time.
+   * The metric value that triggers the next scale-in event. The value is a percentage.
    * 
    * @example
    * 10
@@ -167,7 +229,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   nextScaleInAverageUtilization?: number;
   /**
    * @remarks
-   * The metric value as a percentage that triggers the application scale-out next time.
+   * The metric value that triggers the next scale-out event. The value is a percentage.
    * 
    * @example
    * 21
@@ -201,7 +263,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus extends $dara.Model {
   /**
    * @remarks
-   * The metrics that are used to trigger the auto scaling policy this time.
+   * A list of the current metrics for scaling.
    */
   currentMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics[];
   /**
@@ -214,7 +276,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   currentReplicas?: number;
   /**
    * @remarks
-   * The expected number of instances.
+   * The target number of instances.
    * 
    * @example
    * 2
@@ -222,7 +284,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   desiredReplicas?: number;
   /**
    * @remarks
-   * The time when the auto scaling policy was last triggered.
+   * The time of the last scaling activity.
    * 
    * @example
    * 2022-01-11T08:14:32Z
@@ -246,12 +308,12 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   minReplicas?: number;
   /**
    * @remarks
-   * The metrics that are used to trigger the auto scaling policy next time.
+   * A list of metrics for the next scaling activity.
    */
   nextScaleMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics[];
   /**
    * @remarks
-   * The duration for which the metric-based auto scaling policy takes effect next time.
+   * The next period for metric-based scaling.
    * 
    * @example
    * 3
@@ -299,7 +361,15 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The Prometheus query.
+   */
   prometheusQuery?: string;
+  /**
+   * @remarks
+   * The target value for the Prometheus query that triggers a scaling event.
+   */
   targetMetricValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,12 +397,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application scale-in was disabled. Valid values:
+   * Specifies whether to disable scale-in. Valid values:
    * 
-   * *   **true**: The application scale-in was disabled.
-   * *   **false**: The application scale-in was enabled.
+   * - **true**: Disables scale-in.
    * 
-   * >  When this parameter is set to true, the application instances will never be reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * - **false**: Enables scale-in.
+   * 
+   * > Setting this to `true` prevents the application from scaling in, which can be useful to avoid service disruptions from unexpected capacity reduction during peak hours. Default: `false`.
    * 
    * @example
    * false
@@ -340,7 +411,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   disabled?: boolean;
   /**
    * @remarks
-   * The cooldown time of the scale-in. Valid values: 0 to 3600. Unit: seconds. The default value is 0.
+   * The cooldown time for scale-in events, in seconds. During this period, no further scaling events are triggered. The value must be an integer from 0 to 3,600. The default value is 0.
    * 
    * @example
    * 300
@@ -348,7 +419,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   stabilizationWindowSeconds?: number;
   /**
    * @remarks
-   * The step size for the scale-in. The maximum number of instances that can be reduced in a unit of time.
+   * The number of instances to remove in a single scale-in event.
    * 
    * @example
    * 100
@@ -382,12 +453,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application scale-in was disabled. Valid values:
+   * Specifies whether to disable scale-out. Valid values:
    * 
-   * *   **true**: The application scale-in was disabled.
-   * *   **false**: The application scale-in was enabled.
+   * - **true**: Disables scale-out.
    * 
-   * >  When this parameter is set to true, the application instances will never be reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * - **false**: Enables scale-out.
+   * 
+   * > If this parameter is set to `true`, application instances are never scaled out. This can be useful to freeze the application capacity during specific events. By default, this parameter is set to `false`.
    * 
    * @example
    * false
@@ -395,7 +467,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   disabled?: boolean;
   /**
    * @remarks
-   * The cooldown time of the scale-out. Valid values: 0 to 3600. Unit: seconds. The default value is 0.
+   * The cooldown time for scale-out events, in seconds. During this period, no further scaling events are triggered. The value must be an integer from 0 to 3,600. The default value is 0.
    * 
    * @example
    * 300
@@ -403,7 +475,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   stabilizationWindowSeconds?: number;
   /**
    * @remarks
-   * The step size for the scale-out. The maximum number of instances that can be added in a unit of time.
+   * The number of instances to add in a single scale-out event.
    * 
    * @example
    * 100
@@ -443,15 +515,19 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 3
    */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The source of the metrics.
+   */
   metricSource?: string;
   /**
    * @remarks
-   * The list of metrics that are used to trigger the auto scaling policy.
+   * The metric-based conditions that trigger scaling.
    */
   metrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics[];
   /**
    * @remarks
-   * The execution status of the metric-based auto scaling policy.
+   * The status of the metric-based scaling policy.
    */
   metricsStatus?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus;
   /**
@@ -462,17 +538,29 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 1
    */
   minReplicas?: number;
+  /**
+   * @remarks
+   * The Prometheus metrics.
+   */
   prometheusMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics[];
+  /**
+   * @remarks
+   * The Prometheus token.
+   */
   prometheusToken?: string;
+  /**
+   * @remarks
+   * The endpoint of the Prometheus service.
+   */
   prometheusUrl?: string;
   /**
    * @remarks
-   * Rules that determine the application scale-in.
+   * Configuration for scale-in events.
    */
   scaleDownRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules;
   /**
    * @remarks
-   * Rules that determine the application scale-out.
+   * Configuration for scale-out events.
    */
   scaleUpRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules;
   static names(): { [key: string]: string } {
@@ -532,7 +620,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules extends $dara.Model {
   /**
    * @remarks
-   * The point in time. Format: **Hour:Minute**.
+   * The trigger time in `HH:mm` format.
    * 
    * @example
    * 08:00
@@ -556,7 +644,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   minReplicas?: number;
   /**
    * @remarks
-   * The expected number of instances.
+   * The target number of instances.
    * 
    * @example
    * 3
@@ -592,10 +680,11 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimer extends $dara.Model {
   /**
    * @remarks
-   * The start date of the validity period of the scheduled auto scaling policy. Valid values:
+   * The start date of the short-term scheduled scaling policy. The following rules apply:
    * 
-   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
-   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is 2021-03-25 and **EndDate** is 2021-04-25, the auto scaling policy is valid for one month.
+   * - If **BeginDate** and **EndDate** are not specified, the policy is long-term by default.
+   * 
+   * - If you specify a `BeginDate` and an `EndDate`, the policy is short-term and applies only within that date range.
    * 
    * @example
    * 2021-03-25
@@ -603,10 +692,11 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   beginDate?: string;
   /**
    * @remarks
-   * The end date of the validity period of the scheduled auto scaling policy. Valid values:
+   * The end date of the short-term scheduled scaling policy. The following rules apply:
    * 
-   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
-   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is 2021-03-25 and **EndDate** is 2021-04-25, the auto scaling policy is valid for one month.
+   * - If **BeginDate** and **EndDate** are not specified, the policy is long-term by default.
+   * 
+   * - If you specify a `BeginDate` and an `EndDate`, the policy is short-term and applies only within that date range.
    * 
    * @example
    * 2021-04-25
@@ -614,21 +704,27 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   endDate?: string;
   /**
    * @remarks
-   * The days on which the scheduled auto scaling policy takes effect. Valid values:
+   * The days on which the scheduled scaling policy runs. Valid values:
    * 
-   * *   **\\* \\* \\***: The scheduled auto scaling policy takes effect at a specified time every day.
+   * - **\\* \\* \\***: The policy is executed at a specified time every day.
    * 
-   * *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a week. The specified time is in the GMT+8 time zone. Valid values:
+   * - **\\* \\* Fri,Mon**: Executes the policy on specified days of the week. The time zone is GMT+8. Valid days are listed below:
    * 
-   *     *   **Sun**: Sunday
-   *     *   **Mon**: Monday
-   *     *   **Tue**: Tuesday
-   *     *   **Wed**: Wednesday
-   *     *   **Thu**: Thursday
-   *     *   **Fri**: Friday
-   *     *   **Sat**: Saturday
+   *   - **Sun**: Sunday
    * 
-   * *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy takes effect on the specified days other than the 31st day.
+   *   - **Mon**: Monday
+   * 
+   *   - **Tue**: Tuesday
+   * 
+   *   - **Wed**: Wednesday
+   * 
+   *   - **Thu**: Thursday
+   * 
+   *   - **Fri**: Friday
+   * 
+   *   - **Sat**: Saturday
+   * 
+   * - **1,2,3,28,31 \\* \\***: Executes the policy on specified days of the month (1-31). If a specified day does not exist in a given month (e.g., the 31st), the policy does not run on that day.
    * 
    * @example
    * * * *
@@ -636,9 +732,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   period?: string;
   /**
    * @remarks
-   * The points in time when the auto scaling policy is triggered within one day.
+   * The daily trigger schedule for the policy.
    */
   schedules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules[];
+  /**
+   * @remarks
+   * The time zone.
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -675,7 +775,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -683,7 +783,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   appId?: string;
   /**
    * @remarks
-   * The time when the auto scaling policy was created. Unit: milliseconds.
+   * The timestamp of the policy\\"s creation, in milliseconds.
    * 
    * @example
    * 1616642248938
@@ -691,7 +791,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   createTime?: number;
   /**
    * @remarks
-   * The time when the auto scaling policy was last disabled.
+   * The timestamp of when the policy was last disabled.
    * 
    * @example
    * 1641882854484
@@ -699,15 +799,33 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   lastDisableTime?: number;
   /**
    * @remarks
-   * The details of the metric-based auto scaling policy.
+   * The metric-based scaling policy.
    */
   metric?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric;
   /**
+   * @remarks
+   * The minimum number of available instances, specified as a percentage. Valid values:
+   * 
+   * - **-1**: Indicates that this parameter is not used.
+   * 
+   * - **0 to 100**: a percentage that is rounded up to the nearest integer. For example, if you set this parameter to 50% and you have five instances, the minimum number of available instances is 3.
+   * 
+   * > If you specify both **MinReadyInstances** and **MinReadyInstanceRatio**, the value of **MinReadyInstanceRatio** takes precedence, unless it is set to **-1**.
+   * 
    * @example
    * -1
    */
   minReadyInstanceRatio?: number;
   /**
+   * @remarks
+   * The minimum number of available instances. Valid values:
+   * 
+   * - If you set this parameter to **0**, the application may be interrupted during an upgrade.
+   * 
+   * - If you set this parameter to **-1**, a recommended value is used, which is 25% of the current number of instances, rounded up to the nearest integer. For example, if an application has five instances, the minimum number of available instances is 2 (5 \\* 25% = 1.25, rounded up).
+   * 
+   * > To ensure business continuity during a rolling deployment, we recommend that you set this parameter to a value greater than or equal to 1.
+   * 
    * @example
    * 1
    */
@@ -716,8 +834,9 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * @remarks
    * Indicates whether the auto scaling policy is enabled. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: The policy is enabled.
+   * 
+   * - **false**: The policy is disabled.
    * 
    * @example
    * true
@@ -735,9 +854,11 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * @remarks
    * The type of the auto scaling policy. Valid values:
    * 
-   * *   **timing**: the scheduled auto scaling policy.
-   * *   **metric**: the metric-based auto scaling policy.
-   * *   **mix**: the hybrid auto scaling policy.
+   * - **timing**: A scheduled scaling policy.
+   * 
+   * - **metric**: A metric-based scaling policy.
+   * 
+   * - **mix**: A hybrid scaling policy.
    * 
    * @example
    * timing
@@ -745,12 +866,12 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   scaleRuleType?: string;
   /**
    * @remarks
-   * The details of the scheduled auto scaling policy.
+   * The scheduled scaling policy.
    */
   timer?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimer;
   /**
    * @remarks
-   * The time when the auto scaling policy was updated. Unit: milliseconds.
+   * The timestamp of the last policy update, in milliseconds.
    * 
    * @example
    * 1616642248938
@@ -806,12 +927,12 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The auto scaling policies of the application.
+   * A list of auto scaling policies for the application.
    */
   applicationScalingRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -819,7 +940,7 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -827,7 +948,7 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of auto scaling policies.
+   * The total number of auto scaling policies for the application.
    * 
    * @example
    * 3
@@ -865,37 +986,70 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $dara.Model
 
 export class DescribeApplicationScalingRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
+   * - **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeApplicationScalingRulesResponseBodyData;
+  /**
+   * @remarks
+   * The error code. This parameter is returned only when the request fails.
+   * 
+   * -
+   * 
+   * - For more information, see the **Error codes** section of this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The response message. Valid values:
+   * 
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns an error message if the request fails.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****

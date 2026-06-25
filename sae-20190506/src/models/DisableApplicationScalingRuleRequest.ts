@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableApplicationScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * timer-0800-2100
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableApplicationScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The name of the Auto Scaling policy.
    * 
    * This parameter is required.
    * 

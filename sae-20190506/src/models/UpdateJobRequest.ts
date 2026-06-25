@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is required to pull images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
    * 
    * @example
    * acs:ram::123456789012****:role/adminrole
@@ -13,7 +13,7 @@ export class UpdateJobRequest extends $dara.Model {
   acrAssumeRoleArn?: string;
   /**
    * @remarks
-   * The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * The ID of the Container Registry Enterprise Edition instance. This parameter is required if **ImageUrl** is set to an image in a Container Registry Enterprise Edition instance.
    * 
    * @example
    * cri-xxxxxx
@@ -21,7 +21,7 @@ export class UpdateJobRequest extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the job template to update.
    * 
    * This parameter is required.
    * 
@@ -31,24 +31,30 @@ export class UpdateJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of times the job is retried.
+   * The number of retries for the job.
    * 
    * @example
    * 3
    */
   backoffLimit?: number;
+  /**
+   * @remarks
+   * The BestEffort policy.
+   */
   bestEffortType?: string;
   /**
    * @remarks
-   * The command that is used to start the image. The command must be an existing executable object in the container. Example:
+   * The startup command of the image. The command must be an executable object that exists in the container. Example:
    * 
-   *     command:
-   *           - echo
-   *           - abc
-   *           - >
-   *           - file0
+   * ```
+   * command:
+   *       - echo
+   *       - abc
+   *       - >
+   *       - file0
+   * ```
    * 
-   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * In this example, `Command="echo" and CommandArgs=["abc", ">", "file0"]`.
    * 
    * @example
    * echo
@@ -56,11 +62,11 @@ export class UpdateJobRequest extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. The name must meet the following format requirements:
+   * The arguments of the image startup **Command**. The value must be a JSON array that is converted to a string. Format:
    * 
    * `["a","b"]`
    * 
-   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * In the preceding example, `CommandArgs=["abc", ">", "file0"]`. The `["abc", ">", "file0"]` array is converted to a string. This parameter is optional.
    * 
    * @example
    * ["a","b"]
@@ -68,11 +74,13 @@ export class UpdateJobRequest extends $dara.Model {
   commandArgs?: string;
   /**
    * @remarks
-   * The concurrency policy of the job. Valid values:
+   * The policy of running concurrent jobs. Valid values:
    * 
-   * *   **Forbid**: Prohibits concurrent running. If the previous job is not completed, no new job is created.
-   * *   **Allow**: Allows concurrent running.
-   * *   **Replace**: If the previous job is not completed when the time to create a new job is reached, the new job replaces the previous job.
+   * - **Forbid**: A new job is not created if the previous job is not completed.
+   * 
+   * - **Allow**: Concurrent jobs are allowed.
+   * 
+   * - **Replace**: When the time to create a new job is reached, the new job replaces the previous job if the previous job is not completed.
    * 
    * @example
    * Allow
@@ -80,14 +88,15 @@ export class UpdateJobRequest extends $dara.Model {
   concurrencyPolicy?: string;
   /**
    * @remarks
-   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following parameters are involved:
+   * The description of the **ConfigMap** instance that is mounted to the container. You can use the ConfigMap instance created on the Namespace Configurations page to inject configurations into the container. The value is a JSON string. The following fields are supported:
    * 
-   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
-   * *   **key**: the key.
+   * - **configMapId**: The ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
    * 
-   * > You can use the `sae-sys-configmap-all` key to mount all keys.
+   * - **key**: The key of the key-value pair.
    * 
-   * *   **mountPath**: the mount path.
+   * > You can pass the `sae-sys-configmap-all` parameter to mount all key-value pairs.
+   * 
+   * - **mountPath**: The mount path.
    * 
    * @example
    * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
@@ -95,10 +104,11 @@ export class UpdateJobRequest extends $dara.Model {
   configMapMountDesc?: string;
   /**
    * @remarks
-   * The custom mappings between hostnames and IP addresses in the container. Valid values:
+   * The custom mapping between a hostname and an IP address in the container. The value is a JSON string. The following fields are supported:
    * 
-   * *   **hostName**: the domain name or hostname.
-   * *   **ip**: the IP address.
+   * - **hostName**: the domain name or hostname.
+   * 
+   * - **ip**: the IP address.
    * 
    * @example
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
@@ -106,28 +116,36 @@ export class UpdateJobRequest extends $dara.Model {
   customHostAlias?: string;
   /**
    * @remarks
-   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * The version of the application runtime environment in High-speed Service Framework (HSF), such as an Ali-Tomcat container.
    * 
    * @example
    * 3.5.3
    */
   edasContainerVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable image acceleration.
+   */
   enableImageAccl?: boolean;
   /**
    * @remarks
-   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * The environment variables of the container. You can customize environment variables or reference variables from a ConfigMap. To reference a ConfigMap, you must create a ConfigMap instance first. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). The value is a JSON string. The following fields are supported:
    * 
-   * *   Configure custom environment variables
+   * - Custom variables
    * 
-   *     *   **name**: the name of the environment variable.
-   *     *   **value**: the value of the environment variable.
+   *   - **name**: the name of the environment variable.
    * 
-   * *   Reference ConfigMap
+   *   - **value**: the value of the environment variable.
    * 
-   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
-   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
-   *     *   **configMapId**: the ConfigMap ID.
-   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * - Reference variables from a ConfigMap
+   * 
+   *   - **name**: The name of the environment variable. You can reference a single key-value pair or all key-value pairs. To reference all key-value pairs, set the value to `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   * 
+   *   - **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   * 
+   *   - **configMapId**: the ID of the ConfigMap.
+   * 
+   *   - **key**: The key of the key-value pair. If you want to reference all key-value pairs, do not configure this field.
    * 
    * @example
    * [{"name":"envtmp","value":"0"}]
@@ -135,7 +153,7 @@ export class UpdateJobRequest extends $dara.Model {
   envs?: string;
   /**
    * @remarks
-   * The ID of the corresponding Secret.
+   * The ID of the secret.
    * 
    * @example
    * 10
@@ -143,7 +161,7 @@ export class UpdateJobRequest extends $dara.Model {
   imagePullSecrets?: string;
   /**
    * @remarks
-   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * The URL of the image. This parameter is required if **Package Type** is set to **Image**.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
@@ -151,7 +169,7 @@ export class UpdateJobRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The arguments of the JAR package to start the application. The default startup command of the application is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
    * 
    * @example
    * -Xms4G -Xmx4G
@@ -159,7 +177,7 @@ export class UpdateJobRequest extends $dara.Model {
   jarStartArgs?: string;
   /**
    * @remarks
-   * The option settings in the JAR package. The settings are used to start the application container. The default startup command for application deployment is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The options of the JAR package to start the application. The default startup command of the application is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
    * 
    * @example
    * custom-option
@@ -167,16 +185,21 @@ export class UpdateJobRequest extends $dara.Model {
   jarStartOptions?: string;
   /**
    * @remarks
-   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * The Java Development Kit (JDK) version that the deployment package depends on. The following versions are supported:
    * 
-   * *   **Open JDK 8**
-   * *   **Open JDK 7**
-   * *   **Dragonwell 11**
-   * *   **Dragonwell 8**
-   * *   **openjdk-8u191-jdk-alpine3.9**
-   * *   **openjdk-7u201-jdk-alpine3.9**
+   * - **Open JDK 8**
    * 
-   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * - **Open JDK 7**
+   * 
+   * - **Dragonwell 11**
+   * 
+   * - **Dragonwell 8**
+   * 
+   * - **openjdk-8u191-jdk-alpine3.9**
+   * 
+   * - **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * Open JDK 8
@@ -184,7 +207,7 @@ export class UpdateJobRequest extends $dara.Model {
   jdk?: string;
   /**
    * @remarks
-   * The configurations for mounting the NAS file system. If you do not need to modify the NAS configurations when you deploy the application, configure **MountDesc** only in the first request. If you no longer need to use NAS, leave **MountDesc** empty in the request.
+   * The description of the NAS mount. If the configurations are not changed during a deployment, you do not need to configure this parameter. To clear the NAS configurations, set the value of this parameter to an empty string (`""`) in the request.
    * 
    * @example
    * [{mountPath: "/tmp", nasPath: "/"}]
@@ -192,16 +215,20 @@ export class UpdateJobRequest extends $dara.Model {
   mountDesc?: string;
   /**
    * @remarks
-   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * The mount target of the NAS file system in the virtual private cloud (VPC) where the job template is located. If the configurations are not changed during a deployment, you do not need to configure this parameter. To clear the NAS configurations, set the value of this parameter to an empty string (`""`).
    * 
    * @example
    * 10d3b4bc9****.com
    */
   mountHost?: string;
+  /**
+   * @remarks
+   * The configurations of mounting a NAS file system.
+   */
   nasConfigs?: string;
   /**
    * @remarks
-   * The ID of the Apsara File Storage NAS file system. If you do not need to modify the NAS configurations when you deploy the application, configure **NasId** only in the first request. If you no longer need to use NAS, leave **NasId** empty in the request.
+   * The ID of the Apsara File Storage NAS file system. If the configurations are not changed during a deployment, you do not need to configure this parameter. To clear the NAS configurations, set the value of this parameter to an empty string (`""`).
    * 
    * @example
    * 10d3b4****
@@ -225,18 +252,19 @@ export class UpdateJobRequest extends $dara.Model {
   ossAkSecret?: string;
   /**
    * @remarks
-   * The information about the mounted Object Storage Service (OSS) bucket. The following parameters are involved:
+   * The description of the OSS mount. The value is a JSON string. The following parameters are supported:
    * 
-   * *   **bucketName**: the name of the OSS bucket.
+   * - **bucketName**: the name of the bucket.
    * 
-   * *   **bucketPath**: the directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * - **bucketPath**: the directory or object that you created in OSS. An exception occurs if the specified OSS mount directory does not exist.
    * 
-   * *   **mountPath**: the directory of the container in SAE. If the path already exists, the newly specified path overwrites the previous one. If the path does not exist, it is created.
+   * - **mountPath**: The path in the SAE container. If the path exists, the new path overwrites the existing one. If the path does not exist, a new path is created.
    * 
-   * *   **readOnly**: specifies whether to only allow the container path to read data from the OSS directory. Valid values:
+   * - **readOnly**: specifies whether a container has the read-only permission on the resources in the mount directory.
    * 
-   *     *   **true**: The container path only has read permission on the OSS directory.
-   *     *   **false**: The application has read and write permissions.
+   *   - **true**: The container has the read-only permission.
+   * 
+   *   - **false**: The container has the read and write permissions.
    * 
    * @example
    * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
@@ -244,7 +272,7 @@ export class UpdateJobRequest extends $dara.Model {
   ossMountDescs?: string;
   /**
    * @remarks
-   * The address of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * The URL of the deployment package. This parameter is required if **Package Type** is set to **FatJar**, **War**, or **PythonZip**.
    * 
    * @example
    * http://myoss.oss-cn-hangzhou.aliyuncs.com/my-buc/2019-06-30/****.jar
@@ -252,7 +280,7 @@ export class UpdateJobRequest extends $dara.Model {
   packageUrl?: string;
   /**
    * @remarks
-   * The version of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * The version of the deployment package. This parameter is required if **Package Type** is set to **FatJar**, **War**, or **PythonZip**.
    * 
    * @example
    * 1.0.1
@@ -260,7 +288,7 @@ export class UpdateJobRequest extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * The ID of Container Registry Enterprise Edition instance N.
+   * The ID of the Container Registry Enterprise Edition instance.
    * 
    * @example
    * cri-xxxxxx
@@ -268,7 +296,7 @@ export class UpdateJobRequest extends $dara.Model {
   php?: string;
   /**
    * @remarks
-   * The details of the PHP configuration file.
+   * The content of the PHP configuration file.
    * 
    * @example
    * k1=v1
@@ -276,7 +304,7 @@ export class UpdateJobRequest extends $dara.Model {
   phpConfig?: string;
   /**
    * @remarks
-   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * The path on which the PHP application startup configuration file is mounted. Make sure that the PHP server uses this configuration file to start the application.
    * 
    * @example
    * /usr/local/etc/php/php.ini
@@ -284,7 +312,7 @@ export class UpdateJobRequest extends $dara.Model {
   phpConfigLocation?: string;
   /**
    * @remarks
-   * The script to be run after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * The script that is executed after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"]}}`
    * 
    * @example
    * {"exec":{"command":["sh","-c","echo hello"]}}
@@ -292,7 +320,7 @@ export class UpdateJobRequest extends $dara.Model {
   postStart?: string;
   /**
    * @remarks
-   * The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * The script that is executed before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"]}}`
    * 
    * @example
    * {"exec":{"command":["sh","-c","echo hello"]}}
@@ -300,7 +328,7 @@ export class UpdateJobRequest extends $dara.Model {
   preStop?: string;
   /**
    * @remarks
-   * The programming language. Valid values: **java**, **php**, **python**, and **shell**.
+   * The programming language. Supported values: **java**, **php**, **python**, and **shell**.
    * 
    * @example
    * java
@@ -308,7 +336,7 @@ export class UpdateJobRequest extends $dara.Model {
   programmingLanguage?: string;
   /**
    * @remarks
-   * The Python environment. Set the value to **PYTHON 3.9.15**.
+   * The Python environment. **PYTHON 3.9.15** is supported.
    * 
    * @example
    * PYTHON 3.9.15
@@ -316,7 +344,7 @@ export class UpdateJobRequest extends $dara.Model {
   python?: string;
   /**
    * @remarks
-   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If the package does not contain this file and you do not configure custom dependencies in the package, specify the dependencies that you want to install in the text box.
+   * The custom module dependencies. By default, the dependencies that are defined in the requirements.txt file in the root directory of the package are installed. If you do not configure this parameter or the package does not have a requirements.txt file, you can specify the dependencies that you want to install.
    * 
    * @example
    * Flask==2.0
@@ -324,7 +352,7 @@ export class UpdateJobRequest extends $dara.Model {
   pythonModules?: string;
   /**
    * @remarks
-   * The ID of the job that you reference.
+   * The ID of the referenced application.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -332,7 +360,7 @@ export class UpdateJobRequest extends $dara.Model {
   refAppId?: string;
   /**
    * @remarks
-   * The number of concurrent instances.
+   * The number of concurrent instances for the job.
    * 
    * @example
    * 3
@@ -340,7 +368,7 @@ export class UpdateJobRequest extends $dara.Model {
   replicas?: string;
   /**
    * @remarks
-   * Specifies whether to enable job sharding.
+   * Enables job sharding.
    * 
    * @example
    * true
@@ -348,7 +376,7 @@ export class UpdateJobRequest extends $dara.Model {
   slice?: boolean;
   /**
    * @remarks
-   * The parameters of job sharding.
+   * The parameters for job sharding.
    * 
    * @example
    * [0,1,2]
@@ -356,22 +384,27 @@ export class UpdateJobRequest extends $dara.Model {
   sliceEnvs?: string;
   /**
    * @remarks
-   * The configurations of Log Service.
+   * The configurations of collecting logs to Log Service.
    * 
-   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
-   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * - Use the Log Service resources that are automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
    * 
-   * The following parameters are involved:
+   * - Use a custom Log Service resource: `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
    * 
-   * *   **projectName**: the name of the Log Service project.
-   * *   **logDir**: the path in which logs are stored.
-   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
-   * *   **logstoreName**: the name of the Logstore in Log Service.
-   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * The following fields are supported:
    * 
-   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * - **projectName**: The name of the Log Service project.
    * 
-   * > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
+   * - **logDir**: The log path.
+   * 
+   * - **logType**: The log type. **stdout** indicates the standard output log of the container. You can specify only one standard output. If you do not configure this field, file logs are collected.
+   * 
+   * - **logstoreName**: The name of the Logstore in Log Service.
+   * 
+   * - **logtailName**: The name of the Logtail. If you do not specify this parameter, a new Logtail is created.
+   * 
+   * If the SLS configuration is not changed during a deployment, you do not need to configure this parameter. To stop using the log collection feature, set the value of this parameter to an empty string (`""`).
+   * 
+   * > Projects that are automatically created with a job template are deleted when the job template is deleted. Therefore, when you select an existing project, do not select a project that is automatically created by SAE.
    * 
    * @example
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -379,7 +412,7 @@ export class UpdateJobRequest extends $dara.Model {
   slsConfigs?: string;
   /**
    * @remarks
-   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * The graceful timeout period. Default value: 30. Unit: seconds. Valid values: 1 to 300.
    * 
    * @example
    * 10
@@ -387,7 +420,7 @@ export class UpdateJobRequest extends $dara.Model {
   terminationGracePeriodSeconds?: number;
   /**
    * @remarks
-   * The timeout period. Unit: seconds.
+   * The timeout period for the job. Unit: seconds.
    * 
    * @example
    * 3600
@@ -403,13 +436,17 @@ export class UpdateJobRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The Tomcat configuration. If you want to delete the configuration, set this parameter to {} or leave this parameter empty. Valid values:
+   * The configurations of the Tomcat file. If you set this parameter to "" or "{}", the configurations are deleted. The value is a JSON string. The following fields are supported:
    * 
-   * *   **port**: the port number. The port number ranges from 1024 to 65535. Though the admin permissions are configured for the container, the root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not specify this parameter, the default port number 8080 is used.
-   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
-   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
-   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and GB2312. If you do not specify this parameter, the default value **ISO-8859-1** is used.
-   * *   **useBodyEncoding**: specifies whether to use the encoding scheme that is specified by **BodyEncoding for URL**. Default value: **true**.
+   * - **port**: The port number. Valid values: 1024 to 65535. The root permission is required to perform operations on ports whose number is smaller than 1024. The container is configured with the administrator permission. Therefore, specify a port whose number is greater than 1024. If you do not configure this field, the default port 8080 is used.
+   * 
+   * - **contextPath**: The context path. Default value: /.
+   * 
+   * - **maxThreads**: The maximum number of connections in the connection pool. Default value: 400.
+   * 
+   * - **uriEncoding**: The URI encoding scheme in Tomcat. Supported values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If you do not set this parameter, the default value **ISO-8859-1** is used.
+   * 
+   * - **useBodyEncodingForUri**: Specifies whether to use **BodyEncoding for URL**. Default value: **true**.
    * 
    * @example
    * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
@@ -418,7 +455,7 @@ export class UpdateJobRequest extends $dara.Model {
   triggerConfig?: string;
   /**
    * @remarks
-   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
+   * The startup command for the application that is deployed in a WAR package. The procedure is the same as that for configuring the startup command for an image. For more information, see [Set a startup command](https://help.aliyun.com/document_detail/96677.html).
    * 
    * @example
    * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
@@ -426,12 +463,13 @@ export class UpdateJobRequest extends $dara.Model {
   warStartOptions?: string;
   /**
    * @remarks
-   * The version of the Tomcat container on which the deployment package depends. The following versions are supported:
+   * The Tomcat version that the deployment package depends on. The following versions are supported:
    * 
-   * *   **apache-tomcat-7.0.91**
-   * *   **apache-tomcat-8.5.42**
+   * - **apache-tomcat-7.0.91**
    * 
-   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * - **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * apache-tomcat-7.0.91

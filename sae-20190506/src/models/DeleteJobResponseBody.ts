@@ -7,10 +7,13 @@ export class DeleteJobResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -21,26 +24,25 @@ export class DeleteJobResponseBody extends $dara.Model {
    * The result returned.
    * 
    * @example
-   * {msg: "", code: 200, success: true}
+   * {"msg": "","code": 200,"success": true}
    */
   data?: string;
   /**
    * @remarks
    * The error code that is returned. Take note of the following rules:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request is successful.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - The **ErrorCode** parameter is not returned if the request is successful.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The additional information that is returned. Valid values:
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - success: If the call is successful, **success** is returned.
+   * 
+   * - An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -58,8 +60,9 @@ export class DeleteJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the application is deleted. Valid values:
    * 
-   * *   **true**: The namespaces were obtained.
-   * *   **false**: no
+   * - **true**: The namespaces were obtained.
+   * 
+   * - **false**: no
    * 
    * @example
    * true

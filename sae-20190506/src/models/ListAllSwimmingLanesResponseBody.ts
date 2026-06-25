@@ -21,7 +21,7 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions extends 
   name?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * Header
@@ -29,7 +29,7 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions extends 
   type?: string;
   /**
    * @remarks
-   * The match value.
+   * The value to match in the condition.
    * 
    * @example
    * g1
@@ -37,7 +37,7 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions extends 
   value?: string;
   /**
    * @remarks
-   * The match value of the condition.
+   * The values to match in the condition.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -75,10 +75,11 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions extends 
 export class ListAllSwimmingLanesResponseBodyDataAppEntryRule extends $dara.Model {
   /**
    * @remarks
-   * Logical connectors between conditions:
+   * The logical operator used to join conditions:
    * 
-   * *   AND: All conditions are met at the same time.
-   * *   OR: Any condition is met.
+   * - AND: All conditions must be met.
+   * 
+   * - OR: One of the conditions must be met.
    * 
    * @example
    * AND
@@ -86,12 +87,12 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRule extends $dara.Mode
   conditionJoiner?: string;
   /**
    * @remarks
-   * The matching condition.
+   * The matching conditions.
    */
   conditions?: ListAllSwimmingLanesResponseBodyDataAppEntryRuleConditions[];
   /**
    * @remarks
-   * Whether to enable proportional grayscale.
+   * Indicates whether to enable canary release by percentage.
    * 
    * @example
    * true
@@ -99,12 +100,12 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRule extends $dara.Mode
   independentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The request path.
+   * The request paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The traffic ratio. Valid values: 0 to 100.
+   * The percentage of traffic (0-100) to be routed when the route by percentage model is used.
    * 
    * @example
    * 50
@@ -112,7 +113,7 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRule extends $dara.Mode
   percentage?: number;
   /**
    * @remarks
-   * Traffic matching.
+   * A map of paths to their corresponding traffic percentages.
    */
   percentageByPath?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -158,7 +159,7 @@ export class ListAllSwimmingLanesResponseBodyDataAppEntryRule extends $dara.Mode
 export class ListAllSwimmingLanesResponseBodyDataApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 8ea0c468-8165-416d-beae-531abb******
@@ -166,7 +167,7 @@ export class ListAllSwimmingLanesResponseBodyDataApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
@@ -174,7 +175,7 @@ export class ListAllSwimmingLanesResponseBodyDataApps extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the MSE instance.
+   * The MSE instance ID.
    * 
    * @example
    * mse-cn-53y49******
@@ -182,7 +183,7 @@ export class ListAllSwimmingLanesResponseBodyDataApps extends $dara.Model {
   mseAppId?: string;
   /**
    * @remarks
-   * The name of the MSE instance.
+   * The MSE instance name.
    * 
    * @example
    * sae-test
@@ -190,10 +191,10 @@ export class ListAllSwimmingLanesResponseBodyDataApps extends $dara.Model {
   mseAppName?: string;
   /**
    * @remarks
-   * The ID of the namespace to which the MSE instance belongs.
+   * The ID of the namespace in which the MSE instance resides.
    * 
    * @example
-   * space
+   * sae-ent
    */
   mseNamespaceId?: string;
   static names(): { [key: string]: string } {
@@ -244,7 +245,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions e
   name?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * Header
@@ -252,7 +253,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions e
   type?: string;
   /**
    * @remarks
-   * The match value of the condition.
+   * The value to match in the condition.
    * 
    * @example
    * g1
@@ -366,7 +367,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes exten
   routeId?: number;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * demo
@@ -374,7 +375,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes exten
   routeName?: string;
   /**
    * @remarks
-   * The routing rule.
+   * The route\\"s matching rule.
    */
   routePredicate?: ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate;
   static names(): { [key: string]: string } {
@@ -408,7 +409,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes exten
 export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule extends $dara.Model {
   /**
    * @remarks
-   * The logical connector between conditions.
+   * The logical operator used to join conditions.
    * 
    * @example
    * AND
@@ -416,12 +417,12 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule extends $da
   conditionJoiner?: string;
   /**
    * @remarks
-   * The matching condition.
+   * The matching conditions.
    */
   conditions?: ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions[];
   /**
    * @remarks
-   * Whether to enable proportional grayscale.
+   * Indicates whether to enable canary release by percentage.
    * 
    * @example
    * true
@@ -429,7 +430,7 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule extends $da
   independentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The proportion of path traffic.
+   * The percentage of traffic for the path.
    * 
    * @example
    * 100
@@ -437,17 +438,17 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule extends $da
   percentage?: number;
   /**
    * @remarks
-   * The traffic configuration.
+   * A map of route IDs to their corresponding traffic percentages.
    */
   percentageByRoute?: { [key: string]: number };
   /**
    * @remarks
-   * The IDs of the route tables.
+   * The route IDs.
    */
   routeIds?: number[];
   /**
    * @remarks
-   * The detailed configuration of the routing rule.
+   * The route configurations.
    */
   routes?: ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes[];
   static names(): { [key: string]: string } {
@@ -498,20 +499,21 @@ export class ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule extends $da
 export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Apply ingress rules.
+   * The application entry rule.
    */
   appEntryRule?: ListAllSwimmingLanesResponseBodyDataAppEntryRule;
   /**
    * @remarks
-   * The associated application.
+   * The applications associated with the swimming lane.
    */
   apps?: ListAllSwimmingLanesResponseBodyDataApps[];
   /**
    * @remarks
-   * Full-link Grayscale Mode:
+   * The canary model for the end-to-end canary release:
    * 
-   * *   0: The request is routed based on the content of the request.
-   * *   1: Proportional routing
+   * - 0: Route by request content.
+   * 
+   * - 1: Route by percentage.
    * 
    * @example
    * 0
@@ -519,10 +521,11 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * Lane status:
+   * Indicates whether the swimming lane is enabled.
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - true: enabled
+   * 
+   * - false: disabled
    * 
    * @example
    * true
@@ -530,7 +533,7 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Whether the traffic rule is enabled.
+   * Indicates whether traffic rules are enabled.
    * 
    * @example
    * true
@@ -538,7 +541,7 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   enableRules?: boolean;
   /**
    * @remarks
-   * The ID of the lane.
+   * The swimming lane ID.
    * 
    * @example
    * 16401
@@ -546,7 +549,7 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the lane group.
+   * The swimming lane name.
    * 
    * @example
    * test
@@ -554,15 +557,15 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
   laneName?: string;
   /**
    * @remarks
-   * The tag of the lane.
+   * The swimming lane tag.
    * 
    * @example
-   * {"alicloud.service.tag":"g1"}
+   * g1
    */
   laneTag?: string;
   /**
    * @remarks
-   * MSE gateway routing
+   * The MSE gateway route.
    */
   mseGatewayEntryRule?: ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule;
   static names(): { [key: string]: string } {
@@ -614,12 +617,15 @@ export class ListAllSwimmingLanesResponseBodyData extends $dara.Model {
 export class ListAllSwimmingLanesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interface status or POP error code. Valid values:
+   * The HTTP status code returned. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: Redirection.
-   * *   **4xx**: Request error.
-   * *   **5xx**: Server error.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: The request is invalid.
+   * 
+   * - **5xx**: A server error occurs.
    * 
    * @example
    * 200
@@ -627,23 +633,25 @@ export class ListAllSwimmingLanesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The output parameters of the node.
+   * The response data.
    */
   data?: ListAllSwimmingLanesResponseBodyData[];
   /**
    * @remarks
-   * Error code. Valid values:
+   * The error code.
    * 
-   * *   If the request is successful, no **ErrorCode** fields are returned.
-   * *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
+   * - The **ErrorCode** parameter is omitted if the request is successful.
+   * 
+   * - The **ErrorCode** parameter is returned if the request fails. For details, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The response message. Valid values:
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns a specific error code if the request fails.
    * 
    * @example
    * success
@@ -659,10 +667,11 @@ export class ListAllSwimmingLanesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the data is successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**: The application instances were restarted.
-   * *   **false**: Restart failed.
+   * - **true**: The request is successful.
+   * 
+   * - **false**: The request fails.
    * 
    * @example
    * true
@@ -670,7 +679,7 @@ export class ListAllSwimmingLanesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****

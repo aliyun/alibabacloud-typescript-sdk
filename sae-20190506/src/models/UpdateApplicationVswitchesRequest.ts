@@ -13,12 +13,31 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Indicates whether to deploy the application immediately. Valid values:
+   * 
+   * - **true**: Deploys the application immediately. This is the default.
+   * 
+   * - **false**: The application is not deployed.
+   * 
+   * @example
+   * true
+   */
   deploy?: boolean;
+  /**
+   * @remarks
+   * The minimum percentage of ready instances.
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of ready instances.
+   */
   minReadyInstances?: number;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * This parameter is required.
    * 

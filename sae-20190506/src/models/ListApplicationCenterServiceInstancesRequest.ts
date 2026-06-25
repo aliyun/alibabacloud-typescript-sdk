@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationCenterServiceInstancesRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-beijing:test
-   */
   namespaceId?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

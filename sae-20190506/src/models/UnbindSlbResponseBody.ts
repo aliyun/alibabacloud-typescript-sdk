@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindSlbResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change order. The ID can be used to query the status of the change task.
+   * The change order ID. You can use this ID to query the status of the task.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -37,10 +37,13 @@ export class UnbindSlbResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: success
+   * 
+   * - **3xx**: redirection
+   * 
+   * - **4xx**: request error
+   * 
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -48,23 +51,25 @@ export class UnbindSlbResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: UnbindSlbResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The returned error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - This parameter is left empty if the request is successful.
+   * 
+   * - If the request fails, this parameter contains an error code. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - If the request succeeds, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -80,10 +85,11 @@ export class UnbindSlbResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the internal-facing or Internet-facing SLB instance was disassociated. Valid values:
+   * Indicates whether the operation was successful.
    * 
-   * *   **true**: The SLB instance was disassociated.
-   * *   **false**: The SLB instance failed to be disassociated.
+   * - **true**: The operation was successful.
+   * 
+   * - **false**: The operation failed.
    * 
    * @example
    * true
@@ -91,7 +97,7 @@ export class UnbindSlbResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID of the request. You can use this ID to query call details.
    * 
    * @example
    * 0a98a02315955564772843261e****

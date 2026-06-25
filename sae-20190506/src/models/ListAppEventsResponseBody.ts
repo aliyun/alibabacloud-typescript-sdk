@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
+  /**
+   * @remarks
+   * The cause analysis.
+   */
   causeAnalysis?: string;
   /**
    * @remarks
-   * The type of the event. Valid values:
+   * The event type.
    * 
    * @example
    * Normal
@@ -14,7 +18,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The timestamp of the first occurrence of the event.
+   * The timestamp of the event\\"s first occurrence.
    * 
    * @example
    * 2020-02-19T05:01:28Z
@@ -22,7 +26,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   firstTimestamp?: string;
   /**
    * @remarks
-   * The timestamp of the last occurrence of the event.
+   * The timestamp of the event\\"s last occurrence.
    * 
    * @example
    * 2020-02-19T05:01:28Z
@@ -30,7 +34,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   lastTimestamp?: string;
   /**
    * @remarks
-   * The information about the event.
+   * The event message.
    * 
    * @example
    * Created container
@@ -38,7 +42,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The type of the object.
+   * The object kind.
    * 
    * @example
    * Pod
@@ -46,7 +50,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   objectKind?: string;
   /**
    * @remarks
-   * The name of the object.
+   * The object name.
    * 
    * @example
    * errew-b86bf540-b4dc-47d8-a42f-b4997c14bd8f-5595cbddd6-2****
@@ -54,7 +58,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * The cause of the event.
+   * The reason for the event.
    * 
    * @example
    * Created
@@ -98,12 +102,12 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
 export class ListAppEventsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * An array of application events.
    */
   appEventEntity?: ListAppEventsResponseBodyDataAppEventEntity[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -119,7 +123,7 @@ export class ListAppEventsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of events that occurred in an application.
+   * The total count of application events.
    * 
    * @example
    * 20
@@ -158,12 +162,15 @@ export class ListAppEventsResponseBodyData extends $dara.Model {
 export class ListAppEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code returned for the request. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * 
+   * - **3xx**: Redirection.
+   * 
+   * - **4xx**: Client error.
+   * 
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -171,20 +178,21 @@ export class ListAppEventsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The events.
+   * The event list.
    */
   data?: ListAppEventsResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the call failed. Take note of the following rules:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * 
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error Codes** section.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * Additional information about the request result.
    * 
    * @example
    * success
@@ -200,10 +208,11 @@ export class ListAppEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the events that occurred in the application were queried. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The events were queried.
-   * *   **false**: The events failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

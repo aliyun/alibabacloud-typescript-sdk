@@ -7,10 +7,13 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -20,13 +23,14 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The error code.
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information that is returned.
    * 
    * @example
    * success
@@ -34,7 +38,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -44,8 +48,9 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the namespace was deleted. Valid values:
    * 
-   * *   **true**: indicates that the namespace was deleted.
-   * *   **false**: indicates that the namespace could not be deleted.
+   * - **true**: The namespace was deleted.
+   * 
+   * - **false**: The namespace failed to be deleted.
    * 
    * @example
    * true
@@ -53,7 +58,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The trace ID. You can use this ID to query the details of a request.
    * 
    * @example
    * 0a981dd515966966104121683d****

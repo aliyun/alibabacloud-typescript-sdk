@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationGroupsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
    * @example
    * 1

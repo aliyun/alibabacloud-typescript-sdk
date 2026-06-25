@@ -37,10 +37,13 @@ export class StartApplicationResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -55,19 +58,18 @@ export class StartApplicationResponseBody extends $dara.Model {
    * @remarks
    * The error code returned. Take note of the following rules:
    * 
-   * *   If the call is successful, **ErrorCode** is not returned.
-   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * - If the call is successful, **ErrorCode** is not returned.
    * 
-   * @example
-   * Null
+   * - If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned message. Take note of the following rules:
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * - If the call is successful, **success** is returned.
+   * 
+   * - If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -85,8 +87,9 @@ export class StartApplicationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the application is started. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

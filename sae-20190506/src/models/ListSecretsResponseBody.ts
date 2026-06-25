@@ -45,7 +45,7 @@ export class ListSecretsResponseBodyDataSecretsRelateApps extends $dara.Model {
 export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   /**
    * @remarks
-   * The time when the Secret was created.
+   * The time when the Secret instance was created.
    * 
    * @example
    * 1593760185111
@@ -66,7 +66,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   relateApps?: ListSecretsResponseBodyDataSecretsRelateApps[];
   /**
    * @remarks
-   * The Secret ID.
+   * The Secret instance ID.
    * 
    * @example
    * 16
@@ -74,7 +74,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretId?: number;
   /**
    * @remarks
-   * The Secret name.
+   * The Secret instance name.
    * 
    * @example
    * registry-auth
@@ -82,9 +82,9 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The Secret type.
+   * The type of the Secret instance. The only valid value is:
    * 
-   * Set the value to **kubernetes.io/dockerconfigjson**. The value indicates the secret for the username and password of the image repository and is used for authentication when images are pulled during application deployment.
+   * **kubernetes.io/dockerconfigjson**: a Secret that stores credentials for a container image registry and is used to authenticate image pulls during deployment.
    * 
    * @example
    * kubernetes.io/dockerconfigjson
@@ -92,7 +92,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * The time when the Secret was updated.
+   * The time when the Secret instance was last updated.
    * 
    * @example
    * 1593760185111
@@ -137,7 +137,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
 export class ListSecretsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Secrets.
+   * A list of Secret instances.
    */
   secrets?: ListSecretsResponseBodyDataSecrets[];
   static names(): { [key: string]: string } {
@@ -169,10 +169,13 @@ export class ListSecretsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -180,26 +183,25 @@ export class ListSecretsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response object.
    */
   data?: ListSecretsResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Take note of the following rules:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * - This parameter is not returned if the request is successful.
    * 
-   * @example
-   * Null
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Take note of the following rules:
+   * The returned message.
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -215,10 +217,11 @@ export class ListSecretsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -226,7 +229,7 @@ export class ListSecretsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID. You can use this ID to query the details of a call.
    * 
    * @example
    * 0a98a02315955564772843261e****

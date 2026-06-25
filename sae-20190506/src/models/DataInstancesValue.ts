@@ -6,7 +6,7 @@ import { DataInstancesValueListenersValue } from "./DataInstancesValueListenersV
 export class DataInstancesValue extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The DNS name.
    * 
    * @example
    * nlb-wb7r6dlwetvt5j****.cn-hangzhou.nlb.aliyuncs.com
@@ -14,15 +14,16 @@ export class DataInstancesValue extends $dara.Model {
   dnsName?: string;
   /**
    * @remarks
-   * The listeners.
+   * A collection of listener details.
    */
   listeners?: { [key: string]: DataInstancesValueListenersValue };
   /**
    * @remarks
-   * Indicates whether the instance is created by SAE.
+   * Indicates whether SAE created the instance. Valid values:
    * 
-   * *   **true**: The instance is created by SAE.
-   * *   **false**: The existing instance is reused.
+   * - **true**: SAE created the instance.
+   * 
+   * - **false**: SAE reused an existing instance.
    * 
    * @example
    * true

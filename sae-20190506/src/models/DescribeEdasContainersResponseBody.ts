@@ -7,8 +7,9 @@ export class DescribeEdasContainersResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the component is disabled. Valid values:
    * 
-   * *   **true**: The component is disabled.
-   * *   **false**: The component is not disabled.
+   * - **true**: The component is disabled.
+   * 
+   * - **false**: The component is not disabled.
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class DescribeEdasContainersResponseBodyData extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The version of the container, such as Ali-Tomcat, in which an application that is developed based on High-speed Service Framework (HSF) is deployed.
+   * The version of the application container provided by the HSF framework, such as the Ali-Tomcat container.
    * 
    * @example
    * 3.5.3
@@ -50,10 +51,13 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: success
+   * 
+   * - **3xx**: redirection
+   * 
+   * - **4xx**: request error
+   * 
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -61,20 +65,21 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The components.
+   * A list of components.
    */
   data?: DescribeEdasContainersResponseBodyData[];
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * 
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -90,10 +95,11 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of container components of a microservices application was obtained. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**: The list was obtained.
-   * *   **false**: The list failed to be obtained.
+   * - **true**: The operation succeeded.
+   * 
+   * - **false**: The operation failed.
    * 
    * @example
    * true
@@ -101,7 +107,7 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The request trace ID.
    * 
    * @example
    * 0a98a02315955564772843261e****

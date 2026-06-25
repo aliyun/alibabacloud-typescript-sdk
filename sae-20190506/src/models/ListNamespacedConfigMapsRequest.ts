@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespacedConfigMapsRequest extends $dara.Model {
   /**
    * @remarks
-   * cn-hangzhou
+   * The ID of the namespace.
    * 
    * This parameter is required.
    * 

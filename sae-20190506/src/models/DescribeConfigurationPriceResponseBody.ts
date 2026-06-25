@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Model {
   /**
    * @remarks
-   * The available CPU capacity. Unit: cores \\*.
+   * The remaining CPU quota. Unit: core-hours.
    * 
    * @example
    * 497570.450009
    */
   cpu?: number;
+  /**
+   * @remarks
+   * The remaining computing units (CUs) of the resource plan.
+   * 
+   * @example
+   * 10000
+   */
   cu?: number;
   /**
    * @remarks
-   * The available memory size. Unit: GiB ×.
+   * The remaining memory quota. Unit: GiB-hours.
    * 
    * @example
    * 989802.563546
@@ -48,7 +55,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Mo
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount amount of the order.
    * 
    * @example
    * 0.0009259
@@ -64,12 +71,12 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends 
   originalAmount?: number;
   /**
    * @remarks
-   * The ID of the discount rule.
+   * The rule ID.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The final price of the order.
+   * The actual transaction price of the order.
    * 
    * @example
    * 0.0037037
@@ -108,12 +115,15 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of discount rule.
+   * The name of the rule.
+   * 
+   * @example
+   * 20% discount on pay-as-you-go
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the discount rule.
+   * The rule ID.
    * 
    * @example
    * 2000010******
@@ -145,12 +155,12 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $dara.Model {
   /**
    * @remarks
-   * The information about pricing.
+   * The pricing information.
    */
   order?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder;
   /**
    * @remarks
-   * The discount rules.
+   * The promotion rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules[];
   static names(): { [key: string]: string } {
@@ -185,7 +195,7 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $dara
 export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount amount of the order.
    * 
    * @example
    * 0.0018518
@@ -201,12 +211,12 @@ export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model
   originalAmount?: number;
   /**
    * @remarks
-   * The ID of the promotion rule.
+   * The promotion ID.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The transaction price.
+   * The final price of the order.
    * 
    * @example
    * 0.0074074
@@ -245,7 +255,7 @@ export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount amount of the order.
    * 
    * @example
    * 0.0009259
@@ -261,12 +271,12 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends
   originalAmount?: number;
   /**
    * @remarks
-   * The ID of the discount rule.
+   * The rule ID.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The actual price of the order.
+   * The actual transaction price of the order.
    * 
    * @example
    * 0.0037037
@@ -305,12 +315,15 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the discount rule.
+   * The name of the rule.
+   * 
+   * @example
+   * 20% discount on pay-as-you-go
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the discount policy.
+   * The policy ID.
    * 
    * @example
    * 2000010******
@@ -342,12 +355,12 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends
 export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dara.Model {
   /**
    * @remarks
-   * The information about pricing.
+   * The pricing information.
    */
   order?: DescribeConfigurationPriceResponseBodyDataRequestPriceOrder;
   /**
    * @remarks
-   * The discount rule.
+   * The promotion rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataRequestPriceRules[];
   static names(): { [key: string]: string } {
@@ -382,12 +395,15 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dar
 export class DescribeConfigurationPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the promotion rule.
+   * The name of the rule.
+   * 
+   * @example
+   * 20% discount on pay-as-you-go
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the promotion rule.
+   * The rule ID.
    * 
    * @example
    * 2000010******
@@ -419,7 +435,7 @@ export class DescribeConfigurationPriceResponseBodyDataRules extends $dara.Model
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount amount of the order.
    * 
    * @example
    * 0.0009259
@@ -435,12 +451,12 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
   originalAmount?: number;
   /**
    * @remarks
-   * The ID of the discount rule.
+   * The promotion ID.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The final price of the order.
+   * The actual transaction price of the order.
    * 
    * @example
    * 0.0037037
@@ -479,12 +495,15 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the discount rule.
+   * The name of the rule.
+   * 
+   * @example
+   * 20% discount on pay-as-you-go
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the discount rule.
+   * The rule ID.
    * 
    * @example
    * 2000010******
@@ -516,12 +535,12 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends
 export class DescribeConfigurationPriceResponseBodyDataTrafficPrice extends $dara.Model {
   /**
    * @remarks
-   * The information about pricing.
+   * The pricing information.
    */
   order?: DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder;
   /**
    * @remarks
-   * The discount rule.
+   * The promotion rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataTrafficPriceRules[];
   static names(): { [key: string]: string } {
@@ -556,7 +575,7 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPrice extends $dar
 export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The remaining capacity of the resource plan.
+   * The remaining quota of the resource plan.
    */
   bagUsage?: DescribeConfigurationPriceResponseBodyDataBagUsage;
   /**
@@ -566,12 +585,12 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
   cpuMemPrice?: DescribeConfigurationPriceResponseBodyDataCpuMemPrice;
   /**
    * @remarks
-   * The information about pricing.
+   * The pricing information.
    */
   order?: DescribeConfigurationPriceResponseBodyDataOrder;
   /**
    * @remarks
-   * The price based on the number of requests.
+   * The price per request.
    */
   requestPrice?: DescribeConfigurationPriceResponseBodyDataRequestPrice;
   /**
@@ -581,7 +600,7 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
   rules?: DescribeConfigurationPriceResponseBodyDataRules[];
   /**
    * @remarks
-   * The traffic price.
+   * The price of traffic.
    */
   trafficPrice?: DescribeConfigurationPriceResponseBodyDataTrafficPrice;
   static names(): { [key: string]: string } {
@@ -636,12 +655,15 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
 export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code or POP error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -649,23 +671,25 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The price.
+   * The pricing information.
    */
   data?: DescribeConfigurationPriceResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. Valid values:
+   * The returned message.
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -673,7 +697,7 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ADCEC067-86AD-19E2-BD43-E83F3841****
@@ -681,10 +705,11 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the configuration price was obtained.
+   * Indicates whether the price of the configuration was obtained.
    * 
-   * *   **true**: The price was obtained.
-   * *   **false**: The price failed to be queried.
+   * - **true**: The price was obtained.
+   * 
+   * - **false**: The price failed to be obtained.
    * 
    * @example
    * true
@@ -692,7 +717,7 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace.
+   * The trace ID.
    * 
    * @example
    * 1a0dcc771722848598056771******

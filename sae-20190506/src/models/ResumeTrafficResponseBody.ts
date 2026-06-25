@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeTrafficResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description of the returned code.
+   * Details about the operation\\"s result.
    * 
    * @example
    * succeed in handling request
@@ -13,12 +13,14 @@ export class ResumeTrafficResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Indicates whether the traffic was removed. Valid values:
-   * *   **true**: The traffic was removed.
-   * *   **false**: The traffic failed to be removed.
+   * Indicates whether the traffic was resumed.
+   * 
+   * - **True**: The traffic was resumed.
+   * 
+   * - **False**: The traffic was not resumed.
    * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -47,12 +49,15 @@ export class ResumeTrafficResponseBodyData extends $dara.Model {
 export class ResumeTrafficResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: Redirection.
+   * 
+   * - **4xx**: A client-side error occurred.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -65,15 +70,20 @@ export class ResumeTrafficResponseBody extends $dara.Model {
   data?: ResumeTrafficResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
+   * 
+   * - This parameter is empty if the request is successful.
+   * 
+   * - If the request fails, this parameter contains an error code. For more information, see the "**Error codes**" section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the operation. Valid values:
+   * The returned message.
    * 
-   * *   If the request is successful, **success** is returned.
-   * *   If the request fails, a specific error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -89,10 +99,7 @@ export class ResumeTrafficResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **True**: The traffic was resumed.
-   * *   **False**: The traffic failed to be resumed.
+   * Indicates whether the traffic was resumed. **True** indicates that the traffic was resumed, and **False** indicates that the traffic was not resumed.
    * 
    * @example
    * True
@@ -100,7 +107,7 @@ export class ResumeTrafficResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The trace ID.
+   * The trace ID of the request. You can use this ID to troubleshoot the request.
    * 
    * @example
    * ac1a0b2215622920113732501e****

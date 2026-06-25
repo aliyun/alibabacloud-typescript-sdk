@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * a0d2e04c-159d-40a8-b240-d2f2c263\\*\\*\\*\\*
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * test
+   * The name of the auto scaling policy.
    * 
    * This parameter is required.
    * 

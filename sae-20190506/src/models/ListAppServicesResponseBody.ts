@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The app ID.
    * 
    * @example
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
@@ -13,7 +13,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The name of the app.
    * 
    * @example
    * demo-app
@@ -21,7 +21,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The number of instances of the microservice.
+   * The number of instances of the service.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   instanceCount?: string;
   /**
    * @remarks
-   * The ID of the namespace to which the application belongs.
+   * The ID of the namespace that contains the app.
    * 
    * @example
    * cn-beijing:test
@@ -38,16 +38,22 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the namespace.
+   * 
+   * @example
+   * Test namespace
    */
   namespaceName?: string;
   /**
    * @remarks
-   * The registry type. Valid values:
+   * The type of the service registry. Valid values:
    * 
-   * *   **0**：SAE Nacos
-   * *   **1**: SAE built-in Nacos
-   * *   **2**: MSE Nacos
-   * *   **9**: SAE Kubernets service
+   * - **0**: SAE Nacos
+   * 
+   * - **1**: self-managed registry
+   * 
+   * - **2**: MSE Nacos
+   * 
+   * - **9**: SAE K8s Service
    * 
    * @example
    * 0
@@ -55,7 +61,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   registryType?: string;
   /**
    * @remarks
-   * The IDs of the security groups.
+   * The security group ID.
    * 
    * @example
    * sg-wz969ngg2e49q5i4****
@@ -63,7 +69,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The group to which the microservice belongs.
+   * The service group.
    * 
    * @example
    * DEFAULT_GROUP
@@ -71,7 +77,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   serviceGroup?: string;
   /**
    * @remarks
-   * The name of the microservice.
+   * The name of the service.
    * 
    * @example
    * frontend
@@ -79,17 +85,17 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The ports and protocols.
+   * A map of ports and protocols.
    */
   servicePortAndProtocol?: { [key: string]: string };
   /**
    * @remarks
-   * The list of ports.
+   * A list of ports.
    */
   servicePorts?: number[];
   /**
    * @remarks
-   * The protocol used by the microservice.
+   * The protocol used by the service.
    * 
    * @example
    * HTTP
@@ -97,12 +103,15 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   serviceProtocol?: string;
   /**
    * @remarks
-   * The type of the microservice. Valid values:
+   * The type of the service. Valid values:
    * 
-   * *   **dubbo**
-   * *   **springCloud**
-   * *   **hsf**
-   * *   **k8sService**
+   * - **dubbo**
+   * 
+   * - **springCloud**
+   * 
+   * - **hsf**
+   * 
+   * - **k8sService**
    * 
    * @example
    * springCloud
@@ -110,7 +119,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The version of the microservice.
+   * The version of the service.
    * 
    * @example
    * 1.0.0
@@ -172,12 +181,15 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
 export class ListAppServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned. Valid values:
+   * The HTTP status code or a POP error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: The request is invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -185,23 +197,25 @@ export class ListAppServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the microservice.
+   * The list of services.
    */
   data?: ListAppServicesResponseBodyData[];
   /**
    * @remarks
-   * The status code. Valid values:
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section.
    * 
-   * *   If the request was successful, the **ErrorCode** parameter is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - Successful requests do not return the **ErrorCode** field.
+   * 
+   * - Failed requests return the **ErrorCode** field. For more information, see the **error code** list in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. Valid values:
+   * The response message.
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error message is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -217,10 +231,11 @@ export class ListAppServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -228,7 +243,7 @@ export class ListAppServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID. You can use this ID to query the details of a call.
    * 
    * @example
    * 0a98a02315955564772843261e****

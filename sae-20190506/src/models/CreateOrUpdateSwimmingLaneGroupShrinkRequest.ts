@@ -5,24 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline application.
+   * The IDs of the baseline applications.
    */
   appIdsShrink?: string;
   /**
    * @remarks
-   * The unique ID of the corresponding gateway.
+   * The unique ID of the gateway.
    * 
    * @example
-   * mse_ingresspost-cn-axc49******
+   * gw-ea43f648ac46485aa8c894ba1b******
    */
   entryAppId?: string;
   /**
    * @remarks
-   * The application entry type (gateway type).
+   * The type of the gateway that acts as the application\\"s entry point.
    * 
-   * *   **apig:** cloud-native API Gateway
-   * *   **mse:** Java Services Gateway
-   * *   **mse-gw:** MSE cloud-native Gateway
+   * - **apig:** cloud-native API gateway
+   * 
+   * - **mse:** java service gateway
+   * 
+   * - **mse-gw:** MSE Cloud Native Gateway
    * 
    * @example
    * mse-gw
@@ -30,15 +32,15 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $dara.Model {
   entryAppType?: string;
   /**
    * @remarks
-   * The ID of the lane group. This is required when you update a lane group.
+   * The ID of the swimming lane group. This parameter is required when you update a swimming lane group.
    * 
    * @example
-   * 2047
+   * 110272
    */
   groupId?: number;
   /**
    * @remarks
-   * The name of the lane group.
+   * The name of the swimming lane group.
    * 
    * @example
    * mse-test
@@ -46,7 +48,7 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ID of a namespace.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:test
@@ -54,7 +56,7 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
+   * The version of the end-to-end canary release. Valid values: 0 and 2. The value 2 is recommended.
    * 
    * @example
    * 2

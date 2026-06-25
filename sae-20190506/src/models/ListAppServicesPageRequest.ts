@@ -15,7 +15,7 @@ export class ListAppServicesPageRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListAppServicesPageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values: 0 to 9999.
+   * The page size. The value must be an integer from 0 to 9,999.
    * 
    * @example
    * 9999
@@ -33,8 +33,9 @@ export class ListAppServicesPageRequest extends $dara.Model {
    * @remarks
    * The service type. Valid values:
    * 
-   * *   **dubbo**
-   * *   **springCloud**
+   * - **Dubbo**
+   * 
+   * - **Spring Cloud**
    * 
    * This parameter is required.
    * 

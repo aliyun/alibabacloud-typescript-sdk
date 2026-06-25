@@ -23,8 +23,9 @@ export class DescribeNamespaceListResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether custom namespaces are returned. Valid values:
    * 
-   * *   **true**: Custom namespaces are returned.
-   * *   **false**: Custom namespaces are not returned.
+   * - **true**: Custom namespaces are returned.
+   * 
+   * - **false**: Custom namespaces are not returned.
    * 
    * @example
    * true
@@ -34,8 +35,9 @@ export class DescribeNamespaceListResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether hybrid cloud namespaces are excluded. Valid values:
    * 
-   * *   **true**: Hybrid cloud namespaces are excluded.
-   * *   **false**: Hybrid cloud namespaces are included.
+   * - **true**: Hybrid cloud namespaces are excluded.
+   * 
+   * - **false**: Hybrid cloud namespaces are included.
    * 
    * @example
    * false
@@ -143,10 +145,13 @@ export class DescribeNamespaceListResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -161,19 +166,18 @@ export class DescribeNamespaceListResponseBody extends $dara.Model {
    * @remarks
    * The error code. Valid values:
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
    * 
-   * @example
-   * NULL
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - success: If the call is successful, **success** is returned.
+   * 
+   * - An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -191,8 +195,9 @@ export class DescribeNamespaceListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the list of namespaces was queried. Valid values:
    * 
-   * *   **true**: The list was queried.
-   * *   **false**: The list failed to be queried.
+   * - **true**: The list was queried.
+   * 
+   * - **false**: The list failed to be queried.
    * 
    * @example
    * true

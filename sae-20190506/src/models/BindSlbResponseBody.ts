@@ -57,6 +57,9 @@ export class BindSlbResponseBody extends $dara.Model {
    * 
    * *   The **ErrorCode** parameter is not returned when the request succeeds.
    * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 空
    */
   errorCode?: string;
   /**

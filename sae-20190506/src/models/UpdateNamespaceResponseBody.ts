@@ -7,8 +7,9 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether to enable SAE built-in registry:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -90,10 +91,13 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -108,11 +112,9 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The error code returned. Take note of the following rules:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - The **ErrorCode** parameter is not returned if the request succeeds.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
    */
   errorCode?: string;
   /**
@@ -135,8 +137,9 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the information about the namespace was updated. Valid values:
    * 
-   * *   **true**: The instance was updated.
-   * *   **false**: The instance failed to be updated.
+   * - **true**: The instance was updated.
+   * 
+   * - **false**: The instance failed to be updated.
    * 
    * @example
    * true

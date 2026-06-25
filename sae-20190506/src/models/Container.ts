@@ -12,7 +12,7 @@ import { WebOSSConfig } from "./WebOssconfig";
 export class Container extends $dara.Model {
   /**
    * @remarks
-   * The startup parameters of the container.
+   * Container startup arguments.
    * 
    * @example
    * ["abc", ">", "file0"]
@@ -20,7 +20,7 @@ export class Container extends $dara.Model {
   args?: string;
   /**
    * @remarks
-   * The startup command of the container.
+   * Container start command.
    * 
    * @example
    * ["/bin/sh"]
@@ -28,12 +28,12 @@ export class Container extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The container environment variables.
+   * Container environment variables.
    */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The container image.
+   * Container image.
    * 
    * This parameter is required.
    * 
@@ -43,17 +43,17 @@ export class Container extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The configuration of the image repository.
+   * Image repository configuration.
    */
   imageRegistryConfig?: ImageRegistryConfig;
   /**
    * @remarks
-   * The configuration for collecting monitoring records.
+   * Monitoring collection configuration.
    */
   metricsCollectConfig?: MetricsCollectConfig;
   /**
    * @remarks
-   * The port of the container.
+   * Container port.
    * 
    * @example
    * 8080
@@ -61,7 +61,7 @@ export class Container extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The number of concurrent requests on a single instance.
+   * Maximum concurrent requests per instance.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class Container extends $dara.Model {
   requestConcurrency?: number;
   /**
    * @remarks
-   * The timeout period of the container request.
+   * Container request timeout, in seconds.
    * 
    * @example
    * 60
@@ -77,29 +77,29 @@ export class Container extends $dara.Model {
   requestTimeout?: number;
   /**
    * @remarks
-   * The configurations of the container resources.
+   * Container resource configuration.
    * 
    * This parameter is required.
    */
   resources?: ContainerResources;
   /**
    * @remarks
-   * The configuration of container log collection.
+   * Container log collection configuration.
    */
   SLSCollectConfigs?: SLSCollectConfigs;
   /**
    * @remarks
-   * The container startup check configuration.
+   * Container startup probe configuration.
    */
   startupProbe?: StartupProbe;
   /**
    * @remarks
-   * The container NAS configuration.
+   * Container NAS configuration.
    */
   webNASConfig?: WebNASConfig;
   /**
    * @remarks
-   * The container OSS mount configuration.
+   * Container OSS mount configuration.
    */
   webOSSConfig?: WebOSSConfig;
   static names(): { [key: string]: string } {

@@ -13,10 +13,11 @@ export class DescribeComponentsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The type of the supported components. Valid values:
+   * The supported component type. Valid values:
    * 
-   * *   **TOMCAT**
-   * *   **JDK**
+   * - **TOMCAT**
+   * 
+   * - **JDK**
    * 
    * This parameter is required.
    * 

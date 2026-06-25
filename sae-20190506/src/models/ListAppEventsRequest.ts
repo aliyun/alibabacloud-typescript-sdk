@@ -13,7 +13,7 @@ export class ListAppEventsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,10 +21,11 @@ export class ListAppEventsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The type of the event. Valid values:
+   * The event type. Valid values:
    * 
-   * *   **Warning**: an alert.
-   * *   **Normal**: a normal event.
+   * - **Warning**: An event that indicates a potential problem.
+   * 
+   * - **Normal**: An event that indicates a routine operation.
    * 
    * @example
    * Warning
@@ -32,7 +33,7 @@ export class ListAppEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the region where the namespace is located.
    * 
    * This parameter is required.
    * 
@@ -42,13 +43,17 @@ export class ListAppEventsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The type of the object. Valid values:
+   * The object kind. Valid values:
    * 
-   * *   **Deployment**: an application.
-   * *   **Pod**: an application instance.
-   * *   **Service**: a Server Load Balancer (SLB) instance.
-   * *   **HorizontalPodAutoscaler**: an auto scaling policy.
-   * *   **CloneSet**: an application.
+   * - **Deployment**: The application.
+   * 
+   * - **Pod**: The application instance.
+   * 
+   * - **Service**: The Server Load Balancer (SLB) instance.
+   * 
+   * - **HorizontalPodAutoscaler**: The auto scaling policy.
+   * 
+   * - **CloneSet**: The application.
    * 
    * @example
    * Pod
@@ -56,7 +61,7 @@ export class ListAppEventsRequest extends $dara.Model {
   objectKind?: string;
   /**
    * @remarks
-   * The name of the object. Fuzzy search by prefix is supported.
+   * The name of the object. Prefix matching is supported.
    * 
    * @example
    * errew-b86bf540-b4dc-47d8-a42f-b4997c14bd8f-5595cbddd6-x****
@@ -64,7 +69,7 @@ export class ListAppEventsRequest extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * The number of entries to return per page. The value must be an integer from 0 to 10,000.
    * 
    * @example
    * 10
@@ -72,7 +77,7 @@ export class ListAppEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The cause of the event. Fuzzy search by prefix is supported.
+   * The reason for the event. Prefix matching is supported.
    * 
    * @example
    * Started

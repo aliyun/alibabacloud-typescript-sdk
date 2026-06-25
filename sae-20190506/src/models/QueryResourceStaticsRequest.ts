@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryResourceStaticsRequest extends $dara.Model {
   /**
    * @remarks
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * The ID of the application.
    * 
    * This parameter is required.
    * 

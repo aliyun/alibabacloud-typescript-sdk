@@ -31,7 +31,7 @@ export class WebApplication extends $dara.Model {
    * The time when the application was created.
    * 
    * @example
-   * 2019-07-11 15:54:49
+   * 2024-07-17T06:12:17Z
    */
   createdTime?: string;
   /**
@@ -63,7 +63,7 @@ export class WebApplication extends $dara.Model {
    * The time when the application was last modified.
    * 
    * @example
-   * 2019-07-11 20:12:58
+   * 2024-07-17T06:12:18Z
    */
   lastModifiedTime?: string;
   /**

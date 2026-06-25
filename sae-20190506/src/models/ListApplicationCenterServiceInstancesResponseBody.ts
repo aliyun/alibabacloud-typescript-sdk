@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationCenterServiceInstancesResponseBodyDataServiceInstances extends $dara.Model {
-  /**
-   * @example
-   * 2025-10-28T02:18:51Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * tftestacc54
-   */
   name?: string;
-  /**
-   * @example
-   * si-2063aea4b23b4781a26b
-   */
   serviceInstanceId?: string;
-  /**
-   * @example
-   * user-service
-   */
   serviceName?: string;
-  /**
-   * @example
-   * Dify HA
-   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,35 +64,12 @@ export class ListApplicationCenterServiceInstancesResponseBodyData extends $dara
 }
 
 export class ListApplicationCenterServiceInstancesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: ListApplicationCenterServiceInstancesResponseBodyData;
   errorCode?: string;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 0a981dd515966966104121683d****
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

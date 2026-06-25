@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
@@ -13,7 +13,7 @@ export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * demo-app
@@ -45,7 +45,7 @@ export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model
   mseAppId?: string;
   /**
    * @remarks
-   * MSE Instance Name
+   * The name of the MSE instance.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model
   mseAppName?: string;
   /**
    * @remarks
-   * The ID of the namespace to which the MSE instance belongs.
+   * The ID of the namespace in which the MSE instance resides.
    * 
    * @example
    * sae-test
@@ -61,7 +61,7 @@ export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model
   mseNamespaceId?: string;
   /**
    * @remarks
-   * The canary tag configured for the application.
+   * The canary tags configured for the application.
    */
   serviceTags?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -105,12 +105,15 @@ export class ListApplicationsForSwimmingLaneResponseBodyData extends $dara.Model
 export class ListApplicationsForSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * 
+   * - **3xx**: Redirection.
+   * 
+   * - **4xx**: Client error.
+   * 
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -118,23 +121,25 @@ export class ListApplicationsForSwimmingLaneResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of applications.
+   * The application list.
    */
   data?: ListApplicationsForSwimmingLaneResponseBodyData[];
   /**
    * @remarks
-   * The status code. Value values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, the **ErrorCode** parameter is returned. For more information, see **Error codes** section in this topic.
+   * - The parameter is an empty string if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. The following limits are imposed on the ID:
+   * The response message. Valid values:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   An error code is returned when a request failed.
+   * - **success** is returned if the request is successful.
+   * 
+   * - A specific error code is returned if the request fails.
    * 
    * @example
    * success
@@ -142,7 +147,7 @@ export class ListApplicationsForSwimmingLaneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -150,10 +155,11 @@ export class ListApplicationsForSwimmingLaneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of application instances was queried. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The instance groups were obtained.
-   * *   **false**: The instance groups failed to be obtained.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

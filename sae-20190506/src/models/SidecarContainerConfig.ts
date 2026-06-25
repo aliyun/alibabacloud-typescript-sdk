@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SidecarContainerConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Registry Enterprise Edition instance. This parameter is required if the ImageUrl parameter is set to the URL of an image in a Container Registry Enterprise Edition instance.
+   * The instance ID of the ACR Enterprise Edition. This parameter is required if the `ImageUrl` is from an ACR Enterprise Edition repository.
    * 
    * @example
    * cri-xxxxxx
@@ -13,7 +13,7 @@ export class SidecarContainerConfig extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The startup command of the image.
+   * The startup command for the image. This command overrides the `ENTRYPOINT` defined in the image.
    * 
    * @example
    * python
@@ -21,7 +21,7 @@ export class SidecarContainerConfig extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The parameters of the image startup command.
+   * The arguments for the startup command. This parameter corresponds to `CMD` in the Dockerfile.
    * 
    * @example
    * ["a","b"]
@@ -29,7 +29,7 @@ export class SidecarContainerConfig extends $dara.Model {
   commandArgs?: string;
   /**
    * @remarks
-   * The description of the ConfigMap mounted to the application.
+   * The settings for mounting a ConfigMap. Use this to inject configuration data into the container as files.
    * 
    * @example
    * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
@@ -37,7 +37,7 @@ export class SidecarContainerConfig extends $dara.Model {
   configMapMountDesc?: string;
   /**
    * @remarks
-   * Cpu
+   * The CPU resources allocated to the container, measured in millicores. For example, a value of 1000 represents 1 vCPU.
    * 
    * @example
    * 1000
@@ -45,7 +45,7 @@ export class SidecarContainerConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The EmptyDir description.
+   * The configuration for an `emptyDir` volume. This creates a temporary directory that persists for the life of the application instance.
    * 
    * @example
    * [{\\"name\\":\\"workdir\\",\\"mountPath\\":\\"/usr/local/tomcat/webapps\\"}]
@@ -53,7 +53,7 @@ export class SidecarContainerConfig extends $dara.Model {
   emptyDirDesc?: string;
   /**
    * @remarks
-   * The environment variables of the container.
+   * The environment variables to set in the container. Specify the variables as a JSON array of key-value pairs.
    * 
    * @example
    * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
@@ -61,16 +61,20 @@ export class SidecarContainerConfig extends $dara.Model {
   envs?: string;
   /**
    * @remarks
-   * The image address.
+   * The container image URL.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
    */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The configuration for the liveness probe. The liveness probe checks if the container is running. If the probe fails, the system restarts the container.
+   */
   liveness?: string;
   /**
    * @remarks
-   * Memory
+   * The amount of memory allocated to the container, measured in MB.
    * 
    * @example
    * 1024
@@ -78,15 +82,31 @@ export class SidecarContainerConfig extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The container name.
+   * The name of the container.
    * 
    * @example
    * name
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the postStart hook. This hook runs immediately after the container starts to perform initialization tasks.
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The configuration for the preStop hook. This hook runs immediately before the container is terminated to ensure a graceful shutdown.
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The configuration for the readiness probe. The readiness probe checks if the container is ready to handle requests. The system will not direct traffic to a container until its readiness probe succeeds.
+   */
   readiness?: string;
+  /**
+   * @remarks
+   * Specifies how to mount a Secret. This lets you securely use sensitive data, such as credentials or keys, in your application.
+   */
   secretMountDesc?: string;
   static names(): { [key: string]: string } {
     return {

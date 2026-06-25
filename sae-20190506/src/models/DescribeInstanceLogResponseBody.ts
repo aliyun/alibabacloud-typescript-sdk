@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interface state or POP error code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -18,7 +21,7 @@ export class DescribeInstanceLogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information of instance logs.
+   * The instance log.
    * 
    * @example
    * hello\\nsae\\n
@@ -26,22 +29,20 @@ export class DescribeInstanceLogResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
-   * - No error code returned if the request succeeded.
+   * - This parameter is not returned if the request is successful.
    * 
-   * - Error code returned if the request failed. Refer to error code list below for details.
-   * 
-   * @example
-   * Null
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
-   * success is returned when the request succeeds.
-   * An error code is returned when the request fails.
+   * - **success** is returned if the request is successful.
+   * 
+   * - An error code is returned if the request fails.
    * 
    * @example
    * success
@@ -49,7 +50,7 @@ export class DescribeInstanceLogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -57,11 +58,11 @@ export class DescribeInstanceLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the logs of the instance is obtained.
+   * Indicates whether the instance log was obtained. Valid values:
    * 
-   * - true: logs obtained.
+   * - **true**: The instance log was obtained.
    * 
-   * - false: failed to obtain logs.
+   * - **false**: The instance log failed to be obtained.
    * 
    * @example
    * true
@@ -69,7 +70,7 @@ export class DescribeInstanceLogResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Trace ID.
+   * The trace ID.
    * 
    * @example
    * 0a98a02315955564772843261e****

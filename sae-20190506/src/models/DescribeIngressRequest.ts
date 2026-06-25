@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIngressRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the routing rule to be queried.
+   * The ID of the routing rule. Call the [ListIngresses](https://help.aliyun.com/document_detail/2834910.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 87
+   * 16263
    */
   ingressId?: number;
   static names(): { [key: string]: string } {

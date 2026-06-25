@@ -107,7 +107,7 @@ export class GetScaleAppMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   * 3B763F98-0BA2-5C23-B6B8-558568D2****
    */
   requestId?: string;
   /**

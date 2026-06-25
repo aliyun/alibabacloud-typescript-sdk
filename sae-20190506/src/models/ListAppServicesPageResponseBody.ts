@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hc4fs1****@98314c8790b****
@@ -13,7 +13,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   edasAppId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * cn-zhangjiakou-micro-service-******
@@ -21,7 +21,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   edasAppName?: string;
   /**
    * @remarks
-   * The group to which the service belongs. You can create a custom group.
+   * The service group. This value is user-defined.
    * 
    * @example
    * springCloud
@@ -45,7 +45,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The version of a service. You can create a custom version.
+   * The service version. This value is user-defined.
    * 
    * @example
    * 1.0.0
@@ -85,7 +85,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
 export class ListAppServicesPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values: 0 to 9999.
+   * The number of entries per page. The value must be in the range of 0 to 9999.
    * 
    * @example
    * 9999
@@ -109,12 +109,12 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The result returned.
+   * The returned results.
    */
   result?: ListAppServicesPageResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -155,12 +155,15 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
 export class ListAppServicesPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * 
+   * - **3xx**: Redirect.
+   * 
+   * - **4xx**: client error.
+   * 
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -168,20 +171,21 @@ export class ListAppServicesPageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of services.
+   * The service list.
    */
   data?: ListAppServicesPageResponseBodyData[];
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * A message that describes the outcome of the request.
    * 
    * @example
    * success
@@ -189,7 +193,7 @@ export class ListAppServicesPageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2583E089-99C2-562E-8B7E-73512136****
@@ -197,10 +201,11 @@ export class ListAppServicesPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the microservice list was obtained. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The list was obtained.
-   * *   **false**: The list failed to be obtained.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -208,7 +213,7 @@ export class ListAppServicesPageResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query the details of a request.
    * 
    * @example
    * 0be3e0c816394483660457498e****

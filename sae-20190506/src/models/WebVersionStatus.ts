@@ -6,6 +6,9 @@ export class WebVersionStatus extends $dara.Model {
   /**
    * @remarks
    * The error message of the application execution. If the execution is successful, a null value is returned.
+   * 
+   * @example
+   * 空
    */
   errorMessage?: string;
   /**

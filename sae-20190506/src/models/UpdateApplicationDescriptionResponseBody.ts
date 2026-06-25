@@ -7,10 +7,13 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code or the error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -20,19 +23,18 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
    * @remarks
    * The error code returned if the call failed. Value values:
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - If the request was successful, **ErrorCode** is not returned.
    * 
-   * @example
-   * 400
+   * - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The message returned. The following limits are imposed on the ID:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   An error code is returned when a request failed.
+   * - If the request was successful, **success** is returned.
+   * 
+   * - An error code is returned when a request failed.
    * 
    * @example
    * success
@@ -50,8 +52,9 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the application was deployed. Valid values:
    * 
-   * *   **true**: The application was deployed.
-   * *   **false**: The application failed to be deployed.
+   * - **true**: The application was deployed.
+   * 
+   * - **false**: The application failed to be deployed.
    * 
    * @example
    * true

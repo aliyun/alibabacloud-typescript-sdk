@@ -48,6 +48,9 @@ export class ListWebApplicationInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the application instance.
+   * 
+   * @example
+   * Running
    */
   statusesShrink?: string;
   /**

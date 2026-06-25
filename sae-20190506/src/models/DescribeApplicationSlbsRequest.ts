@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationSlbsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * 10
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListLogConfigsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListLogConfigsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * 1
+   * The number of entries to return on each page. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 

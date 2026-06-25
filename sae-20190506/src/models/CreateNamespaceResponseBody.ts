@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNamespaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the SAE built-in registry is enabled:
+   * Indicates whether the built-in service registry of SAE is enabled.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -16,10 +17,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
   enableMicroRegistration?: boolean;
   /**
    * @remarks
-   * Indicates whether the namespace was created. Valid values:
-   * 
-   * *   **true**: The instance was created.
-   * *   **false**: The call failed to be created.
+   * The short-format namespace ID.
    * 
    * @example
    * test
@@ -27,7 +25,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
   nameSpaceShortId?: string;
   /**
    * @remarks
-   * The short ID of the namespace.
+   * The description of the namespace.
    * 
    * @example
    * desc
@@ -35,10 +33,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
   namespaceDescription?: string;
   /**
    * @remarks
-   * The error code returned. Take note of the following rules:
-   * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:test
@@ -46,7 +41,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * Null
+   * The name of the namespace.
    * 
    * @example
    * name
@@ -54,12 +49,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * The region where the namespace resides.
    * 
    * @example
    * cn-beijing
@@ -99,7 +89,15 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
 export class CreateNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * bucketPath
+   * The HTTP status code or a POP error code. Valid values:
+   * 
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -107,20 +105,21 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about a namespace.
+   * The information about the namespace.
    */
   data?: CreateNamespaceResponseBodyData;
   /**
    * @remarks
-   * http://sae_pop_pre/#vpc
+   * The error code.
    * 
-   * @example
-   * bucketName
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The additional information returned.
    * 
    * @example
    * success
@@ -128,7 +127,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The description of the custom namespace.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -136,7 +135,11 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * mountDir
+   * Indicates whether the namespace was successfully created. Valid values:
+   * 
+   * - **true**: The namespace was created.
+   * 
+   * - **false**: The namespace failed to be created.
    * 
    * @example
    * true
@@ -144,7 +147,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The name of the namespace.
+   * The trace ID. You can use the trace ID to query the details of a request.
    * 
    * @example
    * 0a981dd515966966104121683d****

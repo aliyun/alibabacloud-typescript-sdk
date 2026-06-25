@@ -7,10 +7,13 @@ export class DeleteHistoryJobResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -21,26 +24,25 @@ export class DeleteHistoryJobResponseBody extends $dara.Model {
    * The result returned.
    * 
    * @example
-   * {msg: "", code: 200, success: true}
+   * {"msg": "","code": 200,"success": true}
    */
   data?: string;
   /**
    * @remarks
    * The error code. Valid values:
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned information. Valid values:
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - success: If the call is successful, **success** is returned.
+   * 
+   * - An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -58,8 +60,9 @@ export class DeleteHistoryJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the job was deleted. Valid values:
    * 
-   * *   **true**: The job was deleted.
-   * *   **false**: The job failed to be deleted.
+   * - **true**: The job was deleted.
+   * 
+   * - **false**: The job failed to be deleted.
    * 
    * @example
    * true

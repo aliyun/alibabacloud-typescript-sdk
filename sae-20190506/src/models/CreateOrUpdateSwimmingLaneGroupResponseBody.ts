@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the swimming lane group.
    * 
    * @example
-   * 2074
+   * 110272
    */
   groupId?: number;
   static names(): { [key: string]: string } {
@@ -35,12 +35,15 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
 export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: Redirection.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: Server error.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -48,23 +51,25 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The application information.
+   * The data object returned by the operation.
    */
   data?: CreateOrUpdateSwimmingLaneGroupResponseBodyData;
   /**
    * @remarks
-   * The status code. Value values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The response message:
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - **success**: The request was successful.
+   * 
+   * - An error code is returned if the request fails.
    * 
    * @example
    * success
@@ -80,10 +85,11 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the lane group is created. Valid values:
+   * Indicates whether the request was successful:
    * 
-   * *   **true**: Created successfully.
-   * *   **false**: The ConfigMap failed to be created.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -91,7 +97,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID, which you can use to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

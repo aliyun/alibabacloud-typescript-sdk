@@ -3,38 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVSwitchesResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 246
-   */
   availableIpAddressCount?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
-  /**
-   * @example
-   * vsw-2vc18rvxe1hk5dcsyy650
-   */
   vSwitchId?: string;
-  /**
-   * @example
-   * test
-   */
   vSwitchName?: string;
-  /**
-   * @remarks
-   * vpcid。
-   * 
-   * @example
-   * vpc-2ze7b7cfxmxypkodyg5io
-   */
   vpcId?: string;
-  /**
-   * @example
-   * cn-beijing-l
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -68,32 +41,12 @@ export class DescribeVSwitchesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeVSwitchesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: DescribeVSwitchesResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
   errorCode?: string;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * 2D7E6B28-27C9-5EEA-B0A3-FC0D2F5B2263
-   */
   requestId?: string;
   success?: boolean;
-  /**
-   * @example
-   * 0a001a0817594572118465681d2341
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

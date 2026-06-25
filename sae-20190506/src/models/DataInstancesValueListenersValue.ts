@@ -13,7 +13,7 @@ export class DataInstancesValueListenersValue extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The listener port of the NLB instance.
+   * The listener port.
    * 
    * @example
    * 80
@@ -21,13 +21,17 @@ export class DataInstancesValueListenersValue extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The status of the NLB listener.
+   * The state of the NLB listener. Valid values:
    * 
-   * *   **Creating**: The listener is being created.
-   * *   **Configuring**: The listener is being configured.
-   * *   **Bounded**: The listener runs as expected.
-   * *   **Unbinding**: The listener is being deleted.
-   * *   **Failed**: The listener is unavailable.
+   * - **Creating**: The listener is being created.
+   * 
+   * - **Configuring**: The listener is being configured.
+   * 
+   * - **Bounded**: The listener is running as expected.
+   * 
+   * - **Unbinding**: The listener is being deleted.
+   * 
+   * - **Failed**: The listener is unavailable.
    * 
    * @example
    * Bounded
@@ -35,7 +39,7 @@ export class DataInstancesValueListenersValue extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The open ports of the NLB instance.
+   * The target port.
    * 
    * @example
    * 8080
@@ -43,7 +47,7 @@ export class DataInstancesValueListenersValue extends $dara.Model {
   targetPort?: number;
   /**
    * @remarks
-   * The server certificates.
+   * The server certificate ID.
    * 
    * @example
    * 123157******

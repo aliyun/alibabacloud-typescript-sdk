@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The app id.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationConfigRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The version id.
+   * The version ID.
    * 
    * @example
    * 0026ff7f-2b57-4127-bdd0-9bf202bb****

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The version of the APM Java agent.
+   */
   apmJavaAgentVersion?: string;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   appCount?: number;
   /**
    * @remarks
-   * The region to which the namespace belongs.
+   * The region of the namespace.
    * 
    * @example
    * cn-shanghai
@@ -46,7 +50,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   jumpServerIp?: string;
   /**
    * @remarks
-   * The ID of the change order.
+   * The release order ID.
    * 
    * @example
    * afedb3c4-63f8-4a3d-aaa3-2c30363f****
@@ -54,10 +58,11 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   lastChangeOrderId?: string;
   /**
    * @remarks
-   * Indicates whether a change order is being executed in the namespace. Valid values:
+   * Indicates whether a release order is running in the namespace. Valid values:
    * 
-   * *   **true**: indicates that a change order is being executed in the namespace.
-   * *   **false**: indicates that no change orders are being executed in the namespace.
+   * - **true**: A release order is running.
+   * 
+   * - **false**: No release order is running.
    * 
    * @example
    * true
@@ -65,31 +70,43 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   lastChangeOrderRunning?: boolean;
   /**
    * @remarks
-   * The status of the latest change order. Valid values:
+   * The status of the last release order. Valid values:
    * 
-   * *   **READY**: The change order is ready.
-   * *   **RUNNING**: The change order is being executed.
-   * *   **SUCCESS**: The change order was executed.
-   * *   **FAIL**: The change order could not be executed.
-   * *   **ABORT**: The change order was terminated.
-   * *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
-   * *   **AUTO_BATCH_WAIT**: The change order is pending execution. SAE will automatically confirm the release batch.
-   * *   **SYSTEM_FAIL**: A system exception occurred.
-   * *   **WAIT_APPROVAL**: The change order is pending approval.
-   * *   **APPROVED**: The change order is approved and is pending execution.
+   * - **READY**: The release order is ready.
+   * 
+   * - **RUNNING**: The release order is running.
+   * 
+   * - **SUCCESS**: The release order was successful.
+   * 
+   * - **FAIL**: The release order failed.
+   * 
+   * - **ABORT**: The release order was aborted.
+   * 
+   * - **WAIT_BATCH_CONFIRM**: The release order is waiting for manual batch confirmation.
+   * 
+   * - **AUTO_BATCH_WAIT**: The release order is in an automatic batch-wait state.
+   * 
+   * - **SYSTEM_FAIL**: A system error occurred.
+   * 
+   * - **WAIT_APPROVAL**: The release order is pending approval.
+   * 
+   * - **APPROVED**: The release order is approved and pending execution.
    * 
    * @example
    * SUCCESS
    */
   lastChangeOrderStatus?: string;
   /**
+   * @remarks
+   * The short-format namespace ID.
+   * 
    * @example
    * test
    */
   nameSpaceShortId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-shangha:test
@@ -97,7 +114,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test
@@ -105,10 +122,11 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * Indicates whether the notification of a change order is expired. Valid values:
+   * Indicates whether the notification for the release order has expired. Valid values:
    * 
-   * *   **true**: indicates that the notification is expired.
-   * *   **false**: indicates that the notification is not expired.
+   * - **true**: The notification has expired.
+   * 
+   * - **false**: The notification has not expired.
    * 
    * @example
    * true
@@ -116,16 +134,38 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   notificationExpired?: boolean;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The configuration for collecting logs to Simple Log Service (SLS).
+   * 
+   * - To use SLS resources that are automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * 
+   * - To use custom SLS resources: `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The configuration includes the following parameters:
+   * 
+   * - **projectName**: The project name in SLS.
+   * 
+   * - **logDir**: The log path.
+   * 
+   * - **logType**: The log type. **stdout** indicates the standard output of the container. Only one stdout entry is allowed. If you omit this parameter, file logs are collected.
+   * 
+   * - **logstoreName**: The Logstore name in SLS.
+   * 
+   * - **logtailName**: The Logtail name in SLS. If you omit this parameter, SAE creates a Logtail.
+   * 
+   * You do not need to set this parameter if the SLS log collection configuration is unchanged for subsequent deployments. To disable log collection, set this parameter to an empty string ("").
+   */
   slsConfigs?: string;
   /**
    * @remarks
-   * The ID of the tenant in the SAE namespace.
+   * The tenant ID of the SAE namespace.
    * 
    * @example
    * 838cad95-973f-48fe-830b-2a8546d7****
@@ -133,7 +173,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * test@aliyun.com
@@ -141,7 +181,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2ze559r1z1bpwqxwp****
@@ -149,7 +189,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The name of the vSwitch.
+   * The vSwitch name.
    * 
    * @example
    * test
@@ -157,7 +197,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   vSwitchName?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-2ze0i263cnn311nvj****
@@ -165,7 +205,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The VPC name.
    * 
    * @example
    * test
@@ -237,10 +277,13 @@ export class DescribeNamespaceResourcesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -248,23 +291,25 @@ export class DescribeNamespaceResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeNamespaceResourcesResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * - A successful request does not return the **ErrorCode** field.
+   * 
+   * - A failed request returns the **ErrorCode** field. For more information, see the list of **error codes** in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The returned message. Valid values:
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -272,7 +317,7 @@ export class DescribeNamespaceResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -280,10 +325,11 @@ export class DescribeNamespaceResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the information about resources in the namespace was queried successfully. Valid values:
+   * Indicates whether the namespace resources were queried successfully.
    * 
-   * *   **true**: indicates that the query was successful.
-   * *   **false**: indicates that the query failed.
+   * - **true**: The query was successful.
+   * 
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -291,7 +337,7 @@ export class DescribeNamespaceResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The trace ID. You can use this ID to query the details of the call.
    * 
    * @example
    * 0a98a02315955564772843261e****

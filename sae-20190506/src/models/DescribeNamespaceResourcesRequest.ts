@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNamespaceResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the namespace. The region ID is not included. We recommend that you use this parameter.
+   * 
    * @example
    * test
    */
   nameSpaceShortId?: string;
   /**
    * @remarks
-   * cn-shanghai:test
+   * The ID of the namespace. The format is `Region ID:Namespace name`. This parameter is retained for backward compatibility. If you specify this parameter, `NameSpaceShortId` is ignored. We recommend that you use `NameSpaceShortId` to simplify the request.
    * 
    * @example
    * cn-shanghai:test

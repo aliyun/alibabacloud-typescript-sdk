@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interface status or POP error code. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: Redirection.
-   * *   **4xx**: Request error.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: Success
+   * 
+   * - **3xx**: Redirection
+   * 
+   * - **4xx**: Client error
+   * 
+   * - **5xx**: Server error
    * 
    * @example
    * 200
@@ -18,18 +21,20 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error code. Valid values:
+   * The error code.
    * 
-   * *   If the request is successful, no **ErrorCode** fields are returned.
-   * *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The returned message.
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -37,7 +42,7 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -45,10 +50,11 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the data is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The policy was deleted.
-   * *   **false**: The policy failed to be deleted.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -56,7 +62,7 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID. You can use the trace ID to query the details of a request.
    * 
    * @example
    * ac1a0b2215622920113732501e****

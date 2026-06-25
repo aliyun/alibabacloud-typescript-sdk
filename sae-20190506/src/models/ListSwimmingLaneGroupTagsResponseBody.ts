@@ -8,15 +8,15 @@ export class ListSwimmingLaneGroupTagsResponseBodyData extends $dara.Model {
    * The metadata.
    * 
    * @example
-   * {"version":"1.0.0","owner":"team-a"}
+   * {\\"tag\\":\\"g1\\",\\"priority\\":100,\\"type\\":\\"tag\\",\\"desc\\":\\"sys-label\\"}
    */
   metadata?: string;
   /**
    * @remarks
-   * The label of the lane.
+   * The swimming lane tag.
    * 
    * @example
-   * {"alicloud.service.tag":"g1"}
+   * g1
    */
   tag?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,15 @@ export class ListSwimmingLaneGroupTagsResponseBodyData extends $dara.Model {
 export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: Redirection.
-   * *   **4xx**: Request error.
-   * *   **5xx**: Server error.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -58,23 +61,25 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Responses.
+   * The data returned.
    */
   data?: ListSwimmingLaneGroupTagsResponseBodyData[];
   /**
    * @remarks
-   * Error code. Valid values:
+   * The error code.
    * 
-   * *   If the request is successful, no **ErrorCode** fields are returned.
-   * *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
+   * - This parameter is not returned if the request succeeds.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The response message.
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -82,7 +87,7 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 30375C38-F4ED-4135-A0AE-5C75DC7F****
@@ -90,10 +95,11 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the data is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request is successful.
-   * *   **false**: Failed.
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -101,7 +107,7 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID that is used to query the details of a request.
    * 
    * @example
    * ac1a0b2215622920113732501e****

@@ -5,7 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * 2
+   * The change order status. Valid values:
+   * 
+   * - **0**: Preparing.
+   * 
+   * - **1**: Executing.
+   * 
+   * - **2**: Succeeded.
+   * 
+   * - **3**: Failed.
+   * 
+   * - **6**: Terminated.
+   * 
+   * - **10**: System Error.
    * 
    * @example
    * 2
@@ -13,7 +25,11 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   coStatus?: string;
   /**
    * @remarks
-   * CoBatchStartApplication
+   * The change order type. Valid values:
+   * 
+   * - **CoBatchStartApplication**: Batch Start Application.
+   * 
+   * - **CoBatchStopApplication**: Batch Stop Application.
    * 
    * @example
    * CoBatchStartApplication
@@ -21,7 +37,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   coType?: string;
   /**
    * @remarks
-   * 1
+   * The current page.
    * 
    * @example
    * 1
@@ -29,7 +45,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * test
+   * A keyword for a fuzzy search of change order descriptions. Change orders whose descriptions contain this **key** are returned.
    * 
    * @example
    * test
@@ -37,7 +53,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * cn-shanghai:test
+   * The namespace ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +63,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * 20
+   * The page size.
    * 
    * @example
    * 20

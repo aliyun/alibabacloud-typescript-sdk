@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppServiceDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
   nacosInstanceId?: string;
   /**
    * @remarks
-   * The ID of the namespace for the MSE Nacos instance.
+   * The ID of the MSE Nacos namespace.
    * 
    * @example
    * public
@@ -31,7 +31,7 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
   nacosNamespaceId?: string;
   /**
    * @remarks
-   * springCloud
+   * The service group. This is a custom parameter.
    * 
    * @example
    * springCloud
@@ -39,7 +39,7 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
   serviceGroup?: string;
   /**
    * @remarks
-   * edas.service.provider
+   * The service name.
    * 
    * @example
    * edas.service.provider
@@ -47,7 +47,11 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * springCloud
+   * The service type. Valid values:
+   * 
+   * - **dubbo**
+   * 
+   * - **springCloud**
    * 
    * @example
    * springCloud
@@ -55,7 +59,7 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * 1.0.0
+   * The service version. This is a custom parameter.
    * 
    * @example
    * 1.0.0

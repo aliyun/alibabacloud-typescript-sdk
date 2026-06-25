@@ -7,8 +7,9 @@ export class DowngradeApplicationApmServiceResponseBodyData extends $dara.Model 
    * @remarks
    * Indicates whether ARMS advanced monitoring is disabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -40,10 +41,13 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code or the error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -57,9 +61,6 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * 
-   * @example
-   * 400
    */
   errorCode?: string;
   /**
@@ -82,8 +83,9 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether ARMS advanced monitoring is disabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    */
   success?: boolean;
   /**

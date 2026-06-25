@@ -5,17 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The route configuration of the gateway.
+   * The configuration of the gateway route.
    * 
-   * >  This parameter is required if the gateway entry of the lane group is Java.
+   * > This parameter is required if the gateway entry application for the swimlane group is a Java application.
    */
   appEntryRuleShrink?: string;
   /**
    * @remarks
-   * Full-link Grayscale Mode:
+   * The end-to-end canary release mode.
    * 
-   * *   0: The request is routed based on the content of the request.
-   * *   1: routing based on percentages
+   * - `0`: content-based routing
+   * 
+   * - `1`: percentage-based routing
    * 
    * @example
    * 0
@@ -23,10 +24,11 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * Lane Status
+   * The status of the swimlane.
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - `true`: enabled
+   * 
+   * - `false`: disabled
    * 
    * @example
    * true
@@ -34,7 +36,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the lane group to which the lane belongs.
+   * The ID of the swimlane group.
    * 
    * @example
    * b2a8a925-477a-eswa-b823-d5e22500****
@@ -42,7 +44,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the lane.
+   * The ID of the swimlane.
    * 
    * @example
    * 13857
@@ -50,7 +52,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the lane.
+   * The name of the swimlane.
    * 
    * @example
    * test
@@ -58,22 +60,22 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   laneName?: string;
   /**
    * @remarks
-   * The tag of the lane.
+   * The tag of the swimlane.
    * 
    * @example
-   * {"alicloud.service.tag":"g1"}
+   * g1
    */
   laneTag?: string;
   /**
    * @remarks
-   * The route configuration of the MSE gateway.
+   * Configuration for the MSE gateway route.
    * 
-   * >  If the **EntryAppType** is set to **apig** or **mse-gw**, it is required.
+   * > This parameter is required if the **EntryAppType** parameter is set to **apig** or **mse-gw**.
    */
   mseGatewayEntryRuleShrink?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:test

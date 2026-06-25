@@ -13,7 +13,7 @@ export class ListJobsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The number of the page to return. The parameter value is a positive integer that is greater than or equal to 1.
+   * The page number. The value starts from 1.
    * 
    * @example
    * 1
@@ -21,10 +21,11 @@ export class ListJobsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The dimension by which applications are filtered. Valid values:
+   * The dimension by which to filter job templates. Valid values:
    * 
-   * *   **appName**: Applications are filtered by job template name.
-   * *   **appIds**: Applications are filtered by job template ID.
+   * - **appName**: The name of the job template.
+   * 
+   * - **appIds**: The ID of the job template.
    * 
    * @example
    * appName
@@ -32,7 +33,7 @@ export class ListJobsRequest extends $dara.Model {
   fieldType?: string;
   /**
    * @remarks
-   * Enter the name and ID of the job template.
+   * The name or ID of the target job template. This value corresponds to the dimension specified by **FieldType**.
    * 
    * @example
    * demo-app
@@ -48,10 +49,11 @@ export class ListJobsRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * Specifies how applications are sorted. Valid values:
+   * The sorting method for the job templates. Valid values:
    * 
-   * *   **running**: The applications are sorted based on the number of running instances.
-   * *   **instances**: The applications are sorted based on the number of destination instances.
+   * - **running**: Sorts by the number of running instances.
+   * 
+   * - **instances**: Sorts by the number of destination instances.
    * 
    * @example
    * running
@@ -59,7 +61,7 @@ export class ListJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid value: 0 to 200.
+   * The number of entries per page. Valid values: 0 to 200.
    * 
    * @example
    * 20
@@ -67,10 +69,11 @@ export class ListJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to sort the field names that are passed by **OrderBy** in ascending order. Valid values:
+   * Specifies whether to sort the results in ascending or descending order based on the field specified by the **OrderBy** parameter. Valid values:
    * 
-   * *   **true**: in ascending order
-   * *   **false**: in descending order
+   * - **true**: ascending order.
+   * 
+   * - **false**: descending order.
    * 
    * @example
    * true
@@ -78,10 +81,11 @@ export class ListJobsRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * The tags that are displayed in a JSON string. Valid values:
+   * A list of tags. This is a JSON string. The value consists of the following parts:
    * 
-   * *   **key**: the tag key
-   * *   **value**: the tag value
+   * - **key**: The tag key.
+   * 
+   * - **value**: The tag value.
    * 
    * @example
    * [{"key":"key","value":"value"}]
@@ -89,7 +93,7 @@ export class ListJobsRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * Set the value to `job`.
+   * The workload. Set the value to `job`.
    * 
    * @example
    * job

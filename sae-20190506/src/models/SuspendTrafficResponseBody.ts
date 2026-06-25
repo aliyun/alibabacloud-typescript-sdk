@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuspendTrafficResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description of the returned code.
+   * A detailed description of the result.
    * 
    * @example
    * success
@@ -13,9 +13,11 @@ export class SuspendTrafficResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Indicates whether the traffic was removed. Valid values:
-   * *   **true**: The traffic was removed.
-   * *   **false**: The traffic failed to be removed.
+   * Indicates whether the traffic was successfully removed. Valid values:
+   * 
+   * - **true**: The traffic was removed.
+   * 
+   * - **false**: The traffic was not removed.
    * 
    * @example
    * True
@@ -49,10 +51,13 @@ export class SuspendTrafficResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client-side error occurred.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -65,21 +70,16 @@ export class SuspendTrafficResponseBody extends $dara.Model {
   data?: SuspendTrafficResponseBodyData;
   /**
    * @remarks
-   * The error code. 
-   * 
-   * - The **ErrorCode** parameter is not returned when the request succeeds.
-   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
-   * 
-   * @example
-   * Null
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. Valid values:
+   * The response message.
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -95,10 +95,7 @@ export class SuspendTrafficResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the traffic was removed. Valid values: 
-   * 
-   * - **true**: The traffic was removed.
-   * - **false**: The traffic failed to be removed.
+   * Indicates whether the request was successful. Valid values:
    * 
    * @example
    * true

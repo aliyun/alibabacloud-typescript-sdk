@@ -11,10 +11,14 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The average duration of a change order, in milliseconds.
+   */
   avgTimeCostMs?: number;
   /**
    * @remarks
-   * The number of abnormal change orders.
+   * The number of failed change orders.
    * 
    * @example
    * 1
@@ -22,12 +26,16 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
   error?: number;
   /**
    * @remarks
-   * The percentage of change failures.
+   * The percentage of failed change orders.
    * 
    * @example
    * 0.25
    */
   errorPercent?: number;
+  /**
+   * @remarks
+   * The maximum duration, in milliseconds.
+   */
   maxTimeCostMs?: number;
   /**
    * @remarks
@@ -37,6 +45,10 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The optimization suggestions.
+   */
   optimizeSuggestions?: string;
   /**
    * @remarks
@@ -46,6 +58,10 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The average task duration, in milliseconds.
+   */
   taskTimeCostMsAvg?: string;
   /**
    * @remarks
@@ -97,12 +113,15 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
 export class GetChangeOrderMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The following limits are imposed on the ID:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client-side error occurred.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -110,15 +129,16 @@ export class GetChangeOrderMetricResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of applications.
+   * The list of application information.
    */
   data?: GetChangeOrderMetricResponseBodyData[];
   /**
    * @remarks
-   * The additional information that is returned. The following limits are imposed on the ID:
+   * The response message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns an error code if the request fails.
    * 
    * @example
    * success
@@ -129,15 +149,16 @@ export class GetChangeOrderMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   * 3B763F98-0BA2-5C23-B6B8-558568D2****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the microservice list was obtained. The following limits are imposed on the ID:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The namespaces were obtained.
-   * *   **false**: no
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

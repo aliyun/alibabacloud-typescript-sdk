@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleApplicationVerticallyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ticked ID of updates.
+   * The ID of the change order.
    * 
    * @example
    * ffd8cd45-2b5f-415d-b4d0-1003e80b****
@@ -35,12 +35,15 @@ export class RescaleApplicationVerticallyResponseBodyData extends $dara.Model {
 export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -48,23 +51,24 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data returned.
+   * The returned data.
    */
   data?: RescaleApplicationVerticallyResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
    * 
    * @example
-   * Null
+   * 空
    */
   errorCode?: string;
   /**
    * @remarks
-   * Messages returned for additional information.
+   * The returned message.
    * 
    * @example
    * success
@@ -72,7 +76,7 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AB521DBB-FA78-42E6-803F-A862EA4F****
@@ -80,10 +84,11 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the update of instance specifications was successful. Valid values:
+   * Indicates whether the instance type was successfully changed.
    * 
-   * *   **true**: Updated.
-   * *   **false**: Failed to update.
+   * - **true**: The change was successful.
+   * 
+   * - **false**: The change failed.
    * 
    * @example
    * true
@@ -91,7 +96,7 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Trace ID for request information.
+   * The trace ID of the request. You can use this ID to query the details of the request.
    * 
    * @example
    * 0bc3b6f315637273629117900d****

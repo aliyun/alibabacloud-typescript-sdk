@@ -37,10 +37,13 @@ export class CreateSecretResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code or the error code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -55,11 +58,9 @@ export class CreateSecretResponseBody extends $dara.Model {
    * @remarks
    * The status code. Value values:
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - If the request was successful, **ErrorCode** is not returned.
    * 
-   * @example
-   * 400
+   * - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
    */
   errorCode?: string;
   /**
@@ -82,8 +83,9 @@ export class CreateSecretResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the Secret was created. Valid values:
    * 
-   * *   **true**: The ConfigMap was created.
-   * *   **false**: The ConfigMap failed to be created.
+   * - **true**: The ConfigMap was created.
+   * 
+   * - **false**: The ConfigMap failed to be created.
    * 
    * @example
    * true

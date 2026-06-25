@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSecretResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Secret instance.
+   * 
    * @example
    * 16
    */
@@ -31,28 +34,67 @@ export class UpdateSecretResponseBodyData extends $dara.Model {
 
 export class UpdateSecretResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status of the API call or a POP error code. Valid values:
+   * 
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpdateSecretResponseBodyData;
+  /**
+   * @remarks
+   * The error code. The following list describes the values:
+   * 
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * Additional information about the call result.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the Secret instance was updated. Valid values:
+   * 
+   * - **true**: The instance was updated.
+   * 
+   * - **false**: The update failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the call chain. You can use this ID to query the details of a call.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */

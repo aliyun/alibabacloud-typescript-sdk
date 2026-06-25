@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -18,18 +21,20 @@ export class UpdateAppModeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error code. Valid values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes**.
+   * - This parameter is not returned for successful requests.
+   * 
+   * - It is returned for failed requests. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. The following limits are imposed on the ID:
+   * The additional information.
    * 
-   * *   The request is normal. **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -37,7 +42,7 @@ export class UpdateAppModeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -45,7 +50,7 @@ export class UpdateAppModeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application was created. true and false. false
+   * Indicates whether the request succeeded. Valid values: **true** and **false**.
    * 
    * @example
    * true
@@ -53,7 +58,7 @@ export class UpdateAppModeResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID for querying request details.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * f16b4000-9058-4c22-a49d-49a28f0b****
@@ -13,7 +13,7 @@ export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test-app
@@ -45,7 +45,7 @@ export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
 export class DescribeConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ConfigMap.
+   * The ID of the ConfigMap instance.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   configMapId?: number;
   /**
    * @remarks
-   * The time when the ConfigMap was created.
+   * The time when the instance was created.
    * 
    * @example
    * 1593746835111
@@ -61,11 +61,11 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The key-value pairs of the ConfigMap. Format:
+   * The key-value pairs of the ConfigMap. The data is in the following format:
    * 
    * {"k1":"v1", "k2":"v2"}
    * 
-   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
+   * For more information about configuration items, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
    * 
    * @example
    * {"k1":"v1","k2":"v2"}
@@ -73,7 +73,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The description of the ConfigMap.
+   * The description of the ConfigMap instance.
    * 
    * @example
    * test-desc
@@ -81,7 +81,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the ConfigMap.
+   * The name of the ConfigMap instance.
    * 
    * @example
    * test-configmap
@@ -89,7 +89,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-hangzhou
@@ -97,12 +97,12 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The application that is associated with the ConfigMap.
+   * The associated applications.
    */
   relateApps?: DescribeConfigMapResponseBodyDataRelateApps[];
   /**
    * @remarks
-   * The time when the ConfigMap was updated.
+   * The time when the instance was last updated.
    * 
    * @example
    * 1593747274195
@@ -154,10 +154,13 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: success
+   * 
+   * - **3xx**: redirection
+   * 
+   * - **4xx**: client error
+   * 
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -165,23 +168,25 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: DescribeConfigMapResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code returned if the request fails.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - This parameter is empty if the request succeeds.
+   * 
+   * - This parameter contains an error code if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The returned message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - The value is **success** if the request succeeds.
+   * 
+   * - The value is an error code if the request fails.
    * 
    * @example
    * success
@@ -197,10 +202,11 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the details of the ConfigMap were queried. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The details were queried.
-   * *   **false**: The details failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -208,7 +214,7 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID. You can use it to locate the call details.
    * 
    * @example
    * 0a98a02315955564772843261e****

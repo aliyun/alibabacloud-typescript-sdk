@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 

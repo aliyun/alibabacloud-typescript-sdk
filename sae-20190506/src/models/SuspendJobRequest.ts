@@ -17,8 +17,9 @@ export class SuspendJobRequest extends $dara.Model {
    * @remarks
    * Start or suspend a job template.
    * 
-   * *   true: Start a job template.
-   * *   false: Suspend a job template.
+   * - true: Start a job template.
+   * 
+   * - false: Suspend a job template.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class ResumeTrafficRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID. To specify multiple instances, separate their IDs with commas.
    * 
    * @example
    * c-668727a8-17d86664-41e5bb******,c-668727a8-17d86664-7e4958******

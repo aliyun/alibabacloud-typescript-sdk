@@ -21,7 +21,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   parallelCount?: number;
   /**
    * @remarks
-   * The ID of the batch.
+   * The batch ID.
    * 
    * @example
    * 0e4acf82-c9b1-4c1e-ac28-55776338****
@@ -29,7 +29,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The name of the batch.
+   * The batch name.
    * 
    * @example
    * Batch 1 Change
@@ -37,7 +37,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The time when the batch processing started.
+   * The start time of the batch.
    * 
    * @example
    * 1562831689704
@@ -47,16 +47,25 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
    * @remarks
    * The status of the batch. Valid values:
    * 
-   * *   **0**: The batch is being prepared.
-   * *   **1**: The batch is being processed.
-   * *   **2**: The batch was processed.
-   * *   **3**: The batch failed to be processed.
-   * *   **6**: The batch processing was terminated.
-   * *   **8**: The execution process is pending. You must manually release the batch.
-   * *   **9**: The execution process is pending. SAE will automatically release the batch.
-   * *   **10**: The batch failed to be processed due to a system exception.
-   * *   **11**: The batch is pending approval.
-   * *   **12**: The batch is approved and is pending execution.
+   * - **0**: Preparing
+   * 
+   * - **1**: In progress
+   * 
+   * - **2**: Succeeded
+   * 
+   * - **3**: Failed
+   * 
+   * - **6**: Terminated
+   * 
+   * - **8**: Awaiting manual confirmation
+   * 
+   * - **9**: Awaiting automatic confirmation
+   * 
+   * - **10**: Failed due to a system error
+   * 
+   * - **11**: Pending approval
+   * 
+   * - **12**: Approved and pending execution
    * 
    * @example
    * 2
@@ -64,7 +73,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the batch information was last modified.
+   * The time when the batch was last updated.
    * 
    * @example
    * 1562847178007
@@ -106,7 +115,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
 export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * bbbbb-3fd370b2-3646-4ba6-91f9-9423e19ab0cd-*****
@@ -114,17 +123,25 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * app-test
    */
   appName?: string;
+  /**
+   * @remarks
+   * Indicates whether gray tag routing is enabled.
+   */
   applicationEnableGreyTagRoute?: boolean;
+  /**
+   * @remarks
+   * The update strategy for the application.
+   */
   applicationUpdateStrategy?: string;
   /**
    * @remarks
-   * The approval ID of the change order.
+   * The approval ID for the operation.
    * 
    * @example
    * 67de0b39-a9d4-4c09-a170-cf438208****
@@ -132,10 +149,11 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * Indicates whether SAE automatically releases the batches. Valid values:
+   * Indicates whether to automatically release the change in batches. Valid values:
    * 
-   * *   **true**: SAE automatically releases the batches.
-   * *   **false**: SAE does not automatically release the batches.
+   * - **true**: The change is automatically released.
+   * 
+   * - **false**: The change is not automatically released.
    * 
    * @example
    * true
@@ -143,7 +161,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   auto?: boolean;
   /**
    * @remarks
-   * The number of release batches.
+   * The number of batches.
    * 
    * @example
    * 1
@@ -151,10 +169,11 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   batchCount?: number;
   /**
    * @remarks
-   * The processing method for the batches. Valid values:
+   * The release mode for batches. Valid values:
    * 
-   * *   **auto**: SAE automatically releases the batches.
-   * *   **Manual**: You must manually release the batches.
+   * - **auto**: Automatic release.
+   * 
+   * - **manual**: Manual release.
    * 
    * @example
    * auto
@@ -162,7 +181,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   batchType?: string;
   /**
    * @remarks
-   * The interval between batches in a phased release. SAE automatically releases batches at the specified interval. Unit: minutes.
+   * The wait time, in minutes, between batches in an automatic release.
    * 
    * @example
    * 0
@@ -170,7 +189,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   batchWaitTime?: number;
   /**
    * @remarks
-   * The ID of the change order.
+   * The change order ID.
    * 
    * @example
    * 765fa5c0-9ebb-4bb4-b383-1f885447**
@@ -178,33 +197,55 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The change type, which corresponds to the **CoTypeCode** parameter.
+   * The change type. This parameter is a description of `CoTypeCode`.
+   * 
+   * @example
+   * Batch Restart Instances
    */
   coType?: string;
   /**
    * @remarks
-   * The code of the change type. Valid values:
+   * The change type code. Valid values:
    * 
-   * *   **CoBindSlb**: associates a Sever Load Balancer (SLB) instance with the application.
-   * *   **CoUnbindSlb**: disassociates the SLB instance from the application.
-   * *   **CoCreateApp**: creates the application.
-   * *   **CoDeleteApp**: deletes the application.
-   * *   **CoDeploy**: deploys the application.
-   * *   **CoRestartApplication**: restarts the application.
-   * *   **CoRollback**: rolls back the application.
-   * *   **CoScaleIn**: scales in the application.
-   * *   **CoScaleOut**: scales out the application.
-   * *   **CoStart**: starts the application.
-   * *   **CoStop**: stops the application.
-   * *   **CoRescaleApplicationVertically**: modifies the instance type.
-   * *   **CoDeployHistroy**: rolls back the application to a historical version.
-   * *   **CoBindNas**: associates a NAS file system with the application.
-   * *   **CoUnbindNas**: disassociates the NAS file system from the application.
-   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
-   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
-   * *   **CoRestartInstances**: restarts the instances.
-   * *   **CoDeleteInstances**: deletes the instances.
-   * *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
+   * - **CoBindSlb**: Binds an SLB instance.
+   * 
+   * - **CoUnbindSlb**: Unbinds an SLB instance.
+   * 
+   * - **CoCreateApp**: Creates an application.
+   * 
+   * - **CoDeleteApp**: Deletes an application.
+   * 
+   * - **CoDeploy**: Deploys an application.
+   * 
+   * - **CoRestartApplication**: Restarts an application.
+   * 
+   * - **CoRollback**: Rolls back an application.
+   * 
+   * - **CoScaleIn**: Scales in an application.
+   * 
+   * - **CoScaleOut**: Scales out an application.
+   * 
+   * - **CoStart**: Starts an application.
+   * 
+   * - **CoStop**: Stops an application.
+   * 
+   * - **CoRescaleApplicationVertically**: Modifies instance specifications.
+   * 
+   * - **CoDeployHistroy**: Rolls back to a historical version.
+   * 
+   * - **CoBindNas**: Binds a NAS file system.
+   * 
+   * - **CoUnbindNas**: Unbinds a NAS file system.
+   * 
+   * - **CoBatchStartApplication**: Starts applications in batches.
+   * 
+   * - **CoBatchStopApplication**: Stops applications in batches.
+   * 
+   * - **CoRestartInstances**: Restarts instances.
+   * 
+   * - **CoDeleteInstances**: Deletes instances.
+   * 
+   * - **CoScaleInAppWithInstances**: Scales in an application by specifying instances.
    * 
    * @example
    * CoRestartInstances
@@ -251,16 +292,25 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the change order. Valid values:
    * 
-   * *   **0**: The change order is being prepared.
-   * *   **1**: The change order is being executed.
-   * *   **2**: The change order was executed.
-   * *   **3**: The change order failed to be executed.
-   * *   **6**: The change order was terminated.
-   * *   **8**: The execution process is pending. You must manually release the batches.
-   * *   **9**: The execution process is pending. SAE will automatically release the batches.
-   * *   **10**: The execution failed due to a system exception.
-   * *   **11**: The change order is pending approval.
-   * *   **12**: The change order is approved and is pending execution.
+   * - **0**: Preparing
+   * 
+   * - **1**: In progress
+   * 
+   * - **2**: Succeeded
+   * 
+   * - **3**: Failed
+   * 
+   * - **6**: Terminated
+   * 
+   * - **8**: Awaiting manual confirmation
+   * 
+   * - **9**: Awaiting automatic confirmation
+   * 
+   * - **10**: Failed due to a system error
+   * 
+   * - **11**: Pending approval
+   * 
+   * - **12**: Approved and pending execution
    * 
    * @example
    * 2
@@ -268,10 +318,11 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The substatus of the change order. This parameter indicates whether an exception occurred while the change order was being executed. Valid values:
+   * The substatus of the release order. This parameter indicates whether an exception occurred during the release. Valid values:
    * 
-   * *   **0**: No exception occurred.
-   * *   **1**: An exception occurred. For example, if an error occurs during a phased release, you must manually roll back the application. In this case, the change order cannot be completed, so the Status parameter is still displayed as "1", which indicates that the change order is being executed. You can check the value of this parameter to determine whether an exception occurs.
+   * - **0**: Normal.
+   * 
+   * - **1**: Abnormal. For example, if a batch release fails, you must manually perform a rollback, leaving the release order in the In Progress state.
    * 
    * @example
    * 0
@@ -279,10 +330,11 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   subStatus?: number;
   /**
    * @remarks
-   * Indicates whether the application can be rolled back. Valid values:
+   * Indicates whether rollback is supported. Valid values:
    * 
-   * *   **true**: The application can be rolled back.
-   * *   **false**: The application cannot be rolled back.
+   * - **true**: Rollback is supported.
+   * 
+   * - **false**: Rollback is not supported.
    * 
    * @example
    * false
@@ -353,12 +405,15 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
 export class DescribeChangeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code or POP error code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client-side error occurred.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -371,15 +426,16 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   data?: DescribeChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -395,10 +451,11 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the information of the change order was queried. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The information was queried.
-   * *   **false**: The information failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -406,7 +463,7 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID of the request. This ID is used for troubleshooting.
    * 
    * @example
    * 0a98a02315955564772843261e****

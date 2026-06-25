@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigMapRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ConfigMap that you want to delete. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID of a ConfigMap.
+   * The ID of the ConfigMap instance to delete. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

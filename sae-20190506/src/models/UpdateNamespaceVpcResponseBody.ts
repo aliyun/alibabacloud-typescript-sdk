@@ -5,10 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNamespaceVpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the VPC information was updated. Valid values:
+   * The HTTP status code. The value can be a POP error code. Valid values:
    * 
-   * *   **true**: indicates that the information was updated.
-   * *   **false**: indicates that the information could not be updated.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -16,17 +21,20 @@ export class UpdateNamespaceVpcResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code.
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The returned message.
+   * 
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -34,26 +42,27 @@ export class UpdateNamespaceVpcResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the VPC was updated. Valid values:
+   * 
+   * - **true**: The VPC was updated.
+   * 
+   * - **false**: The VPC failed to be updated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The trace ID. You can use it to query the details of a call.
    * 
    * @example
    * 0a98a02315955564772843261e****

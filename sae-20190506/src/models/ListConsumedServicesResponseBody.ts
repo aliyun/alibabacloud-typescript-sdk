@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumedServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * b2a8a925-477a-4ed7-b825-d5e22500****
@@ -13,7 +13,7 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * This parameter is reserved.
+   * A reserved field.
    * 
    * @example
    * {}
@@ -21,12 +21,12 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   group2Ip?: string;
   /**
    * @remarks
-   * The service groups that corresponds to the consumed services.
+   * The groups to which the consumed services belong.
    */
   groups?: string[];
   /**
    * @remarks
-   * The addresses where the services can be subscribed to.
+   * The service subscription addresses.
    */
   ips?: string[];
   /**
@@ -95,12 +95,15 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
 export class ListConsumedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -108,23 +111,25 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the microservices.
+   * The information about the microservices.
    */
   data?: ListConsumedServicesResponseBodyData[];
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The returned message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -140,10 +145,11 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of microservices was queried. Valid values:
+   * Indicates whether the list of subscribed microservices was retrieved.
    * 
-   * *   **true**: The list was queried.
-   * *   **false**: The list failed to be queried.
+   * - **true**: The list was retrieved.
+   * 
+   * - **false**: The list failed to be retrieved.
    * 
    * @example
    * true
@@ -151,7 +157,7 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The ID of the request trace. Use this ID to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -15,8 +15,9 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
    * @remarks
    * Indicates whether to execute the subsequent tasks when the task failed. Valid values:
    * 
-   * *   **0**: The subsequent tasks cannot be executed.
-   * *   **1**: The subsequent tasks can be executed.
+   * - **0**: The subsequent tasks cannot be executed.
+   * 
+   * - **1**: The subsequent tasks can be executed.
    * 
    * @example
    * 0
@@ -42,8 +43,9 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
    * @remarks
    * Indicates whether a running task can be manually skipped. Valid values:
    * 
-   * *   **true**: The running task can be skipped.
-   * *   **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
+   * - **true**: The running task can be skipped.
+   * 
+   * - **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
    * 
    * @example
    * false
@@ -61,12 +63,17 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
    * @remarks
    * The task status. Valid values:
    * 
-   * *   **0**: The task is prepared for execution.
-   * *   **1**: The task is being executed.
-   * *   **2**: successful
-   * *   **3**: The task could not be executed.
-   * *   **5**: The task is pending retry.
-   * *   **6**: The task was terminated.
+   * - **0**: The task is prepared for execution.
+   * 
+   * - **1**: The task is being executed.
+   * 
+   * - **2**: successful
+   * 
+   * - **3**: The task could not be executed.
+   * 
+   * - **5**: The task is pending retry.
+   * 
+   * - **6**: The task was terminated.
    * 
    * @example
    * 2
@@ -85,7 +92,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
    * The name of the task.
    * 
    * @example
-   * Environment initialization
+   * Initialize environment
    */
   taskName?: string;
   static names(): { [key: string]: string } {
@@ -130,8 +137,9 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
    * @remarks
    * The execution type of the stage. Valid values:
    * 
-   * *   **0**: in sequence.
-   * *   **1**: in parallel.
+   * - **0**: in sequence.
+   * 
+   * - **1**: in parallel.
    * 
    * @example
    * 0
@@ -150,18 +158,22 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
    * The name of the stage.
    * 
    * @example
-   * Deploy an application
+   * Deployment application
    */
   stageName?: string;
   /**
    * @remarks
    * The status of the batch processing stage. Valid values:
    * 
-   * *   **0**: The batch is prepared for this processing stage.
-   * *   **1**: The task is being executed.
-   * *   **2**: successful
-   * *   **3**: The processing failed in this stage.
-   * *   **6**: The processing stage was terminated.
+   * - **0**: The batch is prepared for this processing stage.
+   * 
+   * - **1**: The task is being executed.
+   * 
+   * - **2**: successful
+   * 
+   * - **3**: The processing failed in this stage.
+   * 
+   * - **6**: The processing stage was terminated.
    * 
    * @example
    * 2
@@ -210,7 +222,7 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
    * The status of the change order for the batch.
    * 
    * @example
-   * Successful
+   * Execution succeeded
    */
   coStatus?: string;
   /**
@@ -242,19 +254,24 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
    * The name of the batch.
    * 
    * @example
-   * First batch
+   * Batch 1 change
    */
   pipelineName?: string;
   /**
    * @remarks
    * The batch status. Valid values:
    * 
-   * *   **0**: The batch is prepared for processing.
-   * *   **1**: The task is being executed.
-   * *   **2**: successful
-   * *   **3**: The processing failed in this stage.
-   * *   **6**: The batch processing was terminated.
-   * *   **10**: The batch could not be processed due to a system exception.
+   * - **0**: The batch is prepared for processing.
+   * 
+   * - **1**: The task is being executed.
+   * 
+   * - **2**: successful
+   * 
+   * - **3**: The processing failed in this stage.
+   * 
+   * - **6**: The batch processing was terminated.
+   * 
+   * - **10**: The batch could not be processed due to a system exception.
    * 
    * @example
    * 2
@@ -264,8 +281,9 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether to start processing the next batch. Valid values:
    * 
-   * *   **false**: indicates that the next batch cannot be processed yet.
-   * *   **true**: indicates that the next batch can be processed now.
+   * - **false**: indicates that the next batch cannot be processed yet.
+   * 
+   * - **true**: indicates that the next batch can be processed now.
    * 
    * @example
    * false
@@ -319,10 +337,13 @@ export class DescribePipelineResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -337,11 +358,9 @@ export class DescribePipelineResponseBody extends $dara.Model {
    * @remarks
    * The error code returned if the request failed. Take note of the following rules:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - The **ErrorCode** parameter is not returned if the request succeeds.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
    */
   errorCode?: string;
   /**
@@ -364,8 +383,9 @@ export class DescribePipelineResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the batch information was obtained. Valid values:
    * 
-   * *   **true**: The information was queried.
-   * *   **false**: The image failed to be found.
+   * - **true**: The information was queried.
+   * 
+   * - **false**: The image failed to be found.
    * 
    * @example
    * true

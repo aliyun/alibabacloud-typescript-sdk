@@ -3,19 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeConfigurationPriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The BestEffort policy. Valid values:
+   * 
+   * - besteffort: BestEffort
+   * 
+   * - try-besteffort: BestEffort preferred
+   * 
+   * - default: default
+   * 
+   * @example
+   * default
+   */
   bestEffortType?: string;
   /**
    * @remarks
-   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * The number of CPU cores required for each instance. Unit: millicores. This value cannot be 0. Only the following defined specifications are supported:
    * 
-   * *   **500**
-   * *   **1000**
-   * *   **2000**
-   * *   **4000**
-   * *   **8000**
-   * *   **12000**
-   * *   **16000**
-   * *   **32000**
+   * - **500**
+   * 
+   * - **1000**
+   * 
+   * - **2000**
+   * 
+   * - **4000**
+   * 
+   * - **8000**
+   * 
+   * - **12000**
+   * 
+   * - **16000**
+   * 
+   * - **32000**
    * 
    * This parameter is required.
    * 
@@ -27,18 +47,27 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
   gpuPpu810e?: string;
   /**
    * @remarks
-   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * The amount of memory required for each instance. Unit: MB. This value cannot be 0. The memory size must correspond to the CPU specification. Only the following defined specifications are supported:
    * 
-   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
-   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
-   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
-   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8,000.
-   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
-   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
-   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
-   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * - **1024**: Corresponds to 500 millicores and 1,000 millicores of CPU.
+   * 
+   * - **2048**: Corresponds to 500, 1,000, and 2,000 millicores of CPU.
+   * 
+   * - **4096**: Corresponds to 1,000, 2,000, and 4,000 millicores of CPU.
+   * 
+   * - **8192**: Corresponds to 2,000, 4,000, and 8,000 millicores of CPU.
+   * 
+   * - **12288**: Corresponds to 12,000 millicores of CPU.
+   * 
+   * - **16384**: Corresponds to 4,000, 8,000, and 16,000 millicores of CPU.
+   * 
+   * - **24576**: Corresponds to 12,000 millicores of CPU.
+   * 
+   * - **32768**: Corresponds to 16,000 millicores of CPU.
+   * 
+   * - **65536**: Corresponds to 8,000, 16,000, and 32,000 millicores of CPU.
+   * 
+   * - **131072**: Corresponds to 32,000 millicores of CPU.
    * 
    * This parameter is required.
    * 
@@ -46,14 +75,35 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
    * 4096
    */
   memory?: number;
+  /**
+   * @remarks
+   * The application version. Valid values:
+   * 
+   * - lite: Lightweight Edition
+   * 
+   * - std: Standard Edition
+   * 
+   * - pro: Professional Edition
+   * 
+   * @example
+   * std
+   */
   newSaeVersion?: string;
+  /**
+   * @remarks
+   * The resource type. Valid values: NULL (default), default, and haiguang (Haiguang server).
+   * 
+   * @example
+   * default
+   */
   resourceType?: string;
   /**
    * @remarks
-   * Scenarios:
+   * The application scenario. Valid values:
    * 
-   * *   Web
-   * *   micro_service
+   * - web
+   * 
+   * - micro_service
    * 
    * @example
    * Web

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
+   * 
+   * @example
+   * Test
    */
   appDescription?: string;
   /**
@@ -26,7 +29,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the basic application.
+   * The base application ID.
    * 
    * @example
    * ee99cce6-1c8e-4bfa-96c3-3e2fa9******
@@ -34,16 +37,23 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   baseAppId?: string;
   /**
    * @remarks
-   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * The CPU required for each instance, in millicores. This value cannot be 0. Valid values:
    * 
-   * *   **500**
-   * *   **1000**
-   * *   **2000**
-   * *   **4000**
-   * *   **8000**
-   * *   **12000**
-   * *   **16000**
-   * *   **32000**
+   * - **500**
+   * 
+   * - **1000**
+   * 
+   * - **2000**
+   * 
+   * - **4000**
+   * 
+   * - **8000**
+   * 
+   * - **12000**
+   * 
+   * - **16000**
+   * 
+   * - **32000**
    * 
    * @example
    * 2000
@@ -51,27 +61,40 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The number of application instances.
+   * The total number of application instances.
    * 
    * @example
-   * i-8ps2o182102o1jv05bys
+   * 6
    */
   instances?: number;
+  /**
+   * @remarks
+   * Indicates whether the application is stateful.
+   */
   isStateful?: boolean;
   /**
    * @remarks
-   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * The memory required for each instance, in MB. This value cannot be 0. The memory specification is coupled with the CPU specification. The following configurations are supported:
    * 
-   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
-   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
-   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
-   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
-   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
-   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
-   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
-   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
-   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * - **1024**: corresponds to 500 or 1,000 millicores of CPU.
+   * 
+   * - **2048**: corresponds to 500, 1,000, or 2,000 millicores of CPU.
+   * 
+   * - **4096**: corresponds to 1,000, 2,000, or 4,000 millicores of CPU.
+   * 
+   * - **8192**: corresponds to 2,000, 4,000, or 8,000 millicores of CPU.
+   * 
+   * - **12288**: corresponds to 12,000 millicores of CPU.
+   * 
+   * - **16384**: corresponds to 4,000, 8,000, or 16,000 millicores of CPU.
+   * 
+   * - **24576**: corresponds to 12,000 millicores of CPU.
+   * 
+   * - **32768**: corresponds to 16,000 millicores of CPU.
+   * 
+   * - **65536**: corresponds to 8,000, 16,000, or 32,000 millicores of CPU.
+   * 
+   * - **131072**: corresponds to 32,000 millicores of CPU.
    * 
    * @example
    * 4096
@@ -79,10 +102,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   mem?: number;
   /**
    * @remarks
-   * Specifies whether to enable WebAssembly Filter. Valid values:
+   * Indicates whether WebAssemblyFilter is enabled. Valid values:
    * 
-   * *   true: enables this parameter.
-   * *   false: disables this parameter.
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -90,7 +114,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   mseEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the namespace to which the MSE instance belongs.
+   * The namespace ID of the MSE instance.
    * 
    * @example
    * test
@@ -106,11 +130,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The programming language that is used to create the application. Valid values:
+   * The programming language of the application. Valid values:
    * 
-   * *   **java** :Java.
-   * *   **php**: PHP.
-   * *   **other**: other programming languages, such as Python, C++, Go, .NET, and Node.js
+   * - **java**: Java.
+   * 
+   * - **php**: PHP.
+   * 
+   * - **other**: other languages, such as Python, C++, Go, .NET, and Node.js.
    * 
    * @example
    * java
@@ -118,18 +144,19 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   programmingLanguage?: string;
   /**
    * @remarks
-   * The number of application instances that are running.
+   * The number of running instances.
    * 
    * @example
-   * 1
+   * 6
    */
   runningInstances?: number;
   /**
    * @remarks
    * Indicates whether the auto scaling policy is enabled. Valid values:
    * 
-   * *   **true**: The auto scaling policy is enabled.
-   * *   **false**: The auto scaling policy is disabled.
+   * - **true**: The policy is enabled.
+   * 
+   * - **false**: The policy is disabled.
    * 
    * @example
    * true
@@ -139,9 +166,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * @remarks
    * The type of the auto scaling policy. Valid values:
    * 
-   * *   **timing**: a scheduled auto scaling policy.
-   * *   **metric**: a metric-based auto scaling policy.
-   * *   **mix**: a hybrid auto scaling policy.
+   * - **timing**: scheduled auto scaling.
+   * 
+   * - **metric**: metric-based auto scaling.
+   * 
+   * - **mix**: hybrid auto scaling.
    * 
    * @example
    * timing
@@ -204,10 +233,11 @@ export class GetApplicationResponseBody extends $dara.Model {
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * The additional information returned. Valid values:
+   * The response message.
    * 
-   * *   When a request is successful, **success**is returned.
-   * *   An error code is returned when a request failed.
+   * - If the request is successful, the value is **success**.
+   * 
+   * - If the request fails, the value is a specific error code.
    * 
    * @example
    * success
@@ -215,7 +245,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
@@ -223,7 +253,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query the details of the request.
    * 
    * @example
    * ac1a0b2215622920113732501e****

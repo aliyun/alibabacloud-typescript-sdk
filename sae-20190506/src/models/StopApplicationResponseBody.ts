@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * The ID of the change order.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -39,29 +34,42 @@ export class StopApplicationResponseBodyData extends $dara.Model {
 
 export class StopApplicationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status of the API call or a POP error code. Valid values:
+   * 
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   * The returned data.
    */
   data?: StopApplicationResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the specified application is stopped. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned message. Valid values:
+   * 
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -69,20 +77,27 @@ export class StopApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the application was stopped. Valid values:
+   * 
+   * - **true**: The application was stopped.
+   * 
+   * - **false**: The application failed to be stopped.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The ID of the change order.
+   * The ID of the call chain. Use this ID to query detailed information about the call.
    * 
    * @example
    * 0bc3b6e215637275918588187d****

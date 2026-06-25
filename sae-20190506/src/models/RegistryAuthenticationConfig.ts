@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegistryAuthenticationConfig extends $dara.Model {
   /**
+   * @remarks
+   * The password for the image repository.
+   * 
    * @example
    * abc***
    */
   password?: string;
   /**
+   * @remarks
+   * The username for the image repository.
+   * 
    * @example
    * admin
    */

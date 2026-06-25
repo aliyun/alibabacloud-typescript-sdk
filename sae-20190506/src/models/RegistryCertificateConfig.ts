@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegistryCertificateConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Base64-encoded certificate of the image repository.
+   * 
    * @example
    * LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCmZha2VDZXJ0aWZpY2F0ZQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
    */
   certBase64?: string;
   /**
+   * @remarks
+   * Specifies whether to access the image repository in an insecure manner.
+   * 
    * @example
    * true
    */

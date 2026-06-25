@@ -31,11 +31,15 @@ export class DescribeApplicationMseServiceResponseBodyData extends $dara.Model {
    * @remarks
    * The application status. Valid values:
    * 
-   * *   EXPIRED
-   * *   REBOOTING
-   * *   WAITING
-   * *   FAIL
-   * *   NULL/SUCCESS
+   * - EXPIRED
+   * 
+   * - REBOOTING
+   * 
+   * - WAITING
+   * 
+   * - FAIL
+   * 
+   * - NULL/SUCCESS
    * 
    * @example
    * SUCCESS
@@ -86,19 +90,18 @@ export class DescribeApplicationMseServiceResponseBody extends $dara.Model {
    * @remarks
    * The error code. Value description:
    * 
-   * *   If the request succeeds, this field is not returned.
-   * *   For more information, see the **Error codes** section of this topic.
+   * - If the request succeeds, this field is not returned.
    * 
-   * @example
-   * System.Upgrading
+   * - For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The additional information. Value description:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request was successful, **success** is returned.
+   * 
+   * - If the request failed, an error code is returned.
    * 
    * @example
    * success
@@ -116,8 +119,9 @@ export class DescribeApplicationMseServiceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the application instance groups were obtained successfully. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

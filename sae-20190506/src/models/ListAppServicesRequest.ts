@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You must specify only one of the following parameters: vpcId, namespace ID, and application ID.
+   * The application ID. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
    * 
    * @example
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
@@ -13,7 +13,7 @@ export class ListAppServicesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the MSE Nacos instance. This parameter is required when the registry type is set to MSE Nacos.
+   * The instance ID of MSE Nacos. This parameter is required if the service registry is MSE Nacos.
    * 
    * @example
    * mse-cn-sco3r0u****
@@ -21,7 +21,7 @@ export class ListAppServicesRequest extends $dara.Model {
   nacosInstanceId?: string;
   /**
    * @remarks
-   * The ID of the MSE Nacos namespace. This parameter is required when the registry type is set to MSE Nacos.
+   * The namespace ID of MSE Nacos. This parameter is required if the service registry is MSE Nacos.
    * 
    * @example
    * mse-test
@@ -29,7 +29,7 @@ export class ListAppServicesRequest extends $dara.Model {
   nacosNamespaceId?: string;
   /**
    * @remarks
-   * The ID of the namespace. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+   * The namespace ID. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
    * 
    * @example
    * cn-beijing:test
@@ -37,7 +37,7 @@ export class ListAppServicesRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -53,12 +53,15 @@ export class ListAppServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The registry type. Valid values:
+   * The service registry type. Valid values:
    * 
-   * *   **0**: SAE Nacos
-   * *   **1**: SAE built-in Nacos
-   * *   **2** :MSE Nacos
-   * *   **9**: SAE Kubernetes service
+   * - **0**: SAE Nacos
+   * 
+   * - **1**: self-managed service registry
+   * 
+   * - **2**: MSE Nacos
+   * 
+   * - **9**: SAE K8s Service
    * 
    * @example
    * 0
@@ -68,10 +71,13 @@ export class ListAppServicesRequest extends $dara.Model {
    * @remarks
    * The service type. Valid values:
    * 
-   * *   **dubbo**
-   * *   **springCloud**
-   * *   **hsf**
-   * *   **k8sService**
+   * - **dubbo**
+   * 
+   * - **springCloud**
+   * 
+   * - **hsf**
+   * 
+   * - **k8sService**
    * 
    * @example
    * springCloud
@@ -79,7 +85,7 @@ export class ListAppServicesRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The unique identifier of the VPC. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+   * The ID of the VPC. Specify exactly one of the following parameters: `VpcId`, `NamespaceId`, or `AppId`.
    * 
    * @example
    * vpc-2ze0i263cnn311nvj****

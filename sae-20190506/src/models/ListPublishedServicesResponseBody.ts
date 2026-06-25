@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublishedServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * b2a8a925-477a-4ed7-b825-d5e22500****
@@ -13,7 +13,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter does not take effect.
+   * A reserved field.
    * 
    * @example
    * {}
@@ -21,17 +21,17 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   group2Ip?: string;
   /**
    * @remarks
-   * The service group that corresponds to the consumed service.
+   * The groups to which the service belongs.
    */
   groups?: string[];
   /**
    * @remarks
-   * The addresses where services can be subscribed to.
+   * The service subscription addresses.
    */
   ips?: string[];
   /**
    * @remarks
-   * The name of the published service.
+   * The published service name.
    * 
    * @example
    * com.alibaba.nodejs.ItemService
@@ -39,7 +39,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the published service.
+   * The published service type.
    * 
    * @example
    * RPC
@@ -47,7 +47,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version of the published services.
+   * The published service version.
    * 
    * @example
    * 1.0.0
@@ -97,10 +97,13 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: A client error occurs.
+   * 
+   * - **5xx**: A server error occurs.
    * 
    * @example
    * 200
@@ -108,23 +111,25 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the microservices.
+   * The list of published microservices.
    */
   data?: ListPublishedServicesResponseBodyData[];
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - For more information about error codes, see the **Error codes** section.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The returned message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns an error code if the request fails.
    * 
    * @example
    * success
@@ -140,10 +145,11 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of microservices was queried. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The list was queried.
-   * *   **false**: The list failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -151,7 +157,7 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID for querying call details.
    * 
    * @example
    * 0a98a02315955564772843261e****

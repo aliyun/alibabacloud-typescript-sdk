@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job template.
+   * The job template ID.
    * 
    * This parameter is required.
    * 

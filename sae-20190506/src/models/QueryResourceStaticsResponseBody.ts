@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model {
   /**
    * @remarks
-   * The CPU usage. Unit: core per minute.
+   * The CPU usage, in Core·min.
    * 
    * @example
    * 13
@@ -13,7 +13,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
   cpu?: number;
   /**
    * @remarks
-   * The storage size of the temporary storage space. Unit: GiB.
+   * The ephemeral storage usage, in GiB·min.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
   ephemeralStorage?: number;
   /**
    * @remarks
-   * The memory usage. Unit: GiB per minute.
+   * The memory usage, in GiB·min.
    * 
    * @example
    * 26
@@ -55,7 +55,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
 export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   /**
    * @remarks
-   * The usage of active vCPU. Unit: Core*min.
+   * The active vCPU usage, in Core·min.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   activeCpu?: number;
   /**
    * @remarks
-   * The CPU usage. Unit: core per minute.
+   * The CPU usage, in Core·min.
    * 
    * @example
    * 3354
@@ -71,7 +71,7 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The CU usage.
+   * The number of CUs used.
    * 
    * @example
    * 2312145
@@ -79,21 +79,25 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * The storage size of the temporary storage space. Unit: GiB.
+   * The ephemeral storage usage, in GiB·min.
    * 
    * @example
    * 20
    */
   ephemeralStorage?: number;
   /**
-   * @example
-   * c8g1
+   * @remarks
+   * The GpuA10 usage.
    */
   gpuA10?: number;
+  /**
+   * @remarks
+   * The GpuPpu810e usage.
+   */
   gpuPpu810e?: number;
   /**
    * @remarks
-   * The usage of idle CPU. Unit: Core*min.
+   * The idle vCPU usage, in Core·min.
    * 
    * @example
    * 10
@@ -101,7 +105,7 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   idleCpu?: number;
   /**
    * @remarks
-   * The memory usage. Unit: GiB per minute.
+   * The memory usage, in GiB·min.
    * 
    * @example
    * 6708
@@ -150,7 +154,7 @@ export class QueryResourceStaticsResponseBodyData extends $dara.Model {
   realTimeRes?: QueryResourceStaticsResponseBodyDataRealTimeRes;
   /**
    * @remarks
-   * The resource usage of the current month.
+   * The resource usage in the current month.
    */
   summary?: QueryResourceStaticsResponseBodyDataSummary;
   static names(): { [key: string]: string } {
@@ -187,10 +191,13 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -198,26 +205,25 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The resource usage.
+   * The resource usage information.
    */
   data?: QueryResourceStaticsResponseBodyData;
   /**
    * @remarks
-   * The error code. 
+   * The error code.
    * 
-   * - The **ErrorCode** parameter is not returned when the request succeeds.
-   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * - This parameter is not returned if the request is successful.
    * 
-   * @example
-   * Null
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -225,7 +231,7 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7CCF7092-72CA-4431-90D6-C7D98752****
@@ -233,10 +239,11 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the resource usage of an application was obtained. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: indicates that the resource usage was obtained.
-   * *   **false**: indicates that the resource usage could not be obtained.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -244,7 +251,7 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The trace ID used to query the details of a request.
    * 
    * @example
    * ac1a08a015623098794277264e****

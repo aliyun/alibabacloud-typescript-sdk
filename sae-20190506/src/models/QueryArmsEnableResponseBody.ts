@@ -50,19 +50,18 @@ export class QueryArmsEnableResponseBody extends $dara.Model {
    * @remarks
    * The error code. Value description:
    * 
-   * *   If the request was successful, this field is not returned.
-   * *   For more information, see the **Error codes** section of this topic.
+   * - If the request was successful, this field is not returned.
    * 
-   * @example
-   * InvalidApplication.NotFound
+   * - For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The additional information. Value description:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request was successful, **success** is returned.
+   * 
+   * - If the request failed, an error code is returned.
    * 
    * @example
    * success
@@ -80,8 +79,9 @@ export class QueryArmsEnableResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

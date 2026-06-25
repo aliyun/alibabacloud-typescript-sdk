@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * A maximum of 50 entries can be returned for a query. If a query generates more than 50 entries, the NextToken parameter is returned with the first 50 entries. You can use the NextToken parameter value to retrieve the subsequent entries that are not returned in the current query result.
+   * A query can return a maximum of 50 results. If the number of results exceeds this limit, the response includes a NextToken. To retrieve the next page of results, pass this token in your next request.
    * 
    * @example
    * A2RN
@@ -23,7 +23,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID. Separate multiple resource IDs with comma (,). This parameter is required if you do not specify the **Tags** parameter.
+   * The resource IDs, specified as a JSON array of strings. This parameter is required if the **Tags** parameter is not specified.
    * 
    * @example
    * ["d42921c4-5433-4abd-8075-0e536f8b****"]
@@ -31,7 +31,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to `application`.
+   * The resource type. Only `application` is supported.
    * 
    * This parameter is required.
    * 
@@ -41,14 +41,15 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag in the format of a key-value pair. This parameter is required if you do not specify the **ResourceIds** parameter. The following parameters are involved:
+   * The tags used to filter resources. This parameter is required if the **ResourceIds** parameter is not specified. A tag is a key-value pair.
    * 
-   * *   **key**: the tag key. It cannot exceed 128 characters in length.
-   * *   **value**: the tag value. It cannot exceed 128 characters in length.
+   * - **key**: The tag key. The key can be 1 to 128 characters in length.
    * 
-   * Tag keys and tag values are case-sensitive. If you specify multiple tags, the system adds all the tags to the specified resources. Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+   * - **value**: The tag value. The value can be 1 to 128 characters in length.
    * 
-   * Tag keys and tag values cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * Tag keys and tag values are case-sensitive. If you specify multiple tags, the operation returns only resources that have all the specified tags.
+   * 
+   * A tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * [{"key":"k1","value":"v1"}]

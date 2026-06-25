@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all the specified tags. This parameter takes effect only if the TagKeys parameter is specified. Valid values:
+   * Specifies whether to remove all tags. This parameter applies only when TagKeys is not specified. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: All tags are removed.
+   * 
+   * - **false**: Only the tags specified in the TagKeys parameter are removed.
    * 
    * @example
    * false
@@ -26,7 +27,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of resources. Separate multiple resource IDs with comma (,).
+   * The resource IDs. To specify multiple resource IDs, separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -36,7 +37,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to `application`.
+   * The resource type. Only `application` is supported.
    * 
    * This parameter is required.
    * 
@@ -46,7 +47,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag keys. Separate multiple tag keys with commas (,).
+   * The tag keys. To specify multiple tag keys, separate them with commas (,).
    * 
    * @example
    * ["k1","k2"]

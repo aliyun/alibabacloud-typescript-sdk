@@ -130,7 +130,7 @@ export class GetAvailabilityMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3A92C4EA-4C53-5A1C-8AEB-F2DB11982D5F
+   * 3A92C4EA-4C53-5A1C-8AEB-F2DB1198****
    */
   requestId?: string;
   /**

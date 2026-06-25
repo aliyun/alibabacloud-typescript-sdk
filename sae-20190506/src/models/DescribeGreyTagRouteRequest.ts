@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGreyTagRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the canary release rule.
+   * The ID of the rule.
    * 
    * This parameter is required.
    * 

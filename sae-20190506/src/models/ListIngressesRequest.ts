@@ -5,16 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListIngressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of an application.
+   * The application ID.
    * 
    * @example
    * bbf3a590-6d13-46fe-8ca9-c947a20b****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The current page number.
+   */
   currentPage?: number;
   /**
    * @remarks
-   * The ID of a namespace.
+   * The namespace ID.
    * 
    * This parameter is required.
    * 
@@ -22,6 +26,10 @@ export class ListIngressesRequest extends $dara.Model {
    * cn-beijing
    */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The page size.
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

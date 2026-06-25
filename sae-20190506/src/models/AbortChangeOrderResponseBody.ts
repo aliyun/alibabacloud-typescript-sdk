@@ -37,10 +37,13 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -48,20 +51,21 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: AbortChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The error code. Value values:
+   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
    * 
-   * *   **ErrorCode** is not returned if a request is successful.
-   * *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
+   * - If the request is successful, this parameter is not returned.
+   * 
+   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the operation.
+   * The message returned.
    * 
    * @example
    * success
@@ -69,7 +73,7 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -77,10 +81,11 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the change order was terminated. Valid values:
+   * Indicates whether the change order is stopped. Valid values:
    * 
-   * *   **true**: The change order was terminated.
-   * *   **false**: The change order failed to be terminated.
+   * - **true**: The change order is stopped.
+   * 
+   * - **false**: The change order is not stopped.
    * 
    * @example
    * true
@@ -88,7 +93,7 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace.
+   * The trace ID.
    * 
    * @example
    * 0a98a02315955564772843261e****

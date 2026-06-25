@@ -3,26 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChangeOrderMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   */
   appId?: string;
   /**
    * @remarks
-   * The SAE application type. Valid values:
+   * The type of the SAE application.
    * 
-   * *   **micro_service**
-   * *   **web**
-   * *   **job**
+   * - **micro_service**
+   * 
+   * - **web**
+   * 
+   * - **job**
    * 
    * @example
    * micro_service
    */
   appSource?: string;
+  /**
+   * @remarks
+   * The type of the change order.
+   */
   coType?: string;
   /**
    * @remarks
-   * The CPU allocation policy. Valid values:
+   * The CPU allocation policy.
    * 
-   * *   **request**: CPU cores are allocated only when a request is initiated.
-   * *   **always**: Fixed CPU cores are always allocated.
+   * - **request**: CPU is allocated only when a request is received.
+   * 
+   * - **always**: A fixed amount of CPU is always allocated.
    * 
    * @example
    * always
@@ -50,7 +61,7 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The field based on which you want to sort the returned entries.
+   * The field by which to sort the query results. The value of this parameter must be a field in the response parameters.
    * 
    * This parameter is required.
    * 
@@ -60,7 +71,7 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou

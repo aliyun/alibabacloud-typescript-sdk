@@ -38,9 +38,6 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   /**
    * @remarks
    * The message returned if exceptions occur during job running.
-   * 
-   * @example
-   * Null
    */
   message?: string;
   /**
@@ -55,10 +52,13 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
    * @remarks
    * The status of the job. Valid values:
    * 
-   * *   **0**: The job was not executed.
-   * *   **1**: The job was executed.
-   * *   **2**: The job failed to be executed.
-   * *   **3**: The job is being executed.
+   * - **0**: The job was not executed.
+   * 
+   * - **1**: The job was executed.
+   * 
+   * - **2**: The job failed to be executed.
+   * 
+   * - **3**: The job is being executed.
    * 
    * @example
    * 1
@@ -172,10 +172,13 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code returned. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -190,19 +193,18 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
    * @remarks
    * The error code returned. Take note of the following rules:
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The message returned. Take note of the following rules:
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * - If the call is successful, **success** is returned.
+   * 
+   * - If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -220,8 +222,9 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

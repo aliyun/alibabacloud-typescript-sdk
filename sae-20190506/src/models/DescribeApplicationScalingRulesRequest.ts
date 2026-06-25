@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationScalingRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * The application ID.
    * 
    * This parameter is required.
    * 

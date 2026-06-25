@@ -37,10 +37,13 @@ export class RestartApplicationResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Take note of the following rules:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The call was successful.
+   * 
+   * - **3xx**: The call was redirected.
+   * 
+   * - **4xx**: The call failed.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -55,19 +58,18 @@ export class RestartApplicationResponseBody extends $dara.Model {
    * @remarks
    * The error code returned if the request failed. Take note of the following rules:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - The **ErrorCode** parameter is not returned if the request succeeds.
    * 
-   * @example
-   * Null
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The additional information that is returned. Take note of the following rules:
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - success: If the call is successful, **success** is returned.
+   * 
+   * - An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -85,8 +87,9 @@ export class RestartApplicationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the instance is successfully restarted. Take note of the following rules:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

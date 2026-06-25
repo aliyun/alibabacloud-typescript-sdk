@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * 1
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * The ID of the application group. Call the [DescribeApplicationGroups](https://help.aliyun.com/document_detail/126249.html) operation to get the ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the application instance.
+   * The application instance ID.
    * 
    * @example
    * demo-faaca66c-5959-45cc-b3bf-d26093b2e9c0******
@@ -41,20 +41,51 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 10
+   * The number of entries to return on each page. Default value: **10**. The value must be in the range (0, 1000000000).
    * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The batch ID. Call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to get the ID.
+   * 
    * @example
    * 85750d48-6cfc-4dbf-8ea0-840397******
    */
   pipelineId?: string;
   /**
    * @remarks
-   * true
+   * Specifies the sort order of the application instances. Instances are sorted first by running status, and then by instance ID. Valid values:
+   * 
+   * - **true**: The instances are sorted in descending order.
+   * 
+   * - **false**: The instances are sorted in ascending order.
+   * 
+   * Instance statuses in ascending order:
+   * 
+   * 1. **Error**: An error occurred during instance startup.
+   * 
+   * 2. **CrashLoopBackOff**: The container fails to start and enters a crash-restart loop.
+   * 
+   * 3. **ErrImagePull**: An error occurred while pulling the container image for the instance.
+   * 
+   * 4. **ImagePullBackOff**: The system is repeatedly trying and failing to pull the container image.
+   * 
+   * 5. **Pending**: The instance is waiting to be scheduled.
+   * 
+   * 6. **Unknown**: An unknown exception occurred.
+   * 
+   * 7. **Terminating**: The instance is being terminated.
+   * 
+   * 8. **NotFound**: The instance cannot be found.
+   * 
+   * 9. **PodInitializing**: The instance is being initialized.
+   * 
+   * 10. **Init:0/1**: The instance is being initialized.
+   * 
+   * 11. **Running**: The instance is running.
    * 
    * @example
    * true

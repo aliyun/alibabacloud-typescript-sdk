@@ -48,6 +48,9 @@ export class ListWebApplicationInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the application instance.
+   * 
+   * @example
+   * Running
    */
   statuses?: string[];
   /**

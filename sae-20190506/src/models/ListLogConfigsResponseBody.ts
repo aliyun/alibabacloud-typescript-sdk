@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   /**
    * @remarks
-   * The path of logs.
+   * The name of the Simple Log Service configuration.
    * 
    * @example
    * sae-1f240907a6faf58c653f09e81b7e****
@@ -13,7 +13,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   configName?: string;
   /**
    * @remarks
-   * The storage type of logs.
+   * The time when the log configuration was created.
    * 
    * @example
    * 2019-08-29 17:18:00
@@ -21,7 +21,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The path of the log file (log source).
+   * The path of the log file. This is the log source.
    * 
    * @example
    * /root/logs/hsf/hsf.log
@@ -29,7 +29,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   logDir?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The log type. Only **file_log** is supported.
    * 
    * @example
    * file_log
@@ -37,7 +37,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The number of the returned page.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -45,7 +45,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The name of the Logstore in Simple Log Service.
    * 
    * @example
    * sae-1f240907a6faf58c653f09e81b7e****
@@ -53,7 +53,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   slsLogStore?: string;
   /**
    * @remarks
-   * The type of the log. Set this value to **file_log**.
+   * The ID of the Simple Log Service project.
    * 
    * @example
    * sae-56f77b65-788d-442a-9885-7f20d91f****
@@ -61,7 +61,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The ID of the Log Service project.
+   * The storage class for Simple Log Service.
    * 
    * @example
    * sls
@@ -105,7 +105,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
 export class ListLogConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of returned entries.
+   * The page number.
    * 
    * @example
    * 1
@@ -113,15 +113,12 @@ export class ListLogConfigsResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The details of the logging configuration.
+   * The log configurations.
    */
   logConfigs?: ListLogConfigsResponseBodyDataLogConfigs[];
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -129,7 +126,7 @@ export class ListLogConfigsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -168,10 +165,15 @@ export class ListLogConfigsResponseBodyData extends $dara.Model {
 export class ListLogConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the logging configurations of an application were obtained. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: indicates that the configurations were obtained.
-   * *   **false**: indicates that the configurations could not be obtained.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -179,22 +181,25 @@ export class ListLogConfigsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * The information about the file logs.
    */
   data?: ListLogConfigsResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code.
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** list in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The returned message.
+   * 
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -202,23 +207,27 @@ export class ListLogConfigsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of application logs was obtained. Valid values:
+   * 
+   * - **true**: The list was obtained.
+   * 
+   * - **false**: The list failed to be obtained.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The logging configurations.
+   * The trace ID of the request. You can use the trace ID to query the details of the request.
    * 
    * @example
    * ac1d5e2c15671581252413581d****

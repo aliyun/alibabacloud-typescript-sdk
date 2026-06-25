@@ -94,10 +94,13 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * 
+   * - **3xx**: Redirection.
+   * 
+   * - **4xx**: Client error.
+   * 
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -105,7 +108,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * Additional information about the response.
    * 
    * @example
    * success

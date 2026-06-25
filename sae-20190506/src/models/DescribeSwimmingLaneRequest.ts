@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSwimmingLaneRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the lane group.
+   * The lane group ID.
    * 
    * @example
    * 2074
@@ -13,7 +13,7 @@ export class DescribeSwimmingLaneRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the lane.
+   * The swimming lane ID.
    * 
    * @example
    * 9637
@@ -21,7 +21,7 @@ export class DescribeSwimmingLaneRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The ID of a namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test

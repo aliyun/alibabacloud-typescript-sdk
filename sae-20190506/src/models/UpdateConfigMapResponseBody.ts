@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The ID of the ConfigMap instance.
    * 
    * @example
    * 1
@@ -38,10 +35,15 @@ export class UpdateConfigMapResponseBodyData extends $dara.Model {
 export class UpdateConfigMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the ConfigMap instance was updated. Valid values:
+   * The HTTP status code or the POP error code.
    * 
-   * *   **true**: The instance was updated.
-   * *   **false**: The instance failed to be updated.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: A request error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -49,22 +51,21 @@ export class UpdateConfigMapResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the ConfigMap instance.
+   * The returned result.
    */
   data?: UpdateConfigMapResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code.
    * 
-   * *   **2xx:**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * Additional information about the call.
    * 
    * @example
    * success
@@ -72,20 +73,27 @@ export class UpdateConfigMapResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the ConfigMap instance was updated.
+   * 
+   * - **true**: The instance was updated.
+   * 
+   * - **false**: The instance failed to be updated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned result.
+   * The trace ID that is used to query the details of the call.
    * 
    * @example
    * 0a98a02315955564772843261e****

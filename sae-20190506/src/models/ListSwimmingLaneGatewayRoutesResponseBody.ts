@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate extends $dara.Model {
   /**
    * @remarks
-   * The route URL.
+   * The route path.
    * 
    * @example
    * /Path
@@ -13,7 +13,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPred
   path?: string;
   /**
    * @remarks
-   * The type of the protection rule.
+   * The type of the rule.
    * 
    * @example
    * Header
@@ -75,7 +75,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate extends
 export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the route.
+   * The route ID.
    * 
    * @example
    * 16933
@@ -83,7 +83,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
   routeId?: number;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * test-route
@@ -125,12 +125,15 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
 export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: Indicates a client error.
+   * 
+   * - **5xx**: Indicates a server error.
    * 
    * @example
    * 200
@@ -138,23 +141,25 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Responses.
+   * The list of gateway routes.
    */
   data?: ListSwimmingLaneGatewayRoutesResponseBodyData[];
   /**
    * @remarks
-   * The status code. Value values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - This parameter is returned only if the request fails.
+   * 
+   * - For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The message returned for the request.
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -162,7 +167,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -170,10 +175,11 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**: The configurations were obtained.
-   * *   **false**: The configurations failed to be queried.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -181,7 +187,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID of the request.
    * 
    * @example
    * ac1a0b2215622246421415014e****

@@ -8,6 +8,9 @@ export class ListWebInstancesOutput extends $dara.Model {
   /**
    * @remarks
    * The error message of instance creation. If the instance creation was successful, this parameter is not returned.
+   * 
+   * @example
+   * 无
    */
   currentError?: string;
   /**

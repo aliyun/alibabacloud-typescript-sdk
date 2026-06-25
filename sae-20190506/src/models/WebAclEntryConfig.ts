@@ -12,7 +12,7 @@ export class WebAclEntryConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1.2.3.4/32
+   * 219.145.XX.XX
    */
   entry?: string;
   static names(): { [key: string]: string } {

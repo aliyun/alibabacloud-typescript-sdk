@@ -5,18 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model {
   connectionDrainTimeout?: number;
   /**
+   * @remarks
+   * The cookie that is configured on the server.
+   * 
+   * The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces. It cannot start with a dollar sign ($).
+   * 
+   * > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `server`.
+   * 
    * @example
    * wwe
    */
   cookie?: string;
   /**
+   * @remarks
+   * The cookie timeout period. Unit: seconds. Valid values: `1` to `86400`.
+   * 
+   * > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `insert`.
+   * 
    * @example
    * 56
    */
   cookieTimeout?: number;
   /**
    * @remarks
-   * The timestamp when the canary release rule was created.
+   * The time when the rule was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1741247308294
@@ -24,13 +36,16 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
   createTime?: number;
   enableConnectionDrain?: boolean;
   /**
+   * @remarks
+   * The ID of the CA certificate for the HTTPS protocol.
+   * 
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
    */
   httpsCaCertId?: string;
   /**
    * @remarks
-   * The supported protocol.
+   * The ID of the certificate for the HTTPS protocol.
    * 
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
@@ -38,7 +53,7 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
   httpsCertId?: string;
   /**
    * @remarks
-   * The ID of the internal-facing SLB instance.
+   * The listening port of the SLB instance.
    * 
    * @example
    * 80
@@ -46,25 +61,37 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
   port?: number;
   /**
    * @remarks
-   * The container port.
+   * The supported protocol.
    * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * Indicates whether session persistence is enabled.
+   * 
    * @example
    * false
    */
   stickySession?: boolean;
   /**
+   * @remarks
+   * The cookie handling method. Valid values:
+   * 
+   * - `insert`: inserts a cookie. When a client makes the first request, the SLB instance inserts a cookie into the response. The next request from the client contains the cookie, and the SLB instance forwards the request to the same backend server.
+   * 
+   * - `server`: rewrites a cookie. When the SLB instance detects a user-defined cookie, it rewrites the cookie. The next request from the client contains the new cookie, and the SLB instance forwards the request to the same backend server.
+   * 
+   * > This parameter is required when `StickySession` is set to `true`.
+   * 
    * @example
    * insert
    */
   stickySessionType?: string;
   /**
    * @remarks
-   * The port specified for the SLB listener.
+   * The container port.
    * 
    * @example
    * 8080
@@ -119,18 +146,30 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
 export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model {
   connectionDrainTimeout?: number;
   /**
+   * @remarks
+   * The cookie that is configured on the server.
+   * 
+   * The cookie must be 1 to 200 characters in length and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces. It cannot start with a dollar sign ($).
+   * 
+   * > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `server`.
+   * 
    * @example
    * wwe
    */
   cookie?: string;
   /**
+   * @remarks
+   * The cookie timeout period. Unit: seconds. Valid values: `1` to `86400`.
+   * 
+   * > This parameter is required when `StickySession` is set to `true` and `StickySessionType` is set to `insert`.
+   * 
    * @example
    * 56
    */
   cookieTimeout?: number;
   /**
    * @remarks
-   * The timestamp when the canary release rule was created.
+   * The time when the rule was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1741247308294
@@ -138,13 +177,16 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
   createTime?: number;
   enableConnectionDrain?: boolean;
   /**
+   * @remarks
+   * The ID of the CA certificate for the HTTPS protocol.
+   * 
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
    */
   httpsCaCertId?: string;
   /**
    * @remarks
-   * The supported protocol.
+   * The ID of the certificate for the HTTPS protocol.
    * 
    * @example
    * 1513561019707729_16f37aae5f3_-375882821_-169099****
@@ -152,7 +194,7 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
   httpsCertId?: string;
   /**
    * @remarks
-   * The IP address of the Internet-facing SLB instance.
+   * The listening port of the SLB instance.
    * 
    * @example
    * 80
@@ -160,25 +202,37 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
   port?: number;
   /**
    * @remarks
-   * The container port.
+   * The supported protocol.
    * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * Indicates whether session persistence is enabled.
+   * 
    * @example
    * false
    */
   stickySession?: boolean;
   /**
+   * @remarks
+   * The cookie handling method. Valid values:
+   * 
+   * - `insert`: inserts a cookie. When a client makes the first request, the SLB instance inserts a cookie into the response. The next request from the client contains the cookie, and the SLB instance forwards the request to the same backend server.
+   * 
+   * - `server`: rewrites a cookie. When the SLB instance detects a user-defined cookie, it rewrites the cookie. The next request from the client contains the new cookie, and the SLB instance forwards the request to the same backend server.
+   * 
+   * > This parameter is required when `StickySession` is set to `true`.
+   * 
    * @example
    * insert
    */
   stickySessionType?: string;
   /**
    * @remarks
-   * The port specified for the SLB listener.
+   * The container port.
    * 
    * @example
    * 8080
@@ -231,8 +285,20 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
 }
 
 export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The application name.
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   */
   clusterId?: string;
   /**
    * @remarks
@@ -241,25 +307,31 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
   internet?: DescribeApplicationSlbsResponseBodyDataInternet[];
   /**
    * @remarks
-   * The ID of the Internet-facing SLB instance.
+   * The public IP address.
    * 
    * @example
    * ``59.74.**.**``
    */
   internetIp?: string;
   /**
+   * @remarks
+   * The billing method of the Internet-facing SLB instance.
+   * 
    * @example
    * PayBySpec
    */
   internetSlbChargeType?: string;
   /**
+   * @remarks
+   * Indicates whether the Internet-facing SLB instance has expired.
+   * 
    * @example
    * false
    */
   internetSlbExpired?: boolean;
   /**
    * @remarks
-   * Configurations of Internet-facing SLB instances.
+   * The ID of the Internet-facing SLB instance.
    * 
    * @example
    * lb-uf6xc7wybefehnv45****
@@ -272,28 +344,31 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
   intranet?: DescribeApplicationSlbsResponseBodyDataIntranet[];
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The private IP address.
    * 
    * @example
-   * 192.168.0.0
+   * 192.168.XX.XX
    */
   intranetIp?: string;
   /**
+   * @remarks
+   * The billing method of the internal-facing SLB instance.
+   * 
    * @example
    * PayBySpec
    */
   intranetSlbChargeType?: string;
   /**
+   * @remarks
+   * Indicates whether the internal-facing SLB instance has expired.
+   * 
    * @example
    * false
    */
   intranetSlbExpired?: boolean;
   /**
    * @remarks
-   * The IP address of the internal-facing SLB instance.
+   * The ID of the internal-facing SLB instance.
    * 
    * @example
    * lb-uf6xc7wybefehnv45****
@@ -353,10 +428,15 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
 export class DescribeApplicationSlbsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the information about the SLB instances that are associated with an application was obtained successfully. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: indicates that the information was obtained successfully.
-   * *   **false**: indicates that the information failed to be obtained.
+   * - `2xx`: The request is successful.
+   * 
+   * - `3xx`: The request is redirected.
+   * 
+   * - `4xx`: A client error occurs.
+   * 
+   * - `5xx`: A server error occurs.
    * 
    * @example
    * 200
@@ -364,22 +444,25 @@ export class DescribeApplicationSlbsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DescribeApplicationSlbsResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code.
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The returned message.
+   * 
+   * - If the request is successful, `success` is returned.
+   * 
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -387,23 +470,27 @@ export class DescribeApplicationSlbsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the configuration of the SLB instance was obtained. Valid values:
+   * 
+   * - `true`: The configuration was obtained.
+   * 
+   * - `false`: The configuration failed to be obtained.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned data.
+   * The trace ID that is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****

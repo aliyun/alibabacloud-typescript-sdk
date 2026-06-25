@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted Secret.
+   * The ID of the deleted secret.
    * 
    * @example
    * 16
@@ -37,10 +37,13 @@ export class DeleteSecretResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A request error.
+   * 
+   * - **5xx**: A server error.
    * 
    * @example
    * 200
@@ -48,26 +51,25 @@ export class DeleteSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response.
+   * The returned data.
    */
   data?: DeleteSecretResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Valid values:
+   * The error code.
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - The **ErrorCode** parameter is not returned if the request is successful.
    * 
-   * @example
-   * Null
+   * - The **ErrorCode** parameter is returned if the request fails. For a list of error codes, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The additional information that is returned. Valid values:
+   * The response message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - **success**: The request was successful.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -75,7 +77,7 @@ export class DeleteSecretResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -83,10 +85,11 @@ export class DeleteSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Secret is successfully deleted. Valid values:
+   * Indicates whether the secret was successfully deleted. Valid values:
    * 
-   * *   **true**: The instance was deleted.
-   * *   **false**: The instance failed to be deleted.
+   * - **true**: The secret was deleted.
+   * 
+   * - **false**: The secret was not deleted.
    * 
    * @example
    * true
@@ -94,7 +97,7 @@ export class DeleteSecretResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The ID used to trace the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

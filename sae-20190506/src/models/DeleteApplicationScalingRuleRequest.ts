@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteApplicationScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The name of the Auto Scaling policy.
    * 
    * This parameter is required.
    * 

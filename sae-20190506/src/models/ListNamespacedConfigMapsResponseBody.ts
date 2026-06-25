@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * f16b4000-9058-4c22-a49d-49a28f0b****
@@ -13,7 +13,7 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps extend
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test-app
@@ -53,7 +53,7 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
   configMapId?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 1593760185111
@@ -61,11 +61,9 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The data of ConfigMap key-value pairs. Format:
+   * The key-value pairs of the ConfigMap instance.
    * 
-   * {"k1":"v1", "k2":"v2"}
-   * 
-   * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
+   * For more information about the ConfigMap, see [Manage and use configuration items](https://help.aliyun.com/document_detail/171326.html).
    * 
    * @example
    * {"k1":"v1","k2":"v2"}
@@ -81,7 +79,7 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The name of the ConfigMap instance.
+   * The name of the instance.
    * 
    * @example
    * test-name
@@ -89,7 +87,7 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-hangzhou
@@ -97,12 +95,12 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
   namespaceId?: string;
   /**
    * @remarks
-   * The application that is associated with the instance.
+   * The associated applications.
    */
   relateApps?: ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps[];
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The last update time.
    * 
    * @example
    * 1593760185111
@@ -152,7 +150,7 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $dara.Mo
 export class ListNamespacedConfigMapsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ConfigMap instances.
+   * The list of ConfigMap instances.
    */
   configMaps?: ListNamespacedConfigMapsResponseBodyDataConfigMaps[];
   static names(): { [key: string]: string } {
@@ -184,10 +182,13 @@ export class ListNamespacedConfigMapsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -195,23 +196,25 @@ export class ListNamespacedConfigMapsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The data returned by the request.
    */
   data?: ListNamespacedConfigMapsResponseBodyData;
   /**
    * @remarks
-   * The returned error code. Valid values:
+   * The error code.
    * 
-   * - If the call is successful, the **ErrorCode** parameter is not returned.
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * -
+   * 
+   * - This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
+   * The response message. Valid values:
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * - Returns **success** if the request is successful.
+   * 
+   * - Returns an error message if the request fails.
    * 
    * @example
    * success
@@ -219,7 +222,7 @@ export class ListNamespacedConfigMapsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -227,10 +230,11 @@ export class ListNamespacedConfigMapsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ConfigMap instances were obtained. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The instances were obtained.
-   * *   **false**: The instances failed to be obtained.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -238,7 +242,7 @@ export class ListNamespacedConfigMapsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID. You can use this ID to trace the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

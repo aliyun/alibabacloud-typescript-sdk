@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The application ID.
    * 
    * @example
    * 164341c-9708-4967-b3ec-24933767****
@@ -13,7 +13,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   appId?: string;
   /**
    * @remarks
-   * The ID of the user who created the change order.
+   * The number of batches.
    * 
    * @example
    * 1
@@ -21,7 +21,11 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   batchCount?: number;
   /**
    * @remarks
-   * The ID of the group.
+   * The batch type. Valid values:
+   * 
+   * - **auto**: Automatic.
+   * 
+   * - **manual**: Manual.
    * 
    * @example
    * auto
@@ -29,10 +33,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   batchType?: string;
   /**
    * @remarks
-   * The mode in which the release batches are determined. Valid values:
-   * 
-   * *   **auto**: SAE automatically determines the release batches.
-   * *   **manual**: You must manually determine the release batches.
+   * The change order ID.
    * 
    * @example
    * 7fa5c0-9ebb-4bb4-b383-1f885447****
@@ -40,33 +41,55 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   changeOrderId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The description of the change type code (**CoTypeCode**).
+   * 
+   * @example
+   * Create application
    */
   coType?: string;
   /**
    * @remarks
-   * The code of the change order. Valid values:
+   * The code of the change type. Valid values:
    * 
-   * *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
-   * *   **CoUnbindSlb**: disassociates an SLB instance from the application.
-   * *   **CoCreateApp**: creates the application.
-   * *   **CoDeleteApp**: deletes the application.
-   * *   **CoDeploy**: deploys the application.
-   * *   **CoRestartApplication**: restarts the application.
-   * *   **CoRollback**: rolls back the application.
-   * *   **CoScaleIn**: scales in the application.
-   * *   **CoScaleOut**: scales out the application.
-   * *   **CoStartApplication**: starts the application.
-   * *   **CoStopApplication**: stops the application.
-   * *   **CoRescaleApplicationVertically**: modifies the instance type.
-   * *   **CoDeployHistroy**: rolls back the application to an earlier version.
-   * *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
-   * *   **CoUnbindNas**: disassociates a NAS file system from the application.
-   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
-   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
-   * *   **CoRestartInstances**: restarts the instance.
-   * *   **CoDeleteInstances**: deletes the instance.
-   * *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
+   * - **CoBindSlb**: Bind an SLB instance.
+   * 
+   * - **CoUnbindSlb**: Unbind an SLB instance.
+   * 
+   * - **CoCreateApp**: Create an application.
+   * 
+   * - **CoDeleteApp**: Delete an application.
+   * 
+   * - **CoDeploy**: Deploy an application.
+   * 
+   * - **CoRestartApplication**: Restart an application.
+   * 
+   * - **CoRollback**: Roll back an application.
+   * 
+   * - **CoScaleIn**: Scale in an application.
+   * 
+   * - **CoScaleOut**: Scale out an application.
+   * 
+   * - **CoStartApplication**: Start an application.
+   * 
+   * - **CoStopApplication**: Stop an application.
+   * 
+   * - **CoRescaleApplicationVertically**: Change the instance type.
+   * 
+   * - **CoDeployHistroy**: Roll back to a previous version.
+   * 
+   * - **CoBindNas**: Bind a NAS file system.
+   * 
+   * - **CoUnbindNas**: Unbind a NAS file system.
+   * 
+   * - **CoBatchStartApplication**: Start multiple applications.
+   * 
+   * - **CoBatchStopApplication**: Stop multiple applications.
+   * 
+   * - **CoRestartInstances**: Restart instances.
+   * 
+   * - **CoDeleteInstances**: Delete instances.
+   * 
+   * - **CoScaleInAppWithInstances**: Scale in an application by specifying instances.
    * 
    * @example
    * CoCreateApp
@@ -74,7 +97,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   coTypeCode?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The time the change order was created.
    * 
    * @example
    * 2019-07-11 15:54:49
@@ -82,28 +105,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The code of the change type. Valid values:
-   * 
-   * *   **CoBindSlb**: associates an SLB instance with the application.
-   * *   **CoUnbindSlb**: disassociates the SLB instance from the application.
-   * *   **CoCreateApp**: creates the application.
-   * *   **CoDeleteApp**: deletes the application.
-   * *   **CoDeploy**: deploys the application.
-   * *   **CoRestartApplication**: restarts the application.
-   * *   **CoRollback**: rolls back the application.
-   * *   **CoScaleIn**: scales in the application.
-   * *   **CoScaleOut**: scales out the application.
-   * *   **CoStart**: starts the application.
-   * *   **CoStop**: stops the application.
-   * *   **CoRescaleApplicationVertically**: modifies the instance specifications.
-   * *   **CoDeployHistroy**: rolls back the application to a historical version.
-   * *   **CoBindNas**: associates a NAS file system with the application.
-   * *   **CoUnbindNas**: disassociates the NAS file system from the application.
-   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
-   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
-   * *   **CoRestartInstances**: restarts the instances.
-   * *   **CoDeleteInstances**: deletes the instances.
-   * *   **CoScaleInAppWithInstances**: reduces the number of the specified application instances.
+   * The ID of the user who created the change order.
    * 
    * @example
    * sae-beta-test
@@ -111,12 +113,15 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   createUserId?: string;
   /**
    * @remarks
-   * The change type, which corresponds to the **CoTypeCode** parameter.
+   * The description.
+   * 
+   * @example
+   * Version: 1.0 | image name: nginx
    */
   description?: string;
   /**
    * @remarks
-   * The time when the change order was created.
+   * The time the change order was completed.
    * 
    * @example
    * 2019-07-11 20:12:58
@@ -124,7 +129,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   finishTime?: string;
   /**
    * @remarks
-   * The description about the application.
+   * The group ID.
    * 
    * @example
    * c9ecd2-cf6c-46c3-9f20-525de202****
@@ -132,7 +137,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   groupId?: string;
   /**
    * @remarks
-   * The number of release batches.
+   * The source of the change order.
    * 
    * @example
    * console
@@ -140,7 +145,27 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   source?: string;
   /**
    * @remarks
-   * The time when the change order was completed.
+   * The status of the change order. Valid values:
+   * 
+   * - **0**: Preparing.
+   * 
+   * - **1**: In progress.
+   * 
+   * - **2**: Succeeded.
+   * 
+   * - **3**: Failed.
+   * 
+   * - **6**: Aborted.
+   * 
+   * - **8**: Paused for manual confirmation.
+   * 
+   * - **9**: Paused for automatic confirmation.
+   * 
+   * - **10**: Failed due to a system exception.
+   * 
+   * - **11**: Pending approval.
+   * 
+   * - **12**: Approved and pending execution.
    * 
    * @example
    * 2
@@ -148,7 +173,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * The source of the change order.
+   * The user ID.
    * 
    * @example
    * sae-beta-test
@@ -204,12 +229,12 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
 export class ListChangeOrdersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The change orders.
+   * The list of change orders.
    */
   changeOrderList?: ListChangeOrdersResponseBodyDataChangeOrderList[];
   /**
    * @remarks
-   * The total number of change orders.
+   * The current page number.
    * 
    * @example
    * 1
@@ -217,10 +242,7 @@ export class ListChangeOrdersResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The page size.
    * 
    * @example
    * 20
@@ -228,7 +250,7 @@ export class ListChangeOrdersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of change orders.
+   * The total number of change orders.
    * 
    * @example
    * 1
@@ -267,10 +289,15 @@ export class ListChangeOrdersResponseBodyData extends $dara.Model {
 export class ListChangeOrdersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the list of change orders was obtained. Valid values:
+   * The HTTP status code or the POP error code. Valid values:
    * 
-   * *   **true**: indicates that the list was obtained.
-   * *   **false**: indicates that the list could not be obtained.
+   * - **2xx**: Success.
+   * 
+   * - **3xx**: Redirect.
+   * 
+   * - **4xx**: Request error.
+   * 
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -278,22 +305,21 @@ export class ListChangeOrdersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about change orders.
+   * The information about the change orders.
    */
   data?: ListChangeOrdersResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code.
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - This parameter is not returned on successful requests.
+   * 
+   * - Returned if the request fails. For more information, see the **error code** list in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * Additional information about the response.
    * 
    * @example
    * success
@@ -301,20 +327,27 @@ export class ListChangeOrdersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
+   * The request ID.
    * 
    * @example
    * 65E1F-43BA-4D0C-8E61-E4D1337F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of change orders was retrieved. Valid values:
+   * 
+   * - **true**: The list was retrieved.
+   * 
+   * - **false**: The list could not be retrieved.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The information about change orders.
+   * The trace ID used to query request details.
    * 
    * @example
    * 0bb6f815638568884597879d****

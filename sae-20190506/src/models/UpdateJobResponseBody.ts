@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The job template ID.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -13,7 +13,7 @@ export class UpdateJobResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the change order. It can be used to query the task status.
+   * The change order ID. You can use this ID to query the execution status of the job.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -45,12 +45,15 @@ export class UpdateJobResponseBodyData extends $dara.Model {
 export class UpdateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: The request is invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -58,26 +61,23 @@ export class UpdateJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response.
+   * The data that is returned.
    */
   data?: UpdateJobResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Valid values:
+   * - This parameter is not returned if the request is successful.
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
-   * 
-   * @example
-   * Null
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The additional information that is returned. Valid values:
+   * The response message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - **success** if the request is successful.
+   * 
+   * - An error code if the request fails.
    * 
    * @example
    * success
@@ -85,7 +85,7 @@ export class UpdateJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
@@ -93,10 +93,11 @@ export class UpdateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application deployment is successful. Valid values:
+   * Indicates whether the job template was updated. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -104,7 +105,7 @@ export class UpdateJobResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID that you can use to query the details of a request.
    * 
    * @example
    * ac1a0b2215622246421415014e****

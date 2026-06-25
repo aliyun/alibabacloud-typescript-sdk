@@ -13,7 +13,7 @@ export class DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions
   description?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * arg0
@@ -21,7 +21,7 @@ export class DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions
   name?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * java.lang.String
@@ -63,7 +63,7 @@ export class DescribeAppServiceDetailResponseBodyDataMethods extends $dara.Model
   methodController?: string;
   /**
    * @remarks
-   * The name of the method.
+   * The method name.
    * 
    * @example
    * echo
@@ -79,7 +79,7 @@ export class DescribeAppServiceDetailResponseBodyDataMethods extends $dara.Model
   nameDetail?: string;
   /**
    * @remarks
-   * The definition of the parameter.
+   * The parameter definitions.
    */
   parameterDefinitions?: DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions[];
   /**
@@ -89,27 +89,22 @@ export class DescribeAppServiceDetailResponseBodyDataMethods extends $dara.Model
   parameterDetails?: string[];
   /**
    * @remarks
-   * The types of the parameters.
+   * The parameter types.
    */
   parameterTypes?: string[];
   /**
    * @remarks
-   * The request paths. Format:
-   * 
-   * `/path`
+   * The request paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The request methods. Valid values:
-   * 
-   * *   **GET**
-   * *   **ALL**
+   * The request methods.
    */
   requestMethods?: string[];
   /**
    * @remarks
-   * The details of the response.
+   * The details of the returned data.
    * 
    * @example
    * test
@@ -117,7 +112,7 @@ export class DescribeAppServiceDetailResponseBodyDataMethods extends $dara.Model
   returnDetails?: string;
   /**
    * @remarks
-   * The data format of the response.
+   * The return type.
    * 
    * @example
    * java.lang.String
@@ -188,7 +183,7 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   dubboApplicationName?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * cn-zhangjiakou-micro-service-******
@@ -196,7 +191,7 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   edasAppName?: string;
   /**
    * @remarks
-   * The group to which the service belongs. You can create a custom group.
+   * The service group. This is a custom parameter.
    * 
    * @example
    * springCloud
@@ -204,7 +199,7 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`.
+   * The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`
    * 
    * @example
    * {side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}
@@ -212,12 +207,12 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The methods.
+   * The list of methods.
    */
   methods?: DescribeAppServiceDetailResponseBodyDataMethods[];
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * service-provider
@@ -225,7 +220,7 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The port used by the service.
+   * The ports used by the service.
    */
   servicePorts?: number[];
   /**
@@ -238,15 +233,16 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   serviceProtocol?: string;
   /**
    * @remarks
-   * The tag of the service.
+   * The tags of the service.
    */
   serviceTags?: string[];
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Valid values:
    * 
-   * *   **dubbo**
-   * *   **springCloud**
+   * - **dubbo**
+   * 
+   * - **springCloud**
    * 
    * @example
    * springCloud
@@ -262,7 +258,7 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
   springApplicationName?: string;
   /**
    * @remarks
-   * The version of the service. You can create a custom version.
+   * The service version. This is a custom parameter.
    * 
    * @example
    * 1.0.0
@@ -326,12 +322,15 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
 export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The status of the API call or a POP error code. Valid values:
    * 
-   * - **2xx**: indicates that the call was successful.
-   * - **3xx**: indicates that the call was redirected.
-   * - **4xx**: indicates that the call failed.
-   * - **5xx**: indicates that a server error occurred.
+   * - **2xx**: success.
+   * 
+   * - **3xx**: redirection.
+   * 
+   * - **4xx**: client error.
+   * 
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -339,20 +338,21 @@ export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data that is returned.
+   * The returned data.
    */
   data?: DescribeAppServiceDetailResponseBodyData;
   /**
    * @remarks
-   * The returned error code. Valid values:
+   * The error code.
    * 
-   * - If the call is successful, the **ErrorCode** parameter is not returned.
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * 
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the list of **error codes** in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned information.
+   * The additional information returned.
    * 
    * @example
    * success
@@ -360,7 +360,7 @@ export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B2C7874F-F109-5B34-8618-2C10BBA2****
@@ -368,10 +368,11 @@ export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the meta data was obtained. Valid values:
+   * Indicates whether the metadata was obtained. Valid values:
    * 
-   * *   **true**: The metadata was obtained.
-   * *   **false**: The metadata failed to be obtained.
+   * - **true**: The metadata was obtained.
+   * 
+   * - **false**: The metadata failed to be obtained.
    * 
    * @example
    * true
@@ -379,7 +380,7 @@ export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The call chain ID. Use this ID for a term query of call details.
    * 
    * @example
    * 0b16399316402420740034918e****

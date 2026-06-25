@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllSwimmingLaneGroupsResponseBodyDataApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * f5aad0d0-3e56-44cd-8199-9887a0******
@@ -13,7 +13,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
@@ -40,7 +40,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataApps extends $dara.Model {
    * The ID of the namespace to which the MSE instance belongs.
    * 
    * @example
-   * 6733e538-d52f-48e6-91a4-192f91******
+   * sae-ent
    */
   mseNamespaceId?: string;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataApps extends $dara.Model {
 export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 09805e5d-9b8d-42cd-9442-03c498******
@@ -83,7 +83,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Mod
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
@@ -91,7 +91,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Mod
   appName?: string;
   /**
    * @remarks
-   * The type of the application.
+   * The application type.
    * 
    * @example
    * mse
@@ -107,7 +107,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Mod
   mseAppId?: string;
   /**
    * @remarks
-   * MSE Instance Name
+   * The name of the MSE instance.
    * 
    * @example
    * test
@@ -118,7 +118,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Mod
    * The ID of the namespace to which the MSE instance belongs.
    * 
    * @example
-   * demo
+   * sae-ent
    */
   mseNamespaceId?: string;
   static names(): { [key: string]: string } {
@@ -155,20 +155,21 @@ export class ListAllSwimmingLaneGroupsResponseBodyDataEntryApp extends $dara.Mod
 export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the applications associated with the lane group.
+   * The IDs of the applications that are associated with the swimming lane group.
    */
   appIds?: string[];
   /**
    * @remarks
-   * The application information.
+   * The information about the applications.
    */
   apps?: ListAllSwimmingLaneGroupsResponseBodyDataApps[];
   /**
    * @remarks
-   * Full-link Grayscale Mode:
+   * The canary release mode.
    * 
-   * *   0: The request is routed based on the content of the request.
-   * *   1: Proportional routing
+   * - 0: content-based routing
+   * 
+   * - 1: percentage-based routing
    * 
    * @example
    * 0
@@ -176,7 +177,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * The entry application.
+   * The ingress application.
    */
   entryApp?: ListAllSwimmingLaneGroupsResponseBodyDataEntryApp;
   /**
@@ -184,16 +185,18 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
    * The ID of the gateway.
    * 
    * @example
-   * mse_ingresspost-cn-axc49******
+   * bq4g5bumop@e05bd4328******
    */
   entryAppId?: string;
   /**
    * @remarks
-   * The application entry type (gateway type).
+   * The type of the ingress application. This parameter is equivalent to the gateway type.
    * 
-   * *   **apig:** cloud-native API Gateway
-   * *   **mse-gw:** an MSE cloud original gateway
-   * *   **mse:** Java Services Gateway
+   * - **apig:** API Gateway
+   * 
+   * - **mse-gw:** cloud-native gateway
+   * 
+   * - **mse:** Java service gateway
    * 
    * @example
    * mse-gw
@@ -201,15 +204,15 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
   entryAppType?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the swimming lane group.
    * 
    * @example
-   * 2074
+   * 110283
    */
   groupId?: number;
   /**
    * @remarks
-   * The name of a lane group.
+   * The name of the swimming lane group.
    * 
    * @example
    * mse-test
@@ -220,12 +223,12 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
    * The ID of the namespace to which the MSE instance belongs.
    * 
    * @example
-   * sae-test
+   * sae-ent
    */
   mseNamespaceId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test
@@ -233,7 +236,7 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
+   * The version of the canary release. Valid values: 0 and 2. We recommend that you use 2.
    * 
    * @example
    * 2
@@ -292,12 +295,15 @@ export class ListAllSwimmingLaneGroupsResponseBodyData extends $dara.Model {
 export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: The request was invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -305,23 +311,25 @@ export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Responses.
+   * The returned data.
    */
   data?: ListAllSwimmingLaneGroupsResponseBodyData[];
   /**
    * @remarks
-   * The status code. Value values:
+   * The error code.
    * 
-   * *   If the request was successful, **ErrorCode** is not returned.
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * - This parameter is not returned if the request is successful.
+   * 
+   * - For a list of error codes, see the "**Error codes**" section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The response message.
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - **success** is returned if the request is successful.
+   * 
+   * - An error message is returned if the request fails.
    * 
    * @example
    * success
@@ -329,7 +337,7 @@ export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 30375C38-F4ED-4135-A0AE-5C75DC7F****
@@ -337,10 +345,11 @@ export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The information was queried.
-   * *   **false**: The information failed to be queried.
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -348,7 +357,7 @@ export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID that is used to query the details of a request.
    * 
    * @example
    * ac1a0b2215622246421415014e****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PathConfig extends $dara.Model {
   /**
    * @remarks
-   * applicationName
+   * The name of the application.
    * 
    * @example
    * applicationName
@@ -13,7 +13,7 @@ export class PathConfig extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * path
+   * The path.
    * 
    * @example
    * /packages

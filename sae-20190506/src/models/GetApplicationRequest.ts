@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
@@ -13,7 +13,7 @@ export class GetApplicationRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * test

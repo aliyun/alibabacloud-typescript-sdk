@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableArmsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates if enabled. Valid values: 
-   * 
-   * *   true: enabled
-   * *   false: disabled
+   * Indicates whether ARMS monitoring is enabled. Valid values:
    * 
    * @example
    * true
@@ -40,10 +37,13 @@ export class DisableArmsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client error occurred.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -51,18 +51,16 @@ export class DisableArmsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DisableArmsResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
    * 
-   * @example
-   * Null
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
@@ -78,26 +76,23 @@ export class DisableArmsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * C0616FF6-9536-47BF-8A03-FB70386DFC71
+   * 6DA47906-6070-5A16-896D-67DCF38A6B7B
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the request was successful. Valid values:
    * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   /**
    * @remarks
-   * The trace ID.
+   * The trace ID that is used to query the details of a request.
    * 
    * @example
-   * ac1a0b2215623063975374318e6d53
+   * 0bc3b4ad17412276398692303e4cb1
    */
   traceId?: string;
   static names(): { [key: string]: string } {

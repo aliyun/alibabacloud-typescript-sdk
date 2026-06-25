@@ -7,10 +7,13 @@ export class BatchStartApplicationsResponseBodyData extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * - **2xx**: indicates that the request was successful.
+   * 
+   * - **3xx**: indicates that the request was redirected.
+   * 
+   * - **4xx**: indicates that the request was invalid.
+   * 
+   * - **5xx**: indicates that a server error occurred.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -43,8 +46,11 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
    * The HTTP status code. Take note of the following rules:
    * 
    * - **2xx**: The call was successful.
+   * 
    * - **3xx**: The call was redirected.
+   * 
    * - **4xx**: The call failed.
+   * 
    * - **5xx**: A server error occurred.
    * 
    * @example
@@ -55,8 +61,9 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
    * @remarks
    * The error code.
    * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   * - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
+   * 
+   * - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see **Error codes** in this topic.
    */
   data?: BatchStartApplicationsResponseBodyData;
   /**
@@ -64,10 +71,8 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
    * The error code returned if the request failed. Take note of the following rules:
    * 
    * - The ErrorCode parameter is not returned if the request succeeds.
-   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
    * 
-   * @example
-   * NULL
+   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
    */
   errorCode?: string;
   /**
@@ -91,6 +96,7 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
    * Indicates whether the application deployment is successful. Take note of the following rules:
    * 
    * - **true**
+   * 
    * - **false**
    * 
    * @example

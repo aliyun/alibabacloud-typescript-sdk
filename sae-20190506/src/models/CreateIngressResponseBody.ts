@@ -35,12 +35,15 @@ export class CreateIngressResponseBodyData extends $dara.Model {
 export class CreateIngressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: A request error occurs.
+   * 
+   * - **5xx**: A server error occurs.
    * 
    * @example
    * 200
@@ -48,26 +51,25 @@ export class CreateIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Responses.
+   * The returned results.
    */
   data?: CreateIngressResponseBodyData;
   /**
    * @remarks
-   * Error code. Valid values:
+   * The error code.
    * 
-   * *   If the request is successful, no **ErrorCode** fields are returned.
-   * *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
+   * - This parameter is not returned if the request is successful.
    * 
-   * @example
-   * success
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The returned message.
    * 
-   * *   The error message returned because the request is normal and **success** is returned.
-   * *   If the request is abnormal, the specific exception error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -85,8 +87,9 @@ export class CreateIngressResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the routing rule was created. Valid values:
    * 
-   * *   **true**: The ConfigMap was created.
-   * *   **false**: The ConfigMap failed to be created.
+   * - **true**: The routing rule was created.
+   * 
+   * - **false**: The routing rule failed to be created.
    * 
    * @example
    * true
@@ -94,7 +97,7 @@ export class CreateIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. This parameter is used to query the exact call information.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSwimmingLaneEnableAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Lane status:
+   * The enabled status of the swimming lane. Valid values:
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - true: enabled
+   * 
+   * - false: disabled
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class UpdateSwimmingLaneEnableAttributeRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The swimming lane group ID.
    * 
    * @example
    * 2074
@@ -24,7 +25,7 @@ export class UpdateSwimmingLaneEnableAttributeRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the lane.
+   * The swimming lane ID.
    * 
    * @example
    * 9637
@@ -32,7 +33,7 @@ export class UpdateSwimmingLaneEnableAttributeRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The ID of a namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test

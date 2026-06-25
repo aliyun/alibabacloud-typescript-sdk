@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindNlbRequest extends $dara.Model {
   /**
    * @remarks
-   * A short description of struct
+   * The application ID.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -13,7 +13,7 @@ export class UnbindNlbRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of NLB instance.
+   * The NLB instance ID.
    * 
    * @example
    * nlb-7z7jjbzz44d82c9***
@@ -21,7 +21,7 @@ export class UnbindNlbRequest extends $dara.Model {
   nlbId?: string;
   /**
    * @remarks
-   * The listener port of the instance. Valid values: 0 to 65535.
+   * The listener port, which must be between 0 and 65535.
    * 
    * @example
    * 3306
@@ -29,11 +29,13 @@ export class UnbindNlbRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol. Valid values:
    * 
-   * *   **TCP**.
-   * *   **UDP**.
-   * *   **TCPSSL**.
+   * - **TCP**
+   * 
+   * - **UDP**
+   * 
+   * - **TCPSSL**
    * 
    * @example
    * TCP

@@ -7,10 +7,13 @@ export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The request was successful.
-   * *   **3xx**: The request was redirected.
-   * *   **4xx**: The request failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: The request is invalid.
+   * 
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -18,18 +21,20 @@ export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the request was successful, this parameter is not returned.****
-   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error code** section of this topic.
+   * - This parameter is not returned for successful requests.
+   * 
+   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. Valid values:
+   * The returned message. Valid values:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -37,7 +42,7 @@ export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -45,10 +50,11 @@ export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of applications was obtained. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The applications were obtained.
-   * *   **false**: The applications failed to be queried.
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -56,7 +62,7 @@ export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID. You can use this ID to trace the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

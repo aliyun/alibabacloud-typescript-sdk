@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChangeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change order. You can call the [ListChangeOrders](https://help.aliyun.com/document_detail/126615.html) operation to obtain the ID.
+   * The change order ID. You can obtain it by calling the [ListChangeOrders](https://help.aliyun.com/document_detail/126615.html) interface.
    * 
    * This parameter is required.
    * 

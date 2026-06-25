@@ -7,8 +7,9 @@ export class BatchStopApplicationsResponseBodyData extends $dara.Model {
    * @remarks
    * The error code.
    * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+   * - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
+   * 
+   * - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see the "**Error codes**" section in this topic.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -41,8 +42,11 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
    * The HTTP status code. Take note of the following rules:
    * 
    * - **2xx**: The call was successful.
+   * 
    * - **3xx**: The call was redirected.
+   * 
    * - **4xx**: The call failed.
+   * 
    * - **5xx**: A server error occurred.
    * 
    * @example
@@ -59,10 +63,8 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
    * The error code returned if the request failed. Take note of the following rules:
    * 
    * - The ErrorCode parameter is not returned if the request succeeds.
-   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
    * 
-   * @example
-   * Null
+   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
    */
   errorCode?: string;
   /**
@@ -77,8 +79,9 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * - **success** is returned when the request succeeds.
+   * 
+   * - An error code is returned when the request fails.
    * 
    * @example
    * 7BD8F4C7-D84C-4D46-9885-8212997E****
@@ -89,6 +92,7 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
    * Indicates whether the application is created. Valid values
    * 
    * - **true**
+   * 
    * - **false**
    * 
    * @example

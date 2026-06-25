@@ -5,27 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppModeRequest extends $dara.Model {
   /**
    * @remarks
-   * The app ID.
+   * The application ID.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The application IDs.
+   */
   appIds?: string;
   /**
    * @remarks
-   * Enable Idle Mode?
-   * 
-   * Enumeration value:
-   * 
-   * *   true: enables.
-   * *   false: disables.
+   * Specifies whether to enable the idle mode.
    * 
    * @example
    * true
    */
   enableIdle?: boolean;
   idleHour?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {

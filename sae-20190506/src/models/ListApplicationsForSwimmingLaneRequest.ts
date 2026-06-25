@@ -13,7 +13,7 @@ export class ListApplicationsForSwimmingLaneRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of a namespace.
+   * The namespace ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListApplicationsForSwimmingLaneRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The canary tag
+   * The canary tag.
    * 
    * @example
    * {"alicloud.service.tag":"gray"}

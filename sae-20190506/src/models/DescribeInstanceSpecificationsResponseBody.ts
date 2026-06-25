@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSpecificationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification of the instance type. Unit: millicore.
+   * The CPU specification. Unit: millicores.
    * 
    * @example
    * 2000
@@ -13,10 +13,11 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $dara.Model 
   cpu?: number;
   /**
    * @remarks
-   * Indicates whether the instance type is available. Valid values:
+   * Indicates whether the instance specification is available. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: available
+   * 
+   * - **false**: unavailable
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the instance type.
+   * The ID of the instance specification.
    * 
    * @example
    * 4
@@ -32,7 +33,7 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The memory size of the instance type. Unit: MB.
+   * The memory specification. Unit: MB.
    * 
    * @example
    * 4096
@@ -40,12 +41,15 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $dara.Model 
   memory?: number;
   /**
    * @remarks
-   * The name of the instance type.
+   * The name of the instance specification.
+   * 
+   * @example
+   * General-purpose 4
    */
   specInfo?: string;
   /**
    * @remarks
-   * The version number of the instance type.
+   * The version of the instance specification.
    * 
    * @example
    * 0
@@ -87,10 +91,13 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request is successful.
+   * 
+   * - **3xx**: The request is redirected.
+   * 
+   * - **4xx**: The request is invalid.
+   * 
+   * - **5xx**: A server error occurs.
    * 
    * @example
    * 200
@@ -98,23 +105,25 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the instance types.
+   * The instance specifications.
    */
   data?: DescribeInstanceSpecificationsResponseBodyData[];
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - The **ErrorCode** parameter is not returned if the request is successful.
+   * 
+   * - The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The returned message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -130,10 +139,11 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the instance types were queried. Valid values:
+   * Indicates whether the instance specifications are obtained. Valid values:
    * 
-   * *   **true**: The instance types were queried.
-   * *   **false**: The instance types failed to be queried.
+   * - **true**: The instance specifications are obtained.
+   * 
+   * - **false**: The instance specifications fail to be obtained.
    * 
    * @example
    * true
@@ -141,7 +151,7 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID that is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****

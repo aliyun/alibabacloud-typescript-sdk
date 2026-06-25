@@ -5,13 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $dara.Model {
   /**
    * @remarks
-   * The limit on the metric.
+   * The target value for the specified metric. The unit varies based on the metric type.
    * 
-   * *   The limit on the CPU utilization. Unit: percentage.
-   * *   The limit on the memory usage. Unit: percentage.
-   * *   The limit on the average number of active TCP connections per second.
-   * *   The limit on the QPS of the Internet-facing SLB instance.
-   * *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * - Target CPU utilization, in percentage.
+   * 
+   * - Target memory usage, in percentage.
+   * 
+   * - Target queries per second (QPS).
+   * 
+   * - Target response time, in milliseconds.
+   * 
+   * - The target number of active TCP connections.
+   * 
+   * - Target QPS for the public-facing SLB instance.
+   * 
+   * - Target response time of the public-facing SLB instance, in milliseconds.
+   * 
+   * - Target QPS for the internal SLB instance.
+   * 
+   * - Target response time of the internal SLB instance, in milliseconds.
    * 
    * @example
    * 20
@@ -19,34 +31,58 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $
   metricTargetAverageUtilization?: number;
   /**
    * @remarks
-   * The metric that is used to trigger the auto scaling policy. Valid values:
+   * The metric that triggers the scaling policy. Valid values:
    * 
-   * *   **CPU**: the CPU utilization.
-   * *   **MEMORY**: the memory usage.
-   * *   **tcpActiveConn**: the average number of active TCP connections of an application instance within 30 seconds.
-   * *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance within 15 seconds.
-   * *   **SLB_RT**: the average response time of the Internet-facing SLB instance within 15 seconds.
+   * - **CPU**: CPU utilization.
+   * 
+   * - **MEMORY**: memory usage.
+   * 
+   * - **QPS**: The average queries per second (QPS) per instance over the last minute. This applies only to Java applications.
+   * 
+   * - **RT**: The average response time (RT) of all service interfaces in the application over the last minute. This applies only to Java applications.
+   * 
+   * - **tcpActiveConn**: The average number of active TCP connections per instance over the last 30 seconds.
+   * 
+   * - **SLB_QPS**: The average QPS from the public-facing SLB, per instance, over the last 15 seconds.
+   * 
+   * - **SLB_RT**: The average response time of a public-facing SLB instance over the last 15 seconds.
+   * 
+   * - **INTRANET_SLB_QPS**: The average QPS from the internal SLB, per instance, over the last 15 seconds.
+   * 
+   * - **INTRANET_SLB_RT**: The average response time of an internal SLB instance over the last 15 seconds.
    * 
    * @example
    * CPU
    */
   metricType?: string;
   /**
+   * @remarks
+   * The SLB instance ID.
+   * 
    * @example
    * lb-xxx
    */
   slbId?: string;
   /**
+   * @remarks
+   * The name of the Logstore for SLB access logs.
+   * 
    * @example
    * test
    */
   slbLogstore?: string;
   /**
+   * @remarks
+   * The name of the Log Service Project for SLB access logs.
+   * 
    * @example
    * test
    */
   slbProject?: string;
   /**
+   * @remarks
+   * The SLB port.
+   * 
    * @example
    * 80
    */
@@ -93,7 +129,7 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetric extends $dara.Mo
   maxReplicas?: number;
   /**
    * @remarks
-   * The metrics that are used to trigger the auto scaling policy.
+   * The metrics that trigger scaling actions.
    */
   metrics?: UpdateApplicationScalingRuleResponseBodyDataMetricMetrics[];
   /**
@@ -135,25 +171,31 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetric extends $dara.Mo
 export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends $dara.Model {
   /**
    * @remarks
-   * The point in time. Format: **Hour:Minute**.
+   * The time at which the scaling action is triggered. Format: **HH:mm**.
    * 
    * @example
    * 08:00
    */
   atTime?: string;
   /**
+   * @remarks
+   * The maximum number of instances.
+   * 
    * @example
    * 10
    */
   maxReplicas?: number;
   /**
+   * @remarks
+   * The minimum number of instances.
+   * 
    * @example
    * 1
    */
   minReplicas?: number;
   /**
    * @remarks
-   * The expected number of instances.
+   * The target number of instances.
    * 
    * @example
    * 3
@@ -189,10 +231,11 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends 
 export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $dara.Model {
   /**
    * @remarks
-   * The start date of the validity period of the scheduled auto scaling policy. Parameter description:
+   * The start date of the short-term scheduled scaling policy.
    * 
-   * *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
-   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+   * - If **BeginDate** and **EndDate** are both set to **null**, the policy is long-term by default.
+   * 
+   * - If you specify a date range, for example, **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the policy is effective for one month.
    * 
    * @example
    * 2021-03-25
@@ -200,10 +243,11 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $dara.Mod
   beginDate?: string;
   /**
    * @remarks
-   * The end date of the validity period of the scheduled auto scaling policy. Take note of the following rules:
+   * The end date of the short-term scheduled scaling policy.
    * 
-   * *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
-   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+   * - If **BeginDate** and **EndDate** are both set to **null**, the policy is long-term by default.
+   * 
+   * - If you specify a date range, for example, **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the policy is effective for one month.
    * 
    * @example
    * 2021-04-25
@@ -211,21 +255,27 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $dara.Mod
   endDate?: string;
   /**
    * @remarks
-   * The frequency at which the scheduled auto scaling policy is executed. Valid values:
+   * The recurrence schedule for the scaling policy.
    * 
-   * *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
+   * - **\\* \\* \\***: The policy runs at a specified time every day.
    * 
-   * *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each week. GMT+8 is used. Valid values:
+   * - **\\* \\* Fri,Mon**: The policy runs at a specified time on specific days of a week. You can select multiple days. The time is in the GMT+8 time zone. Valid values:
    * 
-   *     *   **Sun**
-   *     *   **Mon**
-   *     *   **Tue**
-   *     *   **Wed**
-   *     *   **Thu**
-   *     *   **Fri**
-   *     *   **Sat**
+   *   - **Sun**: Sunday
    * 
-   * *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
+   *   - **Mon**: Monday
+   * 
+   *   - **Tue**: Tuesday
+   * 
+   *   - **Wed**: Wednesday
+   * 
+   *   - **Thu**: Thursday
+   * 
+   *   - **Fri**: Friday
+   * 
+   *   - **Sat**: Saturday
+   * 
+   * - **1,2,3,28,31 \\* \\***: The policy runs at a specified time on specific days of a month. You can select multiple days. If a month does not have a specific day, such as the 31st, the policy skips that day.
    * 
    * @example
    * * * *
@@ -233,7 +283,7 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $dara.Mod
   period?: string;
   /**
    * @remarks
-   * The points in time at which the auto scaling policy is triggered within one day.
+   * The schedules for the scaling policy.
    */
   schedules?: UpdateApplicationScalingRuleResponseBodyDataTimerSchedules[];
   static names(): { [key: string]: string } {
@@ -277,16 +327,20 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the auto scaling policy was created. Unit: milliseconds.
+   * The time when the scaling policy was created, in milliseconds.
    * 
    * @example
    * 1616642248938
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable idle mode.
+   */
   enableIdle?: boolean;
   /**
    * @remarks
-   * The time when the auto scaling policy was last disabled.
+   * The time when the scaling policy was last disabled, in milliseconds.
    * 
    * @example
    * 1641882854484
@@ -294,15 +348,16 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
   lastDisableTime?: number;
   /**
    * @remarks
-   * The details of the metric-based auto scaling policy.
+   * The configuration for metric-based scaling.
    */
   metric?: UpdateApplicationScalingRuleResponseBodyDataMetric;
   /**
    * @remarks
-   * Specifies whether to enable the auto scaling policy. Valid values:
+   * Specifies whether the scaling policy is enabled. Valid values:
    * 
-   * *   **true**: The auto scaling policy is enabled.
-   * *   **false**: The auto scaling policy is disabled.
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -310,7 +365,7 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
   scaleRuleEnabled?: boolean;
   /**
    * @remarks
-   * The name of the auto scaling policy.
+   * The name of the scaling policy.
    * 
    * @example
    * test
@@ -318,11 +373,13 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
   scaleRuleName?: string;
   /**
    * @remarks
-   * The type of the auto scaling policy. Valid values:
+   * The type of the scaling policy. Valid values:
    * 
-   * *   **timing**: a scheduled auto scaling policy
-   * *   **metric**: a metric-based auto scaling policy
-   * *   **mix**: a hybrid auto scaling policy
+   * - **timing**: scheduled scaling
+   * 
+   * - **metric**: metric-based scaling
+   * 
+   * - **mix**: hybrid scaling
    * 
    * @example
    * timing
@@ -330,12 +387,12 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
   scaleRuleType?: string;
   /**
    * @remarks
-   * The details of the scheduled auto scaling policy.
+   * The configuration for scheduled scaling.
    */
   timer?: UpdateApplicationScalingRuleResponseBodyDataTimer;
   /**
    * @remarks
-   * The time when the auto scaling policy was updated. Unit: milliseconds.
+   * The time when the scaling policy was updated, in milliseconds.
    * 
    * @example
    * 1616642248938
@@ -389,12 +446,15 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $dara.Model {
 export class UpdateApplicationScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code or a POP error code.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: The request was successful.
+   * 
+   * - **3xx**: The request was redirected.
+   * 
+   * - **4xx**: A client-side error occurred.
+   * 
+   * - **5xx**: A server-side error occurred.
    * 
    * @example
    * 200
@@ -402,26 +462,25 @@ export class UpdateApplicationScalingRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: UpdateApplicationScalingRuleResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Take note of the following rules:
+   * The error code.
    * 
-   * *   If the call is successful, **ErrorCode** is not returned.
-   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * - This parameter is returned only if the request fails.
    * 
-   * @example
-   * Null
+   * - For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Take note of the following rules:
+   * The response message.
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * - **success** is returned if the request is successful.
+   * 
+   * - An error message is returned if the request fails.
    * 
    * @example
    * success
@@ -437,10 +496,11 @@ export class UpdateApplicationScalingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the instances are successfully restarted. Valid values:
+   * Specifies whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -448,7 +508,7 @@ export class UpdateApplicationScalingRuleResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID used to query call details.
    * 
    * @example
    * 0a98a02315955564772843261e****

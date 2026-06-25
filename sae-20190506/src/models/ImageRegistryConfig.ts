@@ -5,7 +5,15 @@ import { RegistryCertificateConfig } from "./RegistryCertificateConfig";
 
 
 export class ImageRegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication configuration for the image repository.
+   */
   authConfig?: RegistryAuthenticationConfig;
+  /**
+   * @remarks
+   * The certificate configuration for the image repository.
+   */
   certConfig?: RegistryCertificateConfig;
   static names(): { [key: string]: string } {
     return {

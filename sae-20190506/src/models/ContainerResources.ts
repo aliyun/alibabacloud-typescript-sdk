@@ -18,7 +18,7 @@ export class ContainerResources extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2
+   * 1000
    */
   cpu?: number;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted ConfigMap.
+   * The ID of the deleted ConfigMap instance.
    * 
    * @example
    * 1
@@ -35,12 +35,15 @@ export class DeleteConfigMapResponseBodyData extends $dara.Model {
 export class DeleteConfigMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code returned for the request.
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * - **2xx**: success
+   * 
+   * - **3xx**: redirection
+   * 
+   * - **4xx**: client error
+   * 
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -48,23 +51,25 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The operation result.
    */
   data?: DeleteConfigMapResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
+   * The error code.
    * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * - Not returned if the request is successful.
+   * 
+   * - Returned if the request fails. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The response message.
    * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * success
@@ -80,10 +85,11 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ConfigMap was deleted. Valid values:
+   * Indicates whether the deletion succeeded. Valid values:
    * 
-   * *   **true**: The ConfigMap was deleted.
-   * *   **false**: The ConfigMap failed to be deleted.
+   * - **true**: The deletion was successful.
+   * 
+   * - **false**: The deletion failed.
    * 
    * @example
    * true
@@ -91,7 +97,7 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID for querying request details.
    * 
    * @example
    * 0a98a02315955564772843261e****
