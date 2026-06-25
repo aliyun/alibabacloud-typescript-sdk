@@ -2,10 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class JwtIdentityConfigClaimsToHeadersConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The claim.
+   */
+  claim?: string;
+  /**
+   * @remarks
+   * The header.
+   */
+  header?: string;
+  /**
+   * @remarks
+   * The override.
+   */
+  override?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      claim: 'claim',
+      header: 'header',
+      override: 'override',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      claim: 'string',
+      header: 'string',
+      override: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
   /**
    * @remarks
-   * The key in the JWT payload.
+   * The JWT payload key configuration.
    * 
    * @example
    * uid
@@ -13,7 +54,7 @@ export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
   payloadKeyName?: string;
   /**
    * @remarks
-   * The value for the JWT payload key.
+   * The JWT payload value configuration.
    * 
    * @example
    * 2222
@@ -45,7 +86,7 @@ export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
 export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   /**
    * @remarks
-   * The key used for the JWT.
+   * The JWT key configuration.
    * 
    * @example
    * Authorization
@@ -53,7 +94,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Indicates whether acceptance is granted.
+   * Specifies whether to pass through.
    * 
    * @example
    * true
@@ -61,7 +102,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   pass?: boolean;
   /**
    * @remarks
-   * The location where the JWT is stored.
+   * The storage location of the JWT.
    * 
    * @example
    * HEADER
@@ -69,7 +110,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   position?: string;
   /**
    * @remarks
-   * The token prefix configuration.
+   * The prefix configuration.
    * 
    * @example
    * test
@@ -105,6 +146,11 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
 export class JwtIdentityConfig extends $dara.Model {
   /**
    * @remarks
+   * The claims-to-headers configurations.
+   */
+  claimsToHeadersConfigs?: JwtIdentityConfigClaimsToHeadersConfigs[];
+  /**
+   * @remarks
    * The JWKS configuration.
    * 
    * @example
@@ -123,12 +169,12 @@ export class JwtIdentityConfig extends $dara.Model {
   jwtTokenConfig?: JwtIdentityConfigJwtTokenConfig;
   /**
    * @remarks
-   * The type of the secret used.
-   * 
-   * Valid values:
-   * 
-   * *   Asymmetry: asymmetric encryption.
-   * *   Symmetry: symmetric encryption.
+   * The remote JWKS.
+   */
+  remoteJwks?: string;
+  /**
+   * @remarks
+   * The secret type.
    * 
    * @example
    * Symmetry
@@ -136,7 +182,7 @@ export class JwtIdentityConfig extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * The authentication configuration type.
+   * The type of authentication configuration.
    * 
    * @example
    * Jwt
@@ -144,9 +190,11 @@ export class JwtIdentityConfig extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      claimsToHeadersConfigs: 'claimsToHeadersConfigs',
       jwks: 'jwks',
       jwtPayloadConfig: 'jwtPayloadConfig',
       jwtTokenConfig: 'jwtTokenConfig',
+      remoteJwks: 'remoteJwks',
       secretType: 'secretType',
       type: 'type',
     };
@@ -154,15 +202,20 @@ export class JwtIdentityConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      claimsToHeadersConfigs: { 'type': 'array', 'itemType': JwtIdentityConfigClaimsToHeadersConfigs },
       jwks: 'string',
       jwtPayloadConfig: JwtIdentityConfigJwtPayloadConfig,
       jwtTokenConfig: JwtIdentityConfigJwtTokenConfig,
+      remoteJwks: 'string',
       secretType: 'string',
       type: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.claimsToHeadersConfigs)) {
+      $dara.Model.validateArray(this.claimsToHeadersConfigs);
+    }
     if(this.jwtPayloadConfig && typeof (this.jwtPayloadConfig as any).validate === 'function') {
       (this.jwtPayloadConfig as any).validate();
     }

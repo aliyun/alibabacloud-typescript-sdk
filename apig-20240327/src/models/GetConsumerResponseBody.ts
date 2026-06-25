@@ -8,73 +8,52 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AK/SK authentication configurations.
+   * As configurações de autenticação por par de AccessKey.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The API key authentication configurations.
+   * A configuração de autenticação de chave de API.
    */
   apiKeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
    * @remarks
-   * The consumer ID.
-   * 
-   * @example
-   * cs-cvgbtk6m1hkji5sb8dr0
+   * O ID do consumidor de API.
    */
   consumerId?: string;
   /**
    * @remarks
-   * The creation timestamp.
-   * 
-   * @example
-   * 1719386834548
+   * O carimbo de data/hora de criação.
    */
   createTimestamp?: number;
   /**
    * @remarks
-   * The publishing status of the API in the current environment.
-   * 
-   * @example
-   * ""
+   * O status de publicação da API no ambiente atual.
    */
   deployStatus?: string;
   /**
    * @remarks
-   * The description.
-   * 
-   * @example
-   * 测试专用消费者
+   * A descrição.
    */
   description?: string;
   /**
    * @remarks
-   * Indicates if enabled.
-   * 
-   * @example
-   * true
+   * Indica se o consumidor de API está habilitado.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The JWT authentication configurations.
+   * A configuração de autenticação JWT.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
    * @remarks
-   * The consumer name.
-   * 
-   * @example
-   * consumer-1
+   * O nome do consumidor de API.
    */
   name?: string;
   /**
    * @remarks
-   * The last update timestamp.
-   * 
-   * @example
-   * 1719386834548
+   * O carimbo de data/hora de atualização.
    */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
@@ -128,31 +107,22 @@ export class GetConsumerResponseBodyData extends $dara.Model {
 export class GetConsumerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * @example
-   * Ok
+   * O código de resposta.
    */
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * Os dados de resposta.
    */
   data?: GetConsumerResponseBodyData;
   /**
    * @remarks
-   * The status message.
-   * 
-   * @example
-   * success
+   * A mensagem de resposta.
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 880C61B3-7B90-5570-A3F7-D6D92C0E2D36
+   * O ID da solicitação.
    */
   requestId?: string;
   static names(): { [key: string]: string } {

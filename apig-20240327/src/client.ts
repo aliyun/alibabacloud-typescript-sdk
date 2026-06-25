@@ -2433,7 +2433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information of a consumer.
+   * Retrieves an API consumer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2458,7 +2458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information of a consumer.
+   * Retrieves an API consumer.
    * @returns GetConsumerResponse
    */
   async getConsumer(consumerId: string): Promise<$_model.GetConsumerResponse> {
@@ -2939,10 +2939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the MCP server.
+   * Get MCP Server.
    * 
    * @remarks
-   * This API supports creating multiple services.
+   * The API supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2967,10 +2967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the MCP server.
+   * Get MCP Server.
    * 
    * @remarks
-   * This API supports creating multiple services.
+   * The API supports creating multiple services.
    * @returns GetMcpServerResponse
    */
   async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
@@ -3523,6 +3523,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerAuthorizationRulesWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
+   * 查询消费者配额限流规则列表
+   * 
+   * @param request - ListConsumerQuotaRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerQuotaRulesResponse
+   */
+  async listConsumerQuotaRulesWithOptions(consumerId: string, request: $_model.ListConsumerQuotaRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerQuotaRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerQuotaRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/quota-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerQuotaRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerQuotaRulesResponse({}));
+  }
+
+  /**
+   * 查询消费者配额限流规则列表
+   * 
+   * @param request - ListConsumerQuotaRulesRequest
+   * @returns ListConsumerQuotaRulesResponse
+   */
+  async listConsumerQuotaRules(consumerId: string, request: $_model.ListConsumerQuotaRulesRequest): Promise<$_model.ListConsumerQuotaRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerQuotaRulesWithOptions(consumerId, request, headers, runtime);
   }
 
   /**
