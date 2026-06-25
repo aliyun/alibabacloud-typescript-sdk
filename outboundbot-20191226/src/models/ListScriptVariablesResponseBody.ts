@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
   /**
    * @remarks
-   * The variable description.
+   * The description.
    * 
    * @example
    * 表示客户的真实姓名
@@ -13,7 +13,7 @@ export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The variable display name.
+   * The display name of the variable.
    * 
    * @example
    * 姓名
@@ -21,7 +21,7 @@ export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * name
@@ -71,7 +71,7 @@ export class ListScriptVariablesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The API message.
+   * The returned message.
    * 
    * @example
    * Success
@@ -87,7 +87,7 @@ export class ListScriptVariablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class ListScriptVariablesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The script variables.
+   * The list of variables.
    */
   variables?: ListScriptVariablesResponseBodyVariables[];
   static names(): { [key: string]: string } {

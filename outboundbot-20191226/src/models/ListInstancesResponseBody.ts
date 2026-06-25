@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstancesResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class ListInstancesResponseBodyInstancesResourceTags extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The ID of the user who created the instance.
+   * The ID of the creator.
    * 
    * @example
    * 34234
@@ -61,7 +61,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   creatorId?: number;
   /**
    * @remarks
-   * The name of the user who created the instance.
+   * The name of the creator.
    * 
    * @example
    * xxx
@@ -69,7 +69,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The description of the Outbound Calling Bot service instance.
+   * The description of the Outbound Bot service instance.
    * 
    * @example
    * 这是一个实例
@@ -77,7 +77,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
@@ -85,7 +85,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the Outbound Calling Bot service instance.
+   * The name of the Outbound Bot service instance.
    * 
    * @example
    * 回访
@@ -93,7 +93,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether the instance is a system-predefined instance.
+   * Indicates whether the instance is a system preset instance.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   isPreset?: boolean;
   /**
    * @remarks
-   * The maximum number of concurrent outbound calls.
+   * The maximum number of concurrent outbound calls allowed.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   ownerName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
@@ -125,7 +125,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
    * @example
    * []
@@ -194,7 +194,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * A list of service instances.
+   * The list of service instances.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
@@ -223,7 +223,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC

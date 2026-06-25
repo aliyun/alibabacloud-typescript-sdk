@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the instance tag.
+   * The tag key of the instance.
    * 
    * @example
    * name
@@ -13,7 +13,7 @@ export class ListInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the instance tag.
+   * The tag value of the instance.
    * 
    * @example
    * xxx
@@ -45,7 +45,7 @@ export class ListInstancesRequestTag extends $dara.Model {
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Outbound Calling Bot instance.
+   * The name of the Outbound Bot instance.
    * 
    * @example
    * xxx
@@ -69,9 +69,8 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
-   * 
-   * > For more information, see ListResourceGroups.
+   * The resource group ID.
+   * > You can obtain the source API from the Resource Management documentation. For more information, see: https://api.aliyun.com/document/ResourceManager/2020-03-31/ListResourceGroups
    * 
    * @example
    * rg-acfm3iugit3uw7a
@@ -79,9 +78,8 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the service instance.
-   * 
-   * > You can call the ListResourceTags operation to obtain the tags.
+   * The list of tags for the service instances.
+   * > You can call the ListResourceTags operation to obtain tags.
    */
   tag?: ListInstancesRequestTag[];
   static names(): { [key: string]: string } {
