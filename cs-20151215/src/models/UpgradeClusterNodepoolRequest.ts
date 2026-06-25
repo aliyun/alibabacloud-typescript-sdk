@@ -17,7 +17,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can be upgraded in parallel per batch. Nodes in the node pool are upgraded in batches.
+   * The maximum number of nodes that can be updated in parallel per batch. Nodes in the node pool are updated in batches.
    * 
    * Valid values: [1,10].
    * 
@@ -30,8 +30,8 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
    * The automatic pause policy during node upgrades. Valid values:
-   * - FirstBatch: pauses after the first batch is completed.
-   * - EveryBatch: pauses after each batch is completed.
+   * - FirstBatch: pauses after the first batch is complete.
+   * - EveryBatch: pauses after each batch is complete.
    * - NotPause: does not pause.
    * 
    * @example
@@ -64,6 +64,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
 }
 
 export class UpgradeClusterNodepoolRequest extends $dara.Model {
+  ignoreWarningCheck?: boolean;
   /**
    * @remarks
    * The system image ID of the node.
@@ -120,6 +121,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   useReplace?: boolean;
   static names(): { [key: string]: string } {
     return {
+      ignoreWarningCheck: 'ignore_warning_check',
       imageId: 'image_id',
       kubernetesVersion: 'kubernetes_version',
       nodeNames: 'node_names',
@@ -132,6 +134,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ignoreWarningCheck: 'boolean',
       imageId: 'string',
       kubernetesVersion: 'string',
       nodeNames: { 'type': 'array', 'itemType': 'string' },
