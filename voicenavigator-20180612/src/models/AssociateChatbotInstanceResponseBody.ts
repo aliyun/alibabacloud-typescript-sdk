@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssociateChatbotInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */

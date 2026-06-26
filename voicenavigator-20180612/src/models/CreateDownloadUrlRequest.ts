@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateDownloadUrlRequest extends $dara.Model {
   downloadTaskId?: string;
   /**
    * @remarks
+   * The file ID. Call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain it.
+   * 
    * This parameter is required.
    * 
    * @example

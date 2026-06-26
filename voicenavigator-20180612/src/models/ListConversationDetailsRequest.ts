@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListConversationDetailsRequest extends $dara.Model {
   /**
    * @remarks
+   * The conversation ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListConversationDetailsRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

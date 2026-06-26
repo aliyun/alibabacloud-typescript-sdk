@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyAsrConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of affected rows.
+   */
   affectedRows?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27,27 +31,46 @@ export class ModifyAsrConfigResponseBodyData extends $dara.Model {
 
 export class ModifyAsrConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of the modification.
+   */
   data?: ModifyAsrConfigResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Not Found
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * da37319b-6c83-4268-9f19-814aed62e401
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

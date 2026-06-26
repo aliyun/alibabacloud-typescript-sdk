@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRealTimeConcurrencyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum concurrency.
+   * 
    * @example
    * 2
    */
   maxConcurrency?: number;
   /**
+   * @remarks
+   * The real-time concurrency.
+   * 
    * @example
    * 1
    */
   realTimeConcurrency?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E6E61E1A-D2DC-5ACF-AED4-A115B6691F98
    */
   requestId?: string;
   /**
+   * @remarks
+   * The timestamp of the request.
+   * 
    * @example
    * 1661584255029
    */

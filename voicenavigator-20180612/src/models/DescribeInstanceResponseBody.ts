@@ -3,35 +3,84 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The capability type of the instance.<br>
+   * DEFAULT: Full capabilities.<br>
+   * VOICE_ONLY: Voice-only capabilities, which do not include conversation intervention.<br><br>
+   * 
+   * @example
+   * VOICE_ONLY
+   */
   abilityType?: string;
+  /**
+   * @remarks
+   * Applicable operations.
+   */
   applicableOperations?: string[];
   /**
+   * @remarks
+   * The concurrency of the instance.
+   * 
    * @example
    * 10
    */
   concurrency?: number;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * 导航测试实例描述信息
+   */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
-   * test1_instanceId
+   * cd6fc91bc13445c2af7f2e3e31418520
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The last modification time of the instance.
+   * 
    * @example
-   * 1532436395329
+   * 1683216000000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The user who last modified the instance.
+   * 
+   * @example
+   * 2508711*******
+   */
   modifyUserName?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * 导航测试实例
+   */
   name?: string;
   nluServiceParamsJson?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+   * 790B5EA3-D251-1666-B1E0-4D1F4B33A592
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the instance.
+   * 
    * @example
-   * Drafted
+   * Published
    */
   status?: string;
   unionInstanceId?: string;

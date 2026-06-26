@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BeginDialogueRequest extends $dara.Model {
   /**
+   * @remarks
+   * The called number.
+   * 
    * @example
    * 10086
    */
   calledNumber?: string;
   /**
    * @remarks
+   * The calling number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class BeginDialogueRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
+   * The conversation ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,17 @@ export class BeginDialogueRequest extends $dara.Model {
    */
   conversationId?: string;
   /**
+   * @remarks
+   * The conversation context.
+   * 
    * @example
    * {\\"channelId\\":\\"fe2559d3-5fc9-4fa5-8314-32b9f762791d\\"}
    */
   initialContext?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +50,9 @@ export class BeginDialogueRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance owner ID.
+   * 
    * @example
    * 1231639035307976
    */

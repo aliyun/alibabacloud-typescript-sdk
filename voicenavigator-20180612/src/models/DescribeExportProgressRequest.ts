@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExportProgressRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the export task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeExportProgressRequest extends $dara.Model {
   exportTaskId?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

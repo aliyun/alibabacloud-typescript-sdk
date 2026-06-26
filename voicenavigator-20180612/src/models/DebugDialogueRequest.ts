@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DebugDialogueRequest extends $dara.Model {
   /**
+   * @remarks
+   * The context of the conversation.
+   * 
    * @example
    * {}
    */
   additionalContext?: string;
   /**
    * @remarks
+   * The ID of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DebugDialogueRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,7 +33,12 @@ export class DebugDialogueRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The user\\"s utterance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 是的
    */
   utterance?: string;
   static names(): { [key: string]: string } {

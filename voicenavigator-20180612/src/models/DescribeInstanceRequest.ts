@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * ecbfa5e3-1838-4e8a-aa08-fa8b713b82df
+   * cd6fc91bc13445c2af7f2e3e31418520
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

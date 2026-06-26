@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatbotInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
@@ -12,6 +15,8 @@ export class ListChatbotInstancesRequest extends $dara.Model {
   nluServiceType?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +24,9 @@ export class ListChatbotInstancesRequest extends $dara.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

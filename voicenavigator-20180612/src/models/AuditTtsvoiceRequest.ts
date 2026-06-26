@@ -6,8 +6,11 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   accessKey?: string;
   appKey?: string;
   engine?: string;
+  extParams?: string;
   /**
    * @remarks
+   * The instance ID of the navigation instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +21,8 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
+   * The speech rate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,11 +31,18 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   speechRate?: string;
   /**
    * @remarks
+   * The text to preview.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 你好
    */
   text?: string;
   /**
    * @remarks
+   * The voice.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +51,8 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   voice?: string;
   /**
    * @remarks
+   * The volume.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +64,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
       accessKey: 'AccessKey',
       appKey: 'AppKey',
       engine: 'Engine',
+      extParams: 'ExtParams',
       instanceId: 'InstanceId',
       pitchRate: 'PitchRate',
       secretKey: 'SecretKey',
@@ -65,6 +80,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
       accessKey: 'string',
       appKey: 'string',
       engine: 'string',
+      extParams: 'string',
       instanceId: 'string',
       pitchRate: 'string',
       secretKey: 'string',

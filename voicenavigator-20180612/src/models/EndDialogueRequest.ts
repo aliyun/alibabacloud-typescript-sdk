@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EndDialogueRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class EndDialogueRequest extends $dara.Model {
    */
   conversationId?: string;
   /**
+   * @remarks
+   * The hang-up parameters, in a JSON string.
+   * 
    * @example
    * {\\"duration\\":40,\\"endTime\\":1645082505345,\\"hangUpDirection\\":\\"ivr\\",\\"hasLastPlaybackCompleted\\":true,\\"startTime\\":1645082505305}
    */
   hangUpParams?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class EndDialogueRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the instance owner.
+   * 
    * @example
    * 1399572315967217
    */

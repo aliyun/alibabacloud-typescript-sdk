@@ -5,9 +5,26 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class DescribeNavigationConfigResponseBodyGreetingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The greeting message.
+   * 
+   * @example
+   * 您好，欢迎致电智能导航
+   */
   greetingWords?: string;
+  /**
+   * @remarks
+   * The intent trigger.
+   * 
+   * @example
+   * 你好
+   */
   intentTrigger?: string;
   /**
+   * @remarks
+   * The source of the configuration.
+   * 
    * @example
    * chatbotIntent
    */
@@ -39,15 +56,28 @@ export class DescribeNavigationConfigResponseBodyGreetingConfig extends $dara.Mo
 
 export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $dara.Model {
   /**
+   * @remarks
+   * The action to perform after the final silence prompt is played. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
+   * 
    * @example
    * HangUp
    */
   finalAction?: string;
   /**
+   * @remarks
+   * Parameters for the final action, such as a redirection target.
+   * 
    * @example
    * {}
    */
   finalActionParams?: string;
+  /**
+   * @remarks
+   * The prompt that is played when the silence timeout threshold is reached.
+   * 
+   * @example
+   * 抱歉，听不到您说话，请您稍后致电
+   */
   finalPrompt?: string;
   /**
    * @remarks
@@ -57,18 +87,34 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
    * ""
    */
   intentTrigger?: string;
+  /**
+   * @remarks
+   * The prompt that is played when a silence timeout occurs.
+   * 
+   * @example
+   * 抱歉，我没听到您说话
+   */
   prompt?: string;
   /**
+   * @remarks
+   * The source of the configuration.
+   * 
    * @example
    * chatbotIntent
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The maximum number of silence timeouts.
+   * 
    * @example
    * 3
    */
   threshold?: number;
   /**
+   * @remarks
+   * The duration of the silence timeout.
+   * 
    * @example
    * 10
    */
@@ -110,18 +156,41 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
 
 export class DescribeNavigationConfigResponseBodyUnrecognizingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The action to take when the number of unrecognized inputs reaches the threshold. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
+   * 
    * @example
    * TransferToAgent
    */
   finalAction?: string;
   /**
+   * @remarks
+   * Parameters for the final action, such as a redirection target.
+   * 
    * @example
    * { \\"skillGroupId\\": \\"fallbackSkillGroup\\" }
    */
   finalActionParams?: string;
+  /**
+   * @remarks
+   * The prompt that is played when the unrecognized input threshold is reached.
+   * 
+   * @example
+   * 抱歉，我暂时无法处理您的问题，即将为您转接人工
+   */
   finalPrompt?: string;
+  /**
+   * @remarks
+   * The prompt that is played when user input is not recognized.
+   * 
+   * @example
+   * 抱歉，我无法理解您的意思
+   */
   prompt?: string;
   /**
+   * @remarks
+   * The maximum number of times the user\\"s input is not recognized.
+   * 
    * @example
    * 3
    */
@@ -156,13 +225,28 @@ export class DescribeNavigationConfigResponseBodyUnrecognizingConfig extends $da
 }
 
 export class DescribeNavigationConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The greeting configuration.
+   */
   greetingConfig?: DescribeNavigationConfigResponseBodyGreetingConfig;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The silence timeout configuration.
+   */
   silenceTimeoutConfig?: DescribeNavigationConfigResponseBodySilenceTimeoutConfig;
+  /**
+   * @remarks
+   * The configuration for handling unrecognized input.
+   */
   unrecognizingConfig?: DescribeNavigationConfigResponseBodyUnrecognizingConfig;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SaveRecordingRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
+   * The duration of the recording, in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class SaveRecordingRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
+   * The name of the recording file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class SaveRecordingRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * The storage path of the recording file, such as a path in Object Storage Service (OSS).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class SaveRecordingRequest extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +54,17 @@ export class SaveRecordingRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the account that owns the instance.
+   * 
    * @example
    * 1971226538081821
    */
   instanceOwnerId?: number;
   /**
    * @remarks
+   * The Unix timestamp, in milliseconds, when the recording started.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +73,8 @@ export class SaveRecordingRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
+   * The type of the recording file. Example: Source.
+   * 
    * This parameter is required.
    * 
    * @example

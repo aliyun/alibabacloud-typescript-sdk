@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryConversationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The start of the time range to query. This value is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1582183381000
    */
   beginTimeLeftRange?: number;
   /**
+   * @remarks
+   * The end of the time range to query. This value is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1582356181000
    */
   beginTimeRightRange?: number;
   /**
+   * @remarks
+   * The calling number.
+   * 
    * @example
    * 02811111111
    */
   callingNumber?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +39,8 @@ export class QueryConversationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class QueryConversationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example

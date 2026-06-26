@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySilenceTimeoutConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Action After Prompt
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,27 @@ export class ModifySilenceTimeoutConfigRequest extends $dara.Model {
    */
   finalAction?: string;
   /**
+   * @remarks
+   * Parameters for the post-prompt action, specified in a JSON string.
+   * 
    * @example
    * {}
    */
   finalActionParams?: string;
   /**
    * @remarks
+   * The prompt that plays after the silence timeout threshold is reached.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 再见
    */
   finalPrompt?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,17 +42,27 @@ export class ModifySilenceTimeoutConfigRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The intent trigger for the silence timeout.
+   * 
    * @example
    * Timeout
    */
   intentTrigger?: string;
   /**
    * @remarks
+   * The prompt that plays when the system detects no user input during the specified timeout period.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 不好意思，听不见您说什么
    */
   prompt?: string;
   /**
    * @remarks
+   * The type of source that triggers the action.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +71,8 @@ export class ModifySilenceTimeoutConfigRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
+   * The maximum number of times the system plays the silence timeout prompt before it performs the post-prompt action.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +81,8 @@ export class ModifySilenceTimeoutConfigRequest extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
+   * The duration of the silence timeout, in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRealTimeConcurrencyRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
