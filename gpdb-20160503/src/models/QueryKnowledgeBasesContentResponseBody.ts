@@ -203,9 +203,9 @@ export class QueryKnowledgeBasesContentResponseBodyRelations extends $dara.Model
 export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of entries used for vectorization.
+   * The number of entries used during vectorization.
    * 
-   * > An entry is a unit of processing for vectorization. For example, vectorizing a piece of text counts as one entry, and vectorizing an image counts as two entries.
+   * > An entry refers to the number of items processed during vectorization of text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
    * 
    * @example
    * 10
@@ -213,9 +213,9 @@ export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
   embeddingEntries?: string;
   /**
    * @remarks
-   * The number of tokens used for vectorization.
+   * The number of tokens used during vectorization.
    * 
-   * > A token is the smallest unit of processed text, such as a word, phrase, punctuation mark, or character.
+   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 475
@@ -247,36 +247,24 @@ export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
 export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens used for vectorization.
+   * The number of tokens used during vectorization.
    * 
-   * > A token is the smallest unit of processed text, such as a word, phrase, punctuation mark, or character.
+   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 100
    */
   embeddingTokens?: string;
-  /**
-   * @remarks
-   * The extracted entities.
-   */
   entities?: QueryKnowledgeBasesContentResponseBodyEntities;
-  /**
-   * @remarks
-   * The matched data.
-   */
   matches?: QueryKnowledgeBasesContentResponseBodyMatches;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
    */
   message?: string;
-  /**
-   * @remarks
-   * The extracted relationships.
-   */
   relations?: QueryKnowledgeBasesContentResponseBodyRelations;
   /**
    * @remarks
@@ -288,11 +276,9 @@ export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request. Valid values:
-   * 
-   * - **success**: The request succeeded.
-   * 
-   * - **fail**: The request failed.
+   * The API execution status. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success
@@ -300,7 +286,7 @@ export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource usage for the query.
+   * The resource usage of this query.
    */
   usage?: QueryKnowledgeBasesContentResponseBodyUsage;
   static names(): { [key: string]: string } {

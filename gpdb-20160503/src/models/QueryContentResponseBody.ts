@@ -235,9 +235,9 @@ export class QueryContentResponseBodyRelations extends $dara.Model {
 export class QueryContentResponseBodyUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of entries used for vectorization.
+   * The number of entries used during vectorization.
    * 
-   * > An entry is the number of operations during vectorization for text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
+   * > An entry refers to the number of items processed during vectorization of text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
    * 
    * @example
    * 10
@@ -245,9 +245,9 @@ export class QueryContentResponseBodyUsage extends $dara.Model {
   embeddingEntries?: string;
   /**
    * @remarks
-   * The number of tokens used for vectorization.
+   * The number of tokens used during vectorization.
    * 
-   * > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
+   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 100
@@ -395,9 +395,9 @@ export class QueryContentResponseBodyWindowMatches extends $dara.Model {
 export class QueryContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens used for vectorization.
+   * The number of tokens used during vectorization.
    * 
-   * > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
+   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 100
@@ -407,7 +407,7 @@ export class QueryContentResponseBody extends $dara.Model {
   matches?: QueryContentResponseBodyMatches;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -426,9 +426,8 @@ export class QueryContentResponseBody extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - **success**: The operation was successful.
-   * 
-   * - **fail**: The operation failed.
+   * - **success**: Succeeded.
+   * - **fail**: Failed.
    * 
    * @example
    * success
@@ -436,7 +435,7 @@ export class QueryContentResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource usage for the query.
+   * The resource usage of this query.
    */
   usage?: QueryContentResponseBodyUsage;
   windowMatches?: QueryContentResponseBodyWindowMatches;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryContentRequestGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
-   * The number of top entities and relationship edges to return. The default value is `60`.
+   * The number of top entities and relationship edges to return. Default value: 60.
    * 
    * @example
    * 60
@@ -35,8 +35,8 @@ export class QueryContentRequestGraphSearchArgs extends $dara.Model {
 export class QueryContentRequestRerankModel extends $dara.Model {
   /**
    * @remarks
-   * This parameter is available only when `RerankModel.Name` is set to `qwen3-rerank`.
-   * You can add a custom task description to guide the model\\"s sorting strategy.
+   * This parameter can be set when RerankModel.Name is qwen3-rerank.
+   * Adds a custom sorting task type description. This parameter guides the model to adopt different sorting strategies.
    * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
@@ -44,16 +44,18 @@ export class QueryContentRequestRerankModel extends $dara.Model {
   instruct?: string;
   /**
    * @remarks
-   * The name of the reranking model. Valid values: `qwen3-rerank`, `gte-rerank-v2`.
+   * The name of the rerank model. Valid values: qwen3-rerank, gte-rerank-v2.
    * 
    * @example
    * qwen3-rerank
    */
   name?: string;
+  rerankMetadataFields?: string;
   static names(): { [key: string]: string } {
     return {
       instruct: 'Instruct',
       name: 'Name',
+      rerankMetadataFields: 'RerankMetadataFields',
     };
   }
 
@@ -61,6 +63,7 @@ export class QueryContentRequestRerankModel extends $dara.Model {
     return {
       instruct: 'string',
       name: 'string',
+      rerankMetadataFields: 'string',
     };
   }
 
@@ -78,7 +81,7 @@ export class QueryContentRequest extends $dara.Model {
    * @remarks
    * The name of the document collection.
    * 
-   * > A document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. Call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to list your document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query existing document collections.
    * 
    * This parameter is required.
    * 
@@ -88,7 +91,7 @@ export class QueryContentRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The text to use for retrieval.
+   * The text content used for retrieval.
    * 
    * @example
    * What is AnalyticDB for PostgreSQL?
@@ -98,7 +101,7 @@ export class QueryContentRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to find the IDs of all AnalyticDB for PostgreSQL instances in a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -108,9 +111,9 @@ export class QueryContentRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The filename of the source image for a search-by-image query.
+   * The name of the source image file to search in image-to-image search scenarios.
    * 
-   * > The image file must have a file extension. The supported extensions are bmp, jpg, jpeg, png, and tiff.
+   * > The image file must have a file extension. Supported image extensions: bmp, jpg, jpeg, png, and tiff.
    * 
    * @example
    * test.jpg
@@ -118,9 +121,9 @@ export class QueryContentRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The publicly accessible URL of the image file for a search-by-image query.
+   * The publicly accessible URL of the image file in image-to-image search scenarios.
    * 
-   * > The image file must have a file extension. The supported extensions are bmp, jpg, jpeg, png, and tiff.
+   * > The image file must have a file extension. Supported image extensions: bmp, jpg, jpeg, png, and tiff.
    * 
    * @example
    * https://xx/myImage.jpg
@@ -128,9 +131,10 @@ export class QueryContentRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * A filter condition for the query, specified as a SQL `WHERE` clause that returns a boolean value. The clause can use comparison operators (such as `=`, `<>`, `!=`, `>`, `<`, `>=`, and `<=`), logical operators (`AND`, `OR`, and `NOT`), and keywords such as `IN`, `BETWEEN`, and `LIKE`.
+   * The filter condition for the data to query, in SQL WHERE clause format. The filter is an expression that returns a Boolean value (true or false). Conditions can be simple comparison operators such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), and less than or equal to (<=). Conditions can also be more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using the IN, BETWEEN, and LIKE keywords.
    * 
-   * > - For details about the syntax, see https\\://www\\.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > 
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
    * 
    * @example
    * title = \\"test\\" AND name like \\"test%\\"
@@ -138,7 +142,7 @@ export class QueryContentRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Specifies whether to enable knowledge graph enhancement. The default value is `false`.
+   * Specifies whether to enable knowledge graph enhancement. Default value: false.
    * 
    * @example
    * false
@@ -146,20 +150,18 @@ export class QueryContentRequest extends $dara.Model {
   graphEnhance?: boolean;
   /**
    * @remarks
-   * The parameters for knowledge graph retrieval.
+   * The knowledge graph retrieval parameters.
    */
   graphSearchArgs?: QueryContentRequestGraphSearchArgs;
   /**
    * @remarks
-   * Specifies the hybrid search algorithm. If this parameter is not specified, the system directly compares and sorts the scores from dense vector retrieval and full-text search.
+   * The multi-channel recall algorithm. Default value: empty, which indicates that the dense vector and full-text index scores are directly compared and sorted.
    * 
    * Valid values:
    * 
-   * - RRF: reciprocal rank fusion. This method uses a `k` parameter to control the fusion effect. For more information, see the `HybridSearchArgs` parameter.
-   * 
-   * - Weight: A weighted sorting method. This method uses parameters to control the score weights of vector retrieval and full-text search before sorting. For more information, see the `HybridSearchArgs` parameter.
-   * 
-   * - Cascaded: Performs full-text search first, and then performs vector retrieval on the results.
+   * - RRF: Reciprocal Rank Fusion. A parameter k controls the fusion effect. For more information, see the HybridSearchArgs configuration.
+   * - Weight: Weighted sorting. Parameters control the score weights of AISearch retrieve and full-text index results before sorting. For more information, see the HybridSearchArgs configuration.
+   * - Cascaded: Full-text index retrieve is performed first, followed by AISearch retrieve based on the full-text index results.
    * 
    * @example
    * RRF
@@ -167,10 +169,9 @@ export class QueryContentRequest extends $dara.Model {
   hybridSearch?: string;
   /**
    * @remarks
-   * Parameters for the multi-channel recall algorithm. Currently, `RRF` and `Weight` are supported. `HybridPathsSetting` can be used to specify the recall paths, including dense vector search (`dense`), sparse vector search (`sparse`), and full-text search (`fulltext`). If this parameter is not specified, the system recalls dense vectors and full-text search results by default.
+   * The algorithm parameters for multi-channel recall. RRF and Weight are supported. HybridPathsSetting specifies the recall paths: dense vectors (dense), sparse vectors (sparse), and full-text index (fulltext). If this value is empty, dense vectors (dense) and full-text index (fulltext) are used by default.
    * 
-   * - RRF: Specifies the constant `k` in the scoring formula `1/(k+rank_i)`. The value must be an integer greater than 1. Example:
-   * 
+   * - RRF: Specifies the constant k in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -182,12 +183,9 @@ export class QueryContentRequest extends $dara.Model {
    * }
    * ```
    * 
-   * - Weight:
-   * 
-   *   - For dual-channel recall (if `HybridPathsSetting` is not specified, only `alpha` is configured):
-   * 
-   *     - The score is calculated using the formula: `alpha * dense_score + (1-alpha) * fulltext_score`. The `alpha` parameter represents the score weight of dense vector retrieval relative to full-text search. The value must be in the range of 0 to 1. A value of 0 indicates that only full-text search is used, and a value of 1 indicates that only dense vector retrieval is used.
-   * 
+   * - Weight: 
+   *    - Dual-path recall (without specifying HybridPathsSetting, only specifying alpha):
+   *       - Formula: alpha * dense_score + (1-alpha) * fulltext_score. The alpha parameter specifies the score weight between dense vectors and full-text index retrieve. Valid values: 0 to 1, where 0 indicates full-text index only and 1 indicates dense vector only:
    * ```
    * { 
    *    "Weight": {
@@ -195,11 +193,8 @@ export class QueryContentRequest extends $dara.Model {
    *    }
    * }
    * ```
-   * 
-   * - For three-channel recall:
-   * 
-   *   - The score is calculated using the formula: `normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score`. The `dense`, `sparse`, and `fulltext` parameters represent the weights for the dense vector, sparse vector, and full-text search results, respectively. Their values must be greater than or equal to 0. The system automatically normalizes the weights to a sum of 1 (for example, `normalized_x = x / (dense + sparse + fulltext)`).
-   * 
+   *   - Three-path recall pattern:
+   *      - Formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. The dense, sparse, and fulltext values represent the weights for dense vectors, sparse vectors, and full-text index retrieve respectively. Valid values: greater than or equal to 0. The system automatically performs normalization of the weights to 0 to 1 (normalized_x = x / (dense + sparse + fulltext)).
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -216,7 +211,7 @@ export class QueryContentRequest extends $dara.Model {
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * Specifies whether to return the URL of the document. The default value is `false`.
+   * Specifies whether to synchronously return the URL of the document. By default, the URL is not returned.
    * 
    * @example
    * false
@@ -224,7 +219,7 @@ export class QueryContentRequest extends $dara.Model {
   includeFileUrl?: boolean;
   /**
    * @remarks
-   * The metadata fields to include in the response. If left empty, no metadata is returned. To specify multiple fields, use a comma-separated list.
+   * The metadata fields to return. Default value: empty. Separate multiple fields with commas.
    * 
    * @example
    * title,page
@@ -232,11 +227,9 @@ export class QueryContentRequest extends $dara.Model {
   includeMetadataFields?: string;
   /**
    * @remarks
-   * Specifies whether to include the vector in the results. The default value is `false`.
-   * 
-   * > - **false**: The vector is not returned.
-   * >
-   * > - **true**: The vector is returned.
+   * Specifies whether to return vectors. Default value: false.
+   * > - **false**: Does not return vectors.
+   * > - **true**: Returns vectors.
    * 
    * @example
    * true
@@ -244,14 +237,11 @@ export class QueryContentRequest extends $dara.Model {
   includeVector?: boolean;
   /**
    * @remarks
-   * The similarity algorithm used for retrieval. If this parameter is not specified, the algorithm that was specified when the document collection was created is used. We recommend that you do not set this parameter unless you have specific requirements.
+   * The similarity algorithm used for retrieval. If this value is empty, the algorithm specified when the knowledge base was created is used. Leave this parameter empty unless you have specific requirements.
    * 
    * > Valid values:
-   * >
    * > - **l2**: Euclidean distance.
-   * >
-   * > - **ip**: dot product (inner product) distance.
-   * >
+   * > - **ip**: inner product distance.
    * > - **cosine**: cosine similarity.
    * 
    * @example
@@ -260,9 +250,9 @@ export class QueryContentRequest extends $dara.Model {
   metrics?: string;
   /**
    * @remarks
-   * The namespace. The default value is `public`.
+   * The namespace. Default value: public.
    * 
-   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to list existing namespaces.
+   * > You can create a namespace by calling the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation and query namespaces by calling the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
    * 
    * @example
    * mynamespace
@@ -270,9 +260,9 @@ export class QueryContentRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password for the namespace.
+   * The password of the namespace.
    * 
-   * > This password is set when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
    * 
    * This parameter is required.
    * 
@@ -282,7 +272,7 @@ export class QueryContentRequest extends $dara.Model {
   namespacePassword?: string;
   /**
    * @remarks
-   * The offset for paginated queries.
+   * The offset for paged query. Used for paging through results.
    * 
    * @example
    * 0
@@ -290,9 +280,13 @@ export class QueryContentRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The field to sort the results by. By default, this parameter is empty.
+   * The field used for sorting. Default value: empty.
    * 
-   * The field must be a metadata field or a default field from the table, such as `id`. Supported formats include single fields (e.g., `chunk_id`), multiple comma-separated fields (e.g., `block_id, chunk_id`), and fields with a sort direction (e.g., `block_id DESC, chunk_id DESC`).
+   * The field must belong to metadata or a default field in the table, such as id. Supported formats:
+   * 
+   * A single field, such as chunk_id.
+   * Multiple fields separated by commas, such as block_id, chunk_id.
+   * Descending order, such as block_id DESC, chunk_id DESC.
    * 
    * @example
    * created_at
@@ -301,11 +295,9 @@ export class QueryContentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The recall window. If this parameter is specified, additional context is returned with the retrieval results. The value must be a two-element array, `[A, B]`, where `-10 <= A <= 0` and `0 <= B <= 10`.
-   * 
-   * > - Use this parameter when documents are finely chunked and retrieval might otherwise lose contextual information.
-   * >
-   * > - Reranking is prioritized over windowing. The system first applies reranking and then processes the window.
+   * The recall window. When this value is not empty, additional context around the retrieval results is returned. The format is a two-element array: List<A, B>, where -10<=A<=0 and 0<=B<=10.
+   * > - Use this parameter when documents are split into overly small chunks and retrieval may lose contextual information.
+   * > - Reranking takes priority over windowing. Reranking is performed first, followed by windowing.
    */
   recallWindow?: number[];
   /**
@@ -320,11 +312,9 @@ export class QueryContentRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The factor for reranking vector retrieval results. The value must be greater than 1 and less than or equal to 5.
-   * 
-   * > - Reranking may be slower if document chunks are sparse.
-   * >
-   * > - For best performance, the number of items to be reranked (`TopK` \\* `RerankFactor`, rounded up) should not exceed 50.
+   * The reranking factor. When this value is not empty, the AISearch retrieve results are reranked. Valid values: 1 < RerankFactor <= 5.
+   * > - Reranking is slow when documents are sparsely chunked.
+   * > - The total number of reranked results (TopK × Factor, rounded up) should not exceed 50.
    * 
    * @example
    * 2
@@ -332,7 +322,7 @@ export class QueryContentRequest extends $dara.Model {
   rerankFactor?: number;
   /**
    * @remarks
-   * The parameters for the reranking model.
+   * The rerank model parameters.
    */
   rerankModel?: QueryContentRequestRerankModel;
   /**
@@ -347,11 +337,10 @@ export class QueryContentRequest extends $dara.Model {
    * @remarks
    * The validity period of the returned image URL.
    * 
-   * > - The value can be specified in seconds (s) or days (d). For example, `300s` indicates that the link is valid for 300 seconds, and `60d` indicates that the link is valid for 60 days.
-   * >
-   * > - The value must be in the range of `60s` to `365d`.
-   * >
-   * > - Default value: `7200s` (2 hours).
+   * > Valid values:
+   * > - Supports seconds (s) and days (d) as units. For example, 300s indicates a validity period of 300 seconds, and 60d indicates a validity period of 60 days.
+   * > - Valid values: 60s to 365d.
+   * > - Default value: 7200s (2 hours).
    * 
    * @example
    * 7200s
@@ -359,7 +348,7 @@ export class QueryContentRequest extends $dara.Model {
   urlExpiration?: string;
   /**
    * @remarks
-   * (Deprecated) Specifies whether to use full-text search (dual-channel recall). The default value is `false`, which means only vector retrieval is used.
+   * (Deprecated) Specifies whether to use full-text retrieval (dual-path recall). Default value: false, which indicates that only vector retrieval is used.
    * 
    * @example
    * true

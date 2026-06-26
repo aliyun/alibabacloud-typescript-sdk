@@ -6,8 +6,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to view the details of all instances in a target region, including their instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Whether to include the raw retrieval results from the knowledge base in the response. Default: `false`.
+   * Specifies whether to return the recall results. Default value: false.
    * 
    * @example
    * false
@@ -25,12 +24,12 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * Parameters for knowledge retrieval. If omitted, the operation performs a standard chat without retrieving from a knowledge base.
+   * The knowledge retrieval parameter object. If not specified, only chat is performed.
    */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
-   * The parameters for calling the large language model (LLM).
+   * The large language model (LLM) invocation parameter object.
    * 
    * This parameter is required.
    */
@@ -38,7 +37,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * A custom system prompt template. If specified, it overrides the default prompt. The template must include the {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }} placeholders.
+   * The system prompt template, which must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
    * 
    * @example
    * "参考以下知识回答问题:{{ text_chunks }}"
