@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSAMLServiceProviderInfoResponseBodySAMLServiceProviderInfo extends $dara.Model {
-  /**
-   * @example
-   * https://signin-cn-beijing.aliyunagentid.com/up_xxxxxxxxxxxxxxxxxxxx/saml/acs
-   */
   ACSURL?: string;
-  /**
-   * @example
-   * https://signin-cn-beijing.aliyunagentid.com/up_xxxxxxxxxxxxxxxxxxxx
-   */
   entityId?: string;
-  /**
-   * @example
-   * <?xml version=\\"1.0\\" encoding=\\"UTF-8\\" standalone=\\"no\\"?>\\n<md:EntityDescriptor entityID=\\"https://signin......
-   */
   SPMetadataDocument?: string;
-  /**
-   * @example
-   * up_xxxxxxxxxxxxxxxxxxxx
-   */
   userPoolId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,10 +35,6 @@ export class GetSAMLServiceProviderInfoResponseBodySAMLServiceProviderInfo exten
 }
 
 export class GetSAMLServiceProviderInfoResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   SAMLServiceProviderInfo?: GetSAMLServiceProviderInfoResponseBodySAMLServiceProviderInfo;
   static names(): { [key: string]: string } {

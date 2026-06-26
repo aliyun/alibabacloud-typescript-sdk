@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AttachPolicySetToGatewayRequest extends $dara.Model {
-  /**
-   * @example
-   * ENFORCE
-   */
   enforcementMode?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:gateway/my-gateway
-   */
   gatewayArn?: string;
   gatewayType?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

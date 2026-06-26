@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserPoolClientResponseBodyClientClientScopes extends $dara.Model {
-  /**
-   * @example
-   * OpenID Connect authentication
-   */
   description?: string;
-  /**
-   * @example
-   * openid
-   */
   scopeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,52 +29,17 @@ export class CreateUserPoolClientResponseBodyClientClientScopes extends $dara.Mo
 }
 
 export class CreateUserPoolClientResponseBodyClient extends $dara.Model {
-  /**
-   * @example
-   * 3600
-   */
   accessTokenValidity?: string;
-  /**
-   * @example
-   * client_xxxxxxxxxxxxxxxxxxxx
-   */
   clientId?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
   clientScopes?: CreateUserPoolClientResponseBodyClientClientScopes[];
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
+  clientType?: string;
   createTime?: string;
-  /**
-   * @example
-   * true
-   */
   enforcePKCE?: boolean;
   redirectURIs?: string[];
-  /**
-   * @example
-   * 86400
-   */
   refreshTokenValidity?: string;
-  /**
-   * @example
-   * true
-   */
   secretRequired?: boolean;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,6 +47,7 @@ export class CreateUserPoolClientResponseBodyClient extends $dara.Model {
       clientId: 'ClientId',
       clientName: 'ClientName',
       clientScopes: 'ClientScopes',
+      clientType: 'ClientType',
       createTime: 'CreateTime',
       enforcePKCE: 'EnforcePKCE',
       redirectURIs: 'RedirectURIs',
@@ -106,6 +64,7 @@ export class CreateUserPoolClientResponseBodyClient extends $dara.Model {
       clientId: 'string',
       clientName: 'string',
       clientScopes: { 'type': 'array', 'itemType': CreateUserPoolClientResponseBodyClientClientScopes },
+      clientType: 'string',
       createTime: 'string',
       enforcePKCE: 'boolean',
       redirectURIs: { 'type': 'array', 'itemType': 'string' },
@@ -133,10 +92,6 @@ export class CreateUserPoolClientResponseBodyClient extends $dara.Model {
 
 export class CreateUserPoolClientResponseBody extends $dara.Model {
   client?: CreateUserPoolClientResponseBodyClient;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

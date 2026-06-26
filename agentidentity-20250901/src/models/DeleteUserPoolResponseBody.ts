@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteUserPoolResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

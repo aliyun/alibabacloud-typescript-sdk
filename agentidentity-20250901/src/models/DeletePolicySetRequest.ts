@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePolicySetRequest extends $dara.Model {
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

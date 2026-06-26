@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteIdentityProviderRequest extends $dara.Model {
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
   static names(): { [key: string]: string } {
     return {

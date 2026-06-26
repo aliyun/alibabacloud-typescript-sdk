@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRolesResponseBodyRoles extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   createTime?: string;
   description?: string;
-  /**
-   * @example
-   * role_xxxxxxxxxxxxxxxxxxxx
-   */
   roleId?: string;
-  /**
-   * @example
-   * Analyst
-   */
   roleName?: string;
-  /**
-   * @example
-   * Manual
-   */
   type?: string;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,26 +41,10 @@ export class ListRolesResponseBodyRoles extends $dara.Model {
 }
 
 export class ListRolesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdFJvbGVzOjoyMA==
-   */
   nextToken?: string;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   roles?: ListRolesResponseBodyRoles[];
-  /**
-   * @example
-   * 8
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

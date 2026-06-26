@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserPoolsRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdFVzZXJQb29sczo6MTA=
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

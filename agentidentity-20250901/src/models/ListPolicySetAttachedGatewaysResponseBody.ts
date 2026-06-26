@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicySetAttachedGatewaysResponseBodyAttachedGateways extends $dara.Model {
-  /**
-   * @example
-   * default-policy-set
-   */
   attachedPolicySetName?: string;
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   attachedTime?: string;
-  /**
-   * @example
-   * ENFORCE
-   */
   enforcementMode?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:gateway/my-gateway
-   */
   gatewayArn?: string;
   gatewayType?: string;
   static names(): { [key: string]: string } {
@@ -55,25 +39,9 @@ export class ListPolicySetAttachedGatewaysResponseBodyAttachedGateways extends $
 
 export class ListPolicySetAttachedGatewaysResponseBody extends $dara.Model {
   attachedGateways?: ListPolicySetAttachedGatewaysResponseBodyAttachedGateways[];
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

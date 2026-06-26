@@ -3,17 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddSAMLIdentityProviderCertificateRequest extends $dara.Model {
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
-  /**
-   * @example
-   * -----BEGIN CERTIFICATE-----
-   * MIIDdz...
-   * -----END CERTIFICATE-----
-   */
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {

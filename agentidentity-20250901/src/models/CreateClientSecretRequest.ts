@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClientSecretRequest extends $dara.Model {
-  /**
-   * @example
-   * client_xxxxxxxxxxxxxxxxxxxx
-   */
   clientId?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

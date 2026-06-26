@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTokenVaultsResponseBodyTokenVaultsEncryptionConfig extends $dara.Model {
-  /**
-   * @example
-   * SERVICE_MANAGED_KEY
-   */
   keyType?: string;
-  /**
-   * @example
-   * acs:kms:cn-beijing:123456:key/key-bjxxxxxxxx
-   */
   kmsKeyArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,36 +29,12 @@ export class ListTokenVaultsResponseBodyTokenVaultsEncryptionConfig extends $dar
 }
 
 export class ListTokenVaultsResponseBodyTokenVaults extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
   encryptionConfig?: ListTokenVaultsResponseBodyTokenVaultsEncryptionConfig;
-  /**
-   * @example
-   * acs:ram::123456:role/AliyunAgentIdentityVaultRole
-   */
   roleArn?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:tokenvault/default
-   */
   tokenVaultArn?: string;
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,26 +73,10 @@ export class ListTokenVaultsResponseBodyTokenVaults extends $dara.Model {
 }
 
 export class ListTokenVaultsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
   tokenVaults?: ListTokenVaultsResponseBodyTokenVaults[];
-  /**
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

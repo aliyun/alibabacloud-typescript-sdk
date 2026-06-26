@@ -3,37 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersResponseBodyUsers extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   createTime?: string;
   description?: string;
-  /**
-   * @example
-   * Alice Wang
-   */
   displayName?: string;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
+  email?: string;
+  status?: string;
+  type?: string;
   updateTime?: string;
-  /**
-   * @example
-   * user_xxxxxxxxxxxxxxxxxxxx
-   */
   userId?: string;
-  /**
-   * @example
-   * alice
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       description: 'Description',
       displayName: 'DisplayName',
+      email: 'Email',
+      status: 'Status',
+      type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
       userName: 'UserName',
@@ -45,6 +31,9 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
       createTime: 'string',
       description: 'string',
       displayName: 'string',
+      email: 'string',
+      status: 'string',
+      type: 'string',
       updateTime: 'string',
       userId: 'string',
       userName: 'string',
@@ -61,25 +50,9 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
 }
 
 export class ListUsersResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdFVzZXJzOjoyMA==
-   */
   nextToken?: string;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 30
-   */
   totalCount?: number;
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

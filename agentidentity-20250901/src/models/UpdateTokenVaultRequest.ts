@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTokenVaultRequest extends $dara.Model {
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * acs:ram::123456:role/AliyunAgentIdentityVaultRole
-   */
   roleArn?: string;
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {

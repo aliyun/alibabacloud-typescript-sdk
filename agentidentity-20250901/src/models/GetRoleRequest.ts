@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoleRequest extends $dara.Model {
-  /**
-   * @example
-   * Analyst
-   */
   roleName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,42 +4,14 @@ import { OAuth2ProviderConfig } from "./Oauth2providerConfig";
 
 
 export class GetOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider extends $dara.Model {
-  /**
-   * @example
-   * https://agentidentitydata.cn-beijing.aliyuncs.com/oauth2/callback/d51171bc-0dae-3219-8e65-6b4cdafa3beb
-   */
   callbackURL?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:tokenvault/default/oauth2credentialprovider/oauth-provider-aliyun
-   */
   credentialProviderArn?: string;
-  /**
-   * @example
-   * AliyunOAuth2
-   */
   credentialProviderVendor?: string;
-  /**
-   * @example
-   * example provider
-   */
   description?: string;
-  /**
-   * @example
-   * oauth2-provider-aliyun
-   */
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfig?: OAuth2ProviderConfig;
   tokenVaultName?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,10 +55,6 @@ export class GetOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider ext
 
 export class GetOAuth2CredentialProviderResponseBody extends $dara.Model {
   OAuth2CredentialProvider?: GetOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider;
-  /**
-   * @example
-   * D9A9DC39-61BB-53FD-9ADC-B14884F21038
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

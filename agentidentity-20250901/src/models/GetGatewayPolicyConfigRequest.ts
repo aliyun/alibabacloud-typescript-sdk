@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGatewayPolicyConfigRequest extends $dara.Model {
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:gateway/my-gateway
-   */
   gatewayArn?: string;
   gatewayType?: string;
   static names(): { [key: string]: string } {

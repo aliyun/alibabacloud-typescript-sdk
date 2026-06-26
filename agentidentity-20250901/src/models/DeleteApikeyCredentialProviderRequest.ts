@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAPIKeyCredentialProviderRequest extends $dara.Model {
-  /**
-   * @example
-   * api-key-dash-scope
-   */
   APIKeyCredentialProviderName?: string;
   tokenVaultName?: string;
   static names(): { [key: string]: string } {

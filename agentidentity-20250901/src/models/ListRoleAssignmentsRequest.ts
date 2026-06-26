@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRoleAssignmentsRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdEFzc2lnbm1lbnRzOjoxMA==
-   */
   nextToken?: string;
-  /**
-   * @example
-   * alice
-   */
   principalName?: string;
-  /**
-   * @example
-   * User
-   */
   principalType?: string;
-  /**
-   * @example
-   * Analyst
-   */
   roleName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

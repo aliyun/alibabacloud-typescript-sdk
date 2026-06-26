@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateIdentityProviderShrinkRequest extends $dara.Model {
   allowedAudienceShrink?: string;
-  /**
-   * @example
-   * example identity provider
-   */
   description?: string;
-  /**
-   * @example
-   * https://oauth.aliyun.com/.well-known/openid-configuration
-   */
   discoveryURL?: string;
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
   static names(): { [key: string]: string } {
     return {

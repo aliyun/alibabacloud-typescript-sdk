@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserPoolClientRequest extends $dara.Model {
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

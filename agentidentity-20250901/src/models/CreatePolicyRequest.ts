@@ -5,20 +5,8 @@ import { Definition } from "./Definition";
 
 export class CreatePolicyRequest extends $dara.Model {
   definition?: Definition;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * rate-limit-policy
-   */
   policyName?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserPoolRequest extends $dara.Model {
   description?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

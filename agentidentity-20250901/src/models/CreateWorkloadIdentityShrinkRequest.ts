@@ -5,28 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkloadIdentityShrinkRequest extends $dara.Model {
   allowedResourceOAuth2ReturnURLsShrink?: string;
   createRAMRole?: boolean;
-  /**
-   * @example
-   * example agent
-   */
   description?: string;
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
-  /**
-   * @example
-   * acs:ram::123456:role/agent-101-role
-   */
   roleArn?: string;
   sessionBindingEnabled?: boolean;
   sourceAgentArn?: string;
   sourcePlatform?: string;
-  /**
-   * @example
-   * agent-101
-   */
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {

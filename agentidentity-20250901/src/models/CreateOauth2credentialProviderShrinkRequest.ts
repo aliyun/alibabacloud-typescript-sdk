@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateOAuth2CredentialProviderShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * https://agentidentitydata.cn-beijing.aliyuncs.com/oauth2/callback/d51171bc-0dae-3219-8e65-6b4cdafa3beb
-   */
   callbackURL?: string;
-  /**
-   * @example
-   * AliyunOAuth2
-   */
   credentialProviderVendor?: string;
-  /**
-   * @example
-   * example provider
-   */
   description?: string;
-  /**
-   * @example
-   * oauth-provider-aliyun
-   */
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfigShrink?: string;
   tokenVaultName?: string;

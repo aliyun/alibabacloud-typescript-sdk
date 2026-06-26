@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserPoolClientsRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdENsaWVudHM6OjEw
-   */
   nextToken?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

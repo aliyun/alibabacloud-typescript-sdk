@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePolicySetRequest extends $dara.Model {
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

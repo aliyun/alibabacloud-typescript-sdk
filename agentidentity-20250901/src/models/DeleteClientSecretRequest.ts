@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteClientSecretRequest extends $dara.Model {
-  /**
-   * @example
-   * client-xxxxxxxxxxxxxxxxxxxx
-   */
   clientId?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
-  /**
-   * @example
-   * secret-xxxxxxxxxxxxxxxxxxxx
-   */
   clientSecretId?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

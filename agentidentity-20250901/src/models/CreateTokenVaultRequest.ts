@@ -4,21 +4,9 @@ import { EncryptionConfig } from "./EncryptionConfig";
 
 
 export class CreateTokenVaultRequest extends $dara.Model {
-  /**
-   * @example
-   * example description
-   */
   description?: string;
   encryptionConfig?: EncryptionConfig;
-  /**
-   * @example
-   * acs:ram::123456:role/AliyunAgentIdentityVaultRole
-   */
   roleArn?: string;
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {

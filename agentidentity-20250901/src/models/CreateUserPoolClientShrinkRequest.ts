@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserPoolClientShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 3600
-   */
   accessTokenValidity?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
-  /**
-   * @example
-   * true
-   */
   enforcePKCE?: boolean;
   redirectURIsShrink?: string;
-  /**
-   * @example
-   * 86400
-   */
   refreshTokenValidity?: string;
-  /**
-   * @example
-   * true
-   */
   secretRequired?: boolean;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

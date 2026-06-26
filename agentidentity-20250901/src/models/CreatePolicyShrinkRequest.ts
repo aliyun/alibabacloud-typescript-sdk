@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePolicyShrinkRequest extends $dara.Model {
   definitionShrink?: string;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * rate-limit-policy
-   */
   policyName?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

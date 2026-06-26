@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTokenVaultShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * example description
-   */
   description?: string;
   encryptionConfigShrink?: string;
-  /**
-   * @example
-   * acs:ram::123456:role/AliyunAgentIdentityVaultRole
-   */
   roleArn?: string;
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {

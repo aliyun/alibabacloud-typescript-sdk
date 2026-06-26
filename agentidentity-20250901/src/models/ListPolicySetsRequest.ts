@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicySetsRequest extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

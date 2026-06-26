@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkloadIdentityRequest extends $dara.Model {
-  /**
-   * @example
-   * agent-101
-   */
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {

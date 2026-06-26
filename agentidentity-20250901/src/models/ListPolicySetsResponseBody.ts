@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicySetsResponseBodyPolicySets extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:policyset/default-policy-set
-   */
   policySetArn?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,26 +38,10 @@ export class ListPolicySetsResponseBodyPolicySets extends $dara.Model {
 }
 
 export class ListPolicySetsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
   policySets?: ListPolicySetsResponseBodyPolicySets[];
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

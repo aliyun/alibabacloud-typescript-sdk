@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTokenVaultResponseBodyTokenVaultEncryptionConfig extends $dara.Model {
-  /**
-   * @example
-   * SERVICE_MANAGED_KEY
-   */
   keyType?: string;
-  /**
-   * @example
-   * acs:kms:cn-beijing:123456:key/key-bjxxxxxxxx
-   */
   kmsKeyArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,36 +29,12 @@ export class GetTokenVaultResponseBodyTokenVaultEncryptionConfig extends $dara.M
 }
 
 export class GetTokenVaultResponseBodyTokenVault extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
   encryptionConfig?: GetTokenVaultResponseBodyTokenVaultEncryptionConfig;
-  /**
-   * @example
-   * acs:ram::123456:role/AliyunAgentIdentityVaultRole
-   */
   roleArn?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:tokenvault/default
-   */
   tokenVaultArn?: string;
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +73,6 @@ export class GetTokenVaultResponseBodyTokenVault extends $dara.Model {
 }
 
 export class GetTokenVaultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
   tokenVault?: GetTokenVaultResponseBodyTokenVault;
   static names(): { [key: string]: string } {

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPolicyRequest extends $dara.Model {
-  /**
-   * @example
-   * rate-limit-policy
-   */
   policyName?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {

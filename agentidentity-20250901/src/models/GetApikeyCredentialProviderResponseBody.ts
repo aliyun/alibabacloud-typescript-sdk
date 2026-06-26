@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider extends $dara.Model {
-  /**
-   * @example
-   * api-key-dash-scope
-   */
   APIKeyCredentialProviderName?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:tokenvault/default/apikeycredentialprovider/api-key-dash-scope
-   */
   credentialProviderArn?: string;
-  /**
-   * @example
-   * example provider
-   */
   description?: string;
   tokenVaultName?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,10 +42,6 @@ export class GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider ext
 
 export class GetAPIKeyCredentialProviderResponseBody extends $dara.Model {
   APIKeyCredentialProvider?: GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider;
-  /**
-   * @example
-   * 76BF2570-76F5-5093-87CE-0918DD85752C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

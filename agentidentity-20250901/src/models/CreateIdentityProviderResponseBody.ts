@@ -4,35 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIdentityProviderResponseBodyIdentityProvider extends $dara.Model {
   allowedAudience?: string[];
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example identity provider
-   */
   description?: string;
-  /**
-   * @example
-   * https://oauth.aliyun.com/.well-known/openid-configuration
-   */
   discoveryURL?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:identityprovider/identity-provider-okta
-   */
   identityProviderArn?: string;
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,10 +48,6 @@ export class CreateIdentityProviderResponseBodyIdentityProvider extends $dara.Mo
 
 export class CreateIdentityProviderResponseBody extends $dara.Model {
   identityProvider?: CreateIdentityProviderResponseBodyIdentityProvider;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

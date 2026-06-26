@@ -4,35 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Model {
   allowedAudience?: string[];
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * ods_api_public_ios_wanxin_boxgame_user_behavior_integration_di
-   */
   description?: string;
-  /**
-   * @example
-   * https://oauth.aliyun.com/.well-known/openid-configuration
-   */
   discoveryURL?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:identityprovider/identity-provider-okta
-   */
   identityProviderArn?: string;
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
-  /**
-   * @example
-   * 2025-06-09T02:04:23
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,25 +48,9 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
 
 export class ListIdentityProvidersResponseBody extends $dara.Model {
   identityProviders?: ListIdentityProvidersResponseBodyIdentityProviders[];
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6lsy4U8Dgz6TCndCo6o5TB8
-   */
   nextToken?: string;
-  /**
-   * @example
-   * D325DF9D-7CA8-5C47-BA0C-9A74873F2BE3
-   */
   requestId?: string;
-  /**
-   * @example
-   * 33
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

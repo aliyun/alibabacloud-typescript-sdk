@@ -632,6 +632,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用户池用户
+   * 
+   * @param request - CreateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
+   */
+  async createUserWithOptions(request: $_model.CreateUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      body["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUser",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUserResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserResponse({}));
+  }
+
+  /**
+   * 创建用户池用户
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
+   */
+  async createUser(request: $_model.CreateUserRequest): Promise<$_model.CreateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUserWithOptions(request, runtime);
+  }
+
+  /**
    * 创建UserPool
    * 
    * @param request - CreateUserPoolRequest
@@ -1654,6 +1716,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户池登录相关配置
+   * 
+   * @param request - GetLoginPreferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoginPreferenceResponse
+   */
+  async getLoginPreferenceWithOptions(request: $_model.GetLoginPreferenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLoginPreferenceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLoginPreference",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLoginPreferenceResponse>(await this.callApi(params, req, runtime), new $_model.GetLoginPreferenceResponse({}));
+  }
+
+  /**
+   * 获取用户池登录相关配置
+   * 
+   * @param request - GetLoginPreferenceRequest
+   * @returns GetLoginPreferenceResponse
+   */
+  async getLoginPreference(request: $_model.GetLoginPreferenceRequest): Promise<$_model.GetLoginPreferenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLoginPreferenceWithOptions(request, runtime);
+  }
+
+  /**
    * 查询 OAuth2 凭证提供商
    * 
    * @param request - GetOAuth2CredentialProviderRequest
@@ -1918,6 +2022,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定的身份提供商
+   * 
+   * @param request - GetSpecificIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSpecificIdentityProviderResponse
+   */
+  async getSpecificIdentityProviderWithOptions(request: $_model.GetSpecificIdentityProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSpecificIdentityProviderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identityProviderType)) {
+      body["IdentityProviderType"] = request.identityProviderType;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSpecificIdentityProvider",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSpecificIdentityProviderResponse>(await this.callApi(params, req, runtime), new $_model.GetSpecificIdentityProviderResponse({}));
+  }
+
+  /**
+   * 获取指定的身份提供商
+   * 
+   * @param request - GetSpecificIdentityProviderRequest
+   * @returns GetSpecificIdentityProviderResponse
+   */
+  async getSpecificIdentityProvider(request: $_model.GetSpecificIdentityProviderRequest): Promise<$_model.GetSpecificIdentityProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSpecificIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
    * 获取指定凭证库的详细配置。
    * 
    * @param request - GetTokenVaultRequest
@@ -2091,6 +2241,52 @@ export default class Client extends OpenApi {
   async getUserPoolClient(request: $_model.GetUserPoolClientRequest): Promise<$_model.GetUserPoolClientResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserPoolClientWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取UserPool
+   * 
+   * @param request - GetUserPoolSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserPoolSyncJobResponse
+   */
+  async getUserPoolSyncJobWithOptions(request: $_model.GetUserPoolSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserPoolSyncJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.synchronizationJobId)) {
+      body["SynchronizationJobId"] = request.synchronizationJobId;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserPoolSyncJob",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserPoolSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.GetUserPoolSyncJobResponse({}));
+  }
+
+  /**
+   * 获取UserPool
+   * 
+   * @param request - GetUserPoolSyncJobRequest
+   * @returns GetUserPoolSyncJobResponse
+   */
+  async getUserPoolSyncJob(request: $_model.GetUserPoolSyncJobRequest): Promise<$_model.GetUserPoolSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserPoolSyncJobWithOptions(request, runtime);
   }
 
   /**
@@ -2730,6 +2926,56 @@ export default class Client extends OpenApi {
   /**
    * 列出IdentityProvider
    * 
+   * @param request - ListUserPoolSyncJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserPoolSyncJobsResponse
+   */
+  async listUserPoolSyncJobsWithOptions(request: $_model.ListUserPoolSyncJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserPoolSyncJobsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserPoolSyncJobs",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserPoolSyncJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserPoolSyncJobsResponse({}));
+  }
+
+  /**
+   * 列出IdentityProvider
+   * 
+   * @param request - ListUserPoolSyncJobsRequest
+   * @returns ListUserPoolSyncJobsResponse
+   */
+  async listUserPoolSyncJobs(request: $_model.ListUserPoolSyncJobsRequest): Promise<$_model.ListUserPoolSyncJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserPoolSyncJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出IdentityProvider
+   * 
    * @param request - ListUserPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserPoolsResponse
@@ -2870,6 +3116,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建UserPool
+   * 
+   * @param request - RunUserPoolSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunUserPoolSyncJobResponse
+   */
+  async runUserPoolSyncJobWithOptions(request: $_model.RunUserPoolSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunUserPoolSyncJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identityProviderType)) {
+      body["IdentityProviderType"] = request.identityProviderType;
+    }
+
+    if (!$dara.isNull(request.maxSyncUsers)) {
+      body["MaxSyncUsers"] = request.maxSyncUsers;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunUserPoolSyncJob",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunUserPoolSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.RunUserPoolSyncJobResponse({}));
+  }
+
+  /**
+   * 创建UserPool
+   * 
+   * @param request - RunUserPoolSyncJobRequest
+   * @returns RunUserPoolSyncJobResponse
+   */
+  async runUserPoolSyncJob(request: $_model.RunUserPoolSyncJobRequest): Promise<$_model.RunUserPoolSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runUserPoolSyncJobWithOptions(request, runtime);
+  }
+
+  /**
    * 创建WorkloadIdentity
    * 
    * @param tmpReq - SetSAMLIdentityProviderRequest
@@ -2943,6 +3239,114 @@ export default class Client extends OpenApi {
   async setSAMLIdentityProvider(request: $_model.SetSAMLIdentityProviderRequest): Promise<$_model.SetSAMLIdentityProviderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setSAMLIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 通用IdP配置
+   * 
+   * @param request - SetSpecificIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSpecificIdentityProviderResponse
+   */
+  async setSpecificIdentityProviderWithOptions(request: $_model.SetSpecificIdentityProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetSpecificIdentityProviderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.IDPMetadata)) {
+      body["IDPMetadata"] = request.IDPMetadata;
+    }
+
+    if (!$dara.isNull(request.identityProviderType)) {
+      body["IdentityProviderType"] = request.identityProviderType;
+    }
+
+    if (!$dara.isNull(request.SSOStatus)) {
+      body["SSOStatus"] = request.SSOStatus;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetSpecificIdentityProvider",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetSpecificIdentityProviderResponse>(await this.callApi(params, req, runtime), new $_model.SetSpecificIdentityProviderResponse({}));
+  }
+
+  /**
+   * 通用IdP配置
+   * 
+   * @param request - SetSpecificIdentityProviderRequest
+   * @returns SetSpecificIdentityProviderResponse
+   */
+  async setSpecificIdentityProvider(request: $_model.SetSpecificIdentityProviderRequest): Promise<$_model.SetSpecificIdentityProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setSpecificIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改用户登录密码
+   * 
+   * @param request - SetUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetUserPasswordResponse
+   */
+  async setUserPasswordWithOptions(request: $_model.SetUserPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetUserPasswordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.generateRandomPassword)) {
+      body["GenerateRandomPassword"] = request.generateRandomPassword;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetUserPassword",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetUserPasswordResponse>(await this.callApi(params, req, runtime), new $_model.SetUserPasswordResponse({}));
+  }
+
+  /**
+   * 修改用户登录密码
+   * 
+   * @param request - SetUserPasswordRequest
+   * @returns SetUserPasswordResponse
+   */
+  async setUserPassword(request: $_model.SetUserPasswordRequest): Promise<$_model.SetUserPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setUserPasswordWithOptions(request, runtime);
   }
 
   /**
@@ -3107,6 +3511,60 @@ export default class Client extends OpenApi {
   async updateIdentityProvider(request: $_model.UpdateIdentityProviderRequest): Promise<$_model.UpdateIdentityProviderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新用户池登录配置
+   * 
+   * @param tmpReq - UpdateLoginPreferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLoginPreferenceResponse
+   */
+  async updateLoginPreferenceWithOptions(tmpReq: $_model.UpdateLoginPreferenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLoginPreferenceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateLoginPreferenceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.loginPreference)) {
+      request.loginPreferenceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.loginPreference, "LoginPreference", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.loginPreferenceShrink)) {
+      query["LoginPreference"] = request.loginPreferenceShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLoginPreference",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLoginPreferenceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLoginPreferenceResponse({}));
+  }
+
+  /**
+   * 更新用户池登录配置
+   * 
+   * @param request - UpdateLoginPreferenceRequest
+   * @returns UpdateLoginPreferenceResponse
+   */
+  async updateLoginPreference(request: $_model.UpdateLoginPreferenceRequest): Promise<$_model.UpdateLoginPreferenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLoginPreferenceWithOptions(request, runtime);
   }
 
   /**
@@ -3381,6 +3839,68 @@ export default class Client extends OpenApi {
   async updateTokenVault(request: $_model.UpdateTokenVaultRequest): Promise<$_model.UpdateTokenVaultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTokenVaultWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新用户池用户
+   * 
+   * @param request - UpdateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserResponse
+   */
+  async updateUserWithOptions(request: $_model.UpdateUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      body["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.userPoolName)) {
+      body["UserPoolName"] = request.userPoolName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUser",
+      version: "2025-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUserResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUserResponse({}));
+  }
+
+  /**
+   * 更新用户池用户
+   * 
+   * @param request - UpdateUserRequest
+   * @returns UpdateUserResponse
+   */
+  async updateUser(request: $_model.UpdateUserRequest): Promise<$_model.UpdateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUserWithOptions(request, runtime);
   }
 
   /**

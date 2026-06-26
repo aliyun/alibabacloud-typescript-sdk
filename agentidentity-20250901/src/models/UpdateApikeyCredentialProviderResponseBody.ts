@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAPIKeyCredentialProviderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * A0FD8DC1-2E36-50F4-97D4-6494F96F7FB5
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

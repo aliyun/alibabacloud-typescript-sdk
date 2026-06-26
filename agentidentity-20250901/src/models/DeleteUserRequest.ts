@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteUserRequest extends $dara.Model {
-  /**
-   * @example
-   * alice
-   */
   userName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

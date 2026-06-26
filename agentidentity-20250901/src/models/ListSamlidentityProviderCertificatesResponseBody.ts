@@ -3,17 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSAMLIdentityProviderCertificatesResponseBodyX509Certificates extends $dara.Model {
-  /**
-   * @example
-   * cert-xxxxxxxxxxxxxxxxxxxx
-   */
   certificateId?: string;
-  /**
-   * @example
-   * -----BEGIN CERTIFICATE-----
-   * MIIDdz...
-   * -----END CERTIFICATE-----
-   */
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,10 +29,6 @@ export class ListSAMLIdentityProviderCertificatesResponseBodyX509Certificates ex
 }
 
 export class ListSAMLIdentityProviderCertificatesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   x509Certificates?: ListSAMLIdentityProviderCertificatesResponseBodyX509Certificates[];
   static names(): { [key: string]: string } {

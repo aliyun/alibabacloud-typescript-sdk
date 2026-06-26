@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteIdentityProviderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * EE854F60-E275-534A-B102-F75346B6DA38
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

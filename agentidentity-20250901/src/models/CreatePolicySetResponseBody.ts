@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePolicySetResponseBodyPolicySet extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-08T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example description
-   */
   description?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:policyset/default-policy-set
-   */
   policySetArn?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,10 +36,6 @@ export class CreatePolicySetResponseBodyPolicySet extends $dara.Model {
 
 export class CreatePolicySetResponseBody extends $dara.Model {
   policySet?: CreatePolicySetResponseBodyPolicySet;
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

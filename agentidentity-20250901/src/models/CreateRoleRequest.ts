@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRoleRequest extends $dara.Model {
   description?: string;
-  /**
-   * @example
-   * Analyst
-   */
   roleName?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

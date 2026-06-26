@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkloadIdentitiesRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6lksg167PctRcRw0nyoPjdX
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

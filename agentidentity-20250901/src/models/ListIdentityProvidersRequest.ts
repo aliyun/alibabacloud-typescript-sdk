@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIdentityProvidersRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6m6UfcO+UDmLjng/InRW9IU
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

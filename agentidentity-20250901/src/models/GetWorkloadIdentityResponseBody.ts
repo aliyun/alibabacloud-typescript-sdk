@@ -4,43 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model {
   allowedResourceOAuth2ReturnURLs?: string[];
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * example agent
-   */
   description?: string;
-  /**
-   * @example
-   * identity-provider-okta
-   */
   identityProviderName?: string;
-  /**
-   * @example
-   * acs:ram::123456:role/agent-101-role
-   */
   roleArn?: string;
   sessionBindingEnabled?: boolean;
   sourceAgentArn?: string;
   sourcePlatform?: string;
-  /**
-   * @example
-   * 2025-12-18T06:19:17Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:workloadidentitydirectory/default/workloadidentity/agent-101
-   */
   workloadIdentityArn?: string;
-  /**
-   * @example
-   * agent-101
-   */
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +59,6 @@ export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model
 }
 
 export class GetWorkloadIdentityResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 5EEF5C1D-E951-5C0D-B0BC-5FF1B626CFC6
-   */
   requestId?: string;
   workloadIdentity?: GetWorkloadIdentityResponseBodyWorkloadIdentity;
   static names(): { [key: string]: string } {

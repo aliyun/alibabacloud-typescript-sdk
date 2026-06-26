@@ -3,37 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserResponseBodyUser extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   createTime?: string;
   description?: string;
-  /**
-   * @example
-   * Alice Wang
-   */
   displayName?: string;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
+  email?: string;
+  status?: string;
+  type?: string;
   updateTime?: string;
-  /**
-   * @example
-   * user_xxxxxxxxxxxxxxxxxxxx
-   */
   userId?: string;
-  /**
-   * @example
-   * alice
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       description: 'Description',
       displayName: 'DisplayName',
+      email: 'Email',
+      status: 'Status',
+      type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
       userName: 'UserName',
@@ -45,6 +31,9 @@ export class GetUserResponseBodyUser extends $dara.Model {
       createTime: 'string',
       description: 'string',
       displayName: 'string',
+      email: 'string',
+      status: 'string',
+      type: 'string',
       updateTime: 'string',
       userId: 'string',
       userName: 'string',
@@ -61,10 +50,6 @@ export class GetUserResponseBodyUser extends $dara.Model {
 }
 
 export class GetUserResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {

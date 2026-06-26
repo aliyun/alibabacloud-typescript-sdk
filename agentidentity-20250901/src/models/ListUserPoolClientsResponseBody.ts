@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserPoolClientsResponseBodyClientsClientScopes extends $dara.Model {
   description?: string;
-  /**
-   * @example
-   * openid
-   */
   scopeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,52 +29,17 @@ export class ListUserPoolClientsResponseBodyClientsClientScopes extends $dara.Mo
 }
 
 export class ListUserPoolClientsResponseBodyClients extends $dara.Model {
-  /**
-   * @example
-   * 3600
-   */
   accessTokenValidity?: string;
-  /**
-   * @example
-   * client-xxxxxxxxxxxxxxxxxxxx
-   */
   clientId?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
   clientScopes?: ListUserPoolClientsResponseBodyClientsClientScopes[];
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
+  clientType?: string;
   createTime?: string;
-  /**
-   * @example
-   * true
-   */
   enforcePKCE?: boolean;
   redirectURIs?: string[];
-  /**
-   * @example
-   * 86400
-   */
   refreshTokenValidity?: string;
-  /**
-   * @example
-   * true
-   */
   secretRequired?: boolean;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,6 +47,7 @@ export class ListUserPoolClientsResponseBodyClients extends $dara.Model {
       clientId: 'ClientId',
       clientName: 'ClientName',
       clientScopes: 'ClientScopes',
+      clientType: 'ClientType',
       createTime: 'CreateTime',
       enforcePKCE: 'EnforcePKCE',
       redirectURIs: 'RedirectURIs',
@@ -102,6 +64,7 @@ export class ListUserPoolClientsResponseBodyClients extends $dara.Model {
       clientId: 'string',
       clientName: 'string',
       clientScopes: { 'type': 'array', 'itemType': ListUserPoolClientsResponseBodyClientsClientScopes },
+      clientType: 'string',
       createTime: 'string',
       enforcePKCE: 'boolean',
       redirectURIs: { 'type': 'array', 'itemType': 'string' },
@@ -129,25 +92,9 @@ export class ListUserPoolClientsResponseBodyClients extends $dara.Model {
 
 export class ListUserPoolClientsResponseBody extends $dara.Model {
   clients?: ListUserPoolClientsResponseBodyClients[];
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdENsaWVudHM6OjIw
-   */
   nextToken?: string;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 5
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

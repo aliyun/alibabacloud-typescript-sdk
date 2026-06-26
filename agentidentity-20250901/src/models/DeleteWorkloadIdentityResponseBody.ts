@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteWorkloadIdentityResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0946BB5C-15AA-53E6-A2A6-ED87119A640C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

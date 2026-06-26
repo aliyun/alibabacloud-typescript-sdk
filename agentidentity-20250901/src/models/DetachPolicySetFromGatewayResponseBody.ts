@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DetachPolicySetFromGatewayResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

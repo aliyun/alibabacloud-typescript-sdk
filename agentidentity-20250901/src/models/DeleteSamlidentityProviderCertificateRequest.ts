@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSAMLIdentityProviderCertificateRequest extends $dara.Model {
-  /**
-   * @example
-   * xxxxxxxxxxxxxxxxxxxx
-   */
   certificateId?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

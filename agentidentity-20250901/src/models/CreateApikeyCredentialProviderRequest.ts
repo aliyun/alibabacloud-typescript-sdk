@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAPIKeyCredentialProviderRequest extends $dara.Model {
-  /**
-   * @example
-   * example api key
-   */
   APIKey?: string;
-  /**
-   * @example
-   * api-key-dash-scope
-   */
   APIKeyCredentialProviderName?: string;
-  /**
-   * @example
-   * example provider
-   */
   description?: string;
   tokenVaultName?: string;
   static names(): { [key: string]: string } {

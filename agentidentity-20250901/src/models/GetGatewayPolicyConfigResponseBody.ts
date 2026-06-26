@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGatewayPolicyConfigResponseBodyGatewayPolicyConfig extends $dara.Model {
-  /**
-   * @example
-   * ENFORCE
-   */
   enforcementMode?: string;
-  /**
-   * @example
-   * acs:agentidentity:cn-beijing:123456:policyset/default-policy-set
-   */
   policySetArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +30,6 @@ export class GetGatewayPolicyConfigResponseBodyGatewayPolicyConfig extends $dara
 
 export class GetGatewayPolicyConfigResponseBody extends $dara.Model {
   gatewayPolicyConfig?: GetGatewayPolicyConfigResponseBodyGatewayPolicyConfig;
-  /**
-   * @example
-   * 2A48EB1D-D645-5758-91AF-EDF8E36E257B
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

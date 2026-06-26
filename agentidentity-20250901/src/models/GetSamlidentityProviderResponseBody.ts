@@ -3,17 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfigurationX509Certificates extends $dara.Model {
-  /**
-   * @example
-   * cert-xxxxxxxxxxxxxxxxxxxx
-   */
   certificateId?: string;
-  /**
-   * @example
-   * -----BEGIN CERTIFICATE-----
-   * MIIDdz...
-   * -----END CERTIFICATE-----
-   */
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,35 +29,11 @@ export class GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfiguration
 }
 
 export class GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfiguration extends $dara.Model {
-  /**
-   * @example
-   * https://idp.example.com/entity
-   */
   entityId?: string;
-  /**
-   * @example
-   * Enabled
-   */
   JITProvisionStatus?: string;
-  /**
-   * @example
-   * Enabled
-   */
   JITUpdateStatus?: string;
-  /**
-   * @example
-   * https://idp.example.com/sso/saml
-   */
   loginURL?: string;
-  /**
-   * @example
-   * HTTP-Redirect
-   */
   SAMLBindingType?: string;
-  /**
-   * @example
-   * Enabled
-   */
   SSOStatus?: string;
   x509Certificates?: GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfigurationX509Certificates[];
   static names(): { [key: string]: string } {
@@ -107,10 +73,6 @@ export class GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfiguration
 }
 
 export class GetSAMLIdentityProviderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   SSOIdentityProviderConfiguration?: GetSAMLIdentityProviderResponseBodySSOIdentityProviderConfiguration;
   static names(): { [key: string]: string } {

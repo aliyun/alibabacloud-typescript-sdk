@@ -3,31 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserPoolsResponseBodyUserPools extends $dara.Model {
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   createTime?: string;
   description?: string;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
+  sourcePlatform?: string;
   updateTime?: string;
-  /**
-   * @example
-   * up-xxxxxxxxxxxxxxxxxxxx
-   */
   userPoolId?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       description: 'Description',
+      sourcePlatform: 'SourcePlatform',
       updateTime: 'UpdateTime',
       userPoolId: 'UserPoolId',
       userPoolName: 'UserPoolName',
@@ -38,6 +24,7 @@ export class ListUserPoolsResponseBodyUserPools extends $dara.Model {
     return {
       createTime: 'string',
       description: 'string',
+      sourcePlatform: 'string',
       updateTime: 'string',
       userPoolId: 'string',
       userPoolName: 'string',
@@ -54,25 +41,9 @@ export class ListUserPoolsResponseBodyUserPools extends $dara.Model {
 }
 
 export class ListUserPoolsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * TGlzdFVzZXJQb29sczo6MjA=
-   */
   nextToken?: string;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 5
-   */
   totalCount?: number;
   userPools?: ListUserPoolsResponseBodyUserPools[];
   static names(): { [key: string]: string } {

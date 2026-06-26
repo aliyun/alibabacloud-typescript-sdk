@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteOAuth2CredentialProviderRequest extends $dara.Model {
-  /**
-   * @example
-   * oauth2-provider-aliyun
-   */
   OAuth2CredentialProviderName?: string;
   tokenVaultName?: string;
   static names(): { [key: string]: string } {

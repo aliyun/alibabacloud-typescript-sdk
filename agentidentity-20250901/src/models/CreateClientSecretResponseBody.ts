@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClientSecretResponseBodyClientSecret extends $dara.Model {
-  /**
-   * @example
-   * client_xxxxxxxxxxxxxxxxxxxx
-   */
   clientId?: string;
-  /**
-   * @example
-   * my-web-app
-   */
   clientName?: string;
-  /**
-   * @example
-   * secret_xxxxxxxxxxxxxxxxxxxx
-   */
   clientSecretId?: string;
-  /**
-   * @example
-   * xxxxxxxxxxxxxxxx
-   */
   clientSecretValue?: string;
-  /**
-   * @example
-   * 2026-05-07T06:19:17Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,10 +42,6 @@ export class CreateClientSecretResponseBodyClientSecret extends $dara.Model {
 
 export class CreateClientSecretResponseBody extends $dara.Model {
   clientSecret?: CreateClientSecretResponseBodyClientSecret;
-  /**
-   * @example
-   * AABD6E03-4B3A-5687-88FF-72232670ED0C
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

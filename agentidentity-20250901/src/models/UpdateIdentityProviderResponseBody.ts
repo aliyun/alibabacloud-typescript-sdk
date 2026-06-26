@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateIdentityProviderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 8F33FEFD-90E2-5FAC-B2E0-C7504847B5EA
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

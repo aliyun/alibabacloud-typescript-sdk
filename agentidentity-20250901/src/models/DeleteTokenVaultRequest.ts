@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTokenVaultRequest extends $dara.Model {
-  /**
-   * @example
-   * default
-   */
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {

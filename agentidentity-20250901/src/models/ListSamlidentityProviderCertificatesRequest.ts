@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSAMLIdentityProviderCertificatesRequest extends $dara.Model {
-  /**
-   * @example
-   * my-agent-userpool
-   */
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {

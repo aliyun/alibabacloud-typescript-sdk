@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPolicySetAttachedGatewaysRequest extends $dara.Model {
   gatewayType?: string;
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2
-   */
   nextToken?: string;
-  /**
-   * @example
-   * default-policy-set
-   */
   policySetName?: string;
   static names(): { [key: string]: string } {
     return {
