@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $dara.Model {
+  actionType?: string;
   /**
    * @remarks
    * The commodity code. This code applies to both resource plans and promotional commodities.
@@ -11,6 +12,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
    * rds
    */
   commodityCode?: string;
+  description?: string;
   /**
    * @remarks
    * The extension field, such as unsupportedReason.
@@ -42,6 +44,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
    * 12345
    */
   promotionCommodityId?: string;
+  recommendType?: string;
   /**
    * @remarks
    * The redirect URL. This parameter is returned when a redirect is required, such as during an upgrade.
@@ -58,27 +61,36 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
    * Normal
    */
   status?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
+      actionType: 'ActionType',
       commodityCode: 'CommodityCode',
+      description: 'Description',
       extend: 'Extend',
       orderType: 'OrderType',
       priority: 'Priority',
       promotionCommodityId: 'PromotionCommodityId',
+      recommendType: 'RecommendType',
       redirectUrl: 'RedirectUrl',
       status: 'Status',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actionType: 'string',
       commodityCode: 'string',
+      description: 'string',
       extend: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       orderType: 'string',
       priority: 'number',
       promotionCommodityId: 'string',
+      recommendType: 'string',
       redirectUrl: 'string',
       status: 'string',
+      title: 'string',
     };
   }
 
