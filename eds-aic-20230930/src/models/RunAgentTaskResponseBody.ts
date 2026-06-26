@@ -7,15 +7,11 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * `PENDING`: The task is being created.
-   * 
-   * `RUNNING`: The task is running.
-   * 
-   * `COMPLETED`: The task completed successfully.
-   * 
-   * `FAILED`: The task failed.
-   * 
-   * `TIMEOUT`: The task timed out.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - COMPLETED: The task is completed.
+   * - FAILED: The task failed.
+   * - TIMEOUT: The task execution timed out.
    * 
    * @example
    * COMPLETED
@@ -23,7 +19,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The mobile node ID.
+   * The Mobile node ID.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -31,7 +27,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the task started running, in ISO 8601 format.
+   * The time when the task was created, in ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -39,7 +35,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   runningAt?: string;
   /**
    * @remarks
-   * The globally unique task ID.
+   * The task ID, which is globally unique.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -47,7 +43,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The user prompt that the Agent used to perform the task.
+   * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
    * Download DingTalk from App Store
@@ -85,7 +81,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
 export class RunAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of `200` indicates that the request was successful.
+   * The status code of the operation.
    * 
    * @example
    * For example, "200" indicates success.
@@ -109,7 +105,7 @@ export class RunAgentTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
@@ -117,7 +113,7 @@ export class RunAgentTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of tasks.
+   * The list of tasks.
    */
   tasks?: RunAgentTaskResponseBodyTasks[];
   static names(): { [key: string]: string } {

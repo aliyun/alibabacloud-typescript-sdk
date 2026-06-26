@@ -5774,7 +5774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on a mobile node to run an AI-powered automation task.
+   * Triggers an Agent on Mobile nodes to execute an AI automation task.
    * 
    * @param request - RunAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5793,6 +5793,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxSteps)) {
       query["MaxSteps"] = request.maxSteps;
+    }
+
+    if (!$dara.isNull(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!$dara.isNull(request.taskConfigId)) {
+      query["TaskConfigId"] = request.taskConfigId;
     }
 
     if (!$dara.isNull(request.timeoutSeconds)) {
@@ -5821,7 +5829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on a mobile node to run an AI-powered automation task.
+   * Triggers an Agent on Mobile nodes to execute an AI automation task.
    * 
    * @param request - RunAgentTaskRequest
    * @returns RunAgentTaskResponse

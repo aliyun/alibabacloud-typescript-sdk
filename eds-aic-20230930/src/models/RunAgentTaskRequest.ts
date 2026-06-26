@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the mobile node.
+   * The region ID of the Mobile node.
    * 
    * @example
    * cn-shanghai
@@ -13,22 +13,24 @@ export class RunAgentTaskRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * An array of mobile node IDs. Specify a maximum of 100 IDs per request.
+   * The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
    * 
    * This parameter is required.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The maximum number of steps the task can execute. This limit prevents infinite loops. Valid values: 30–1000. Default: 1000.
+   * The maximum number of execution steps for the task to prevent infinite loops. Valid values: 30 to 1000. Default value: 1000.
    * 
    * @example
    * 30
    */
   maxSteps?: number;
+  scheduleId?: string;
+  taskConfigId?: string;
   /**
    * @remarks
-   * The task timeout in seconds. Valid values: 300–3600. Default: 3600.
+   * The task timeout period in seconds. Valid values: 300 to 3600. Default value: 3600.
    * 
    * @example
    * 3600
@@ -36,9 +38,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   timeoutSeconds?: number;
   /**
    * @remarks
-   * The user prompt in natural language. The Agent completes the task based on this prompt.
-   * 
-   * This parameter is required.
+   * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
    * Download DingTalk from App Store
@@ -49,6 +49,8 @@ export class RunAgentTaskRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       instanceIds: 'InstanceIds',
       maxSteps: 'MaxSteps',
+      scheduleId: 'ScheduleId',
+      taskConfigId: 'TaskConfigId',
       timeoutSeconds: 'TimeoutSeconds',
       userPrompt: 'UserPrompt',
     };
@@ -59,6 +61,8 @@ export class RunAgentTaskRequest extends $dara.Model {
       bizRegionId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxSteps: 'number',
+      scheduleId: 'string',
+      taskConfigId: 'string',
       timeoutSeconds: 'number',
       userPrompt: 'string',
     };
