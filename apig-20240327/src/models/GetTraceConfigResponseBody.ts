@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetTraceConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether tracing analysis is enabled. Valid values: true and false
+   * Indicates whether Tracing Analysis is enabled. Valid values:
+   * - true: Enabled.
+   * - false: shutdown.
    * 
    * @example
    * true
@@ -13,7 +15,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The sampling rate.
+   * The sampling ratio.
    * 
    * @example
    * 50
@@ -21,7 +23,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   sampleRatio?: number;
   /**
    * @remarks
-   * The service ID. This parameter exists when the traceType value is SKYWALKING.
+   * The service ID. This parameter is returned only when the Tracing Analysis type is SKYWALKING.
    * 
    * @example
    * ss-co370icmjeu****
@@ -29,7 +31,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service port. This parameter exists when the traceType value is SKYWALKING.
+   * The service port. This parameter is returned only when the Tracing Analysis type is SKYWALKING.
    * 
    * @example
    * 8090
@@ -37,12 +39,11 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   servicePort?: string;
   /**
    * @remarks
-   * The type of tracing analysis. Valid values:
-   * 
-   * *   XTRACE
-   * *   SKYWALKING
-   * *   OPENTELEMETRY
-   * *   OTSKYWALKING
+   * The Tracing Analysis type. Valid values:
+   * - XTRACE
+   * - SKYWALKING
+   * - OPENTELEMETRY
+   * - OTSKYWALKING.
    * 
    * @example
    * SKYWALKING
@@ -88,7 +89,7 @@ export class GetTraceConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetTraceConfigResponseBodyData;
   /**
@@ -109,7 +110,9 @@ export class GetTraceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

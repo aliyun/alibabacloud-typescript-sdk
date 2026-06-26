@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of security group rule N.
+   * The description of the security group rule.
    * 
    * @example
    * 商品中心访问安全组
@@ -13,7 +13,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The port ranges.
+   * The port range.
    */
   portRanges?: string[];
   /**

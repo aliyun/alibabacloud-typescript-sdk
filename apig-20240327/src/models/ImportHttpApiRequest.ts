@@ -70,7 +70,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. If this parameter is enabled, only validation is performed without the actual import.
+   * Specifies whether to perform a dry run. If enabled, only validation is performed without the actual import.
    * 
    * @example
    * false
@@ -118,7 +118,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   specContentBase64?: string;
   /**
    * @remarks
-   * The download URL of the API definition file. The URL must be accessible over the public network or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, refer to References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Only API definition files stored in OSS are supported.
+   * The download URL of the API definition file. The URL must be accessible over the public network or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, see References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Only API definition files stored in OSS are supported.
    */
   specFileUrl?: string;
   /**

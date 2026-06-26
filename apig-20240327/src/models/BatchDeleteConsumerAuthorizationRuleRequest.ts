@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteConsumerAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule IDs.
+   * The list of API consumer authorization rule IDs.
    * 
    * @example
    * car-cus2d1em1hkg7732kuk0

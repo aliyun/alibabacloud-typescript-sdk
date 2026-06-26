@@ -13,7 +13,7 @@ export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The consumer authorization rule ID used to filter the API list. The API list in the response contains only authorized APIs.
+   * Filters the API list by a specific consumer authorization rule ID. The API list in the response contains only authorized APIs.
    * 
    * @example
    * car-ctgdn8em1hko5krqq03g

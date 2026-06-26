@@ -168,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a security group that authorizes an instance to access services.
+   * Authorizes a security group to allow gateway access to services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a security group that authorizes an instance to access services.
+   * Authorizes a security group to allow gateway access to services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @returns AddGatewaySecurityGroupRuleResponse
@@ -221,7 +221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes consumer authentication rules.
+   * Revokes API consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -254,7 +254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes consumer authentication rules.
+   * Revokes API consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @returns BatchDeleteConsumerAuthorizationRuleResponse
@@ -819,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * $.parameters[0].schema.properties.ingressConfig.example
+   * Creates an HTTP API.
    * 
    * @param request - CreateHttpApiRequest
    * @param headers - map
@@ -924,7 +924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * $.parameters[0].schema.properties.ingressConfig.example
+   * Creates an HTTP API.
    * 
    * @param request - CreateHttpApiRequest
    * @returns CreateHttpApiResponse
@@ -3282,7 +3282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tracing configurations of a Cloud-native API Gateway instance.
+   * Retrieves the Tracing Analysis configuration.
    * 
    * @param request - GetTraceConfigRequest
    * @param headers - map
@@ -3315,7 +3315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tracing configurations of a Cloud-native API Gateway instance.
+   * Retrieves the Tracing Analysis configuration.
    * 
    * @param request - GetTraceConfigRequest
    * @returns GetTraceConfigResponse

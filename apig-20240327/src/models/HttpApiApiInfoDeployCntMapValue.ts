@@ -11,18 +11,11 @@ export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
    * 3
    */
   deployedCnt?: number;
-  /**
-   * @remarks
-   * Cnt
-   * 
-   * @example
-   * 5
-   */
   cnt?: number;
   static names(): { [key: string]: string } {
     return {
       deployedCnt: 'deployedCnt',
-      cnt: 'Cnt',
+      cnt: 'cnt',
     };
   }
 

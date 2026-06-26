@@ -532,14 +532,7 @@ export class HttpApiApiInfo extends $dara.Model {
    * 测试专用API
    */
   description?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable authentication.
-   * 
-   * @example
-   * true
-   */
-  enabelAuth?: boolean;
+  enableAuth?: boolean;
   /**
    * @remarks
    * The API environment information.
@@ -625,7 +618,7 @@ export class HttpApiApiInfo extends $dara.Model {
       deployCntMap: 'deployCntMap',
       deployConfigs: 'deployConfigs',
       description: 'description',
-      enabelAuth: 'enabelAuth',
+      enableAuth: 'enableAuth',
       environments: 'environments',
       gatewayId: 'gatewayId',
       httpApiId: 'httpApiId',
@@ -648,7 +641,7 @@ export class HttpApiApiInfo extends $dara.Model {
       deployCntMap: { 'type': 'map', 'keyType': 'string', 'valueType': HttpApiApiInfoDeployCntMapValue },
       deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
-      enabelAuth: 'boolean',
+      enableAuth: 'boolean',
       environments: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironments },
       gatewayId: 'string',
       httpApiId: 'string',

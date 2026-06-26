@@ -123,8 +123,8 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create
@@ -165,8 +165,8 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create

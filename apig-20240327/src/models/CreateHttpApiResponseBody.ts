@@ -13,7 +13,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The API base path, which must start with a forward slash (/).
+   * The API name.
    * 
    * @example
    * test-api
@@ -45,7 +45,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
 export class CreateHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API for testing
+   * The status code.
    * 
    * @example
    * Ok
@@ -53,12 +53,12 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A protocol.
+   * The API information.
    */
   data?: CreateHttpApiResponseBodyData;
   /**
    * @remarks
-   * The protocol list for API access.
+   * The response message.
    * 
    * @example
    * success
@@ -66,7 +66,7 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The API description.
+   * The request ID.
    * 
    * @example
    * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
