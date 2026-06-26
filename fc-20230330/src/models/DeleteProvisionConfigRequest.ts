@@ -8,7 +8,7 @@ export class DeleteProvisionConfigRequest extends $dara.Model {
    * The function alias.
    * 
    * @example
-   * LATEST
+   * prod
    */
   qualifier?: string;
   static names(): { [key: string]: string } {

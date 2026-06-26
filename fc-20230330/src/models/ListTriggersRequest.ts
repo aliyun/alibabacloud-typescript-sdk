@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTriggersRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of triggers returned.
+   * The number of triggers to return.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListTriggersRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The token that marks the start of the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=

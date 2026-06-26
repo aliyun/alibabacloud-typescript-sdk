@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetFunctionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The version or alias of the function.
-   * 
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
+export class ElasticInterval extends $dara.Model {
+  endTime?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      qualifier: 'qualifier',
+      endTime: 'endTime',
+      startTime: 'startTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      qualifier: 'string',
+      endTime: 'string',
+      startTime: 'string',
     };
   }
 

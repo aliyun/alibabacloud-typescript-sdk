@@ -6,7 +6,7 @@ import { UpdateFunctionInput } from "./UpdateFunctionInput";
 export class UpdateFunctionRequest extends $dara.Model {
   /**
    * @remarks
-   * The function information
+   * The function\\"s configuration.
    * 
    * This parameter is required.
    */

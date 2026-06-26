@@ -6,7 +6,7 @@ import { UpdateAliasInput } from "./UpdateAliasInput";
 export class UpdateAliasRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias information to be updated.
+   * The alias information to update.
    * 
    * This parameter is required.
    */

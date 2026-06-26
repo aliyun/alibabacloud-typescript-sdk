@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLayersRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of layers that are returned
+   * The number of layers to return.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListLayersRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that marks the start of the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,7 +21,7 @@ export class ListLayersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Specifies whether the layer is official. Valid values: true and false.
+   * Specifies whether the layer is an official layer. Valid values: true and false.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListLayersRequest extends $dara.Model {
   official?: string;
   /**
    * @remarks
-   * The name prefix of the layer.
+   * The prefix of the layer name.
    * 
    * @example
    * my-layer

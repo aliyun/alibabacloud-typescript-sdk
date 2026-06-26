@@ -6,7 +6,7 @@ import { PutConcurrencyInput } from "./PutConcurrencyInput";
 export class PutConcurrencyConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The concurrency configurations.
+   * The concurrency configuration of the function.
    * 
    * This parameter is required.
    */

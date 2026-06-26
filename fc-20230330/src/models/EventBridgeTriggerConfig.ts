@@ -8,12 +8,13 @@ import { RunOptions } from "./RunOptions";
 export class EventBridgeTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to invoke the function in asynchronous mode. Valid values:
+   * The method used by the trigger to invoke the function. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: synchronous call.
    * 
-   * >  The default value is **false**.
+   * - **false**: asynchronous invocation.
+   * 
+   * > Default value: **false**
    * 
    * @example
    * true
@@ -21,7 +22,7 @@ export class EventBridgeTriggerConfig extends $dara.Model {
   asyncInvocationType?: boolean;
   /**
    * @remarks
-   * The event pattern. The value is in the JSON format. For more information, see [Event patterns](https://help.aliyun.com/document_detail/181432.html).
+   * Event pattern. Use JSON format. For detailed rules, see [event pattern](https://help.aliyun.com/document_detail/181432.html).
    * 
    * @example
    * {}
@@ -29,27 +30,28 @@ export class EventBridgeTriggerConfig extends $dara.Model {
   eventRuleFilterPattern?: string;
   /**
    * @remarks
-   * The event destination configurations.
+   * Event target configuration
    */
   eventSinkConfig?: EventSinkConfig;
   /**
    * @remarks
-   * The event source configurations.
+   * Event source configuration.
    */
   eventSourceConfig?: EventSourceConfig;
   /**
    * @remarks
-   * The runtime configurations.
+   * Environment parameter configuration
    */
   runOptions?: RunOptions;
   /**
    * @remarks
    * Whether to enable the trigger. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enable the trigger.
    * 
-   * >  The default value is **true**.
+   * - **false**: disable the trigger.
+   * 
+   * > Default value: **true**
    * 
    * @example
    * true

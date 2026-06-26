@@ -2,66 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 import { ResidentResourceAllocationStatus } from "./ResidentResourceAllocationStatus";
 import { ResidentResourceCapacity } from "./ResidentResourceCapacity";
+import { TimedPoolConfig } from "./TimedPoolConfig";
 
 
 export class ResidentResourcePool extends $dara.Model {
   /**
    * @remarks
-   * 资源池实时分配情况，包含每个函数的具体分配情况
+   * The real-time allocation status of the resource pool, including the specific allocation details for each function.
    */
   allocationStatus?: ResidentResourceAllocationStatus;
+  associatedPoolId?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The resource property field that represents the creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    */
   createdTime?: string;
   /**
    * @remarks
-   * 资源池过期时间
+   * The expiration time of the resource pool.
    */
   expireTime?: string;
   /**
    * @remarks
-   * 上次修改时间，包含扩容、续费、更名等操作
+   * The last modification time, including operations such as scaling, renewal, and renaming.
    */
   lastModifiedTime?: string;
+  poolType?: string;
   residentResourcePoolId?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The resource property field that represents the resource name.
    */
   residentResourcePoolName?: string;
   /**
    * @remarks
-   * 资源池总体规格
+   * The overall specifications of the resource pool.
    */
   resourcePoolCapacity?: ResidentResourceCapacity;
   resourcePoolConfig?: ResidentResourceCapacity;
+  timedConfig?: TimedPoolConfig;
   static names(): { [key: string]: string } {
     return {
       allocationStatus: 'allocationStatus',
+      associatedPoolId: 'associatedPoolId',
       createdTime: 'createdTime',
       expireTime: 'expireTime',
       lastModifiedTime: 'lastModifiedTime',
+      poolType: 'poolType',
       residentResourcePoolId: 'residentResourcePoolId',
       residentResourcePoolName: 'residentResourcePoolName',
       resourcePoolCapacity: 'resourcePoolCapacity',
       resourcePoolConfig: 'resourcePoolConfig',
+      timedConfig: 'timedConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allocationStatus: ResidentResourceAllocationStatus,
+      associatedPoolId: 'string',
       createdTime: 'string',
       expireTime: 'string',
       lastModifiedTime: 'string',
+      poolType: 'string',
       residentResourcePoolId: 'string',
       residentResourcePoolName: 'string',
       resourcePoolCapacity: ResidentResourceCapacity,
       resourcePoolConfig: ResidentResourceCapacity,
+      timedConfig: TimedPoolConfig,
     };
   }
 
@@ -74,6 +84,9 @@ export class ResidentResourcePool extends $dara.Model {
     }
     if(this.resourcePoolConfig && typeof (this.resourcePoolConfig as any).validate === 'function') {
       (this.resourcePoolConfig as any).validate();
+    }
+    if(this.timedConfig && typeof (this.timedConfig as any).validate === 'function') {
+      (this.timedConfig as any).validate();
     }
     super.validate();
   }

@@ -6,31 +6,54 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 export class PutScalingConfigInput extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the mix mode.
+   * 
    * @example
    * False
    */
   enableMixMode?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable on-demand scaling.
+   * 
    * @example
    * True
    */
   enableOnDemandScaling?: boolean;
+  /**
+   * @remarks
+   * The horizontal scaling policies.
+   */
   horizontalScalingPolicies?: ScalingPolicy[];
   /**
+   * @remarks
+   * The minimum number of instances.
+   * 
    * @example
    * 1
    */
   minInstances?: number;
   /**
+   * @remarks
+   * The request dispatch policy.
+   * 
    * @example
    * Balanced
    */
   requestDispatchPolicy?: string;
   /**
+   * @remarks
+   * The ID of the resident resource pool.
+   * 
    * @example
    * fc-pool-a2b664c1f87171j4******
    */
   residentPoolId?: string;
+  /**
+   * @remarks
+   * The scheduled elastic policies.
+   */
   scheduledPolicies?: ScheduledPolicy[];
   static names(): { [key: string]: string } {
     return {

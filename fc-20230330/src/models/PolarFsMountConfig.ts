@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PolarFsMountConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the PolarFS file system instance to mount.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The local mount directory in the function\\"s runtime environment.
+   */
   mountDir?: string;
+  /**
+   * @remarks
+   * Specifies whether the file system is mounted as read-only. If `true`, write operations are prohibited.
+   */
   readOnly?: boolean;
+  /**
+   * @remarks
+   * The directory within the PolarFS file system to mount.
+   */
   remoteDir?: string;
   static names(): { [key: string]: string } {
     return {

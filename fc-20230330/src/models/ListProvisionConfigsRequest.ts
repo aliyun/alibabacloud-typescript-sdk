@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProvisionConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the function. If this parameter is not specified, the provisioned configurations of all functions are listed.
+   * The name of the function. If you do not specify this parameter, the provisioned configurations for all functions are returned.
    * 
    * @example
    * my-func
@@ -13,7 +13,7 @@ export class ListProvisionConfigsRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * Number of provisioned configurations to return.
+   * The number of provisioned configurations to return.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListProvisionConfigsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token to start the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=

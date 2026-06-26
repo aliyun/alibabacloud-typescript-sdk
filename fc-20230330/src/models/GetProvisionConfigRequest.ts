@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The function alias.
+   * The alias of the function.
    * 
    * @example
-   * LATEST
+   * prod
    */
   qualifier?: string;
   static names(): { [key: string]: string } {

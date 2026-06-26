@@ -6,7 +6,7 @@ import { TagResourcesInput } from "./TagResourcesInput";
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the resource tag.
+   * The resource tag configuration.
    * 
    * This parameter is required.
    */

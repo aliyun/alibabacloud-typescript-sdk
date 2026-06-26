@@ -6,48 +6,83 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 export class ScalingConfigStatus extends $dara.Model {
   /**
+   * @remarks
+   * The error message that is returned when an instance fails to be created.
+   * 
    * @example
    * image not found
    */
   currentError?: string;
   /**
+   * @remarks
+   * The current number of instances.
+   * 
    * @example
    * 1
    */
   currentInstances?: number;
   /**
+   * @remarks
+   * Specifies whether mix mode is enabled.
+   * 
    * @example
    * False
    */
   enableMixMode?: boolean;
   /**
+   * @remarks
+   * Specifies whether on-demand scaling is enabled.
+   * 
    * @example
    * True
    */
   enableOnDemandScaling?: boolean;
   /**
+   * @remarks
+   * The resource identifier of the function.
+   * 
    * @example
    * acs:fc:cn-shanghai:124:functions/myFunction/prod
    */
   functionArn?: string;
+  /**
+   * @remarks
+   * The horizontal scaling policies.
+   */
   horizontalScalingPolicies?: ScalingPolicy[];
   /**
+   * @remarks
+   * The minimum number of instances.
+   * 
    * @example
    * 1
    */
   minInstances?: number;
   /**
+   * @remarks
+   * The request dispatch policy.
+   * 
    * @example
    * Balanced
    */
   requestDispatchPolicy?: string;
   /**
+   * @remarks
+   * The ID of the resident resource pool.
+   * 
    * @example
    * fc-pool-a2b664c1f87171j4******
    */
   residentPoolId?: string;
+  /**
+   * @remarks
+   * The scheduled scaling policies.
+   */
   scheduledPolicies?: ScheduledPolicy[];
   /**
+   * @remarks
+   * The target number of instances.
+   * 
    * @example
    * 10
    */

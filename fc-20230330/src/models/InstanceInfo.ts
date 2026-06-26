@@ -7,7 +7,7 @@ export class InstanceInfo extends $dara.Model {
   destroyedTimeMs?: number;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * 1ef6b6ff-7f7b-485e-ab49-501ac681****
@@ -18,7 +18,7 @@ export class InstanceInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version of the function to which the instance belongs. If the instance belongs to the LATEST alias, 0 is returned as the version.
+   * The version of the function to which the instance belongs. If the instance is under the LATEST alias of the function, the returned version number is 0.
    * 
    * @example
    * 0

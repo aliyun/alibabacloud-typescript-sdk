@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetFunctionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The version or alias of the function.
-   * 
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
+export class CreateTimedResidentResourcePoolApplicationOutput extends $dara.Model {
+  applicationStatus?: string;
+  timedPoolId?: string;
   static names(): { [key: string]: string } {
     return {
-      qualifier: 'qualifier',
+      applicationStatus: 'applicationStatus',
+      timedPoolId: 'timedPoolId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      qualifier: 'string',
+      applicationStatus: 'string',
+      timedPoolId: 'string',
     };
   }
 

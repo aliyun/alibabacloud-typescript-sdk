@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutLayerACLRequest extends $dara.Model {
   /**
    * @remarks
-   * Specify the access permission of the layer. A value of 1 indicates public and a value of 0 indicates private. The default value is 0.
+   * The access permissions of the layer. Valid values: 1 (public) and 0 (private). The default value is 0.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class PutLayerACLRequest extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * Specify whether the layer is a public layer. Valid values: true and false.
+   * Specifies whether to make the layer public. Valid values: true and false.
    * 
    * @example
    * true

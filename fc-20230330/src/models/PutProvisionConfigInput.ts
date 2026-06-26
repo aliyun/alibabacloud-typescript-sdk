@@ -6,11 +6,17 @@ import { TargetTrackingPolicy } from "./TargetTrackingPolicy";
 
 export class PutProvisionConfigInput extends $dara.Model {
   /**
+   * @remarks
+   * 是否始终分配CPU，默认为true。
+   * 
    * @example
    * true
    */
   alwaysAllocateCPU?: boolean;
   /**
+   * @remarks
+   * 是否始终分配GPU，默认为true。
+   * 
    * @example
    * true
    */
@@ -33,6 +39,9 @@ export class PutProvisionConfigInput extends $dara.Model {
   scheduledActions?: ScheduledAction[];
   /**
    * @remarks
+   * >Notice: 建议不再使用该参数，请使用 defaultTarget 参数。 </notice>
+   * 预留的目标资源个数。取值范围为[0,10000]。
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +53,10 @@ export class PutProvisionConfigInput extends $dara.Model {
    * @deprecated
    */
   target?: number;
+  /**
+   * @remarks
+   * 指标追踪伸缩策略配置。
+   */
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
     return {

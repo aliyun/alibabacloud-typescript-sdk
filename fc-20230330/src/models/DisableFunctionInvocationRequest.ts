@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableFunctionInvocationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to immediately terminate all ongoing requests.
+   * Specifies whether to immediately stop all ongoing requests.
    * 
    * @example
    * false
@@ -13,7 +13,10 @@ export class DisableFunctionInvocationRequest extends $dara.Model {
   abortOngoingRequest?: boolean;
   /**
    * @remarks
-   * The reason for disabling the function\\"s invocation.
+   * The reason for disabling the function invocation.
+   * 
+   * @example
+   * Service decommission
    */
   reason?: string;
   static names(): { [key: string]: string } {

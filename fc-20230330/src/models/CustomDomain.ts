@@ -11,7 +11,7 @@ import { WAFConfig } from "./Wafconfig";
 export class CustomDomain extends $dara.Model {
   /**
    * @remarks
-   * The ID of your Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account (primary account).
    * 
    * @example
    * 186851234023****
@@ -19,7 +19,7 @@ export class CustomDomain extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The version of the Function Compute API.
+   * The API version of Function Compute.
    * 
    * @example
    * 2023-03-30
@@ -27,18 +27,22 @@ export class CustomDomain extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The configuration of permission authentication.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The configuration of the HTTPS certificate.
+   * The HTTPS certificate configuration.
    */
   certConfig?: CertConfig;
+  /**
+   * @remarks
+   * The cross-origin resource sharing (CORS) configuration.
+   */
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * The time when the custom domain name was created.
+   * The time when the custom domain was created.
    * 
    * @example
    * 2023-03-30T08:02:19Z
@@ -55,7 +59,7 @@ export class CustomDomain extends $dara.Model {
   isE2B?: boolean;
   /**
    * @remarks
-   * The time when the custom domain name was last updated.
+   * The time when the custom domain was last modified.
    * 
    * @example
    * 2023-03-30T08:02:19Z
@@ -63,7 +67,7 @@ export class CustomDomain extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+   * The protocols that are supported by the domain name. Valid values: HTTP (HTTP only), HTTPS (HTTPS only), and HTTP,HTTPS (both HTTP and HTTPS).
    * 
    * @example
    * HTTP
@@ -71,12 +75,12 @@ export class CustomDomain extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The route table that maps paths to functions when the function is invoked by using the custom domain name.
+   * The route table that maps paths to functions.
    */
   routeConfig?: RouteConfig;
   /**
    * @remarks
-   * The number of added subdomains.
+   * The number of subdomains.
    * 
    * @example
    * 1
@@ -84,12 +88,12 @@ export class CustomDomain extends $dara.Model {
   subdomainCount?: string;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) configuration.
+   * The TLS configuration.
    */
   tlsConfig?: TLSConfig;
   /**
    * @remarks
-   * The Web Application Firewall (WAF) configuration.
+   * The Web Application Firewall (WAF) aconfiguration.
    */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {

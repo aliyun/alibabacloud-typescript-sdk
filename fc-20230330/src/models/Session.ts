@@ -23,15 +23,26 @@ export class Session extends $dara.Model {
    * 2025-04-01T08:15:27Z
    */
   createdTime?: string;
+  /**
+   * @remarks
+   * Specifies whether an expired session ID can be reused. If `true`, an expired session ID cannot be reused. If `false` (the default), sending a request with an expired session ID creates a new session bound to a new instance.
+   * 
+   * @example
+   * false
+   */
   disableSessionIdReuse?: boolean;
   /**
    * @remarks
-   * The name of the function to which the session belongs.
+   * The name of the function associated with the session.
    * 
    * @example
    * functionName1
    */
   functionName?: string;
+  /**
+   * @remarks
+   * The JuiceFS mount configuration, enabling the associated function instance to access specified JuiceFS resources.
+   */
   juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
@@ -43,14 +54,22 @@ export class Session extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The File Storage NAS (NAS) configuration. Once configured, the instance associated with the session can access designated NAS resources.
+   * The NAS configuration, enabling the associated function instance to access specified NAS resources.
    */
   nasConfig?: NASConfig;
+  /**
+   * @remarks
+   * The OSS mount configuration, enabling the associated function instance to access specified OSS resources.
+   */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The PolarFS mount configuration, enabling the associated function instance to access specified PolarFS resources.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The qualifier specified when creating a session. If not provided, the default value is LATEST.
+   * The qualifier, which specifies a function version or alias. Defaults to `LATEST` if unspecified.
    * 
    * @example
    * AliasName1
@@ -58,7 +77,7 @@ export class Session extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * The session affinity type.
+   * The type of session affinity.
    * 
    * @example
    * HEADER_FIELD
@@ -66,7 +85,7 @@ export class Session extends $dara.Model {
   sessionAffinityType?: string;
   /**
    * @remarks
-   * The unique identifier of the function session.
+   * The unique identifier for the function session.
    * 
    * @example
    * 81f70ae156904eb9b7d43e12f511fe58
@@ -74,7 +93,7 @@ export class Session extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The timeout period for idle sessions.
+   * The maximum duration, in seconds, that the session can be idle before it expires.
    * 
    * @example
    * 1800
@@ -82,7 +101,7 @@ export class Session extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The session status, which can be either Active (session is valid) or Expired (session has expired).
+   * The status of the session. `Active` indicates the session is valid, and `Expired` indicates it is no longer valid.
    * 
    * @example
    * Active
@@ -90,7 +109,7 @@ export class Session extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The maximum session lifecycle.
+   * The maximum lifespan of the session, in seconds.
    * 
    * @example
    * 21600

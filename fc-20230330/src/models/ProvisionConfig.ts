@@ -21,6 +21,9 @@ export class ProvisionConfig extends $dara.Model {
    */
   alwaysAllocateCPU?: boolean;
   /**
+   * @remarks
+   * 是否始终分配GPU给函数实例。
+   * 
    * @example
    * true
    */
@@ -50,6 +53,9 @@ export class ProvisionConfig extends $dara.Model {
    */
   defaultTarget?: number;
   /**
+   * @remarks
+   * 函数的资源描述
+   * 
    * @example
    * acs:fc:cn-shanghai:124:functions/myFunction/prod
    */
@@ -60,10 +66,23 @@ export class ProvisionConfig extends $dara.Model {
    */
   scheduledActions?: ScheduledAction[];
   /**
+   * @remarks
+   * 当前目标资源个数，如果存在指标追踪伸缩策略或定时策略，为策略计算的资源个数，否则为默认预留实例数。
+   * 
+   * 
+   * > 与 defaultTarget 有什么区别？\\
+   * > 假设配置预留实例数为1后，新增了定时伸缩策略，设置某个时间段内的预留实例数为5。
+   * > - 在定时伸缩策略**生效期间**，target 与 defaultTarget 分别为 5 和 1。
+   * >-  在定时伸缩策略**失效期间**，target 与 defaultTarget 都为 1。
+   * 
    * @example
    * 5
    */
   target?: number;
+  /**
+   * @remarks
+   * 指标追踪伸缩策略配置。
+   */
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
     return {

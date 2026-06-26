@@ -6,7 +6,7 @@ import { Key } from "./Key";
 export class Filter extends $dara.Model {
   /**
    * @remarks
-   * The description of the event filtering rule.
+   * Description of event filter rules.
    */
   key?: Key;
   static names(): { [key: string]: string } {

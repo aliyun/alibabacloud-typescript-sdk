@@ -6,7 +6,7 @@ import { CreateVpcBindingInput } from "./CreateVpcBindingInput";
 export class CreateVpcBindingRequest extends $dara.Model {
   /**
    * @remarks
-   * The VPC binding configurations.
+   * The VPC binding configuration.
    * 
    * This parameter is required.
    */

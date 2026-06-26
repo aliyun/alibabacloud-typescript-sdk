@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFunctionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the functions to retrieve.
+   * The function description to filter by.
    * 
    * @example
    * test_description
@@ -13,21 +13,24 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The version of Function Compute to which the functions belong.
+   * The version to which the function belongs. Valid values:
+   * - v3: lists only FC 3.0 functions.
+   * - v2: lists only FC 2.0 functions.
    * 
-   * *   v3: Only lists functions of Function Compute 3.0.
-   * *   v2: Only lists functions of Function Compute 2.0.
-   * 
-   * By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
+   * If not specified, both FC 3.0 and FC 2.0 functions are listed.
    * 
    * @example
    * v3
    */
   fcVersion?: string;
+  /**
+   * @remarks
+   * The function name.
+   */
   functionName?: string;
   /**
    * @remarks
-   * The GPU type of the functions to retrieve.
+   * The function GPU type to filter by.
    * 
    * @example
    * fc.gpu.tesla.1
@@ -35,7 +38,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   gpuType?: string;
   /**
    * @remarks
-   * The number of functions to return. The minimum value is 1 and the maximum value is 100.
+   * The number of functions to return. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 10
@@ -51,16 +54,20 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The prefix of the function name.
+   * The function name prefix.
    * 
    * @example
    * my-func
    */
   prefix?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The runtime of the functions to retrieve.
+   * The function runtime to filter by.
    * 
    * @example
    * python3.10
@@ -68,7 +75,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The tag of the functions to retrieve.
+   * The function tags to filter by.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

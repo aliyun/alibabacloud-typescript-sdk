@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MCPSSESessionAffinityConfig extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   sessionConcurrencyPerInstance?: number;
-  /**
-   * @example
-   * /sse
-   */
   sseEndpointPath?: string;
   static names(): { [key: string]: string } {
     return {

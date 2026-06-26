@@ -7,17 +7,46 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 
 export class UpdateSessionInput extends $dara.Model {
+  /**
+   * @remarks
+   * Defaults to `false`. If set to `false`, you can reuse a `SessionID` to start a new session on a new instance after the original session expires. If set to `true`, you cannot reuse a `SessionID` after its session expires.
+   * 
+   * @example
+   * false
+   */
   disableSessionIdReuse?: boolean;
+  /**
+   * @remarks
+   * The JuiceFS configuration.
+   */
   juiceFsConfig?: JuiceFsConfig;
+  /**
+   * @remarks
+   * The NAS configuration.
+   */
   nasConfig?: NASConfig;
+  /**
+   * @remarks
+   * The OSS mount configuration.
+   */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The PolarFS configuration.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
+   * @remarks
+   * The session idle timeout, in seconds.
+   * 
    * @example
    * 1800
    */
   sessionIdleTimeoutInSeconds?: number;
   /**
+   * @remarks
+   * The session duration, in seconds.
+   * 
    * @example
    * 21600
    */

@@ -6,14 +6,14 @@ import { PutAsyncInvokeConfigInput } from "./PutAsyncInvokeConfigInput";
 export class PutAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of asynchronous function invocations.
+   * The asynchronous invocation configuration of the function.
    * 
    * This parameter is required.
    */
   body?: PutAsyncInvokeConfigInput;
   /**
    * @remarks
-   * The version or alias of the function.
+   * The function version or alias.
    * 
    * @example
    * LATEST

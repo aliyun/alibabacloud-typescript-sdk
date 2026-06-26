@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAsyncInvokeConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The function name. If you do not configure this parameter, the asynchronous invocation configurations of all functions are displayed.
+   * The name of the function. If you do not specify this parameter, the asynchronous invocation configurations of all functions are returned.
    * 
    * @example
    * my-func
@@ -13,7 +13,7 @@ export class ListAsyncInvokeConfigsRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The maximum number of entries to be returned.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListAsyncInvokeConfigsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The paging information. This parameter specifies the start point of the query.
+   * The token that is used for paging.
    * 
    * @example
    * MTIzNCNhYmM=

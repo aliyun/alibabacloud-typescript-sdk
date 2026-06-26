@@ -6,7 +6,7 @@ import { ChangeResourceGroupInput } from "./ChangeResourceGroupInput";
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The request details for updating the resource group.
+   * The request body to change the resource group.
    */
   body?: ChangeResourceGroupInput;
   static names(): { [key: string]: string } {

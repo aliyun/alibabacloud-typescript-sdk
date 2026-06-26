@@ -12,7 +12,35 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "fcv3.us-west-1.aliyuncs.com",
+      'us-east-1': "fcv3.us-east-1.aliyuncs.com",
+      'me-central-1': "me-central-1.fc.aliyuncs.com",
+      'eu-west-1': "fcv3.eu-west-1.aliyuncs.com",
+      'eu-central-1': "fcv3.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "fcv3.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "fcv3.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "fcv3.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "cn-shanghai-finance-1.fc.aliyuncs.com",
+      'cn-shanghai': "fcv3.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "fcv3.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "fcv3.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "fcv3.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "cn-heyuan-acdr-1.fc.aliyuncs.com",
+      'cn-hangzhou-finance': "cn-hangzhou-finance.fc.aliyuncs.com",
+      'cn-hangzhou': "fcv3.cn-hangzhou.aliyuncs.com",
+      'cn-chengdu': "fcv3.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "fcv3.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "fcv3.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-5': "fcv3.ap-southeast-5.aliyuncs.com	",
+      'ap-southeast-3': "fcv3.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "fcv3.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "fcv3.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "fcv3.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "fcv3.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "fcv3.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("fc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -31,10 +59,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource group of a Function Compute resource.
+   * Changes the resource group of a Function Compute resource.
    * 
    * @remarks
-   * To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+   * To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -62,10 +90,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource group of a Function Compute resource.
+   * Changes the resource group of a Function Compute resource.
    * 
    * @remarks
-   * To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
+   * To change the resource group of a Function Compute resource, you must have the ChangeResourceGroup permission for both the current and target resource groups.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -120,7 +148,7 @@ export default class Client extends OpenApi {
    * Creates a custom domain name.
    * 
    * @remarks
-   * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+   * You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
    * 
    * @param request - CreateCustomDomainRequest
    * @param headers - map
@@ -151,7 +179,7 @@ export default class Client extends OpenApi {
    * Creates a custom domain name.
    * 
    * @remarks
-   * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+   * You can attach a custom domain name to an application or function in Function Compute to access it through a fixed domain name in a production environment, or to resolve the forced download behavior when you access an HTTP trigger.
    * 
    * @param request - CreateCustomDomainRequest
    * @returns CreateCustomDomainResponse
@@ -163,10 +191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a function.
+   * Creates a function by calling the CreateFunction operation.
    * 
    * @remarks
-   * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+   * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
    * 
    * @param request - CreateFunctionRequest
    * @param headers - map
@@ -194,10 +222,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a function.
+   * Creates a function by calling the CreateFunction operation.
    * 
    * @remarks
-   * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+   * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is reported, grant the current user access permissions on the OSS bucket. For example, you can use the system access policy AliyunOSSReadOnlyAccess or a custom policy with finer granularity of authorization such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
    * 
    * @param request - CreateFunctionRequest
    * @returns CreateFunctionResponse
@@ -209,7 +237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a layer version.
+   * This operation publishes a layer version.
    * 
    * @param request - CreateLayerVersionRequest
    * @param headers - map
@@ -237,7 +265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a layer version.
+   * This operation publishes a layer version.
    * 
    * @param request - CreateLayerVersionRequest
    * @returns CreateLayerVersionResponse
@@ -249,7 +277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+   * Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
    * 
    * @param request - CreateSessionRequest
    * @param headers - map
@@ -283,7 +311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
+   * Creates an explicit session resource by automatically generating a unique session ID, pre-allocating a function instance, and attaching the session. This operation supports custom Time to Live (TTL) and idle timeout values, applies to HEADER_FIELD or GENERATED_COOKIE affinity types, and is used for session prefetching and configuration initialization. After the session is created, include the session ID in InvokeFunction requests for request routing.
    * 
    * @param request - CreateSessionRequest
    * @returns CreateSessionResponse
@@ -765,7 +793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a trigger.
+   * Deletes the specified trigger.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -790,7 +818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a trigger.
+   * Deletes the specified trigger.
    * @returns DeleteTriggerResponse
    */
   async deleteTrigger(functionName: string, triggerName: string): Promise<$_model.DeleteTriggerResponse> {
@@ -800,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control policy from a specified policy group for a VPC firewall.
+   * Deletes an access control policy from a specified VPC firewall policy group.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -825,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control policy from a specified policy group for a VPC firewall.
+   * Deletes an access control policy from a specified VPC firewall policy group.
    * @returns DeleteVpcBindingResponse
    */
   async deleteVpcBinding(functionName: string, vpcId: string): Promise<$_model.DeleteVpcBindingResponse> {
@@ -880,10 +908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+   * Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
    * 
    * @remarks
-   * Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+   * Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
    * 
    * @param request - DisableFunctionInvocationRequest
    * @param headers - map
@@ -920,10 +948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+   * Disables function invocations. You can also stop all ongoing requests. When a function is disabled, new instances cannot be created and provisioned instances are destroyed. This OpenAPI is in beta.
    * 
    * @remarks
-   * Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
+   * Use caution when calling this API for functions in a production environment because disabling function invocations can disrupt your services.
    * 
    * @param request - DisableFunctionInvocationRequest
    * @returns DisableFunctionInvocationResponse
@@ -970,7 +998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an alias.
+   * Retrieves information about an alias.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -995,7 +1023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an alias.
+   * Retrieves information about an alias.
    * @returns GetAliasResponse
    */
   async getAlias(functionName: string, aliasName: string): Promise<$_model.GetAliasResponse> {
@@ -1005,7 +1033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets asynchronous invocation configurations of a function.
+   * Retrieves the asynchronous invocation configuration of a specified function.
    * 
    * @param request - GetAsyncInvokeConfigRequest
    * @param headers - map
@@ -1038,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets asynchronous invocation configurations of a function.
+   * Retrieves the asynchronous invocation configuration of a specified function.
    * 
    * @param request - GetAsyncInvokeConfigRequest
    * @returns GetAsyncInvokeConfigResponse
@@ -1050,7 +1078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an asynchronous task.
+   * Retrieves the details of a specified asynchronous task.
    * 
    * @param request - GetAsyncTaskRequest
    * @param headers - map
@@ -1083,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an asynchronous task.
+   * Retrieves the details of a specified asynchronous task.
    * 
    * @param request - GetAsyncTaskRequest
    * @returns GetAsyncTaskResponse
@@ -1095,7 +1123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a concurrency configuration.
+   * Retrieves the concurrency configuration.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,7 +1148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a concurrency configuration.
+   * Retrieves the concurrency configuration.
    * @returns GetConcurrencyConfigResponse
    */
   async getConcurrencyConfig(functionName: string): Promise<$_model.GetConcurrencyConfigResponse> {
@@ -1130,7 +1158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a custom domain name.
+   * Retrieves the configuration of a custom domain name.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1155,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a custom domain name.
+   * Retrieves the configuration of a custom domain name.
    * @returns GetCustomDomainResponse
    */
   async getCustomDomain(domainName: string): Promise<$_model.GetCustomDomainResponse> {
@@ -1165,7 +1193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http://pre.hhht/#vpc
+   * Retrieves information about a function.
    * 
    * @param request - GetFunctionRequest
    * @param headers - map
@@ -1198,7 +1226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http://pre.hhht/#vpc
+   * Retrieves information about a function.
    * 
    * @param request - GetFunctionRequest
    * @returns GetFunctionResponse
@@ -1210,7 +1238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a code package of a function.
+   * Retrieves the details of a function code package.
    * 
    * @param request - GetFunctionCodeRequest
    * @param headers - map
@@ -1243,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a code package of a function.
+   * Retrieves the details of a function code package.
    * 
    * @param request - GetFunctionCodeRequest
    * @returns GetFunctionCodeResponse
@@ -1255,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries versions of a layer.
+   * Retrieves information about a layer version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1280,7 +1308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries versions of a layer.
+   * Retrieves information about a layer version.
    * @returns GetLayerVersionResponse
    */
   async getLayerVersion(layerName: string, version: string): Promise<$_model.GetLayerVersionResponse> {
@@ -1290,7 +1318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain version information of a layer by using ARNs.
+   * Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1315,7 +1343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain version information of a layer by using ARNs.
+   * Retrieves the version information of a layer by its Alibaba Cloud Resource Name (ARN).
    * @returns GetLayerVersionByArnResponse
    */
   async getLayerVersionByArn(arn: string): Promise<$_model.GetLayerVersionByArnResponse> {
@@ -1325,7 +1353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries provisioned configurations.
+   * Retrieves the provisioned configuration.
    * 
    * @param request - GetProvisionConfigRequest
    * @param headers - map
@@ -1358,7 +1386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries provisioned configurations.
+   * Retrieves the provisioned configuration.
    * 
    * @param request - GetProvisionConfigRequest
    * @returns GetProvisionConfigResponse
@@ -1370,7 +1398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the scaling settings of a function.
+   * Retrieves the scaling configuration for a function.
    * 
    * @param request - GetScalingConfigRequest
    * @param headers - map
@@ -1403,7 +1431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the scaling settings of a function.
+   * Retrieves the scaling configuration for a function.
    * 
    * @param request - GetScalingConfigRequest
    * @returns GetScalingConfigResponse
@@ -1460,7 +1488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a trigger.
+   * Retrieves the details of a specified trigger.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1485,7 +1513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a trigger.
+   * Retrieves the details of a specified trigger.
    * @returns GetTriggerResponse
    */
   async getTrigger(functionName: string, triggerName: string): Promise<$_model.GetTriggerResponse> {
@@ -1576,7 +1604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries aliases.
+   * Lists aliases.
    * 
    * @param request - ListAliasesRequest
    * @param headers - map
@@ -1617,7 +1645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries aliases.
+   * Lists aliases.
    * 
    * @param request - ListAliasesRequest
    * @returns ListAliasesResponse
@@ -1629,7 +1657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all asynchronous configurations of a function.
+   * Lists the asynchronous invocation configurations for one or more functions.
    * 
    * @param request - ListAsyncInvokeConfigsRequest
    * @param headers - map
@@ -1670,7 +1698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all asynchronous configurations of a function.
+   * Lists the asynchronous invocation configurations for one or more functions.
    * 
    * @param request - ListAsyncInvokeConfigsRequest
    * @returns ListAsyncInvokeConfigsResponse
@@ -1682,7 +1710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists asynchronous tasks.
+   * Lists the details of asynchronous tasks.
    * 
    * @param request - ListAsyncTasksRequest
    * @param headers - map
@@ -1747,7 +1775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists asynchronous tasks.
+   * Lists the details of asynchronous tasks.
    * 
    * @param request - ListAsyncTasksRequest
    * @returns ListAsyncTasksResponse
@@ -1759,7 +1787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of concurrency configurations.
+   * Lists the concurrency configurations.
    * 
    * @param request - ListConcurrencyConfigsRequest
    * @param headers - map
@@ -1800,7 +1828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of concurrency configurations.
+   * Lists the concurrency configurations.
    * 
    * @param request - ListConcurrencyConfigsRequest
    * @returns ListConcurrencyConfigsResponse
@@ -1812,7 +1840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom domain names.
+   * Retrieves a list of custom domain names.
    * 
    * @param request - ListCustomDomainsRequest
    * @param headers - map
@@ -1853,7 +1881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom domain names.
+   * Retrieves a list of custom domain names.
    * 
    * @param request - ListCustomDomainsRequest
    * @returns ListCustomDomainsResponse
@@ -1865,7 +1893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries versions of a function.
+   * Lists the versions of a specified function.
    * 
    * @param request - ListFunctionVersionsRequest
    * @param headers - map
@@ -1906,7 +1934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries versions of a function.
+   * Lists the versions of a specified function.
    * 
    * @param request - ListFunctionVersionsRequest
    * @returns ListFunctionVersionsResponse
@@ -1918,10 +1946,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of functions.
+   * Retrieves a list of functions.
    * 
    * @remarks
-   * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+   * ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
    * 
    * @param tmpReq - ListFunctionsRequest
    * @param headers - map
@@ -1996,10 +2024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of functions.
+   * Retrieves a list of functions.
    * 
    * @remarks
-   * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+   * ListFunctions returns only a subset of fields for function properties. To retrieve additional property fields for a specific function, including state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
    * 
    * @param request - ListFunctionsRequest
    * @returns ListFunctionsResponse
@@ -2011,7 +2039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of function instances.
+   * Lists function instances.
    * 
    * @param tmpReq - ListInstancesRequest
    * @param headers - map
@@ -2082,7 +2110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of function instances.
+   * Lists function instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -2094,7 +2122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of layer versions.
+   * Retrieves a list of layer versions.
    * 
    * @param request - ListLayerVersionsRequest
    * @param headers - map
@@ -2131,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of layer versions.
+   * Retrieves a list of layer versions.
    * 
    * @param request - ListLayerVersionsRequest
    * @returns ListLayerVersionsResponse
@@ -2143,7 +2171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of layers.
+   * Lists layers.
    * 
    * @param request - ListLayersRequest
    * @param headers - map
@@ -2192,7 +2220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets a list of layers.
+   * Lists layers.
    * 
    * @param request - ListLayersRequest
    * @returns ListLayersResponse
@@ -2204,7 +2232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of provisioned configurations.
+   * Retrieves a list of provisioned configurations.
    * 
    * @param request - ListProvisionConfigsRequest
    * @param headers - map
@@ -2245,7 +2273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of provisioned configurations.
+   * Retrieves a list of provisioned configurations.
    * 
    * @param request - ListProvisionConfigsRequest
    * @returns ListProvisionConfigsResponse
@@ -2257,7 +2285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scaling settings of a function.
+   * Lists the auto scaling configurations for a function.
    * 
    * @param request - ListScalingConfigsRequest
    * @param headers - map
@@ -2298,7 +2326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scaling settings of a function.
+   * Lists the auto scaling configurations for a function.
    * 
    * @param request - ListScalingConfigsRequest
    * @returns ListScalingConfigsResponse
@@ -2442,7 +2470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the triggers of a function.
+   * Lists the triggers for a specified function.
    * 
    * @param request - ListTriggersRequest
    * @param headers - map
@@ -2483,7 +2511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the triggers of a function.
+   * Lists the triggers for a specified function.
    * 
    * @param request - ListTriggersRequest
    * @returns ListTriggersResponse
@@ -2495,7 +2523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of existing VPC connections.
+   * Queries existing VPC attachments.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2520,7 +2548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of existing VPC connections.
+   * Queries existing VPC attachments.
    * @returns ListVpcBindingsResponse
    */
   async listVpcBindings(functionName: string): Promise<$_model.ListVpcBindingsResponse> {
@@ -2530,7 +2558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停/保存会话
+   * Pauses and saves a session.
+   * 
+   * @remarks
+   * Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
    * 
    * @param request - PauseSessionRequest
    * @param headers - map
@@ -2563,7 +2594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停/保存会话
+   * Pauses and saves a session.
+   * 
+   * @remarks
+   * Pauses an active session. This operation saves the state of the associated execution environment and then releases the compute resources. After you call this operation, the session state changes to Paused. A paused session does not accept function invocation requests. The operation retains the session configuration, such as the SessionTTL and SessionID. Use this operation to interrupt long-running tasks or save snapshots of a development environment. This helps optimize costs and manage state. This operation applies to custom image functions that use HEADER_FIELD or GENERATED_COOKIE affinity types and session isolation.
    * 
    * @param request - PauseSessionRequest
    * @returns PauseSessionResponse
@@ -2615,7 +2649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an asynchronous invocation configuration for a function.
+   * Creates or updates the asynchronous invocation configuration for a function.
    * 
    * @param request - PutAsyncInvokeConfigRequest
    * @param headers - map
@@ -2649,7 +2683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an asynchronous invocation configuration for a function.
+   * Creates or updates the asynchronous invocation configuration for a function.
    * 
    * @param request - PutAsyncInvokeConfigRequest
    * @returns PutAsyncInvokeConfigResponse
@@ -2661,7 +2695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures concurrency of a function.
+   * Sets the concurrency for a function.
    * 
    * @param request - PutConcurrencyConfigRequest
    * @param headers - map
@@ -2689,7 +2723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures concurrency of a function.
+   * Sets the concurrency for a function.
    * 
    * @param request - PutConcurrencyConfigRequest
    * @returns PutConcurrencyConfigResponse
@@ -2701,7 +2735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies permissions of a layer.
+   * Modifies the permissions of a layer.
    * 
    * @param request - PutLayerACLRequest
    * @param headers - map
@@ -2738,7 +2772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies permissions of a layer.
+   * Modifies the permissions of a layer.
    * 
    * @param request - PutLayerACLRequest
    * @returns PutLayerACLResponse
@@ -2750,7 +2784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates provisioned configurations.
+   * Creates a provisioned configuration.
    * 
    * @param request - PutProvisionConfigRequest
    * @param headers - map
@@ -2784,7 +2818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates provisioned configurations.
+   * Creates a provisioned configuration.
    * 
    * @param request - PutProvisionConfigRequest
    * @returns PutProvisionConfigResponse
@@ -2796,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scaling settings
+   * Set the elastic scaling configuration for a function.
    * 
    * @param request - PutScalingConfigRequest
    * @param headers - map
@@ -2830,7 +2864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scaling settings
+   * Set the elastic scaling configuration for a function.
    * 
    * @param request - PutScalingConfigRequest
    * @returns PutScalingConfigResponse
@@ -2842,7 +2876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复会话
+   * Resume a session
+   * 
+   * @remarks
+   * Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
    * 
    * @param request - ResumeSessionRequest
    * @param headers - map
@@ -2879,7 +2916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复会话
+   * Resume a session
+   * 
+   * @remarks
+   * Resumes a session that is in the Paused state. The system quickly resumes the session in a new execution environment using its previously persisted state. After a successful resume, the session status changes to Active, and the session begins accepting function invocation requests and routing them to the resumed instance. Use this operation with custom image functions that use HEADER_FIELD or GENERATED_COOKIE session affinity and session isolation.
    * 
    * @param request - ResumeSessionRequest
    * @returns ResumeSessionResponse
@@ -2936,10 +2976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to a resource.
-   * 
-   * @remarks
-   * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+   * Adds tags to specified resources.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -2967,10 +3004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to a resource.
-   * 
-   * @remarks
-   * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+   * Adds tags to specified resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2982,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a resource.
+   * Removes tags from resources.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -3037,7 +3071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a resource.
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -3089,7 +3123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a custom domain name.
+   * Updates a custom domain name.
    * 
    * @param request - UpdateCustomDomainRequest
    * @param headers - map
@@ -3117,7 +3151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a custom domain name.
+   * Updates a custom domain name.
    * 
    * @param request - UpdateCustomDomainRequest
    * @returns UpdateCustomDomainResponse
@@ -3129,7 +3163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a function.
+   * Updates a function\\"s configuration.
    * 
    * @param request - UpdateFunctionRequest
    * @param headers - map
@@ -3157,7 +3191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a function.
+   * Updates a function\\"s configuration.
    * 
    * @param request - UpdateFunctionRequest
    * @returns UpdateFunctionResponse
@@ -3215,7 +3249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a trigger.
+   * Updates the information of a trigger.
    * 
    * @param request - UpdateTriggerRequest
    * @param headers - map
@@ -3243,7 +3277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a trigger.
+   * Updates the information of a trigger.
    * 
    * @param request - UpdateTriggerRequest
    * @returns UpdateTriggerResponse

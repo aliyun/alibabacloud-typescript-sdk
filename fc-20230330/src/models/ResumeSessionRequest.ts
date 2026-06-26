@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeSessionRequest extends $dara.Model {
   fileSystemOnly?: boolean;
   /**
+   * @remarks
+   * Alias or version of the function associated with the session ID
+   * 
    * @example
    * aliasName1
    */

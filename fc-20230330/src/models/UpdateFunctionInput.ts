@@ -8,6 +8,7 @@ import { GPUConfig } from "./Gpuconfig";
 import { InstanceLifecycleConfig } from "./InstanceLifecycleConfig";
 import { JuiceFsConfig } from "./JuiceFsConfig";
 import { LogConfig } from "./LogConfig";
+import { MicroSandboxConfig } from "./MicroSandboxConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
 import { PolarFsConfig } from "./PolarFsConfig";
@@ -18,12 +19,12 @@ import { VPCConfig } from "./Vpcconfig";
 export class UpdateFunctionInput extends $dara.Model {
   /**
    * @remarks
-   * The code package of the function. Configure either code or customContainerConfig.
+   * The ZIP package of the function code. Specify either code or customContainerConfig.
    */
   code?: InputCodeLocation;
   /**
    * @remarks
-   * The CPU power allocated to the function. Unit: vCPUs. The value must be a multiple of 0.05.
+   * The CPU specification of the function. Unit: vCPU. The value must be a multiple of 0.05 vCPU.
    * 
    * @example
    * 1
@@ -31,17 +32,17 @@ export class UpdateFunctionInput extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The configurations of the Custom Container runtime. After you configure a Custom Container runtime for your function, Function Compute can execute the function in a custom container image. Configure either code or customContainerConfig.
+   * The configuration of the custom container runtime. After this parameter is configured, the function can use a custom container image for execution. Specify either code or customContainerConfig.
    */
   customContainerConfig?: CustomContainerConfig;
   /**
    * @remarks
-   * The custom DNS settings of the function.
+   * The custom DNS configuration.
    */
   customDNS?: CustomDNS;
   /**
    * @remarks
-   * The configurations of the custom runtime.
+   * The custom runtime configuration.
    */
   customRuntimeConfig?: CustomRuntimeConfig;
   /**
@@ -52,63 +53,87 @@ export class UpdateFunctionInput extends $dara.Model {
    * my function
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to disable STS token injection. Valid values:
+   * - None: STS tokens are injected in all methods.
+   * - Env: STS tokens are not injected through environment variables.
+   * - Request: STS tokens are not injected through requests, including context and headers.
+   * - All: STS tokens are not injected in any method.
+   * 
+   * @example
+   * Env
+   */
   disableInjectCredentials?: string;
   /**
+   * @remarks
+   * Specifies whether to disable the creation of on-demand instances. If this feature is enabled, on-demand instances are not created, and only provisioned instances can be used.
+   * 
    * @deprecated
    */
   disableOndemand?: boolean;
   /**
    * @remarks
-   * The disk size of the function. Unit: MB. Valid values: 512 and 10240.
+   * The disk specification of the function. Unit: MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
    */
   diskSize?: number;
   /**
+   * @remarks
+   * Specifies whether to allow provisioned instances of GPU functions to be long-running. When this feature is enabled, function instances that are created are not injected with STS tokens.
+   * 
    * @deprecated
    */
   enableLongLiving?: boolean;
   /**
    * @remarks
-   * The environment variables of the function. You can access the specified environment variables in the runtime.
+   * The environment variables of the function. You can access the configured environment variables in the runtime environment.
    */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The GPU configurations of the function.
+   * The GPU configuration of the function.
    */
   gpuConfig?: GPUConfig;
   /**
    * @remarks
-   * The handler of the function. The format of the handler is related to the runtime you use.
+   * The function entry point. The specific format depends on the runtime.
    * 
    * @example
    * index.handler
    */
   handler?: string;
   /**
+   * @remarks
+   * The deferred release time of the instance.
+   * 
    * @example
    * 100
    */
   idleTimeout?: number;
   /**
    * @remarks
-   * The maximum number of requests that a function instance can process at a time.
+   * The maximum concurrency of an instance.
    * 
    * @example
    * 1
    */
   instanceConcurrency?: number;
+  /**
+   * @remarks
+   * The instance isolation mode.
+   */
   instanceIsolationMode?: string;
   /**
    * @remarks
-   * The configurations of instance lifecycle hooks.
+   * The instance lifecycle hook configuration.
    */
   instanceLifecycleConfig?: InstanceLifecycleConfig;
   /**
    * @remarks
-   * Specifies whether to allow the function to access the Internet.
+   * Specifies whether to allow access to the Internet.
    * 
    * @example
    * true
@@ -117,36 +142,41 @@ export class UpdateFunctionInput extends $dara.Model {
   juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
-   * The layers. Multiple layers are merged based on the order of array subscripts. If two layers have the same file name, the content of the layer with the smaller subscript will overwrite the content of the layer with the larger subscript.
+   * The list of layers. Multiple layers are merged in descending order of array index. Files in a layer with a smaller index overwrite files with the same name in a layer with a larger index.
    */
   layers?: string[];
   /**
    * @remarks
-   * The logging configurations. Logs generated by the function are written to the specified Logstore.
+   * The log configuration. Logs generated by the function are written to the configured Logstore.
    */
   logConfig?: LogConfig;
   /**
    * @remarks
-   * The memory capacity for the function. Unit: MB. The value must be a multiple of 64. The capacity varies based on the type of the function instance.
+   * The memory specification of the function. Unit: MB. The value must be a multiple of 64 MB. The memory specification varies based on the function instance type.
    * 
    * @example
    * 512
    */
   memorySize?: number;
+  microSandboxConfig?: MicroSandboxConfig;
   /**
    * @remarks
-   * The File Storage NAS (NAS) configurations. The configurations allow the function to access the specified NAS file system.
+   * The NAS configuration. After this parameter is configured, the function can access the specified NAS resources.
    */
   nasConfig?: NASConfig;
   /**
    * @remarks
-   * The Object Storage Service (OSS) mounting configurations.
+   * The OSS mount configuration.
    */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The PolarFs configuration. After this parameter is configured, the function can access the specified PolarFs resources.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The Resource Access Management (RAM) role that grants the necessary permissions to Function Compute. The role can be used in the following scenarios: 1. When Function Compute sends logs generated by the function to your Logstore. 2. When Function Compute obtains a Security Token Service (STS) token, which serves as a temporary key for your function to access other Alibaba Cloud services.
+   * The Alibaba Cloud Resource Access Management (RAM) role that grants Function Compute the required permissions. Scenarios include: 1. Sending logs generated by the function to your Logstore. 2. Generating temporary access tokens for the function to access other cloud resources during the execute procedure.
    * 
    * @example
    * acs:ram::188077086902****:role/fc-test
@@ -154,21 +184,31 @@ export class UpdateFunctionInput extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The runtime of the function.
+   * The runtime environment of the function.
    * 
    * @example
    * nodejs14
    */
   runtime?: string;
   /**
+   * @remarks
+   * The affinity policy for Function Compute invocation requests. To implement request affinity for the MCP SSE protocol, set this parameter to MCP_SSE. To use cookie-based affinity, set this parameter to GENERATED_COOKIE. To use header-based affinity, set this parameter to HEADER_FIELD. If this parameter is not set or is set to NONE, no affinity is applied, and requests are routed based on the default scheduling policy of Function Compute.
+   * 
    * @example
    * MCP_SSE
    */
   sessionAffinity?: string;
+  /**
+   * @remarks
+   * The affinity configuration that corresponds to the sessionAffinity type. For MCP_SSE affinity, configure MCPSSESessionAffinityConfig. For cookie-based affinity, configure CookieSessionAffinityConfig. For header field affinity, configure HeaderFieldSessionAffinityConfig.
+   * 
+   * @example
+   * {\\"sseEndpointPath\\":\\"/sse\\", \\"sessionConcurrencyPerInstance\\":20}
+   */
   sessionAffinityConfig?: string;
   /**
    * @remarks
-   * The timeout period for function execution. Unit: seconds. Minimum value: 1. Default value: 3. The execution of the function is terminated when the timeout period expires.
+   * The timeout period for function execution. Unit: seconds. Minimum value: 1. Default value: 3. The function is terminated if it exceeds this time limit.
    * 
    * @example
    * 60
@@ -176,12 +216,12 @@ export class UpdateFunctionInput extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The configurations of Managed Service for OpenTelemetry. After Function Compute is integrated with Managed Service for OpenTelemetry, you can record the invocation duration of a request, view the cold start duration of a function, and track the execution duration of the function.
+   * The Tracing Analysis configuration. After Function Compute is integrated with Tracing Analysis, you can record the time consumed by requests in Function Compute, view the cold start time of functions, and record the time consumed by internal function operations.
    */
   tracingConfig?: TracingConfig;
   /**
    * @remarks
-   * The Virtual Private Cloud (VPC) configurations. The configurations allow the function to access the specified VPC resources.
+   * The VPC configuration. After this parameter is configured, the function can access the specified VPC resources.
    */
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
@@ -208,6 +248,7 @@ export class UpdateFunctionInput extends $dara.Model {
       layers: 'layers',
       logConfig: 'logConfig',
       memorySize: 'memorySize',
+      microSandboxConfig: 'microSandboxConfig',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
       polarFsConfig: 'polarFsConfig',
@@ -245,6 +286,7 @@ export class UpdateFunctionInput extends $dara.Model {
       layers: { 'type': 'array', 'itemType': 'string' },
       logConfig: LogConfig,
       memorySize: 'number',
+      microSandboxConfig: MicroSandboxConfig,
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
       polarFsConfig: PolarFsConfig,
@@ -288,6 +330,9 @@ export class UpdateFunctionInput extends $dara.Model {
     }
     if(this.logConfig && typeof (this.logConfig as any).validate === 'function') {
       (this.logConfig as any).validate();
+    }
+    if(this.microSandboxConfig && typeof (this.microSandboxConfig as any).validate === 'function') {
+      (this.microSandboxConfig as any).validate();
     }
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();

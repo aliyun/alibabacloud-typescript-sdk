@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags.
+   * Specifies whether to remove all tags.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The resource identifiers.
+   * A list of resource IDs.
    * 
    * This parameter is required.
    */
@@ -30,7 +30,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag to remove. You can specify a maximum of 50 tags.
+   * The keys of the tags to remove. You can specify up to 50 tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

@@ -6,12 +6,12 @@ import { Destination } from "./Destination";
 export class DestinationConfig extends $dara.Model {
   /**
    * @remarks
-   * The destination struct of a failed callback.
+   * Structure that defines the destination for failed invocations.
    */
   onFailure?: Destination;
   /**
    * @remarks
-   * The destination struct of a successful callback.
+   * Structure that defines the destination for successful invocations.
    */
   onSuccess?: Destination;
   static names(): { [key: string]: string } {

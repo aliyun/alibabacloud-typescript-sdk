@@ -11,18 +11,18 @@ import { WAFConfig } from "./Wafconfig";
 export class CreateCustomDomainInput extends $dara.Model {
   /**
    * @remarks
-   * The configuration of permission authentication.
+   * Permission authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The configuration of the HTTPS certificate.
+   * HTTPS certificate information.
    */
   certConfig?: CertConfig;
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * The domain name. Enter a custom domain name that has obtained an Internet content provider (ICP) filing in the Alibaba Cloud ICP Filing system, or a custom domain name whose ICP filing information includes Alibaba Cloud as a service provider.
+   * Domain name. Enter a custom domain name that has an ICP filing with Alibaba Cloud or has added Alibaba Cloud to the ICP filing information as a service provider.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateCustomDomainInput extends $dara.Model {
   isE2B?: boolean;
   /**
    * @remarks
-   * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+   * Protocol type supported by the domain. HTTP: supports HTTP only. HTTPS: supports HTTPS only. HTTP,HTTPS: supports both HTTP and HTTPS.
    * 
    * @example
    * HTTP
@@ -41,17 +41,17 @@ export class CreateCustomDomainInput extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The route table that maps paths to functions when the function is invoked by using the custom domain name.
+   * Route table: maps PATHs to functions when accessing the custom domain.
    */
   routeConfig?: RouteConfig;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) configuration.
+   * TLS configuration information.
    */
   tlsConfig?: TLSConfig;
   /**
    * @remarks
-   * The Web Application Firewall (WAF) configuration.
+   * Web Application Firewall configuration information.
    */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {

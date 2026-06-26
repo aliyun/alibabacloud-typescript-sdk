@@ -2,24 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetFunctionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The version or alias of the function.
-   * 
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
+export class MicroSandboxConfig extends $dara.Model {
+  osType?: string;
+  readyCommand?: string;
+  startCommand?: string;
   static names(): { [key: string]: string } {
     return {
-      qualifier: 'qualifier',
+      osType: 'osType',
+      readyCommand: 'readyCommand',
+      startCommand: 'startCommand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      qualifier: 'string',
+      osType: 'string',
+      readyCommand: 'string',
+      startCommand: 'string',
     };
   }
 

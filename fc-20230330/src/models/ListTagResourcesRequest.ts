@@ -7,7 +7,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * k1
@@ -17,7 +17,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be up to 128 characters in length and can be an empty string.
+   * The tag value can be up to 128 characters in length. It can be an empty string.
    * 
    * @example
    * v1
@@ -57,7 +57,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -65,24 +65,24 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The list of resource IDs.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * This parameter is required.
    * 
    * @example
-   * ALIYUN::FC:FUNCTION
+   * ALIYUN::FC::FUNCTION
    */
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
-   * You can query up to 20 tags at a time.
+   * You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

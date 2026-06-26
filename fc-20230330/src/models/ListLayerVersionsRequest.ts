@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLayerVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of versions to be returned.
+   * The number of versions to return.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListLayerVersionsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The initial version of the layer.
+   * The version from which to start the query.
    * 
    * @example
    * 1

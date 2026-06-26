@@ -27,6 +27,9 @@ export class CDNTriggerConfig extends $dara.Model {
   /**
    * @remarks
    * The description of the trigger.
+   * 
+   * @example
+   * 缓存事件触发器
    */
   notes?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourceInput extends $dara.Model {
   /**
    * @remarks
-   * The resource descriptor.
+   * Resource descriptor.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class TagResourceInput extends $dara.Model {
   resourceArn?: string;
   /**
    * @remarks
-   * The tag dictionary.
+   * Tag dictionary.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of custom domain names returned.
+   * The number of custom domain names to return.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to start paging.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,7 +21,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The domain name prefix.
+   * The prefix of the domain name.
    * 
    * @example
    * foo

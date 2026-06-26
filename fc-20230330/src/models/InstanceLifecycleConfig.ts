@@ -6,12 +6,12 @@ import { LifecycleHook } from "./LifecycleHook";
 export class InstanceLifecycleConfig extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the Initializer hook.
+   * Initializer method configuration
    */
   initializer?: LifecycleHook;
   /**
    * @remarks
-   * The configurations of the PreStop hook.
+   * PreStop method configuration
    */
   preStop?: LifecycleHook;
   static names(): { [key: string]: string } {

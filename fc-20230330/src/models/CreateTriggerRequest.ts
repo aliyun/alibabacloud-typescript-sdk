@@ -6,7 +6,7 @@ import { CreateTriggerInput } from "./CreateTriggerInput";
 export class CreateTriggerRequest extends $dara.Model {
   /**
    * @remarks
-   * The trigger configurations.
+   * The trigger configuration.
    * 
    * This parameter is required.
    */

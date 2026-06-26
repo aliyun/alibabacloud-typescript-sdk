@@ -13,7 +13,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,24 +21,24 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The list of resource IDs.
    */
   resourceIdShrink?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * This parameter is required.
    * 
    * @example
-   * ALIYUN::FC:FUNCTION
+   * ALIYUN::FC::FUNCTION
    */
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
-   * You can query up to 20 tags at a time.
+   * You can specify up to 20 tags.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

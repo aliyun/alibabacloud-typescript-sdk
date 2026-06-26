@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LifecycleHook extends $dara.Model {
+  /**
+   * @remarks
+   * 函数生命周期初始化阶段回调指令，生命周期回调方法的执行入口 handler 和 command 不允许同时配置，只能有一个生效，同时配置会产生错误提示
+   */
   command?: string[];
   /**
    * @remarks

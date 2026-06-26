@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAliasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of aliases returned.
+   * The number of aliases to return.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListAliasesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that marks the start of the next page of results.
    * 
    * @example
    * MTIzNCNhYmM=
@@ -21,7 +21,7 @@ export class ListAliasesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The alias prefix.
+   * The prefix of the alias name.
    * 
    * @example
    * my-alias

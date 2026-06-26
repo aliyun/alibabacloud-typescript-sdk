@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScalingConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the function.
+   * The function name.
    * 
    * @example
    * my-func
@@ -13,7 +13,7 @@ export class ListScalingConfigsRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The number of scaling settings to return.
+   * The number of auto scaling configurations to return.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListScalingConfigsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * MTIzNCNhYmM=

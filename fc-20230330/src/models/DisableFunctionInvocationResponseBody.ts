@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableFunctionInvocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the function invocation was successfully disabled.
    * 
    * @example
    * true

@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the query range, specified as a UNIX timestamp in milliseconds.
+   */
   endTimeMs?: number;
+  /**
+   * @remarks
+   * A list of instance IDs to return.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * An array of instance statuses. The operation returns only instances whose status is in this array.
+   */
   instanceStatus?: string[];
+  /**
+   * @remarks
+   * The maximum number of instances to return.
+   */
   limit?: string;
   /**
    * @remarks
@@ -15,11 +31,19 @@ export class ListInstancesRequest extends $dara.Model {
    * LATEST
    */
   qualifier?: string;
+  /**
+   * @remarks
+   * The token that specifies where to start the query. It is returned in a truncated response and can be used to retrieve the next page of results.
+   */
   startKey?: string;
+  /**
+   * @remarks
+   * The start time of the query range, specified as a UNIX timestamp in milliseconds.
+   */
   startTimeMs?: number;
   /**
    * @remarks
-   * Specifies whether to list all instances. Valid values: true and false.
+   * Specifies whether to list all active instances.
    * 
    * @example
    * true

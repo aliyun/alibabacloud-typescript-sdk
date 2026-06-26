@@ -6,7 +6,7 @@ import { CreateLayerVersionInput } from "./CreateLayerVersionInput";
 export class CreateLayerVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about layer configurations.
+   * The configuration of the layer.
    * 
    * This parameter is required.
    */

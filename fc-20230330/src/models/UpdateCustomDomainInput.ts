@@ -11,18 +11,18 @@ import { WAFConfig } from "./Wafconfig";
 export class UpdateCustomDomainInput extends $dara.Model {
   /**
    * @remarks
-   * The configuration of permission authentication.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The configuration of the HTTPS certificate.
+   * Information about the HTTPS certificate.
    */
   certConfig?: CertConfig;
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
+   * The protocol type that the domain name supports. \\`HTTP\\`: supports only the HTTP protocol. \\`HTTPS\\`: supports only the HTTPS protocol. \\`HTTP,HTTPS\\`: supports both HTTP and HTTPS protocols.
    * 
    * @example
    * HTTP
@@ -30,12 +30,12 @@ export class UpdateCustomDomainInput extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The route table that maps paths to functions when the function is invoked by using the custom domain name.
+   * The route table that maps the access paths of the custom domain name to functions.
    */
   routeConfig?: RouteConfig;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) configuration.
+   * The TLS configuration.
    */
   tlsConfig?: TLSConfig;
   /**
