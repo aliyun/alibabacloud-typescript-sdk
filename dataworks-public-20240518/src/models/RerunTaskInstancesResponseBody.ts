@@ -6,7 +6,7 @@ import { SuccessInfoValue } from "./SuccessInfoValue";
 export class RerunTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A1****
@@ -14,7 +14,7 @@ export class RerunTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   * The result information of the batch operation. The structure is a map in which the key is the node instance ID and the value is the result information.
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

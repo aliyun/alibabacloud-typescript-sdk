@@ -285,19 +285,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a request for permissions on specific resources.
+   * Submits an application for access permissions on a specific resource.
    * 
    * @remarks
-   * ## Request details
-   * - **Reason**: The reason for the request. This parameter is required.
-   * - **ApplyContents**: A list of permission requests. Each request includes a resource (Resource), a principal (Grantee), the requested permission types (AccessTypes), and the permission expiration time (ExpirationTime). A single request can contain a maximum of 400 items.
-   * - **Resource**: The resource for which permissions are requested. You must specify the `name` and `version` of the `ResourceSchema` required for parsing, along with the resource metadata (`MetaData`).
-   * - **Grantee**: The principal to which permissions are granted. You must specify the principal type (`PrincipalType`) and principal ID (`PrincipalId`).
-   * - **AccessTypes**: A list of permission types.
-   * - **ExpirationTime**: The permission expiration time, specified as a Unix timestamp in milliseconds.
-   * - **AuthMethod**: The authorization method. This parameter is optional. If not specified, the system\\"s default authorization method is used.
-   * - **ClientToken**: A client token to ensure request idempotency. This parameter is optional.
-   * Ensure that all required fields are correctly filled out and meet their respective constraints. For example, the `DefVersion` and `MetaData` in the `Resource` object must match the selected `DefSchema`.
+   * ## Request Description
+   * - **Reason**: The reason for the application. This parameter is required.
+   * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
+   * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
+   * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
+   * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
+   * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
+   * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+   * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
+   * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
    * 
    * @param tmpReq - ApplyResourceAccessPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -342,19 +342,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a request for permissions on specific resources.
+   * Submits an application for access permissions on a specific resource.
    * 
    * @remarks
-   * ## Request details
-   * - **Reason**: The reason for the request. This parameter is required.
-   * - **ApplyContents**: A list of permission requests. Each request includes a resource (Resource), a principal (Grantee), the requested permission types (AccessTypes), and the permission expiration time (ExpirationTime). A single request can contain a maximum of 400 items.
-   * - **Resource**: The resource for which permissions are requested. You must specify the `name` and `version` of the `ResourceSchema` required for parsing, along with the resource metadata (`MetaData`).
-   * - **Grantee**: The principal to which permissions are granted. You must specify the principal type (`PrincipalType`) and principal ID (`PrincipalId`).
-   * - **AccessTypes**: A list of permission types.
-   * - **ExpirationTime**: The permission expiration time, specified as a Unix timestamp in milliseconds.
-   * - **AuthMethod**: The authorization method. This parameter is optional. If not specified, the system\\"s default authorization method is used.
-   * - **ClientToken**: A client token to ensure request idempotency. This parameter is optional.
-   * Ensure that all required fields are correctly filled out and meet their respective constraints. For example, the `DefVersion` and `MetaData` in the `Resource` object must match the selected `DefSchema`.
+   * ## Request Description
+   * - **Reason**: The reason for the application. This parameter is required.
+   * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
+   * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
+   * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
+   * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
+   * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
+   * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+   * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
+   * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
    * 
    * @param request - ApplyResourceAccessPermissionRequest
    * @returns ApplyResourceAccessPermissionResponse
@@ -7681,14 +7681,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a resource permission request by its process instance ID.
+   * Queries the content of resource permission applications under the specified process instance ID.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves details for a resource permission request using the specified `ProcessInstanceId`.
-   * - A valid `ProcessInstanceId` is required.
-   * - The response includes basic request information, status, and a list of requested items.
-   * - Each requested item includes detailed resource information, the principal, and the requested operation permissions.
+   * ## Request Description
+   * - This API is used to query the details of resource permission applications based on the provided `ProcessInstanceId`.
+   * - A valid `ProcessInstanceId` parameter must be provided in the request.
+   * - The response includes the basic information, status, and the list of specific application contents.
+   * - Each application content includes detailed resource information, the grantee, the requested operation permissions, and more.
    * 
    * @param request - GetApplicationContentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7719,14 +7719,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a resource permission request by its process instance ID.
+   * Queries the content of resource permission applications under the specified process instance ID.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves details for a resource permission request using the specified `ProcessInstanceId`.
-   * - A valid `ProcessInstanceId` is required.
-   * - The response includes basic request information, status, and a list of requested items.
-   * - Each requested item includes detailed resource information, the principal, and the requested operation permissions.
+   * ## Request Description
+   * - This API is used to query the details of resource permission applications based on the provided `ProcessInstanceId`.
+   * - A valid `ProcessInstanceId` parameter must be provided in the request.
+   * - The response includes the basic information, status, and the list of specific application contents.
+   * - Each application content includes detailed resource information, the grantee, the requested operation permissions, and more.
    * 
    * @param request - GetApplicationContentsRequest
    * @returns GetApplicationContentsResponse
@@ -13889,16 +13889,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all resource access requests submitted by the current user.
+   * Queries all resource access permission application orders initiated by the current user.
    * 
    * @remarks
-   * ## Request
-   * - This operation supports pagination using the `NextToken` and `PageSize` parameters.
-   * - The required `DefSchema` parameter specifies the resource type.
-   * - Specify multiple resource types in the `ResourceType` parameter to filter applications more precisely.
-   * - Use the `StartTime` and `EndTime` parameters to limit the query to a specific time range.
-   * - Use the `Statuses` parameter to filter applications by status, such as pending approval or approved.
-   * - To filter by a specific resource or grantee, use the `Resource` and `Grantee` parameters.
+   * ## Request description
+   * - This API supports paginated queries, controlled by the `NextToken` and `PageSize` parameters.
+   * - `DefSchema` is a required parameter that specifies the resource type.
+   * - The `ResourceType` list can contain multiple resource types for more precise filtering of application orders.
+   * - You can set `StartTime` and `EndTime` to limit the time range of the query.
+   * - `Statuses` allows you to filter application orders by specific statuses, such as pending approval and authorized.
+   * - If you need to filter by specific resources or authorization targets, you can provide detailed information through the `Resource` and `Grantee` fields.
    * 
    * @param tmpReq - ListMyApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13971,16 +13971,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all resource access requests submitted by the current user.
+   * Queries all resource access permission application orders initiated by the current user.
    * 
    * @remarks
-   * ## Request
-   * - This operation supports pagination using the `NextToken` and `PageSize` parameters.
-   * - The required `DefSchema` parameter specifies the resource type.
-   * - Specify multiple resource types in the `ResourceType` parameter to filter applications more precisely.
-   * - Use the `StartTime` and `EndTime` parameters to limit the query to a specific time range.
-   * - Use the `Statuses` parameter to filter applications by status, such as pending approval or approved.
-   * - To filter by a specific resource or grantee, use the `Resource` and `Grantee` parameters.
+   * ## Request description
+   * - This API supports paginated queries, controlled by the `NextToken` and `PageSize` parameters.
+   * - `DefSchema` is a required parameter that specifies the resource type.
+   * - The `ResourceType` list can contain multiple resource types for more precise filtering of application orders.
+   * - You can set `StartTime` and `EndTime` to limit the time range of the query.
+   * - `Statuses` allows you to filter application orders by specific statuses, such as pending approval and authorized.
+   * - If you need to filter by specific resources or authorization targets, you can provide detailed information through the `Resource` and `Grantee` fields.
    * 
    * @param request - ListMyApplicationsRequest
    * @returns ListMyApplicationsResponse
@@ -13991,15 +13991,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists permission requests where the current user is an approver or stakeholder.
+   * Query all permission application orders where the current user is an approver or stakeholder.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves all pending and approved permission requests where the current user is an approver.
-   * - The `Statuses` parameter filters requests by status.
-   * - The `NextToken` parameter enables pagination. For the first request, omit this parameter or set it to `null`. For subsequent requests, pass the `NextToken` value returned in the previous response.
-   * - The `PageSize` parameter defaults to 10, with a maximum value of 200.
-   * - `DefSchema` and `ResourceType` are required parameters. Other parameters are optional.
+   * ## Request Description
+   * - This API is used to retrieve all permission application orders where the current user is an approver, including pending and processed application orders.
+   * - You can use the `Statuses` parameter to filter application orders by specific status.
+   * - `NextToken` is used for paginated requests. It can be omitted or set to `null` for the first request. For subsequent requests, pass the `NextToken` value from the previous response.
+   * - `PageSize` defaults to 10, with a maximum of 200.
+   * - `DefSchema` and `ResourceType` are required fields. Other parameters can be filled in as needed.
    * 
    * @param tmpReq - ListMyRelatedApprovalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14088,15 +14088,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists permission requests where the current user is an approver or stakeholder.
+   * Query all permission application orders where the current user is an approver or stakeholder.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves all pending and approved permission requests where the current user is an approver.
-   * - The `Statuses` parameter filters requests by status.
-   * - The `NextToken` parameter enables pagination. For the first request, omit this parameter or set it to `null`. For subsequent requests, pass the `NextToken` value returned in the previous response.
-   * - The `PageSize` parameter defaults to 10, with a maximum value of 200.
-   * - `DefSchema` and `ResourceType` are required parameters. Other parameters are optional.
+   * ## Request Description
+   * - This API is used to retrieve all permission application orders where the current user is an approver, including pending and processed application orders.
+   * - You can use the `Statuses` parameter to filter application orders by specific status.
+   * - `NextToken` is used for paginated requests. It can be omitted or set to `null` for the first request. For subsequent requests, pass the `NextToken` value from the previous response.
+   * - `PageSize` defaults to 10, with a maximum of 200.
+   * - `DefSchema` and `ResourceType` are required fields. Other parameters can be filled in as needed.
    * 
    * @param request - ListMyRelatedApprovalsRequest
    * @returns ListMyRelatedApprovalsResponse
@@ -14423,27 +14423,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pending permission requests awaiting approval by the current user.
+   * Retrieves the list of pending permission request orders for which the current user is the approver.
    * 
    * @remarks
-   * ## Request
-   * This API queries all pending permission requests that the current user can approve. You can filter the results by criteria such as resource type, time range, and approval status.
-   * - **ResourceType**: The resource type, such as a table. You can specify one or more values.
-   * - **Resource**: Search criteria for a resource, such as its project, database, or table name.
-   * - **StartTime and EndTime**: The time range when the permission requests were submitted.
-   * - **Statuses**: Filters the results by approval status, for example, to retrieve only requests that are pending approval.
-   * - **Grantee**: Filters the results by the grantee.
-   * - **AccessTypes**: Filters the results by the access type, such as `Read` or `Update`.
-   * - **PageSize and NextToken**: Enables pagination. `PageSize` specifies the number of results to return for each request, and `NextToken` is the cursor used to retrieve the next page of results.
+   * ## Request Description
+   * This API is used to query all pending permission request orders for which the current logged-in user is the approver. It supports filtering by multiple conditions, including resource type, time range, and approval status, to more precisely locate specific request orders.
+   * - **ResourceType**: Specifies the resource type (such as table), which can have multiple values.
+   * - **Resource**: Provides specific resource search conditions, such as the project, database, or table name.
+   * - **StartTime and EndTime**: Define the time range during which the request was submitted.
+   * - **Statuses**: Allows filtering results by approval status, for example, to view only pending approval requests.
+   * - **Grantee**: Filters request orders based on the authorization principal information.
+   * - **AccessTypes**: Filters based on the specific permission types requested (such as read or update).
+   * - **PageSize and NextToken**: Used for pagination control, specifying the amount of data returned per request and the cursor needed to retrieve the next page of data.
    * Notes:
-   * - If no filters are specified, the API returns all matching records.
-   * - For the first request, you can leave the `NextToken` parameter empty or omit it. To retrieve subsequent pages, you must use the `NextToken` value returned in the previous response.
-   * - The default value of `PageSize` is 10, and the maximum value is 200. If you specify a value greater than the maximum, the maximum value is used.
-   * - If no more data is available, the `HasMore` field is `false`, and `NextToken` is omitted.
-   * ## Response
-   * A successful call returns paginated results. Each permission request includes details such as the submission time, resource description, grantee, and requested permissions. The response also contains the approval process status and other relevant metadata.
-   * - **Data**: The paginated result set, containing the page size (`PageSize`), cursor (`NextToken`), and a flag indicating if more data is available (`HasMore`).
-   * - **ApplicationQueryResponse**: The details of each permission request, including the justification, submission time, status, and a detailed list of requested items.
+   * - If no filtering conditions are provided, all matching records are returned by default.
+   * - The `NextToken` parameter can be empty or omitted for the first call. Subsequent page requests must use the `NextToken` value provided in the previous response.
+   * - The default value of `PageSize` is 10, and the maximum value is 200. If the specified value exceeds the maximum limit, the maximum value is used.
+   * - When there is no more data to return, the `HasMore` field is set to `false`, and `NextToken` will be empty or absent.
+   * ## Response Description
+   * After a successful call to this API, the response body contains paginated results and detailed information for each request order, such as the application time, resource description, authorization principal, requested permissions, and more. Additionally, the approval process status and other related metadata are provided.
+   * - **Data**: The paginated result set, including page size (`PageSize`), cursor (`NextToken`), and whether more data is available (`HasMore`).
+   * - **ApplicationQueryResponse**: The specific content of each request order, including the reason for the request, submission time, status, and a detailed list of request content.
    * 
    * @param tmpReq - ListPendingApprovalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14524,27 +14524,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pending permission requests awaiting approval by the current user.
+   * Retrieves the list of pending permission request orders for which the current user is the approver.
    * 
    * @remarks
-   * ## Request
-   * This API queries all pending permission requests that the current user can approve. You can filter the results by criteria such as resource type, time range, and approval status.
-   * - **ResourceType**: The resource type, such as a table. You can specify one or more values.
-   * - **Resource**: Search criteria for a resource, such as its project, database, or table name.
-   * - **StartTime and EndTime**: The time range when the permission requests were submitted.
-   * - **Statuses**: Filters the results by approval status, for example, to retrieve only requests that are pending approval.
-   * - **Grantee**: Filters the results by the grantee.
-   * - **AccessTypes**: Filters the results by the access type, such as `Read` or `Update`.
-   * - **PageSize and NextToken**: Enables pagination. `PageSize` specifies the number of results to return for each request, and `NextToken` is the cursor used to retrieve the next page of results.
+   * ## Request Description
+   * This API is used to query all pending permission request orders for which the current logged-in user is the approver. It supports filtering by multiple conditions, including resource type, time range, and approval status, to more precisely locate specific request orders.
+   * - **ResourceType**: Specifies the resource type (such as table), which can have multiple values.
+   * - **Resource**: Provides specific resource search conditions, such as the project, database, or table name.
+   * - **StartTime and EndTime**: Define the time range during which the request was submitted.
+   * - **Statuses**: Allows filtering results by approval status, for example, to view only pending approval requests.
+   * - **Grantee**: Filters request orders based on the authorization principal information.
+   * - **AccessTypes**: Filters based on the specific permission types requested (such as read or update).
+   * - **PageSize and NextToken**: Used for pagination control, specifying the amount of data returned per request and the cursor needed to retrieve the next page of data.
    * Notes:
-   * - If no filters are specified, the API returns all matching records.
-   * - For the first request, you can leave the `NextToken` parameter empty or omit it. To retrieve subsequent pages, you must use the `NextToken` value returned in the previous response.
-   * - The default value of `PageSize` is 10, and the maximum value is 200. If you specify a value greater than the maximum, the maximum value is used.
-   * - If no more data is available, the `HasMore` field is `false`, and `NextToken` is omitted.
-   * ## Response
-   * A successful call returns paginated results. Each permission request includes details such as the submission time, resource description, grantee, and requested permissions. The response also contains the approval process status and other relevant metadata.
-   * - **Data**: The paginated result set, containing the page size (`PageSize`), cursor (`NextToken`), and a flag indicating if more data is available (`HasMore`).
-   * - **ApplicationQueryResponse**: The details of each permission request, including the justification, submission time, status, and a detailed list of requested items.
+   * - If no filtering conditions are provided, all matching records are returned by default.
+   * - The `NextToken` parameter can be empty or omitted for the first call. Subsequent page requests must use the `NextToken` value provided in the previous response.
+   * - The default value of `PageSize` is 10, and the maximum value is 200. If the specified value exceeds the maximum limit, the maximum value is used.
+   * - When there is no more data to return, the `HasMore` field is set to `false`, and `NextToken` will be empty or absent.
+   * ## Response Description
+   * After a successful call to this API, the response body contains paginated results and detailed information for each request order, such as the application time, resource description, authorization principal, requested permissions, and more. Additionally, the approval process status and other related metadata are provided.
+   * - **Data**: The paginated result set, including page size (`PageSize`), cursor (`NextToken`), and whether more data is available (`HasMore`).
+   * - **ApplicationQueryResponse**: The specific content of each request order, including the reason for the request, submission time, status, and a detailed list of request content.
    * 
    * @param request - ListPendingApprovalsRequest
    * @returns ListPendingApprovalsResponse
@@ -16964,10 +16964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns multiple instances at a time.
+   * Reruns multiple node instances in a batch.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a more advanced edition to use this operation.
    * 
    * @param tmpReq - RerunTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16990,6 +16990,10 @@ export default class Client extends OpenApi {
       body["Ids"] = request.idsShrink;
     }
 
+    if (!$dara.isNull(request.useLatestConfig)) {
+      body["UseLatestConfig"] = request.useLatestConfig;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -17008,10 +17012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns multiple instances at a time.
+   * Reruns multiple node instances in a batch.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * You must purchase DataWorks Basic Edition or a more advanced edition to use this operation.
    * 
    * @param request - RerunTaskInstancesRequest
    * @returns RerunTaskInstancesResponse

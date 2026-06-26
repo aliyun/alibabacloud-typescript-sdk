@@ -10,7 +10,7 @@ export class ApplyResourceAccessPermissionResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 0bc5df3a17***903790e8e8a

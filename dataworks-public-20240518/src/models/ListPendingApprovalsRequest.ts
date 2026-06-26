@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPendingApprovalsRequestGrantee extends $dara.Model {
   /**
    * @remarks
-   * The ID of the principal.
+   * Authorization principal ID.
    * 
    * @example
    * ROLE_3133343434
@@ -13,7 +13,7 @@ export class ListPendingApprovalsRequestGrantee extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The type of principal.
+   * Authorization principal type.
    * 
    * @example
    * RamRole
@@ -45,7 +45,11 @@ export class ListPendingApprovalsRequestGrantee extends $dara.Model {
 export class ListPendingApprovalsRequestResource extends $dara.Model {
   /**
    * @remarks
-   * The `name` of the `ResourceSchema` used to parse the resource.
+   * Resource type.
+   * 
+   * Note: The supported resource types for requests are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * MaxCompute
@@ -53,7 +57,9 @@ export class ListPendingApprovalsRequestResource extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * The `version` of the `ResourceSchema` used to parse the resource.
+   * Resource parsing version is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * v1.0.0
@@ -61,7 +67,11 @@ export class ListPendingApprovalsRequestResource extends $dara.Model {
   defVersion?: string;
   /**
    * @remarks
-   * The resource metadata. Its content is constrained by the `ResourceSchema`.
+   * Resource metadata.
+   * 
+   * Note: Metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full path metadata declaration from level 0 to the validLeaf level.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -95,12 +105,20 @@ export class ListPendingApprovalsRequestResource extends $dara.Model {
 export class ListPendingApprovalsRequest extends $dara.Model {
   /**
    * @remarks
-   * The access types.
+   * Filters by requested permissions.
+   * 
+   * Note: Different resource levels support different permission types. All are uniformly constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   accessTypes?: string[];
   /**
    * @remarks
-   * The resource schema type.
+   * Filters by resource type.
+   * 
+   * Note: The supported resource types for requests are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    * 
@@ -110,7 +128,7 @@ export class ListPendingApprovalsRequest extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * The end time of the query range, specified as a Unix timestamp in milliseconds.
+   * End time of the application period (millisecond timestamp).
    * 
    * @example
    * 1779724799999
@@ -118,12 +136,16 @@ export class ListPendingApprovalsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The grantee object used to filter results.
+   * Filters by authorization principal.
+   * 
+   * Note: The supported authorization principal types are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   grantee?: ListPendingApprovalsRequestGrantee;
   /**
    * @remarks
-   * The token used to retrieve the next page of results.
+   * Cursor.
    * 
    * @example
    * eyJpZCI6MTIzfQ==
@@ -131,7 +153,7 @@ export class ListPendingApprovalsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Default: 10. Maximum: 200.
+   * Page size (default: 10, maximum: 200).
    * 
    * @example
    * 20
@@ -139,12 +161,18 @@ export class ListPendingApprovalsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The criteria to filter resources.
+   * Filters by resource with exact or fuzzy matching. Resource descriptions are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   resource?: ListPendingApprovalsRequestResource;
   /**
    * @remarks
-   * The resource type, which corresponds to a leaf node name. You can specify multiple values. A business context can map to multiple leaf node names.
+   * Filters by minimum permission resource type.
+   * 
+   * Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+   * 
+   * Reference: [ResourceSchema International Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    * 
@@ -154,7 +182,7 @@ export class ListPendingApprovalsRequest extends $dara.Model {
   resourceType?: string[];
   /**
    * @remarks
-   * The start time of the query range, specified as a Unix timestamp in milliseconds.
+   * Start time of the application period (millisecond timestamp).
    * 
    * @example
    * 1771948800000

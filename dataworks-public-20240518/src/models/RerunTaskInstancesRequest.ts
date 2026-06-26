@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Remarks.
+   * The remarks.
    * 
    * @example
    * this is a comment
@@ -13,13 +13,15 @@ export class RerunTaskInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID list of the task instance.
+   * The list of node instance IDs.
    */
   ids?: number[];
+  useLatestConfig?: boolean;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       ids: 'Ids',
+      useLatestConfig: 'UseLatestConfig',
     };
   }
 
@@ -27,6 +29,7 @@ export class RerunTaskInstancesRequest extends $dara.Model {
     return {
       comment: 'string',
       ids: { 'type': 'array', 'itemType': 'number' },
+      useLatestConfig: 'boolean',
     };
   }
 

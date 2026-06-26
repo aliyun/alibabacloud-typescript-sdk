@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyResourceAccessPermissionRequestApplyContentsGrantee extends $dara.Model {
   /**
    * @remarks
-   * The ID of the principal. The value of this parameter depends on the `PrincipalType`:
+   * The grantee ID. The ID has different semantics depending on the grantee type:
    * 
-   * - `RamUser`: The Dataworks user ID.
+   * - RamUser: Dataworks UserId
+   * - RamRole: Dataworks UserId prefixed with "ROLE_"
    * 
-   * - `RamRole`: The Dataworks user ID, prefixed with `ROLE_`.
-   * 
-   * - `DlfRole`: The DlfNext role name.
+   * - DlfRole: DlfNext role name
    * 
    * This parameter is required.
    * 
@@ -21,12 +20,10 @@ export class ApplyResourceAccessPermissionRequestApplyContentsGrantee extends $d
   principalId?: string;
   /**
    * @remarks
-   * The principal type. Valid values:
+   * The grantee type. Valid values:
    * 
    * - RamRole
-   * 
    * - RamUser
-   * 
    * - DlfRole
    * 
    * This parameter is required.
@@ -63,6 +60,10 @@ export class ApplyResourceAccessPermissionRequestApplyContentsResource extends $
    * @remarks
    * The resource type.
    * 
+   * **Note**: The resource types supported for application are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * 
+   * Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -71,7 +72,9 @@ export class ApplyResourceAccessPermissionRequestApplyContentsResource extends $
   defSchema?: string;
   /**
    * @remarks
-   * The version of `ResourceSchema` that is required to parse the resource.
+   * The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+   * 
+   * [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * v1.0.0
@@ -79,7 +82,11 @@ export class ApplyResourceAccessPermissionRequestApplyContentsResource extends $
   defVersion?: string;
   /**
    * @remarks
-   * The resource metadata. The content is constrained by `ResourceSchema`.
+   * The resource metadata declaration.
+   * 
+   * **Note**: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include full-path metadata declarations from level 0 to validLeaf.
+   * 
+   * Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -113,18 +120,22 @@ export class ApplyResourceAccessPermissionRequestApplyContentsResource extends $
 export class ApplyResourceAccessPermissionRequestApplyContents extends $dara.Model {
   /**
    * @remarks
-   * The requested permissions.
+   * The list of permissions to apply for.
    * 
-   * Note: The supported permission types vary by resource level and are constrained by the `ResourceSchema` of the corresponding resource type.
+   * **Note**: Different resource levels support different permission types. They are uniformly constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+   * 
+   * Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    */
   accessTypes?: string[];
   /**
    * @remarks
-   * The authorization method.
+   * The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger or starrocksManager.
    * 
-   * Note: This parameter is supported only for `SEVERLESS_STARROCKS` resources. Valid values are `ranger` and `starrocksManager`.
+   * **Note**: Different resources support different authorization methods, which are uniformly constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
+   * 
+   * Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * ranger
@@ -132,7 +143,7 @@ export class ApplyResourceAccessPermissionRequestApplyContents extends $dara.Mod
   authMethod?: string;
   /**
    * @remarks
-   * The permission expiration time, as a Unix timestamp in milliseconds.
+   * The permission expiration time, in milliseconds timestamp.
    * 
    * @example
    * 1785835708000
@@ -140,14 +151,18 @@ export class ApplyResourceAccessPermissionRequestApplyContents extends $dara.Mod
   expirationTime?: number;
   /**
    * @remarks
-   * The principal to which permissions are granted.
+   * The grantee description.
+   * 
+   * **Note**: The supported grantee types are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+   * 
+   * Appendix: [ResourceSchema documentation for international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    */
   grantee?: ApplyResourceAccessPermissionRequestApplyContentsGrantee;
   /**
    * @remarks
-   * The resource for which permissions are requested.
+   * The resource description.
    */
   resource?: ApplyResourceAccessPermissionRequestApplyContentsResource;
   static names(): { [key: string]: string } {
@@ -191,14 +206,14 @@ export class ApplyResourceAccessPermissionRequestApplyContents extends $dara.Mod
 export class ApplyResourceAccessPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of permission requests.
+   * The list of resource permission application contents.
    * 
    * This parameter is required.
    */
   applyContents?: ApplyResourceAccessPermissionRequestApplyContents[];
   /**
    * @remarks
-   * The idempotency parameter, which prevents duplicate operations from repeated calls.
+   * The idempotency parameter. Used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -206,7 +221,7 @@ export class ApplyResourceAccessPermissionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The reason for the request.
+   * The reason for the application.
    * 
    * This parameter is required.
    * 
