@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The size of the item in bytes.
+   * The capacity.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   capacity?: string;
   /**
    * @remarks
-   * The time when the item was created, as a UNIX timestamp in seconds.
+   * The creation time.
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -21,7 +21,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The time the item was last modified, as a UNIX timestamp in seconds.
+   * The last modified time.
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -29,7 +29,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   lastModified?: number;
   /**
    * @remarks
-   * The target path of the symbolic link.
+   * The real path of the symbolic link.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   linkTarget?: string;
   /**
    * @remarks
-   * The file system permissions in octal format.
+   * The file system permissions.
    * 
    * @example
    * 755
@@ -45,7 +45,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of hard links to the item.
+   * The number of links.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   nlink?: number;
   /**
    * @remarks
-   * The owner of the file or directory.
+   * Owner
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The absolute path of the file or subdirectory.
+   * The absolute path of the directory.
    * 
    * @example
    * /test
@@ -115,12 +115,12 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
 export class DescribePolarFsObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The files and subdirectories in the specified path.
+   * The list of directory entries.
    */
   items?: DescribePolarFsObjectsResponseBodyItems[];
   /**
    * @remarks
-   * The number of records returned on the current page.
+   * The maximum number of records that can be displayed on the current page.
    * 
    * @example
    * 30
@@ -128,7 +128,7 @@ export class DescribePolarFsObjectsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of records to return per page. Valid values: 30, 50, and 100. Default value: 30.
+   * The number of records per page. Valid values: 30, 50, and 100. Default value: 30.
    * 
    * @example
    * 30
@@ -136,7 +136,7 @@ export class DescribePolarFsObjectsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The path that was queried.
+   * The absolute path of the directory.
    * 
    * @example
    * /test
@@ -160,7 +160,7 @@ export class DescribePolarFsObjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query.
+   * The total number of records.
    * 
    * @example
    * 50

@@ -2888,6 +2888,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates API keys in batches.
+   * 
+   * @param request - CreateBatchConsumerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBatchConsumerResponse
+   */
+  async createBatchConsumerWithOptions(request: $_model.CreateBatchConsumerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBatchConsumerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.consumerGroupId)) {
+      query["ConsumerGroupId"] = request.consumerGroupId;
+    }
+
+    if (!$dara.isNull(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBatchConsumer",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBatchConsumerResponse>(await this.callApi(params, req, runtime), new $_model.CreateBatchConsumerResponse({}));
+  }
+
+  /**
+   * Creates API keys in batches.
+   * 
+   * @param request - CreateBatchConsumerRequest
+   * @returns CreateBatchConsumerResponse
+   */
+  async createBatchConsumer(request: $_model.CreateBatchConsumerRequest): Promise<$_model.CreateBatchConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBatchConsumerWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a batch task.
    * 
    * @param tmpReq - CreateBatchTaskRequest
@@ -8280,7 +8338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a custom instance.
+   * Queries the details of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8327,7 +8385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a custom instance.
+   * Queries the details of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @returns DescribeAIDBClusterAttributeResponse
@@ -9351,6 +9409,60 @@ export default class Client extends OpenApi {
   async describeActiveOperationTasks(request: $_model.DescribeActiveOperationTasksRequest): Promise<$_model.DescribeActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询该apikey的详细信息
+   * 
+   * @param request - DescribeApikeyAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApikeyAttributeResponse
+   */
+  async describeApikeyAttributeWithOptions(request: $_model.DescribeApikeyAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApikeyAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApikeyAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApikeyAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApikeyAttributeResponse({}));
+  }
+
+  /**
+   * 查询该apikey的详细信息
+   * 
+   * @param request - DescribeApikeyAttributeRequest
+   * @returns DescribeApikeyAttributeResponse
+   */
+  async describeApikeyAttribute(request: $_model.DescribeApikeyAttributeRequest): Promise<$_model.DescribeApikeyAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApikeyAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -13900,6 +14012,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries all API keys under the current UID.
+   * 
+   * @param request - DescribeGatewayApikeyListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGatewayApikeyListResponse
+   */
+  async describeGatewayApikeyListWithOptions(request: $_model.DescribeGatewayApikeyListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayApikeyListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGatewayApikeyList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGatewayApikeyListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGatewayApikeyListResponse({}));
+  }
+
+  /**
+   * Queries all API keys under the current UID.
+   * 
+   * @param request - DescribeGatewayApikeyListRequest
+   * @returns DescribeGatewayApikeyListResponse
+   */
+  async describeGatewayApikeyList(request: $_model.DescribeGatewayApikeyListRequest): Promise<$_model.DescribeGatewayApikeyListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGatewayApikeyListWithOptions(request, runtime);
+  }
+
+  /**
    * Viewing gateway instance details
    * 
    * @param request - DescribeGatewayAttributeRequest
@@ -15912,7 +16074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of agents installed in a specified application.
+   * Queries all installed plug-ins and their status information under a specified application.
    * 
    * @param tmpReq - DescribePolarClawAgentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15953,7 +16115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of agents installed in a specified application.
+   * Queries all installed plug-ins and their status information under a specified application.
    * 
    * @param request - DescribePolarClawAgentsRequest
    * @returns DescribePolarClawAgentsResponse
@@ -16238,7 +16400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a PolarFS instance.
+   * Retrieves the details of a PolarLakebase instance.
    * 
    * @param request - DescribePolarFsAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16277,7 +16439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a PolarFS instance.
+   * Retrieves the details of a PolarLakebase instance.
    * 
    * @param request - DescribePolarFsAttributeRequest
    * @returns DescribePolarFsAttributeResponse
@@ -16288,14 +16450,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the files and subdirectories at a specified path.
+   * Lists the files and subdirectories under a specified path.
    * 
    * @remarks
-   * ## Usage notes
-   * - The **Path** parameter must be an absolute path.
-   * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-   * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-   * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+   * ## 请求说明
+   * - **Path** 参数必须提供一个绝对路径。
+   * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+   * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+   * - **Filter** 参数支持通配符或正则表达式过滤结果。
    * 
    * @param request - DescribePolarFsObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16330,14 +16492,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the files and subdirectories at a specified path.
+   * Lists the files and subdirectories under a specified path.
    * 
    * @remarks
-   * ## Usage notes
-   * - The **Path** parameter must be an absolute path.
-   * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-   * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-   * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+   * ## 请求说明
+   * - **Path** 参数必须提供一个绝对路径。
+   * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+   * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+   * - **Filter** 参数支持通配符或正则表达式过滤结果。
    * 
    * @param request - DescribePolarFsObjectsRequest
    * @returns DescribePolarFsObjectsResponse
@@ -27223,6 +27385,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filesShrink)) {
       query["Files"] = request.filesShrink;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.keepWorkspaceFiles)) {
+      query["KeepWorkspaceFiles"] = request.keepWorkspaceFiles;
     }
 
     if (!$dara.isNull(request.model)) {

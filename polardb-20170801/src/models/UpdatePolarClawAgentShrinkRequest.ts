@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent to update.
+   * Agent ID to update
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application ID.
+   * Application ID
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The new avatar for the agent.
+   * New avatar
    * 
    * @example
    * test
@@ -33,15 +33,25 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The file list to update.
+   * List of files to update
    * 
    * @example
    * [{"FileName":"SOUL.md","FileContent":"You are a helpful assistant."}]
    */
   filesShrink?: string;
   /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * false
+   */
+  keepWorkspaceFiles?: boolean;
+  /**
    * @remarks
-   * The model to override the agent\\"s default setting.
+   * Model override
    * 
    * @example
    * claude-sonnet-4-5
@@ -49,7 +59,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The new display name for the agent.
+   * New display name
    * 
    * @example
    * Work Bot
@@ -57,7 +67,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after the update. The default value is true.
+   * Whether to restart the gateway after creation, default is true
    * 
    * @example
    * true
@@ -65,7 +75,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * The new path for the agent\\"s workspace.
+   * New workspace directory path
    * 
    * @example
    * /home/node/.openclaw/workspace-work-v2
@@ -77,6 +87,8 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       avatar: 'Avatar',
       filesShrink: 'Files',
+      isDefault: 'IsDefault',
+      keepWorkspaceFiles: 'KeepWorkspaceFiles',
       model: 'Model',
       name: 'Name',
       restart: 'Restart',
@@ -90,6 +102,8 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
       applicationId: 'string',
       avatar: 'string',
       filesShrink: 'string',
+      isDefault: 'boolean',
+      keepWorkspaceFiles: 'boolean',
       model: 'string',
       name: 'string',
       restart: 'boolean',

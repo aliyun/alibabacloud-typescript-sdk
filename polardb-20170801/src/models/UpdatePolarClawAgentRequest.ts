@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawAgentRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * The file content.
+   * File content
    * 
    * @example
    * You are a helpful assistant.
@@ -13,7 +13,7 @@ export class UpdatePolarClawAgentRequestFiles extends $dara.Model {
   fileContent?: string;
   /**
    * @remarks
-   * The file name. This must be one of the allowed file names: AGENTS.md, SOUL.md, TOOLS.md, IDENTITY.md, USER.md, HEARTBEAT.md, BOOTSTRAP.md, MEMORY.md, or MEMORY.alt.md.
+   * File name, must be one of the allowed file names (AGENTS.md, SOUL.md, TOOLS.md, IDENTITY.md, USER.md, HEARTBEAT.md, BOOTSTRAP.md, MEMORY.md, MEMORY.alt.md)
    * 
    * @example
    * SOUL.md
@@ -45,7 +45,7 @@ export class UpdatePolarClawAgentRequestFiles extends $dara.Model {
 export class UpdatePolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent to update.
+   * Agent ID to update
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application ID.
+   * Application ID
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The new avatar for the agent.
+   * New avatar
    * 
    * @example
    * test
@@ -73,15 +73,25 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The file list to update.
+   * List of files to update
    * 
    * @example
    * [{"FileName":"SOUL.md","FileContent":"You are a helpful assistant."}]
    */
   files?: UpdatePolarClawAgentRequestFiles[];
   /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * false
+   */
+  keepWorkspaceFiles?: boolean;
+  /**
    * @remarks
-   * The model to override the agent\\"s default setting.
+   * Model override
    * 
    * @example
    * claude-sonnet-4-5
@@ -89,7 +99,7 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The new display name for the agent.
+   * New display name
    * 
    * @example
    * Work Bot
@@ -97,7 +107,7 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after the update. The default value is true.
+   * Whether to restart the gateway after creation, default is true
    * 
    * @example
    * true
@@ -105,7 +115,7 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * The new path for the agent\\"s workspace.
+   * New workspace directory path
    * 
    * @example
    * /home/node/.openclaw/workspace-work-v2
@@ -117,6 +127,8 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       avatar: 'Avatar',
       files: 'Files',
+      isDefault: 'IsDefault',
+      keepWorkspaceFiles: 'KeepWorkspaceFiles',
       model: 'Model',
       name: 'Name',
       restart: 'Restart',
@@ -130,6 +142,8 @@ export class UpdatePolarClawAgentRequest extends $dara.Model {
       applicationId: 'string',
       avatar: 'string',
       files: { 'type': 'array', 'itemType': UpdatePolarClawAgentRequestFiles },
+      isDefault: 'boolean',
+      keepWorkspaceFiles: 'boolean',
       model: 'string',
       name: 'string',
       restart: 'boolean',

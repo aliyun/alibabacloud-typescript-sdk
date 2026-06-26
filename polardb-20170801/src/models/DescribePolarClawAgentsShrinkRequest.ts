@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawAgentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of agent IDs to query.
+   * The list of agent IDs to describe.
    * 
    * @example
    * work,research

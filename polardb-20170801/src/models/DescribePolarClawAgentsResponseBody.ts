@@ -2,10 +2,65 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribePolarClawAgentsResponseBodyAgentsFiles extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  missing?: boolean;
+  /**
+   * @example
+   * SOUL.md
+   */
+  name?: string;
+  /**
+   * @example
+   * /home/node/.openclaw/workspace-work/SOUL.md
+   */
+  path?: string;
+  /**
+   * @example
+   * 1024
+   */
+  size?: number;
+  /**
+   * @example
+   * 1716000000000
+   */
+  updatedAtMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      missing: 'Missing',
+      name: 'Name',
+      path: 'Path',
+      size: 'Size',
+      updatedAtMs: 'UpdatedAtMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      missing: 'boolean',
+      name: 'string',
+      path: 'string',
+      size: 'number',
+      updatedAtMs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Model {
   /**
    * @remarks
-   * The path or content of the avatar.
+   * The avatar path or content.
    * 
    * @example
    * test
@@ -21,7 +76,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
   avatarUrl?: string;
   /**
    * @remarks
-   * The emoji for the identity. This can be a Unicode code point (e.g., `U+1F99E`) or an emoji character.
+   * The emoji identifier in Unicode encoding format such as U+1F99E, or a direct emoji character.
    * 
    * @example
    * U+1F99E
@@ -37,7 +92,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The identity theme.
+   * The theme.
    * 
    * @example
    * space lobster
@@ -72,10 +127,49 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
   }
 }
 
+export class DescribePolarClawAgentsResponseBodyAgentsModel extends $dara.Model {
+  fallbacks?: string[];
+  /**
+   * @example
+   * claude-sonnet-4-5
+   */
+  primary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fallbacks: 'Fallbacks',
+      primary: 'Primary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fallbacks: { 'type': 'array', 'itemType': 'string' },
+      primary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fallbacks)) {
+      $dara.Model.validateArray(this.fallbacks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   /**
+   * @example
+   * true
+   */
+  default?: boolean;
+  files?: DescribePolarClawAgentsResponseBodyAgentsFiles[];
+  /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * main
@@ -83,36 +177,62 @@ export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The agent\\"s identity.
+   * The identity information.
    */
   identity?: DescribePolarClawAgentsResponseBodyAgentsIdentity;
+  model?: DescribePolarClawAgentsResponseBodyAgentsModel;
   /**
    * @remarks
-   * The agent display name.
+   * The display name of the agent.
    * 
    * @example
    * main
    */
   name?: string;
+  skills?: string[];
+  /**
+   * @example
+   * /home/node/.openclaw/workspace-work
+   */
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      default: 'Default',
+      files: 'Files',
       id: 'Id',
       identity: 'Identity',
+      model: 'Model',
       name: 'Name',
+      skills: 'Skills',
+      workspace: 'Workspace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      default: 'boolean',
+      files: { 'type': 'array', 'itemType': DescribePolarClawAgentsResponseBodyAgentsFiles },
       id: 'string',
       identity: DescribePolarClawAgentsResponseBodyAgentsIdentity,
+      model: DescribePolarClawAgentsResponseBodyAgentsModel,
       name: 'string',
+      skills: { 'type': 'array', 'itemType': 'string' },
+      workspace: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.files)) {
+      $dara.Model.validateArray(this.files);
+    }
     if(this.identity && typeof (this.identity as any).validate === 'function') {
       (this.identity as any).validate();
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
     }
     super.validate();
   }
@@ -125,7 +245,7 @@ export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
 export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of agents.
+   * The agent list.
    */
   agents?: DescribePolarClawAgentsResponseBodyAgents[];
   /**
@@ -138,7 +258,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -154,7 +274,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   defaultId?: string;
   /**
    * @remarks
-   * The main agent key name.
+   * The primary agent key name.
    * 
    * @example
    * main
@@ -162,7 +282,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   mainKey?: string;
   /**
    * @remarks
-   * The message.
+   * The response message.
    * 
    * @example
    * successful
@@ -170,7 +290,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

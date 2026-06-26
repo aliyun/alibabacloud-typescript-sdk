@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   /**
    * @remarks
-   * The path or content of the avatar.
+   * Avatar path or content
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The avatar URL.
+   * Avatar URL
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   avatarUrl?: string;
   /**
    * @remarks
-   * The identity\\"s Emoji identifier. This can be a Unicode code point, such as U+1F99E, or the Emoji character itself.
+   * Emoji identifier (Unicode format such as U+1F99E, or direct emoji character)
    * 
    * @example
    * U+1F99E
@@ -29,7 +29,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   emoji?: string;
   /**
    * @remarks
-   * The name of the identity.
+   * Identity name
    * 
    * @example
    * PolarClaw
@@ -37,7 +37,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The theme of the identity.
+   * Theme
    * 
    * @example
    * soul lobster
@@ -75,7 +75,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
 export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * main
@@ -83,12 +83,12 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The identity information of the agent.
+   * Identity information
    */
   identity?: UpdatePolarClawAgentResponseBodyAgentIdentity;
   /**
    * @remarks
-   * The display name of the agent.
+   * Agent display name
    * 
    * @example
    * PolarClaw
@@ -96,7 +96,7 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace path.
+   * Workspace directory path
    * 
    * @example
    * /home/node/.openclaw/workspace-work-v2
@@ -135,12 +135,12 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
 export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the updated agent.
+   * Updated Agent details
    */
   agent?: UpdatePolarClawAgentResponseBodyAgent;
   /**
    * @remarks
-   * The agent ID.
+   * Agent ID
    * 
    * @example
    * main
@@ -148,7 +148,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application ID.
+   * Application ID
    * 
    * @example
    * pa-**************
@@ -156,7 +156,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * Response status code
    * 
    * @example
    * 200
@@ -164,7 +164,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * Response message
    * 
    * @example
    * successful
@@ -172,7 +172,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******
