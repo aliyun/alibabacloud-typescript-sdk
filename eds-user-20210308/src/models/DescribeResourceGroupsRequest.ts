@@ -3,14 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceGroupsRequest extends $dara.Model {
+  agentType?: string;
   /**
    * @remarks
-   * A list of Aliyun resource group IDs.
+   * The cloud platform resource group ID.
    */
   aliyunResourceGroupIds?: string[];
   /**
    * @remarks
-   * The business channel.
+   * The channel tag.
    * 
    * @example
    * ENTERPRISE
@@ -34,7 +35,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -42,9 +43,8 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * > The cloud platform.
-   * >
-   * > - For Elastic Desktop Service (EDS) Enterprise Edition, this parameter must be set to AliyunConsole.
+   * > Fixed value: AliyunConsole.
+   * > - For Elastic Desktop Service Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
    * 
    * @example
    * AliyunConsole
@@ -53,7 +53,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   resourceClassification?: string;
   /**
    * @remarks
-   * A list of resource group IDs.
+   * The list of resource group IDs.
    */
   resourceGroupIds?: string[];
   /**
@@ -66,6 +66,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       aliyunResourceGroupIds: 'AliyunResourceGroupIds',
       businessChannel: 'BusinessChannel',
       needContainResourceGroupWithOfficeSite: 'NeedContainResourceGroupWithOfficeSite',
@@ -80,6 +81,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       aliyunResourceGroupIds: { 'type': 'array', 'itemType': 'string' },
       businessChannel: 'string',
       needContainResourceGroupWithOfficeSite: 'number',

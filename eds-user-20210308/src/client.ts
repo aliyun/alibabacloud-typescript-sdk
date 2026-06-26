@@ -415,6 +415,10 @@ export default class Client extends OpenApi {
   async createResourceGroupWithOptions(request: $_model.CreateResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
     if (!$dara.isNull(request.businessChannel)) {
       query["BusinessChannel"] = request.businessChannel;
     }
@@ -990,7 +994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View resource groups.
+   * Queries resource groups.
    * 
    * @param request - DescribeResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -999,6 +1003,10 @@ export default class Client extends OpenApi {
   async describeResourceGroupsWithOptions(request: $_model.DescribeResourceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceGroupsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
     if (!$dara.isNull(request.aliyunResourceGroupIds)) {
       query["AliyunResourceGroupIds"] = request.aliyunResourceGroupIds;
     }
@@ -1053,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View resource groups.
+   * Queries resource groups.
    * 
    * @param request - DescribeResourceGroupsRequest
    * @returns DescribeResourceGroupsResponse

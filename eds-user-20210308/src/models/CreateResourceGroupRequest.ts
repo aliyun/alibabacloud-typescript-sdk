@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateResourceGroupRequest extends $dara.Model {
+  agentType?: string;
   /**
    * @remarks
-   * The business channel.
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -14,7 +15,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   enableAliyunResourceGroup?: boolean;
   /**
    * @remarks
-   * > This parameter is for internal use only.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 0
@@ -22,7 +23,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   isResourceGroupWithOfficeSite?: number;
   /**
    * @remarks
-   * Set this parameter to `AliyunConsole` for Wuying Workspace Enterprise Edition.
+   * For WUYING Workspace Enterprise Edition, set this parameter to `AliyunConsole`. Other platforms are not supported.
    * 
    * @example
    * AliyunConsole
@@ -39,6 +40,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       businessChannel: 'BusinessChannel',
       enableAliyunResourceGroup: 'EnableAliyunResourceGroup',
       isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
@@ -50,6 +52,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       businessChannel: 'string',
       enableAliyunResourceGroup: 'boolean',
       isResourceGroupWithOfficeSite: 'number',

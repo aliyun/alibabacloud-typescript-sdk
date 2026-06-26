@@ -42,7 +42,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
   id?: string;
   /**
    * @remarks
-   * Specifies whether this is the default policy.
+   * Indicates whether the policy is the default policy.
    * 
    * @example
    * False
@@ -128,6 +128,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
 }
 
 export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model {
+  agentType?: string;
   /**
    * @remarks
    * The Alibaba Cloud resource group ID.
@@ -147,7 +148,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   authCount?: string;
   /**
    * @remarks
-   * The time the resource group was created.
+   * The creation time.
    * 
    * @example
    * 2022-11-29T17:25:40.000000000Z
@@ -156,15 +157,13 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   /**
    * @remarks
    * > The policies associated with the resource group.
-   * >
-   * > - These policies apply to the cloud computers in the resource group. If multiple policies are associated, they are applied in order of priority.
-   * >
-   * > - Policies associated with the resource group take precedence over policies assigned to individual cloud computers.
+   * > - Associated policies take effect on cloud desktops in the resource group. If multiple policies are associated, they take effect based on policy priority.
+   * > - If a cloud desktop in the resource group already has other policies specified, the policies associated with the resource group take precedence.
    */
   policies?: DescribeResourceGroupsResponseBodyResourceGroupPolicies[];
   /**
    * @remarks
-   * The number of resources in the resource group.
+   * The resource count in the resource group.
    * 
    * @example
    * 119
@@ -188,13 +187,13 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   resourceGroupName?: string;
   /**
    * @remarks
-   * > The scheduled tasks associated with the resource group.
-   * >
-   * > - These scheduled tasks apply to cloud computers in the resource group and take precedence over any tasks associated with individual cloud computers.
+   * > The associated scheduled tasks.
+   * > - Associated scheduled tasks take effect on cloud desktops in the resource group. If a cloud desktop in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take precedence.
    */
   timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       aliyunResourceGroupId: 'AliyunResourceGroupId',
       appRules: 'AppRules',
       authCount: 'AuthCount',
@@ -209,6 +208,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       aliyunResourceGroupId: 'string',
       appRules: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupAppRules },
       authCount: 'string',
@@ -250,7 +250,7 @@ export class DescribeResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of resource groups.
+   * The list of resource groups.
    */
   resourceGroup?: DescribeResourceGroupsResponseBodyResourceGroup[];
   /**
