@@ -4,52 +4,82 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReceivedShare extends $dara.Model {
   /**
+   * @remarks
+   * The catalog name.
+   * 
    * @example
    * catalog_name
    */
   catalogName?: string;
   /**
+   * @remarks
+   * The comment of the share.
+   * 
    * @example
    * demo
    */
   comment?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The creator of the share.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   enableWrite?: boolean;
   /**
+   * @remarks
+   * The share owner.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   owner?: string;
   /**
+   * @remarks
+   * The provider\\"s account ID.
+   * 
    * @example
    * 1111
    */
   providerTenantId?: number;
   /**
+   * @remarks
+   * The share ID.
+   * 
    * @example
    * 1111
    */
   shareId?: string;
   /**
+   * @remarks
+   * The share name.
+   * 
    * @example
    * share_name
    */
   shareName?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The user who last updated the share.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */

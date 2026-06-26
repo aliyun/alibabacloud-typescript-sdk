@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlterReceiverRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The comment.
+   * 
+   * @example
+   * Customer A
+   */
   comment?: string;
   /**
+   * @remarks
+   * The name of the sink.
+   * 
    * @example
    * receiver_name
    */

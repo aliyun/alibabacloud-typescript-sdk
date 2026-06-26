@@ -5,47 +5,78 @@ import { IcebergTableMetadata } from "./IcebergTableMetadata";
 
 export class IcebergTable extends $dara.Model {
   /**
+   * @remarks
+   * The table creation time.
+   * 
    * @example
    * 1747120676378
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The table creator.
+   * 
    * @example
-   * acs:ram::1045689747920334:root
+   * acs:ram::[accountId]:root
    */
   createdBy?: string;
+  /**
+   * @remarks
+   * The metadata of the table.
+   */
   icebergTableMetadata?: IcebergTableMetadata;
   /**
+   * @remarks
+   * The table UUID.
+   * 
    * @example
-   * tbl-424fc31c-4876-4df5-97a5-c78f3046e739
+   * tbl-xxxx
    */
   id?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * table1
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
-   * acs:ram::1045689747920334:root
+   * acs:ram::[accountId]:root
    */
   owner?: string;
   /**
+   * @remarks
+   * The table URI.
+   * 
    * @example
-   * oss://clg-iceberg-bcc387be9d24490da5f194bbaf990906/ns-b314a3c3-dff5-4e30-8ba2-0493a60566c7.db/iceberg-tbl-56539259-1879-4d6d-bd6e-d1ddb3364cc9
+   * oss://clg-iceberg-xxxx/ns-xxxx/table-xxxx
    */
   path?: string;
   /**
+   * @remarks
+   * The time when the table was last updated.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The user who last updated the table.
+   * 
    * @example
-   * acs:ram::1045689747920334:root
+   * acs:ram::[accountId]:root
    */
   updatedBy?: string;
   /**
+   * @remarks
+   * The version of the table.
+   * 
    * @example
    * 0
    */

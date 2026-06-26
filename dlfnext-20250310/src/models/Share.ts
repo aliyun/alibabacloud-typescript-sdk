@@ -4,47 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class Share extends $dara.Model {
   /**
+   * @remarks
+   * The comment for the share.
+   * 
    * @example
    * demo
    */
   comment?: string;
   /**
+   * @remarks
+   * The time when the share was created.
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The user who created the share.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   enableWrite?: boolean;
   /**
+   * @remarks
+   * The resource descriptor of the share owner.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   owner?: string;
   /**
+   * @remarks
+   * The provider\\"s account ID.
+   * 
    * @example
    * 1111
    */
   providerTenantId?: number;
   /**
+   * @remarks
+   * The share ID.
+   * 
    * @example
    * 1111
    */
   shareId?: string;
   /**
+   * @remarks
+   * The share name.
+   * 
    * @example
    * share_name
    */
   shareName?: string;
   /**
+   * @remarks
+   * The time when the share was last updated.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The user who last updated the share.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */

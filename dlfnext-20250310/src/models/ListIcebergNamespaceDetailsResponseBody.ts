@@ -4,8 +4,15 @@ import { Namespace } from "./Namespace";
 
 
 export class ListIcebergNamespaceDetailsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The namespaces.
+   */
   namespaceDetails?: Namespace[];
   /**
+   * @remarks
+   * The token for the next page of results. If this parameter is not returned, all results have been retrieved.
+   * 
    * @example
    * ""
    */

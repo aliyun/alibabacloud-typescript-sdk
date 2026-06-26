@@ -5,10 +5,17 @@ import { Receiver } from "./Receiver";
 
 export class ListReceiversResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token to retrieve the next page of results. A null value indicates that this is the last page.
+   * 
    * @example
    * ""
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * A list of receivers.
+   */
   receivers?: Receiver[];
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFunctionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The function definitions.
+   */
   functions?: string[];
   /**
+   * @remarks
+   * A pagination token. Use this token to retrieve the next page of results. If this parameter is null, all results have been returned.
+   * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
    */

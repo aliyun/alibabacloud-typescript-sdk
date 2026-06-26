@@ -4,14 +4,33 @@ import { DataField } from "./DataField";
 
 
 export class FullDataType extends $dara.Model {
+  /**
+   * @remarks
+   * The data type.
+   */
   element?: FullDataType;
+  /**
+   * @remarks
+   * The list of field definitions. This parameter is required when `type` is `ROW`.
+   */
   fields?: DataField[];
+  /**
+   * @remarks
+   * The data type of the key. This parameter is required when `type` is `MAP`.
+   */
   key?: FullDataType;
   /**
+   * @remarks
+   * The data type. This parameter is required when `type` is `ARRAY` or `MULTISET`.
+   * 
    * @example
    * STRING
    */
   type?: string;
+  /**
+   * @remarks
+   * The data type of the value. This parameter is required when `type` is `MAP`.
+   */
   value?: FullDataType;
   static names(): { [key: string]: string } {
     return {

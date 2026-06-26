@@ -4,13 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateShareRequest extends $dara.Model {
   /**
+   * @remarks
+   * The comment for the share.
+   * 
    * @example
    * demo
    */
   comment?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable write permissions for the share.
+   * 
+   * @example
+   * false
+   */
   enableWrite?: boolean;
   /**
    * @remarks
+   * The share name.
+   * 
    * This parameter is required.
    * 
    * @example

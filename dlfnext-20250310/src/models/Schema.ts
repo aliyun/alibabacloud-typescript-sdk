@@ -5,13 +5,32 @@ import { DataField } from "./DataField";
 
 export class Schema extends $dara.Model {
   /**
+   * @remarks
+   * The comment for the table.
+   * 
    * @example
    * description
    */
   comment?: string;
+  /**
+   * @remarks
+   * A list of table column definitions.
+   */
   fields?: DataField[];
+  /**
+   * @remarks
+   * A list of table configuration options.
+   */
   options?: { [key: string]: string };
+  /**
+   * @remarks
+   * A list of partition column names.
+   */
   partitionKeys?: string[];
+  /**
+   * @remarks
+   * A list of primary key column names.
+   */
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
     return {

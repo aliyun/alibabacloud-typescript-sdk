@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
-   * Partition creation timestamp in milliseconds
+   * The creation timestamp for the partition.
    * 
    * @example
    * 1744970111419
@@ -13,7 +13,7 @@ export class PartitionSummary extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * Database name
+   * The name of the database.
    * 
    * @example
    * default
@@ -21,39 +21,71 @@ export class PartitionSummary extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * Total files in partition
+   * The last access timestamp for the partition\\"s data.
    * 
    * @example
    * 1744970111419
    */
   lastAccessTime?: number;
+  /**
+   * @remarks
+   * The last requester.
+   */
   lastRequester?: string;
   /**
    * @remarks
-   * Partition identifier
+   * The name of the partition.
    * 
    * @example
    * hh=18
    */
   partitionName?: string;
+  /**
+   * @remarks
+   * The storage action parameters.
+   */
   storageActionParams?: { [key: string]: string };
+  /**
+   * @remarks
+   * The storage action timestamp.
+   */
   storageActionTimestamp?: number;
+  /**
+   * @remarks
+   * The storage class.
+   */
   storageClass?: string;
   /**
    * @remarks
-   * Table name
+   * The name of the table.
    * 
    * @example
    * table1
    */
   tableName?: string;
+  /**
+   * @remarks
+   * The top requester.
+   */
   topRequester?: string;
+  /**
+   * @remarks
+   * Total file access count.
+   */
   totalFileAccessNum?: number;
+  /**
+   * @remarks
+   * Total file access count over the last 30 days.
+   */
   totalFileAccessNum30d?: number;
+  /**
+   * @remarks
+   * Total file access count over the last 7 days.
+   */
   totalFileAccessNum7d?: number;
   /**
    * @remarks
-   * 24h access count
+   * The total number of files in the partition.
    * 
    * @example
    * 2
@@ -61,13 +93,16 @@ export class PartitionSummary extends $dara.Model {
   totalFileCount?: number;
   /**
    * @remarks
-   * Last data access timestamp in milliseconds
+   * The total size, in bytes, of all files in the partition.
    * 
    * @example
    * 2048
    */
   totalFileSizeInBytes?: number;
   /**
+   * @remarks
+   * The last update timestamp for the partition.
+   * 
    * @example
    * 1744970111419
    */

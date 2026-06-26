@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCatalogSummaryTrendRequest extends $dara.Model {
   /**
    * @remarks
+   * The end date, in yyyy-MM-dd format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCatalogSummaryTrendRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
+   * The start date, in yyyy-MM-dd format.
+   * 
    * This parameter is required.
    * 
    * @example

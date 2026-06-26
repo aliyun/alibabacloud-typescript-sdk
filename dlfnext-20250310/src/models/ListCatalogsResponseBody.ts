@@ -5,12 +5,23 @@ import { PrepayResource } from "./PrepayResource";
 
 
 export class ListCatalogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of catalogs.
+   */
   catalogs?: Catalog[];
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is null, all results have been returned.
+   * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * A list of subscription computing resources.
+   */
   prepayResource?: PrepayResource[];
   static names(): { [key: string]: string } {
     return {

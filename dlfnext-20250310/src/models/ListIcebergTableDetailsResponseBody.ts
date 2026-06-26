@@ -5,10 +5,17 @@ import { IcebergTable } from "./IcebergTable";
 
 export class ListIcebergTableDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is null, all results have been returned.
+   * 
    * @example
    * ""
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * A list of data tables.
+   */
   tableDetails?: IcebergTable[];
   static names(): { [key: string]: string } {
     return {

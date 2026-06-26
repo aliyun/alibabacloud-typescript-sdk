@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCatalogSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The date of the storage overview.
+   * 
+   * @example
+   * 2025-09-18
+   */
   date?: string;
   static names(): { [key: string]: string } {
     return {

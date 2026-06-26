@@ -4,6 +4,10 @@ import { Permission } from "./Permission";
 
 
 export class BatchRevokePermissionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions to revoke.
+   */
   permissions?: Permission[];
   static names(): { [key: string]: string } {
     return {

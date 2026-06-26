@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatabaseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * database_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration options.
+   */
   options?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

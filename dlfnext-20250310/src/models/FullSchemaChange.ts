@@ -6,27 +6,34 @@ import { Move } from "./Move";
 
 export class FullSchemaChange extends $dara.Model {
   /**
+   * @remarks
+   * The type of change.
+   * 
    * @example
    * setOption
    */
   action?: string;
   /**
    * @remarks
-   * required in UpdateComment/AddColumn
+   * The description. This parameter is required when `action` is `UpdateComment` or `AddColumn`.
    * 
    * @example
    * col_comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The column type. This parameter is required when `action` is `AddColumn`.
+   */
   dataType?: FullDataType;
   /**
    * @remarks
-   * required in AddColumn/RenameColumn/DropColumn/UpdateColumnComment/UpdateColumnType/UpdateColumnNullability
+   * The table column names. This parameter is required when `action` is `AddColumn`, `RenameColumn`, `DropColumn`, `UpdateColumnComment`, `UpdateColumnType`, or `UpdateColumnNullability`.
    */
   fieldNames?: string[];
   /**
    * @remarks
-   * required in UpdateColumnType
+   * Specifies whether the column is nullable. This parameter is required when the `action` is `UpdateColumnType`.
    * 
    * @example
    * true
@@ -34,25 +41,33 @@ export class FullSchemaChange extends $dara.Model {
   keepNullability?: boolean;
   /**
    * @remarks
-   * required in SetOption/RemoveOption
+   * The key for the configuration. This parameter is required when `action` is `SetOption` or `RemoveOption`.
    * 
    * @example
    * \\"true\\"
    */
   key?: string;
+  /**
+   * @remarks
+   * The column to move. This parameter is required when `action` is `AddColumn` or `UpdateColumnPosition`.
+   */
   move?: Move;
   /**
    * @remarks
-   * required in UpdateColumnComment
+   * The new description for the column. This parameter is required when `action` is `UpdateColumnComment`.
    * 
    * @example
    * col_comment_test
    */
   newComment?: string;
+  /**
+   * @remarks
+   * The new column type. This parameter is required when `action` is `UpdateColumnType`.
+   */
   newDataType?: FullDataType;
   /**
    * @remarks
-   * required in RenameColumn
+   * The new name of the column. This parameter is required when `action` is `RenameColumn`.
    * 
    * @example
    * new_col_test
@@ -60,7 +75,7 @@ export class FullSchemaChange extends $dara.Model {
   newName?: string;
   /**
    * @remarks
-   * required in UpdateColumnNullability
+   * Specifies whether the new column is nullable. This parameter is required when `action` is `UpdateColumnType`.
    * 
    * @example
    * true
@@ -68,7 +83,7 @@ export class FullSchemaChange extends $dara.Model {
   newNullability?: boolean;
   /**
    * @remarks
-   * required in SetOption
+   * The value of the configuration. This parameter is required when `action` is `SetOption`.
    * 
    * @example
    * \\"manifest.delete-file-drop-stats\\"

@@ -1,39 +1,30 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Schema } from "./Schema";
 
 
-export class Identifier extends $dara.Model {
+export class AlterTableSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The database name.
-   * 
-   * @example
-   * database_name
+   * The table schema.
    */
-  database?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table_name
-   */
-  object?: string;
+  schema?: Schema;
   static names(): { [key: string]: string } {
     return {
-      database: 'database',
-      object: 'object',
+      schema: 'schema',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      database: 'string',
-      object: 'string',
+      schema: Schema,
     };
   }
 
   validate() {
+    if(this.schema && typeof (this.schema as any).validate === 'function') {
+      (this.schema as any).validate();
+    }
     super.validate();
   }
 

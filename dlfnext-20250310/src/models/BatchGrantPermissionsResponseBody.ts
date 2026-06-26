@@ -4,9 +4,23 @@ import { FailurePermission } from "./FailurePermission";
 
 
 export class BatchGrantPermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned if the request fails. If the request is successful, this parameter is empty.
+   * 
+   * @example
+   * 空
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The permissions failed to be granted.
+   */
   failurePermissions?: FailurePermission[];
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * True
    */

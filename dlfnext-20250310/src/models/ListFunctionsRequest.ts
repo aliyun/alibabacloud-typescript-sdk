@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFunctionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * A pattern to filter function names.
+   * 
    * @example
    * function%
    */
   functionNamePattern?: string;
   /**
+   * @remarks
+   * The maximum number of records to return in the response.
+   * 
    * @example
    * 1000
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. Use this token to retrieve the next page of results. Pass an empty string ("") if this parameter is not returned in the response.
+   * 
    * @example
    * ""
    */

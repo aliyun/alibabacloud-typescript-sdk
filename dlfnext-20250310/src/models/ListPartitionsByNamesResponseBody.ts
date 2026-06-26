@@ -1,39 +1,30 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Partition } from "./Partition";
 
 
-export class Identifier extends $dara.Model {
+export class ListPartitionsByNamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database name.
-   * 
-   * @example
-   * database_name
+   * 分区。
    */
-  database?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table_name
-   */
-  object?: string;
+  partitions?: Partition[];
   static names(): { [key: string]: string } {
     return {
-      database: 'database',
-      object: 'object',
+      partitions: 'partitions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      database: 'string',
-      object: 'string',
+      partitions: { 'type': 'array', 'itemType': Partition },
     };
   }
 
   validate() {
+    if(Array.isArray(this.partitions)) {
+      $dara.Model.validateArray(this.partitions);
+    }
     super.validate();
   }
 

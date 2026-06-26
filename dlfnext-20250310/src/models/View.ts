@@ -5,37 +5,62 @@ import { ViewSchema } from "./ViewSchema";
 
 export class View extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The UUID of the view.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the view.
+   * 
    * @example
    * view_test
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the view.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   owner?: string;
+  /**
+   * @remarks
+   * The view schema.
+   */
   schema?: ViewSchema;
   /**
+   * @remarks
+   * The time of the last update.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The user who last updated the view.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */

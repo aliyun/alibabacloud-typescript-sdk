@@ -37,12 +37,18 @@ export class PermissionColumns extends $dara.Model {
 
 export class Permission extends $dara.Model {
   /**
+   * @remarks
+   * The access type.
+   * 
    * @example
    * DROP
    */
   access?: string;
   columns?: PermissionColumns;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * database_name
    */
@@ -50,17 +56,26 @@ export class Permission extends $dara.Model {
   expireTime?: string;
   function?: string;
   /**
+   * @remarks
+   * The user resource descriptor.
+   * 
    * @example
    * acs:ram::[accountId]:user/user_name
    */
   principal?: string;
   /**
+   * @remarks
+   * The resource type of the permission.
+   * 
    * @example
    * CATALOG
    */
   resourceType?: string;
   rowFilter?: RowFilter;
   /**
+   * @remarks
+   * The name of the data table.
+   * 
    * @example
    * table_name
    */

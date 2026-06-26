@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TableCompactionHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The number of files after compaction.
+   */
   afterFilesCount?: number;
+  /**
+   * @remarks
+   * The total size of files after compaction.
+   */
   afterFilesSize?: number;
+  /**
+   * @remarks
+   * The number of files before compaction.
+   */
   beforeFilesCount?: number;
+  /**
+   * @remarks
+   * The creation time of the last file before compaction.
+   */
   beforeFilesLastCreationTime?: number;
+  /**
+   * @remarks
+   * The total size of files before compaction.
+   */
   beforeFilesSize?: number;
+  /**
+   * @remarks
+   * The catalog ID.
+   */
   catalogId?: string;
+  /**
+   * @remarks
+   * The compaction commit time.
+   */
   commitTime?: number;
+  /**
+   * @remarks
+   * The snapshot ID.
+   */
   snapshotId?: number;
+  /**
+   * @remarks
+   * The table ID.
+   */
   tableId?: string;
+  /**
+   * @remarks
+   * The time when the record was last updated.
+   */
   updatedAt?: number;
+  /**
+   * @remarks
+   * The user who updated the record.
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

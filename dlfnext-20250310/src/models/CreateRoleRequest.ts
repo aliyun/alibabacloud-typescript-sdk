@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRoleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The role description.
+   * 
    * @example
    * role_description
    */
   description?: string;
   /**
+   * @remarks
+   * The role display name.
+   * 
    * @example
    * role_display_name
    */
   displayName?: string;
   /**
+   * @remarks
+   * The role name.
+   * 
    * @example
    * role_name
    */

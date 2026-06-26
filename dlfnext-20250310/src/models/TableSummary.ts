@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TableSummary extends $dara.Model {
   /**
    * @remarks
-   * Latest snapshot storage size
+   * The timestamp, in milliseconds, indicating when the table was created.
    * 
    * @example
    * 1744970111419
@@ -13,80 +13,164 @@ export class TableSummary extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * Database name
+   * The name of the database.
    * 
    * @example
    * default
    */
   databaseName?: string;
   /**
+   * @remarks
+   * The generation date of the storage summary.
+   * 
    * @example
    * 2025-06-01
    */
   generatedDate?: string;
   /**
+   * @remarks
+   * The timestamp, in milliseconds, indicating when the table data was last accessed.
+   * 
    * @example
    * 1744970111419
    */
   lastAccessTime?: number;
   lastRequester?: string;
+  /**
+   * @remarks
+   * The total size of data files in the Archive storage class, in bytes.
+   * 
+   * @example
+   * 10240
+   */
   objTypeArchiveSize?: number;
+  /**
+   * @remarks
+   * The total size of data files in the Cold Archive storage class, in bytes.
+   * 
+   * @example
+   * 10240
+   */
   objTypeColdArchiveSize?: number;
+  /**
+   * @remarks
+   * The total size of data files in the Infrequent Access storage class, in bytes.
+   * 
+   * @example
+   * 10240
+   */
   objTypeIaSize?: number;
+  /**
+   * @remarks
+   * The total size of data files in the Standard storage class, in bytes.
+   * 
+   * @example
+   * 10240
+   */
   objTypeStandardSize?: number;
   /**
    * @remarks
-   * Creation timestamp in milliseconds
+   * The total number of partitions in the table.
    * 
    * @example
    * 10
    */
   partitionCount?: number;
   /**
+   * @remarks
+   * The storage location of the table.
+   * 
    * @example
    * oss://clg-xxxx/db-xxxx/tbl-xxxx
    */
   path?: string;
+  /**
+   * @remarks
+   * The storage action parameters.
+   */
   storageActionParams?: { [key: string]: string };
   storageActionTimestamp?: number;
+  /**
+   * @remarks
+   * The storage class.
+   */
   storageClass?: string;
   /**
    * @remarks
-   * Table name
+   * The name of the table.
    * 
    * @example
    * table1
    */
   tableName?: string;
   topRequester?: string;
+  /**
+   * @remarks
+   * Total file access count.
+   */
   totalFileAccessNum?: number;
+  /**
+   * @remarks
+   * Total file access count over the last 30 days.
+   */
   totalFileAccessNum30d?: number;
+  /**
+   * @remarks
+   * Total file access count over the last 7 days.
+   */
   totalFileAccessNum7d?: number;
   /**
    * @remarks
-   * 30-day access count
+   * The total number of files in the table.
    * 
    * @example
    * 100
    */
   totalFileCount?: number;
   /**
+   * @remarks
+   * The total storage capacity of the table, in bytes.
+   * 
    * @example
    * 1024
    */
   totalFileSizeInBytes?: number;
+  /**
+   * @remarks
+   * The total number of metadata files.
+   * 
+   * @example
+   * 10
+   */
   totalMetaFileCount?: number;
+  /**
+   * @remarks
+   * The total size of metadata files, in bytes.
+   * 
+   * @example
+   * 10240
+   */
   totalMetaSizeInBytes?: number;
   /**
    * @remarks
-   * Creation timestamp in milliseconds
+   * The number of Standard or Infrequent Access partitions unaccessed in the last 180 days.
+   * 
+   * @example
+   * 0
    */
   unaccessedStdIaPartitionCount180d?: number;
   /**
    * @remarks
-   * Creation timestamp in milliseconds
+   * The number of Standard partitions unaccessed in the last 30 days.
+   * 
+   * @example
+   * 1
    */
   unaccessedStdPartitionCount30d?: number;
+  /**
+   * @remarks
+   * The update time.
+   */
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {

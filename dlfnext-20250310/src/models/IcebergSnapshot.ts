@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class IcebergSnapshot extends $dara.Model {
   /**
+   * @remarks
+   * Number of added rows.
+   * 
    * @example
    * 20
    */
   addedRows?: number;
   /**
    * @remarks
-   * id
+   * The snapshot ID.
    * 
    * @example
    * 2443368274334000657
@@ -18,28 +21,47 @@ export class IcebergSnapshot extends $dara.Model {
   id?: number;
   idString?: string;
   /**
+   * @remarks
+   * The operation.
+   * 
    * @example
    * append
    */
   operation?: string;
   /**
+   * @remarks
+   * Parent ID.
+   * 
    * @example
    * 0
    */
   parentId?: number;
   parentIdString?: string;
   /**
+   * @remarks
+   * The schema ID.
+   * 
    * @example
    * 0
    */
   schemaId?: number;
   /**
+   * @remarks
+   * The sequence number.
+   * 
    * @example
    * 1
    */
   sequenceNumber?: number;
+  /**
+   * @remarks
+   * The summary.
+   */
   summary?: { [key: string]: string };
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 1750313724369
    */

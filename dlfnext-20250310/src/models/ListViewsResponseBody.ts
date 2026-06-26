@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListViewsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token to retrieve the next page of results. A null value indicates that this is the last page.
+   * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * A list of view names.
+   */
   views?: string[];
   static names(): { [key: string]: string } {
     return {

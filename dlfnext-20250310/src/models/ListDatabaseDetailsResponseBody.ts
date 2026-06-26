@@ -4,8 +4,15 @@ import { Database } from "./Database";
 
 
 export class ListDatabaseDetailsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The databases.
+   */
   databaseDetails?: Database[];
   /**
+   * @remarks
+   * The token to retrieve the next page of results. A null value indicates that all results have been retrieved.
+   * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
    */

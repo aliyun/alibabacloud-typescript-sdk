@@ -5,10 +5,17 @@ import { Permission } from "./Permission";
 
 export class ListPermissionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is null, all results have been returned.
+   * 
    * @example
-   * token!
+   * E8ABEB1C3DB893D16576269017992F57
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The permissions.
+   */
   permissions?: Permission[];
   static names(): { [key: string]: string } {
     return {

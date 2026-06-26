@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProvidedSharesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records to return.
+   * 
    * @example
    * 1000
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. Use this token to retrieve the next page of results. If this parameter is not returned, pass an empty string ("").
+   * 
    * @example
    * ""
    */

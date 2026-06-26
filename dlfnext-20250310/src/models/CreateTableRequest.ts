@@ -5,7 +5,15 @@ import { Schema } from "./Schema";
 
 
 export class CreateTableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The table identifier.
+   */
   identifier?: Identifier;
+  /**
+   * @remarks
+   * The table schema.
+   */
   schema?: Schema;
   static names(): { [key: string]: string } {
     return {

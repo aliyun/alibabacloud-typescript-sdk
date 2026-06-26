@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class Receiver extends $dara.Model {
   /**
+   * @remarks
+   * The comment.
+   * 
    * @example
    * comment
    */
   comment?: string;
   /**
+   * @remarks
+   * The time when the receiver was created.
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The name of the receiver.
+   * 
    * @example
    * receiver_name
    */
   receiverName?: string;
   /**
+   * @remarks
+   * The receiver\\"s account ID.
+   * 
    * @example
    * 1111
    */
   receiverTenantId?: number;
   /**
+   * @remarks
+   * The time when the receiver was last updated.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The user who last updated the receiver.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */

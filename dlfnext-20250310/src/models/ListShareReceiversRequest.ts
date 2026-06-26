@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListShareReceiversRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records to return.
+   * 
    * @example
    * 1000
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
+   * 
    * @example
    * ""
    */

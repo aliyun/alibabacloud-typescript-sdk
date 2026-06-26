@@ -2,38 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Identifier extends $dara.Model {
+export class ListPartitionsByNamesRequest extends $dara.Model {
   /**
    * @remarks
-   * The database name.
-   * 
-   * @example
-   * database_name
+   * 分区规格列表。
    */
-  database?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table_name
-   */
-  object?: string;
+  specs?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {
-      database: 'database',
-      object: 'object',
+      specs: 'specs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      database: 'string',
-      object: 'string',
+      specs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
     };
   }
 
   validate() {
+    if(Array.isArray(this.specs)) {
+      $dara.Model.validateArray(this.specs);
+    }
     super.validate();
   }
 

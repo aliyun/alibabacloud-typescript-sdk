@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCatalogsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The pattern of the catalog name.
+   * 
+   * @example
+   * mi
+   */
   catalogNamePattern?: string;
   /**
+   * @remarks
+   * The maximum number of records to return in a single request.
+   * 
    * @example
    * 1000
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
+   * 
    * @example
    * ""
    */

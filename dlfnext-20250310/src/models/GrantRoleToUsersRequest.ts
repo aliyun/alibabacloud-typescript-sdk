@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GrantRoleToUsersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource descriptor for a role.
+   * 
    * @example
    * acs:dlf::[accountId]:role/role_name
    */
   rolePrincipal?: string;
+  /**
+   * @remarks
+   * The resource descriptors for users.
+   */
   userPrincipals?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -5,50 +5,81 @@ import { User } from "./User";
 
 export class Role extends $dara.Model {
   /**
+   * @remarks
+   * The time when the role was created. This is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The name of the user who created the role.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The role description.
+   * 
    * @example
    * role_description
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the role.
+   * 
    * @example
    * role_display_name
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the role is a system role.
+   * 
    * @example
    * true
    */
   isPredefined?: string;
   /**
+   * @remarks
+   * The name of the role.
+   * 
    * @example
    * role_name
    */
   roleName?: string;
   /**
+   * @remarks
+   * The resource descriptor of the role.
+   * 
    * @example
    * acs:dlf::[accountId]:role/role_name
    */
   rolePrincipal?: string;
   /**
+   * @remarks
+   * The time when the role was last updated. This is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1744970111419
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * The name of the user who last updated the role.
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The users for the role.
+   */
   users?: User[];
   static names(): { [key: string]: string } {
     return {

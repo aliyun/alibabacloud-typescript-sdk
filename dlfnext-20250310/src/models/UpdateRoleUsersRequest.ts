@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRoleUsersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource descriptor of the DLF role.
+   * 
    * @example
    * acs:dlf::[accountId]:role/role_name
    */
   rolePrincipal?: string;
+  /**
+   * @remarks
+   * The resource descriptors of the users.
+   */
   userPrincipals?: string[];
   static names(): { [key: string]: string } {
     return {

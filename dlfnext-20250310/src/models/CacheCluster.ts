@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CacheClusterVSwitches extends $dara.Model {
   /**
+   * @remarks
+   * vSwitch ID
+   * 
    * @example
    * vsw-bp1thxw8sgypzj2j*****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * Instance zone
+   * 
    * @example
    * cn-hangzhou-e
    */
@@ -40,61 +46,111 @@ export class CacheClusterVSwitches extends $dara.Model {
 
 export class CacheCluster extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * dc-wqewqr*****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * cluster_name
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1744970111419
    */
   createdAt?: number;
   /**
+   * @remarks
+   * Creator name
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   createdBy?: string;
   /**
+   * @remarks
+   * Version of the deployed instance
+   * 
    * @example
    * 1.0.0
    */
   deployInstanceVersion?: string;
   /**
+   * @remarks
+   * Deployed options version
+   * 
    * @example
    * 1.0.0
    */
   deployOptionsVersion?: number;
   /**
+   * @remarks
+   * Milvus Version
+   * 
    * @example
    * 1.0.0
    */
   instanceVersion?: string;
+  /**
+   * @remarks
+   * Cache cluster configuration
+   */
   options?: { [key: string]: string };
   /**
+   * @remarks
+   * Options version
+   * 
    * @example
    * 1.0.0
    */
   optionsVersion?: number;
   /**
+   * @remarks
+   * Cache cluster status. Valid values:
+   * ● NEW: Newly created and not started.
+   * ● STARTING: Starting.
+   * ● START_FAILED: Start failed.
+   * ● RUNNING: Running.
+   * ● PENDING_RESTART: Pending restart.
+   * ● PENDING_TERMINATE: Pending termination.
+   * ● TERMINATING: Terminating.
+   * ● TERMINATE_FAILED: Termination failed.
+   * ● TERMINATED: Terminated.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * Update time
+   * 
    * @example
    * 1764555848748
    */
   updatedAt?: number;
   /**
+   * @remarks
+   * Updater name
+   * 
    * @example
    * acs:ram::[accountId]:root
    */
   updatedBy?: string;
+  /**
+   * @remarks
+   * vSwitch list
+   */
   vSwitches?: CacheClusterVSwitches[];
   /**
    * @remarks

@@ -4,9 +4,25 @@ import { FailurePermission } from "./FailurePermission";
 
 
 export class BatchRevokePermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * - A business error message is returned if \\`success\\` is \\`false\\`.
+   * 
+   * - This parameter is empty if \\`success\\` is \\`true\\`.
+   * 
+   * @example
+   * 空
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The permissions failed to be revoked.
+   */
   failurePermissions?: FailurePermission[];
   /**
+   * @remarks
+   * Indicates whether the call succeeded.
+   * 
    * @example
    * true
    */

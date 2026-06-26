@@ -5,10 +5,17 @@ import { View } from "./View";
 
 export class ListViewDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token for the next page of results. If null is returned, all results have been retrieved.
+   * 
    * @example
    * “”
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * A list of views.
+   */
   viewDetails?: View[];
   static names(): { [key: string]: string } {
     return {

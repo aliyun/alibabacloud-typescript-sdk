@@ -5,34 +5,103 @@ import { MoMValues } from "./MoMvalues";
 
 export class CatalogSummary extends $dara.Model {
   /**
+   * @remarks
+   * The total number of metadata requests in the current month.
+   * 
    * @example
    * 1000
    */
   apiVisitCountMonthly?: number;
+  /**
+   * @remarks
+   * The month-over-month data on the total number of databases.
+   */
   databaseCount?: MoMValues;
+  /**
+   * @remarks
+   * The total number of file requests for the current month.
+   * 
+   * @example
+   * 10000
+   */
   fileAccessCountMonthly?: number;
   /**
    * @remarks
-   * Update date of the statistics
+   * The date when the storage overview data was updated.
    * 
    * @example
    * 2025-01-01
    */
   generatedDate?: string;
+  /**
+   * @remarks
+   * The storage usage for Archive data files.
+   * 
+   * @example
+   * 10240
+   */
   objTypeArchiveSize?: number;
+  /**
+   * @remarks
+   * The storage usage for Cold Archive data files.
+   * 
+   * @example
+   * 10240
+   */
   objTypeColdArchiveSize?: number;
+  /**
+   * @remarks
+   * The storage usage for Infrequent Access (IA) data files.
+   * 
+   * @example
+   * 10240
+   */
   objTypeIaSize?: number;
+  /**
+   * @remarks
+   * The storage usage for Standard data files.
+   * 
+   * @example
+   * 10240
+   */
   objTypeStandardSize?: number;
+  /**
+   * @remarks
+   * The month-over-month data on the total number of partitions.
+   */
   partitionCount?: MoMValues;
+  /**
+   * @remarks
+   * The month-over-month data on the total number of tables.
+   */
   tableCount?: MoMValues;
   /**
+   * @remarks
+   * The data access traffic for the current month, in bytes.
+   * 
    * @example
    * 1024
    */
   throughputMonthly?: number;
+  /**
+   * @remarks
+   * The month-over-month data on the total number of files.
+   */
   totalFileCount?: MoMValues;
+  /**
+   * @remarks
+   * The change in storage capacity from the previous period, in bytes.
+   */
   totalFileSizeInBytes?: MoMValues;
+  /**
+   * @remarks
+   * The month-over-month data for the total number of metadata files.
+   */
   totalMetaFileCount?: MoMValues;
+  /**
+   * @remarks
+   * The month-over-month data for the storage usage of metadata files, in bytes.
+   */
   totalMetaSizeInBytes?: MoMValues;
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPartitionSummariesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results. If the response does not include this token, pass an empty string ("").
+   * 
    * @example
    * ""
    */
   pageToken?: string;
   /**
+   * @remarks
+   * The partition name pattern.
+   * 
    * @example
    * hh=10
    */

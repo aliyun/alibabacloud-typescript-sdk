@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIcebergSnapshotsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records to return in a single request.
+   * 
    * @example
    * 1000
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token used to retrieve the next page of results. If the response does not return this token, pass an empty string ("").
+   * 
    * @example
    * ""
    */

@@ -5,14 +5,32 @@ import { DataField } from "./DataField";
 
 export class ViewSchema extends $dara.Model {
   /**
+   * @remarks
+   * The comment.
+   * 
    * @example
    * comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * Queries for different engines.
+   */
   dialects?: { [key: string]: string };
+  /**
+   * @remarks
+   * The list of field definitions for the view.
+   */
   fields?: DataField[];
+  /**
+   * @remarks
+   * The configuration parameters for the view.
+   */
   options?: { [key: string]: string };
   /**
+   * @remarks
+   * The default query for the view.
+   * 
    * @example
    * select id from t1;
    */

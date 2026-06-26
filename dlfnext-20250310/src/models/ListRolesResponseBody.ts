@@ -5,10 +5,17 @@ import { Role } from "./Role";
 
 export class ListRolesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token used to retrieve the next page of results. If a null value is returned, the current page is the last page.
+   * 
    * @example
    * E8ABEB1C3DB893D16576269017992F57
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The roles.
+   */
   roles?: Role[];
   static names(): { [key: string]: string } {
     return {

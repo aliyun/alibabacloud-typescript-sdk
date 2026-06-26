@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DateSummary extends $dara.Model {
   /**
+   * @remarks
+   * The date.
+   * 
    * @example
    * 2025-06-01
    */
   date?: string;
   /**
    * @remarks
-   * Metric value at corresponding date
+   * The value.
    * 
    * @example
    * 100

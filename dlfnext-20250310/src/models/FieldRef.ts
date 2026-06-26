@@ -5,15 +5,25 @@ import { FullDataType } from "./FullDataType";
 
 export class FieldRef extends $dara.Model {
   /**
+   * @remarks
+   * Text sequence
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
+   * @remarks
+   * Table name
+   * 
    * @example
    * name
    */
   name?: string;
+  /**
+   * @remarks
+   * File type
+   */
   type?: FullDataType;
   static names(): { [key: string]: string } {
     return {

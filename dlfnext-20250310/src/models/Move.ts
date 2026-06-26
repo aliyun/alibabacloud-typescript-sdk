@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class Move extends $dara.Model {
   /**
+   * @remarks
+   * The name of the column.
+   * 
    * @example
    * other_col_test
    */
   fieldName?: string;
   /**
+   * @remarks
+   * The name of the reference column.
+   * 
    * @example
    * col_test
    */
   referenceFieldName?: string;
   /**
+   * @remarks
+   * The move type.
+   * 
    * @example
    * FIRST
    */
