@@ -2,43 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteConsumerResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The response code.
-   * 
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Id of the request
    * 
    * @example
-   * 40C8A4FF-7AF1-5B52-A662-02EEE24C6908
+   * A04D0C5B-62C4-5A36-BECB-2032E25BDE80
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      message: 'message',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }

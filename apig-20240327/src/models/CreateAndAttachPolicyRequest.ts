@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the resources to be associated with the policy.
+   * List of attachment point IDs.
    * 
    * This parameter is required.
    */
   attachResourceIds?: string[];
   /**
    * @remarks
-   * The supported resource type. Valid values:
+   * Types of attachment points supported by the policy.
    * 
-   * *   HttpApi: an HTTP API
-   * *   Operation: an operation in an HTTP API
-   * *   GatewayRoute: a route
-   * *   GatewayService: a service
-   * *   GatewayServicePort: a service port
-   * *   Domain: a domain name
-   * *   Gateway: an instance
+   * - HttpApi: HttpApi.
+   * - Operation: Operation of HttpApi.
+   * - GatewayRoute: Gateway route.
+   * - GatewayService: Gateway service.
+   * - GatewayServicePort: Gateway service port.
+   * - Domain: Gateway domain.
+   * - Gateway: Gateway.
    * 
    * This parameter is required.
    * 
@@ -30,28 +30,29 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The class name supported by the policy. Different policies support different resources. This parameter is used in combination with AttachResourceType.
+   * The class name types supported by the policy. Different policies support different attachment points, to be used in conjunction with `attachResourceType`.
    * 
-   * *   RateLimit: throttles traffic. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   ConcurrencyLimit: controls concurrency. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   CircuitBreaker: breaks circuits and downgrades traffic. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   HttpRewrite: rewrites HTTP traffic. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   HeaderModify: modifies headers. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   Cors: supports CORS. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   FlowCopy: replicates traffic. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   Timeout: times out requests. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   Retry: retries requests. Supported: HttpApi, Operation, and GatewayRoute.
-   * *   IpAccessControl: implements IP address-based access control. Supported: HttpApi, Operation, GatewayRoute, Domain, and Gateway.
-   * *   DirectResponse: mocks responses. Supported: Operation and GatewayRoute.
-   * *   Redirect: redirects traffic. Supported: GatewayRoute.
-   * *   Fallback: implements fallback. Supported: Operation and GatewayRoute.
-   * *   ServiceTls: implements TLS authentication. Supported: GatewayService.
-   * *   ServiceLb: balances loads. Supported: GatewayService.
-   * *   ServicePortTls: implements service port TLS authentication. Supported: GatewayServicePort.
-   * *   Waf: implements WAF protection. Supported: GatewayRoute and Gateway.
-   * *   JWTAuth: implements global JWT authentication. Supported: Gateway.
-   * *   OIDCAuth: implements global OIDC authentication. Supported: Gateway.
-   * *   ExternalZAuth: implements custom authentication. Supported: Gateway.
+   * - RateLimit: Traffic control, supports HttpApi, Operation, GatewayRoute.
+   * - ConcurrencyLimit: Concurrency control, supports HttpApi, Operation, GatewayRoute.
+   * - CircuitBreaker: Circuit breaking and degradation, supports HttpApi, Operation, GatewayRoute.
+   * - HttpRewrite: HTTP rewrite, supports HttpApi, Operation, GatewayRoute.
+   * - HeaderModify: Header modification, supports HttpApi, Operation, GatewayRoute.
+   * - Cors: Cross-origin, supports HttpApi, Operation, GatewayRoute.
+   * - FlowCopy: Traffic replication, supports HttpApi, Operation, GatewayRoute.
+   * - Timeout: Timeout, supports HttpApi, Operation, GatewayRoute.
+   * - Retry: Retry, supports HttpApi, Operation, GatewayRoute.
+   * - IpAccessControl: IP access control, supports HttpApi, Operation, GatewayRoute, Domain, Gateway.
+   * - DirectResponse: Mock, supports Operation, GatewayRoute.
+   * - Redirect: Redirection, supports GatewayRoute.
+   * - Fallback: Fallback, supports Operation, GatewayRoute.
+   * - ServiceTls: Service TLS authentication, supports GatewayService.
+   * - ServiceLb: Service load balancing, supports GatewayService.
+   * - ServicePortTls: Service port TLS authentication, supports GatewayServicePort.
+   * 
+   * - Waf: WAF protection, supports GatewayRoute, Gateway.
+   * - JWTAuth: JWT global authentication, supports Gateway.
+   * - OIDCAuth: OIDC global authentication, supports Gateway.
+   * - ExternalZAuth: Custom authorization, supports Gateway.
    * 
    * This parameter is required.
    * 
@@ -61,7 +62,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The policy configurations.
+   * Configuration information.
    * 
    * This parameter is required.
    * 
@@ -71,7 +72,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The policy description.
+   * Policy description.
    * 
    * @example
    * 这是策略描述
@@ -79,7 +80,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment ID.
+   * Environment ID.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -87,7 +88,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Gateway ID.
    * 
    * @example
    * gw-cq7l5s5lhtgi6qasrdc0
@@ -95,7 +96,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The policy name.
+   * Policy name.
    * 
    * @example
    * test

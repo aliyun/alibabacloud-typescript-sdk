@@ -6,7 +6,7 @@ import { SslCertMetaInfo } from "./SslCertMetaInfo";
 export class ListSslCertsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 证书信息列表。
+   * The list of certificate information.
    */
   items?: SslCertMetaInfo[];
   /**

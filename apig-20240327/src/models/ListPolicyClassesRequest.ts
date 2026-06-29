@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolicyClassesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource ID to attach the policy
+   * The ID of the attached resource.
    * 
    * @example
    * route-001
@@ -13,15 +13,14 @@ export class ListPolicyClassesRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The supported mount point type. Valid values:
-   * 
-   * *   HttpApi: an HTTP API
-   * *   Operation: an operation in an HTTP API
-   * *   GatewayRoute: a route
-   * *   GatewayService: a service
-   * *   GatewayServicePort: a service port
-   * *   Domain: a domain name
-   * *   Gateway: an instance
+   * The type of resource that the policy can be attached to. Valid values:
+   * - HttpApi: HttpApi.
+   * - Operation: an operation of an HttpApi.
+   * - GatewayRoute: a gateway route.
+   * - GatewayService: a gateway service.
+   * - GatewayServicePort: a gateway service port.
+   * - Domain: a gateway domain name.
+   * - Gateway: a gateway.
    * 
    * @example
    * Operation
@@ -29,11 +28,10 @@ export class ListPolicyClassesRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The direction of traffic on which the policy takes effect. Valid values:
-   * 
-   * *   OutBound
-   * *   InBound
-   * *   Both
+   * The direction of the policy. Valid values:
+   * - OutBound: outbound.
+   * - InBound: inbound.
+   * - Both: both directions.
    * 
    * @example
    * InBound
@@ -41,7 +39,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The gateway ID
+   * The gateway ID.
    * 
    * @example
    * gw-001
@@ -49,7 +47,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -65,7 +63,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The template type.
+   * The policy templatetype.
    * 
    * @example
    * FlowControl

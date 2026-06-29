@@ -5,32 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class AiPolicyRedisConfig extends $dara.Model {
   /**
    * @remarks
-   * The zero-based index of the Redis database to use. The default value is 0.
+   * The Redis database number.
+   * 
+   * @example
+   * 0
    */
   databaseNumber?: number;
   /**
    * @remarks
-   * The hostname of the Redis instance.
+   * The Redis host address.
+   * 
+   * @example
+   * r-xxx.redis.rds.aliyuncs.com
    */
   host?: string;
   /**
    * @remarks
-   * The password for Redis authentication.
+   * The Redis password.
+   * 
+   * @example
+   * pass
    */
   password?: string;
   /**
    * @remarks
-   * The port number of the Redis instance.
+   * The Redis port.
+   * 
+   * @example
+   * 6379
    */
   port?: number;
   /**
    * @remarks
-   * The connection timeout in milliseconds.
+   * The timeout period, in milliseconds.
+   * 
+   * @example
+   * 5000
    */
   timeout?: number;
   /**
    * @remarks
-   * The username for Redis authentication.
+   * The Redis username.
+   * 
+   * @example
+   * user
    */
   username?: string;
   static names(): { [key: string]: string } {

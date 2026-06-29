@@ -11,7 +11,7 @@ export class ListServicesResponseBodyData extends $dara.Model {
   items?: Service[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -27,7 +27,7 @@ export class ListServicesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 18
@@ -66,7 +66,7 @@ export class ListServicesResponseBodyData extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListServicesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

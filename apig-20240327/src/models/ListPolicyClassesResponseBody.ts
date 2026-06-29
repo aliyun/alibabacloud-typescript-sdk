@@ -6,12 +6,12 @@ import { PolicyClassInfo } from "./PolicyClassInfo";
 export class ListPolicyClassesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The templates.
+   * The list of policy templates.
    */
   items?: PolicyClassInfo[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -66,7 +66,7 @@ export class ListPolicyClassesResponseBodyData extends $dara.Model {
 export class ListPolicyClassesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListPolicyClassesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * An array of policy template information.
+   * The policy template information.
    */
   data?: ListPolicyClassesResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

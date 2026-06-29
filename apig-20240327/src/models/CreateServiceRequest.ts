@@ -7,7 +7,7 @@ import { AiServiceConfig } from "./AiServiceConfig";
 export class CreateServiceRequestServiceConfigsValidationOptions extends $dara.Model {
   /**
    * @remarks
-   * Skip AI chat completion verification
+   * Specifies whether to skip AI chat completion verification.
    */
   skipVerifyAIChatCompletion?: boolean;
   static names(): { [key: string]: string } {
@@ -34,27 +34,27 @@ export class CreateServiceRequestServiceConfigsValidationOptions extends $dara.M
 export class CreateServiceRequestServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names or fixed IP addresses.
+   * The list of domain names or fixed addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * Agent service configuration
+   * The Agent service configuration. This parameter is required when sourceType is set to AGENT.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configurations.
+   * The AI service configuration.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * The list of DNS service addresses.
+   * The list of DNS server addresses.
    */
   dnsServers?: string[];
   /**
    * @remarks
-   * Express type
+   * The service expression type that identifies the special type or mode of the service.
    * 
    * @example
    * Standard
@@ -62,7 +62,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   expressType?: string;
   /**
    * @remarks
-   * The service group name. This parameter is required if sourceType is set to MSE_NACOS.
+   * The service group name. This parameter is required when sourceType is set to MSE_NACOS.
    * 
    * @example
    * DEFAULT_GROUP
@@ -78,12 +78,12 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service namespace. This parameter is required when sourceType is set to K8S or MSE_NACOS.
+   * The namespace of the service.
    * 
-   * *   If sourceType is set to K8S, this parameter specifies the namespace where the K8s service resides.
-   * *   If sourceType is set to MSE_NACOS, this parameter specifies a namespace in Nacos.
+   * - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
+   * - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
    * 
-   * This parameter is required if sourceType is set to K8S or MSE_NACOS.
+   * This parameter is required when sourceType is set to K8S or MSE_NACOS.
    * 
    * @example
    * PUBLIC
@@ -91,7 +91,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The function version/alias.
+   * The function version or alias.
    * 
    * @example
    * LATEST
@@ -99,7 +99,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * Service source ID
+   * The service source ID. This parameter is required in multi-Nacos instance scenarios.
    * 
    * @example
    * nacos-instance-001
@@ -107,7 +107,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * Validation options
+   * The validation options for service verification configuration.
    */
   validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
@@ -169,7 +169,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cq7l5s5lhtg***
@@ -185,28 +185,20 @@ export class CreateServiceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of service configurations.
+   * The list of service configurations. At least one service configuration is required.
    */
   serviceConfigs?: CreateServiceRequestServiceConfigs[];
   /**
    * @remarks
-   * The service source type. Valid values:
-   * 
-   * *   MSE_NACOS: MSE Nacos instance services
-   * *   K8S: Container Service for Kubernetes (ACK) cluster services
-   * *   VIP: fixed IP addresses
-   * *   DNS: Domain Name System (DNS) domains
-   * *   FC3: Function Compute services
-   * *   SAE_K8S_SERVICE: Serverless App Engine (SAE) Kubernetes services
-   * 
-   * Valid values:
-   * 
-   * *   SAE_K8S_SERVICE
-   * *   K8S
-   * *   FC3
-   * *   DNS
-   * *   VIP
-   * *   MSE_NACOS
+   * The service source. Valid values:
+   * - MSE_NACOS: a service in MSE Nacos.
+   * - K8S: a service in a Kubernetes cluster of Container Service.
+   * - VIP: a fixed address service.
+   * - DNS: a DNS domain name service.
+   * - FC3: a service in Function Compute.
+   * - SAE_K8S_SERVICE: an SAE Kubernetes service.
+   * - AI: an AI service.
+   * - AGENT: an Agent service.
    * 
    * @example
    * MSE_NACOS
@@ -214,7 +206,7 @@ export class CreateServiceRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * clientToken
+   * The client token.
    * 
    * @example
    * xxx

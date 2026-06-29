@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable.
+   * Specifies whether to enable SLS logging.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class CreateGatewayRequestLogConfigSls extends $dara.Model {
 export class CreateGatewayRequestLogConfig extends $dara.Model {
   /**
    * @remarks
-   * SLS log configuration.
+   * The Simple Log Service (SLS) log configuration.
    */
   sls?: CreateGatewayRequestLogConfigSls;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * -
+   * The network access type.
    * 
    * @example
    * Internet
@@ -103,7 +103,7 @@ export class CreateGatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The tag value.
    * 
    * @example
    * value
@@ -135,7 +135,7 @@ export class CreateGatewayRequestTag extends $dara.Model {
 export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
   /**
    * @remarks
-   * The ID of the virtual switch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-xx
@@ -143,7 +143,7 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-wulanchabu-a
@@ -175,7 +175,7 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
 export class CreateGatewayRequestZoneConfig extends $dara.Model {
   /**
    * @remarks
-   * The response payload.
+   * The zone selection option.
    * 
    * @example
    * Manual
@@ -183,7 +183,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
   selectOption?: string;
   /**
    * @remarks
-   * Virtual switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-xxx
@@ -191,7 +191,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * List of supported zones.
+   * The list of supported zones.
    */
   zones?: CreateGatewayRequestZoneConfigZones[];
   static names(): { [key: string]: string } {
@@ -225,7 +225,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The logging configurations.
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -233,11 +233,15 @@ export class CreateGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Gateway instance edition:
+   * The gateway instance edition. Valid values:
    * 
-   * - Standard instance: Professional
+   * - Professional: Standard instance.
    * 
-   * - Serverless: Serverless (currently supports only AI gateway)
+   * - Serverless: Serverless instance.
+   * 
+   * - MultiTenantServerless: Multi-tenant Serverless instance.
+   * 
+   * - Unknown: Unknown.
    * 
    * @example
    * Professional
@@ -245,7 +249,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The gateway type.
    * 
    * @example
    * API
@@ -253,12 +257,12 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Gateway log configuration.
+   * The gateway log configuration.
    */
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The gateway name.
    * 
    * @example
    * test-ceshi
@@ -266,12 +270,12 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The gateway edition.
+   * The network access configuration.
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -279,7 +283,7 @@ export class CreateGatewayRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag key.
+   * The node specifications.
    * 
    * @example
    * apigw.dev.x2
@@ -287,12 +291,12 @@ export class CreateGatewayRequest extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The list of labels.
+   * The list of tags.
    */
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The tag value.
+   * The VPC ID.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -300,7 +304,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The status message.
+   * The zone configuration.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

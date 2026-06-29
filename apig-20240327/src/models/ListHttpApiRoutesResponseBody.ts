@@ -6,7 +6,7 @@ import { HttpRoute } from "./HttpRoute";
 export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 路由列表。
+   * The route list.
    */
   items?: HttpRoute[];
   /**
@@ -19,7 +19,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

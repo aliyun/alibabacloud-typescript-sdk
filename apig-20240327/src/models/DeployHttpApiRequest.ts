@@ -14,7 +14,7 @@ export class DeployHttpApiRequestHttpApiConfig extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * A list of route IDs.
+   * The route IDs.
    */
   routeIds?: string[];
   static names(): { [key: string]: string } {
@@ -46,7 +46,7 @@ export class DeployHttpApiRequestHttpApiConfig extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The conditions that a request must meet to be routed to this service. This parameter is used for content-based routing.
+   * The match condition configuration related to API publishing.
    * 
    * @example
    * {\\"change_order_revision\\":\\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\\"}
@@ -62,10 +62,8 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   port?: number;
   /**
    * @remarks
-   * The service protocol.
-   * 
+   * The service protocol. Valid values:
    * - HTTP
-   * 
    * - HTTPS
    * 
    * @example
@@ -90,7 +88,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   version?: string;
   /**
    * @remarks
-   * The weight, which must be an integer from 1 to 100. This parameter applies only to the canary release by ratio scenario.
+   * The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
    * 
    * @example
    * 49
@@ -133,7 +131,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
 export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   /**
    * @remarks
-   * The API deployment scenario.
+   * The API publish scenario.
    * 
    * @example
    * SingleService
@@ -143,7 +141,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   backendScene?: string;
   /**
    * @remarks
-   * A list of custom domain IDs.
+   * The list of custom domain names.
    */
   customDomainIds?: string[];
   /**
@@ -158,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The configurations for one or more backend services. A single-service scenario allows only one entry, while other scenarios, such as canary release by ratio and content-based routing, allow multiple entries.
+   * The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed.
    * 
    * **if can be null:**
    * true
@@ -210,7 +208,7 @@ export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara
   action?: string;
   /**
    * @remarks
-   * The unique ID of the operation.
+   * The unique identifier of the operation.
    * 
    * @example
    * op-xxx
@@ -242,7 +240,7 @@ export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara
 export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   /**
    * @remarks
-   * The deployment description.
+   * The publish description.
    * 
    * @example
    * 用户服务API发布。
@@ -250,7 +248,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The deployment environment configuration.
+   * The publish environment configuration.
    */
   environment?: DeployHttpApiRequestRestApiConfigEnvironment;
   /**
@@ -263,19 +261,19 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * A list of operation-level deployment controls.
+   * The operation-level deployment control list.
    */
   operationDeployments?: DeployHttpApiRequestRestApiConfigOperationDeployments[];
   /**
    * @remarks
-   * A list of operation IDs.
+   * The operation IDs.
    * 
    * @deprecated
    */
   operationIds?: string[];
   /**
    * @remarks
-   * The revision ID. If you specify this parameter, the deployment uses the settings from the specified revision.
+   * The historical version number. If this parameter is specified, the publish information is based on the historical version.
    * 
    * @example
    * apr-xxx
@@ -331,12 +329,12 @@ export class DeployHttpApiRequest extends $dara.Model {
   httpApiConfig?: DeployHttpApiRequestHttpApiConfig;
   /**
    * @remarks
-   * The REST API deployment configuration. This parameter is required when you deploy an HTTP API as a REST API.
+   * The deployment configuration for the REST API. This parameter is required when the HTTP API to be published is a REST API.
    */
   restApiConfig?: DeployHttpApiRequestRestApiConfig;
   /**
    * @remarks
-   * The route ID. This parameter is required when you deploy a route for an HTTP API.
+   * The route ID. This parameter is required when you publish a route of an HTTP API.
    * 
    * @example
    * hr-cr82undlhtgrl***

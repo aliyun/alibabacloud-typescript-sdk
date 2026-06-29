@@ -6,7 +6,7 @@ import { Service } from "./Service";
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -19,7 +19,7 @@ export class GetServiceResponseBody extends $dara.Model {
   data?: Service;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

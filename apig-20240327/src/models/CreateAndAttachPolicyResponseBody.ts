@@ -6,12 +6,12 @@ import { Attachment } from "./Attachment";
 export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The association information of the policy.
+   * Attachment information.
    */
   attachment?: Attachment;
   /**
    * @remarks
-   * The policy ID.
+   * Policy ID.
    * 
    * @example
    * p-cq7l5s5lhtgi6qasrdc0
@@ -46,7 +46,7 @@ export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
 export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * Response code.
    * 
    * @example
    * Ok
@@ -54,12 +54,12 @@ export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * Response data.
    */
   data?: CreateAndAttachPolicyResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * Response message.
    * 
    * @example
    * success
@@ -67,7 +67,7 @@ export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the call link.
+   * Request ID, used for tracing the API call chain.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

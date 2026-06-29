@@ -13,7 +13,7 @@ export class CreateMcpServerResponseBodyData extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * MCP server name
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -45,7 +45,7 @@ export class CreateMcpServerResponseBodyData extends $dara.Model {
 export class CreateMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * code
+   * The response status code.
    * 
    * @example
    * Ok
@@ -53,12 +53,12 @@ export class CreateMcpServerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * object
+   * The response data.
    */
   data?: CreateMcpServerResponseBodyData;
   /**
    * @remarks
-   * message
+   * The response message.
    * 
    * @example
    * success

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
+  /**
+   * @example
+   * week
+   */
   conflictPeriodType?: string;
+  /**
+   * @example
+   * calendar
+   */
   conflictType?: string;
   /**
    * @example

@@ -35,7 +35,7 @@ export class CreateServiceResponseBodyData extends $dara.Model {
 export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -48,7 +48,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   data?: CreateServiceResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

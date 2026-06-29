@@ -35,7 +35,9 @@ export class GetDashboardRequestFilter extends $dara.Model {
 export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values: zh (Chinese) and en (English).
+   * The language. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -43,7 +45,7 @@ export class GetDashboardRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * API ID
+   * The unique ID of the API.
    * 
    * @example
    * api-ctl7no6m1h****
@@ -51,15 +53,14 @@ export class GetDashboardRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The filter configurations.
+   * The filter configuration.
    */
   filter?: GetDashboardRequestFilter;
   /**
    * @remarks
-   * The dashboard name.
-   * 
-   * *   LOG: access logs
-   * *   PLUGIN: plug-in logs
+   * The dashboard name. Valid values:
+   * - LOG: access log
+   * - PLUGIN: plug-in log
    * 
    * @example
    * PLUGIN
@@ -92,8 +93,7 @@ export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
    * The dashboard source. Valid values:
-   * 
-   * *   SLS: Simple Log Service
+   * - SLS: log dashboard
    * 
    * @example
    * SLS

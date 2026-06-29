@@ -14,7 +14,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * Source MCP server name
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -22,7 +22,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * List of tool names to include
+   * The list of MCP tools.
    */
   tools?: string[];
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class CreateMcpServerRequestAssembledSources extends $dara.Model {
 export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * Service port
+   * The backend node port of the service.
    * 
    * @example
    * 8080
@@ -64,7 +64,9 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Service protocol
+   * The service protocol. Valid values:
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -72,7 +74,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Service ID
+   * The service ID.
    * 
    * @example
    * svc-crbgq0dlhtgr***
@@ -80,7 +82,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Service version
+   * The service version.
    * 
    * @example
    * 2.1.6
@@ -88,7 +90,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * Service weight
+   * The weight.
    * 
    * @example
    * 49
@@ -126,7 +128,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
 export class CreateMcpServerRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * Backend scene type
+   * The backend service scenario.
    * 
    * @example
    * SingleService
@@ -134,7 +136,7 @@ export class CreateMcpServerRequestBackendConfig extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * List of backend services
+   * The backend services.
    */
   services?: CreateMcpServerRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -166,7 +168,7 @@ export class CreateMcpServerRequestBackendConfig extends $dara.Model {
 export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * Service port number
+   * The service port.
    * 
    * @example
    * 8080
@@ -174,7 +176,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   port?: number;
   /**
    * @remarks
-   * Service protocol type
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -182,7 +184,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   protocol?: string;
   /**
    * @remarks
-   * Service ID
+   * The service ID.
    * 
    * @example
    * svc-gray
@@ -190,7 +192,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   serviceId?: string;
   /**
    * @remarks
-   * Service version
+   * The service version.
    * 
    * @example
    * v2.0.0
@@ -198,7 +200,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   version?: string;
   /**
    * @remarks
-   * Service weight for load balancing
+   * The service weight.
    * 
    * @example
    * 100
@@ -236,7 +238,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
 export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * Must be SingleService
+   * The backend scenario.
    * 
    * @example
    * SingleService
@@ -244,7 +246,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
   scene?: string;
   /**
    * @remarks
-   * Exactly one service
+   * The backend services.
    */
   services?: CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -276,17 +278,17 @@ export class CreateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
 export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   /**
    * @remarks
-   * Backend configuration for gray route
+   * The backend configuration.
    */
   backendConfig?: CreateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * Route matching rules
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * Route ID for update operations
+   * The route ID.
    * 
    * @example
    * gray-route-123
@@ -326,7 +328,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * Converted MCP server spec YAML
+   * The MCP server spec configuration. This parameter is mutually exclusive with swaggerConfig.
    * 
    * @example
    * mcp-spec.yaml
@@ -334,7 +336,7 @@ export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
   mcpServerSpec?: string;
   /**
    * @remarks
-   * Raw Swagger/OpenAPI document
+   * The Swagger document for HTTP-to-MCP conversion. The document must comply with the OpenAPI 3.0 specification.
    * 
    * @example
    * swagger.yaml
@@ -366,17 +368,23 @@ export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class CreateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * Assembled MCP server sources
+   * The list of assembled sources. This parameter is required when type is set to AssemblyMCP.
    */
   assembledSources?: CreateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * Backend configuration
+   * The backend service configuration of the route.
    */
   backendConfig?: CreateMcpServerRequestBackendConfig;
   /**
    * @remarks
-   * Creation source type
+   * The creation source type. Valid values:
+   * 
+   * ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
+   * ApiGatewayAssembly: gateway MCP assembly.
+   * NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -384,7 +392,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   createFromType?: string;
   /**
    * @remarks
-   * MCP server description
+   * The description of the MCP server.
    * 
    * @example
    * mcp tool fetch time
@@ -392,12 +400,12 @@ export class CreateMcpServerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * List of domain IDs for the MCP server
+   * The domain name IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * Exposed URI path for SSE/StreamableHTTP protocols
+   * The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
    * 
    * @example
    * /sse
@@ -405,7 +413,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * Gateway ID
+   * The gateway ID.
    * 
    * This parameter is required.
    * 
@@ -415,22 +423,22 @@ export class CreateMcpServerRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Gray route configurations
+   * The canary release route configurations.
    */
   grayMcpServerConfigs?: CreateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * Route matching conditions
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * MCP server specification
+   * The HTTP-to-MCP configuration.
    */
   mcpServerConfig?: CreateMcpServerRequestMcpServerConfig;
   /**
    * @remarks
-   * Enable MCP statistics
+   * Specifies whether to enable MCP observability. Default value: false.
    * 
    * @example
    * false
@@ -438,7 +446,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * MCP server name
+   * The MCP server name. The name must match the regular expression ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and cannot exceed 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -448,7 +456,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * MCP protocol
+   * The protocol type. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
    * 
    * @example
    * HTTP
@@ -456,7 +464,9 @@ export class CreateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * MCP server type
+   * The type. Valid values:
+   * 
+   * RealMCP: standard MCP service.
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ import { DomainInfo } from "./DomainInfo";
 export class ListDomainsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 域名信息列表。
+   * The list of domain name information.
    */
   items?: DomainInfo[];
   /**

@@ -11,7 +11,9 @@ export class CreateConsumerAuthorizationRuleRequest extends $dara.Model {
   authorizationResourceInfos?: AuthorizationResourceInfo[];
   /**
    * @remarks
-   * The expiry mode. Valid values: LongTerm and ShortTerm.
+   * The expiration mode. Valid values:
+   * - LongTerm: long-term
+   * - ShortTerm: short-term
    * 
    * @example
    * LongTerm
@@ -27,7 +29,7 @@ export class CreateConsumerAuthorizationRuleRequest extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The type of the parent resource.
+   * The parent resource type.
    * 
    * @example
    * API
@@ -35,7 +37,7 @@ export class CreateConsumerAuthorizationRuleRequest extends $dara.Model {
   parentResourceType?: string;
   /**
    * @remarks
-   * The resource type,
+   * The resource type.
    * 
    * @example
    * API

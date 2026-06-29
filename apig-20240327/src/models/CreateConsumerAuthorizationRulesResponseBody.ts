@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of consumer authorization rule IDs.
+   * The list of consumer authorization rule IDs.
    */
   consumerAuthorizationRuleIds?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class CreateConsumerAuthorizationRulesResponseBodyData extends $dara.Mode
 export class CreateConsumerAuthorizationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -43,12 +43,12 @@ export class CreateConsumerAuthorizationRulesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: CreateConsumerAuthorizationRulesResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success

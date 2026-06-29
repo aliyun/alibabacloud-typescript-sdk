@@ -6,7 +6,10 @@ import { AiPluginStatus } from "./AiPluginStatus";
 export class AiToolSelectionConfigEnableConditions extends $dara.Model {
   /**
    * @remarks
-   * The minimum number of tools required to activate tool selection.
+   * The tool count threshold.
+   * 
+   * @example
+   * 10
    */
   toolCountThreshold?: number;
   static names(): { [key: string]: string } {
@@ -33,12 +36,18 @@ export class AiToolSelectionConfigEnableConditions extends $dara.Model {
 export class AiToolSelectionConfigQueryRewritingContextSelection extends $dara.Model {
   /**
    * @remarks
-   * The strategy for selecting the conversation context.
+   * The context selection method.
+   * 
+   * @example
+   * allMessages
    */
   type?: string;
   /**
    * @remarks
-   * The value associated with the context selection strategy, such as the number of messages to include.
+   * The number of retained messages or characters.
+   * 
+   * @example
+   * 5
    */
   value?: number;
   static names(): { [key: string]: string } {
@@ -67,17 +76,26 @@ export class AiToolSelectionConfigQueryRewritingContextSelection extends $dara.M
 export class AiToolSelectionConfigQueryRewritingModelService extends $dara.Model {
   /**
    * @remarks
-   * The name of the model used for query rewriting.
+   * The model name.
+   * 
+   * @example
+   * gte-rerank-v2
    */
   modelName?: string;
   /**
    * @remarks
-   * The ID of the model service used for query rewriting.
+   * The model service ID.
+   * 
+   * @example
+   * svc-xxx
    */
   serviceId?: string;
   /**
    * @remarks
-   * The request timeout in milliseconds for the query rewriting model service.
+   * The request timeout period, in milliseconds.
+   * 
+   * @example
+   * 5000
    */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
@@ -108,12 +126,18 @@ export class AiToolSelectionConfigQueryRewritingModelService extends $dara.Model
 export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model {
   /**
    * @remarks
-   * The custom prompt template for query rewriting. This parameter is required if `type` is set to `custom`.
+   * The custom prompt content.
+   * 
+   * @example
+   * 请将以下用户问题改写为...
    */
   customPrompt?: string;
   /**
    * @remarks
-   * The type of prompt, such as default or custom.
+   * The prompt type.
+   * 
+   * @example
+   * builtIn
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -142,7 +166,10 @@ export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model
 export class AiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The minimum number of messages in the conversation history required to activate query rewriting.
+   * The number of conversation turns after which rewriting is triggered.
+   * 
+   * @example
+   * 1
    */
   messageCountThreshold?: number;
   static names(): { [key: string]: string } {
@@ -169,37 +196,46 @@ export class AiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.
 export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
   /**
    * @remarks
-   * Method for selecting the conversation context for query rewriting.
+   * The context selection configuration.
    */
   contextSelection?: AiToolSelectionConfigQueryRewritingContextSelection;
   /**
    * @remarks
-   * Whether to enable query rewriting.
+   * Specifies whether query rewrite is enabled.
+   * 
+   * @example
+   * true
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The fallback strategy used if query rewriting fails or returns no results.
+   * The fallback strategy.
+   * 
+   * @example
+   * skip
    */
   fallbackStrategy?: string;
   /**
    * @remarks
-   * The maximum number of tokens to generate for the rewritten query.
+   * The maximum number of output tokens for rewriting.
+   * 
+   * @example
+   * 50
    */
   maxOutputTokens?: number;
   /**
    * @remarks
-   * Model service configuration for query rewriting.
+   * The rewriting model service configuration.
    */
   modelService?: AiToolSelectionConfigQueryRewritingModelService;
   /**
    * @remarks
-   * Prompt configuration for query rewriting.
+   * The prompt configuration.
    */
   promptConfig?: AiToolSelectionConfigQueryRewritingPromptConfig;
   /**
    * @remarks
-   * Conditions for activating query rewriting.
+   * The trigger condition configuration.
    */
   triggerConditions?: AiToolSelectionConfigQueryRewritingTriggerConditions;
   static names(): { [key: string]: string } {
@@ -250,17 +286,26 @@ export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
 export class AiToolSelectionConfigToolRerankingModelService extends $dara.Model {
   /**
    * @remarks
-   * The name of the model used for reranking.
+   * The model name.
+   * 
+   * @example
+   * gte-rerank-v2
    */
   modelName?: string;
   /**
    * @remarks
-   * The ID of the model service used for reranking.
+   * The model service ID.
+   * 
+   * @example
+   * svc-xxx
    */
   serviceId?: string;
   /**
    * @remarks
-   * The request timeout in milliseconds for the reranking model service.
+   * The request timeout period, in milliseconds.
+   * 
+   * @example
+   * 5000
    */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
@@ -291,32 +336,47 @@ export class AiToolSelectionConfigToolRerankingModelService extends $dara.Model 
 export class AiToolSelectionConfigToolReranking extends $dara.Model {
   /**
    * @remarks
-   * The fallback strategy used if tool reranking fails or returns no results.
+   * The fallback strategy upon failure.
+   * 
+   * @example
+   * skip
    */
   fallbackStrategy?: string;
   /**
    * @remarks
-   * The method for filtering tools after reranking.
+   * The filtering method.
+   * 
+   * @example
+   * topN
    */
   filteringMethod?: string;
   /**
    * @remarks
-   * Model service configuration for tool reranking.
+   * The reranking model service configuration.
    */
   modelService?: AiToolSelectionConfigToolRerankingModelService;
   /**
    * @remarks
-   * The minimum score a tool must have to be selected. Tools with scores below this threshold are filtered out.
+   * The score threshold.
+   * 
+   * @example
+   * 0.5
    */
   scoreThreshold?: number;
   /**
    * @remarks
-   * The percentage of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a percentage-based method.
+   * The retention percentage.
+   * 
+   * @example
+   * 50
    */
   topKPercent?: number;
   /**
    * @remarks
-   * The number of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a count-based method.
+   * The retention count.
+   * 
+   * @example
+   * 5
    */
   topNCount?: number;
   static names(): { [key: string]: string } {
@@ -356,12 +416,12 @@ export class AiToolSelectionConfigToolReranking extends $dara.Model {
 export class AiToolSelectionConfig extends $dara.Model {
   /**
    * @remarks
-   * Conditions for activating the tool selection feature.
+   * The enable conditions configuration. Controls when the overall feature is triggered.
    */
   enableConditions?: AiToolSelectionConfigEnableConditions;
   /**
    * @remarks
-   * The status of the AI tool selection plugin.
+   * The plug-in running status.
    * 
    * **if can be null:**
    * true
@@ -369,12 +429,12 @@ export class AiToolSelectionConfig extends $dara.Model {
   pluginStatus?: AiPluginStatus;
   /**
    * @remarks
-   * Configuration for query rewriting, which optimizes user queries before tool selection.
+   * The query rewrite configuration. Rewrites user queries before tool reranking to improve matching precision.
    */
   queryRewriting?: AiToolSelectionConfigQueryRewriting;
   /**
    * @remarks
-   * Configuration for tool reranking, which controls how tools are scored and filtered.
+   * The tool reranking configuration. Uses a model to rank and filter candidate tools.
    */
   toolReranking?: AiToolSelectionConfigToolReranking;
   static names(): { [key: string]: string } {

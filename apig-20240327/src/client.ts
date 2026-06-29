@@ -323,7 +323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and associates a policy.
+   * Creates and attaches a policy.
    * 
    * @param request - CreateAndAttachPolicyRequest
    * @param headers - map
@@ -384,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and associates a policy.
+   * Creates and attaches a policy.
    * 
    * @param request - CreateAndAttachPolicyRequest
    * @returns CreateAndAttachPolicyResponse
@@ -526,7 +526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create consumer authorization rules.
+   * Creates consumer authorization rules.
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -559,7 +559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create consumer authorization rules.
+   * Creates consumer authorization rules.
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @returns CreateConsumerAuthorizationRulesResponse
@@ -734,7 +734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The zone information.
+   * Creates a cloud-native gateway.
    * 
    * @param request - CreateGatewayRequest
    * @param headers - map
@@ -807,7 +807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The zone information.
+   * Creates a cloud-native gateway.
    * 
    * @param request - CreateGatewayRequest
    * @returns CreateGatewayResponse
@@ -1058,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an MCP server.
+   * Creates a Model Context Protocol (MCP) server.
    * 
    * @param request - CreateMcpServerRequest
    * @param headers - map
@@ -1143,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an MCP server.
+   * Creates a Model Context Protocol (MCP) server.
    * 
    * @param request - CreateMcpServerRequest
    * @returns CreateMcpServerResponse
@@ -1155,7 +1155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a plug-in.
+   * Mounts a plug-in.
    * 
    * @param request - CreatePluginAttachmentRequest
    * @param headers - map
@@ -1212,7 +1212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a plug-in.
+   * Mounts a plug-in.
    * 
    * @param request - CreatePluginAttachmentRequest
    * @returns CreatePluginAttachmentResponse
@@ -1410,7 +1410,7 @@ export default class Client extends OpenApi {
    * Creates a service.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This operation supports creating multiple services.
    * 
    * @param request - CreateServiceRequest
    * @param headers - map
@@ -1464,7 +1464,7 @@ export default class Client extends OpenApi {
    * Creates a service.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This operation supports creating multiple services.
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -1525,7 +1525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a source.
+   * Creates a source.
    * 
    * @param request - CreateSourceRequest
    * @param headers - map
@@ -1574,7 +1574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a source.
+   * Creates a source.
    * 
    * @param request - CreateSourceRequest
    * @returns CreateSourceResponse
@@ -1586,7 +1586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer.
+   * Deletes an API consumer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1611,7 +1611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer.
+   * Deletes an API consumer.
    * @returns DeleteConsumerResponse
    */
   async deleteConsumer(consumerId: string): Promise<$_model.DeleteConsumerResponse> {
@@ -1621,7 +1621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer authorization rule.
+   * Deletes an API consumer authorization rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1646,7 +1646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer authorization rule.
+   * Deletes an API consumer authorization rule.
    * @returns DeleteConsumerAuthorizationRuleResponse
    */
   async deleteConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.DeleteConsumerAuthorizationRuleResponse> {
@@ -1731,7 +1731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Cloud-native API Gateway instance.
+   * Deletes a gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1756,7 +1756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Cloud-native API Gateway instance.
+   * Deletes a gateway.
    * @returns DeleteGatewayResponse
    */
   async deleteGateway(gatewayId: string): Promise<$_model.DeleteGatewayResponse> {
@@ -1811,7 +1811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a security group rule from a Cloud-native API Gateway instance.
+   * Deletes a gateway security group rule.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -1844,7 +1844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a security group rule from a Cloud-native API Gateway instance.
+   * Deletes a gateway security group rule.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @returns DeleteGatewaySecurityGroupRuleResponse
@@ -1891,7 +1891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an operation from an HTTP API.
+   * Deletes a specified operation.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1916,7 +1916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an operation from an HTTP API.
+   * Deletes a specified operation.
    * @returns DeleteHttpApiOperationResponse
    */
   async deleteHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.DeleteHttpApiOperationResponse> {
@@ -1996,7 +1996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a plug-in attachment.
+   * Deletes a plugin mount.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2021,7 +2021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a plug-in attachment.
+   * Deletes a plugin mount.
    * @returns DeletePluginAttachmentResponse
    */
   async deletePluginAttachment(pluginAttachmentId: string): Promise<$_model.DeletePluginAttachmentResponse> {
@@ -2212,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a service source.
+   * Deletes a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2237,7 +2237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a service source.
+   * Deletes a service source.
    * @returns DeleteSourceResponse
    */
   async deleteSource(sourceId: string): Promise<$_model.DeleteSourceResponse> {
@@ -2247,7 +2247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy an HTTP API, including REST and HTTP API routes.
+   * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
    * 
    * @param request - DeployHttpApiRequest
    * @param headers - map
@@ -2288,7 +2288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy an HTTP API, including REST and HTTP API routes.
+   * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
    * 
    * @param request - DeployHttpApiRequest
    * @returns DeployHttpApiResponse
@@ -2380,7 +2380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the specified HTTP API.
+   * Exports a specified HTTP API.
    * 
    * @param request - ExportHttpApiRequest
    * @param headers - map
@@ -2421,7 +2421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the specified HTTP API.
+   * Exports a specified HTTP API.
    * 
    * @param request - ExportHttpApiRequest
    * @returns ExportHttpApiResponse
@@ -2503,7 +2503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains data from dashboards.
+   * Retrieves the monitoring log dashboard.
    * 
    * @param tmpReq - GetDashboardRequest
    * @param headers - map
@@ -2574,7 +2574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains data from dashboards.
+   * Retrieves the monitoring log dashboard.
    * 
    * @param request - GetDashboardRequest
    * @returns GetDashboardResponse
@@ -2869,7 +2869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Operation
+   * Retrieves operation information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2894,7 +2894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Operation
+   * Retrieves operation information.
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.GetHttpApiOperationResponse> {
@@ -3015,7 +3015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a policy.
+   * Retrieves a policy.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3040,7 +3040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a policy.
+   * Retrieves a policy.
    * @returns GetPolicyResponse
    */
   async getPolicy(policyId: string): Promise<$_model.GetPolicyResponse> {
@@ -3212,7 +3212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a service.
+   * Gets service details.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3237,7 +3237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a service.
+   * Gets service details.
    * @returns GetServiceResponse
    */
   async getService(serviceId: string): Promise<$_model.GetServiceResponse> {
@@ -3247,7 +3247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a service source.
+   * Retrieves the details of a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3272,7 +3272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a service source.
+   * Retrieves the details of a service source.
    * @returns GetSourceResponse
    */
   async getSource(sourceId: string): Promise<$_model.GetSourceResponse> {
@@ -4727,7 +4727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policy templates.
+   * Retrieves policy templates.
    * 
    * @param request - ListPolicyClassesRequest
    * @param headers - map
@@ -4784,7 +4784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policy templates.
+   * Retrieves policy templates.
    * 
    * @param request - ListPolicyClassesRequest
    * @returns ListPolicyClassesResponse
@@ -4914,7 +4914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services.
+   * Retrieves a list of services.
    * 
    * @param request - ListServicesRequest
    * @param headers - map
@@ -4971,7 +4971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services.
+   * Retrieves a list of services.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -5037,6 +5037,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSslCertsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查标签接口
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(tmpReq: $_model.ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查标签接口
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5386,6 +5453,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Undeploys an MCP server.
    * 
    * @param headers - map
@@ -5513,7 +5633,74 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates and associates a policy.
+   * 删标签接口
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(tmpReq: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "TagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["TagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 删标签接口
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Updates and mounts a policy.
    * 
    * @param request - UpdateAndAttachPolicyRequest
    * @param headers - map
@@ -5570,7 +5757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates and associates a policy.
+   * Updates and mounts a policy.
    * 
    * @param request - UpdateAndAttachPolicyRequest
    * @returns UpdateAndAttachPolicyResponse
@@ -5699,7 +5886,7 @@ export default class Client extends OpenApi {
    * Updates a domain name.
    * 
    * @remarks
-   * Only sources of the **Container Service** type can update the listener Ingress configuration.
+   * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
    * 
    * @param request - UpdateDomainRequest
    * @param headers - map
@@ -5775,7 +5962,7 @@ export default class Client extends OpenApi {
    * Updates a domain name.
    * 
    * @remarks
-   * Only sources of the **Container Service** type can update the listener Ingress configuration.
+   * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
    * 
    * @param request - UpdateDomainRequest
    * @returns UpdateDomainResponse
@@ -5888,6 +6075,8 @@ export default class Client extends OpenApi {
   /**
    * The response message returned.
    * 
+   * @deprecated OpenAPI UpdateGatewayName is deprecated
+   * 
    * @param request - UpdateGatewayNameRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5921,9 +6110,12 @@ export default class Client extends OpenApi {
   /**
    * The response message returned.
    * 
+   * @deprecated OpenAPI UpdateGatewayName is deprecated
+   * 
    * @param request - UpdateGatewayNameRequest
    * @returns UpdateGatewayNameResponse
    */
+  // Deprecated
   async updateGatewayName(gatewayId: string, request: $_model.UpdateGatewayNameRequest): Promise<$_model.UpdateGatewayNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };

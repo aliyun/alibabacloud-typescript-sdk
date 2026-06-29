@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDashboardResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the gateway.
    * 
    * @example
    * gw-co370icmjeu****
@@ -65,7 +65,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
 export class GetDashboardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -73,12 +73,12 @@ export class GetDashboardResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetDashboardResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The backend error code.
    * 
    * @example
    * Ok

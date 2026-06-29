@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteConsumerAuthorizationRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * ok
@@ -21,7 +21,7 @@ export class DeleteConsumerAuthorizationRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3C3B9A12-3868-5EB9-8BEA-F99E03DD125C

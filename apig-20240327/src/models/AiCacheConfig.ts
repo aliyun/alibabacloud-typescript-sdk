@@ -7,22 +7,34 @@ import { AiPolicyRedisConfig } from "./AiPolicyRedisConfig";
 export class AiCacheConfigEmbeddingConfig extends $dara.Model {
   /**
    * @remarks
-   * The model name to use for generating embeddings, such as `text-embedding-v1`.
+   * The embedding model name.
+   * 
+   * @example
+   * text-embedding-v2
    */
   modelName?: string;
   /**
    * @remarks
-   * The service ID of the deployed embedding model.
+   * The embedding service ID.
+   * 
+   * @example
+   * svc-xxx
    */
   serviceId?: string;
   /**
    * @remarks
-   * The request timeout in milliseconds. A request to the embedding service fails if it exceeds this duration. Default: `10000`.
+   * The request timeout period, in milliseconds.
+   * 
+   * @example
+   * 5000
    */
   timeout?: number;
   /**
    * @remarks
-   * The type of embedding service. For example, specify `Tongyi` for Alibaba Cloud\\"s Tongyi Qwen model series.
+   * The embedding service type.
+   * 
+   * @example
+   * dashscope
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -55,32 +67,50 @@ export class AiCacheConfigEmbeddingConfig extends $dara.Model {
 export class AiCacheConfigVectorConfig extends $dara.Model {
   /**
    * @remarks
-   * The API key to authenticate with the vector database service.
+   * The API key of the vector database.
+   * 
+   * @example
+   * sk-xxx
    */
   apiKey?: string;
   /**
    * @remarks
-   * The unique ID of the collection or index within the vector database for search and storage.
+   * The vector collection ID.
+   * 
+   * @example
+   * col-xxx
    */
   collectionId?: string;
   /**
    * @remarks
-   * The endpoint URL of the vector database service.
+   * The service address of the vector database.
+   * 
+   * @example
+   * vdb-xxx.dashvector.aliyuncs.com
    */
   serviceHost?: string;
   /**
    * @remarks
-   * The similarity threshold for a vector search to qualify as a cache hit. The value must be between 0.0 and 1.0. A higher value means a stricter similarity requirement.
+   * The similarity threshold.
+   * 
+   * @example
+   * 0.95
    */
   threshold?: number;
   /**
    * @remarks
-   * The request timeout in milliseconds. A request to the vector service fails if it exceeds this duration. Default: `10000`.
+   * The request timeout period, in milliseconds.
+   * 
+   * @example
+   * 5000
    */
   timeout?: number;
   /**
    * @remarks
-   * The type of vector database service. For example, specify `DashVector` for Alibaba Cloud\\"s vector search service.
+   * The vector database type.
+   * 
+   * @example
+   * dashvector
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -117,27 +147,36 @@ export class AiCacheConfigVectorConfig extends $dara.Model {
 export class AiCacheConfig extends $dara.Model {
   /**
    * @remarks
-   * The cache key strategy, which determines how the system generates a unique key for each cacheable request. Valid values: `DEFAULT` and `CUSTOM`.
+   * The cache key generation strategy.
+   * 
+   * @example
+   * -
    */
   cacheKeyStrategy?: string;
   /**
    * @remarks
-   * The cache mode, which defines the caching behavior. Valid values are `NORMAL` for standard key-value caching and `SEMANTIC` for vector-based similarity caching.
+   * The cache mode.
+   * 
+   * @example
+   * exact
    */
   cacheMode?: string;
   /**
    * @remarks
-   * The cache Time-to-Live (TTL) in seconds. This specifies the duration that a cached response remains valid. After the TTL expires, the cache removes the response.
+   * The cache expiration time, in seconds.
+   * 
+   * @example
+   * 3600
    */
   cacheTTL?: number;
   /**
    * @remarks
-   * The embedding configuration. Specifies the service that converts text queries into vector embeddings for semantic search.
+   * The embedding service configuration.
    */
   embeddingConfig?: AiCacheConfigEmbeddingConfig;
   /**
    * @remarks
-   * The plugin status. Set to `enable` to activate the plugin or `disable` to deactivate it.
+   * The plugin running status.
    * 
    * **if can be null:**
    * true
@@ -145,7 +184,7 @@ export class AiCacheConfig extends $dara.Model {
   pluginStatus?: AiPluginStatus;
   /**
    * @remarks
-   * The Redis configuration, required if you use a Redis instance as the cache backend.
+   * The Redis configuration for exact cache count storage.
    * 
    * **if can be null:**
    * true
@@ -153,7 +192,7 @@ export class AiCacheConfig extends $dara.Model {
   redisConfig?: AiPolicyRedisConfig;
   /**
    * @remarks
-   * The vector configuration for semantic caching. This enables the cache to retrieve results based on semantic similarity instead of exact matches.
+   * The vector database configuration.
    */
   vectorConfig?: AiCacheConfigVectorConfig;
   static names(): { [key: string]: string } {

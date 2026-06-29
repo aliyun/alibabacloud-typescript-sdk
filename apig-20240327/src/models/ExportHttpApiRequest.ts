@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportHttpApiRequestExtensionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to export consumer authorization configurations for operations or routes.
+   */
   withAuthConfig?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to export authorized consumers.
+   */
   withAuthConsumer?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to export plug-in configurations.
+   */
   withPlugin?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to export policy configurations.
+   */
   withPolicy?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to export backend services.
+   */
   withService?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,12 +58,23 @@ export class ExportHttpApiRequestExtensionConfig extends $dara.Model {
 }
 
 export class ExportHttpApiRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to export plug-in configurations.
+   */
   extensionConfig?: ExportHttpApiRequestExtensionConfig;
   /**
+   * @remarks
+   * The gateway instance ID. This parameter is required when you export gateway extension information.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The IDs of specific operations to export when you export a REST API.
+   */
   operationIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class DeletePluginAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeletePluginAttachmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 76BDFFC7-0764-5168-B047-92EE0BC7FDDE

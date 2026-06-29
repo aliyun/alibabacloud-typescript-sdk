@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud-native API Gateway instance.
+   * The ID of the cloud-native API gateway.
    * 
    * @example
    * gw-cpv4sqdl*****
@@ -13,7 +13,7 @@ export class ListServicesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The service name.
+   * The service name for exact match query.
    * 
    * @example
    * user-service
@@ -21,7 +21,7 @@ export class ListServicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number to return. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -45,21 +45,12 @@ export class ListServicesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service source. Valid values:
-   * 
-   * *   MSE_NACOS: a service in an MSE Nacos instance
-   * *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
-   * *   FC3: a service in Function Compute
-   * *   VIP: a fixed address
-   * *   DNS: a domain name
-   * 
-   * Enumerated values:
-   * 
-   * *   K8S
-   * *   FC3
-   * *   DNS
-   * *   VIP
-   * *   MSE_NACOS
+   * The source type of the service. Valid values:
+   * - MSE_NACOS: The service is from MSE Nacos.
+   * - K8S: The service is from a Kubernetes cluster in Container Service.
+   * - FC3: The service is from Function Compute.
+   * - VIP: The service is from a fixed address.
+   * - DNS: The service is from a domain name.
    * 
    * @example
    * MSE_NACOS
@@ -67,7 +58,7 @@ export class ListServicesRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * List of service source types
+   * The list of service source types.
    * 
    * @example
    * ["K8S", "FC3"]

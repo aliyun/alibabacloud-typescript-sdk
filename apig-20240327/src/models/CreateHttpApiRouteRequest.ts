@@ -8,7 +8,7 @@ import { HttpApiPolicyConfigs } from "./HttpApiPolicyConfigs";
 export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service port (omit for dynamic ports).
+   * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
    * 8080
@@ -17,9 +17,8 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -35,7 +34,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service version (valid only in tag-based scenarios).
+   * The service version. This parameter is valid only in the tag-based scenario.
    * 
    * @example
    * v1
@@ -43,7 +42,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The traffic weight percentage.
+   * The percentage value of the traffic ratio.
    * 
    * @example
    * 49
@@ -82,11 +81,10 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
    * The backend service scenario. Valid values:
-   * 
-   * *   SingleService
-   * *   MultiServiceByRatio
-   * *   Mock
-   * *   Redirect
+   * - SingleService: Single service.
+   * - MultiServiceByRatio: Multiple services with ratio-based canary release.
+   * - Mock: Mock service.
+   * - Redirect: Redirect service.
    * 
    * @example
    * SingleService
@@ -126,7 +124,7 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
 export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
-   * The exposed URI path
+   * The exposed URI path.
    * 
    * @example
    * /v1/chat/completions
@@ -134,7 +132,7 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * mcpStatisticsEnable
+   * Specifies whether to enable MCP observability. Default value: false.
    * 
    * @example
    * false
@@ -142,7 +140,10 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The MCP protocol
+   * The service protocol. Valid values:
+   * - TCP.
+   * - HTTP.
+   * - DUBBO.
    * 
    * @example
    * HTTP,HTTPS
@@ -176,12 +177,12 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
 export class CreateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The backend service configurations for the route.
+   * The backend service configuration of the route.
    */
   backendConfig?: CreateHttpApiRouteRequestBackendConfig;
   /**
    * @remarks
-   * deployConfigs
+   * The API deployment configurations.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -194,7 +195,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of domain IDs.
+   * The domain name IDs.
    */
   domainIds?: string[];
   /**
@@ -212,7 +213,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The MCP route configuration
+   * The MCP route configuration.
    */
   mcpRouteConfig?: CreateHttpApiRouteRequestMcpRouteConfig;
   /**
@@ -225,7 +226,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The route-level policy configurations
+   * The policy type.
    */
   policyConfigs?: HttpApiPolicyConfigs[];
   static names(): { [key: string]: string } {

@@ -35,7 +35,7 @@ export class CreateHttpApiRouteResponseBodyData extends $dara.Model {
 export class CreateHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -48,7 +48,7 @@ export class CreateHttpApiRouteResponseBody extends $dara.Model {
   data?: CreateHttpApiRouteResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

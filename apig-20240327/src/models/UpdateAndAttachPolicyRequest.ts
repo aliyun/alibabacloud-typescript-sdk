@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The association IDs.
+   * The list of mount point IDs.
    * 
    * This parameter is required.
    */
   attachResourceIds?: string[];
   /**
    * @remarks
-   * The supported associated resource type. Valid values:
+   * The type of mount point supported by the policy. Valid values:
    * 
-   * *   HttpApi: an HTTP API
-   * *   Operation: an operation in an HTTP API
-   * *   GatewayRoute: a route
-   * *   GatewayService: a service
-   * *   GatewayServicePort: a service port
-   * *   Domain: a domain name
-   * *   Gateway: an instance
+   * - HttpApi: HttpApi.
+   * - Operation: Operation of HttpApi.
+   * - GatewayRoute: gateway rule.
+   * - GatewayService: gateway service.
+   * - GatewayServicePort: gateway service port.
+   * - Domain: gateway domain name.
+   * - Gateway: gateway.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The policy configurations. The value is a JSON string.
+   * The configuration information. The value is a JSON string.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cq2avtllhtgja4dk5djg

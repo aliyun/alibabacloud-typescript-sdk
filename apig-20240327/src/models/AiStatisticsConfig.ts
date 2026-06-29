@@ -6,12 +6,15 @@ import { AiStatisticsPathField } from "./AiStatisticsPathField";
 export class AiStatisticsConfigPathFieldConfigs extends $dara.Model {
   /**
    * @remarks
-   * A key-value map for extracting fields. Keys are custom names, and values are paths to the data within the request or response body.
+   * The field collection configuration.
    */
   fieldPaths?: { [key: string]: AiStatisticsPathField };
   /**
    * @remarks
-   * The API endpoint path to which this configuration applies, such as /user/id.
+   * The API path.
+   * 
+   * @example
+   * /v1/chat/completions
    */
   path?: string;
   static names(): { [key: string]: string } {
@@ -43,17 +46,23 @@ export class AiStatisticsConfigPathFieldConfigs extends $dara.Model {
 export class AiStatisticsConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to record the body of incoming requests.
+   * Specifies whether to log request content (controls whether question-related attributes are generated).
+   * 
+   * @example
+   * true
    */
   logRequestContent?: boolean;
   /**
    * @remarks
-   * Specifies whether to record the body of outgoing responses.
+   * Specifies whether to log response content (controls whether answer-related attributes are generated).
+   * 
+   * @example
+   * true
    */
   logResponseContent?: boolean;
   /**
    * @remarks
-   * An array of configurations for extracting data from specific paths.
+   * The list of custom field collection configurations, configured by API path.
    */
   pathFieldConfigs?: AiStatisticsConfigPathFieldConfigs[];
   static names(): { [key: string]: string } {

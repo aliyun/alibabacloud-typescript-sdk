@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeployHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the HTTP API.
+   * HTTP API ID。
+   * 
+   * @example
+   * api-xxx
    */
   httpApiId?: string;
   static names(): { [key: string]: string } {
@@ -32,7 +35,7 @@ export class DeployHttpApiResponseBodyData extends $dara.Model {
 export class DeployHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -40,7 +43,7 @@ export class DeployHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DeployHttpApiResponseBodyData;
   /**

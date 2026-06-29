@@ -5,32 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class AiTokenRateLimitConfigRule extends $dara.Model {
   /**
    * @remarks
-   * The action to take when a request exceeds the token rate limit.
+   * The throttling mode.
+   * 
+   * @example
+   * TokenPerMinute
    */
   limitMode?: string;
   /**
    * @remarks
-   * The scope of the rate limit, such as per user or per project.
+   * The throttling type.
+   * 
+   * @example
+   * Consumer
    */
   limitType?: string;
   /**
    * @remarks
-   * The maximum number of tokens allowed within the defined time period. For example, if the time unit is one minute, this value represents the tokens-per-minute (TPM) limit.
+   * The throttling value.
+   * 
+   * @example
+   * 1000
    */
   limitValue?: number;
   /**
    * @remarks
-   * The key that identifies the request source. Its value is extracted from the request context to apply the rule.
+   * The match key name.
+   * 
+   * @example
+   * X-API-Key
    */
   matchKey?: string;
   /**
    * @remarks
-   * The matching logic applied to the value of `matchKey`.
+   * The matching method.
+   * 
+   * @example
+   * Exact
    */
   matchType?: string;
   /**
    * @remarks
-   * The value to match. The rate limit applies only when the value of `matchKey` in the request matches this value, according to the `matchType`.
+   * The match value.
+   * 
+   * @example
+   * consumer-a
    */
   matchValue?: string;
   static names(): { [key: string]: string } {

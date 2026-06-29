@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier extends $dara.Model {
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-******
@@ -13,7 +13,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   environmentId?: string;
   /**
    * @remarks
-   * Parent resource ID.
+   * The parent resource ID.
    * 
    * @example
    * api-******
@@ -21,7 +21,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   parentResourceId?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -29,7 +29,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   resourceId?: string;
   /**
    * @remarks
-   * Resource information.
+   * The resource information.
    */
   resources?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $dara.Model {
   /**
    * @remarks
-   * Consumer ID.
+   * The consumer ID.
    * 
    * @example
    * cs-******
@@ -73,7 +73,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   consumerId?: string;
   /**
    * @remarks
-   * Expiration mode. Currently only LongTerm is supported.
+   * The expiration mode. Currently, only LongTerm is supported.
    * 
    * @example
    * LongTerm
@@ -81,7 +81,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireMode?: string;
   /**
    * @remarks
-   * Expiration time.
+   * The expiration time.
    * 
    * @example
    * 174116222x
@@ -89,12 +89,12 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireTimestamp?: number;
   /**
    * @remarks
-   * Resource identifier, provided to non-standard code sources as a unique identifier for space reuse
+   * The resource identifier, which serves as a unique identifier for non-standard code sources for space reuse.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * HttpApiRoute
@@ -135,7 +135,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
 export class CreateConsumerAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Consumer authorization rules.
+   * The consumer authentication rules.
    */
   authorizationRules?: CreateConsumerAuthorizationRulesRequestAuthorizationRules[];
   static names(): { [key: string]: string } {

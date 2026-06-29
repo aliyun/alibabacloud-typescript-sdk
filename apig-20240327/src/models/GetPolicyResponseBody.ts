@@ -6,7 +6,7 @@ import { PolicyDetailInfo } from "./PolicyDetailInfo";
 export class GetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -14,12 +14,12 @@ export class GetPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: PolicyDetailInfo;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

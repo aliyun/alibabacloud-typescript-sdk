@@ -13,7 +13,15 @@ export class ResetGatewayQuotaRuleRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  /**
+   * @example
+   * false
+   */
   overwrite?: boolean;
+  /**
+   * @example
+   * 1
+   */
   periodMultiplier?: number;
   /**
    * @example
@@ -30,6 +38,10 @@ export class ResetGatewayQuotaRuleRequest extends $dara.Model {
    * UTC+8
    */
   timezone?: string;
+  /**
+   * @example
+   * calendar
+   */
   windowAlignment?: string;
   static names(): { [key: string]: string } {
     return {

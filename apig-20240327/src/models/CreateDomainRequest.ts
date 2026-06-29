@@ -55,7 +55,7 @@ export class CreateDomainRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The HTTP/2 setting.
+   * The HTTP/2 settings.
    * 
    * @example
    * Open
@@ -63,7 +63,7 @@ export class CreateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mutual TLS (mTLS) authentication.
+   * Specifies whether to enable mTLS mutual authentication.
    */
   mTLSEnabled?: boolean;
   /**
@@ -102,7 +102,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum TLS version. TLS 1.3 is the maximum supported version.
+   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
    * 
    * @example
    * TLS1.3
@@ -110,7 +110,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum TLS version. TLS 1.0 is the minimum supported version.
+   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
    * 
    * @example
    * TLS1.0

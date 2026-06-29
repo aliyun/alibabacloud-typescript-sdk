@@ -10,7 +10,7 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The domain name ID.
    * 
    * @example
    * d-cshee6dlhtgk******
@@ -18,7 +18,7 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * hello-server.com
@@ -26,7 +26,7 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Protocol.
+   * The protocol.
    * 
    * @example
    * HTTP
@@ -58,8 +58,29 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
 }
 
 export class HttpApiDeployConfigEnvDomainInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name ID.
+   * 
+   * @example
+   * d-env-xxx
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * api.example.com
+   */
   name?: string;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * @example
+   * HTTPS
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,7 +110,7 @@ export class HttpApiDeployConfigEnvDomainInfos extends $dara.Model {
 export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $dara.Model {
   /**
    * @remarks
-   * Routing mode.
+   * The routing mode.
    * 
    * @example
    * LeastBusy
@@ -97,7 +118,7 @@ export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $
   mode?: string;
   /**
    * @remarks
-   * Queue size.
+   * The queue size.
    * 
    * @example
    * 100
@@ -105,7 +126,7 @@ export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $
   queueSize?: number;
   /**
    * @remarks
-   * Maximum traffic ratio for a single service.
+   * The maximum traffic ratio for a single service.
    * 
    * @example
    * 0.8
@@ -139,7 +160,7 @@ export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $
 export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * Gateway service ID.
+   * The gateway service ID.
    * 
    * @example
    * gw-svc-abc123
@@ -147,7 +168,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   gatewayServiceId?: string;
   /**
    * @remarks
-   * Intent code.
+   * The intent code.
    * 
    * @example
    * INQUIRY
@@ -155,12 +176,12 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   intentCode?: string;
   /**
    * @remarks
-   * Matching conditions.
+   * The matching condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
    * @remarks
-   * Model name.
+   * The model name.
    * 
    * @example
    * qwen-max
@@ -168,7 +189,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * Model name matching rule.
+   * The model name matching rule.
    * 
    * @example
    * qwen-*
@@ -176,7 +197,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   modelNamePattern?: string;
   /**
    * @remarks
-   * Multi-service routing strategy type.
+   * The multi-service routing strategy type.
    * 
    * @example
    * ByWeight
@@ -184,7 +205,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   multiServiceRouteStrategy?: string;
   /**
    * @remarks
-   * Service display name.
+   * The service display name.
    * 
    * @example
    * Qwen-Max-Service
@@ -192,7 +213,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Observability-based routing configuration.
+   * The observability metric routing configuration.
    * 
    * **if can be null:**
    * true
@@ -200,7 +221,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   observabilityRouteConfig?: HttpApiDeployConfigServiceConfigsObservabilityRouteConfig;
   /**
    * @remarks
-   * Service port number.
+   * The service port number.
    * 
    * @example
    * 80
@@ -208,7 +229,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Service protocol (HTTP/HTTPS).
+   * The service protocol (HTTP/HTTPS).
    * 
    * @example
    * HTTP
@@ -216,7 +237,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * @example
    * svc-xxx
@@ -224,7 +245,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Service version tag.
+   * The service version label.
    * 
    * @example
    * V2
@@ -232,7 +253,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * Service weight.
+   * The service weight.
    * 
    * @example
    * 100
@@ -292,7 +313,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
 export class HttpApiDeployConfigSubDomains extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The domain name ID.
    * 
    * @example
    * d-csmn42um******
@@ -300,7 +321,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * test
@@ -308,7 +329,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Network type.
+   * The network type.
    * 
    * @example
    * Intranet
@@ -316,7 +337,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * Protocol.
+   * The protocol.
    * 
    * @example
    * HTTP
@@ -352,7 +373,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
 export class HttpApiDeployConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable automatic deployment.
+   * Specifies whether to automatically deploy.
    * 
    * @example
    * true
@@ -360,28 +381,40 @@ export class HttpApiDeployConfig extends $dara.Model {
   autoDeploy?: boolean;
   /**
    * @remarks
-   * Deployment scenario.
+   * The publishing scenario.
    * 
    * @example
    * SingleService
    */
   backendScene?: string;
+  /**
+   * @remarks
+   * The list of built-in route names.
+   */
   builtinRouteNames?: string[];
   /**
    * @remarks
-   * List of custom domain IDs.
+   * The list of custom domain name IDs.
    */
   customDomainIds?: string[];
   /**
    * @remarks
-   * List of custom domain details.
+   * The list of custom domain name details.
    */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
+  /**
+   * @remarks
+   * The list of environment domain name IDs. If this parameter is not specified, all environment domain names are associated. An empty array indicates that no environment domain names are associated.
+   */
   envDomainIds?: string[];
+  /**
+   * @remarks
+   * The list of environment domain name details.
+   */
   envDomainInfos?: HttpApiDeployConfigEnvDomainInfos[];
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-xxx
@@ -389,7 +422,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Gateway instance ID.
+   * The gateway instance ID.
    * 
    * @example
    * gw-xx
@@ -397,7 +430,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Gateway information.
+   * The gateway information.
    * 
    * **if can be null:**
    * true
@@ -405,7 +438,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * Gateway type.
+   * The gateway type.
    * 
    * @example
    * API
@@ -413,7 +446,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Mock configuration.
+   * The mock configuration.
    * 
    * **if can be null:**
    * true
@@ -421,12 +454,12 @@ export class HttpApiDeployConfig extends $dara.Model {
   mock?: HttpApiMockContract;
   /**
    * @remarks
-   * List of policy configurations.
+   * The list of policy configurations.
    */
   policyConfigs?: HttpApiPolicyConfigs[];
   /**
    * @remarks
-   * Backend service information.
+   * The backend service information.
    * 
    * **if can be null:**
    * true
@@ -434,12 +467,12 @@ export class HttpApiDeployConfig extends $dara.Model {
   routeBackend?: Backend;
   /**
    * @remarks
-   * List of service configurations.
+   * The list of service configurations.
    */
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
   /**
    * @remarks
-   * List of second-level domain details.
+   * The list of subdomain details.
    */
   subDomains?: HttpApiDeployConfigSubDomains[];
   static names(): { [key: string]: string } {
