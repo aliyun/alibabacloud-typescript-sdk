@@ -4,10 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddTenantMembersRequestAddCommandUserList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1323241
    */
   id?: string;
+  /**
+   * @remarks
+   * The list of roles. Valid values:
+   * - SYSTEM_ADMIN
+   * - DATASOURCE_MANAGER
+   * - SECURITY_ADMIN
+   * - QUALITY_MANAGER
+   * - EXPORT_ADMIN
+   * - DATA_STANDARD_MANAGER
+   * - LABELS_BUSINESS_PLANNER
+   * - BUSINESS_MEMBER.
+   */
   roleList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +53,8 @@ export class AddTenantMembersRequestAddCommandUserList extends $dara.Model {
 export class AddTenantMembersRequestAddCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of members.
+   * 
    * This parameter is required.
    */
   userList?: AddTenantMembersRequestAddCommandUserList[];
@@ -68,11 +85,15 @@ export class AddTenantMembersRequestAddCommand extends $dara.Model {
 export class AddTenantMembersRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   addCommand?: AddTenantMembersRequestAddCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

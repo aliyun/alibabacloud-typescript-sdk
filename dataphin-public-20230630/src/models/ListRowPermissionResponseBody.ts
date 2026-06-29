@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRowPermissionResponseBodyPageResultDataMappingColumns extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the mapping field.
+   * 
+   * @example
+   * 业务ID
+   */
   columnDesc?: string;
   /**
+   * @remarks
+   * The name of the mapping field.
+   * 
    * @example
    * business_id
    */
   columnName?: string;
   /**
+   * @remarks
+   * The type of the mapping field.
+   * 
    * @example
    * string
    */
@@ -41,21 +54,38 @@ export class ListRowPermissionResponseBodyPageResultDataMappingColumns extends $
 
 export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends $dara.Model {
   /**
+   * @remarks
+   * The name of the mapping field.
+   * 
    * @example
    * business_id
    */
   mappingColumnName?: string;
   /**
+   * @remarks
+   * The expression operator.
+   * 
    * @example
    * 30008888
    */
   operator?: string;
+  /**
+   * @remarks
+   * The sub-expressions.
+   */
   subConditions?: any[];
   /**
+   * @remarks
+   * The expression type.
+   * 
    * @example
    * EXPRESSION
    */
   type?: string;
+  /**
+   * @remarks
+   * The operation values of the expression.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -94,6 +124,9 @@ export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends
 
 export class ListRowPermissionResponseBodyPageResultDataRulesUserMappingListAccounts extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the account bound to the rule.
+   * 
    * @example
    * 30008888
    */
@@ -121,10 +154,17 @@ export class ListRowPermissionResponseBodyPageResultDataRulesUserMappingListAcco
 
 export class ListRowPermissionResponseBodyPageResultDataRulesUserMappingList extends $dara.Model {
   /**
+   * @remarks
+   * The type of the account bound to the rule.
+   * 
    * @example
    * PERSONAL
    */
   accountType?: string;
+  /**
+   * @remarks
+   * The accounts bound to the rule.
+   */
   accounts?: ListRowPermissionResponseBodyPageResultDataRulesUserMappingListAccounts[];
   static names(): { [key: string]: string } {
     return {
@@ -153,24 +193,52 @@ export class ListRowPermissionResponseBodyPageResultDataRulesUserMappingList ext
 }
 
 export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule expressions.
+   */
   expressions?: ListRowPermissionResponseBodyPageResultDataRulesExpressions[];
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 123
    */
   id?: number;
+  /**
+   * @remarks
+   * Indicates whether the rule is deleted.
+   */
   isDelete?: boolean;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * 管控ID 100以内数据
+   */
   ruleName?: string;
   /**
+   * @remarks
+   * The scope type of the rule.
+   * 
    * @example
    * SELECT_COLUMN
    */
   scopeType?: string;
   /**
+   * @remarks
+   * The rule status.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The accounts bound to the rule.
+   */
   userMappingList?: ListRowPermissionResponseBodyPageResultDataRulesUserMappingList[];
   static names(): { [key: string]: string } {
     return {
@@ -213,16 +281,25 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
 
 export class ListRowPermissionResponseBodyPageResultDataTables extends $dara.Model {
   /**
+   * @remarks
+   * The table field.
+   * 
    * @example
    * business_id
    */
   columnName?: string;
   /**
+   * @remarks
+   * The name of the mapping field.
+   * 
    * @example
    * business_id
    */
   mappingColumnName?: string;
   /**
+   * @remarks
+   * The GUID of the table.
+   * 
    * @example
    * odps.300199897.project_name.table_name
    */
@@ -254,36 +331,80 @@ export class ListRowPermissionResponseBodyPageResultDataTables extends $dara.Mod
 
 export class ListRowPermissionResponseBodyPageResultData extends $dara.Model {
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 30008888
    */
   creator?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2023-08-23T08:01:44Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2025-02-12T02:16:45Z
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The mapping fields.
+   */
   mappingColumns?: ListRowPermissionResponseBodyPageResultDataMappingColumns[];
   /**
+   * @remarks
+   * The modifier.
+   * 
    * @example
    * 30008888
    */
   modifier?: string;
+  /**
+   * @remarks
+   * The description of the row-level permission.
+   * 
+   * @example
+   * 管控业务数据
+   */
   rowPermissionDesc?: string;
   /**
+   * @remarks
+   * The row-level permission ID.
+   * 
    * @example
    * 30008888
    */
   rowPermissionId?: number;
+  /**
+   * @remarks
+   * The name of the row-level permission.
+   * 
+   * @example
+   * 业务管控
+   */
   rowPermissionName?: string;
+  /**
+   * @remarks
+   * The rules.
+   */
   rules?: ListRowPermissionResponseBodyPageResultDataRules[];
+  /**
+   * @remarks
+   * The related tables.
+   */
   tables?: ListRowPermissionResponseBodyPageResultDataTables[];
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 30000001
    */
@@ -339,8 +460,15 @@ export class ListRowPermissionResponseBodyPageResultData extends $dara.Model {
 }
 
 export class ListRowPermissionResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: ListRowPermissionResponseBodyPageResultData[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
@@ -373,26 +501,46 @@ export class ListRowPermissionResponseBodyPageResult extends $dara.Model {
 
 export class ListRowPermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The paged query result.
+   */
   pageResult?: ListRowPermissionResponseBodyPageResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

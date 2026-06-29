@@ -7,6 +7,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceAppMemberRequestAddCommandMemberList extends $dara.Model {
   /**
    * @remarks
+   * The authorization expiration time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,8 @@ export class AddDataServiceAppMemberRequestAddCommandMemberList extends $dara.Mo
   effectiveEnd?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +51,8 @@ export class AddDataServiceAppMemberRequestAddCommandMemberList extends $dara.Mo
 export class AddDataServiceAppMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +61,8 @@ export class AddDataServiceAppMemberRequestAddCommand extends $dara.Model {
   appId?: number;
   /**
    * @remarks
+   * The list of members.
+   * 
    * This parameter is required.
    */
   memberList?: AddDataServiceAppMemberRequestAddCommandMemberList[];
@@ -87,11 +95,15 @@ export class AddDataServiceAppMemberRequestAddCommand extends $dara.Model {
 export class AddDataServiceAppMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The regular member to add to the data service application.
+   * 
    * This parameter is required.
    */
   addCommand?: AddDataServiceAppMemberRequestAddCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

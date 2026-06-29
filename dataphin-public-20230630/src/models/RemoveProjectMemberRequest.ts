@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveProjectMemberRequestRemoveCommand extends $dara.Model {
   /**
    * @remarks
+   * The environment identifier. Valid values: DEV and PROD.
+   * 
    * This parameter is required.
    * 
    * @example
    * DEV
    */
   env?: string;
+  /**
+   * @remarks
+   * The user IDs.
+   */
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -41,6 +47,8 @@ export class RemoveProjectMemberRequestRemoveCommand extends $dara.Model {
 export class RemoveProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +57,8 @@ export class RemoveProjectMemberRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +67,8 @@ export class RemoveProjectMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to remove a member.
+   * 
    * This parameter is required.
    */
   removeCommand?: RemoveProjectMemberRequestRemoveCommand;

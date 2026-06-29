@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The category. Valid values:
+   * 
+   * - 1: window function
+   * - 2: aggregate function
+   * - 3: numerical function
+   * - 4: string function
+   * - 5: time function
+   * - 6: IP address utility function
+   * - 7: URL-related function
+   * - 8: encoding and decoding function
+   * - 9: business-related function
+   * - 10: other.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +26,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   category?: number;
   /**
    * @remarks
+   * The class name that implements the function in the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +36,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   className?: string;
   /**
    * @remarks
+   * The command format for function calling to invoke.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +46,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   commandHelp?: string;
   /**
    * @remarks
+   * The commit remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +56,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +66,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The ID of the user-defined function.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +76,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +86,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The IDs of the referenced resources.
+   * 
    * This parameter is required.
    */
   refResourceIdList?: number[];
@@ -105,6 +132,8 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
 export class UpdateUdfRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -113,6 +142,8 @@ export class UpdateUdfRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateUdfRequestUpdateCommand;

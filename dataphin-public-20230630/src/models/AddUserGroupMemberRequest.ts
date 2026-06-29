@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserGroupMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
+   * The user group ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 132331
    */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The list of user IDs.
+   */
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -39,9 +45,15 @@ export class AddUserGroupMemberRequestAddCommand extends $dara.Model {
 }
 
 export class AddUserGroupMemberRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The command to add user group members.
+   */
   addCommand?: AddUserGroupMemberRequestAddCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

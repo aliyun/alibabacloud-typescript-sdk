@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   /**
+   * @remarks
+   * The cron expression for timed scheduling.
+   * 
    * @example
    * * * 1/* * * *
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The ID of the schedule resource. If specified, the operation updates the existing resource. If not specified, the operation creates a new resource.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
    * @remarks
+   * The name of the schedule resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,34 +30,79 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The partition expression for custom expressions.
+   * 
    * @example
    * ds=${yyyyMMdd}
    */
   partitionExpression?: string;
   /**
+   * @remarks
+   * The partition type. Valid values:
+   * - EVERY_DAY: every day.
+   * - PRE_DAY: previous day.
+   * - TODAY: current day.
+   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
+   * - CUSTOM: custom.
+   * 
    * @example
    * CUSTOM
    */
   partitionType?: string;
   /**
+   * @remarks
+   * The scheduling interval type for timed scheduling. Valid values:
+   * - DAILY: day.
+   * - WEEKLY: week.
+   * - MONTHLY: month.
+   * - HOURLY: hour.
+   * - MINUTELY: minute.
+   * 
    * @example
    * DAILY
    */
   periodScheduleIntervalType?: string;
+  /**
+   * @remarks
+   * The scheduling interval values for timed scheduling.
+   */
   periodScheduleParamList?: string[];
   /**
+   * @remarks
+   * The trigger method for fixed task triggers. Valid values:
+   * - ALL_TASKS_FINISHED
+   * - ONE_TASKS_FINISHED
+   * - PRE_ONE_TASKS_START.
+   * 
    * @example
    * ONE_TASKS_FINISHED
    */
   staticTaskTriggerType?: string;
+  /**
+   * @remarks
+   * The checklist of trigger nodes for trigger scheduling.
+   */
   triggerNodeList?: string[];
   /**
+   * @remarks
+   * The trigger method for trigger scheduling. Valid values:
+   * - STATIC_TASK_TRIGGER: fixed task trigger.
+   * - CODE_CHECK_TRIGGER: code check trigger.
+   * 
    * @example
    * STATIC_TASK_TRIGGER
    */
   triggerType?: string;
   /**
    * @remarks
+   * The scheduling type. Valid values:
+   * - PERIOD_SCHEDULE: timed scheduling.
+   * - MANUAL_SCHEDULE: manual trigger.
+   * - CODE_CHECK_TRIGGER: code check trigger.
+   * - STATIC_TASK_TRIGGER: fixed task trigger.
+   * - DEPENDENCY_SCHEDULE: dependency scheduling.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,12 +110,19 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The validation scope. Valid values:
+   * - TASK_REFERRED_PARTITION: task update partition.
+   * - USER_DEFINED_PARTITION: custom partition.
+   * 
    * @example
    * TASK_REFERRED_PARTITION
    */
   validatePartitionType?: string;
   /**
    * @remarks
+   * The ID of the monitored object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -123,6 +183,8 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
 export class UpsertQualityScheduleRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -131,6 +193,8 @@ export class UpsertQualityScheduleRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   upsertCommand?: UpsertQualityScheduleRequestUpsertCommand;

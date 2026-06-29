@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceAuthorizedAppsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -44,9 +53,15 @@ export class ListDataServiceAuthorizedAppsRequestListQuery extends $dara.Model {
 }
 
 export class ListDataServiceAuthorizedAppsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The query conditions.
+   */
   listQuery?: ListDataServiceAuthorizedAppsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +70,8 @@ export class ListDataServiceAuthorizedAppsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the data service project.
+   * 
    * This parameter is required.
    * 
    * @example

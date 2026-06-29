@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityIdentifyResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The identification result ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSecurityIdentifyResultRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

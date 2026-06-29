@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComputeSourceRequestCreateCommandConfigList extends $dara.Model {
   /**
    * @remarks
+   * The configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateComputeSourceRequestCreateCommandConfigList extends $dara.Mod
   key?: string;
   /**
    * @remarks
+   * The value of the configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,16 +49,23 @@ export class CreateComputeSourceRequestCreateCommandConfigList extends $dara.Mod
 export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The connection configuration items.
+   * 
    * This parameter is required.
    */
   configList?: CreateComputeSourceRequestCreateCommandConfigList[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The name of the compute source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +74,8 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The type of the compute source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,11 +115,15 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
 export class CreateComputeSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateComputeSourceRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

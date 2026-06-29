@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAddableRolesResponseBodyRoleList extends $dara.Model {
   /**
+   * @remarks
+   * The role code.
+   * 
    * @example
    * SECURITY_ADMIN
    */
   code?: string;
+  /**
+   * @remarks
+   * The role name.
+   * 
+   * @example
+   * 安全管理员
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,27 +44,46 @@ export class ListAddableRolesResponseBodyRoleList extends $dara.Model {
 
 export class ListAddableRolesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roleList?: ListAddableRolesResponseBodyRoleList[];
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckResourcePermissionResponseBodyResourcePermissionList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the user has the permission on the specified resource
+   * 
    * @example
    * true
    */
   hasPermission?: boolean;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * hadoop.300000806.data_distill.behavior_gameinfor_01
    */
@@ -38,27 +44,46 @@ export class CheckResourcePermissionResponseBodyResourcePermissionList extends $
 
 export class CheckResourcePermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates a successful request
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code returned by the backend
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Resource permission list
+   */
   resourcePermissionList?: CheckResourcePermissionResponseBodyResourcePermissionList[];
   /**
+   * @remarks
+   * Indicates whether the request was successful
+   * 
    * @example
    * true
    */

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitQualityWatchTasksRequestSubmitCommand extends $dara.Model {
   /**
+   * @remarks
+   * The business date, in the yyyy-MM-dd format.
+   * 
    * @example
    * 2025-06-30
    */
   bizDate?: string;
   /**
+   * @remarks
+   * The partition expression. This is a custom expression.
+   * 
    * @example
    * ds=${yyyyMMdd}
    */
   partitionExpression?: string;
   /**
    * @remarks
+   * The monitored object IDs.
+   * 
    * This parameter is required.
    */
   watchIdList?: number[];
@@ -49,6 +57,8 @@ export class SubmitQualityWatchTasksRequestSubmitCommand extends $dara.Model {
 export class SubmitQualityWatchTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +67,8 @@ export class SubmitQualityWatchTasksRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The submit command.
+   * 
    * This parameter is required.
    */
   submitCommand?: SubmitQualityWatchTasksRequestSubmitCommand;

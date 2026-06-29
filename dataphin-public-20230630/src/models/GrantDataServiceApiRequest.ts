@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GrantDataServiceApiRequestGrantCommandDevFieldList extends $dara.Model {
+  /**
+   * @remarks
+   * The API permission field ID.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +33,13 @@ export class GrantDataServiceApiRequestGrantCommandDevFieldList extends $dara.Mo
 }
 
 export class GrantDataServiceApiRequestGrantCommandProdFieldList extends $dara.Model {
+  /**
+   * @remarks
+   * The API permission field ID.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -51,6 +65,8 @@ export class GrantDataServiceApiRequestGrantCommandProdFieldList extends $dara.M
 export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
   /**
    * @remarks
+   * The API ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,18 +75,47 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * AppID
+   * The application ID.
    * 
    * @example
    * 1201
    */
   appId?: number;
+  /**
+   * @remarks
+   * Specifies whether to request development environment permissions for operation-type APIs.
+   * 
+   * @example
+   * true
+   */
   applyDev?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to request production environment permissions for operation-type APIs.
+   * 
+   * @example
+   * true
+   */
   applyProd?: boolean;
+  /**
+   * @remarks
+   * The list of authorization permission types. Valid values:
+   * - When the grantee is an application, the following permission types are supported. To grant delegation permissions, you must also grant usage permissions.
+   *   - USE: usage permission.
+   *   - DELEGATION: delegation permission.
+   * - When the grantee is an individual, only USE (usage) permission is supported.
+   * - If this parameter is not specified, the default value is USE (usage) permission.
+   */
   authTypes?: string[];
+  /**
+   * @remarks
+   * The list of development environment permission fields for query-type APIs. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty. This parameter is not required for operation-type APIs.
+   */
   devFieldList?: GrantDataServiceApiRequestGrantCommandDevFieldList[];
   /**
    * @remarks
+   * The expiration date in the format of yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,13 +123,24 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    */
   expireDate?: string;
   /**
+   * @remarks
+   * The authorization object type. Valid values:
+   * - APP: application.
+   * - USER: user.
+   * 
    * @example
    * APP
    */
   granteeType?: string;
+  /**
+   * @remarks
+   * The list of production environment permission fields for query-type APIs. This parameter is required in basic mode. This parameter is not required for operation-type APIs.
+   */
   prodFieldList?: GrantDataServiceApiRequestGrantCommandProdFieldList[];
   /**
    * @remarks
+   * The reason for the authorization request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92,6 +148,9 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    */
   reason?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 12345
    */
@@ -149,11 +208,15 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
 export class GrantDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
+   * The grant command.
+   * 
    * This parameter is required.
    */
   grantCommand?: GrantDataServiceApiRequestGrantCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -162,6 +225,8 @@ export class GrantDataServiceApiRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The commit remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The compute engine type. Valid values:
+   * - MAX_COMPUTE
+   * - HADOOP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
+   * The resource description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The resource ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +47,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The resource name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +57,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +67,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The storage address of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +111,8 @@ export class UpdateResourceRequestUpdateCommand extends $dara.Model {
 export class UpdateResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +121,8 @@ export class UpdateResourceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The edit command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateResourceRequestUpdateCommand;

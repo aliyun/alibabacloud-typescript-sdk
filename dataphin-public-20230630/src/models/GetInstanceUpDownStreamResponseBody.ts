@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldInstanceIdList?: string[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * t_1234567
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_1234567
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -57,23 +73,42 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList 
 }
 
 export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldInstanceIdList?: string[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * t_1234567
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_1234567
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * - DATA_PROCESS: code node.
+   * - BBOX_LOGIC_TABLE_NODE: logical table node.
+   * - PIPELINE_NODE: pipeline node.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -111,23 +146,39 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList
 }
 
 export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoUpInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldInstanceIdList?: string[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * t_1234567
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_1234567
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -165,8 +216,20 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoUpInstanceList ex
 }
 
 export class GetInstanceUpDownStreamResponseBodyInstanceDagInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The downstream instances.
+   */
   downInstanceList?: GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList[];
+  /**
+   * @remarks
+   * The center instances.
+   */
   startInstanceList?: GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList[];
+  /**
+   * @remarks
+   * The upstream instances.
+   */
   upInstanceList?: GetInstanceUpDownStreamResponseBodyInstanceDagInfoUpInstanceList[];
   static names(): { [key: string]: string } {
     return {
@@ -204,27 +267,46 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfo extends $dara.Mo
 
 export class GetInstanceUpDownStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The instance dag data, including the current instance and its upstream and downstream instances.
+   */
   instanceDagInfo?: GetInstanceUpDownStreamResponseBodyInstanceDagInfo;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

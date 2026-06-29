@@ -4,61 +4,107 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUdfResponseBodyUdfInfo extends $dara.Model {
   /**
+   * @remarks
+   * The category. Valid values:
+   * - 1: window function.
+   * - 2: aggregate function.
+   * - 3: numeric function.
+   * - 4: string function.
+   * - 5: time function.
+   * - 6: IP address utility function.
+   * - 7: URL-related function.
+   * - 8: encoding and decoding function.
+   * - 9: business-related function.
+   * - 10: other.
+   * 
    * @example
    * 10
    */
   category?: number;
   /**
+   * @remarks
+   * The registered class name.
+   * 
    * @example
    * com.lydaas.dataphin.UdfTest
    */
   className?: string;
   /**
+   * @remarks
+   * The command help information.
+   * 
    * @example
    * udf_to_lower(char x)
    */
   commandHelp?: string;
   /**
+   * @remarks
+   * The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
+   * 
    * @example
    * HADOOP
    */
   computeEngineType?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 30012110
    */
   creator?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The directory where the function is stored.
+   * 
    * @example
    * /
    */
   directory?: string;
   /**
+   * @remarks
+   * The creation time, in the yyyy-MM-d HH:mm:ss format.
+   * 
    * @example
    * 2025-06-10 10:01:01
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The last modification time, in the yyyy-MM-d HH:mm:ss format.
+   * 
    * @example
    * 2025-06-10 10:01:01
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The user-defined function ID.
+   * 
    * @example
    * 1030111021
    */
   id?: number;
   /**
+   * @remarks
+   * The last modifier.
+   * 
    * @example
    * 30012110
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The function name.
+   * 
    * @example
    * udf_to_lower
    */
@@ -108,16 +154,25 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
 
 export class GetUdfResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -130,7 +185,15 @@ export class GetUdfResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the user-defined function.
+   */
   udfInfo?: GetUdfResponseBodyUdfInfo;
   static names(): { [key: string]: string } {
     return {

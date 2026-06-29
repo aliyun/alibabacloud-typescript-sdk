@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDevObjectDependencyRequest extends $dara.Model {
   /**
    * @remarks
+   * Development object source.
+   * - BLACK_BOX: Logical table
+   * - DATA_PROCESS: Compute task
+   * - PIPELINE: Integration task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
   objectFrom?: string;
   /**
    * @remarks
+   * Object ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +28,10 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
+   * Development object type.
+   * - FILE_ID: Task FileId
+   * - MODEL_ID: Logical table
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +40,8 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +50,8 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    * 
    * @example

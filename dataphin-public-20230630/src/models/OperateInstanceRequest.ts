@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateInstanceRequestOperateCommandInstanceIdList extends $dara.Model {
+  /**
+   * @remarks
+   * The field instance IDs.
+   */
   fieldInstanceIdList?: string[];
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,11 +47,20 @@ export class OperateInstanceRequestOperateCommandInstanceIdList extends $dara.Mo
 export class OperateInstanceRequestOperateCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of instances to operate on.
+   * 
    * This parameter is required.
    */
   instanceIdList?: OperateInstanceRequestOperateCommandInstanceIdList[];
   /**
    * @remarks
+   * The operation to perform. Valid values:	
+   * - RERUN: Reruns the instance.
+   * - PAUSE: Pauses the instance.
+   * - RESUME: Resumes the instance.
+   * - TERMINATE: Stops the instance.
+   * - SET_SUCCESS: Sets the instance status to successful.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +69,8 @@ export class OperateInstanceRequestOperateCommand extends $dara.Model {
   operation?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,12 +107,19 @@ export class OperateInstanceRequestOperateCommand extends $dara.Model {
 
 export class OperateInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -104,6 +128,8 @@ export class OperateInstanceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The operation request.
+   * 
    * This parameter is required.
    */
   operateCommand?: OperateInstanceRequestOperateCommand;

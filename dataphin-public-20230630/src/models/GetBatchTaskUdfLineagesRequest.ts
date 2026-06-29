@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchTaskUdfLineagesRequest extends $dara.Model {
   /**
    * @remarks
+   * The node ID of the task directory tree.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetBatchTaskUdfLineagesRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetBatchTaskUdfLineagesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project to which the task belongs.
+   * 
    * This parameter is required.
    * 
    * @example

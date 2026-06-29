@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The queue name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +55,8 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
+   * The stream-batch mode.
+   * 
    * This parameter is required.
    * 
    * @example

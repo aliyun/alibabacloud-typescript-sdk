@@ -4,16 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataAccount extends $dara.Model {
   /**
+   * @remarks
+   * The account ID.
+   * - Individual account: the userId on the Dataphin side.
+   * - Production account: the UserId obtained by calling the GetProjectProduceUser operation.
+   * - User group: the user group ID obtained by calling the ListUserGroup operation.
+   * 
    * @example
    * 1212131
    */
   id?: string;
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * xx
    */
   name?: string;
   /**
+   * @remarks
+   * The authorization account type. Valid values:
+   * - PERSONAL: individual account
+   * - PRODUCE: production account
+   * - USER_GROUP: user group.
+   * 
    * @example
    * PERSONAL
    */
@@ -45,11 +60,22 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataAccount
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataPeriod extends $dara.Model {
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1712000000000
    */
   endTime?: string;
   /**
+   * @remarks
+   * The validity period type. Valid values:
+   * - CUSTOM: custom
+   * - LONG_TERM: permanently valid
+   * - DAYS_30: valid for 30 days
+   * - DAYS_90: valid for 90 days
+   * - DAYS_180: valid for 180 days.
+   * 
    * @example
    * CUSTOM
    */
@@ -79,11 +105,19 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataPeriod 
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfoBizUnitInfo extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * xx
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment identifier. Valid values: 
+   * - DEV
+   * - PROD.
+   * 
    * @example
    * DEV
    */
@@ -97,6 +131,9 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourc
    */
   id?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * xx
    */
@@ -130,21 +167,35 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourc
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfoProjectInfo extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * xx
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment identifier. Valid values: 
+   * - DEV
+   * - PROD.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 1123131
    */
   id?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * xx
    */
@@ -177,29 +228,61 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourc
 }
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The business unit information.
+   */
   bizUnitInfo?: ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfoBizUnitInfo;
   /**
+   * @remarks
+   * The display name of the resource.
+   * 
    * @example
    * tb1
    */
   displayName?: string;
   /**
+   * @remarks
+   * The resource environment. Valid values:
+   * - DEV
+   * - PROD.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The permission resource ID.
+   * 
    * @example
    * a.tb1
    */
   id?: string;
   /**
+   * @remarks
+   * The permission resource name.
+   * 
    * @example
    * tb1
    */
   name?: string;
+  /**
+   * @remarks
+   * The project information.
+   */
   projectInfo?: ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfoProjectInfo;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * - PHYSICAL_TABLE: physical table
+   * - PHYSICAL_VIEW: physical view
+   * - LOGICAL_TABLE: fact logical table
+   * - LOGICAL_VIEW: fact logical view
+   * - REALTIME_LOGICAL_TABLE: real-time meta table
+   * - REALTIME_MIRROR_TABLE: real-time meta table
+   * - DATASOURCE: datasource.
+   * 
    * @example
    * PHYSICAL_TABLE
    */
@@ -245,16 +328,25 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataResourc
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultDataTargetAccount extends $dara.Model {
   /**
+   * @remarks
+   * The account ID.
+   * 
    * @example
    * 1212131
    */
   id?: string;
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * xx
    */
   name?: string;
   /**
+   * @remarks
+   * The authorized account type.
+   * 
    * @example
    * PERSONAL
    */
@@ -285,34 +377,70 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultDataTargetA
 }
 
 export class ListResourcePermissionOperationLogResponseBodyPageResultData extends $dara.Model {
+  /**
+   * @remarks
+   * The operator.
+   */
   account?: ListResourcePermissionOperationLogResponseBodyPageResultDataAccount;
   /**
+   * @remarks
+   * The authorization scope of the table. Valid values:
+   * - selectTable: specified table
+   * - projectAllTable: all tables in the project
+   * - bizUnitAllLogicTable: all logical tables in the business unit.
+   * 
    * @example
    * selectTable
    */
   authScope?: string;
   /**
+   * @remarks
+   * The operation ID.
+   * 
    * @example
    * 123133
    */
   operateId?: number;
   /**
+   * @remarks
+   * The operation time.
+   * 
    * @example
    * 1710012121000
    */
   operateTime?: number;
   /**
+   * @remarks
+   * The operation type. Valid values:
+   * - APPLY: Apply for permissions.
+   * - GRANT: Grant permissions.
+   * 
    * @example
    * APPLY
    */
   operateType?: string;
+  /**
+   * @remarks
+   * The validity period settings.
+   */
   period?: ListResourcePermissionOperationLogResponseBodyPageResultDataPeriod;
   /**
+   * @remarks
+   * The reason.
+   * 
    * @example
    * xx测试
    */
   reason?: string;
+  /**
+   * @remarks
+   * The permission resource.
+   */
   resourceInfo?: ListResourcePermissionOperationLogResponseBodyPageResultDataResourceInfo;
+  /**
+   * @remarks
+   * The authorized object.
+   */
   targetAccount?: ListResourcePermissionOperationLogResponseBodyPageResultDataTargetAccount;
   static names(): { [key: string]: string } {
     return {
@@ -364,8 +492,15 @@ export class ListResourcePermissionOperationLogResponseBodyPageResultData extend
 }
 
 export class ListResourcePermissionOperationLogResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The paginated records.
+   */
   data?: ListResourcePermissionOperationLogResponseBodyPageResultData[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 121
    */
@@ -398,27 +533,46 @@ export class ListResourcePermissionOperationLogResponseBodyPageResult extends $d
 
 export class ListResourcePermissionOperationLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The paging query result.
+   */
   pageResult?: ListResourcePermissionOperationLogResponseBodyPageResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

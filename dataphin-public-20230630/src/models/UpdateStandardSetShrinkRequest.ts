@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardSetShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateStandardSetShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Update command.
+   * 
    * This parameter is required.
    */
   updateCommandShrink?: string;

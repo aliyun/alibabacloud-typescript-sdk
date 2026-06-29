@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataServiceAppGroupRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataServiceAppGroupRequestUpdateCommand extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class UpdateDataServiceAppGroupRequestUpdateCommand extends $dara.Model {
 export class UpdateDataServiceAppGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class UpdateDataServiceAppGroupRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update command for the data service application group.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataServiceAppGroupRequestUpdateCommand;

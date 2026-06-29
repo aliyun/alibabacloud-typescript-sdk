@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSecurityLevelResponseBodySecurityLevelInfo extends $dara.Model {
   /**
+   * @remarks
+   * The abbreviated name of the data classification level.
+   * 
    * @example
    * test
    */
   abbreviation?: string;
   /**
+   * @remarks
+   * The description of the data classification level.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The sensitivity level of the data classification.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
+   * @remarks
+   * The name of the data classification level.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of data categorization IDs associated with the current data classification level.
+   */
   relatedClassifyIdList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -58,16 +74,25 @@ export class GetSecurityLevelResponseBodySecurityLevelInfo extends $dara.Model {
 
 export class GetSecurityLevelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend response exception.
+   * 
    * @example
    * internal error
    */
@@ -80,7 +105,15 @@ export class GetSecurityLevelResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data classification level details.
+   */
   securityLevelInfo?: GetSecurityLevelResponseBodySecurityLevelInfo;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

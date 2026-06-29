@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery extends $dara.Model {
   /**
    * @remarks
+   * The specified operator.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery exte
   operator?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery exte
   pageNum?: number;
   /**
    * @remarks
+   * The page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,11 +61,15 @@ export class ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery exte
 export class ListRowPermissionByUserIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   listRowPermissionByUserIdQuery?: ListRowPermissionByUserIdRequestListRowPermissionByUserIdQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

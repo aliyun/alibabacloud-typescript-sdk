@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class OfflinePipelineRequestContext extends $dara.Model {
   /**
    * @remarks
+   * The current operating environment. Valid values:
+   * - DEV: the development environment.
+   * - PROD: the production environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class OfflinePipelineRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The ID of the project to which the integration pipeline node belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,26 +50,40 @@ export class OfflinePipelineRequestContext extends $dara.Model {
 
 export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * comment
    */
   comment?: string;
   /**
    * @remarks
+   * Specifies whether to delete the node.
+   * 
    * This parameter is required.
    */
   delete?: boolean;
   /**
+   * @remarks
+   * The file ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
+   * 
    * @example
    * 123
    */
   fileId?: number;
   /**
+   * @remarks
+   * The scheduling node ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
+   * 
    * @example
    * n_123
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The primary key of the integration pipeline. You can specify any one of PipelineId, FileId, or NodeId.
+   * 
    * @example
    * 123
    */
@@ -100,16 +120,22 @@ export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
 export class OfflinePipelineRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   context?: OfflinePipelineRequestContext;
   /**
    * @remarks
+   * The offline command for the pipeline node.
+   * 
    * This parameter is required.
    */
   offlineCommand?: OfflinePipelineRequestOfflineCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

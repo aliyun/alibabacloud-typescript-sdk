@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourcePermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Check user resource permission
+   * 
    * This parameter is required.
    */
   checkCommandShrink?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

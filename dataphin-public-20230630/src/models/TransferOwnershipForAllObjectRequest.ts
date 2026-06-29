@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TransferOwnershipForAllObjectRequestPrivilegeTransferRecord extends $dara.Model {
   /**
    * @remarks
+   * The user ID of the new owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class TransferOwnershipForAllObjectRequestPrivilegeTransferRecord extends
   newOwner?: string;
   /**
    * @remarks
+   * The user ID of the original owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class TransferOwnershipForAllObjectRequestPrivilegeTransferRecord extends
    */
   oldOwner?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * comment
    */
@@ -52,12 +59,18 @@ export class TransferOwnershipForAllObjectRequestPrivilegeTransferRecord extends
 export class TransferOwnershipForAllObjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The transfer information.
+   */
   privilegeTransferRecord?: TransferOwnershipForAllObjectRequestPrivilegeTransferRecord;
   static names(): { [key: string]: string } {
     return {

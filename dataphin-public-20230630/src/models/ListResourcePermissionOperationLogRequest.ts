@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Mo
   page?: number;
   /**
    * @remarks
+   * The number of records per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,19 @@ export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Mo
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * xx测试
    */
   searchText?: string;
   /**
    * @remarks
+   * The tab name. Valid values:
+   * - TABLE: table
+   * - DATASOURCE: datasource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,11 +73,15 @@ export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Mo
 export class ListResourcePermissionOperationLogRequest extends $dara.Model {
   /**
    * @remarks
+   * The paged request parameters.
+   * 
    * This parameter is required.
    */
   listQuery?: ListResourcePermissionOperationLogRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

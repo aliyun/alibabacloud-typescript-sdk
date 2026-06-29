@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The command to create a data service application.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

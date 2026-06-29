@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataServiceAppMemberRequestUpdateCommandMemberList extends $dara.Model {
   /**
    * @remarks
+   * The authorization expiration time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataServiceAppMemberRequestUpdateCommandMemberList extends $d
   effectiveEnd?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class UpdateDataServiceAppMemberRequestUpdateCommandMemberList extends $d
 export class UpdateDataServiceAppMemberRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class UpdateDataServiceAppMemberRequestUpdateCommand extends $dara.Model 
   appId?: number;
   /**
    * @remarks
+   * The list of members.
+   * 
    * This parameter is required.
    */
   memberList?: UpdateDataServiceAppMemberRequestUpdateCommandMemberList[];
@@ -85,6 +93,8 @@ export class UpdateDataServiceAppMemberRequestUpdateCommand extends $dara.Model 
 export class UpdateDataServiceAppMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +103,8 @@ export class UpdateDataServiceAppMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to update regular members of a data service application.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataServiceAppMemberRequestUpdateCommand;

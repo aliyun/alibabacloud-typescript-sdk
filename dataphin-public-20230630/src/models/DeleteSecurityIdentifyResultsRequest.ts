@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSecurityIdentifyResultsRequestDeleteCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The list of identification result IDs.
+   */
   identifyResultIdList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -31,11 +35,15 @@ export class DeleteSecurityIdentifyResultsRequestDeleteCommand extends $dara.Mod
 export class DeleteSecurityIdentifyResultsRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteSecurityIdentifyResultsRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

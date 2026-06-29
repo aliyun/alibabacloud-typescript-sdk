@@ -4,38 +4,71 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListStandardsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Directory of the standard.
+   * 
    * @example
    * /dir1/dir2
    */
   directory?: string;
   /**
+   * @remarks
+   * Search keyword: fuzzy search by standard name, English name, or code. Case-insensitive, sorted by relevance.
+   * 
    * @example
    * Test
    */
   keyword?: string;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Standard set ID list.
+   */
   standardSetIdList?: number[];
   /**
    * @remarks
+   * Stage of the standard: DEV or PROD.
+   * 
    * This parameter is required.
    * 
    * @example
    * DEV
    */
   standardStage?: string;
+  /**
+   * @remarks
+   * Standard status list. Standard statuses under DEV stage: DRAFT, UNDER_REVISION, UNDER_REVIEW, REVIEW_PASSED, IN_PUBLISH. Standard statuses under PROD stage: NOT_ACTIVATED, ACTIVE, EXPIRED.
+   */
   standardStatusList?: string[];
+  /**
+   * @remarks
+   * Standard template ID list.
+   */
   standardTemplateIdList?: number[];
+  /**
+   * @remarks
+   * Standard type: Basic, EMPTY indicates the standard type is empty.
+   */
   standardTypeList?: string[];
   /**
+   * @remarks
+   * User ID: only queries standards visible to this user ID. If empty, queries standards visible to the current user.
+   * 
    * @example
    * 30012011
    */
@@ -94,11 +127,15 @@ export class ListStandardsRequestListQuery extends $dara.Model {
 export class ListStandardsRequest extends $dara.Model {
   /**
    * @remarks
+   * Search conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListStandardsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,19 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserGroupsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the user group is enabled.
+   * 
    * @example
    * true
    */
   active?: boolean;
+  /**
+   * @remarks
+   * The user IDs of the user group administrators.
+   */
   adminIdList?: string[];
   /**
+   * @remarks
+   * Specifies whether to filter user groups that the current user belongs to.
+   * 
    * @example
    * false
    */
   filterMine?: boolean;
+  /**
+   * @remarks
+   * The keyword for the user group name.
+   * 
+   * @example
+   * xx测试
+   */
   keyword?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +44,8 @@ export class ListUserGroupsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of records per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,11 +89,15 @@ export class ListUserGroupsRequestListQuery extends $dara.Model {
 export class ListUserGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The paged query parameters.
+   * 
    * This parameter is required.
    */
   listQuery?: ListUserGroupsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

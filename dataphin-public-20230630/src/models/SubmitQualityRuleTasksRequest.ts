@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $dara.Model {
   /**
    * @remarks
+   * Rule ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $
   ruleId?: number;
   /**
    * @remarks
+   * Monitoring object ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,32 +48,48 @@ export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $
 
 export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   /**
+   * @remarks
+   * Business date, format: yyyy-MM-dd
+   * 
    * @example
    * 2025-06-30
    */
   bizDate?: string;
   /**
    * @remarks
+   * Whether it is a test run: true for test run, false for formal run.
+   * 
    * This parameter is required.
    */
   isTestRun?: boolean;
   /**
+   * @remarks
+   * Partition expression - custom expression
+   * 
    * @example
    * ds=${yyyyMMdd}
    */
   partitionExpression?: string;
   /**
+   * @remarks
+   * Source of the test run partition expression: SCHEDULE for existing schedule, CUSTOM for custom.
+   * 
    * @example
    * CUSTOM
    */
   partitionExpressionFrom?: string;
   /**
+   * @remarks
+   * Existing schedule ID
+   * 
    * @example
    * 1
    */
   scheduleId?: number;
   /**
    * @remarks
+   * Monitoring object and rule IDs
+   * 
    * This parameter is required.
    */
   watchRuleIdList?: SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList[];
@@ -110,6 +130,8 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
 export class SubmitQualityRuleTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +140,8 @@ export class SubmitQualityRuleTasksRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Submit command
+   * 
    * This parameter is required.
    */
   submitCommand?: SubmitQualityRuleTasksRequestSubmitCommand;

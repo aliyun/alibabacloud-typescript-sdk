@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend error details.
+   * 
    * @example
    * internal error
    */
@@ -26,6 +35,10 @@ export class DeleteResourceResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

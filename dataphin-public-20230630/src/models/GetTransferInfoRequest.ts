@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransferInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTransferInfoRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The transfer record ID.
+   * 
    * This parameter is required.
    * 
    * @example

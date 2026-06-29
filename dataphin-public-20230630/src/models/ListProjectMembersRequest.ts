@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * The project environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListProjectMembersRequestListQuery extends $dara.Model {
    */
   env?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
@@ -49,6 +57,8 @@ export class ListProjectMembersRequestListQuery extends $dara.Model {
 export class ListProjectMembersRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +67,8 @@ export class ListProjectMembersRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The request object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +77,8 @@ export class ListProjectMembersRequest extends $dara.Model {
   listQuery?: ListProjectMembersRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

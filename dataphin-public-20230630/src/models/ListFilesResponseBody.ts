@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFilesResponseBodyFileList extends $dara.Model {
   /**
+   * @remarks
+   * File category
+   * 
    * @example
    * tempCode
    */
   category?: string;
   /**
+   * @remarks
+   * File content
+   * 
    * @example
    * select 1;
    */
   content?: string;
   /**
+   * @remarks
+   * Creator
+   * 
    * @example
    * 1212111
    */
   creator?: string;
   /**
+   * @remarks
+   * File directory
+   * 
    * @example
    * /xx/x
    */
   directory?: string;
   /**
+   * @remarks
+   * File type, such as directory
+   * 
    * @example
    * directory
    */
   fileType?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1717483193830
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 1717483193830
    */
   gmtModified?: number;
   /**
+   * @remarks
+   * File ID
+   * 
    * @example
    * 111231112
    */
   id?: number;
   /**
+   * @remarks
+   * Last modifier
+   * 
    * @example
    * 1212111
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * File name
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * Project ID
+   * 
    * @example
    * 312112121
    */
@@ -101,27 +134,46 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
 
 export class ListFilesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request error code. OK indicates a normal request.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * File list
+   */
   fileList?: ListFilesResponseBodyFileList[];
   /**
+   * @remarks
+   * Backend response HTTP code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful
+   * 
    * @example
    * true
    */

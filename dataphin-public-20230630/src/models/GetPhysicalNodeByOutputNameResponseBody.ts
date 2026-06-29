@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoCreator extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1311131
    */
   id?: string;
+  /**
+   * @remarks
+   * Username
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,20 @@ export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoCreator extends $dar
 
 export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoModifier extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1311131
    */
   id?: string;
+  /**
+   * @remarks
+   * Username
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +84,20 @@ export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoModifier extends $da
 
 export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoOwner extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1311131
    */
   id?: string;
+  /**
+   * @remarks
+   * Username
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94,10 +124,20 @@ export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoOwner extends $dara.
 
 export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoProjectInfo extends $dara.Model {
   /**
+   * @remarks
+   * Project ID
+   * 
    * @example
    * 1324211
    */
   id?: string;
+  /**
+   * @remarks
+   * Project name
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,52 +164,130 @@ export class GetPhysicalNodeByOutputNameResponseBodyNodeInfoProjectInfo extends 
 
 export class GetPhysicalNodeByOutputNameResponseBodyNodeInfo extends $dara.Model {
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1717343597000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Node creator
+   */
   creator?: GetPhysicalNodeByOutputNameResponseBodyNodeInfoCreator;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * xx测试
+   */
   description?: string;
   /**
+   * @remarks
+   * Node source
+   * - DATA_PROCESS: Code development
+   * - BLACK_BOX: Black box
+   * - ONE_ID: Extraction
+   * - PIPELINE: Pipeline
+   * 
    * @example
    * DATA_PROCESS
    */
   from?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * n_2321
    */
   id?: string;
   /**
+   * @remarks
+   * Last modified time
+   * 
    * @example
    * 1717343597000
    */
   lastModifiedTime?: number;
+  /**
+   * @remarks
+   * Node modifier
+   */
   modifier?: GetPhysicalNodeByOutputNameResponseBodyNodeInfoModifier;
+  /**
+   * @remarks
+   * Name
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Node subtype
+   * - MAX_COMPUTE_SQL
+   * - HIVE_SQL
+   * - SHELL
+   * - PYTHON
+   * - ONE_SERVICE_SQL
+   * - DATABASE_SQL, etc.
+   * 
    * @example
    * SHELL
    */
   operatorType?: string;
+  /**
+   * @remarks
+   * Node owner
+   */
   owner?: GetPhysicalNodeByOutputNameResponseBodyNodeInfoOwner;
   /**
+   * @remarks
+   * Priority
+   * - HIGHEST
+   * - HIGH
+   * - MIDDLE
+   * - LOW
+   * - LOWEST
+   * 
    * @example
    * MIDDLE
    */
   priority?: string;
+  /**
+   * @remarks
+   * Project to which the node belongs
+   */
   projectInfo?: GetPhysicalNodeByOutputNameResponseBodyNodeInfoProjectInfo;
   /**
+   * @remarks
+   * Scheduling period type
+   * - MINUTELY
+   * - HOURLY
+   * - DAILY
+   * - WEEKLY
+   * - MONTHLY
+   * - YEARLY
+   * 
    * @example
    * DAILY
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * Node scheduling status
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * Trigger configuration, used to implement field dependencies on logical tables
+   * 
    * @example
    * {"expression":"any_success"}
    */
@@ -237,27 +355,46 @@ export class GetPhysicalNodeByOutputNameResponseBodyNodeInfo extends $dara.Model
 
 export class GetPhysicalNodeByOutputNameResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates a successful request.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code returned by the backend
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * Node details
+   */
   nodeInfo?: GetPhysicalNodeByOutputNameResponseBodyNodeInfo;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful
+   * 
    * @example
    * true
    */

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The paged request parameters.
+   * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

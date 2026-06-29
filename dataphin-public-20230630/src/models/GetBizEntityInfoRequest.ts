@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizEntityInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The business entity ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetBizEntityInfoRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetBizEntityInfoRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The business entity type. For more information, refer to the create business entity operation.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReplaceProjectWhiteListsRequestReplaceCommandWhiteLists extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * 测试
    */
@@ -20,6 +23,8 @@ export class ReplaceProjectWhiteListsRequestReplaceCommandWhiteLists extends $da
   ip?: string;
   /**
    * @remarks
+   * The port.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +59,8 @@ export class ReplaceProjectWhiteListsRequestReplaceCommandWhiteLists extends $da
 export class ReplaceProjectWhiteListsRequestReplaceCommand extends $dara.Model {
   /**
    * @remarks
+   * The project whitelist.
+   * 
    * This parameter is required.
    */
   whiteLists?: ReplaceProjectWhiteListsRequestReplaceCommandWhiteLists[];
@@ -84,6 +91,8 @@ export class ReplaceProjectWhiteListsRequestReplaceCommand extends $dara.Model {
 export class ReplaceProjectWhiteListsRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92,6 +101,8 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -100,6 +111,8 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The edit command.
+   * 
    * This parameter is required.
    */
   replaceCommand?: ReplaceProjectWhiteListsRequestReplaceCommand;

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * The ID of the called API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
    */
   apiId?: number;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
    * @remarks
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,27 +32,41 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The column used for sorting. Valid values: CALL_COUNT: the number of calls. ERROR_COUNT: the number of errors. ERROR_RATE: the error rate. Default value: CALL_COUNT.
+   * 
    * @example
    * CALL_COUNT
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * The sort order. Valid values: 1: ascending order. 2: descending order. Default value: 1.
+   * 
    * @example
    * 1
    */
   orderType?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,11 +111,15 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
 export class ListDataServiceApiImpactsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceApiImpactsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +128,8 @@ export class ListDataServiceApiImpactsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the data service project.
+   * 
    * This parameter is required.
    * 
    * @example

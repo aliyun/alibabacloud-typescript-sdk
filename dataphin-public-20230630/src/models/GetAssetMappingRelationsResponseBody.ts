@@ -4,56 +4,91 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAssetMappingRelationsResponseBodyMappingRelationList extends $dara.Model {
   /**
+   * @remarks
+   * The Asset Type. Valid values:
+   * - COLUMN: field.
+   * - INDEX: metric.
+   * 
    * @example
    * COLUMN
    */
   assetType?: string;
   /**
+   * @remarks
+   * The GUID of the asset.
+   * 
    * @example
    * 1122
    */
   guid?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The name of the asset.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The code of the standard.
+   * 
    * @example
    * cc
    */
   standardCode?: string;
   /**
+   * @remarks
+   * The ID of the standard.
+   * 
    * @example
    * 1
    */
   standardId?: number;
   /**
+   * @remarks
+   * The name of the standard.
+   * 
    * @example
    * test
    */
   standardName?: string;
   /**
+   * @remarks
+   * The folder in which the standard set resides.
+   * 
    * @example
    * /dir1
    */
   standardSetDirectory?: string;
   /**
+   * @remarks
+   * The ID of the standard set.
+   * 
    * @example
    * 2
    */
   standardSetId?: number;
   /**
+   * @remarks
+   * The name of the standard set.
+   * 
    * @example
    * test
    */
   standardSetName?: string;
   /**
+   * @remarks
+   * The stage of the standard.
+   * 
    * @example
    * PROD
    */
@@ -101,17 +136,30 @@ export class GetAssetMappingRelationsResponseBodyMappingRelationList extends $da
 
 export class GetAssetMappingRelationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The list of mapping relationships.
+   */
   mappingRelationList?: GetAssetMappingRelationsResponseBodyMappingRelationList[];
   /**
+   * @remarks
+   * The error details from the backend response.
+   * 
    * @example
    * internal error
    */
@@ -124,6 +172,10 @@ export class GetAssetMappingRelationsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

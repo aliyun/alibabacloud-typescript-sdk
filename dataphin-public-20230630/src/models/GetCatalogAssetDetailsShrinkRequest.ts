@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetCatalogAssetDetailsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The paging query for the listing asset catalog list.
+   * 
    * This parameter is required.
    */
   getCatalogAssetDetailsQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

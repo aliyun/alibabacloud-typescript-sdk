@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * AppKey
+   * The application key.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
    * 
    * @example
    * 200000000
@@ -14,12 +15,17 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
    */
   appKey?: number;
   /**
+   * @remarks
+   * The application key.
+   * 
    * @example
-   * app12345
+   * APP_200000000
    */
   appKeyStr?: string;
   /**
    * @remarks
+   * The page number, starting from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,8 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
   page?: number;
   /**
    * @remarks
+   * The number of entries per page. Maximum value: 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,11 +72,18 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
 export class ListAuthorizedDataServiceApiDetailsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query request.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 30001011
    */
   listQuery?: ListAuthorizedDataServiceApiDetailsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

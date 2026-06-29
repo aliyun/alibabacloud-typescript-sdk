@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the data service project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example

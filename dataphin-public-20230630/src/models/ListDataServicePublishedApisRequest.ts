@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServicePublishedApisRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * API name.
+   * 
    * @example
    * test
    */
   apiName?: string;
   /**
+   * @remarks
+   * Group ID.
+   * 
    * @example
    * 102113
    */
   groupId?: number;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -51,9 +63,15 @@ export class ListDataServicePublishedApisRequestListQuery extends $dara.Model {
 }
 
 export class ListDataServicePublishedApisRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Search conditions.
+   */
   listQuery?: ListDataServicePublishedApisRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +80,8 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

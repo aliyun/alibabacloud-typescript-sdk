@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceAppGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateDataServiceAppGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

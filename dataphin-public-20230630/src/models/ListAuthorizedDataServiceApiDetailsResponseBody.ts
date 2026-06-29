@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedDevReturnParameters extends $dara.Model {
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * example1
    */
   exampleValue?: string;
   /**
+   * @remarks
+   * The field authorization status.
+   * 
    * @example
    * 1
    */
   isAuthorized?: number;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * 0
    */
   parameterDataType?: number;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * description1
    */
   parameterDescription?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * param1
    */
@@ -59,26 +74,41 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
 
 export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedProdReturnParameters extends $dara.Model {
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * example1
    */
   exampleValue?: string;
   /**
+   * @remarks
+   * The field authorization status.
+   * 
    * @example
    * 1
    */
   isAuthorized?: number;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * 0
    */
   parameterDataType?: number;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * description1
    */
   parameterDescription?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * param1
    */
@@ -122,38 +152,67 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
    */
   apiId?: number;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * GetData
    */
   apiName?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 12345
    */
   appId?: number;
   /**
+   * @remarks
+   * The permission type.
+   * 
    * @example
    * 使用权限
    */
   authType?: string;
+  /**
+   * @remarks
+   * The list of fields authorized for the API in the development environment.
+   */
   authorizedDevReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedDevReturnParameters[];
+  /**
+   * @remarks
+   * The list of fields authorized for the API in the production environment.
+   */
   authorizedProdReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedProdReturnParameters[];
   /**
+   * @remarks
+   * The API description.
+   * 
    * @example
    * Description1
    */
   description?: string;
   /**
+   * @remarks
+   * The validity period of the API permission in the development environment.
+   * 
    * @example
    * 2035-12-31
    */
   devAuthPeriod?: string;
   /**
+   * @remarks
+   * The validity period of the API permission in the production environment.
+   * 
    * @example
    * 2035-12-31
    */
   prodAuthPeriod?: string;
   /**
+   * @remarks
+   * The data service project ID.
+   * 
    * @example
    * 10000
    */
@@ -204,8 +263,15 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
 }
 
 export class ListAuthorizedDataServiceApiDetailsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of authorized API details.
+   */
   data?: ListAuthorizedDataServiceApiDetailsResponseBodyResultData[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -238,26 +304,46 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResult extends $dara
 
 export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 非法入参
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. It is a unique identifier for the request.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   result?: ListAuthorizedDataServiceApiDetailsResponseBodyResult;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

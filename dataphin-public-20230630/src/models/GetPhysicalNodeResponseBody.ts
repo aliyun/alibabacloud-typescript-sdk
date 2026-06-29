@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalNodeResponseBodyNodeInfoCreator extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 101312
    */
   id?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,20 @@ export class GetPhysicalNodeResponseBodyNodeInfoCreator extends $dara.Model {
 
 export class GetPhysicalNodeResponseBodyNodeInfoModifier extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 101312
    */
   id?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +84,20 @@ export class GetPhysicalNodeResponseBodyNodeInfoModifier extends $dara.Model {
 
 export class GetPhysicalNodeResponseBodyNodeInfoOwner extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 101312
    */
   id?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94,10 +124,20 @@ export class GetPhysicalNodeResponseBodyNodeInfoOwner extends $dara.Model {
 
 export class GetPhysicalNodeResponseBodyNodeInfoProjectInfo extends $dara.Model {
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 102132
    */
   id?: string;
+  /**
+   * @remarks
+   * The project name.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,68 +164,159 @@ export class GetPhysicalNodeResponseBodyNodeInfoProjectInfo extends $dara.Model 
 
 export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1717343597000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The node creator.
+   */
   creator?: GetPhysicalNodeResponseBodyNodeInfoCreator;
   /**
+   * @remarks
+   * The cron expression used to calculate the scheduling time.
+   * 
    * @example
    * 0 0 10 * * *
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 123456789
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * The data source schema. This parameter takes effect only for data source types that require a schema, such as Oracle. If set to "default", the value is null.
+   * 
    * @example
    * null
    */
   dataSourceSchema?: string;
+  /**
+   * @remarks
+   * The node description.
+   * 
+   * @example
+   * xx测试
+   */
   description?: string;
   /**
+   * @remarks
+   * The node source. Valid values:
+   * - DATA_PROCESS: code development.
+   * - BLACK_BOX: modeling development.
+   * - PIPELINE: pipeline.
+   * 
    * @example
    * DATA_PROCESS
    */
   from?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_232132
    */
   id?: string;
   /**
+   * @remarks
+   * The time of the last modification.
+   * 
    * @example
    * 1717343597000
    */
   lastModifiedTime?: number;
+  /**
+   * @remarks
+   * The user who last modified the node.
+   */
   modifier?: GetPhysicalNodeResponseBodyNodeInfoModifier;
+  /**
+   * @remarks
+   * The node name.
+   * 
+   * @example
+   * 节点名称
+   */
   name?: string;
   /**
+   * @remarks
+   * The node subtype. Valid values:
+   * - MAX_COMPUTE_SQL
+   * - HIVE_SQL
+   * - SHELL
+   * - PYTHON
+   * - ONE_SERVICE_SQL
+   * - DATABASE_SQL and others.
+   * 
    * @example
    * SHELL
    */
   operatorType?: string;
+  /**
+   * @remarks
+   * The list of output names.
+   */
   outputNameList?: string[];
+  /**
+   * @remarks
+   * The node owner.
+   */
   owner?: GetPhysicalNodeResponseBodyNodeInfoOwner;
   /**
+   * @remarks
+   * The scheduling priority. Valid values:
+   * 
+   * - HIGHEST
+   * - HIGH
+   * - MIDDLE
+   * - LOW
+   * - LOWEST.
+   * 
    * @example
    * MIDDLE
    */
   priority?: string;
+  /**
+   * @remarks
+   * The project to which the node belongs.
+   */
   projectInfo?: GetPhysicalNodeResponseBodyNodeInfoProjectInfo;
   /**
+   * @remarks
+   * The scheduling cycle type. Valid values:
+   * - MINUTELY
+   * - HOURLY
+   * - DAILY
+   * - WEEKLY
+   * - MONTHLY
+   * - QUARTERLY.
+   * 
    * @example
    * DAILY
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * The scheduling status.
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * The trigger configuration, which is used to implement field-level dependencies on logical tables.
+   * 
    * @example
    * {"expression":"any_success"}
    */
@@ -264,27 +395,46 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
 
 export class GetPhysicalNodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The node details.
+   */
   nodeInfo?: GetPhysicalNodeResponseBodyNodeInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

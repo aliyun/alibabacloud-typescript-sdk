@@ -3,28 +3,93 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListQualityRulesRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The rule type. Valid values:
+   * - CONSISTENT: consistency.
+   * - EFFECTIVE: validity.
+   * - TIMELINESE: timeliness.
+   * - ACCURATE: accuracy.
+   * - UNIQUENESS: uniqueness.
+   * - COMPLETENESS: completeness.
+   * - STABILITY: stability.
+   * - CUSTOM: custom.
+   */
   catalogList?: string[];
   /**
+   * @remarks
+   * The search keyword for filtering. Supports searching by rule name and validation object.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The rule strength. Valid values:
+   * - STRONG: strong.
+   * - WEAK: weak.
+   */
   ruleStrengthList?: string[];
+  /**
+   * @remarks
+   * The rule effective status. Valid values:
+   * - ENABLE: enabled.
+   * - DISABLE: disabled.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The rule template.
+   */
   templateIdList?: number[];
+  /**
+   * @remarks
+   * The task status. Valid values:
+   * - NOT_RUN: not executed.
+   * - WAITING: waiting.
+   * - RUNNING: executing.
+   * - SUCCESS: execution succeeded.
+   * - FAILED: execution failed.
+   * - CANCEL: canceled.
+   * - TIMEOUT: timed out.
+   * - OFFLINE: offline.
+   */
   testRunTaskStatusList?: string[];
+  /**
+   * @remarks
+   * The trial run validation result. Valid values:
+   * - NOT_RUN: not executed.
+   * - WAITING: waiting for execution.
+   * - RUNNING: executing.
+   * - PASS: passed.
+   * - NOT_PASS: not passed.
+   * - FAILED: execution failed.
+   * - OFFLINE: offline. The task needs to be restarted.
+   * - CANCEL: task canceled.
+   * - TIMEOUT: task timed out.
+   */
   testRunTaskValidateResultList?: string[];
   /**
+   * @remarks
+   * The monitoring ID.
+   * 
    * @example
    * 1
    */
@@ -87,9 +152,15 @@ export class ListQualityRulesRequestListQuery extends $dara.Model {
 }
 
 export class ListQualityRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged query conditions.
+   */
   listQuery?: ListQualityRulesRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

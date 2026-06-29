@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddTenantMembersBySourceUserShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add request.
+   */
   addCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

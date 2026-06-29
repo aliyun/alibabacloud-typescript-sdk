@@ -4,30 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProjectsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The keyword for fuzzy match.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The project mode.
+   * 
    * @example
    * BASIC
    */
   mode?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The project tags.
+   */
   tagList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -66,11 +85,15 @@ export class ListProjectsRequestListQuery extends $dara.Model {
 export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListProjectsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

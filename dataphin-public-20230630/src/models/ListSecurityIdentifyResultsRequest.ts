@@ -3,36 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Business unit names.
+   */
   bizUnitNameList?: string[];
   /**
+   * @remarks
+   * Data classification ID.
+   * 
    * @example
    * 1
    */
   classifyId?: number;
+  /**
+   * @remarks
+   * Data source names.
+   */
   datasourceNameList?: string[];
   /**
+   * @remarks
+   * Environment identifier of the data source, project, or business unit.
+   * 
    * @example
    * DEV
    */
   env?: string;
+  /**
+   * @remarks
+   * Whether it is locked.
+   */
   isLocked?: boolean;
   /**
+   * @remarks
+   * Keyword filter. Supports matching by table catalog, table name, table display name, and field name.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Project names.
+   */
   projectNameList?: string[];
   /**
+   * @remarks
+   * Effective status filter: ENABLE or DISABLE.
+   * 
    * @example
    * ENABLE
    */
@@ -86,9 +120,15 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
 }
 
 export class ListSecurityIdentifyResultsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query conditions.
+   */
   listQuery?: ListSecurityIdentifyResultsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

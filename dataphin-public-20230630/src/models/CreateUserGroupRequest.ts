@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserGroupRequestCreateCommand extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the user group.
+   * 
    * @example
    * true
    */
   active?: boolean;
+  /**
+   * @remarks
+   * The user IDs of the user group administrators.
+   */
   adminUserIdList?: string[];
   /**
+   * @remarks
+   * The description of the user group.
+   * 
    * @example
    * xx
    */
   description?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * xx用户组
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,9 +63,15 @@ export class CreateUserGroupRequestCreateCommand extends $dara.Model {
 }
 
 export class CreateUserGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The creation request.
+   */
   createCommand?: CreateUserGroupRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The request object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

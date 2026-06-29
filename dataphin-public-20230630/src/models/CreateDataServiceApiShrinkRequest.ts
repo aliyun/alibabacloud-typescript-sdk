@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceApiShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request for creating an API.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineBatchTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The remarks for the offline operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OfflineBatchTaskRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The node ID in the node directory tree.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OfflineBatchTaskRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class OfflineBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

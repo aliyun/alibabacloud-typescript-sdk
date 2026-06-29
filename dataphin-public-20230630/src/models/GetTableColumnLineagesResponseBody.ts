@@ -4,103 +4,171 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the business unit to which the input table belongs.
+   * 
    * @example
    * 1
    */
   inputBizUnitId?: number;
   /**
+   * @remarks
+   * The GUID of the input column. Format: TableGuid.ColumnName.
+   * 
    * @example
    * 1121.col1
    */
   inputColumnGuid?: string;
   /**
+   * @remarks
+   * The name of the input column.
+   * 
    * @example
    * col1
    */
   inputColumnName?: string;
   /**
+   * @remarks
+   * The ID of the data source to which the input table belongs.
+   * 
    * @example
    * 1
    */
   inputDataSourceId?: number;
   /**
+   * @remarks
+   * The type of the data source to which the input table belongs.
+   * 
    * @example
    * MAX_COMPUTE
    */
   inputDataSourceType?: string;
   /**
+   * @remarks
+   * The ID of the project to which the input table belongs.
+   * 
    * @example
    * 1233
    */
   inputProjectId?: number;
+  /**
+   * @remarks
+   * Indicates whether the input table has been deleted.
+   */
   inputTableDeleted?: boolean;
   /**
+   * @remarks
+   * The environment of the input table. Valid values: dev and prod.
+   * 
    * @example
    * dev
    */
   inputTableEnv?: string;
   /**
+   * @remarks
+   * The GUID of the input table. Each asset has a unique identifier.
+   * 
    * @example
    * 123211
    */
   inputTableGuid?: string;
   /**
+   * @remarks
+   * The name of the input table.
+   * 
    * @example
    * t_input
    */
   inputTableName?: string;
   /**
+   * @remarks
+   * The environment of the node. Valid values: dev and prod.
+   * 
    * @example
    * dev
    */
   nodeEnv?: string;
   /**
+   * @remarks
+   * The node ID associated with the lineage.
+   * 
    * @example
    * 110021
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The ID of the business unit to which the output table belongs.
+   * 
    * @example
    * 1
    */
   outputBizUnitId?: number;
   /**
+   * @remarks
+   * The GUID of the output column. Format: TableId.ColumnName.
+   * 
    * @example
    * 2231.col2
    */
   outputColumnGuid?: string;
   /**
+   * @remarks
+   * The name of the output column.
+   * 
    * @example
    * col2
    */
   outputColumnName?: string;
   /**
+   * @remarks
+   * The ID of the data source to which the output table belongs.
+   * 
    * @example
    * 1
    */
   outputDataSourceId?: number;
   /**
+   * @remarks
+   * The type of the data source to which the output table belongs.
+   * 
    * @example
    * MAX_COMPUTE
    */
   outputDataSourceType?: string;
   /**
+   * @remarks
+   * The ID of the project to which the output table belongs.
+   * 
    * @example
    * 1233
    */
   outputProjectId?: number;
+  /**
+   * @remarks
+   * Indicates whether the output table has been deleted.
+   */
   outputTableDeleted?: boolean;
   /**
+   * @remarks
+   * The environment of the output table. Valid values: dev and prod.
+   * 
    * @example
    * dev
    */
   outputTableEnv?: string;
   /**
+   * @remarks
+   * The GUID of the output table. Each asset has a unique identifier.
+   * 
    * @example
    * 2231
    */
   outputTableGuid?: string;
   /**
+   * @remarks
+   * The name of the output table.
+   * 
    * @example
    * t_output
    */
@@ -170,16 +238,25 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
 
 export class GetTableColumnLineagesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -192,7 +269,15 @@ export class GetTableColumnLineagesResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The list of table column lineage records.
+   */
   tableColumnLineageList?: GetTableColumnLineagesResponseBodyTableColumnLineageList[];
   static names(): { [key: string]: string } {
     return {

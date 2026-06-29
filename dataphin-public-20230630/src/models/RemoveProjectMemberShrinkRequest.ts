@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveProjectMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to remove a member.
+   * 
    * This parameter is required.
    */
   removeCommandShrink?: string;

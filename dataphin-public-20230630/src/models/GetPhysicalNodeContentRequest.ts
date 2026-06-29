@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalNodeContentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class GetPhysicalNodeContentRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

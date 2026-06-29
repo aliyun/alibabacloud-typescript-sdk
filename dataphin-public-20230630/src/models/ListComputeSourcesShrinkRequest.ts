@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeSourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

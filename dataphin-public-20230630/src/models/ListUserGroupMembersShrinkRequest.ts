@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The paged query parameters.
+   * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

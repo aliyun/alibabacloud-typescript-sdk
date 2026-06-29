@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTenantMemberRequestUpdateCommandMemberList extends $dara.Model {
   /**
+   * @remarks
+   * The DingTalk number.
+   * 
    * @example
    * 123@dingding
    */
   dingNumber?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 123@xx.com
    */
   mail?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 13888888888
    */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roleList?: string[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 2331
    */
@@ -59,6 +75,8 @@ export class UpdateTenantMemberRequestUpdateCommandMemberList extends $dara.Mode
 export class UpdateTenantMemberRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of members.
+   * 
    * This parameter is required.
    */
   memberList?: UpdateTenantMemberRequestUpdateCommandMemberList[];
@@ -89,6 +107,8 @@ export class UpdateTenantMemberRequestUpdateCommand extends $dara.Model {
 export class UpdateTenantMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -97,6 +117,8 @@ export class UpdateTenantMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The request object.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateTenantMemberRequestUpdateCommand;

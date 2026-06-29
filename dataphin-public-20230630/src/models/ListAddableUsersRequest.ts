@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAddableUsersRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * xx
    */
@@ -46,11 +55,15 @@ export class ListAddableUsersRequestListQuery extends $dara.Model {
 export class ListAddableUsersRequest extends $dara.Model {
   /**
    * @remarks
+   * The request object.
+   * 
    * This parameter is required.
    */
   listQuery?: ListAddableUsersRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

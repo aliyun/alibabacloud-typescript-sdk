@@ -5,16 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeSupplementShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Create backfill request
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
+   * @remarks
+   * Environment identifier.
+   * - DEV: development environment.
+   * - PROD (default): production environment.
+   * 
    * @example
-   * DEV/PROD
+   * PROD
    */
   env?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

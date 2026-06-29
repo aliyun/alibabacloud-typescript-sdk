@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateProjectMemberShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateProjectMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update command.
+   * 
    * This parameter is required.
    */
   updateCommandShrink?: string;

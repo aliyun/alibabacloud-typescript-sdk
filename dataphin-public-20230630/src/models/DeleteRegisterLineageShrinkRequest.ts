@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRegisterLineageShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The command for deleting registered lineage.
+   * 
    * This parameter is required.
    */
   deleteRegisterLineageCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

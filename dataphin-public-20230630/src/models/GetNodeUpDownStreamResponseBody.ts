@@ -3,18 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNodeUpDownStreamResponseBodyNodeDagInfoDownStreamNodeList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldIdList?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_123456
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * - DATA_PROCESS: code task.
+   * - BBOX_LOGIC_TABLE_NODE: logical table node.
+   * - PIPELINE_NODE: pipeline node.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -50,18 +66,34 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoDownStreamNodeList extend
 }
 
 export class GetNodeUpDownStreamResponseBodyNodeDagInfoStartNodeList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldIdList?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_123456
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * - DATA_PROCESS: code task.
+   * - BBOX_LOGIC_TABLE_NODE: logical table node.
+   * - PIPELINE_NODE: pipeline node.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -97,18 +129,34 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoStartNodeList extends $da
 }
 
 export class GetNodeUpDownStreamResponseBodyNodeDagInfoUpStreamNodeList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of field IDs.
+   */
   fieldIdList?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_123456
    */
   id?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * xx测试
    */
   name?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * - DATA_PROCESS: code task.
+   * - BBOX_LOGIC_TABLE_NODE: black box logical table node.
+   * - PIPELINE_NODE: pipeline node.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -144,8 +192,20 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoUpStreamNodeList extends 
 }
 
 export class GetNodeUpDownStreamResponseBodyNodeDagInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The downstream nodes.
+   */
   downStreamNodeList?: GetNodeUpDownStreamResponseBodyNodeDagInfoDownStreamNodeList[];
+  /**
+   * @remarks
+   * The center nodes.
+   */
   startNodeList?: GetNodeUpDownStreamResponseBodyNodeDagInfoStartNodeList[];
+  /**
+   * @remarks
+   * The upstream nodes.
+   */
   upStreamNodeList?: GetNodeUpDownStreamResponseBodyNodeDagInfoUpStreamNodeList[];
   static names(): { [key: string]: string } {
     return {
@@ -183,27 +243,46 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfo extends $dara.Model {
 
 export class GetNodeUpDownStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The dag data of the node.
+   */
   nodeDagInfo?: GetNodeUpDownStreamResponseBodyNodeDagInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

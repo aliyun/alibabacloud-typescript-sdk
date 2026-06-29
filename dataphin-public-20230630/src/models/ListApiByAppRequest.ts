@@ -5,30 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiByAppRequestPageQuery extends $dara.Model {
   /**
    * @remarks
-   * appKey
+   * The application key.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
    * 
    * @example
-   * 10121101
+   * 200000000
    * 
    * @deprecated
    */
   appKey?: number;
   /**
+   * @remarks
+   * The application key.
+   * 
    * @example
-   * app12345
+   * APP_200000000
    */
   appKeyStr?: string;
   /**
+   * @remarks
+   * The keyword.
+   * 
    * @example
    * apiName
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */
@@ -65,6 +78,8 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
 export class ListApiByAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +88,8 @@ export class ListApiByAppRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The paged query parameters.
+   * 
    * This parameter is required.
    */
   pageQuery?: ListApiByAppRequestPageQuery;

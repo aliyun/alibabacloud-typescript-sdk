@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSecurityLevelRequestDeleteCommand extends $dara.Model {
   /**
+   * @remarks
+   * The sensitivity level of the classification level. If this parameter is not specified, the classification level is deleted based on an exact match of the classification level name.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
+   * @remarks
+   * The classification level name.
+   * 
    * @example
    * test
    */
@@ -39,11 +45,15 @@ export class DeleteSecurityLevelRequestDeleteCommand extends $dara.Model {
 export class DeleteSecurityLevelRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteSecurityLevelRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

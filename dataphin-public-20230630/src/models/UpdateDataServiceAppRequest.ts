@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataServiceAppRequestUpdateCommand extends $dara.Model {
   /**
+   * @remarks
+   * Application group ID.
+   * 
    * @example
    * 200000000
    */
   appGroupId?: number;
   /**
    * @remarks
+   * Application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,22 @@ export class UpdateDataServiceAppRequestUpdateCommand extends $dara.Model {
    */
   appId?: number;
   /**
+   * @remarks
+   * Application name.
+   * 
    * @example
    * 默认应用
    */
   appName?: string;
+  /**
+   * @remarks
+   * List of owner IDs.
+   */
   ownerIds?: string[];
   /**
+   * @remarks
+   * Application scenarios.
+   * 
    * @example
    * 数据分析
    */
@@ -62,6 +77,8 @@ export class UpdateDataServiceAppRequestUpdateCommand extends $dara.Model {
 export class UpdateDataServiceAppRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +87,8 @@ export class UpdateDataServiceAppRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to update the data service application.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataServiceAppRequestUpdateCommand;

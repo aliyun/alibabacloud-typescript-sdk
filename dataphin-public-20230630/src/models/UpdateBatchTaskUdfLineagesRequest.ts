@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList extends $dara.Model {
   /**
    * @remarks
+   * The list of lineage fields.
+   * 
    * This parameter is required.
    */
   columnList?: string[];
   /**
    * @remarks
+   * The environment. Valid values: prod, dev, and auto.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,11 +22,15 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInput
   env?: string;
   /**
    * @remarks
+   * Specifies whether to select the full table.
+   * 
    * This parameter is required.
    */
   fullTable?: boolean;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,11 +70,15 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInput
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList extends $dara.Model {
   /**
    * @remarks
+   * The list of lineage fields.
+   * 
    * This parameter is required.
    */
   columnList?: string[];
   /**
    * @remarks
+   * The environment. Valid values: prod, dev, and auto.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,11 +87,15 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutpu
   env?: string;
   /**
    * @remarks
+   * Specifies whether to select the full table.
+   * 
    * This parameter is required.
    */
   fullTable?: boolean;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -119,11 +135,15 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutpu
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList extends $dara.Model {
   /**
    * @remarks
+   * The collection of lineage input tables.
+   * 
    * This parameter is required.
    */
   inputLineageList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList[];
   /**
    * @remarks
+   * The collection of lineage output tables.
+   * 
    * This parameter is required.
    */
   outputLineageList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList[];
@@ -159,6 +179,8 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList exte
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The node ID in the logical definition subtree.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -167,11 +189,15 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $dara.Model 
   fileId?: number;
   /**
    * @remarks
+   * The list of lineage groups.
+   * 
    * This parameter is required.
    */
   lineageGroupList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList[];
   /**
    * @remarks
+   * The project to which the node belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -209,6 +235,8 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $dara.Model 
 export class UpdateBatchTaskUdfLineagesRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -217,6 +245,8 @@ export class UpdateBatchTaskUdfLineagesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateBatchTaskUdfLineagesRequestUpdateCommand;

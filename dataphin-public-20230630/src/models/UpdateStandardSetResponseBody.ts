@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateStandardSetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP response code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend exception details.
+   * 
    * @example
    * internal error
    */
@@ -26,6 +35,10 @@ export class UpdateStandardSetResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

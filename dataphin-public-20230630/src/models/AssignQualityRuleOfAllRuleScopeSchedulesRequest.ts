@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extends $dara.Model {
   /**
    * @remarks
+   * The rule IDs.
+   * 
    * This parameter is required.
    */
   ruleIdList?: number[];
   /**
    * @remarks
+   * The schedule IDs.
+   * 
    * This parameter is required.
    */
   scheduleIdList?: number[];
   /**
    * @remarks
+   * The ID of the monitored object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,11 +61,15 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extend
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The assignment binding instruction.
+   * 
    * This parameter is required.
    */
   assignCommand?: AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

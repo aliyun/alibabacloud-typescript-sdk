@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GrantResourcePermissionRequestGrantCommandResourceList extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * hadoop.300000806.data_distill.behavior_gameinfor_01
    */
@@ -32,6 +35,8 @@ export class GrantResourcePermissionRequestGrantCommandResourceList extends $dar
 export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   /**
    * @remarks
+   * The expiration timestamp, in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,21 +45,30 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   effectiveEnd?: string;
   /**
    * @remarks
+   * The operation types.
+   * 
    * This parameter is required.
    */
   operateList?: string[];
   /**
+   * @remarks
+   * The reason for the authorization.
+   * 
    * @example
    * xx
    */
   reason?: string;
   /**
    * @remarks
+   * The list of resources.
+   * 
    * This parameter is required.
    */
   resourceList?: GrantResourcePermissionRequestGrantCommandResourceList[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +77,8 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The authorized users pending authorization.
+   * 
    * This parameter is required.
    */
   userIdList?: string[];
@@ -109,11 +125,15 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
 export class GrantResourcePermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * The grant request.
+   * 
    * This parameter is required.
    */
   grantCommand?: GrantResourcePermissionRequestGrantCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

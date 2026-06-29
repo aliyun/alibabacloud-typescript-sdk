@@ -5,18 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreateConfigItemList extends $dara.Model {
   /**
    * @remarks
+   * Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+   * 
    * This parameter is required.
    * 
    * @example
-   * k1
+   * jdbc.username
    */
   key?: string;
   /**
    * @remarks
+   * Configuration item value
+   * 
    * This parameter is required.
    * 
    * @example
-   * v1
+   * username
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -44,22 +48,32 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
 
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreate extends $dara.Model {
   /**
+   * @remarks
+   * Whether to check connectivity
+   * 
    * @example
    * true
    */
   checkActivity?: boolean;
   /**
    * @remarks
+   * List of connection configuration items
+   * 
    * This parameter is required.
    */
   configItemList?: CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreateConfigItemList[];
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * datasource for xxx in dev
    */
   description?: string;
   /**
    * @remarks
+   * Data source name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,6 +82,8 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
   name?: string;
   /**
    * @remarks
+   * Data source type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,10 +125,13 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreate extends $dara.Model {
   /**
    * @remarks
-   * 数据源创建结构体
+   * Development environment data source
    */
   dataSourceCreate?: CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreate;
   /**
+   * @remarks
+   * Associated production environment data source ID. This parameter cannot be empty when only creating a development environment compute source.
+   * 
    * @example
    * 1011
    */
@@ -146,18 +165,22 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreate extends $da
 export class CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemList extends $dara.Model {
   /**
    * @remarks
+   * Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+   * 
    * This parameter is required.
    * 
    * @example
-   * k1
+   * jdbc.username
    */
   key?: string;
   /**
    * @remarks
+   * Configuration item value
+   * 
    * This parameter is required.
    * 
    * @example
-   * v1
+   * username
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -185,22 +208,32 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemL
 
 export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $dara.Model {
   /**
+   * @remarks
+   * Whether to check connectivity
+   * 
    * @example
    * true
    */
   checkActivity?: boolean;
   /**
    * @remarks
+   * List of connection configuration items
+   * 
    * This parameter is required.
    */
   configItemList?: CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemList[];
   /**
+   * @remarks
+   * Data source description
+   * 
    * @example
    * datasource for xx
    */
   description?: string;
   /**
    * @remarks
+   * Data source name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -209,6 +242,31 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
   name?: string;
   /**
    * @remarks
+   * Data source type:
+   * - MAX_COMPUTE
+   * - HDFS
+   * - LOG_HUB
+   * - POLARDB
+   * - HBASE_0_9_4
+   * - HBASE_1_1_X
+   * - DRDS
+   * - HIVE
+   * - FTP
+   * - ELASTIC_SEARCH
+   * - MYSQL
+   * - MONGODB
+   * - OSS
+   * - HANA
+   * - SQL_SERVER
+   * - POSTGRE_SQL
+   * - ANALYTICDB
+   * - ADB_FOR_MYSQL_V3
+   * - ADB_FOR_PG
+   * - ORACLE
+   * - VERTICA
+   * - DB2
+   * - TERA_DATA, etc.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -248,10 +306,14 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
 }
 
 export class CreateDataSourceRequestCreateCommand extends $dara.Model {
+  /**
+   * @remarks
+   * Development environment data source
+   */
   devDataSourceCreate?: CreateDataSourceRequestCreateCommandDevDataSourceCreate;
   /**
    * @remarks
-   * 数据源创建结构体
+   * Production environment data source
    */
   prodDataSourceCreate?: CreateDataSourceRequestCreateCommandProdDataSourceCreate;
   static names(): { [key: string]: string } {
@@ -284,9 +346,15 @@ export class CreateDataSourceRequestCreateCommand extends $dara.Model {
 }
 
 export class CreateDataSourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Request object
+   */
   createCommand?: CreateDataSourceRequestCreateCommand;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,87 +4,142 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList extends $dara.Model {
   /**
+   * @remarks
+   * The business date.
+   * 
    * @example
    * 2025-06-30
    */
   bizDate?: string;
   /**
+   * @remarks
+   * The business date format.
+   * 
    * @example
    * yyyy-MM-dd
    */
   bizDateFormat?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 30012011
    */
   creator?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the rule task.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the user who last modified the task.
+   * 
    * @example
    * 30012011
    */
   modifier?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 11
    */
   ruleId?: number;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * running
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 11
    */
   templateId?: number;
   /**
+   * @remarks
+   * The name of the validated object.
+   * 
    * @example
    * test
    */
   validateObjectName?: string;
   /**
+   * @remarks
+   * The object type of the validated object.
+   * 
    * @example
    * column
    */
   validateObjectType?: string;
   /**
+   * @remarks
+   * The validation partition.
+   * 
    * @example
    * 20251011
    */
   validatePartition?: string;
+  /**
+   * @remarks
+   * Indicates whether the validation passed.
+   */
   validateSuccess?: boolean;
   /**
+   * @remarks
+   * The ID of the associated quality watchtask.
+   * 
    * @example
    * 1
    */
   watchId?: number;
   /**
+   * @remarks
+   * The ID of the quality watchtask. This ID is empty for trial-run rule tasks.
+   * 
    * @example
    * 1
    */
@@ -145,8 +200,15 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
 }
 
 export class ListQualityRuleTasksResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of quality rule tasks.
+   */
   qualityRuleTaskList?: ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 68
    */
@@ -179,20 +241,33 @@ export class ListQualityRuleTasksResponseBodyPageResult extends $dara.Model {
 
 export class ListQualityRuleTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error details.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The paged query result.
+   */
   pageResult?: ListQualityRuleTasksResponseBodyPageResult;
   /**
    * @remarks
@@ -202,6 +277,10 @@ export class ListQualityRuleTasksResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceAppsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Application group ID.
+   * 
    * @example
    * 12345
    */
   appGroupId?: number;
   /**
+   * @remarks
+   * Application name search keyword.
+   * 
    * @example
    * 营销看板
    */
   keyword?: string;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -53,11 +65,15 @@ export class ListDataServiceAppsRequestListQuery extends $dara.Model {
 export class ListDataServiceAppsRequest extends $dara.Model {
   /**
    * @remarks
+   * Query the list of all applications under the tenant.
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceAppsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

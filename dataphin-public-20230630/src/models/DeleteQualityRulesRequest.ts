@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityRulesRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The rule IDs.
+   * 
    * This parameter is required.
    */
   ruleIdList?: number[];
@@ -35,11 +37,15 @@ export class DeleteQualityRulesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualityRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteQualityRulesRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

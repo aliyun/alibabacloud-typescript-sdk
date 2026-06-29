@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQualityRuleSwitchRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the quality rules.
+   * 
    * This parameter is required.
    */
   open?: boolean;
   /**
    * @remarks
+   * The list of rule IDs.
+   * 
    * This parameter is required.
    */
   ruleIdList?: number[];
@@ -42,6 +46,8 @@ export class UpdateQualityRuleSwitchRequestUpdateCommand extends $dara.Model {
 export class UpdateQualityRuleSwitchRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +56,8 @@ export class UpdateQualityRuleSwitchRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateQualityRuleSwitchRequestUpdateCommand;

@@ -3,17 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertNotificationsRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert reasons.
+   */
   alertReasonList?: string[];
+  /**
+   * @remarks
+   * The list of push channel types.
+   */
   channelTypeList?: string[];
+  /**
+   * @remarks
+   * The list of custom message channel IDs.
+   */
   customChannelIdList?: string[];
   /**
+   * @remarks
+   * The keyword for the query.
+   * 
    * @example
    * test
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The list of monitored item IDs.
+   */
   monitoredItemIdList?: string[];
   /**
    * @remarks
+   * The end time of the push.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +43,8 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   notifyEndTime?: string;
   /**
    * @remarks
+   * The start time of the push.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +53,8 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   notifyStartTime?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +63,8 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
+   * The number of records per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,13 +73,34 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The source system. Valid values:
+   * 
+   * - ALL: all.
+   * - DQE: data quality.
+   * - OS: data service.
+   * - STREAM: real-time computing.
+   * - VDM_BATCH: offline computing.
+   * - SOP: O&M platform.
+   * - REAL_TIME_PIPELINE: real-time integration.
+   * - KGB: baseline monitoring.
+   * 
+   * And more.
+   * 
    * This parameter is required.
    * 
    * @example
    * ALL
    */
   sourceSystem?: string;
+  /**
+   * @remarks
+   * The list of push statuses.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The list of push recipient IDs.
+   */
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -116,9 +164,15 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
 }
 
 export class ListAlertNotificationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The query conditions.
+   */
   listQuery?: ListAlertNotificationsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

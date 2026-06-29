@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListBizEntitiesRequestListQueryFilterCriteria extends $dara.Model {
+  /**
+   * @remarks
+   * The list of business unit IDs.
+   */
   bizUnitIdList?: number[];
+  /**
+   * @remarks
+   * The list of business unit IDs.
+   */
   bizUnitNameList?: string[];
+  /**
+   * @remarks
+   * The list of data domain IDs.
+   */
   dataDomainIdList?: number[];
+  /**
+   * @remarks
+   * The list of data domain IDs.
+   */
   dataDomainNameList?: string[];
+  /**
+   * @remarks
+   * Specifies whether the business entity is associated with a logical table.
+   */
   hasTableRef?: boolean;
+  /**
+   * @remarks
+   * The list of owner user IDs.
+   */
   ownerUserIdList?: string[];
+  /**
+   * @remarks
+   * The list of business entity statuses. For more information, refer to the API operation for querying business entity details.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The list of business entity subtypes. For more information, refer to the API operation for querying business entity details.
+   */
   subTypeList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -68,18 +100,31 @@ export class ListBizEntitiesRequestListQueryFilterCriteria extends $dara.Model {
 }
 
 export class ListBizEntitiesRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The filter criteria for the query.
+   */
   filterCriteria?: ListBizEntitiesRequestListQueryFilterCriteria;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * object_
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -117,11 +162,15 @@ export class ListBizEntitiesRequestListQuery extends $dara.Model {
 export class ListBizEntitiesRequest extends $dara.Model {
   /**
    * @remarks
+   * The query request.
+   * 
    * This parameter is required.
    */
   listQuery?: ListBizEntitiesRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

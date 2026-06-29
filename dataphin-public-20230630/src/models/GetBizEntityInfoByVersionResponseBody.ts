@@ -4,93 +4,155 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends $dara.Model {
   /**
+   * @remarks
+   * The approval flow ID.
+   * 
    * @example
    * 221323121212
    */
   approvalId?: string;
   /**
+   * @remarks
+   * The approval status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * APPROVING
    */
   approvalStatus?: string;
+  /**
+   * @remarks
+   * The list of child business objects of the business object.
+   */
   childBizEntityIdList?: number[];
   /**
+   * @remarks
+   * The description of the business object.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the business object.
+   * 
    * @example
    * create_object_name
    */
   displayName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The business object ID.
+   * 
    * @example
    * 1011
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the user who last modified the business object.
+   * 
    * @example
    * 30010010
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The name of the user who last modified the business object.
+   * 
    * @example
    * 张三
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * The code name of the business object.
+   * 
    * @example
    * create_object_code_name
    */
   name?: string;
   /**
+   * @remarks
+   * The online status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * 1
    */
   onlineStatus?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 30010010
    */
   ownerUserId?: string;
   /**
+   * @remarks
+   * The parent entity that the business object inherits from. Only common business objects support inheritance, and the parent entity must be online.
+   * 
    * @example
    * 116306
    */
   parentId?: number;
+  /**
+   * @remarks
+   * The list of associated online business entity IDs.
+   */
   refBizEntityIdList?: number[];
   /**
+   * @remarks
+   * The number of associated logical dimension tables.
+   * 
    * @example
    * 1
    */
   refDimTableCount?: number;
   /**
+   * @remarks
+   * The number of associated aggregate tables.
+   * 
    * @example
    * 1
    */
   refSummaryTableCount?: number;
   /**
+   * @remarks
+   * The status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * 100
    */
   status?: string;
   /**
+   * @remarks
+   * The object type of the business object. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * NORMAL
    */
@@ -162,85 +224,149 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
 
 export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extends $dara.Model {
   /**
+   * @remarks
+   * The approval flow ID.
+   * 
    * @example
    * 221323121212
    */
   approvalId?: string;
   /**
+   * @remarks
+   * The approval status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * APPROVING
    */
   approvalStatus?: string;
+  /**
+   * @remarks
+   * The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the type is a business flow activity.
+   */
   bizEventEntityIdList?: number[];
   /**
+   * @remarks
+   * The description of the business process.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the business process.
+   * 
    * @example
    * 业务活动测试
    */
   displayName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * Indicates whether the business process is depended on by other entities.
+   */
   hasDependent?: boolean;
   /**
+   * @remarks
+   * The business process ID.
+   * 
    * @example
    * 1011
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the user who last modified the business object.
+   * 
    * @example
    * 30010010
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The name of the user who last modified the business object.
+   * 
    * @example
    * 张三
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * The name of the business process.
+   * 
    * @example
    * create_process_code_name
    */
   name?: string;
   /**
+   * @remarks
+   * The online status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * 1
    */
   onlineStatus?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 30010010
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The preceding business flow activities of the business flow activity.
+   */
   preBizProcessIdList?: number[];
+  /**
+   * @remarks
+   * The list of associated online business entity IDs.
+   */
   refBizEntityIdList?: number[];
   /**
+   * @remarks
+   * The number of associated fact tables.
+   * 
    * @example
    * 1
    */
   refFactTableCount?: number;
   /**
+   * @remarks
+   * The status. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * 100
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the business process. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * BIZ_EVENT
    */
@@ -314,19 +440,36 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
 }
 
 export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The business object.
+   */
   bizObject?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject;
+  /**
+   * @remarks
+   * The business process.
+   */
   bizProcess?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess;
   /**
+   * @remarks
+   * The business unit ID of the business object.
+   * 
    * @example
    * 6798087749072704
    */
   bizUnitId?: number;
   /**
+   * @remarks
+   * The ID of the subject domain to which the entity belongs.
+   * 
    * @example
    * 20101011
    */
   dataDomainId?: number;
   /**
+   * @remarks
+   * The type of the business entity. For more information, refer to the query business entity details operation.
+   * 
    * @example
    * BIZ_OBJECT
    */
@@ -367,27 +510,47 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $dara.Mo
 }
 
 export class GetBizEntityInfoByVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The creation result.
+   */
   bizEntityInfo?: GetBizEntityInfoByVersionResponseBodyBizEntityInfo;
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

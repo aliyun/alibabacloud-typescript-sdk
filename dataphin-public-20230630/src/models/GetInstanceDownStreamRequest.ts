@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceDownStreamRequestInstanceGet extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,15 @@ export class GetInstanceDownStreamRequestInstanceGet extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Node type of the instance.
+   * - BBOX_LOGIC_TABLE_NODE
+   * - BBOX_LOGIC_FIELD_NODE
+   * - BBOX_LOGIC_FIELD_GROUP_NODE
+   * - BBOX_INNER_TEMP_NODE
+   * - DATA_PROCESS
+   * - STREAM_TASK_NODE
+   * - FLINK_BATCH
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +56,8 @@ export class GetInstanceDownStreamRequestInstanceGet extends $dara.Model {
 export class GetInstanceDownStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * Number of levels to expand downstream in the DAG query. Valid values: 1 to 6.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,17 +65,26 @@ export class GetInstanceDownStreamRequest extends $dara.Model {
    */
   downStreamDepth?: number;
   /**
+   * @remarks
+   * Environment identifier.
+   * - DEV: Development environment.
+   * - PROD (default): Production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The request body.
+   * 
    * This parameter is required.
    */
   instanceGet?: GetInstanceDownStreamRequestInstanceGet;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +92,14 @@ export class GetInstanceDownStreamRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * Run status of the instance.
+   * - INIT
+   * - WATING
+   * - RUNNING
+   * - SUCCESS
+   * - FAILED
+   * 
    * @example
    * SUCCESS
    */

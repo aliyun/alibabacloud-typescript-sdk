@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The application group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,19 @@ export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
    */
   appGroupId?: number;
   /**
+   * @remarks
+   * The application key, which must be globally unique and is used when calling APIs.
+   * The key must be 8 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+   * This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
+   * 
    * @example
    * 200000001
    */
   appKey?: string;
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,17 +34,27 @@ export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
    */
   appName?: string;
   /**
+   * @remarks
+   * The app secret.
+   * If this parameter is not specified, the system automatically generates a new AppSecret value.
+   * The secret must be 8 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+   * This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
+   * 
    * @example
    * abc123456789
    */
   appSecret?: string;
   /**
    * @remarks
+   * The list of owner IDs.
+   * 
    * This parameter is required.
    */
   ownerIds?: string[];
   /**
    * @remarks
+   * Common scenarios.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79,11 +98,15 @@ export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
 export class CreateDataServiceAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The command to create a data service application.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateDataServiceAppRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

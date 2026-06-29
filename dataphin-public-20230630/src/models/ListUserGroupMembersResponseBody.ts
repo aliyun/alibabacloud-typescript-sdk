@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends $dara.Model {
   /**
+   * @remarks
+   * The account name of the user.
+   * 
    * @example
    * 12121111
    */
   accountName?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * zhangsan
    */
   displayName?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 12121111
    */
@@ -45,12 +54,25 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends
 
 export class ListUserGroupMembersResponseBodyPageResultMemberListUserInfo extends $dara.Model {
   /**
+   * @remarks
+   * The account name of the user.
+   * 
    * @example
    * atest
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 13232
    */
@@ -81,24 +103,44 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListUserInfo extend
 }
 
 export class ListUserGroupMembersResponseBodyPageResultMemberList extends $dara.Model {
+  /**
+   * @remarks
+   * The user who added the member.
+   */
   creator?: ListUserGroupMembersResponseBodyPageResultMemberListCreator;
   /**
+   * @remarks
+   * The time when the member was added to the user group.
+   * 
    * @example
    * zhangsan
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The user group member ID.
+   * 
    * @example
    * 2324211
    */
   id?: string;
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * 231111
    */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The user group member.
+   */
   userInfo?: ListUserGroupMembersResponseBodyPageResultMemberListUserInfo;
   /**
+   * @remarks
+   * The role of the member in the user group.
+   * 
    * @example
    * SECURITY_ADMIN
    */
@@ -141,8 +183,15 @@ export class ListUserGroupMembersResponseBodyPageResultMemberList extends $dara.
 }
 
 export class ListUserGroupMembersResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The paged list.
+   */
   memberList?: ListUserGroupMembersResponseBodyPageResultMemberList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 217
    */
@@ -175,27 +224,46 @@ export class ListUserGroupMembersResponseBodyPageResult extends $dara.Model {
 
 export class ListUserGroupMembersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The paged query result.
+   */
   pageResult?: ListUserGroupMembersResponseBodyPageResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

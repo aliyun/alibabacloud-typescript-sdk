@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectMemberRequestUpdateCommandUserList extends $dara.Model {
   /**
    * @remarks
+   * The member role. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
+   * 
    * This parameter is required.
    */
   roleList?: number[];
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class UpdateProjectMemberRequestUpdateCommandUserList extends $dara.Model
 export class UpdateProjectMemberRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The environment identifier.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class UpdateProjectMemberRequestUpdateCommand extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The list of user members.
+   * 
    * This parameter is required.
    */
   userList?: UpdateProjectMemberRequestUpdateCommandUserList[];
@@ -85,6 +93,8 @@ export class UpdateProjectMemberRequestUpdateCommand extends $dara.Model {
 export class UpdateProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +103,8 @@ export class UpdateProjectMemberRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -101,6 +113,8 @@ export class UpdateProjectMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateProjectMemberRequestUpdateCommand;

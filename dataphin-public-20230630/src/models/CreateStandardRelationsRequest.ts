@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardRelationsRequestCreateCommandStandardRefList extends $dara.Model {
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class CreateStandardRelationsRequestCreateCommandStandardRefList extends 
 export class CreateStandardRelationsRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The standard association type: RELATIVE.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class CreateStandardRelationsRequestCreateCommand extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +57,8 @@ export class CreateStandardRelationsRequestCreateCommand extends $dara.Model {
   standardId?: number;
   /**
    * @remarks
+   * The list of referenced standards.
+   * 
    * This parameter is required.
    */
   standardRefList?: CreateStandardRelationsRequestCreateCommandStandardRefList[];
@@ -85,11 +93,15 @@ export class CreateStandardRelationsRequestCreateCommand extends $dara.Model {
 export class CreateStandardRelationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateStandardRelationsRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

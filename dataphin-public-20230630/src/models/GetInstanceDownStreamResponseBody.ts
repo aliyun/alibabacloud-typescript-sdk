@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceList extends $dara.Model {
   /**
+   * @remarks
+   * Field instance ID.
+   * 
    * @example
    * t_23211
    */
   fieldInstanceId?: string;
   /**
+   * @remarks
+   * Run status.
+   * 
    * @example
    * SUCCESS
    */
   runStatus?: string;
   /**
+   * @remarks
+   * Selection status of the instance.
+   * 
    * @example
    * OPTIONAL
    */
@@ -45,12 +54,25 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceL
 
 export class GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * t_232411
    */
   id?: string;
+  /**
+   * @remarks
+   * Instance name.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Node type.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -82,28 +104,67 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo e
 
 export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara.Model {
   /**
+   * @remarks
+   * Depth level.
+   * 
    * @example
    * 1
    */
   downStreamDepth?: number;
   /**
+   * @remarks
+   * Extended information of the node instance.
+   * 
    * @example
    * {"a":"x"}
    */
   extendInfo?: string;
+  /**
+   * @remarks
+   * Field instance list.
+   */
   fieldInstanceList?: GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceList[];
+  /**
+   * @remarks
+   * Instance information.
+   */
   instanceInfo?: GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo;
   /**
+   * @remarks
+   * Run status of the instance.
+   * 
    * @example
    * RUNNING
    */
   runStatus?: string;
   /**
+   * @remarks
+   * Selection status of the instance, primarily used for logical fields.
+   * - OPTIONAL: Optional.
+   * - SELECTED: Required.
+   * - DISABLE: Not selectable.
+   * - GROUP_SELECTED: Select all or deselect all.
+   * 
    * @example
    * OPTIONAL
    */
   selectStatus?: string;
   /**
+   * @remarks
+   * Reason why the instance is selected.
+   * - PK_CHANGE
+   * - LOGIC_CHANGE
+   * - RELATION
+   * - BIZ_RELATIO
+   * - MV_RELATION
+   * - MODEL_REFRESH
+   * - FIELD_DELETED
+   * - FIELD_ADDED_NO_INSTANCE
+   * - PERMISSION_DENY
+   * - OUTSIDE_INCOMING
+   * - INSTANCE_STATUS
+   * - AFFECT_BY_UPSTREAM
+   * 
    * @example
    * FIELD_DELETED
    */
@@ -149,27 +210,46 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
 
 export class GetInstanceDownStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates a successful request.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Downstream instances and dependency relationships.
+   */
   instanceRelationList?: GetInstanceDownStreamResponseBodyInstanceRelationList[];
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

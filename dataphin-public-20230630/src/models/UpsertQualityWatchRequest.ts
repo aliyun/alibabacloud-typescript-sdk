@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpsertQualityWatchRequestUpsertCommandDataSourceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 1
    */
@@ -31,61 +34,102 @@ export class UpsertQualityWatchRequestUpsertCommandDataSourceInfo extends $dara.
 
 export class UpsertQualityWatchRequestUpsertCommandIndexInfo extends $dara.Model {
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 1121
    */
   bizUnitId?: number;
   /**
+   * @remarks
+   * The cell aggregate table name.
+   * 
    * @example
    * dws_all
    */
   cellSumLogicTableName?: string;
   /**
+   * @remarks
+   * The metric computation type. Valid values:
+   * - AUTO
+   * - CUSTOM
+   * - MOUNT
+   * - COMBINE.
+   * 
    * @example
    * AUTO
    */
   computeType?: string;
   /**
+   * @remarks
+   * The metric data type.
+   * 
    * @example
    * bigint
    */
   dateType?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The metric display name.
+   * 
    * @example
    * logic
    */
   displayName?: string;
   /**
+   * @remarks
+   * The statistical granularity name.
+   * 
    * @example
    * 全站汇总表
    */
   granularityDisplayName?: string;
   /**
+   * @remarks
+   * The statistical granularity ID.
+   * 
    * @example
    * 18755764
    */
   granularityId?: number;
   /**
+   * @remarks
+   * The metric ID.
+   * 
    * @example
    * 11
    */
   id?: string;
   /**
+   * @remarks
+   * The metric name.
+   * 
    * @example
    * test_idx_
    */
   name?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 1121
    */
   projectId?: number;
   /**
+   * @remarks
+   * The metric type. Valid values:
+   * - INDEX.
+   * 
    * @example
    * INDEX
    */
@@ -135,6 +179,9 @@ export class UpsertQualityWatchRequestUpsertCommandIndexInfo extends $dara.Model
 
 export class UpsertQualityWatchRequestUpsertCommandTableInfo extends $dara.Model {
   /**
+   * @remarks
+   * The table ID.
+   * 
    * @example
    * test
    */
@@ -161,24 +208,48 @@ export class UpsertQualityWatchRequestUpsertCommandTableInfo extends $dara.Model
 }
 
 export class UpsertQualityWatchRequestUpsertCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The data source details.
+   */
   dataSourceInfo?: UpsertQualityWatchRequestUpsertCommandDataSourceInfo;
   /**
+   * @remarks
+   * The monitored object ID. If this parameter is specified, the object is updated. If this parameter is not specified, a new object is created.
+   * 
    * @example
    * 1
    */
   id?: number;
+  /**
+   * @remarks
+   * The monitoring metrics object.
+   */
   indexInfo?: UpsertQualityWatchRequestUpsertCommandIndexInfo;
   /**
    * @remarks
+   * The quality owner.
+   * 
    * This parameter is required.
    * 
    * @example
    * 30001011
    */
   qualityOwner?: string;
+  /**
+   * @remarks
+   * The monitored table object.
+   */
   tableInfo?: UpsertQualityWatchRequestUpsertCommandTableInfo;
   /**
    * @remarks
+   * The monitored object type. Valid values:
+   * - TABLE: Dataphin table.
+   * - DATASOURCE_TABLE: global table.
+   * - DATASOURCE: data source.
+   * - INDEX: metric.
+   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -228,6 +299,8 @@ export class UpsertQualityWatchRequestUpsertCommand extends $dara.Model {
 export class UpsertQualityWatchRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -236,6 +309,8 @@ export class UpsertQualityWatchRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   upsertCommand?: UpsertQualityWatchRequestUpsertCommand;

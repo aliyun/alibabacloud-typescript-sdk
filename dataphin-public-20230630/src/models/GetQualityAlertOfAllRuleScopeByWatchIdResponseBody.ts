@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertDutyList extends $dara.Model {
   /**
+   * @remarks
+   * The alert duty roster ID.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The alert duty roster name.
+   * 
    * @example
    * test
    */
@@ -38,11 +44,17 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoA
 
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertUserList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 30012011
    */
   id?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * test
    */
@@ -71,13 +83,40 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoA
 }
 
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The duty roster alert channels.
+   */
   alertDutyChannelList?: string[];
+  /**
+   * @remarks
+   * The duty roster alert list.
+   */
   alertDutyList?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertDutyList[];
+  /**
+   * @remarks
+   * The quality owner alert channels.
+   */
   alertQualityOwnerChannelList?: string[];
+  /**
+   * @remarks
+   * The user alert channels.
+   */
   alertUserChannelList?: string[];
+  /**
+   * @remarks
+   * The user alert list.
+   */
   alertUserList?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertUserList[];
+  /**
+   * @remarks
+   * Indicates whether alerting is enabled for the quality owner.
+   */
   enableAlertQualityOwner?: boolean;
   /**
+   * @remarks
+   * The monitored object ID.
+   * 
    * @example
    * 1
    */
@@ -132,20 +171,33 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo 
 
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The alert settings details.
+   */
   qualityAlertInfo?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo;
   /**
    * @remarks
@@ -155,6 +207,10 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBody extends $dara.Mo
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

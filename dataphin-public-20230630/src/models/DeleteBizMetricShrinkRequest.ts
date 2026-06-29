@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBizMetricShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete request.
+   * 
    * This parameter is required.
    */
   deleteBizMetricCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

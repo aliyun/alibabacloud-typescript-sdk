@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends $dara.Model {
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * 123@xx.com
    */
   accountName?: string;
   /**
+   * @remarks
+   * The DingTalk number.
+   * 
    * @example
    * 123@dingding
    */
   dingNumber?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * xx测试
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 123@xx.com
    */
   mail?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 13888888888
    */
   mobilePhone?: string;
   /**
+   * @remarks
+   * The original ID of the user.
+   * 
    * @example
    * 2323131
    */
@@ -61,6 +83,10 @@ export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends
 }
 
 export class AddTenantMembersBySourceUserRequestAddCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The list of source users.
+   */
   sourceUserList?: AddTenantMembersBySourceUserRequestAddCommandSourceUserList[];
   static names(): { [key: string]: string } {
     return {
@@ -87,9 +113,15 @@ export class AddTenantMembersBySourceUserRequestAddCommand extends $dara.Model {
 }
 
 export class AddTenantMembersBySourceUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The add request.
+   */
   addCommand?: AddTenantMembersBySourceUserRequestAddCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

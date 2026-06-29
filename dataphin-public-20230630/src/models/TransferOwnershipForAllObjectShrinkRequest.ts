@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class TransferOwnershipForAllObjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The transfer information.
+   */
   privilegeTransferRecordShrink?: string;
   static names(): { [key: string]: string } {
     return {

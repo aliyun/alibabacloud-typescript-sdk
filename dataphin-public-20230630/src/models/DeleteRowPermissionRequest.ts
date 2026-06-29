@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRowPermissionRequestDeleteRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
+   * The row-level permission ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,11 +37,15 @@ export class DeleteRowPermissionRequestDeleteRowPermissionCommand extends $dara.
 export class DeleteRowPermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   deleteRowPermissionCommand?: DeleteRowPermissionRequestDeleteRowPermissionCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

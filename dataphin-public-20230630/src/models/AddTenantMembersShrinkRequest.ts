@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddTenantMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   addCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

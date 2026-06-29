@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The assignment binding instruction.
+   * 
    * This parameter is required.
    */
   assignCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAdHocTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The execution command.
+   * 
    * This parameter is required.
    */
   executeCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

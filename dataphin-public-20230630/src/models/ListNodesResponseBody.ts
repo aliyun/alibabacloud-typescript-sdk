@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodesResponseBodyPageResultNodeListCreator extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 23222
    */
   id?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,20 @@ export class ListNodesResponseBodyPageResultNodeListCreator extends $dara.Model 
 
 export class ListNodesResponseBodyPageResultNodeListModifier extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 311131
    */
   id?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +84,20 @@ export class ListNodesResponseBodyPageResultNodeListModifier extends $dara.Model
 
 export class ListNodesResponseBodyPageResultNodeListOwnerList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 23222
    */
   id?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94,10 +124,20 @@ export class ListNodesResponseBodyPageResultNodeListOwnerList extends $dara.Mode
 
 export class ListNodesResponseBodyPageResultNodeListProjectInfo extends $dara.Model {
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 1121321
    */
   id?: string;
+  /**
+   * @remarks
+   * The project name.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,70 +163,150 @@ export class ListNodesResponseBodyPageResultNodeListProjectInfo extends $dara.Mo
 }
 
 export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the business unit to which the node belongs.
+   * 
+   * @example
+   * xx测试
+   */
   bizUnitName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-05-30 16:47:13
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The creator.
+   */
   creator?: ListNodesResponseBodyPageResultNodeListCreator;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * xx test
    */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
    * @example
    * true
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The extended information.
+   * 
    * @example
    * {"xx":"zz"}
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * DATA_PROCESS
    */
   from?: string;
   /**
+   * @remarks
+   * Indicates whether a development environment exists.
+   * 
    * @example
    * true
    */
   hasDev?: boolean;
   /**
+   * @remarks
+   * Indicates whether a production environment exists.
+   * 
    * @example
    * true
    */
   hasProd?: boolean;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_31111
    */
   id?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2024-05-30 16:47:13
    */
   lastModifiedTime?: string;
+  /**
+   * @remarks
+   * The user who last modified the node.
+   */
   modifier?: ListNodesResponseBodyPageResultNodeListModifier;
+  /**
+   * @remarks
+   * The node name.
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
+  /**
+   * @remarks
+   * The owner.
+   */
   ownerList?: ListNodesResponseBodyPageResultNodeListOwnerList[];
+  /**
+   * @remarks
+   * The priority.
+   */
   priorityList?: string[];
+  /**
+   * @remarks
+   * The project to which the node belongs.
+   */
   projectInfo?: ListNodesResponseBodyPageResultNodeListProjectInfo;
   /**
+   * @remarks
+   * Indicates whether scheduling is paused.
+   * 
    * @example
    * true
    */
   schedulePaused?: boolean;
+  /**
+   * @remarks
+   * The scheduling period.
+   */
   schedulePeriodList?: string[];
   /**
+   * @remarks
+   * The sub-business types. Valid values:
+   * - MAX_COMPUTE_SQL
+   * - HIVE_SQL
+   * - SHELL
+   * - PYTHON
+   * - ONE_SERVICE_SQL
+   * - DATABASE_SQL.
+   * 
    * @example
    * SHELL
    */
   subDetailType?: string;
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -269,8 +389,15 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
 }
 
 export class ListNodesResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of nodes on the current page.
+   */
   nodeList?: ListNodesResponseBodyPageResultNodeList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -303,27 +430,46 @@ export class ListNodesResponseBodyPageResult extends $dara.Model {
 
 export class ListNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The paging query result.
+   */
   pageResult?: ListNodesResponseBodyPageResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

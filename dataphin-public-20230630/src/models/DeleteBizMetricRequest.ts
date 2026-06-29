@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBizMetricRequestDeleteBizMetricCommand extends $dara.Model {
   /**
    * @remarks
+   * The name of the business metric to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,11 +37,15 @@ export class DeleteBizMetricRequestDeleteBizMetricCommand extends $dara.Model {
 export class DeleteBizMetricRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete request.
+   * 
    * This parameter is required.
    */
   deleteBizMetricCommand?: DeleteBizMetricRequestDeleteBizMetricCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

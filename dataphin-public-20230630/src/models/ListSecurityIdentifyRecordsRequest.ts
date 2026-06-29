@@ -4,41 +4,64 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The datasource environment identifier. This parameter is required only for datasource tables.
+   * 
    * @example
    * DEV
    */
   datasourceEnv?: string;
   /**
+   * @remarks
+   * The datasource name. This parameter is required only for datasource tables.
+   * 
    * @example
    * test
    */
   datasourceName?: string;
   /**
    * @remarks
+   * The field name.
+   * 
    * This parameter is required.
    * 
    * @example
    * col1
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
+   */
   isDatasourceTable?: boolean;
   /**
+   * @remarks
+   * The search keyword. The search scope is the field name.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The table catalog. For datasource tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +70,8 @@ export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   tableCatalog?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,11 +118,15 @@ export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
 export class ListSecurityIdentifyRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListSecurityIdentifyRecordsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSecurityLevelRequestCreateCommand extends $dara.Model {
   /**
+   * @remarks
+   * The abbreviation of the classification level.
+   * 
    * @example
    * test
    */
   abbreviation?: string;
   /**
+   * @remarks
+   * The description of the classification level.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The sort order of the classification level. If this parameter is not specified, the current maximum order ID is used by default.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
    * @remarks
+   * The name of the classification level.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,11 +67,15 @@ export class CreateSecurityLevelRequestCreateCommand extends $dara.Model {
 export class CreateSecurityLevelRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateSecurityLevelRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

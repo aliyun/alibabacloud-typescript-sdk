@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBizMetricRequestUpdateBizMetricCommandCustomAttribute extends $dara.Model {
   /**
+   * @remarks
+   * Custom attribute code
+   * 
    * @example
    * CustomAttributeCode
    */
   code?: string;
+  /**
+   * @remarks
+   * List of attribute values. 1. For custom input and single-select dropdown attributes, only the first value in the list is read. 2. For multi-select dropdown attributes, all values in the list are read. 3. For hyperlink attributes, the first value is used as the display text and the second value is used as the link URL.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,11 +44,17 @@ export class UpdateBizMetricRequestUpdateBizMetricCommandCustomAttribute extends
 
 export class UpdateBizMetricRequestUpdateBizMetricCommandRelatedBizMetrics extends $dara.Model {
   /**
+   * @remarks
+   * Business metric name
+   * 
    * @example
    * Metric2
    */
   name?: string;
   /**
+   * @remarks
+   * Correlation type. Valid values: POSITIVE (positive correlation), NEGATIVE (negative correlation), and OTHER (other)
+   * 
    * @example
    * POSITIVE
    */
@@ -71,11 +84,22 @@ export class UpdateBizMetricRequestUpdateBizMetricCommandRelatedBizMetrics exten
 
 export class UpdateBizMetricRequestUpdateBizMetricCommandViewScope extends $dara.Model {
   /**
+   * @remarks
+   * Visibility scope type. Valid values: ALL_USERS_CAN_VIEW (visible to all users), PART_USERS_CAN_VIEW (visible to specified users), and PART_USERS_CAN_NOT_VIEW (invisible to specified users)
+   * 
    * @example
    * ALL_USERS_CAN_VIEW
    */
   scopeType?: string;
+  /**
+   * @remarks
+   * Enter user group names. This parameter is read only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW
+   */
   userGroupNames?: string[];
+  /**
+   * @remarks
+   * Enter the usernames of individual accounts. This parameter takes effect only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW
+   */
   userNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -109,42 +133,78 @@ export class UpdateBizMetricRequestUpdateBizMetricCommandViewScope extends $dara
 }
 
 export class UpdateBizMetricRequestUpdateBizMetricCommand extends $dara.Model {
+  /**
+   * @remarks
+   * List of associated technical metrics. Enter the full name of the technical metric in the format of "TableFullName.MetricName", where "TableFullName" equals "AssetSource.TableName". A technical metric can only be associated with one business metric and cannot be associated repeatedly
+   */
   associatedTechMetricFullNames?: string[];
   /**
+   * @remarks
+   * Business owner. Enter the username of the owner account
+   * 
    * @example
    * SuperAdmin
    */
   bizOwnerName?: string;
+  /**
+   * @remarks
+   * List of catalog IDs
+   */
   catalogIds?: number[];
+  /**
+   * @remarks
+   * List of custom attributes. Enter the attribute code and attribute values for each
+   */
   customAttribute?: UpdateBizMetricRequestUpdateBizMetricCommandCustomAttribute[];
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * Metric Desc
    */
   description?: string;
   /**
+   * @remarks
+   * Display name
+   * 
    * @example
    * Metric1_DisplayName
    */
   displayName?: string;
+  /**
+   * @remarks
+   * Asset labels
+   */
   labels?: string[];
   /**
+   * @remarks
+   * Metric definition. To reference other business metrics, enclose the metric name in square brackets [ ]
+   * 
    * @example
    * [Metric2]+[Metric3]
    */
   metricDefinition?: string;
   /**
+   * @remarks
+   * This parameter is read only when the metric relationship diagram is enabled. Only a calculation expression composed of metric names selected from related business metrics is supported. Supported operators include +, -, *, /, (), %, and ∑. Each metric name must be enclosed in square brackets [ ]. If no operator is specified between two metrics, the system automatically fills in a placeholder. If no metric relationship expression is configured, the metric relationship diagram switch is automatically disabled
+   * 
    * @example
    * [Metric1]+[Metric2]
    */
   metricRelationDiagramExpression?: string;
   /**
+   * @remarks
+   * Metric relationship diagram switch. Valid values: true (enabled) and false (disabled). This can be enabled only when at least one related business metric exists. Otherwise, it is automatically disabled
+   * 
    * @example
    * true
    */
   metricRelationDiagramSwitchOpen?: boolean;
   /**
    * @remarks
+   * Enter the name of the business metric to update
+   * 
    * This parameter is required.
    * 
    * @example
@@ -152,21 +212,38 @@ export class UpdateBizMetricRequestUpdateBizMetricCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The new name. Enter this when you need to modify the metric name
+   * 
    * @example
    * Metric1_new
    */
   newName?: string;
   /**
+   * @remarks
+   * Content of the usage instructions. Only text format is supported
+   * 
    * @example
    * content test
    */
   operateInstructionContent?: string;
   /**
+   * @remarks
+   * Specifies whether the usage instructions are enabled. Valid values: true (enabled) and false (disabled)
+   * 
    * @example
    * true
    */
   operateInstructionEnabled?: boolean;
+  /**
+   * @remarks
+   * List of related business metrics
+   */
   relatedBizMetrics?: UpdateBizMetricRequestUpdateBizMetricCommandRelatedBizMetrics[];
+  /**
+   * @remarks
+   * Visibility scope
+   */
   viewScope?: UpdateBizMetricRequestUpdateBizMetricCommandViewScope;
   static names(): { [key: string]: string } {
     return {
@@ -240,6 +317,8 @@ export class UpdateBizMetricRequestUpdateBizMetricCommand extends $dara.Model {
 export class UpdateBizMetricRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -248,6 +327,8 @@ export class UpdateBizMetricRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Update request
+   * 
    * This parameter is required.
    */
   updateBizMetricCommand?: UpdateBizMetricRequestUpdateBizMetricCommand;

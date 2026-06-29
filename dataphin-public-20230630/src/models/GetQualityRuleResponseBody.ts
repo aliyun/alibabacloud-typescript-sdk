@@ -3,18 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfoValueConfigDefaultValue extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the maximum value is included.
+   */
   includeMaxValue?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the minimum value is included.
+   */
   includeMinValue?: boolean;
   /**
+   * @remarks
+   * The maximum value. This applies to range interval attributes.
+   * 
    * @example
    * 100
    */
   maxValue?: string;
   /**
+   * @remarks
+   * The minimum value. This applies to range interval attributes.
+   * 
    * @example
    * 1
    */
   minValue?: string;
+  /**
+   * @remarks
+   * The list of attribute values. This applies to attributes with custom input, single-select dropdown, or multi-select dropdown input methods.
+   */
   valueList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -50,21 +68,48 @@ export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttr
 
 export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfoValueConfig extends $dara.Model {
   /**
+   * @remarks
+   * The attribute field data type. Valid values:
+   * - STRING: text
+   * - BIGINT: integer
+   * - DOUBLE: floating-point
+   * - BOOLEAN: Boolean
+   * - DATE: date
+   * - DATETIME: datetime.
+   * 
    * @example
    * STRING
    */
   dataType?: string;
+  /**
+   * @remarks
+   * The attribute default value.
+   */
   defaultValue?: GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfoValueConfigDefaultValue;
   /**
+   * @remarks
+   * The attribute field length. This constrains the maximum length of text-type attribute values.
+   * 
    * @example
    * 6921666
    */
   length?: number;
   /**
+   * @remarks
+   * The attribute value input method. Valid values:
+   * - CUSTOMIZED: custom input
+   * - SINGLE_ENUM: single-select dropdown
+   * - MULTIPLE_ENUMS: multi-select dropdown
+   * - RANGE: range interval.
+   * 
    * @example
    * CUSTOMIZED
    */
   type?: string;
+  /**
+   * @remarks
+   * The attribute option values. This applies only to attributes with a single-select dropdown or multi-select dropdown input method.
+   */
   valueEnumList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -103,23 +148,48 @@ export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttr
 
 export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfo extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the attribute is enabled.
+   */
   enabled?: boolean;
   /**
+   * @remarks
+   * The attribute ID.
+   * 
    * @example
    * 612415804007
    */
   id?: number;
   /**
+   * @remarks
+   * The attribute name.
+   * 
    * @example
    * attr01
    */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether the attribute is required.
+   */
   required?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the attribute is searchable.
+   */
   searchable?: boolean;
+  /**
+   * @remarks
+   * The attribute value configuration details.
+   */
   valueConfig?: GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfoValueConfig;
   static names(): { [key: string]: string } {
     return {
@@ -158,18 +228,36 @@ export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttr
 }
 
 export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeValue extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the maximum value is included.
+   */
   includeMaxValue?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the minimum value is included.
+   */
   includeMinValue?: boolean;
   /**
+   * @remarks
+   * The maximum value. This applies to range interval attributes.
+   * 
    * @example
    * 100
    */
   maxValue?: string;
   /**
+   * @remarks
+   * The minimum value. This applies to range interval attributes.
+   * 
    * @example
    * 1
    */
   minValue?: string;
+  /**
+   * @remarks
+   * The list of attribute values. This applies to attributes with custom input, single-select dropdown, or multi-select dropdown input methods.
+   */
   valueList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -204,7 +292,15 @@ export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttr
 }
 
 export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueList extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute details.
+   */
   attributeInfo?: GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeInfo;
+  /**
+   * @remarks
+   * The property value.
+   */
   attributeValue?: GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueListAttributeValue;
   static names(): { [key: string]: string } {
     return {
@@ -237,16 +333,25 @@ export class GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueList ext
 
 export class GetQualityRuleResponseBodyQualityRuleInfoFormPropertyList extends $dara.Model {
   /**
+   * @remarks
+   * The control type.
+   * 
    * @example
    * expression
    */
   componentType?: string;
   /**
+   * @remarks
+   * The property name.
+   * 
    * @example
    * col
    */
   name?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * abc
    */
@@ -278,11 +383,17 @@ export class GetQualityRuleResponseBodyQualityRuleInfoFormPropertyList extends $
 
 export class GetQualityRuleResponseBodyQualityRuleInfoScheduleBindList extends $dara.Model {
   /**
+   * @remarks
+   * The schedule ID.
+   * 
    * @example
    * 1
    */
   scheduleId?: number;
   /**
+   * @remarks
+   * The schedule name.
+   * 
    * @example
    * test
    */
@@ -312,41 +423,67 @@ export class GetQualityRuleResponseBodyQualityRuleInfoScheduleBindList extends $
 
 export class GetQualityRuleResponseBodyQualityRuleInfoValidateConditionList extends $dara.Model {
   /**
+   * @remarks
+   * The condition node ID.
+   * 
    * @example
    * 268
    */
   id?: string;
   /**
+   * @remarks
+   * The metric.
+   * 
    * @example
    * test
    */
   metric?: string;
   /**
+   * @remarks
+   * The metric name.
+   * 
    * @example
    * test
    */
   metricName?: string;
   /**
+   * @remarks
+   * The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
+   * 
    * @example
    * AND
    */
   operator?: string;
   /**
+   * @remarks
+   * The operator name.
+   * 
    * @example
    * 且
    */
   operatorName?: string;
   /**
+   * @remarks
+   * The parent condition node ID.
+   * 
    * @example
    * 123
    */
   parentId?: string;
   /**
+   * @remarks
+   * The condition type. Valid values:
+   * - RELATION: relationship
+   * - EXPRESSION: expression.
+   * 
    * @example
    * RELATION
    */
   type?: string;
   /**
+   * @remarks
+   * The value.
+   * 
    * @example
    * 1
    */
@@ -388,11 +525,17 @@ export class GetQualityRuleResponseBodyQualityRuleInfoValidateConditionList exte
 
 export class GetQualityRuleResponseBodyQualityRuleInfoValidateObject extends $dara.Model {
   /**
+   * @remarks
+   * The validation object name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The validation object type. Valid values: UNKNOWN, TABLE, COLUMN, DATASOURCE, DATASOURCE_TABLE, REALTIME, INDEX, CHAIN.
+   * 
    * @example
    * TABLE
    */
@@ -421,100 +564,233 @@ export class GetQualityRuleResponseBodyQualityRuleInfoValidateObject extends $da
 }
 
 export class GetQualityRuleResponseBodyQualityRuleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The rule business attribute configurations.
+   */
   attributeWithValueList?: GetQualityRuleResponseBodyQualityRuleInfoAttributeWithValueList[];
+  /**
+   * @remarks
+   * The rule categories. Valid values:
+   * - CONSISTENT: consistency
+   * - EFFECTIVE: validity
+   * - TIMELINESE: timeliness
+   * - ACCURATE: accuracy
+   * - UNIQUENESS: uniqueness
+   * - COMPLETENESS: completeness
+   * - STABILITY: stability
+   * - CUSTOM: custom.
+   */
   catalogList?: string[];
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 30012011
    */
   creator?: string;
   /**
+   * @remarks
+   * The creator name.
+   * 
    * @example
    * test
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether exception archiving is enabled.
+   */
   enableErrorArchive?: boolean;
+  /**
+   * @remarks
+   * The rule configuration key-value pairs. These vary by templatetype. Different templatetypes return different form key-value pair configurations.
+   */
   formPropertyList?: GetQualityRuleResponseBodyQualityRuleInfoFormPropertyList[];
   /**
+   * @remarks
+   * The quality rule ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the user who last modified the rule.
+   * 
    * @example
    * 30012011
    */
   modifier?: string;
   /**
+   * @remarks
+   * The name of the user who last modified the rule.
+   * 
    * @example
    * test
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The quality rule name.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of schedules bound to the rule.
+   */
   scheduleBindList?: GetQualityRuleResponseBodyQualityRuleInfoScheduleBindList[];
   /**
+   * @remarks
+   * The quality rule status. Valid values:
+   * - ENABLE
+   * - DISABLE.
+   * 
    * @example
    * ENABLE
    */
   status?: string;
   /**
+   * @remarks
+   * The rule strength. Valid values:
+   * - STRONG
+   * - WEAK.
+   * 
    * @example
    * STRONG
    */
   strength?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
   templateId?: number;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * 1
    */
   templateName?: string;
   /**
+   * @remarks
+   * The templatetype group. Valid values:
+   * - SYSTEM: system preset
+   * - CUSTOM: custom template
+   * - TEMPLATE: union of SYSTEM and CUSTOM
+   * - CUSTOM_SQL: custom SQL template.
+   * 
    * @example
    * CUSTOM
    */
   templateScope?: string;
   /**
+   * @remarks
+   * The templatetype. Valid values:
+   *   - FIELD_NULL_VALUE_VALIDATE: field null value check
+   *   - FIELD_EMPTY_STRING_VALIDATE: field empty character string check
+   *   - FIELD_UNIQUE_VALIDATE: field uniqueness check
+   *   - FIELD_GROUP_COUNT_VALIDATE: field unique value count check
+   *   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count check
+   *   - FUNCTION_TIME_COMPARE: time function comparison
+   *   - SINGLE_TABLE_TIME_COMPARE: non-partitioned table time field comparison
+   *   - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison
+   *   - FIELD_FORMAT_VALIDATE: field format check
+   *   - FIELD_LENGTH_VALIDATE: field length check
+   *   - FIELD_VALUE_RANGE_VALIDATE: field value range check
+   *   - CODE_TABLE_COMPARE: lookup table reference comparison
+   *   - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison
+   *   - SINGLE_TABLE_FIELD_VALUE_COMPARE: non-partitioned table field value consistency comparison
+   *   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: non-partitioned table field statistical value consistency comparison
+   *   - SINGLE_TABLE_FIELD_EXP_COMPARE: non-partitioned table field business logic consistency comparison
+   *   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison
+   *   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison
+   *   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison
+   *   - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison
+   *   - TABLE_STABILITY_VALIDATE: table stability check
+   *   - TABLE_FLUCTUATION_VALIDATE: table fluctuation check
+   *   - FIELD_STABILITY_VALIDATE: field stability check
+   *   - FIELD_FLUCTUATION_VALIDATE: field fluctuation check
+   *   - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check
+   *   - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check
+   *   - DATASOURCE_AVAILABLE_CHECK: data source connectivity monitoring
+   *   - TABLE_SCHEMA_CHECK: table schema change monitoring
+   *   - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison
+   *   - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring
+   *   - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison, and more.
+   * 
    * @example
    * FIELD_NULL_VALUE_VALIDATE
    */
   templateType?: string;
   /**
+   * @remarks
+   * The ID of the most recent test run task.
+   * 
    * @example
    * 22
    */
   testRunRuleTaskId?: number;
   /**
+   * @remarks
+   * The status of the most recent test run task. Valid values: NOT_RUN, WAITING, RUNNING, SUCCESS, FAILED.
+   * 
    * @example
    * SUCCESS
    */
   testRunRuleTaskStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the test run validation passed.
+   */
   testRunRuleValidateResult?: boolean;
+  /**
+   * @remarks
+   * The list of validation conditions.
+   */
   validateConditionList?: GetQualityRuleResponseBodyQualityRuleInfoValidateConditionList[];
+  /**
+   * @remarks
+   * The validation object.
+   */
   validateObject?: GetQualityRuleResponseBodyQualityRuleInfoValidateObject;
   /**
+   * @remarks
+   * The ID of the associated monitoring task.
+   * 
    * @example
    * 1
    */
@@ -610,20 +886,33 @@ export class GetQualityRuleResponseBodyQualityRuleInfo extends $dara.Model {
 
 export class GetQualityRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The quality rule details.
+   */
   qualityRuleInfo?: GetQualityRuleResponseBodyQualityRuleInfo;
   /**
    * @remarks
@@ -633,6 +922,10 @@ export class GetQualityRuleResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

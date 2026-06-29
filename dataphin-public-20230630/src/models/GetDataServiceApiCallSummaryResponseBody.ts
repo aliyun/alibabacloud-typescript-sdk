@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceApiCallSummaryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of API calls.
+   * 
    * @example
    * 1021
    */
   callCount?: number;
   /**
+   * @remarks
+   * The number of APIs with call errors.
+   * 
    * @example
    * 8
    */
   errorApiCount?: number;
   /**
+   * @remarks
+   * The number of applications affected by errors.
+   * 
    * @example
    * 2
    */
   errorAppCount?: number;
   /**
+   * @remarks
+   * The number of failed calls.
+   * 
    * @example
    * 102
    */
   errorCount?: number;
   /**
+   * @remarks
+   * The error rate.
+   * 
    * @example
    * 10.01
    */
   errorRate?: number;
   /**
+   * @remarks
+   * The offline percentage.
+   * 
    * @example
    * 2.03
    */
@@ -66,17 +84,30 @@ export class GetDataServiceApiCallSummaryResponseBodyData extends $dara.Model {
 
 export class GetDataServiceApiCallSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The aggregate statistics of API calls.
+   */
   data?: GetDataServiceApiCallSummaryResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -89,6 +120,10 @@ export class GetDataServiceApiCallSummaryResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

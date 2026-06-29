@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetStandardRequestStandardGetQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return associated standards and associated lookup tables. Default value: false.
+   */
   needRelation?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return a null value when the standard does not exist. If set to false, an exception is thrown. Default value: true.
+   */
   nullable?: boolean;
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,11 +24,21 @@ export class GetStandardRequestStandardGetQuery extends $dara.Model {
    */
   standardId?: number;
   /**
+   * @remarks
+   * The stage to which the standard belongs. Valid values:
+   * - dev: development stage.
+   * - prod: production stage.
+   * 
+   * Default value: prod.
+   * 
    * @example
    * dev
    */
   standardStage?: string;
   /**
+   * @remarks
+   * The version number. If left empty, the latest version is used.
+   * 
    * @example
    * 1
    */
@@ -55,6 +75,8 @@ export class GetStandardRequestStandardGetQuery extends $dara.Model {
 export class GetStandardRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +85,8 @@ export class GetStandardRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The query command.
+   * 
    * This parameter is required.
    */
   standardGetQuery?: GetStandardRequestStandardGetQuery;

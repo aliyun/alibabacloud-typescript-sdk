@@ -4,13 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Data source name
+   * 
    * @example
    * vcns-test
    */
   name?: string;
+  /**
+   * @remarks
+   * Data source owner
+   */
   ownerList?: string[];
   /**
    * @remarks
+   * Page number. The value starts from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,14 +28,38 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
+   * Number of records per page
+   * 
    * This parameter is required.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Data source scope. Valid values:
+   * - STREAMING: Real-time
+   * - OFFLINE: Offline
+   * - DIP_META_SYNC: Meta warehouse initialization
+   * - DATA_DISTILL: Data distillation
+   * - CUMPUTE_SOURCE_SHADOW: Shadow compute source
+   * - LABEL: Label
+   * - ALL: Offline + Real-time
+   */
   scopeList?: string[];
+  /**
+   * @remarks
+   * Tag marked when creating the data source
+   * 
+   * @example
+   * xx测试
+   */
   tag?: string;
+  /**
+   * @remarks
+   * Data source type
+   */
   typeList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -73,11 +106,15 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
 export class ListDataSourceWithConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Paginated query
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataSourceWithConfigRequestListQuery;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

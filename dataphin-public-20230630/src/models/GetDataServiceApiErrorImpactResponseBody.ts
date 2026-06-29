@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceApiErrorImpactResponseBodyDataErrorApiList extends $dara.Model {
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * test
    */
   apiName?: string;
   /**
+   * @remarks
+   * The API ID.
+   * 
    * @example
    * 2012
    */
   appId?: number;
   /**
+   * @remarks
+   * The number of exceptions for the API.
+   * 
    * @example
    * 100
    */
@@ -61,11 +70,17 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorAppList extends $d
    */
   appKey?: number;
   /**
+   * @remarks
+   * The app name.
+   * 
    * @example
    * app1
    */
   appName?: string;
   /**
+   * @remarks
+   * The number of exceptions for the app.
+   * 
    * @example
    * 10
    */
@@ -98,7 +113,15 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorAppList extends $d
 }
 
 export class GetDataServiceApiErrorImpactResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of APIs affected by exceptions.
+   */
   errorApiList?: GetDataServiceApiErrorImpactResponseBodyDataErrorApiList[];
+  /**
+   * @remarks
+   * The list of apps affected by exceptions.
+   */
   errorAppList?: GetDataServiceApiErrorImpactResponseBodyDataErrorAppList[];
   static names(): { [key: string]: string } {
     return {
@@ -131,17 +154,30 @@ export class GetDataServiceApiErrorImpactResponseBodyData extends $dara.Model {
 
 export class GetDataServiceApiErrorImpactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The summary of call exception impacts.
+   */
   data?: GetDataServiceApiErrorImpactResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The backend exception details.
+   * 
    * @example
    * internal error
    */
@@ -154,6 +190,10 @@ export class GetDataServiceApiErrorImpactResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBizUnitsResponseBodyDataBizUnitListAccountList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 20001201
    */
@@ -30,68 +33,115 @@ export class ListBizUnitsResponseBodyDataBizUnitListAccountList extends $dara.Mo
 }
 
 export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
+  /**
+   * @remarks
+   * The business unit architects.
+   */
   accountList?: ListBizUnitsResponseBodyDataBizUnitListAccountList[];
   /**
+   * @remarks
+   * The description of the business object.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * 测试
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment.
+   * - PROD: production environment.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The business unit icon.
+   * 
    * @example
    * icon-e-commerce
    */
   icon?: string;
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 101001201
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the user who last modified the business unit.
+   * 
    * @example
    * 30010010
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The name of the user who last modified the business unit.
+   * 
    * @example
    * 张三
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * The production mode. Valid values:
+   * - BASIC: single-environment mode.
+   * - DEV_PROD: development/production dual-environment mode.
+   * 
    * @example
    * DEV_PROD
    */
   mode?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test01
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The owner of the business object.
+   * 
    * @example
    * 30010010
    */
@@ -147,6 +197,10 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
 }
 
 export class ListBizUnitsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The business unit details.
+   */
   bizUnitList?: ListBizUnitsResponseBodyDataBizUnitList[];
   static names(): { [key: string]: string } {
     return {
@@ -174,26 +228,46 @@ export class ListBizUnitsResponseBodyData extends $dara.Model {
 
 export class ListBizUnitsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: ListBizUnitsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

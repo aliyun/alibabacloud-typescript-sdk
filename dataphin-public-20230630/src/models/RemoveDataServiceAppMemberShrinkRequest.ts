@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Remove regular members from a data service application
+   * 
    * This parameter is required.
    */
   removeCommandShrink?: string;

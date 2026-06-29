@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevDataSourceInfoConfigItemList extends $dara.Model {
   /**
+   * @remarks
+   * Configuration item ID
+   * 
    * @example
    * param1
    */
   key?: string;
   /**
+   * @remarks
+   * Configuration item value
+   * 
    * @example
    * value1
    */
@@ -37,47 +43,103 @@ export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevData
 }
 
 export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevDataSourceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Connection configuration items
+   */
   configItemList?: ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevDataSourceInfoConfigItemList[];
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1710209552704
    */
   createTime?: number;
   /**
+   * @remarks
+   * Creator ID
+   * 
    * @example
    * 212211111
    */
   creator?: string;
+  /**
+   * @remarks
+   * Creator name
+   * 
+   * @example
+   * 张三
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * xx 项目
+   */
   description?: string;
   /**
+   * @remarks
+   * Environment of the data source
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * Data source ID
+   * 
    * @example
    * 12313123131
    */
   id?: number;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 1710209552704
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * Data source name
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Owner ID
+   * 
    * @example
    * 212211111
    */
   owner?: string;
+  /**
+   * @remarks
+   * Owner name
+   * 
+   * @example
+   * 张三
+   */
   ownerName?: string;
   /**
+   * @remarks
+   * Data source scope
+   * 
    * @example
    * ALL
    */
   scope?: string;
   /**
+   * @remarks
+   * Data source type
+   * 
    * @example
    * MAX_COMPUTE
    */
@@ -132,11 +194,17 @@ export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevData
 
 export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDataSourceInfoConfigItemList extends $dara.Model {
   /**
+   * @remarks
+   * Configuration item ID
+   * 
    * @example
    * param1
    */
   key?: string;
   /**
+   * @remarks
+   * Configuration item value
+   * 
    * @example
    * value1
    */
@@ -165,47 +233,103 @@ export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDat
 }
 
 export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDataSourceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Connection configuration items
+   */
   configItemList?: ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDataSourceInfoConfigItemList[];
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1708303959000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Creator ID
+   * 
    * @example
    * 212211111
    */
   creator?: string;
+  /**
+   * @remarks
+   * Creator name
+   * 
+   * @example
+   * 张三
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * xx 测试
+   */
   description?: string;
   /**
+   * @remarks
+   * Environment of the data source
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
+   * @remarks
+   * Data source ID
+   * 
    * @example
    * 300000028799
    */
   id?: number;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 1708303959000
    */
   modifyTime?: number;
+  /**
+   * @remarks
+   * Data source name
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Owner ID
+   * 
    * @example
    * 212211111
    */
   owner?: string;
+  /**
+   * @remarks
+   * Owner name
+   * 
+   * @example
+   * 张三
+   */
   ownerName?: string;
   /**
+   * @remarks
+   * Data source scope
+   * 
    * @example
    * ALL
    */
   scope?: string;
   /**
+   * @remarks
+   * Data source type
+   * 
    * @example
    * MAX_COMPUTE
    */
@@ -261,12 +385,12 @@ export class ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDat
 export class ListDataSourceWithConfigResponseBodyPageResultDataSourceList extends $dara.Model {
   /**
    * @remarks
-   * 开发环境数据源信息
+   * Development environment data source
    */
   devDataSourceInfo?: ListDataSourceWithConfigResponseBodyPageResultDataSourceListDevDataSourceInfo;
   /**
    * @remarks
-   * 生产环境数据源
+   * Production environment data source
    */
   prodDataSourceInfo?: ListDataSourceWithConfigResponseBodyPageResultDataSourceListProdDataSourceInfo;
   static names(): { [key: string]: string } {
@@ -299,8 +423,15 @@ export class ListDataSourceWithConfigResponseBodyPageResultDataSourceList extend
 }
 
 export class ListDataSourceWithConfigResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * Paginated list
+   */
   dataSourceList?: ListDataSourceWithConfigResponseBodyPageResultDataSourceList[];
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 39
    */
@@ -333,27 +464,46 @@ export class ListDataSourceWithConfigResponseBodyPageResult extends $dara.Model 
 
 export class ListDataSourceWithConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * Query result.
+   */
   pageResult?: ListDataSourceWithConfigResponseBodyPageResult;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful
+   * 
    * @example
    * true
    */

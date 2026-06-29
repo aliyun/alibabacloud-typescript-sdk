@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GrantResourcePermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The grant request.
+   * 
    * This parameter is required.
    */
   grantCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

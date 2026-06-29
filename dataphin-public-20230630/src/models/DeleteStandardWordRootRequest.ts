@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardWordRootRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the root word.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteStandardWordRootRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

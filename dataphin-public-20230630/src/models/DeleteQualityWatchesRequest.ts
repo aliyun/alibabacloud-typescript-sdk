@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityWatchesRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the monitored objects.
+   * 
    * This parameter is required.
    */
   watchIdList?: number[];
@@ -35,11 +37,15 @@ export class DeleteQualityWatchesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualityWatchesRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteQualityWatchesRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

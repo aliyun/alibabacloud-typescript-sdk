@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRuleCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of rules that failed to execute.
+   * 
    * @example
    * 0
    */
   errorRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that have been executed.
+   * 
    * @example
    * 1
    */
   finishedRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that were executed successfully.
+   * 
    * @example
    * 1
    */
   successRuleCount?: number;
   /**
+   * @remarks
+   * The total number of rules.
+   * 
    * @example
    * 1
    */
@@ -52,21 +64,33 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRule
 
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRuleCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of rules that failed to execute.
+   * 
    * @example
    * 0
    */
   errorRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that have been executed.
+   * 
    * @example
    * 1
    */
   finishedRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that were executed successfully.
+   * 
    * @example
    * 1
    */
   successRuleCount?: number;
   /**
+   * @remarks
+   * The total number of rules.
+   * 
    * @example
    * 1
    */
@@ -100,21 +124,33 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRu
 
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of rules that failed to execute.
+   * 
    * @example
    * 0
    */
   errorRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that have been executed.
+   * 
    * @example
    * 1
    */
   finishedRuleCount?: number;
   /**
+   * @remarks
+   * The number of rules that were executed successfully.
+   * 
    * @example
    * 1
    */
   successRuleCount?: number;
   /**
+   * @remarks
+   * The total number of rules.
+   * 
    * @example
    * 1
    */
@@ -147,8 +183,20 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCo
 }
 
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The strong rule count.
+   */
   strongRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRuleCount;
+  /**
+   * @remarks
+   * The validation rule count.
+   */
   validateRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRuleCount;
+  /**
+   * @remarks
+   * The weak rule count.
+   */
   weakRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCount;
   static names(): { [key: string]: string } {
     return {
@@ -186,68 +234,123 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo extends $
 
 export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   /**
+   * @remarks
+   * The business date.
+   * 
    * @example
    * 2025-06-30
    */
   bizDate?: string;
   /**
+   * @remarks
+   * The business date format.
+   * 
    * @example
    * yyyy-MM-dd
    */
   bizDateFormat?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 30012011
    */
   creator?: string;
   /**
+   * @remarks
+   * The end time. Time format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2025-06-30 20:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The quality watchtask ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The user ID of the last modifier.
+   * 
    * @example
    * 30012011
    */
   modifier?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The user ID of the quality owner.
+   * 
    * @example
    * 30012011
    */
   qualityOwner?: string;
   /**
+   * @remarks
+   * The name of the quality owner.
+   * 
    * @example
    * test
    */
   qualityOwnerName?: string;
+  /**
+   * @remarks
+   * The quality rule count information.
+   */
   ruleCountInfo?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo;
+  /**
+   * @remarks
+   * The list of quality rule IDs.
+   */
   ruleIdList?: number[];
   /**
+   * @remarks
+   * The start time. Time format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2025-06-30 08:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * - NOT_RUN: not executed.
+   * - WAITING: waiting.
+   * - RUNNING: executing.
+   * - SUCCESS: executed successfully.
+   * - FAILED: execution failed.
+   * - CANCEL: canceled.
+   * - TIMEOUT: timed out.
+   * - OFFLINE: offline.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The monitored object ID.
+   * 
    * @example
    * 1
    */
@@ -309,16 +412,25 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
 
 export class GetQualityWatchTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -331,7 +443,15 @@ export class GetQualityWatchTaskResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the monitoring node task object.
+   */
   watchTaskInfo?: GetQualityWatchTaskResponseBodyWatchTaskInfo;
   static names(): { [key: string]: string } {
     return {

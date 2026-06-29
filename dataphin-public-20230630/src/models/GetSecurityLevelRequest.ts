@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityLevelRequest extends $dara.Model {
   /**
    * @remarks
+   * The sensitivity level of the data classification.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSecurityLevelRequest extends $dara.Model {
   index?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

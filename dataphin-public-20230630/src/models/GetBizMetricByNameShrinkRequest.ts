@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizMetricByNameShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Query request.
+   * 
    * This parameter is required.
    */
   bizMetricByNameQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

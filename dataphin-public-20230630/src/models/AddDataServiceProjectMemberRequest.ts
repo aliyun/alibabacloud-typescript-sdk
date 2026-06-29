@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList extends $dara.Model {
   /**
    * @remarks
+   * The username of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   accountName?: string;
   /**
    * @remarks
+   * The nickname of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,12 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   displayName?: string;
   /**
    * @remarks
+   * The role of the user. Valid values:
+   * - 2: development user
+   * - 3: application member
+   * - 4: service project administrator
+   * - 5: O&M user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,8 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   role?: number;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +77,8 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
 export class AddDataServiceProjectMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of project members to add.
+   * 
    * This parameter is required.
    */
   projectMemberList?: AddDataServiceProjectMemberRequestAddCommandProjectMemberList[];
@@ -95,11 +109,15 @@ export class AddDataServiceProjectMemberRequestAddCommand extends $dara.Model {
 export class AddDataServiceProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The command to add project members.
+   * 
    * This parameter is required.
    */
   addCommand?: AddDataServiceProjectMemberRequestAddCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -108,6 +126,8 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckConnectivityJobsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 192
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The error message that provides a detailed error description when the task fails.
+   * 
    * @example
    * notFoundIp
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 123123
    */
   jobId?: string;
   /**
+   * @remarks
+   * The task type, such as application-level or cluster-level.
+   * 
    * @example
    * application/cluster
    */
   jobType?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 30001011
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The Voldemort task ID, which is used to associate with the underlying execution task.
+   * 
    * @example
    * t_7572319950395080706_20251225_7572319950395080707
    */
@@ -73,6 +94,9 @@ export class GetCheckConnectivityJobsResponseBodyData extends $dara.Model {
 
 export class GetCheckConnectivityJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code returned by the backend.
+   * 
    * @example
    * OK
    */
@@ -83,11 +107,17 @@ export class GetCheckConnectivityJobsResponseBody extends $dara.Model {
    */
   data?: GetCheckConnectivityJobsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error details returned by the backend.
+   * 
    * @example
    * internal error
    */
@@ -101,6 +131,9 @@ export class GetCheckConnectivityJobsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

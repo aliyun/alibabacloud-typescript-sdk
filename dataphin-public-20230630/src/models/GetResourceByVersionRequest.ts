@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceByVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * Resource file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetResourceByVersionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetResourceByVersionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetResourceByVersionRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * Version ID.
+   * 
    * This parameter is required.
    * 
    * @example

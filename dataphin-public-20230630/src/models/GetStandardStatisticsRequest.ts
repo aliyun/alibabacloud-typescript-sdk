@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   endTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the end time. Default value: false.
+   */
   includeEndTime?: boolean;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2025-06-01 00:00:00
    */
@@ -40,15 +50,25 @@ export class GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod extends
 }
 
 export class GetStandardStatisticsRequestStatisticsQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time period.
+   */
   createTimePeriod?: GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod;
   /**
    * @remarks
+   * The folder to which the standards belong. The search includes all subfolders under this folder.
+   * 
    * This parameter is required.
    * 
    * @example
    * /dir1
    */
   directory?: string;
+  /**
+   * @remarks
+   * The stages to which the standards belong.
+   */
   standardStageList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -84,6 +104,8 @@ export class GetStandardStatisticsRequestStatisticsQuery extends $dara.Model {
 export class GetStandardStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92,6 +114,8 @@ export class GetStandardStatisticsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The statistical query instruction.
+   * 
    * This parameter is required.
    */
   statisticsQuery?: GetStandardStatisticsRequestStatisticsQuery;

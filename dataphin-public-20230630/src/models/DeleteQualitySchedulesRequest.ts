@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualitySchedulesRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the scheduling objects.
+   * 
    * This parameter is required.
    */
   scheduleIdList?: number[];
@@ -35,11 +37,15 @@ export class DeleteQualitySchedulesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualitySchedulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteQualitySchedulesRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

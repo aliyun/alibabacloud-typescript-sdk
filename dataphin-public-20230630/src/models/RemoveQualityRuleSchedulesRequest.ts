@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveQualityRuleSchedulesRequestRemoveCommand extends $dara.Model {
   /**
    * @remarks
+   * The rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class RemoveQualityRuleSchedulesRequestRemoveCommand extends $dara.Model 
   ruleId?: number;
   /**
    * @remarks
+   * The schedule IDs.
+   * 
    * This parameter is required.
    */
   scheduleIdList?: number[];
   /**
    * @remarks
+   * The ID of the monitored object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +61,8 @@ export class RemoveQualityRuleSchedulesRequestRemoveCommand extends $dara.Model 
 export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +71,8 @@ export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The unbinding instruction.
+   * 
    * This parameter is required.
    */
   removeCommand?: RemoveQualityRuleSchedulesRequestRemoveCommand;

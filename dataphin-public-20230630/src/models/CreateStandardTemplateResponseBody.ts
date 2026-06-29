@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStandardTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Standard template ID.
+   * 
    * @example
    * 22
    */
   data?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * internal error
    */
@@ -31,6 +43,10 @@ export class CreateStandardTemplateResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

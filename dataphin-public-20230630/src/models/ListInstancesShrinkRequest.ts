@@ -4,13 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Environment identifier
+   * - DEV: Development environment
+   * - PROD (default): Production environment
+   * 
    * @example
    * PROD
    */
   env?: string;
+  /**
+   * @remarks
+   * Query Request
+   */
   listQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

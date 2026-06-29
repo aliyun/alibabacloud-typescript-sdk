@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardRelationsRequestDeleteCommandStandardRefList extends $dara.Model {
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeleteStandardRelationsRequestDeleteCommandStandardRefList extends 
 export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The standard association type: RELATIVE.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +57,8 @@ export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
   standardId?: number;
   /**
    * @remarks
+   * The list of referenced standards.
+   * 
    * This parameter is required.
    */
   standardRefList?: DeleteStandardRelationsRequestDeleteCommandStandardRefList[];
@@ -85,11 +93,15 @@ export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
 export class DeleteStandardRelationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteStandardRelationsRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

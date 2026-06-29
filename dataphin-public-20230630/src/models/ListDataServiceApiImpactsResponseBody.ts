@@ -20,66 +20,105 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
    */
   appKey?: number;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * The number of calls.
+   * 
    * @example
    * 11
    */
   callCount?: number;
   /**
+   * @remarks
+   * The number of client failures.
+   * 
    * @example
    * 2
    */
   clientFailCount?: number;
   /**
+   * @remarks
+   * The source IP address of the access request.
+   * 
    * @example
    * 192.168.1.1
    */
   clientIp?: string;
   /**
+   * @remarks
+   * The number of abnormal API calls.
+   * 
    * @example
    * 1
    */
   errorApiCount?: number;
   /**
+   * @remarks
+   * The number of errors.
+   * 
    * @example
    * 1
    */
   errorCount?: number;
   /**
+   * @remarks
+   * The error rate.
+   * 
    * @example
    * 10.0
    */
   errorRate?: string;
   /**
+   * @remarks
+   * The most recent call time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2025-06-30 08:00:00
    */
   lastCallTime?: string;
   /**
+   * @remarks
+   * The gateway statistics time. Format: yyyy_MMdd_HHmm.
+   * 
    * @example
    * 2025_0611_1011
    */
   minute?: string;
   /**
+   * @remarks
+   * The number of offline instances.
+   * 
    * @example
    * 1
    */
   offlineCount?: number;
   /**
+   * @remarks
+   * The total time consumed by successful calls.
+   * 
    * @example
    * 99
    */
   successTimeCost?: string;
   /**
+   * @remarks
+   * The total number of calls.
+   * 
    * @example
    * 88
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total time consumed by the API, including failed calls.
+   * 
    * @example
    * 231
    */
@@ -134,8 +173,15 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
 }
 
 export class ListDataServiceApiImpactsResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of API impact analysis results.
+   */
   impactList?: ListDataServiceApiImpactsResponseBodyPageResultImpactList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 68
    */
@@ -168,20 +214,33 @@ export class ListDataServiceApiImpactsResponseBodyPageResult extends $dara.Model
 
 export class ListDataServiceApiImpactsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The paged query result.
+   */
   pageResult?: ListDataServiceApiImpactsResponseBodyPageResult;
   /**
    * @remarks
@@ -191,6 +250,10 @@ export class ListDataServiceApiImpactsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

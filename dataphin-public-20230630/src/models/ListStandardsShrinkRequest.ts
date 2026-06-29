@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListStandardsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Search conditions.
+   * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

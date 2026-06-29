@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserGroupMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveUserGroupMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to remove user group members.
+   * 
    * This parameter is required.
    */
   removeCommandShrink?: string;

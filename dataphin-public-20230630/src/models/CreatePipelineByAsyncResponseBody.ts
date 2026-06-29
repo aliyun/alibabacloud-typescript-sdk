@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Asynchronous execution query ID
+   * 
    * @example
    * 123
    */
   data?: number;
   /**
+   * @remarks
+   * HTTP response code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend response exception details
+   * 
    * @example
    * internal error
    */
@@ -31,6 +43,10 @@ export class CreatePipelineByAsyncResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the request was successful
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

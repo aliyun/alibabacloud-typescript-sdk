@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataSourceConfigShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data source configuration item change.
+   * 
    * This parameter is required.
    */
   updateCommandShrink?: string;

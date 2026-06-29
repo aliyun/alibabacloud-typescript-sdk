@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The abbreviation of the root word.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
    */
   abbreviation?: string;
   /**
+   * @remarks
+   * The description of the root word.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The full name of the root word.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
   fullName?: string;
   /**
    * @remarks
+   * The name of the root word.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,11 +71,15 @@ export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
 export class CreateStandardWordRootRequest extends $dara.Model {
   /**
    * @remarks
+   * The create instruction.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateStandardWordRootRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

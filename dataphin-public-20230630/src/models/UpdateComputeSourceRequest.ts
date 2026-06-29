@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeSourceRequestUpdateCommandConfigList extends $dara.Model {
   /**
    * @remarks
+   * The key of the configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateComputeSourceRequestUpdateCommandConfigList extends $dara.Mod
   key?: string;
   /**
    * @remarks
+   * The value of the configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,15 @@ export class UpdateComputeSourceRequestUpdateCommandConfigList extends $dara.Mod
 export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The connection configuration items.
+   * 
    * This parameter is required.
    */
   configList?: UpdateComputeSourceRequestUpdateCommandConfigList[];
   /**
    * @remarks
+   * The description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +66,8 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The ID of the compute source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +76,8 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The name of the compute source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,6 +86,8 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The type of the compute source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,6 +129,8 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
 export class UpdateComputeSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -123,6 +139,8 @@ export class UpdateComputeSourceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The edit command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateComputeSourceRequestUpdateCommand;

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The updated file folder after the move.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateFileDirectoryRequest extends $dara.Model {
   directory?: string;
   /**
    * @remarks
+   * The file ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateFileDirectoryRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class UpdateFileDirectoryRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

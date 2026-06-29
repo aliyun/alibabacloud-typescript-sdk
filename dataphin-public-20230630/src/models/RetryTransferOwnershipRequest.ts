@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RetryTransferOwnershipRequestPrivilegeTransferRecord extends $dara.Model {
   /**
    * @remarks
+   * The ID of the transfer task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RetryTransferOwnershipRequestPrivilegeTransferRecord extends $dara.
   id?: number;
   /**
    * @remarks
+   * The user ID of the recipient.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class RetryTransferOwnershipRequestPrivilegeTransferRecord extends $dara.
    */
   newOwner?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * comment
    */
@@ -52,12 +59,18 @@ export class RetryTransferOwnershipRequestPrivilegeTransferRecord extends $dara.
 export class RetryTransferOwnershipRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The transfer information.
+   */
   privilegeTransferRecord?: RetryTransferOwnershipRequestPrivilegeTransferRecord;
   static names(): { [key: string]: string } {
     return {

@@ -5,20 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The name of the classification folder.
+   * 
    * This parameter is required.
    * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
+   */
   ownerList?: string[];
   /**
+   * @remarks
+   * The full path of the parent classification folder. Default value: /.
+   * 
    * @example
    * /d1/
    */
   parentPath?: string;
   /**
    * @remarks
+   * The original full path of the folder.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +37,12 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
    */
   path?: string;
   /**
+   * @remarks
+   * The visibility scope of the classification folder. This parameter takes effect only when the parent folder is the root folder. Valid values:
+   * - PUBLIC: visible to all users.
+   * - PRIVATE: visible only to administrators.
+   * Default value: PUBLIC.
+   * 
    * @example
    * PUBLIC
    */
@@ -65,6 +82,8 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
 export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +92,8 @@ export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateSecurityClassifyCatalogRequestUpdateCommand;

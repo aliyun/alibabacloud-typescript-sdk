@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTenantComputeEngineRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of cluster node endpoints.
+   * 
    * This parameter is required.
    */
   clusterUrlList?: string[];
   /**
    * @remarks
+   * The compute source type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +21,9 @@ export class UpdateTenantComputeEngineRequestUpdateCommand extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1.0
    */
@@ -52,6 +59,8 @@ export class UpdateTenantComputeEngineRequestUpdateCommand extends $dara.Model {
 export class UpdateTenantComputeEngineRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +69,8 @@ export class UpdateTenantComputeEngineRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update command.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateTenantComputeEngineRequestUpdateCommand;

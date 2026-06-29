@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
+  /**
+   * @remarks
+   * List of change types (0: Create / 1: Update / 2: Delete).
+   */
   changeTypeList?: number[];
   /**
    * @remarks
+   * Page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   page?: number;
   /**
    * @remarks
+   * Page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,19 +30,31 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    */
   projectIdList?: number[];
   /**
+   * @remarks
+   * Submission end time in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   submitEndTime?: string;
   /**
+   * @remarks
+   * Submission start time in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   submitStartTime?: string;
+  /**
+   * @remarks
+   * Submitter.
+   */
   submitterList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -80,12 +100,17 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
 
 export class ListSubmitRecordsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Search keyword.
+   * 
    * @example
    * abc
    */
   keyword?: string;
   /**
    * @remarks
+   * Pending deployment record filter.
+   * 
    * This parameter is required.
    */
   searchFilter?: ListSubmitRecordsRequestListQuerySearchFilter;
@@ -118,11 +143,15 @@ export class ListSubmitRecordsRequestListQuery extends $dara.Model {
 export class ListSubmitRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * Query command.
+   * 
    * This parameter is required.
    */
   listQuery?: ListSubmitRecordsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

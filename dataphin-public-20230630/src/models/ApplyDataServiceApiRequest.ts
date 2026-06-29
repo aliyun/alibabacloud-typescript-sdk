@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Model {
   /**
+   * @remarks
+   * The API permission field ID.
+   * 
    * @example
    * 22
    */
@@ -31,6 +34,9 @@ export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Mo
 
 export class ApplyDataServiceApiRequestApplyCommandProdFieldList extends $dara.Model {
   /**
+   * @remarks
+   * The API permission field ID.
+   * 
    * @example
    * 22
    */
@@ -59,6 +65,8 @@ export class ApplyDataServiceApiRequestApplyCommandProdFieldList extends $dara.M
 export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   /**
    * @remarks
+   * The API ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67,32 +75,75 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * AppId
+   * The application ID.
    * 
    * @example
    * 1203
    */
   appId?: number;
+  /**
+   * @remarks
+   * Specifies whether to apply for permissions on operation-type APIs in the development environment.
+   * 
+   * @example
+   * true
+   */
   applyDev?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to apply for permissions on operation-type APIs in the production environment.
+   * 
+   * @example
+   * true
+   */
   applyProd?: boolean;
   /**
+   * @remarks
+   * The application type. Valid values:
+   * 
+   * - APP: application.
+   * - USER: individual account.
+   * 
    * @example
    * APP
    */
   applyType?: string;
+  /**
+   * @remarks
+   * The list of permission types.
+   * 
+   * - When the principal is an application, the following permission types are supported. To apply for delegation permissions, you must also apply for usage permissions.
+   * 
+   *   - USE: usage permission.
+   *   - DELEGATION: delegation permission.
+   * - When the principal is an individual, only USE (usage) permission is supported.
+   * - If this parameter is not specified, the default value is USE (usage) permission.
+   */
   authTypes?: string[];
+  /**
+   * @remarks
+   * The list of permission fields for query-type APIs in the development environment. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty.
+   */
   devFieldList?: ApplyDataServiceApiRequestApplyCommandDevFieldList[];
   /**
    * @remarks
+   * The expiration date in the format of yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2025-06-30
    */
   expireDate?: string;
+  /**
+   * @remarks
+   * The list of permission fields for query-type APIs in the production environment. This parameter is required in basic mode.
+   */
   prodFieldList?: ApplyDataServiceApiRequestApplyCommandProdFieldList[];
   /**
    * @remarks
+   * The reason for the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -150,11 +201,15 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
 export class ApplyDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
+   * The apply command.
+   * 
    * This parameter is required.
    */
   applyCommand?: ApplyDataServiceApiRequestApplyCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -163,6 +218,8 @@ export class ApplyDataServiceApiRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

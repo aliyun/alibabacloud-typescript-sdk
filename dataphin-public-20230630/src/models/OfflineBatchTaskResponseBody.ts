@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class OfflineBatchTaskResponseBodyOfflineResult extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the object to be published.
+   * 
    * @example
    * 10211123
    */
@@ -31,26 +34,46 @@ export class OfflineBatchTaskResponseBodyOfflineResult extends $dara.Model {
 
 export class OfflineBatchTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The offline result.
+   */
   offlineResult?: OfflineBatchTaskResponseBodyOfflineResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

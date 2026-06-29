@@ -4,105 +4,181 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   /**
+   * @remarks
+   * Data classification ID.
+   * 
    * @example
    * 12345
    */
   classifyId?: number;
   /**
+   * @remarks
+   * Data classification name.
+   * 
    * @example
    * test
    */
   classifyName?: string;
   /**
+   * @remarks
+   * Column comment.
+   * 
    * @example
    * test
    */
   comment?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creator.
+   * 
    * @example
    * 30012011
    */
   creator?: string;
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 3301
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * Data source type.
+   * 
    * @example
    * MAX_COMPUTE
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * Data type.
+   * 
    * @example
    * varchar
    */
   dataType?: string;
   /**
+   * @remarks
+   * Default value.
+   * 
    * @example
    * test
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * Column display name.
+   * 
    * @example
    * 年龄
    */
   displayName?: string;
   /**
+   * @remarks
+   * Environment: dev or prod.
+   * 
    * @example
    * dev
    */
   env?: string;
   /**
+   * @remarks
+   * Column GUID.
+   * 
    * @example
    * 1121.col1
    */
   guid?: string;
+  /**
+   * @remarks
+   * Whether this is a foreign key.
+   */
   isForeignKey?: boolean;
+  /**
+   * @remarks
+   * Whether this is a partition column.
+   */
   isPartitionColumn?: boolean;
+  /**
+   * @remarks
+   * Whether this is a primary key.
+   */
   isPrimaryKey?: boolean;
   /**
+   * @remarks
+   * Last modifier.
+   * 
    * @example
    * 30012011
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * Data level abbreviation.
+   * 
    * @example
    * L1
    */
   levelAbbreviation?: string;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * Column name.
+   * 
    * @example
    * age
    */
   name?: string;
+  /**
+   * @remarks
+   * Whether null values are allowed.
+   */
   nullable?: boolean;
   /**
+   * @remarks
+   * Sequence number.
+   * 
    * @example
    * 1
    */
   seqNumber?: number;
   /**
+   * @remarks
+   * Table GUID.
+   * 
    * @example
    * 1121
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * Table name.
+   * 
    * @example
    * t_test
    */
   tableName?: string;
   /**
+   * @remarks
+   * Query count in the last 30 days.
+   * 
    * @example
    * 99
    */
@@ -176,17 +252,30 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
 
 export class GetTableColumnsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * List of asset table columns.
+   */
   columnList?: GetTableColumnsResponseBodyColumnList[];
   /**
+   * @remarks
+   * HTTP response code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend response exception details.
+   * 
    * @example
    * internal error
    */
@@ -199,6 +288,10 @@ export class GetTableColumnsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertEventRequest extends $dara.Model {
   /**
    * @remarks
+   * The alert event ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAlertEventRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

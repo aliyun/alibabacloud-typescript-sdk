@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteManualNodeRequestExecuteCommandParamList extends $dara.Model {
   /**
+   * @remarks
+   * The parameter.
+   * 
    * @example
    * param1
    */
   key?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * 1
    */
@@ -39,6 +45,8 @@ export class ExecuteManualNodeRequestExecuteCommandParamList extends $dara.Model
 export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
   /**
    * @remarks
+   * The end business date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,21 +54,32 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
    */
   endBizDate?: string;
   /**
+   * @remarks
+   * The workflow name.
+   * 
    * @example
    * xx测试
    */
   flowName?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * n_12132
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * The runtime parameters.
+   */
   paramList?: ExecuteManualNodeRequestExecuteCommandParamList[];
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +88,8 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The start business date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,17 +132,26 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
 
 export class ExecuteManualNodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The request for running a manual task.
+   * 
    * This parameter is required.
    */
   executeCommand?: ExecuteManualNodeRequestExecuteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,22 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceUpDownStreamShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of downstream node levels. Default value: 1.
+   * 
    * @example
    * 1
    */
   downStreamDepth?: number;
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The center node.
+   * 
    * This parameter is required.
    */
   instanceIdShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +40,8 @@ export class GetInstanceUpDownStreamShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +49,9 @@ export class GetInstanceUpDownStreamShrinkRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The number of upstream node levels. Default value: 1.
+   * 
    * @example
    * 1
    */

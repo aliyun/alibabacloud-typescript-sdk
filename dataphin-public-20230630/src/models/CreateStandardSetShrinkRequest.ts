@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardSetShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The create instruction.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

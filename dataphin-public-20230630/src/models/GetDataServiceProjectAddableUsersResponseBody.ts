@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceProjectAddableUsersResponseBodyUserList extends $dara.Model {
   /**
+   * @remarks
+   * The username of the user.
+   * 
    * @example
    * xx@aliyuncs.com
    */
   accountName?: string;
   /**
+   * @remarks
+   * The nickname of the user.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 30012011
    */
@@ -45,16 +54,25 @@ export class GetDataServiceProjectAddableUsersResponseBodyUserList extends $dara
 
 export class GetDataServiceProjectAddableUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -67,7 +85,15 @@ export class GetDataServiceProjectAddableUsersResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The list of project members.
+   */
   userList?: GetDataServiceProjectAddableUsersResponseBodyUserList[];
   static names(): { [key: string]: string } {
     return {

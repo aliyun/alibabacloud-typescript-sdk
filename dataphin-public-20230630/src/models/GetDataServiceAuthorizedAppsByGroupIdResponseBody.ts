@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extends $dara.Model {
   /**
    * @remarks
-   * AppKey
+   * The application key.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
    * 
    * @example
-   * 202212
+   * 12345
    * 
    * @deprecated
    */
   appKey?: number;
   /**
+   * @remarks
+   * The application key.
+   * 
    * @example
    * app12345
    */
@@ -27,6 +31,9 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
    */
   id?: number;
   /**
+   * @remarks
+   * The app name.
+   * 
    * @example
    * test
    */
@@ -59,18 +66,31 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
 }
 
 export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of API groups.
+   */
   appInfoList?: GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList[];
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -83,6 +103,10 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

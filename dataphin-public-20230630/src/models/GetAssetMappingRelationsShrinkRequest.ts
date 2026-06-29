@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAssetMappingRelationsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The query instruction.
+   */
   assetMappingQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

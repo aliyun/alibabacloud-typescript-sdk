@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTriggerNodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The business date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,29 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
    */
   bizDate?: string;
   /**
+   * @remarks
+   * The environment. Valid values:
+   * - DEV: development environment.
+   * - PROD: production environment.
+   * 
+   * Default value: PROD.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * If the node is an hourly or minutely node, multiple instances are generated per day. This parameter specifies the ordinal number of the instance.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +45,8 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,8 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAdHocFileRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The file content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateAdHocFileRequestUpdateCommand extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * The file ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateAdHocFileRequestUpdateCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +61,8 @@ export class UpdateAdHocFileRequestUpdateCommand extends $dara.Model {
 export class UpdateAdHocFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +71,8 @@ export class UpdateAdHocFileRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update request.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateAdHocFileRequestUpdateCommand;

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PausePhysicalNodeResponseBodyNodeOperateResultList extends $dara.Model {
   /**
+   * @remarks
+   * The error message returned when the operation fails.
+   * 
    * @example
    * xx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_123456
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The operation result.
+   * 
    * @example
    * SUCCESS
    */
@@ -45,27 +54,46 @@ export class PausePhysicalNodeResponseBodyNodeOperateResultList extends $dara.Mo
 
 export class PausePhysicalNodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The results of the pause scheduling operations on the nodes.
+   */
   nodeOperateResultList?: PausePhysicalNodeResponseBodyNodeOperateResultList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

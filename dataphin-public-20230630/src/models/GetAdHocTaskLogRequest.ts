@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdHocTaskLogRequest extends $dara.Model {
   /**
    * @remarks
+   * The offset for querying logs. Increment the value based on the returned result. Set the initial value to 0.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The subtask ID. The value starts from 0.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
   subTaskId?: number;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example

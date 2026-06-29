@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping extends $dara.Model {
+  /**
+   * @remarks
+   * The list of department IDs to which the user belongs. If this parameter is left empty, the user-department affiliation is deleted.
+   */
   departmentIdList?: string[];
   /**
    * @remarks
+   * The user ID in the user system. This value is the unique identifier of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +47,8 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
 export class SyncDepartmentUserRequestSyncDepartmentUserCommand extends $dara.Model {
   /**
    * @remarks
+   * The mapping between users and their affiliated departments.
+   * 
    * This parameter is required.
    */
   deptUserMapping?: SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping[];
@@ -71,6 +79,8 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommand extends $dara.Mo
 export class SyncDepartmentUserRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79,6 +89,8 @@ export class SyncDepartmentUserRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   syncDepartmentUserCommand?: SyncDepartmentUserRequestSyncDepartmentUserCommand;

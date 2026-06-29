@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnLineageByTaskIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTableColumnLineageByTaskIdShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Data structure for querying table column lineage.
+   * 
    * This parameter is required.
    */
   tableColumnLineageByTaskIdQueryShrink?: string;

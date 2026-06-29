@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RevokeResourcePermissionRequestRevokeCommandResourceList extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * odps.300002102.beginner_test.amin_table
    */
@@ -30,19 +33,30 @@ export class RevokeResourcePermissionRequestRevokeCommandResourceList extends $d
 }
 
 export class RevokeResourcePermissionRequestRevokeCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The list of operations.
+   */
   operateList?: string[];
   /**
+   * @remarks
+   * The reason for revoking the authorization.
+   * 
    * @example
    * xx
    */
   reason?: string;
   /**
    * @remarks
+   * The list of resources.
+   * 
    * This parameter is required.
    */
   resourceList?: RevokeResourcePermissionRequestRevokeCommandResourceList[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +65,8 @@ export class RevokeResourcePermissionRequestRevokeCommand extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +111,8 @@ export class RevokeResourcePermissionRequestRevokeCommand extends $dara.Model {
 export class RevokeResourcePermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +121,8 @@ export class RevokeResourcePermissionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The authorization revocation request.
+   * 
    * This parameter is required.
    */
   revokeCommand?: RevokeResourcePermissionRequestRevokeCommand;

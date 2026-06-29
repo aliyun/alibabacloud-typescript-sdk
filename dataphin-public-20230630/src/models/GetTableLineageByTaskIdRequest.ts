@@ -3,14 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return tables that do not exist in the asset inventory. If this parameter is not specified, non-existent tables are not returned.
+   */
   needNotExistObject?: boolean;
   /**
+   * @remarks
+   * The environment of the task to query: DEV or PROD.
+   * 
    * @example
    * DEV
    */
   taskEnv?: string;
   /**
    * @remarks
+   * The task (node) ID used to filter the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +54,8 @@ export class GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery extends $da
 export class GetTableLineageByTaskIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +64,8 @@ export class GetTableLineageByTaskIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data structure for querying table lineage.
+   * 
    * This parameter is required.
    */
   tableLineageByTaskIdQuery?: GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery;

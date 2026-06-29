@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineByIdRequestContext extends $dara.Model {
   /**
    * @remarks
+   * The current operating environment. Valid values:
+   * - DEV: the development environment.
+   * - PROD: the production environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class GetPipelineByIdRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The ID of the project to which the integration pipeline task belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,16 +50,25 @@ export class GetPipelineByIdRequestContext extends $dara.Model {
 
 export class GetPipelineByIdRequestQueryId extends $dara.Model {
   /**
+   * @remarks
+   * Supports querying by the integration task file ID (fileId).
+   * 
    * @example
    * 123
    */
   fileId?: number;
   /**
+   * @remarks
+   * Supports querying by the integration task scheduling node ID (nodeId).
+   * 
    * @example
    * n_123
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Supports querying by the integration pipeline primary key (pipelineId).
+   * 
    * @example
    * 123
    */
@@ -86,11 +101,15 @@ export class GetPipelineByIdRequestQueryId extends $dara.Model {
 export class GetPipelineByIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   context?: GetPipelineByIdRequestContext;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -99,6 +118,8 @@ export class GetPipelineByIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID used to query the pipeline task.
+   * 
    * This parameter is required.
    */
   queryId?: GetPipelineByIdRequestQueryId;

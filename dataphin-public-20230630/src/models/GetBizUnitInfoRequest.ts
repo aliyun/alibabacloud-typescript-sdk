@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizUnitInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The data domain ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetBizUnitInfoRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

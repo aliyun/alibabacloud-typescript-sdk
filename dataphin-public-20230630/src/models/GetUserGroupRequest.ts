@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetUserGroupRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The user group ID.
+   * 
    * This parameter is required.
    * 
    * @example

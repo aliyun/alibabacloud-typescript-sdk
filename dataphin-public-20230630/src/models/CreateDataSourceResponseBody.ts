@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataSourceResponseBodyCreateResult extends $dara.Model {
   /**
+   * @remarks
+   * Development environment data source ID
+   * 
    * @example
    * 123
    */
   devDataSourceId?: number;
   /**
+   * @remarks
+   * Production environment data source ID
+   * 
    * @example
    * 12345
    */
@@ -38,27 +44,46 @@ export class CreateDataSourceResponseBodyCreateResult extends $dara.Model {
 
 export class CreateDataSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates that the request is successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data source creation result
+   */
   createResult?: CreateDataSourceResponseBodyCreateResult;
   /**
+   * @remarks
+   * HTTP status code returned by the backend
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful
+   * 
    * @example
    * true
    */

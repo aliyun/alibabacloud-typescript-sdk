@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodeDownStreamRequestListQueryFilterList extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to exclude the matched results. Default value: false.
+   * 
    * @example
    * false
    */
   exclude?: boolean;
   /**
+   * @remarks
+   * The filter key. Valid values:
+   * - PROJECT: project
+   * - PHYSICAL_NODE_ID: physical node ID
+   * - LOGICAL_TABLE_NODE_ID: logical table ID.
+   * 
    * @example
    * PROJECT
    */
   key?: string;
+  /**
+   * @remarks
+   * The list of filter values.
+   */
   valueList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -44,11 +57,17 @@ export class ListNodeDownStreamRequestListQueryFilterList extends $dara.Model {
 
 export class ListNodeDownStreamRequestListQueryNodeIdList extends $dara.Model {
   /**
+   * @remarks
+   * The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
+   * 
    * @example
    * 112
    */
   fieldIdList?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_23431
    */
@@ -81,17 +100,29 @@ export class ListNodeDownStreamRequestListQueryNodeIdList extends $dara.Model {
 
 export class ListNodeDownStreamRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The depth. Default value: 3.
+   * 
    * @example
    * 1
    */
   downStreamDepth?: number;
+  /**
+   * @remarks
+   * The filters. You can include or exclude results based on projects or nodes. Default value: empty.
+   */
   filterList?: ListNodeDownStreamRequestListQueryFilterList[];
   /**
    * @remarks
+   * The list of nodes.
+   * 
    * This parameter is required.
    */
   nodeIdList?: ListNodeDownStreamRequestListQueryNodeIdList[];
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 123011
    */
@@ -131,17 +162,26 @@ export class ListNodeDownStreamRequestListQuery extends $dara.Model {
 
 export class ListNodeDownStreamRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The request for querying node downstream.
+   * 
    * This parameter is required.
    */
   listQuery?: ListNodeDownStreamRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

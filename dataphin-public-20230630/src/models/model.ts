@@ -746,6 +746,7 @@ export { RevokeDataServiceApiRequestRevokeCommand } from './RevokeDataServiceApi
 export { RevokeResourcePermissionRequestRevokeCommandResourceList } from './RevokeResourcePermissionRequest';
 export { RevokeResourcePermissionRequestRevokeCommand } from './RevokeResourcePermissionRequest';
 export { SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig } from './SubmitBatchTaskRequest';
+export { SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams } from './SubmitBatchTaskRequest';
 export { SubmitBatchTaskRequestSubmitCommandParamList } from './SubmitBatchTaskRequest';
 export { SubmitBatchTaskRequestSubmitCommandSparkClientInfo } from './SubmitBatchTaskRequest';
 export { SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod } from './SubmitBatchTaskRequest';

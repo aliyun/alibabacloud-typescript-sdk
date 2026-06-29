@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDirectoryTreeResponseBodyDataChildren extends $dara.Model {
   /**
+   * @remarks
+   * Directory type.
+   * 
    * @example
    * codeManage
    */
   categoryType?: string;
   /**
+   * @remarks
+   * Creator ID.
+   * 
    * @example
    * 300000907
    */
   creator?: string;
   /**
+   * @remarks
+   * Creator name.
+   * 
    * @example
    * John
    */
   creatorName?: string;
   /**
+   * @remarks
+   * Data cell ID.
+   * 
    * @example
    * 41342
    */
   dataCellId?: number;
   /**
+   * @remarks
+   * Directory path. Valid only for file or resource nodes.
+   * 
    * @example
    * /
    */
   dirName?: string;
   /**
+   * @remarks
+   * Creation time. Empty for non-entity object nodes.
+   * 
    * @example
    * 2024-11-01 18:08:17
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time. Empty for non-entity object nodes.
+   * 
    * @example
    * 2024-11-01 18:08:17
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Directory ID.
+   * 
    * @example
    * 3
    */
   id?: number;
   /**
+   * @remarks
+   * Last modifier ID.
+   * 
    * @example
    * 300000907
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * Last modifier name.
+   * 
    * @example
    * John
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * Display name of the object.
+   * 
    * @example
    * 代码管理
    */
   name?: string;
   /**
+   * @remarks
+   * Project ID.
+   * 
    * @example
    * 7081229106458752
    */
   projectId?: number;
   /**
+   * @remarks
+   * Directory string ID.
+   * 
    * @example
    * 3
    */
   stringId?: string;
   /**
+   * @remarks
+   * Object type.
+   * 
    * @example
    * codeManage
    */
@@ -122,71 +164,113 @@ export class GetDirectoryTreeResponseBodyDataChildren extends $dara.Model {
 
 export class GetDirectoryTreeResponseBodyDataParent extends $dara.Model {
   /**
+   * @remarks
+   * Directory type.
+   * 
    * @example
    * codeManage
    */
   categoryType?: string;
   /**
+   * @remarks
+   * Creator ID.
+   * 
    * @example
    * 300000907
    */
   creator?: string;
   /**
+   * @remarks
+   * Creator name.
+   * 
    * @example
    * John
    */
   creatorName?: string;
   /**
+   * @remarks
+   * Data cell ID.
+   * 
    * @example
    * 3213
    */
   dataCellId?: number;
   /**
+   * @remarks
+   * Directory path. Valid only for file or resource nodes.
+   * 
    * @example
    * /
    */
   dirName?: string;
   /**
+   * @remarks
+   * Creation time. Empty for non-entity object nodes.
+   * 
    * @example
    * 2024-11-01 18:08:17
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time. Empty for non-entity object nodes.
+   * 
    * @example
    * 2024-11-01 18:08:17
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Directory ID.
+   * 
    * @example
    * 3
    */
   id?: number;
   /**
+   * @remarks
+   * Last modifier ID.
+   * 
    * @example
    * 300000907
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * Last modifier name.
+   * 
    * @example
    * John
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * Display name of the object.
+   * 
    * @example
    * 代码管理
    */
   name?: string;
   /**
+   * @remarks
+   * Project ID.
+   * 
    * @example
    * 7081229106458752
    */
   projectId?: number;
   /**
+   * @remarks
+   * Directory string ID.
+   * 
    * @example
    * 3
    */
   stringId?: string;
   /**
+   * @remarks
+   * Object type.
+   * 
    * @example
    * codeManage
    */
@@ -239,7 +323,15 @@ export class GetDirectoryTreeResponseBodyDataParent extends $dara.Model {
 }
 
 export class GetDirectoryTreeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Child node.
+   */
   children?: GetDirectoryTreeResponseBodyDataChildren;
+  /**
+   * @remarks
+   * Parent node.
+   */
   parent?: GetDirectoryTreeResponseBodyDataParent;
   static names(): { [key: string]: string } {
     return {
@@ -272,26 +364,46 @@ export class GetDirectoryTreeResponseBodyData extends $dara.Model {
 
 export class GetDirectoryTreeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. OK indicates a successful request.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Directory tree information. Returns the directory tree with all edge information, traversed level by level from the root node.
+   */
   data?: GetDirectoryTreeResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

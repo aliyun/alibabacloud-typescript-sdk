@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizMetricShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The create request.
+   * 
    * This parameter is required.
    */
   createBizMetricCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The new application key
+   * 
    * @example
    * 200000001
    */
   appKey?: string;
   /**
+   * @remarks
+   * The new application secret
+   * 
    * @example
    * abc123456789
    */
@@ -38,17 +44,30 @@ export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
 
 export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Reset Data Service application key result
+   */
   data?: ResetDataServiceAppSecretResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend exception details
+   * 
    * @example
    * internal error
    */
@@ -61,6 +80,10 @@ export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

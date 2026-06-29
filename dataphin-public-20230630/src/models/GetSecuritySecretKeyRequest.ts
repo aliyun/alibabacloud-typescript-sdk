@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecuritySecretKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * The key name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSecuritySecretKeyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

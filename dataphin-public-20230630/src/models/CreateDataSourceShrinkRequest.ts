@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDataSourceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Request object
+   */
   createCommandShrink?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

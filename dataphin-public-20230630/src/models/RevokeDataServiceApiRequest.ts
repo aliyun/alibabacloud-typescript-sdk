@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
   /**
    * @remarks
+   * The API ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +14,47 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    */
   apiId?: number;
   /**
+   * @remarks
+   * The ID of the application.
+   * 
    * @example
    * 1203
    */
   appId?: number;
   /**
+   * @remarks
+   * The permission type. Valid values:
+   * - USE: use permission
+   * - DELEGATION: delegation permission.
+   * 
    * @example
    * USE
    */
   authType?: string;
   /**
+   * @remarks
+   * The API environment. Valid values:
+   * - DEV: development environment
+   * - PROD: production environment.
+   * 
    * @example
-   * DEV
+   * PROD
    */
   env?: string;
   /**
+   * @remarks
+   * The authorization object type. Valid values:
+   * - APP: application
+   * - USER: user.
+   * 
    * @example
    * APP
    */
   granteeType?: string;
   /**
    * @remarks
+   * The reason for the request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +62,9 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    */
   reason?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 12345
    */
@@ -80,6 +105,8 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
 export class RevokeDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,6 +115,8 @@ export class RevokeDataServiceApiRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,6 +125,8 @@ export class RevokeDataServiceApiRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The revoke instruction.
+   * 
    * This parameter is required.
    */
   revokeCommand?: RevokeDataServiceApiRequestRevokeCommand;

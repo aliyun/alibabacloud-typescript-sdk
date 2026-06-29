@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddRegisterLineageShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The command for registering and adding data lineage.
+   * 
    * This parameter is required.
    */
   addRegisterLineageCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

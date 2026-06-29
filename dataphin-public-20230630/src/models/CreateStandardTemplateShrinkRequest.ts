@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Create command.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

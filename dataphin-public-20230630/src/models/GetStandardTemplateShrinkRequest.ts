@@ -3,18 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetStandardTemplateShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter condition.
+   */
   filterQueryShrink?: string;
   /**
    * @remarks
+   * The standard template ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 22
    */
   id?: number;
+  /**
+   * @remarks
+   * Specifies whether to allow a null value to be returned when the template does not exist. If set to false, an exception is thrown. Default value: true.
+   */
   nullable?: boolean;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
+   * The end time in the format of HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   endTime?: string;
   /**
    * @remarks
+   * The custom interval.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   interval?: number;
   /**
    * @remarks
+   * The interval unit. Valid values:
+   * - MINUTE: minute
+   * - HOUR: hour
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,14 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   intervalUnit?: string;
   /**
    * @remarks
+   * The schedule period. Valid values:
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +53,8 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   schedulePeriod?: string;
   /**
    * @remarks
+   * The start time in the format of HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72,9 +90,55 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   }
 }
 
+export class SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams extends $dara.Model {
+  /**
+   * @example
+   * 参数说明
+   */
+  description?: string;
+  encryptEnabled?: boolean;
+  /**
+   * @example
+   * paramKey
+   */
+  key?: string;
+  /**
+   * @example
+   * paramValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      encryptEnabled: 'EncryptEnabled',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      encryptEnabled: 'boolean',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
   /**
    * @remarks
+   * The parameter name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,6 +147,8 @@ export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The parameter value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,6 +181,8 @@ export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
 export class SubmitBatchTaskRequestSubmitCommandSparkClientInfo extends $dara.Model {
   /**
    * @remarks
+   * The version name of the Spark client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -144,12 +212,21 @@ export class SubmitBatchTaskRequestSubmitCommandSparkClientInfo extends $dara.Mo
 
 export class SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod extends $dara.Model {
   /**
+   * @remarks
+   * The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
+   * 
    * @example
    * 1
    */
   periodOffset?: number;
   /**
    * @remarks
+   * The dependency period type. Valid values:
+   * - CURRENT_PERIOD: current period
+   * - LAST_PERIOD: previous period
+   * - LAST_N_PERIOD: last N days
+   * - LAST_24_HOUR: last 24 hours
+   * 
    * This parameter is required.
    * 
    * @example
@@ -180,34 +257,65 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod extends
 }
 
 export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model {
+  /**
+   * @remarks
+   * The dependency period.
+   */
   dependPeriod?: SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod;
   /**
+   * @remarks
+   * The dependency strategy. Valid values:
+   * - ALL: all
+   * - FIRST: first
+   * - LAST: last
+   * - NEAR: nearest
+   * 
    * @example
    * ALL
    */
   dependStrategy?: string;
+  /**
+   * @remarks
+   * The dependent logical table fields.
+   */
   fieldList?: string[];
   /**
+   * @remarks
+   * The type of the upstream dependency node. Valid values:
+   * - PHYSICAL: physical node
+   * - LOGICAL: logical table dependency
+   * 
    * @example
    * PHYSICAL
    */
   nodeType?: string;
   /**
    * @remarks
+   * The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   periodDiff?: number;
+  /**
+   * @remarks
+   * Indicates whether the upstream node is enabled.
+   */
   sourceNodeEnabled?: boolean;
   /**
+   * @remarks
+   * The ID of the upstream node.
+   * 
    * @example
    * n_2001
    */
   sourceNodeId?: string;
   /**
    * @remarks
+   * The output name of the upstream node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -215,6 +323,9 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
    */
   sourceNodeOutputName?: string;
   /**
+   * @remarks
+   * The name of the input table.
+   * 
    * @example
    * t_input1
    */
@@ -265,6 +376,8 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
 export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   /**
    * @remarks
+   * The code of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -272,7 +385,14 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
    */
   code?: string;
   /**
+   * @example
+   * 1
+   */
+  codeTemplateVersion?: number;
+  /**
    * @remarks
+   * The comment for the submit operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -280,18 +400,33 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
    */
   comment?: string;
   /**
+   * @remarks
+   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+   * 
    * @example
    * 0 0 1 * * ?
    */
   cronExpression?: string;
+  /**
+   * @remarks
+   * The custom schedule interval configuration.
+   */
   customScheduleConfig?: SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig;
   /**
+   * @remarks
+   * The execution engine for the node, such as for Python tasks. Valid values:
+   * - PYTHON2_7
+   * - PYTHON3_7
+   * - PYTHON3_11
+   * 
    * @example
    * PYTHON3_7
    */
   engine?: string;
   /**
    * @remarks
+   * The node ID in the directory tree.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -300,6 +435,8 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The name of the batch task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -307,41 +444,91 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The description of the node.
+   * 
    * @example
    * xx测试
    */
   nodeDescription?: string;
+  /**
+   * @remarks
+   * The list of node output names.
+   */
   nodeOutputNameList?: string[];
   /**
+   * @remarks
+   * The node status. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * @example
    * 1
    */
   nodeStatus?: number;
+  /**
+   * @example
+   * template_123456
+   */
+  offlineCodeTemplateId?: string;
+  offlineCodeTemplateParams?: SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams[];
+  /**
+   * @remarks
+   * The list of custom parameters.
+   */
   paramList?: SubmitBatchTaskRequestSubmitCommandParamList[];
   /**
+   * @remarks
+   * The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
    * @remarks
+   * The ID of the project to which the node belongs.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10121101
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The Python third-party packages that the node depends on.
+   */
   pythonModuleList?: string[];
   /**
+   * @remarks
+   * The schedule period. Valid values:
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY
+   * 
    * @example
    * DAILY
    */
   schedulePeriod?: string;
+  /**
+   * @remarks
+   * The Spark client information.
+   */
   sparkClientInfo?: SubmitBatchTaskRequestSubmitCommandSparkClientInfo;
+  /**
+   * @remarks
+   * The upstream dependencies.
+   */
   upStreamList?: SubmitBatchTaskRequestSubmitCommandUpStreamList[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      codeTemplateVersion: 'CodeTemplateVersion',
       comment: 'Comment',
       cronExpression: 'CronExpression',
       customScheduleConfig: 'CustomScheduleConfig',
@@ -351,6 +538,8 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
       nodeDescription: 'NodeDescription',
       nodeOutputNameList: 'NodeOutputNameList',
       nodeStatus: 'NodeStatus',
+      offlineCodeTemplateId: 'OfflineCodeTemplateId',
+      offlineCodeTemplateParams: 'OfflineCodeTemplateParams',
       paramList: 'ParamList',
       priority: 'Priority',
       projectId: 'ProjectId',
@@ -364,6 +553,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      codeTemplateVersion: 'number',
       comment: 'string',
       cronExpression: 'string',
       customScheduleConfig: SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig,
@@ -373,6 +563,8 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
       nodeDescription: 'string',
       nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
       nodeStatus: 'number',
+      offlineCodeTemplateId: 'string',
+      offlineCodeTemplateParams: { 'type': 'array', 'itemType': SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams },
       paramList: { 'type': 'array', 'itemType': SubmitBatchTaskRequestSubmitCommandParamList },
       priority: 'number',
       projectId: 'number',
@@ -389,6 +581,9 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
     }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
+    }
+    if(Array.isArray(this.offlineCodeTemplateParams)) {
+      $dara.Model.validateArray(this.offlineCodeTemplateParams);
     }
     if(Array.isArray(this.paramList)) {
       $dara.Model.validateArray(this.paramList);
@@ -413,6 +608,8 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
 export class SubmitBatchTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -421,6 +618,8 @@ export class SubmitBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The submit request.
+   * 
    * This parameter is required.
    */
   submitCommand?: SubmitBatchTaskRequestSubmitCommand;

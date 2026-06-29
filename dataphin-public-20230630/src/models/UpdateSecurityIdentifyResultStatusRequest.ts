@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityIdentifyResultStatusRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether the result is effective.
+   * 
    * This parameter is required.
    */
   enable?: boolean;
   /**
    * @remarks
+   * The list of identification result IDs.
+   * 
    * This parameter is required.
    */
   identifyResultIdList?: number[];
@@ -42,6 +46,8 @@ export class UpdateSecurityIdentifyResultStatusRequestUpdateCommand extends $dar
 export class UpdateSecurityIdentifyResultStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +56,8 @@ export class UpdateSecurityIdentifyResultStatusRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateSecurityIdentifyResultStatusRequestUpdateCommand;

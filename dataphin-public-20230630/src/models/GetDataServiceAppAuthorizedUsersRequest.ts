@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * AppId
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
   appId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

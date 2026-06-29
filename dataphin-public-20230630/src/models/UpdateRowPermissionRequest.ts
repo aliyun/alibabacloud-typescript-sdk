@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the mapping field.
+   * 
+   * @example
+   * 业务ID
+   */
   columnDesc?: string;
   /**
    * @remarks
+   * The name of the mapping field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns 
   columnName?: string;
   /**
    * @remarks
+   * The type of the mapping field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +59,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns 
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpressions extends $dara.Model {
   /**
    * @remarks
+   * The name of the mapping field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +69,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
   mappingColumnName?: string;
   /**
    * @remarks
+   * The expression operator.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,11 +79,15 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
   operator?: string;
   /**
    * @remarks
+   * The sub-expressions.
+   * 
    * This parameter is required.
    */
   subConditions?: any[];
   /**
    * @remarks
+   * The expression type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,6 +96,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
   type?: string;
   /**
    * @remarks
+   * The operation values of the expression.
+   * 
    * This parameter is required.
    */
   values?: string[];
@@ -118,6 +139,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingListAccounts extends $dara.Model {
   /**
    * @remarks
+   * The ID of the account associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -148,6 +171,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingList extends $dara.Model {
   /**
    * @remarks
+   * The type of the account associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -156,6 +181,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
   accountType?: string;
   /**
    * @remarks
+   * The accounts associated with the rule.
+   * 
    * This parameter is required.
    */
   accounts?: UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingListAccounts[];
@@ -188,21 +215,33 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $dara.Model {
   /**
    * @remarks
+   * The rule expressions.
+   * 
    * This parameter is required.
    */
   expressions?: UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpressions[];
   /**
+   * @remarks
+   * Specifies whether to delete the rule.
+   * 
    * @example
    * 0
    */
   isDelete?: boolean;
   /**
    * @remarks
+   * The rule name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 管控业务ID大于100
    */
   ruleName?: string;
   /**
    * @remarks
+   * The scope type of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -211,12 +250,18 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $
   scopeType?: string;
   /**
    * @remarks
+   * The rule status.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The accounts associated with the rule.
+   */
   userMappingList?: UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingList[];
   static names(): { [key: string]: string } {
     return {
@@ -258,6 +303,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends $dara.Model {
   /**
    * @remarks
+   * The table field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -266,6 +313,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
   columnName?: string;
   /**
    * @remarks
+   * The name of the mapping field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -274,6 +323,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
   mappingColumnName?: string;
   /**
    * @remarks
+   * The GUID of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -308,12 +359,23 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
 export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
+   * The mapping fields.
+   * 
    * This parameter is required.
    */
   mappingColumns?: UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns[];
+  /**
+   * @remarks
+   * The row-level permission description.
+   * 
+   * @example
+   * 管控业务数据
+   */
   rowPermissionDesc?: string;
   /**
    * @remarks
+   * The row-level permission ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -322,10 +384,23 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
   rowPermissionId?: number;
   /**
    * @remarks
+   * The row-level permission name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 业务管控
    */
   rowPermissionName?: string;
+  /**
+   * @remarks
+   * The rules.
+   */
   rules?: UpdateRowPermissionRequestUpdateRowPermissionCommandRules[];
+  /**
+   * @remarks
+   * The related tables.
+   */
   tables?: UpdateRowPermissionRequestUpdateRowPermissionCommandTables[];
   static names(): { [key: string]: string } {
     return {
@@ -370,6 +445,8 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
 export class UpdateRowPermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -378,6 +455,8 @@ export class UpdateRowPermissionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   updateRowPermissionCommand?: UpdateRowPermissionRequestUpdateRowPermissionCommand;

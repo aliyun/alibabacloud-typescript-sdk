@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList extends $dara.Model {
   /**
+   * @remarks
+   * The datasource ID.
+   * 
    * @example
    * ds54321
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The datasource name.
+   * 
    * @example
    * publicDatasource
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * The datasource type.
+   * 
    * @example
    * 3
    */
   datasourceType?: number;
   /**
+   * @remarks
+   * The datasource URL.
+   * 
    * @example
    * https://example.com/public_datasource
    */
   datasourceUrl?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * public_table
    */
@@ -59,76 +74,121 @@ export class ListApiByAppResponseBodyListResultDataPublicParamListTableAndDsList
 
 export class ListApiByAppResponseBodyListResultDataPublicParamList extends $dara.Model {
   /**
+   * @remarks
+   * The date format.
+   * 
    * @example
    * yyyy-MM-dd
    */
   dateFormat?: string;
   /**
+   * @remarks
+   * The default value for registered APIs.
+   * 
    * @example
    * default_public_value
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
    * 这是一个示例公共参数
    */
   description?: string;
   /**
+   * @remarks
+   * The parameter description code.
+   * 
    * @example
    * CODE_003
    */
   descriptionCode?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 3001
    */
   id?: number;
   /**
+   * @remarks
+   * The initial value.
+   * 
    * @example
    * app_key_value
    */
   initialValue?: string;
   /**
+   * @remarks
+   * The frontend binding field.
+   * 
    * @example
    * publicColumn1
    */
   mappingColumn?: string;
   /**
+   * @remarks
+   * Indicates whether the request parameter is required.
+   * 
    * @example
    * 1
    */
   must?: number;
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * =
    */
   operator?: string;
   /**
+   * @remarks
+   * Indicates whether the parameter is editable.
+   * 
    * @example
    * 1
    */
   optional?: number;
   /**
+   * @remarks
+   * The original field name.
+   * 
    * @example
    * original_public_column
    */
   originalColumn?: string;
   /**
+   * @remarks
+   * The frontend parameter name.
+   * 
    * @example
    * publicParam1
    */
   paramName?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * String
    */
   paramType?: string;
   /**
+   * @remarks
+   * The request parameter location for registered APIs or the value path for response parameters.
+   * 
    * @example
    * /path/to/public_param
    */
   parameterLocation?: string;
   /**
+   * @remarks
+   * The parameter example.
+   * 
    * @example
    * publicValue1
    */
@@ -194,61 +254,97 @@ export class ListApiByAppResponseBodyListResultDataPublicParamList extends $dara
 
 export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Model {
   /**
+   * @remarks
+   * The primary key of data_api.
+   * 
    * @example
    * 67890
    */
   apiId?: number;
   /**
+   * @remarks
+   * The API datasource authentication mode.
+   * 
    * @example
    * OAuth2
    */
   authenticationMode?: string;
   /**
+   * @remarks
+   * The API datasource ID.
+   * 
    * @example
    * ds67890
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The API datasource name.
+   * 
    * @example
    * registerDatasource
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * The failure example.
+   * 
    * @example
    * {"status":"error","message":"Invalid request"}
    */
   failExample?: string;
   /**
+   * @remarks
+   * The HTTP method of the registered API.
+   * 
    * @example
    * 1
    */
   httpMethod?: number;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * 0
    */
   modelType?: number;
   /**
+   * @remarks
+   * The service path.
+   * 
    * @example
    * /api/v1/register
    */
   path?: string;
   /**
+   * @remarks
+   * The API datasource request protocol.
+   * 
    * @example
    * HTTPS
    */
   protocol?: string;
   /**
+   * @remarks
+   * The success example.
+   * 
    * @example
    * {"status":"success","data":[]}
    */
   successExample?: string;
   /**
+   * @remarks
+   * The timeout period.
+   * 
    * @example
    * 30
    */
   timeout?: number;
   /**
+   * @remarks
+   * The API datasource URL.
+   * 
    * @example
    * https://example.com/register_api
    */
@@ -298,26 +394,41 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
 
 export class ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsList extends $dara.Model {
   /**
+   * @remarks
+   * The datasource ID.
+   * 
    * @example
    * ds12345
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The datasource name.
+   * 
    * @example
    * exampleDatasource
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * The datasource type.
+   * 
    * @example
    * 1
    */
   datasourceType?: number;
   /**
+   * @remarks
+   * The datasource URL.
+   * 
    * @example
    * https://example.com/datasource
    */
   datasourceUrl?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * example_table
    */
@@ -353,76 +464,121 @@ export class ListApiByAppResponseBodyListResultDataRequestParamListTableAndDsLis
 
 export class ListApiByAppResponseBodyListResultDataRequestParamList extends $dara.Model {
   /**
+   * @remarks
+   * The date format.
+   * 
    * @example
    * yyyy-MM-dd
    */
   dateFormat?: string;
   /**
+   * @remarks
+   * The default value for registered APIs.
+   * 
    * @example
    * default_value
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
    * 这是一个示例参数
    */
   description?: string;
   /**
+   * @remarks
+   * The parameter description code.
+   * 
    * @example
    * CODE_001
    */
   descriptionCode?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 1001
    */
   id?: number;
   /**
+   * @remarks
+   * The initial value.
+   * 
    * @example
    * app_key_value
    */
   initialValue?: string;
   /**
+   * @remarks
+   * The frontend binding field.
+   * 
    * @example
    * column1
    */
   mappingColumn?: string;
   /**
+   * @remarks
+   * Indicates whether the request parameter is required.
+   * 
    * @example
    * 1
    */
   must?: number;
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * =
    */
   operator?: string;
   /**
+   * @remarks
+   * Indicates whether the parameter is editable.
+   * 
    * @example
    * 1
    */
   optional?: number;
   /**
+   * @remarks
+   * The original field name.
+   * 
    * @example
    * original_column
    */
   originalColumn?: string;
   /**
+   * @remarks
+   * The frontend parameter name.
+   * 
    * @example
    * param1
    */
   paramName?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * String
    */
   paramType?: string;
   /**
+   * @remarks
+   * The request parameter location for registered APIs or the value path for response parameters.
+   * 
    * @example
    * /path/to/param
    */
   parameterLocation?: string;
   /**
+   * @remarks
+   * The parameter example.
+   * 
    * @example
    * value1
    */
@@ -488,26 +644,41 @@ export class ListApiByAppResponseBodyListResultDataRequestParamList extends $dar
 
 export class ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsList extends $dara.Model {
   /**
+   * @remarks
+   * The datasource ID.
+   * 
    * @example
    * ds67890
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The datasource name.
+   * 
    * @example
    * responseDatasource
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * The datasource type.
+   * 
    * @example
    * 2
    */
   datasourceType?: number;
   /**
+   * @remarks
+   * The datasource URL.
+   * 
    * @example
    * https://example.com/response_datasource
    */
   datasourceUrl?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * response_table
    */
@@ -543,76 +714,121 @@ export class ListApiByAppResponseBodyListResultDataResponseParamListTableAndDsLi
 
 export class ListApiByAppResponseBodyListResultDataResponseParamList extends $dara.Model {
   /**
+   * @remarks
+   * The date format.
+   * 
    * @example
    * yyyy-MM-dd
    */
   dateFormat?: string;
   /**
+   * @remarks
+   * The default value for registered APIs.
+   * 
    * @example
    * default_response_value
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
    * 这是一个示例响应参数
    */
   description?: string;
   /**
+   * @remarks
+   * The parameter description code.
+   * 
    * @example
    * CODE_002
    */
   descriptionCode?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 2001
    */
   id?: number;
   /**
+   * @remarks
+   * The initial value.
+   * 
    * @example
    * app_key_value
    */
   initialValue?: string;
   /**
+   * @remarks
+   * The frontend binding field.
+   * 
    * @example
    * responseColumn1
    */
   mappingColumn?: string;
   /**
+   * @remarks
+   * Indicates whether the request parameter is required.
+   * 
    * @example
    * 1
    */
   must?: number;
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * =
    */
   operator?: string;
   /**
+   * @remarks
+   * Indicates whether the parameter is editable.
+   * 
    * @example
    * 1
    */
   optional?: number;
   /**
+   * @remarks
+   * The original field name.
+   * 
    * @example
    * original_response_column
    */
   originalColumn?: string;
   /**
+   * @remarks
+   * The frontend parameter name.
+   * 
    * @example
    * responseParam1
    */
   paramName?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * String
    */
   paramType?: string;
   /**
+   * @remarks
+   * The request parameter location for registered APIs or the value path for response parameters.
+   * 
    * @example
    * /path/to/response_param
    */
   parameterLocation?: string;
   /**
+   * @remarks
+   * The parameter example.
+   * 
    * @example
    * responseValue1
    */
@@ -678,113 +894,192 @@ export class ListApiByAppResponseBodyListResultDataResponseParamList extends $da
 
 export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   /**
+   * @remarks
+   * The API number.
+   * 
    * @example
    * 987654321
    */
   apiNo?: number;
   /**
+   * @remarks
+   * The API timeout.
+   * 
    * @example
    * 30
    */
   apiTimeout?: number;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * exampleApp
    */
   appName?: string;
+  /**
+   * @remarks
+   * The list of permission types.
+   */
   authTypes?: string[];
   /**
+   * @remarks
+   * The business module name.
+   * 
    * @example
    * exampleModule
    */
   bizModuleEnName?: string;
   /**
+   * @remarks
+   * The API cache switch.
+   * 
    * @example
    * 1
    */
   cacheSwitch?: string;
   /**
+   * @remarks
+   * The cache duration, in seconds.
+   * 
    * @example
    * 60
    */
   cacheTime?: string;
   /**
+   * @remarks
+   * The creation type. Valid values:
+   * SQL_MODE(0, "Logical table API - SQL mode"),
+   * WIZARD_MODE(1, "Logical table API - wizard mode"),
+   * DIRECT_API_MODE(2, "Direct datasource - SQL mode"),
+   * REGISTER_API_MODE(3, "Registered API mode"),
+   * COMPOSITE_API_MODE(4, "Composite API mode").
+   * 
    * @example
    * 1
    */
   createType?: number;
   /**
+   * @remarks
+   * The data environment.
+   * 
    * @example
    * 0
    */
   dbEnv?: number;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * 这是一个示例API
    */
   description?: string;
   /**
+   * @remarks
+   * The datasource ID of the direct API.
+   * 
    * @example
    * 54321
    */
   directDatasourceId?: number;
   /**
+   * @remarks
+   * The datasource name of the direct API.
+   * 
    * @example
    * directDatasource
    */
   directDatasourceName?: string;
   /**
+   * @remarks
+   * The API group ID.
+   * 
    * @example
    * 67890
    */
   groupId?: number;
   /**
+   * @remarks
+   * The API group name.
+   * 
    * @example
    * exampleGroup
    */
   groupName?: string;
   /**
+   * @remarks
+   * The API ID.
+   * 
    * @example
    * 12345
    */
   id?: number;
+  /**
+   * @remarks
+   * Indicates whether the table is a logical table.
+   */
   isLogicalTable?: boolean;
   /**
+   * @remarks
+   * Indicates whether the query is a paged query.
+   * 
    * @example
    * 0
    */
   isPagedQuery?: number;
   /**
+   * @remarks
+   * The maximum number of returned records.
+   * 
    * @example
    * 100
    */
   maxReturnNum?: number;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * 0
    */
   modelType?: number;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * exampleApi
    */
   name?: string;
   /**
+   * @remarks
+   * The service project ID.
+   * 
    * @example
    * 112233
    */
   projId?: number;
   /**
+   * @remarks
+   * The service project name.
+   * 
    * @example
    * exampleProject
    */
   projName?: string;
   /**
+   * @remarks
+   * The protocol.
+   * 
    * @example
    * 3
    */
   protocol?: number;
   /**
+   * @remarks
+   * The protocol name.
+   * 
    * @example
    * HTTP和HTTPS
    */
@@ -794,13 +1089,23 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    * -
    */
   publicParamList?: ListApiByAppResponseBodyListResultDataPublicParamList[];
+  /**
+   * @remarks
+   * The registered API information.
+   */
   registerApi?: ListApiByAppResponseBodyListResultDataRegisterApi;
   /**
+   * @remarks
+   * The request method.
+   * 
    * @example
    * 1
    */
   requestMethod?: number;
   /**
+   * @remarks
+   * The request method name.
+   * 
    * @example
    * GET
    */
@@ -811,6 +1116,9 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    */
   requestParamList?: ListApiByAppResponseBodyListResultDataRequestParamList[];
   /**
+   * @remarks
+   * The resource group name.
+   * 
    * @example
    * exampleResourceGroup
    */
@@ -821,61 +1129,97 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    */
   responseParamList?: ListApiByAppResponseBodyListResultDataResponseParamList[];
   /**
+   * @remarks
+   * The sample call result.
+   * 
    * @example
    * {"status":"success","data":[]}
    */
   resultSample?: string;
   /**
+   * @remarks
+   * The return type.
+   * 
    * @example
    * 3
    */
   returnType?: number;
   /**
+   * @remarks
+   * The return type name.
+   * 
    * @example
    * JSON
    */
   returnTypeName?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * grp12345
    */
   rsGrpId?: string;
   /**
+   * @remarks
+   * The script type.
+   * 
    * @example
    * SQL
    */
   scriptType?: string;
   /**
+   * @remarks
+   * The special SQL flag.
+   * 
    * @example
    * 0
    */
   specialSql?: number;
   /**
+   * @remarks
+   * The SQL statement.
+   * 
    * @example
    * SELECT * FROM example_table
    */
   sqlStatement?: string;
   /**
+   * @remarks
+   * The logical table name.
+   * 
    * @example
    * exampleTable
    */
   tableName?: string;
   /**
+   * @remarks
+   * The timeout duration, in seconds.
+   * 
    * @example
    * 10
    */
   timeout?: string;
   /**
+   * @remarks
+   * The update frequency.
+   * 
    * @example
    * 2
    */
   updateRate?: number;
   /**
+   * @remarks
+   * The update frequency name.
+   * 
    * @example
    * 每日更新
    */
   updateRateName?: string;
   /**
+   * @remarks
+   * The API version.
+   * 
    * @example
    * v1.0
    */
@@ -1001,8 +1345,15 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
 }
 
 export class ListApiByAppResponseBodyListResult extends $dara.Model {
+  /**
+   * @remarks
+   * The API list.
+   */
   data?: ListApiByAppResponseBodyListResultData[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -1035,17 +1386,30 @@ export class ListApiByAppResponseBodyListResult extends $dara.Model {
 
 export class ListApiByAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The query result.
+   */
   listResult?: ListApiByAppResponseBodyListResult;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -1059,6 +1423,9 @@ export class ListApiByAppResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDataSourceConnectivityRequestCheckCommandConfigItemList extends $dara.Model {
   /**
    * @remarks
+   * The configuration item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CheckDataSourceConnectivityRequestCheckCommandConfigItemList extend
   key?: string;
   /**
    * @remarks
+   * The configuration value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,15 @@ export class CheckDataSourceConnectivityRequestCheckCommandConfigItemList extend
 export class CheckDataSourceConnectivityRequestCheckCommand extends $dara.Model {
   /**
    * @remarks
+   * The connection configuration items.
+   * 
    * This parameter is required.
    */
   configItemList?: CheckDataSourceConnectivityRequestCheckCommandConfigItemList[];
   /**
    * @remarks
+   * The data source type. For supported data source types, see the documentation for creating a data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,11 +93,15 @@ export class CheckDataSourceConnectivityRequestCheckCommand extends $dara.Model 
 export class CheckDataSourceConnectivityRequest extends $dara.Model {
   /**
    * @remarks
+   * The object to check.
+   * 
    * This parameter is required.
    */
   checkCommand?: CheckDataSourceConnectivityRequestCheckCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

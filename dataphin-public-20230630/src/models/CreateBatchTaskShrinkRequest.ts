@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

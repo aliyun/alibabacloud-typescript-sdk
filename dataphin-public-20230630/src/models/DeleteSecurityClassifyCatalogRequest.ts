@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityClassifyCatalogRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The full path of the original catalog.
+   * 
    * This parameter is required.
    * 
    * @example
    * /d1/d2/
    */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to return deletion details. Default value: true.
+   */
   returnRemovedDetails?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,11 +44,15 @@ export class DeleteSecurityClassifyCatalogRequestDeleteCommand extends $dara.Mod
 export class DeleteSecurityClassifyCatalogRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteSecurityClassifyCatalogRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

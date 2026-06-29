@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList extends $dara.Model {
   /**
+   * @remarks
+   * API ID.
+   * 
    * @example
    * 1322
    */
   apiId?: number;
   /**
+   * @remarks
+   * API name.
+   * 
    * @example
    * teset
    */
   apiName?: string;
   /**
+   * @remarks
+   * Creator name.
+   * 
    * @example
    * test
    */
   createUserName?: string;
   /**
+   * @remarks
+   * Creator ID.
+   * 
    * @example
    * 1121
    */
   creator?: string;
   /**
+   * @remarks
+   * Owner ID.
+   * 
    * @example
    * 1121
    */
   owner?: string;
   /**
+   * @remarks
+   * Owner name.
+   * 
    * @example
    * test
    */
   ownerUserName?: string;
   /**
+   * @remarks
+   * The user to whom the privilege belongs.
+   * 
    * @example
    * 1121
    */
   privilegeBelongTo?: string;
   /**
+   * @remarks
+   * Authorization source. Valid value: 0, which indicates the owner.
+   * 
    * @example
    * 0
    */
   privilegeFrom?: number;
   /**
+   * @remarks
+   * Project ID.
+   * 
    * @example
    * 102122
    */
   projectId?: number;
   /**
+   * @remarks
+   * Project name.
+   * 
    * @example
    * test
    */
   projectName?: string;
   /**
+   * @remarks
+   * Role. Valid value: 0, which indicates the owner.
+   * 
    * @example
    * 0
    */
@@ -100,8 +133,15 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
 }
 
 export class ListDataServiceMyApiPermissionsResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * Paginated permission list.
+   */
   permissionList?: ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 68
    */
@@ -134,20 +174,33 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResult extends $dara
 
 export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Backend response exception details.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * Paginated query result.
+   */
   pageResult?: ListDataServiceMyApiPermissionsResponseBodyPageResult;
   /**
    * @remarks
@@ -157,6 +210,10 @@ export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineAsyncResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The asynchronous execution ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class GetPipelineAsyncResultShrinkRequest extends $dara.Model {
   asyncId?: number;
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   contextShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

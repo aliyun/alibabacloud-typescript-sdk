@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The classification ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   classifyId?: number;
   /**
    * @remarks
+   * The deduplication strategy. Valid values:
+   * - COVER_ALL: overwrites all online tags.
+   * - COVER_UNLOCKED: overwrites only unlocked online tags.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,22 +26,36 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
    */
   conflictStrategy?: string;
   /**
+   * @remarks
+   * The datasource environment identifier. This parameter is required only for datasource tables.
+   * 
    * @example
    * DEV
    */
   datasourceEnv?: string;
   /**
+   * @remarks
+   * The datasource name. This parameter is required only for datasource tables.
+   * 
    * @example
    * test
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the result. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
+   * Default value: true.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
    * @remarks
+   * The field name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,12 +63,17 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
    */
   fieldName?: string;
   /**
+   * @remarks
+   * Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
+   * 
    * @example
    * true
    */
   isDatasourceTable?: boolean;
   /**
    * @remarks
+   * The table catalog. For a datasource table, specify the database or schema name. For a Dataphin physical table, specify the project name in English. For a Dataphin logical table, specify the business unit name in English.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +82,8 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   tableCatalog?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,11 +130,15 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
 export class CreateSecurityIdentifyResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The create request.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateSecurityIdentifyResultRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

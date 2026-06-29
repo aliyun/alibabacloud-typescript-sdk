@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetStreamJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * The Dataphin environment. Valid values:
+   * - DEV
+   * - PROD.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class GetStreamJobsRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class GetStreamJobsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The Dataphin project ID.
+   * 
    * This parameter is required.
    * 
    * @example

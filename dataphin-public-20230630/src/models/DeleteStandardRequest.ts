@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,11 +37,15 @@ export class DeleteStandardRequestDeleteCommand extends $dara.Model {
 export class DeleteStandardRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete command.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteStandardRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

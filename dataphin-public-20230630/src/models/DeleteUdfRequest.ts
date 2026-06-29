@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUdfRequest extends $dara.Model {
   /**
    * @remarks
+   * The comment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteUdfRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The ID of the user-defined function.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteUdfRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DeleteUdfRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

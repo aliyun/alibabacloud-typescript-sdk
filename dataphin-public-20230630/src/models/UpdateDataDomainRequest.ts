@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The abbreviation of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
+   * The ID of the data board.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
+   * The ID of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +34,17 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
    */
   dataDomainId?: number;
   /**
+   * @remarks
+   * The description of the data domain.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The code of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +62,9 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent data domain.
+   * 
    * @example
    * 10232311
    */
@@ -89,6 +105,8 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
 export class UpdateDataDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -97,6 +115,8 @@ export class UpdateDataDomainRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update request.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataDomainRequestUpdateCommand;

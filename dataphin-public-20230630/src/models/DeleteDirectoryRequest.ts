@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The file ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDirectoryRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteDirectoryRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

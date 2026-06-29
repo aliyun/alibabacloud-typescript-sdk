@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateInstanceShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The operation request.
+   * 
    * This parameter is required.
    */
   operateCommandShrink?: string;

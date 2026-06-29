@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddableRolesRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

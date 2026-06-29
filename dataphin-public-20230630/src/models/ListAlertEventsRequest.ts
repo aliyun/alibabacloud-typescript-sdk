@@ -5,31 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertEventsRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * The end date of the alert.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2024-11-27 13:47:00
    */
   alertEndTime?: string;
+  /**
+   * @remarks
+   * The list of alert object types.
+   */
   alertObjectTypeList?: string[];
+  /**
+   * @remarks
+   * The list of alert reasons.
+   */
   alertReasonList?: string[];
   /**
    * @remarks
+   * The start date of the alert.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2024-11-16 00:00:00
    */
   alertStartTime?: string;
+  /**
+   * @remarks
+   * The list of business units.
+   */
   bizNameList?: string[];
   /**
+   * @remarks
+   * The keyword for the query.
+   * 
    * @example
    * test
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The list of monitored item IDs.
+   */
   monitoredItemIdList?: string[];
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,22 +63,49 @@ export class ListAlertEventsRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of projects.
+   */
   projectNameList?: string[];
   /**
    * @remarks
+   * The source system. Valid values:
+   * 
+   * - ALL: all
+   * - DQE: data quality
+   * - OS: data service
+   * - STREAM: real-time computing
+   * - VDM_BATCH: offline computing
+   * - SOP: O&M platform
+   * - REAL_TIME_PIPELINE: real-time integration
+   * - KGB: baseline monitoring
+   * 
+   * and more.
+   * 
    * This parameter is required.
    * 
    * @example
    * ALL
    */
   sourceSystem?: string;
+  /**
+   * @remarks
+   * The list of alert statuses.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The list of alert contact IDs.
+   */
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +176,15 @@ export class ListAlertEventsRequestListQuery extends $dara.Model {
 export class ListAlertEventsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query request.
+   * 
    * This parameter is required.
    */
   listQuery?: ListAlertEventsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

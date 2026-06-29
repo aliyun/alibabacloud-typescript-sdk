@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The commit remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,11 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The compute engine type. Valid values:
+   * - MAX_COMPUTE
+   * - HADOOP
+   * - NONE.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +28,8 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
+   * The description of the resource file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +38,8 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The folder in which the resource file is stored.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +48,8 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   directory?: string;
   /**
    * @remarks
+   * The resource name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +58,8 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +68,12 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The type of the resource file. Valid values:
+   * - FILE: common file.
+   * - JAR: JAR file.
+   * - PYTHON: Python file.
+   * - OTHERS: other type of file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +82,8 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The storage address of the resource file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -105,11 +128,15 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
 export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateResourceRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

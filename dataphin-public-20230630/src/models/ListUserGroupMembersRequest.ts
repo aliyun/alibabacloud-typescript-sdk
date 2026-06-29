@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserGroupMembersRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The username keyword.
+   * 
    * @example
    * a
    */
   keyword?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of records per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,10 +32,17 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * 232231
    */
   userGroupId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   */
   userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -65,11 +79,15 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
 export class ListUserGroupMembersRequest extends $dara.Model {
   /**
    * @remarks
+   * The paged query parameters.
+   * 
    * This parameter is required.
    */
   listQuery?: ListUserGroupMembersRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

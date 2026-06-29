@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The edit command.
+   * 
    * This parameter is required.
    */
   replaceCommandShrink?: string;

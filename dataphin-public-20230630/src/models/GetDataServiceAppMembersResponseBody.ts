@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceAppMembersResponseBodyDataMemberList extends $dara.Model {
   /**
+   * @remarks
+   * The authorization expiration time.
+   * 
    * @example
    * 2026-12-12
    */
   effectiveEnd?: string;
   /**
+   * @remarks
+   * The role of the user. Valid values:
+   * 
+   * - general: regular member.
+   * - owner: application owner.
+   * 
    * @example
    * general
    */
   role?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 200000245
    */
@@ -44,6 +56,10 @@ export class GetDataServiceAppMembersResponseBodyDataMemberList extends $dara.Mo
 }
 
 export class GetDataServiceAppMembersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The application member list.
+   */
   memberList?: GetDataServiceAppMembersResponseBodyDataMemberList[];
   static names(): { [key: string]: string } {
     return {
@@ -71,17 +87,30 @@ export class GetDataServiceAppMembersResponseBodyData extends $dara.Model {
 
 export class GetDataServiceAppMembersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The member list of the data service application.
+   */
   data?: GetDataServiceAppMembersResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned from the backend.
+   * 
    * @example
    * internal error
    */
@@ -94,6 +123,10 @@ export class GetDataServiceAppMembersResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

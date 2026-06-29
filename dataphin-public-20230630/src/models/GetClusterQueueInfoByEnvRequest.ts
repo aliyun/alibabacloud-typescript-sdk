@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterQueueInfoByEnvRequest extends $dara.Model {
   /**
    * @remarks
+   * The environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetClusterQueueInfoByEnvRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetClusterQueueInfoByEnvRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetClusterQueueInfoByEnvRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The stream-batch mode.
+   * 
    * This parameter is required.
    * 
    * @example

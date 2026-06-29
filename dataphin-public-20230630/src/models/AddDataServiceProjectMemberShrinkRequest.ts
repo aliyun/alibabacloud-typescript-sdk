@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceProjectMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The command to add project members.
+   * 
    * This parameter is required.
    */
   addCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class AddDataServiceProjectMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

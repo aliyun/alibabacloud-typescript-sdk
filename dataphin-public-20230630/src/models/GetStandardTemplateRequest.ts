@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStandardTemplateRequestFilterQuery extends $dara.Model {
   /**
+   * @remarks
+   * The version number. If this parameter is left empty or set to -1, the latest version is used.
+   * 
    * @example
    * 1
    */
@@ -30,18 +33,30 @@ export class GetStandardTemplateRequestFilterQuery extends $dara.Model {
 }
 
 export class GetStandardTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter condition.
+   */
   filterQuery?: GetStandardTemplateRequestFilterQuery;
   /**
    * @remarks
+   * The standard template ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 22
    */
   id?: number;
+  /**
+   * @remarks
+   * Specifies whether to allow a null value to be returned when the template does not exist. If set to false, an exception is thrown. Default value: true.
+   */
   nullable?: boolean;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

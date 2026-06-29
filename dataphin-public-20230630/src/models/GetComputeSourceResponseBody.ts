@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether a project is associated.
+   * 
    * @example
    * true
    */
   bindProject?: boolean;
   /**
+   * @remarks
+   * The ID of the associated project.
+   * 
    * @example
    * 10101101
    */
   bindProjectId?: number;
   /**
+   * @remarks
+   * The name of the associated project.
+   * 
    * @example
    * dp_mctest
    */
   bindProjectName?: string;
   /**
+   * @remarks
+   * The ID of the compute source creator.
+   * 
    * @example
    * 101101
    */
   creator?: string;
   /**
+   * @remarks
+   * The name of the compute source creator.
+   * 
    * @example
    * test
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * compute source for xxx.
    */
   description?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * dp_test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The creation timestamp.
+   * 
    * @example
    * 1681881607000
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The last modification timestamp.
+   * 
    * @example
    * 1711881607000
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The compute source ID.
+   * 
    * @example
    * 12356
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the compute source.
+   * 
    * @example
    * dp_test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the compute source owner.
+   * 
    * @example
    * 101101
    */
   owner?: string;
   /**
+   * @remarks
+   * The name of the compute source owner.
+   * 
    * @example
    * test
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The type of the compute source.
+   * 
    * @example
    * MAX_COMPUTE
    */
@@ -122,27 +164,46 @@ export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
 
 export class GetComputeSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The compute source details.
+   */
   computeSourceInfo?: GetComputeSourceResponseBodyComputeSourceInfo;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceBasicInfoRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The data source description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataSourceBasicInfoRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +25,12 @@ export class UpdateDataSourceBasicInfoRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The data source name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * xx测试
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -52,6 +61,8 @@ export class UpdateDataSourceBasicInfoRequestUpdateCommand extends $dara.Model {
 export class UpdateDataSourceBasicInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +71,8 @@ export class UpdateDataSourceBasicInfoRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The basic information to edit for the data source.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateDataSourceBasicInfoRequestUpdateCommand;

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 2323111
    */
   id?: string;
   /**
+   * @remarks
+   * Username
+   * 
    * @example
    * zhangsan
    */
@@ -38,11 +44,17 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator extends $dar
 
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 2323111
    */
   id?: string;
   /**
+   * @remarks
+   * Username
+   * 
    * @example
    * zhangsan
    */
@@ -72,11 +84,17 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier extends $da
 
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 2323111
    */
   id?: string;
   /**
+   * @remarks
+   * Username
+   * 
    * @example
    * zhangsan
    */
@@ -106,64 +124,161 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList extends $d
 
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model {
   /**
+   * @remarks
+   * Business unit name
+   * 
    * @example
    * xx
    */
   bizUnitName?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2023-02-02 23:53:17
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Creator
+   */
   creator?: GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * xx 测试
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether this is a dry run.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * Source system of the node
+   * 
    * @example
    * DATA_PROCESS
    */
   from?: string;
   /**
+   * @remarks
+   * Indicates whether the development environment exists.
+   * 
    * @example
    * true
    */
   hasDev?: boolean;
   /**
+   * @remarks
+   * Indicates whether the production environment exists.
+   * 
    * @example
    * true
    */
   hasProd?: boolean;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * n_3232312
    */
   id?: string;
   /**
+   * @remarks
+   * Last modified time
+   * 
    * @example
    * 2024-02-02 23:53:17
    */
   lastModifiedTime?: string;
+  /**
+   * @remarks
+   * Modifier
+   */
   modifier?: GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier;
+  /**
+   * @remarks
+   * Node name
+   * 
+   * @example
+   * xx测试
+   */
   name?: string;
+  /**
+   * @remarks
+   * Owner list
+   */
   ownerList?: GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList[];
+  /**
+   * @remarks
+   * Priority
+   * - HIGHEST
+   * - HIGH
+   * - MIDDLE
+   * - LOW
+   * - LOWEST
+   */
   priorityList?: string[];
+  /**
+   * @remarks
+   * Resource group list
+   */
   resourceGroupList?: string[];
   /**
+   * @remarks
+   * Indicates whether scheduling is paused.
+   * 
    * @example
    * false
    */
   schedulePaused?: boolean;
+  /**
+   * @remarks
+   * Scheduling period
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY
+   */
   schedulePeriodList?: string[];
   /**
+   * @remarks
+   * Sub-business type
+   * - MAX_COMPUTE_SQL
+   * - HIVE_SQL
+   * - SHELL
+   * - PYTHON
+   * - ONE_SERVICE_SQL
+   * - DATABASE_SQL
+   * 
    * @example
    * SHELL
    */
   subDetailType?: string;
   /**
+   * @remarks
+   * Node type
+   * - BBOX_LOGIC_TABLE_NODE: Logical table node
+   * - BBOX_LOGIC_FIELD_NODE: Logical field node
+   * - BBOX_LOGIC_FIELD_GROUP_NODE: Field group node
+   * - BBOX_INNER_TEMP_NODE: Logical table temp node
+   * - DATA_PROCESS: Code task
+   * - STREAM_TASK_NODE: Real-time task
+   * - PIPELINE_NODE: Pipeline node
+   * - FLINK_BATCH: Flink batch task
+   * - ODM_NODE: ODM node
+   * 
    * @example
    * DATA_PROCESS
    */
@@ -245,46 +360,78 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
 
 export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   /**
+   * @remarks
+   * Business date
+   * 
    * @example
    * 2023-06-25
    */
   bizDate?: string;
   /**
+   * @remarks
+   * Scheduled time
+   * 
    * @example
    * 2023-06-27 00:30:00
    */
   dueTime?: string;
   /**
+   * @remarks
+   * Execution duration
+   * 
    * @example
    * 3600s
    */
   duration?: string;
   /**
+   * @remarks
+   * End execution time
+   * 
    * @example
    * 2023-06-27 02:30:00
    */
   endExecuteTime?: number;
   /**
+   * @remarks
+   * Extended information
+   * 
    * @example
    * xx
    */
   extendInfo?: string;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * t_23231
    */
   id?: string;
   /**
+   * @remarks
+   * Running instance index
+   * 
    * @example
    * 1
    */
   index?: number;
+  /**
+   * @remarks
+   * Node details
+   */
   nodeInfo?: GetPhysicalInstanceResponseBodyInstanceNodeInfo;
   /**
+   * @remarks
+   * Start execution time
+   * 
    * @example
    * 2023-06-27 01:30:00
    */
   startExecuteTime?: number;
+  /**
+   * @remarks
+   * Status list
+   */
   statusList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -333,27 +480,46 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
 
 export class GetPhysicalInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Instance details
+   */
   instance?: GetPhysicalInstanceResponseBodyInstance;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

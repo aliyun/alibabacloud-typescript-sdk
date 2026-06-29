@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardValidMappingShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

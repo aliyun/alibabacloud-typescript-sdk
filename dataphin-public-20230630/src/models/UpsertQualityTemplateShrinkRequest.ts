@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpsertQualityTemplateShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Upsert command.
+   * 
    * This parameter is required.
    */
   upsertCommandShrink?: string;

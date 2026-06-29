@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiByAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListApiByAppShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The paged query parameters.
+   * 
    * This parameter is required.
    */
   pageQueryShrink?: string;

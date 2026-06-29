@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSecurityIdentifyResultsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query conditions.
+   */
   listQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

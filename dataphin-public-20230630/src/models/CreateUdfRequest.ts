@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUdfRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The UDF category identifier. Valid values: 1: window function. 2: statistical function. 3: numerical function. 4: string function. 5: time function. 6: IP address utility function. 7: URL-related function. 8: encoding and decoding function. 9: business-related function. 10: other.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   category?: number;
   /**
    * @remarks
+   * The class name that implements the function in the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   className?: string;
   /**
    * @remarks
+   * The command format for function calling invoke.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   commandHelp?: string;
   /**
    * @remarks
+   * The commit remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The compute engine type. Valid values: MAX_COMPUTE, HADOOP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +55,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
+   * The description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,12 +64,17 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * The directory in which the function is stored.
+   * 
    * @example
    * /
    */
   directory?: string;
   /**
    * @remarks
+   * The function name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +83,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,6 +93,8 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The IDs of referenced resources.
+   * 
    * This parameter is required.
    */
   refResourceIdList?: number[];
@@ -122,11 +143,15 @@ export class CreateUdfRequestCreateCommand extends $dara.Model {
 export class CreateUdfRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateUdfRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

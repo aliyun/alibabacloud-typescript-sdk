@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertNotificationsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The query conditions.
+   */
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddUserGroupMemberShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The command to add user group members.
+   */
   addCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
+   * The end time in the format of HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   endTime?: string;
   /**
    * @remarks
+   * The custom interval.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   interval?: number;
   /**
    * @remarks
+   * The interval unit. Valid values:
+   * - MINUTE: minute
+   * - HOUR: hour.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,14 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   intervalUnit?: string;
   /**
    * @remarks
+   * The scheduling period. Valid values:
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +53,8 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   schedulePeriod?: string;
   /**
    * @remarks
+   * The start time in the format of HH:mm.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,6 +93,8 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
 export class UpdateBatchTaskRequestUpdateCommandParamList extends $dara.Model {
   /**
    * @remarks
+   * The parameter name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,6 +103,8 @@ export class UpdateBatchTaskRequestUpdateCommandParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The parameter value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,6 +137,8 @@ export class UpdateBatchTaskRequestUpdateCommandParamList extends $dara.Model {
 export class UpdateBatchTaskRequestUpdateCommandSparkClientInfo extends $dara.Model {
   /**
    * @remarks
+   * The version name of the Spark client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -144,12 +168,21 @@ export class UpdateBatchTaskRequestUpdateCommandSparkClientInfo extends $dara.Mo
 
 export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends $dara.Model {
   /**
+   * @remarks
+   * The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
+   * 
    * @example
    * 1
    */
   periodOffset?: number;
   /**
    * @remarks
+   * The dependency period type. Valid values:
+   * - CURRENT_PERIOD: current period.
+   * - LAST_PERIOD: previous period.
+   * - LAST_N_PERIOD: last N days.
+   * - LAST_24_HOUR: last 24 hours.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -180,34 +213,65 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends
 }
 
 export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model {
+  /**
+   * @remarks
+   * The dependency period.
+   */
   dependPeriod?: UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod;
   /**
+   * @remarks
+   * The dependency strategy. Valid values:
+   * - ALL: all.
+   * - FIRST: first.
+   * - LAST: last.
+   * - NEAR: nearest.
+   * 
    * @example
    * LAST
    */
   dependStrategy?: string;
+  /**
+   * @remarks
+   * The fields of the dependent logical table.
+   */
   fieldList?: string[];
   /**
+   * @remarks
+   * The type of the upstream dependency node. Valid values:
+   * - PHYSICAL: physical node.
+   * - LOGICAL: logical table dependency.
+   * 
    * @example
    * PHYSICAL
    */
   nodeType?: string;
   /**
    * @remarks
+   * The period offset. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   periodDiff?: number;
+  /**
+   * @remarks
+   * Specifies whether the upstream node is enabled.
+   */
   sourceNodeEnabled?: boolean;
   /**
+   * @remarks
+   * The ID of the upstream node.
+   * 
    * @example
    * n_2001
    */
   sourceNodeId?: string;
   /**
    * @remarks
+   * The output name of the upstream node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -215,6 +279,9 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
    */
   sourceNodeOutputName?: string;
   /**
+   * @remarks
+   * The name of the input table.
+   * 
    * @example
    * t_input1
    */
@@ -265,6 +332,8 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
 export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The node code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -272,33 +341,57 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+   * 
    * @example
    * 0 0 1 * * ?
    */
   cronExpression?: string;
+  /**
+   * @remarks
+   * The custom scheduling interval configuration.
+   */
   customScheduleConfig?: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig;
   /**
+   * @remarks
+   * The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * 
    * @example
    * mysql_catalog
    */
   dataSourceCatalog?: string;
   /**
+   * @remarks
+   * The data source ID for database SQL nodes.
+   * 
    * @example
    * 12131111
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * 
    * @example
    * erp
    */
   dataSourceSchema?: string;
   /**
+   * @remarks
+   * The execution engine for the node, such as a Python node. Valid values:
+   * - PYTHON2_7
+   * - PYTHON3_7
+   * - PYTHON3_11.
+   * 
    * @example
    * PYTHON3_7
    */
   engine?: string;
   /**
    * @remarks
+   * The ID of the node in the folder tree.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -307,6 +400,8 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
+   * The name of the offline node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -314,45 +409,94 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The description of the node.
+   * 
    * @example
    * xx测试
    */
   nodeDescription?: string;
+  /**
+   * @remarks
+   * The list of node output names.
+   */
   nodeOutputNameList?: string[];
   /**
+   * @remarks
+   * The node status. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * @example
    * 1
    */
   nodeStatus?: number;
+  /**
+   * @remarks
+   * The list of custom parameters.
+   */
   paramList?: UpdateBatchTaskRequestUpdateCommandParamList[];
   /**
+   * @remarks
+   * The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
    * @remarks
+   * The ID of the project to which the node belongs.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10121101
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The third-party Python packages that the node depends on.
+   */
   pythonModuleList?: string[];
   /**
+   * @remarks
+   * The scheduling period. Valid values:
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY.
+   * 
    * @example
    * DAILY
    */
   schedulePeriod?: string;
+  /**
+   * @remarks
+   * The Spark client information.
+   */
   sparkClientInfo?: UpdateBatchTaskRequestUpdateCommandSparkClientInfo;
   /**
    * @remarks
+   * The node type. Valid values:
+   * - 1: Hive_SQL.
+   * - 5: MaxCompute_SQL.
+   * - 10: Shell.
+   * - 21: Python.
+   * 
    * This parameter is required.
    * 
    * @example
    * 21
    */
   taskType?: number;
+  /**
+   * @remarks
+   * The upstream dependencies.
+   */
   upStreamList?: UpdateBatchTaskRequestUpdateCommandUpStreamList[];
   static names(): { [key: string]: string } {
     return {
@@ -434,6 +578,8 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
 export class UpdateBatchTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -442,6 +588,8 @@ export class UpdateBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update request.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateBatchTaskRequestUpdateCommand;

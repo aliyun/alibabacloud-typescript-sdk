@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ResumePhysicalNodeRequestResumeCommand extends $dara.Model {
   /**
    * @remarks
+   * Node ID list.
+   * 
    * This parameter is required.
    */
   nodeIdList?: string[];
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +48,19 @@ export class ResumePhysicalNodeRequestResumeCommand extends $dara.Model {
 
 export class ResumePhysicalNodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Environment identifier.
+   * - DEV: Development environment
+   * - PROD (default): Production environment
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +69,8 @@ export class ResumePhysicalNodeRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Resume scheduling request.
+   * 
    * This parameter is required.
    */
   resumeCommand?: ResumePhysicalNodeRequestResumeCommand;

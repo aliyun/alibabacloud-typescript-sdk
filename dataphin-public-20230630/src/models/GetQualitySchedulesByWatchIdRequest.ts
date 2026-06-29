@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualitySchedulesByWatchIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetQualitySchedulesByWatchIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The monitored object ID.
+   * 
    * This parameter is required.
    * 
    * @example

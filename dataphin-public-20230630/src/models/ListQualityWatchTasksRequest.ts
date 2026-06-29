@@ -4,37 +4,125 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The business date filter.
+   * 
    * @example
    * 2025-06-30
    */
   bizDate?: string;
+  /**
+   * @remarks
+   * The business unit names.
+   */
   bizUnitNameList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to query only the quality monitoring node objects owned by the current user.
+   */
   currentUserOwned?: boolean;
+  /**
+   * @remarks
+   * The data source IDs.
+   */
   dataSourceIdList?: string[];
+  /**
+   * @remarks
+   * The data source owners.
+   */
   dataSourceOwnerList?: string[];
+  /**
+   * @remarks
+   * The data source scopes. Valid values:
+   * - STREAMING: real-time only.
+   * - OFFLINE: offline only.
+   * - ALL: real-time and offline.
+   */
   dataSourceScopeList?: string[];
+  /**
+   * @remarks
+   * The data source types, such as MAX_COMPUTE, HADOOP, and MYSQL.
+   */
   dataSourceTypeList?: string[];
+  /**
+   * @remarks
+   * The rule exception types. Valid values:
+   * - STRONG: strong.
+   * - WEAK: weak.
+   */
   errorRuleStrengthList?: string[];
   /**
+   * @remarks
+   * The search keyword, which is the name of the monitored table.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The project names.
+   */
   projectNameList?: string[];
+  /**
+   * @remarks
+   * The quality owners.
+   */
   qualityOwnerList?: string[];
+  /**
+   * @remarks
+   * The task statuses. Valid values:
+   * - NOT_RUN: not executed.
+   * - WAITING: waiting.
+   * - RUNNING: running.
+   * - SUCCESS: succeeded.
+   * - FAILED: failed.
+   * - CANCEL: canceled.
+   * - TIMEOUT: timed out.
+   * - OFFLINE: offline.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The table owners.
+   */
   tableOwnerList?: string[];
+  /**
+   * @remarks
+   * The table types. Valid values:
+   * - LOGIC_DIM_TABLE: logical dimension table.
+   * - LOGIC_FACT_TABLE: logical fact table.
+   * - LOGIC_SUM_TABLE: logical aggregate table.
+   * - LOGIC_LABEL_TABLE: logical label table.
+   * - PHYSICAL_TABLE: physical table.
+   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   */
   tableTypeList?: string[];
+  /**
+   * @remarks
+   * The monitored object types. Valid values:
+   * - TABLE: Dataphin table.
+   * - DATASOURCE_TABLE: global table.
+   * - DATASOURCE: data source.
+   * - INDEX: metric.
+   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   */
   watchTypeList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -126,9 +214,15 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
 }
 
 export class ListQualityWatchTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged query conditions.
+   */
   listQuery?: ListQualityWatchTasksRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

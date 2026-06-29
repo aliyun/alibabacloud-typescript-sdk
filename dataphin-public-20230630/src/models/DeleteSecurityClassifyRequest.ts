@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSecurityClassifyRequestDeleteCommand extends $dara.Model {
   /**
+   * @remarks
+   * The categorization ID. If this parameter is not specified, the categorization is matched and deleted based on the categorization name and parent path.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The categorization name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The categorization path. Default value: /.
+   * 
    * @example
    * /
    */
@@ -46,11 +55,15 @@ export class DeleteSecurityClassifyRequestDeleteCommand extends $dara.Model {
 export class DeleteSecurityClassifyRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteSecurityClassifyRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

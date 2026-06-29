@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class OfflinePipelineByAsyncShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   contextShrink?: string;
   /**
    * @remarks
+   * The offline pipeline node command.
+   * 
    * This parameter is required.
    */
   offlineCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

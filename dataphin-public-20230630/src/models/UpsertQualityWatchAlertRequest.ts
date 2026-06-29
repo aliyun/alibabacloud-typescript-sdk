@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDutyList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the on-duty alert schedule.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the on-duty alert schedule.
+   * 
    * @example
    * test
    */
@@ -38,11 +44,17 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDut
 
 export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertUserList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 30012011
    */
   id?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * test
    */
@@ -71,11 +83,35 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertUse
 }
 
 export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The alert channels for on-duty schedules.
+   */
   alertDutyChannelList?: string[];
+  /**
+   * @remarks
+   * The list of on-duty schedules for alerts.
+   */
   alertDutyList?: UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDutyList[];
+  /**
+   * @remarks
+   * The alert channels for the quality owner.
+   */
   alertQualityOwnerChannelList?: string[];
+  /**
+   * @remarks
+   * The alert channels for users.
+   */
   alertUserChannelList?: string[];
+  /**
+   * @remarks
+   * The list of users to receive alerts.
+   */
   alertUserList?: UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertUserList[];
+  /**
+   * @remarks
+   * Specifies whether to enable alerts for the quality owner.
+   */
   enableAlertQualityOwner?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -126,11 +162,15 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo extends
 export class UpsertQualityWatchAlertRequestUpsertCommand extends $dara.Model {
   /**
    * @remarks
+   * The alert configuration details.
+   * 
    * This parameter is required.
    */
   qualityAlertInfo?: UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo;
   /**
    * @remarks
+   * The ID of the monitored object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -166,6 +206,8 @@ export class UpsertQualityWatchAlertRequestUpsertCommand extends $dara.Model {
 export class UpsertQualityWatchAlertRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -174,6 +216,8 @@ export class UpsertQualityWatchAlertRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   upsertCommand?: UpsertQualityWatchAlertRequestUpsertCommand;

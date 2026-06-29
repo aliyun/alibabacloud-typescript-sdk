@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery extends $dara.Model {
   /**
    * @remarks
+   * The row-level permission ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery 
   rowPermissionId?: number;
   /**
    * @remarks
+   * The row-level permission rule IDs.
+   * 
    * This parameter is required.
    */
   ruleIds?: number[];
@@ -45,11 +49,15 @@ export class GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery 
 export class GetAccountByRowPermissionIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   getAccountByRowPermissionIdQuery?: GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

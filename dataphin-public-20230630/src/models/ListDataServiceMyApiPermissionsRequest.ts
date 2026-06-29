@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceMyApiPermissionsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Search keyword.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -44,9 +53,15 @@ export class ListDataServiceMyApiPermissionsRequestListQuery extends $dara.Model
 }
 
 export class ListDataServiceMyApiPermissionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Search conditions.
+   */
   listQuery?: ListDataServiceMyApiPermissionsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +70,8 @@ export class ListDataServiceMyApiPermissionsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

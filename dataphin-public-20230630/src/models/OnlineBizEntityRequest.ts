@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   /**
    * @remarks
+   * The ID of the business unit to which the entity belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
+   * The remarks for the offline operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The ID of the business entity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,10 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The business type. Valid values:
+   * - BIZ_OBJECT
+   * - BIZ_PROCESS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,11 +75,15 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
 export class OnlineBizEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The online request.
+   * 
    * This parameter is required.
    */
   onlineCommand?: OnlineBizEntityRequestOnlineCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

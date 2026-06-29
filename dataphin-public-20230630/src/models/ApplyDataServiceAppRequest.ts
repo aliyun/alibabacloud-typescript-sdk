@@ -15,6 +15,8 @@ export class ApplyDataServiceAppRequestApplyCommand extends $dara.Model {
   appId?: number;
   /**
    * @remarks
+   * The expiration date in the format of yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class ApplyDataServiceAppRequestApplyCommand extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
+   * The reason for the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,11 +61,15 @@ export class ApplyDataServiceAppRequestApplyCommand extends $dara.Model {
 export class ApplyDataServiceAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The apply command.
+   * 
    * This parameter is required.
    */
   applyCommand?: ApplyDataServiceAppRequestApplyCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +78,8 @@ export class ApplyDataServiceAppRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

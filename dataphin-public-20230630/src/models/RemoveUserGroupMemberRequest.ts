@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserGroupMemberRequestRemoveCommand extends $dara.Model {
   /**
    * @remarks
+   * The user group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveUserGroupMemberRequestRemoveCommand extends $dara.Model {
   userGroupId?: string;
   /**
    * @remarks
+   * The list of user IDs.
+   * 
    * This parameter is required.
    */
   userIdList?: string[];
@@ -45,6 +49,8 @@ export class RemoveUserGroupMemberRequestRemoveCommand extends $dara.Model {
 export class RemoveUserGroupMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class RemoveUserGroupMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The command to remove user group members.
+   * 
    * This parameter is required.
    */
   removeCommand?: RemoveUserGroupMemberRequestRemoveCommand;

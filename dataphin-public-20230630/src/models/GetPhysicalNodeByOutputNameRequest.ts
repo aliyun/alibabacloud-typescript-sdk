@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalNodeByOutputNameRequest extends $dara.Model {
   /**
+   * @remarks
+   * Environment identifier
+   * - DEV: Development environment
+   * - PROD (default): Production environment
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class GetPhysicalNodeByOutputNameRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Node output name
+   * 
    * This parameter is required.
    * 
    * @example

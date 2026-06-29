@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMyTenantsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The feature codes owned by the tenant.
+   */
   featureCodeListShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the mapping column.
+   * 
+   * @example
+   * 控制业务ID字段
+   */
   columnDesc?: string;
   /**
    * @remarks
+   * The name of the mapping column.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
   columnName?: string;
   /**
    * @remarks
+   * The type of the mapping column.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +59,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
 export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions extends $dara.Model {
   /**
    * @remarks
+   * The name of the mapping column.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +69,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpression
   mappingColumnName?: string;
   /**
    * @remarks
+   * The operator of the expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,11 +79,15 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpression
   operator?: string;
   /**
    * @remarks
+   * The sub-expressions.
+   * 
    * This parameter is required.
    */
   subConditions?: any[];
   /**
    * @remarks
+   * The type of the expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,6 +96,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpression
   type?: string;
   /**
    * @remarks
+   * The expression operation values.
+   * 
    * This parameter is required.
    */
   values?: string[];
@@ -118,6 +139,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpression
 export class CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappingListAccounts extends $dara.Model {
   /**
    * @remarks
+   * The ID of the account bound to the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -148,6 +171,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappin
 export class CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappingList extends $dara.Model {
   /**
    * @remarks
+   * The type of the account bound to the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -156,6 +181,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappin
   accountType?: string;
   /**
    * @remarks
+   * The accounts bound to the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -191,21 +218,33 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappin
 export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $dara.Model {
   /**
    * @remarks
+   * The rule expressions.
+   * 
    * This parameter is required.
    */
   expressions?: CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions[];
   /**
+   * @remarks
+   * Specifies whether to delete the rule.
+   * 
    * @example
    * 1
    */
   isDelete?: boolean;
   /**
    * @remarks
+   * The name of the rule.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 中台
    */
   ruleName?: string;
   /**
    * @remarks
+   * The scope type of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -214,12 +253,18 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
   scopeType?: string;
   /**
    * @remarks
+   * The status of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The accounts bound to the rule.
+   */
   userMappingList?: CreateRowPermissionRequestCreateRowPermissionCommandRulesUserMappingList[];
   static names(): { [key: string]: string } {
     return {
@@ -261,6 +306,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
 export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends $dara.Model {
   /**
    * @remarks
+   * The column of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -269,6 +316,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
   columnName?: string;
   /**
    * @remarks
+   * The name of the mapping column.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -277,6 +326,8 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
   mappingColumnName?: string;
   /**
    * @remarks
+   * The GUID of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -311,16 +362,38 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
 export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
+   * The mapping columns.
+   * 
    * This parameter is required.
    */
   mappingColumns?: CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns[];
+  /**
+   * @remarks
+   * The description of the row-level permission.
+   * 
+   * @example
+   * 管控业务数据
+   */
   rowPermissionDesc?: string;
   /**
    * @remarks
+   * The name of the row-level permission.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 业务管控
    */
   rowPermissionName?: string;
+  /**
+   * @remarks
+   * The rules.
+   */
   rules?: CreateRowPermissionRequestCreateRowPermissionCommandRules[];
+  /**
+   * @remarks
+   * The related tables.
+   */
   tables?: CreateRowPermissionRequestCreateRowPermissionCommandTables[];
   static names(): { [key: string]: string } {
     return {
@@ -363,11 +436,15 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
 export class CreateRowPermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * Request command.
+   * 
    * This parameter is required.
    */
   createRowPermissionCommand?: CreateRowPermissionRequestCreateRowPermissionCommand;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

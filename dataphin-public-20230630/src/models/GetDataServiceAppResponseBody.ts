@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataServiceAppResponseBodyDataOwnerList extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 12345
    */
   id?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * 张三
    */
@@ -38,38 +44,69 @@ export class GetDataServiceAppResponseBodyDataOwnerList extends $dara.Model {
 
 export class GetDataServiceAppResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The application group name.
+   * 
    * @example
    * 默认分组
    */
   appGroup?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 12345
    */
   appId?: number;
   /**
+   * @remarks
+   * The AppKey of the application.
+   * 
    * @example
    * 默认应用
    */
   appKey?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * 默认应用
    */
   appName?: string;
   /**
+   * @remarks
+   * The AppSecret of the application.
+   * 
    * @example
    * 默认应用
    */
   appSecret?: string;
   /**
+   * @remarks
+   * The IP whitelist addresses. Specify IP addresses or CIDR blocks separated by semicolons (;). CIDR blocks end with a slash (/) followed by a number in the range of 1 to 32. Example: 192.168.3.12/24.
+   * 
    * @example
    * true
    */
   ipWhitelist?: string;
+  /**
+   * @remarks
+   * Indicates whether the IP whitelist is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
+   */
   ipWhitelistStatus?: boolean;
+  /**
+   * @remarks
+   * The list of owners.
+   */
   ownerList?: GetDataServiceAppResponseBodyDataOwnerList[];
   /**
+   * @remarks
+   * The common scenarios.
+   * 
    * @example
    * 数据分析
    */
@@ -116,17 +153,30 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
 
 export class GetDataServiceAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code returned by the backend.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of the data service application.
+   */
   data?: GetDataServiceAppResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned by the backend.
+   * 
    * @example
    * internal error
    */
@@ -139,6 +189,10 @@ export class GetDataServiceAppResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

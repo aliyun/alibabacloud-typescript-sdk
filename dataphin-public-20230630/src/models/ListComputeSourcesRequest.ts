@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListComputeSourcesRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the compute source is bound to a project.
+   */
   bindProject?: boolean;
   /**
+   * @remarks
+   * The keyword used for filtering.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the compute source.
+   * 
    * @example
    * MaxCompute
    */
@@ -56,11 +72,15 @@ export class ListComputeSourcesRequestListQuery extends $dara.Model {
 export class ListComputeSourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListComputeSourcesRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

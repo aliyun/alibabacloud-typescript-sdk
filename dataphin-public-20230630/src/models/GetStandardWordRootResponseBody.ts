@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
   /**
+   * @remarks
+   * The abbreviation of the word root.
+   * 
    * @example
    * avg
    */
   abbreviation?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The user ID of the creator.
+   * 
    * @example
    * 30012021
    */
   creator?: string;
   /**
+   * @remarks
+   * The username of the creator.
+   * 
    * @example
    * test
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The description of the word root.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The full name of the word root.
+   * 
    * @example
    * average
    */
   fullName?: string;
   /**
+   * @remarks
+   * The user ID of the last modifier.
+   * 
    * @example
    * 30012021
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The username of the last modifier.
+   * 
    * @example
    * test
    */
   lastModifierName?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The name of the word root.
+   * 
    * @example
    * 平均值
    */
@@ -94,16 +124,25 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
 
 export class GetStandardWordRootResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -116,7 +155,15 @@ export class GetStandardWordRootResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The word root details.
+   */
   wordRootInfo?: GetStandardWordRootResponseBodyWordRootInfo;
   static names(): { [key: string]: string } {
     return {

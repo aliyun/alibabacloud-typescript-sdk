@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class PausePhysicalNodeRequestPauseCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of node IDs.
+   * 
    * This parameter is required.
    */
   nodeIdList?: string[];
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +48,19 @@ export class PausePhysicalNodeRequestPauseCommand extends $dara.Model {
 
 export class PausePhysicalNodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +69,8 @@ export class PausePhysicalNodeRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The pause scheduling request.
+   * 
    * This parameter is required.
    */
   pauseCommand?: PausePhysicalNodeRequestPauseCommand;

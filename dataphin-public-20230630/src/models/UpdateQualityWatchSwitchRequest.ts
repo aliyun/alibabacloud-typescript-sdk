@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQualityWatchSwitchRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the monitored object.
+   * 
    * This parameter is required.
    */
   open?: boolean;
   /**
    * @remarks
+   * The list of monitoring IDs.
+   * 
    * This parameter is required.
    */
   watchIdList?: number[];
@@ -42,6 +46,8 @@ export class UpdateQualityWatchSwitchRequestUpdateCommand extends $dara.Model {
 export class UpdateQualityWatchSwitchRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +56,8 @@ export class UpdateQualityWatchSwitchRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update instruction.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateQualityWatchSwitchRequestUpdateCommand;

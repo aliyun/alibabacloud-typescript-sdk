@@ -4,26 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList extends $dara.Model {
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * varchar
    */
   dataType?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * xx
    */
   description?: string;
   /**
+   * @remarks
+   * The column ID.
+   * 
    * @example
    * c011
    */
   id?: string;
   /**
+   * @remarks
+   * The column name.
+   * 
    * @example
    * c011
    */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether the column is a partition key.
+   */
   partitionKey?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the column is a primary key.
+   */
   primaryKey?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -58,63 +78,107 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
 
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList extends $dara.Model {
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 103111231
    */
   bizUnitId?: string;
   /**
+   * @remarks
+   * The business unit name.
+   * 
    * @example
    * xx测试
    */
   bizUnitName?: string;
+  /**
+   * @remarks
+   * The list of lineage columns.
+   */
   columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test xx
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the table.
+   * 
    * @example
    * t_input
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment. Valid values: prod and dev.
+   * 
    * @example
    * dev
    */
   env?: string;
+  /**
+   * @remarks
+   * Indicates whether the full table is selected.
+   */
   fullTable?: boolean;
   /**
+   * @remarks
+   * The globally unique ID.
+   * 
    * @example
    * Guid_101121
    */
   guid?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * t_input
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
    * 20112101
    */
   ownerUserId?: string;
   /**
+   * @remarks
+   * The project to which the table belongs.
+   * 
    * @example
    * 131211211
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project to which the table belongs.
+   * 
    * @example
    * prj_test
    */
   projectName?: string;
   /**
+   * @remarks
+   * The table subtype. For example, dim indicates a dimension logical table.
+   * 
    * @example
    * dim
    */
@@ -171,26 +235,46 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
 
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList extends $dara.Model {
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * varchar
    */
   dataType?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * xx
    */
   description?: string;
   /**
+   * @remarks
+   * The column ID.
+   * 
    * @example
    * c011
    */
   id?: string;
   /**
+   * @remarks
+   * The column name.
+   * 
    * @example
    * c011
    */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether the column is a partition key.
+   */
   partitionKey?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the column is a primary key.
+   */
   primaryKey?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -225,63 +309,107 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
 
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList extends $dara.Model {
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 103111231
    */
   bizUnitId?: string;
   /**
+   * @remarks
+   * The business unit name.
+   * 
    * @example
    * xx测试
    */
   bizUnitName?: string;
+  /**
+   * @remarks
+   * The list of lineage columns.
+   */
   columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test xx
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the table.
+   * 
    * @example
    * t_input
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment. Valid values: prod and dev.
+   * 
    * @example
    * dev
    */
   env?: string;
+  /**
+   * @remarks
+   * Indicates whether the full table is selected.
+   */
   fullTable?: boolean;
   /**
+   * @remarks
+   * The globally unique ID.
+   * 
    * @example
    * Guid_101121
    */
   guid?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * t_input
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
    * 20112101
    */
   ownerUserId?: string;
   /**
+   * @remarks
+   * The project to which the table belongs.
+   * 
    * @example
    * 131211211
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project to which the table belongs.
+   * 
    * @example
    * prj_test
    */
   projectName?: string;
   /**
+   * @remarks
+   * The table subtype. For example, dim indicates a dimension logical table.
+   * 
    * @example
    * dim
    */
@@ -337,7 +465,15 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
 }
 
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of input lineage tables.
+   */
   inputLineageList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList[];
+  /**
+   * @remarks
+   * The collection of output lineage tables.
+   */
   outputLineageList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList[];
   static names(): { [key: string]: string } {
     return {
@@ -369,6 +505,10 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList extends $da
 }
 
 export class GetBatchTaskUdfLineagesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of lineage groups.
+   */
   lineageGroupList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupList[];
   static names(): { [key: string]: string } {
     return {
@@ -396,26 +536,46 @@ export class GetBatchTaskUdfLineagesResponseBodyData extends $dara.Model {
 
 export class GetBatchTaskUdfLineagesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. The value OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetBatchTaskUdfLineagesResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

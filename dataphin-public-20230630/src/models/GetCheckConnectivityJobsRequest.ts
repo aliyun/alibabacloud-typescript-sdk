@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckConnectivityJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCheckConnectivityJobsRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

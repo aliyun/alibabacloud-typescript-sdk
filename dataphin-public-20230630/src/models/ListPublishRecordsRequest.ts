@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model {
+  /**
+   * @remarks
+   * List of change types (0: Create, 1: Update, 2: Delete).
+   */
   changeTypeList?: number[];
   /**
    * @remarks
+   * Page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   page?: number;
   /**
    * @remarks
+   * Page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,20 +30,36 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
+   * List of project IDs.
+   * 
    * This parameter is required.
    */
   projectIdList?: number[];
   /**
+   * @remarks
+   * Publish end time in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   publishEndTime?: string;
   /**
+   * @remarks
+   * Publish start time in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2024-10-10 10:00:00
    */
   publishStartTime?: string;
+  /**
+   * @remarks
+   * List of publish statuses (0: Failed, 1: Succeeded, 2: Publishing).
+   */
   publishStatusList?: number[];
+  /**
+   * @remarks
+   * List of submitter IDs.
+   */
   submitterList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -86,12 +110,17 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
 
 export class ListPublishRecordsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Search keyword.
+   * 
    * @example
    * abc
    */
   keyword?: string;
   /**
    * @remarks
+   * Publish record filter.
+   * 
    * This parameter is required.
    */
   searchFilter?: ListPublishRecordsRequestListQuerySearchFilter;
@@ -124,11 +153,15 @@ export class ListPublishRecordsRequestListQuery extends $dara.Model {
 export class ListPublishRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * Query command.
+   * 
    * This parameter is required.
    */
   listQuery?: ListPublishRecordsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

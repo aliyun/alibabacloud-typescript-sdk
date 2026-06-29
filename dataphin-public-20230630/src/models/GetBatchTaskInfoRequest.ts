@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchTaskInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * 
+   * - dev
+   * - prod
+   * 
+   * Default value: dev.
+   * 
    * @example
    * dev
    */
   env?: string;
   /**
    * @remarks
+   * The node ID in the directory tree.
+   * 
    * This parameter is required.
    * 
    * @example
    * 12113111
    */
   fileId?: number;
+  /**
+   * @remarks
+   * Specifies whether to include all upstream nodes, including invalid dependencies. Default value: false.
+   */
   includeAllUpStreams?: boolean;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +43,8 @@ export class GetBatchTaskInfoRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the project to which the node belongs.
+   * 
    * This parameter is required.
    * 
    * @example

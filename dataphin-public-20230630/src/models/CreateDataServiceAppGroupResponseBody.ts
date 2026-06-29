@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataServiceAppGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * 538893915703
    */
   data?: number;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -32,6 +44,9 @@ export class CreateDataServiceAppGroupResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

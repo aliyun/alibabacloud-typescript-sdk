@@ -3,12 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataDomainsRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the business units to which the data domains belong.
+   */
   bizUnitIdList?: number[];
   /**
+   * @remarks
+   * The search keyword. You can search by data domain name, code, or description.
+   * 
    * @example
    * test
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The IDs of the parent data domains.
+   */
   parentIdList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -44,11 +55,15 @@ export class ListDataDomainsRequestListQuery extends $dara.Model {
 export class ListDataDomainsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query request.
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataDomainsRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

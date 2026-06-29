@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request for deleting a data source.
+   * 
    * This parameter is required.
    */
   deleteCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

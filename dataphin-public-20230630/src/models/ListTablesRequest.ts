@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * The asset catalog, such as the project name or business unit name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class ListTablesRequestListQuery extends $dara.Model {
    */
   catalog?: string;
   /**
+   * @remarks
+   * The keyword for searching. Table names are supported.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -54,9 +65,15 @@ export class ListTablesRequestListQuery extends $dara.Model {
 }
 
 export class ListTablesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged query conditions.
+   */
   listQuery?: ListTablesRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

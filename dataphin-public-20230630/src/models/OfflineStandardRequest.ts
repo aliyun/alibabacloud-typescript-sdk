@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineStandardRequestOfflineCommand extends $dara.Model {
   /**
    * @remarks
+   * The review remarks. The value can be up to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OfflineStandardRequestOfflineCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,15 @@ export class OfflineStandardRequestOfflineCommand extends $dara.Model {
 export class OfflineStandardRequest extends $dara.Model {
   /**
    * @remarks
+   * The offline instruction.
+   * 
    * This parameter is required.
    */
   offlineCommand?: OfflineStandardRequestOfflineCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,13 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery extends $dara.Model {
   /**
    * @remarks
+   * The asset GUID.
+   * 
    * This parameter is required.
    * 
    * @example
    * dp_ds_table.300023201.7311626611751680256.load_test.abc
    */
   guid?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the field list. Default value: false. Valid values:
+   * - false: Not included.
+   * - true: Included.
+   */
   includeColumns?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include detailed data. Default value: false. Valid values:
+   * - false: Not included.
+   * - true: Included.
+   */
   includeDetailedAttributes?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -41,11 +55,15 @@ export class GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery extends $d
 export class GetCatalogAssetDetailsRequest extends $dara.Model {
   /**
    * @remarks
+   * The paging query for the listing asset catalog list.
+   * 
    * This parameter is required.
    */
   getCatalogAssetDetailsQuery?: GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

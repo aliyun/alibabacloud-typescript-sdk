@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
   /**
    * @remarks
+   * The member role. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
+   * 
    * This parameter is required.
    */
   roleList?: number[];
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
 export class AddProjectMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
+   * The environment identifier. Valid values: DEV and PROD.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class AddProjectMemberRequestAddCommand extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The list of user members.
+   * 
    * This parameter is required.
    */
   userList?: AddProjectMemberRequestAddCommandUserList[];
@@ -85,11 +93,15 @@ export class AddProjectMemberRequestAddCommand extends $dara.Model {
 export class AddProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The command to add members.
+   * 
    * This parameter is required.
    */
   addCommand?: AddProjectMemberRequestAddCommand;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -98,6 +110,8 @@ export class AddProjectMemberRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

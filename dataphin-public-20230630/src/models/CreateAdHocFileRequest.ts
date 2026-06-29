@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The file content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * The directory where the file is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
   directory?: string;
   /**
    * @remarks
+   * The file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,11 +73,15 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
 export class CreateAdHocFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The request for creating an ad hoc query file.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateAdHocFileRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

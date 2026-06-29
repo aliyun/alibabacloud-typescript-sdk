@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountByRowPermissionIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   getAccountByRowPermissionIdQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

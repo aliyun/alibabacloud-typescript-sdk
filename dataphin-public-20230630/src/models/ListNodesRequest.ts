@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodesRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The node business type. Valid values:
+   * - SCRIPT: script
+   * - LOGICAL_TABLE: logical table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,23 +25,52 @@ export class ListNodesRequestListQuery extends $dara.Model {
   nodeBizType?: string;
   /**
    * @remarks
+   * The sub-business types. Valid values:
+   * - MAX_COMPUTE_SQL
+   * - HIVE_SQL
+   * - SHELL
+   * - PYTHON
+   * - ONE_SERVICE_SQL
+   * - DATABASE_SQL.
+   * 
    * This parameter is required.
    */
   nodeSubBizTypeList?: string[];
+  /**
+   * @remarks
+   * The user IDs of the owners.
+   */
   ownerList?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The node priorities. Valid values:
+   * - HIGHEST
+   * - HIGH
+   * - MIDDLE
+   * - LOW
+   * - LOWEST.
+   */
   priorityList?: string[];
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,17 +78,39 @@ export class ListNodesRequestListQuery extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * Specifies whether scheduling is paused.
+   * 
    * @example
    * true
    */
   schedulePaused?: boolean;
+  /**
+   * @remarks
+   * The scheduling periods. Valid values:
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY.
+   */
   schedulePeriodList?: string[];
   /**
+   * @remarks
+   * The node scheduling type. Valid values:
+   * - NORMAL: periodic scheduling
+   * - SUPPLEMENT: data backfill
+   * - MANUAL: manual scheduling.
+   * 
    * @example
    * NORMAL
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * The search keyword. Fuzzy search by node name and exact search by node ID are supported.
+   * 
    * @example
    * xx
    */
@@ -114,17 +172,26 @@ export class ListNodesRequestListQuery extends $dara.Model {
 
 export class ListNodesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment 
+   * - PROD (default): production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListNodesRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDataServiceApiGroupsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The Data Service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ParseBatchTaskDependencyShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ParseBatchTaskDependencyShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The parse request.
+   * 
    * This parameter is required.
    */
   parseCommandShrink?: string;

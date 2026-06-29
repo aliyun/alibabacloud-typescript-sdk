@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * The API ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The version.
+   * 
    * @example
    * 1
    */

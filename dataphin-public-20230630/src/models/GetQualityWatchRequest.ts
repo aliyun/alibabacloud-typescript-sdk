@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityWatchRequest extends $dara.Model {
   /**
    * @remarks
+   * The monitor ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetQualityWatchRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

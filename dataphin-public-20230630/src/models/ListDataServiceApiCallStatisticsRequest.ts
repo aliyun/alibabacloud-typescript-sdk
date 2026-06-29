@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * End time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,32 +14,49 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
    */
   endTime?: string;
   /**
+   * @remarks
+   * Search keyword.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * Sort column. Valid values: CALL_COUNT (call count), ERROR_COUNT (error count), ERROR_RATE (error rate), AVG_RESPONSE_TIME (average response time), and OFFLINE_RATE (offline percentage). Default value: CALL_COUNT.
+   * 
    * @example
    * CALL_COUNT
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sort order. Valid values: 1 (ascending) and 2 (descending). Default value: 1.
+   * 
    * @example
    * 1
    */
   orderType?: number;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * Start time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,11 +99,15 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
 export class ListDataServiceApiCallStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * Search conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceApiCallStatisticsRequestListQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +116,8 @@ export class ListDataServiceApiCallStatisticsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Data service project ID.
+   * 
    * This parameter is required.
    * 
    * @example

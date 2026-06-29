@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSourceRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The deletion mode selection. Valid values:
+   * - DEV: deletes the data source only in the development environment.
+   * - DEV_PROD: deletes the data source in both the development and production environments.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DeleteDataSourceRequestDeleteCommand extends $dara.Model {
   mode?: string;
   /**
    * @remarks
+   * The ID of the data source in the production environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +51,15 @@ export class DeleteDataSourceRequestDeleteCommand extends $dara.Model {
 export class DeleteDataSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The request for deleting a data source.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteDataSourceRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

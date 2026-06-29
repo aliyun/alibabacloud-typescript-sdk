@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataDomainRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The abbreviation of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
+   * The ID of the data unit to which the data domain belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
    */
   bizUnitId?: number;
   /**
+   * @remarks
+   * The description of the data domain.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The code of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +52,9 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent data domain.
+   * 
    * @example
    * 10232311
    */
@@ -79,11 +93,15 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
 export class CreateDataDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The create request.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateDataDomainRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

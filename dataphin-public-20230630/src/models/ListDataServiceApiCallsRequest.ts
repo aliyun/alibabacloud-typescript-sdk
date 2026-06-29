@@ -4,37 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the API.
+   * 
    * @example
    * 20122
    */
   apiId?: number;
   /**
+   * @remarks
+   * The name of the API.
+   * 
    * @example
    * test
    */
   apiName?: string;
   /**
    * @remarks
-   * appKey
+   * The application key.
+   * >Notice: This parameter is deprecated. Use AppKeyStr instead.
    * 
    * @example
-   * 1021
+   * 12345
    * 
    * @deprecated
    */
   appKey?: number;
   /**
+   * @remarks
+   * The application key.
+   * 
    * @example
    * app12345
    */
   appKeyStr?: string;
   /**
+   * @remarks
+   * The IP address.
+   * 
    * @example
    * 192.168.1.1
    */
   clientIp?: string;
   /**
    * @remarks
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,23 +57,35 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2025-06-30 08:00:00
    */
   startTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   */
   successful?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -102,11 +129,15 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
 export class ListDataServiceApiCallsRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions.
+   * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceApiCallsRequestListQuery;
   /**
    * @remarks
+   * The ID of the tenant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,6 +146,8 @@ export class ListDataServiceApiCallsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the data service project.
+   * 
    * This parameter is required.
    * 
    * @example

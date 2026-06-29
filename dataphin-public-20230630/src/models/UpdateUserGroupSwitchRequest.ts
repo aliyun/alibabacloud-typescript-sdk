@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserGroupSwitchRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the user group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateUserGroupSwitchRequest extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateUserGroupSwitchRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The user group ID.
+   * 
    * This parameter is required.
    * 
    * @example

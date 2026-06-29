@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublishStandardRequestPublishCommand extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically publish after approval. Default value: true.
+   */
   autoPublishAfterApproval?: boolean;
   /**
    * @remarks
+   * The review comment. Maximum length: 128 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,19 +20,31 @@ export class PublishStandardRequestPublishCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The specified reviewers.
+   */
   reviewerIdList?: string[];
   /**
+   * @remarks
+   * The stage of the standard. Valid values: DEV and PROD. Default value: DEV.
+   * 
    * @example
    * DEV
    */
   standardStage?: string;
   /**
+   * @remarks
+   * The version number. Default value: -1 (latest version).
+   * 
    * @example
    * 1
    */
@@ -68,6 +86,8 @@ export class PublishStandardRequestPublishCommand extends $dara.Model {
 export class PublishStandardRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +96,8 @@ export class PublishStandardRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The publish command.
+   * 
    * This parameter is required.
    */
   publishCommand?: PublishStandardRequestPublishCommand;

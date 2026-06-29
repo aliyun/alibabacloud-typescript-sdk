@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttributeAttributeFromInfoStandardReference extends $dara.Model {
   /**
    * @remarks
+   * Standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
   standardId?: number;
   /**
    * @remarks
+   * Version number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,12 +49,18 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttributeAttributeFromInfo extends $dara.Model {
   /**
    * @remarks
+   * Attribute source type. Valid values: SYSTEM (system attribute), CUSTOM (custom attribute), and STANDARD (standard).
+   * 
    * This parameter is required.
    * 
    * @example
    * CUSTOM
    */
   attributeFrom?: string;
+  /**
+   * @remarks
+   * Standard reference. Effective when the attribute source is STANDARD.
+   */
   standardReference?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttributeAttributeFromInfoStandardReference;
   static names(): { [key: string]: string } {
     return {
@@ -81,11 +91,15 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttribute extends $dara.Model {
   /**
    * @remarks
+   * Attribute source.
+   * 
    * This parameter is required.
    */
   attributeFromInfo?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttributeAttributeFromInfo;
   /**
    * @remarks
+   * Attribute ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,12 +134,17 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRangeLookupTableReference extends $dara.Model {
   /**
+   * @remarks
+   * Referenced lookup table column.
+   * 
    * @example
    * col1
    */
   column?: string;
   /**
    * @remarks
+   * Lookup table ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -158,16 +177,22 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRangeMinMaxValueConfig extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to include the maximum value.
+   * 
    * This parameter is required.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
+   * Specifies whether to include the minimum value.
+   * 
    * This parameter is required.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
+   * Maximum value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -176,6 +201,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
   maxValue?: string;
   /**
    * @remarks
+   * Minimum value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -211,20 +238,37 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRange extends $dara.Model {
   /**
+   * @remarks
+   * Dataphin attribute type. Effective when the value source is DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT (data domain), PROJECT (project), USER (user), and USER_GROUP (user group).
+   * 
    * @example
    * DATAPHIN_ATTRIBUTE
    */
   dataphinAttributeType?: string;
+  /**
+   * @remarks
+   * Lookup table reference. Effective when the value source is LOOKUP_TABLE.
+   */
   lookupTableReference?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRangeLookupTableReference;
+  /**
+   * @remarks
+   * Min-max value configuration. Effective when the value source is MIN_MAX.
+   */
   minMaxValueConfig?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRangeMinMaxValueConfig;
   /**
    * @remarks
+   * Value source. Valid values: NONE (no constraint), LIST (from a list), LOOKUP_TABLE (lookup table), MIN_MAX (between minimum and maximum values), DATAPHIN_ATTRIBUTE (Dataphin system attribute), BUILT_IN_DATA_TYPES (built-in data types), BUILT_IN_DATA_CLASSIFICATION (built-in data classification), and BUILT_IN_DATA_LEVEL (built-in data security level).
+   * 
    * This parameter is required.
    * 
    * @example
    * NONE
    */
   valueConstraint?: string;
+  /**
+   * @remarks
+   * Value list. Effective when the value source is LIST.
+   */
   valueList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -267,6 +311,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfig extends $dara.Model {
   /**
    * @remarks
+   * Data type of the attribute value. Valid values: STRING (string), BIGINT (numeric), DOUBLE (floating point), DATE (date with day precision), DATETIME (date with millisecond precision), and BOOLEAN (boolean).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -274,17 +320,25 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
    */
   dataType?: string;
   /**
+   * @remarks
+   * Default value.
+   * 
    * @example
    * test
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * Attribute value length. An empty value or -1 indicates no length limit. Usually only the string type has a length limit for attribute values.
+   * 
    * @example
    * 1
    */
   length?: number;
   /**
    * @remarks
+   * Attribute value type. Valid values: CUSTOMIZED (custom input), SINGLE_ENUM (single enumeration value), MULTIPLE_ENUMS (multiple enumeration values), and RANGE (range value).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -293,6 +347,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
   type?: string;
   /**
    * @remarks
+   * Value range.
+   * 
    * This parameter is required.
    */
   valueRange?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfigValueRange;
@@ -330,27 +386,51 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 
 export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeList extends $dara.Model {
   /**
+   * @remarks
+   * Attribute code. Not required when referencing a public attribute.
+   * 
    * @example
    * test_attr
    */
   code?: string;
   /**
+   * @remarks
+   * Description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * Attribute name. Not required when referencing a public attribute.
+   * 
    * @example
    * attr1
    */
   name?: string;
+  /**
+   * @remarks
+   * Referenced attribute information.
+   */
   refAttribute?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListRefAttribute;
+  /**
+   * @remarks
+   * Specifies whether the attribute is required. Not required when referencing a public attribute.
+   */
   required?: boolean;
   /**
+   * @remarks
+   * Attribute type. Valid values: BIZ_ATTRIBUTE (business attribute), TECH_ATTRIBUTE (technical attribute), MANAGEMENT_ATTRIBUTE (management attribute), QUALITY_ATTRIBUTE (quality attribute), MASTER_DATA_ATTRIBUTE (master data attribute), LIFECYCLE_ATTRIBUTE (lifecycle attribute), and SECURITY_ATTRIBUTE (security attribute). Not required when referencing a public attribute.
+   * 
    * @example
    * BIZ_ATTRIBUTE
    */
   type?: string;
+  /**
+   * @remarks
+   * Value configuration. Not required when referencing a public attribute.
+   */
   valueConfig?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeListValueConfig;
   static names(): { [key: string]: string } {
     return {
@@ -394,6 +474,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfigAttribute
 export class CreateStandardTemplateRequestCreateCommandAttributesConfig extends $dara.Model {
   /**
    * @remarks
+   * Attribute list.
+   * 
    * This parameter is required.
    */
   attributeList?: CreateStandardTemplateRequestCreateCommandAttributesConfigAttributeList[];
@@ -424,6 +506,8 @@ export class CreateStandardTemplateRequestCreateCommandAttributesConfig extends 
 export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigCodeRuleListAutoIncrementSequenceConfig extends $dara.Model {
   /**
    * @remarks
+   * Number of digits.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -432,11 +516,15 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
   digit?: number;
   /**
    * @remarks
+   * Specifies whether to pad with zeros.
+   * 
    * This parameter is required.
    */
   needPaddingZero?: boolean;
   /**
    * @remarks
+   * Start value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -445,6 +533,8 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
   startValue?: number;
   /**
    * @remarks
+   * Step.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -479,9 +569,15 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
 }
 
 export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigCodeRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * Auto-increment sequence configuration.
+   */
   autoIncrementSequenceConfig?: CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigCodeRuleListAutoIncrementSequenceConfig;
   /**
    * @remarks
+   * Code rule position index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -490,6 +586,8 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
   index?: number;
   /**
    * @remarks
+   * Code rule type. Valid values: FIXED_STRING (fixed string), AUTO_INCREMENT (auto-increment sequence), and STANDARD_SET_CODE (standard set code).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -497,6 +595,9 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
    */
   type?: string;
   /**
+   * @remarks
+   * Code rule format or value.
+   * 
    * @example
    * test
    */
@@ -534,11 +635,15 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigC
 export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfig extends $dara.Model {
   /**
    * @remarks
+   * Standard code rules.
+   * 
    * This parameter is required.
    */
   codeRuleList?: CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfigCodeRuleList[];
   /**
    * @remarks
+   * Specifies whether to enable strict validation.
+   * 
    * This parameter is required.
    */
   needStrongValidate?: boolean;
@@ -569,9 +674,15 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfig 
 }
 
 export class CreateStandardTemplateRequestCreateCommandCodeRuleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Standard code rule auto-generation configuration. Effective when the generation method is AUTO_GENERATE.
+   */
   autoConfig?: CreateStandardTemplateRequestCreateCommandCodeRuleConfigAutoConfig;
   /**
    * @remarks
+   * Standard code generation method. Valid values: CUSTOMIZED (custom) and AUTO_GENERATE (auto-generate based on standard code rules).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -606,6 +717,9 @@ export class CreateStandardTemplateRequestCreateCommandCodeRuleConfig extends $d
 
 export class CreateStandardTemplateRequestCreateCommandPublishInfo extends $dara.Model {
   /**
+   * @remarks
+   * Publish comment.
+   * 
    * @example
    * test
    */
@@ -634,32 +748,53 @@ export class CreateStandardTemplateRequestCreateCommandPublishInfo extends $dara
 export class CreateStandardTemplateRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * Attribute configuration.
+   * 
    * This parameter is required.
    */
   attributesConfig?: CreateStandardTemplateRequestCreateCommandAttributesConfig;
   /**
    * @remarks
+   * Standard template code. Globally unique. Cannot be modified when referenced.
+   * 
    * This parameter is required.
    * 
    * @example
    * test01
    */
   code?: string;
+  /**
+   * @remarks
+   * Standard code auto-generation rule configuration.
+   */
   codeRuleConfig?: CreateStandardTemplateRequestCreateCommandCodeRuleConfig;
   /**
+   * @remarks
+   * Standard template description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Maintainers.
+   */
   maintainerList?: string[];
   /**
    * @remarks
+   * Standard template name.
+   * 
    * This parameter is required.
    * 
    * @example
    * 测试模板
    */
   name?: string;
+  /**
+   * @remarks
+   * Standard template publish information.
+   */
   publishInfo?: CreateStandardTemplateRequestCreateCommandPublishInfo;
   static names(): { [key: string]: string } {
     return {
@@ -709,11 +844,15 @@ export class CreateStandardTemplateRequestCreateCommand extends $dara.Model {
 export class CreateStandardTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateStandardTemplateRequestCreateCommand;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

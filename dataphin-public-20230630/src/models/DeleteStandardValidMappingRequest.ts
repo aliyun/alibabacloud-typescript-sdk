@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteStandardValidMappingRequestDeleteCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The list of parent GUIDs. A maximum of 1000 GUIDs are supported.
+   */
   belongGuidList?: string[];
+  /**
+   * @remarks
+   * The list of GUIDs. A maximum of 1000 GUIDs are supported.
+   */
   guidList?: string[];
   /**
    * @remarks
+   * The standard ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,11 +57,15 @@ export class DeleteStandardValidMappingRequestDeleteCommand extends $dara.Model 
 export class DeleteStandardValidMappingRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteStandardValidMappingRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

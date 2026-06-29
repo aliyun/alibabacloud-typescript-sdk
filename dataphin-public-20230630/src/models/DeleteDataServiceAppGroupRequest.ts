@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataServiceAppGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDataServiceAppGroupRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

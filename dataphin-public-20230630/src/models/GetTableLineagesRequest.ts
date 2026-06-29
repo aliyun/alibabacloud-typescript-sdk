@@ -3,14 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTableLineagesRequestFilterQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to query downstream lineage. Default value: false.
+   */
   needDownstream?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return tables that do not exist in the asset list. Default value: false.
+   */
   needNotExistObject?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to query upstream lineage. Default value: false.
+   */
   needUpstream?: boolean;
   /**
+   * @remarks
+   * The environment to which the task belongs. This parameter is used for filtering. Valid values: dev and prod.
+   * 
    * @example
    * dev
    */
   nodeEnv?: string;
+  /**
+   * @remarks
+   * The list of task IDs used for filtering.
+   */
   nodeIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -45,9 +64,15 @@ export class GetTableLineagesRequestFilterQuery extends $dara.Model {
 }
 
 export class GetTableLineagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filterQuery?: GetTableLineagesRequestFilterQuery;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +81,8 @@ export class GetTableLineagesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The GUID of the table, which is the unique identifier of each asset.
+   * 
    * This parameter is required.
    * 
    * @example

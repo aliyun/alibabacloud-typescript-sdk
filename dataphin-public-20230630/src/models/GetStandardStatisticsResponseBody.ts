@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStandardStatisticsResponseBodyDataStandardTypeCountList extends $dara.Model {
   /**
+   * @remarks
+   * The number of standards.
+   * 
    * @example
    * 11
    */
   count?: number;
   /**
+   * @remarks
+   * The standard type.
+   * 
    * @example
    * test
    */
@@ -37,8 +43,15 @@ export class GetStandardStatisticsResponseBodyDataStandardTypeCountList extends 
 }
 
 export class GetStandardStatisticsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The mapping between standard types and the number of standards for each type. If the standard type is empty, the key is EMPTY.
+   */
   standardTypeCountList?: GetStandardStatisticsResponseBodyDataStandardTypeCountList[];
   /**
+   * @remarks
+   * The total number of standards.
+   * 
    * @example
    * 101
    */
@@ -71,17 +84,30 @@ export class GetStandardStatisticsResponseBodyData extends $dara.Model {
 
 export class GetStandardStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The statistical results.
+   */
   data?: GetStandardStatisticsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -94,6 +120,10 @@ export class GetStandardStatisticsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

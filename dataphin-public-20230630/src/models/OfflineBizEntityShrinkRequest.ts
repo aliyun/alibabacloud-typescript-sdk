@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineBizEntityShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Offline request
+   * 
    * This parameter is required.
    */
   offlineCommandShrink?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

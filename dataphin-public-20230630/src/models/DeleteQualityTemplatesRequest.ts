@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityTemplatesRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
+   * The template object IDs.
+   * 
    * This parameter is required.
    */
   templateIdList?: number[];
@@ -35,11 +37,15 @@ export class DeleteQualityTemplatesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualityTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The delete instruction.
+   * 
    * This parameter is required.
    */
   deleteCommand?: DeleteQualityTemplatesRequestDeleteCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

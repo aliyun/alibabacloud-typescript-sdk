@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $dara.Model {
   /**
    * @remarks
+   * The department ID (unique identifier of the department).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $d
   departmentId?: string;
   /**
    * @remarks
+   * The display name of the department.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $d
    */
   departmentName?: string;
   /**
+   * @remarks
+   * The parent department ID (unique identifier of the parent department). Set to null if no parent department exists.
+   * 
    * @example
    * 10001
    */
@@ -52,6 +59,8 @@ export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $d
 export class SyncDepartmentRequestSyncDepartmentCommand extends $dara.Model {
   /**
    * @remarks
+   * The department list (full organization tree).
+   * 
    * This parameter is required.
    */
   departmentList?: SyncDepartmentRequestSyncDepartmentCommandDepartmentList[];
@@ -82,6 +91,8 @@ export class SyncDepartmentRequestSyncDepartmentCommand extends $dara.Model {
 export class SyncDepartmentRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,6 +101,8 @@ export class SyncDepartmentRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   syncDepartmentCommand?: SyncDepartmentRequestSyncDepartmentCommand;

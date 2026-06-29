@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteComputeSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The compute source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteComputeSourceRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

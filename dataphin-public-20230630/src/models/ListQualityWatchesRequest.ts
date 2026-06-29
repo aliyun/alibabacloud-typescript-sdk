@@ -3,35 +3,132 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListQualityWatchesRequestListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The business unit names.
+   */
   bizUnitNameList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to query only monitored objects owned by the current user.
+   */
   currentUserOwned?: boolean;
+  /**
+   * @remarks
+   * The data source IDs.
+   */
   dataSourceIdList?: number[];
+  /**
+   * @remarks
+   * The data source owners.
+   */
   dataSourceOwnerList?: string[];
+  /**
+   * @remarks
+   * The data source scope. Valid values:
+   * - STREAMING: real-time only
+   * - OFFLINE: offline only
+   * - ALL: real-time and offline.
+   */
   dataSourceScopeList?: string[];
+  /**
+   * @remarks
+   * The data source type, such as MAX_COMPUTE, HADOOP, or MYSQL.
+   */
   dataSourceTypeList?: string[];
+  /**
+   * @remarks
+   * The metric computation type. Valid values:
+   * - AUTO: automated coding
+   * - CUSTOM: expert coding
+   * - MOUNT: external table registration
+   * - COMBINE: derived metric specific.
+   */
   indexComputeTypeList?: string[];
+  /**
+   * @remarks
+   * The metric owners.
+   */
   indexOwnerList?: string[];
   /**
+   * @remarks
+   * The search keyword. This is the name of the monitored table.
+   * 
    * @example
    * test
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The task status. Valid values:
+   * - NOT_RUN: not executed
+   * - WAITING: waiting
+   * - RUNNING: executing
+   * - SUCCESS: executed successfully
+   * - FAILED: execution failed
+   * - CANCEL: canceled
+   * - TIMEOUT: timed out
+   * - OFFLINE: offline.
+   */
   latestWatchTaskStatusList?: string[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The project names.
+   */
   projectNameList?: string[];
+  /**
+   * @remarks
+   * The quality owners.
+   */
   qualityOwnerList?: string[];
+  /**
+   * @remarks
+   * The status of the monitored object. Valid values:
+   * - ENABLE: enabled
+   * - DISABLE: disabled.
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * The table owners.
+   */
   tableOwnerList?: string[];
+  /**
+   * @remarks
+   * The table type. Valid values:
+   * - LOGIC_DIM_TABLE: logical dimension table
+   * - LOGIC_FACT_TABLE: logical fact table
+   * - LOGIC_SUM_TABLE: logical aggregate table
+   * - LOGIC_LABEL_TABLE: logical label table
+   * - PHYSICAL_TABLE: physical table
+   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   */
   tableTypeList?: string[];
+  /**
+   * @remarks
+   * The monitored object type. Valid values:
+   * - TABLE: Dataphin table
+   * - DATASOURCE_TABLE: full-domain table
+   * - DATASOURCE: data source
+   * - INDEX: metric
+   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   */
   watchTypeList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -131,9 +228,15 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
 }
 
 export class ListQualityWatchesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged query conditions.
+   */
   listQuery?: ListQualityWatchesRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

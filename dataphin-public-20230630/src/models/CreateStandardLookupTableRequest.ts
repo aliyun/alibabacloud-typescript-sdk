@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardLookupTableRequestCreateCommandDirectoryReference extends $dara.Model {
   /**
    * @remarks
+   * The directory to which the lookup table belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,17 +36,25 @@ export class CreateStandardLookupTableRequestCreateCommandDirectoryReference ext
 
 export class CreateStandardLookupTableRequestCreateCommandLookupTableValueList extends $dara.Model {
   /**
+   * @remarks
+   * The description of the code.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The English name of the code.
+   * 
    * @example
    * HZ
    */
   englishName?: string;
   /**
    * @remarks
+   * The code name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +63,8 @@ export class CreateStandardLookupTableRequestCreateCommandLookupTableValueList e
   name?: string;
   /**
    * @remarks
+   * The code value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -89,6 +101,8 @@ export class CreateStandardLookupTableRequestCreateCommandLookupTableValueList e
 export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The code of the lookup table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,14 +110,27 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * The description of the lookup table.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The directory to which the lookup table belongs.
+   */
   directoryReference?: CreateStandardLookupTableRequestCreateCommandDirectoryReference;
+  /**
+   * @remarks
+   * The list of lookup table values.
+   */
   lookupTableValueList?: CreateStandardLookupTableRequestCreateCommandLookupTableValueList[];
   /**
    * @remarks
+   * The name of the lookup table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,6 +138,9 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the lookup table owner. Default value: the user ID of the caller.
+   * 
    * @example
    * 30012021
    */
@@ -155,11 +185,15 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
 export class CreateStandardLookupTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The create command.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateStandardLookupTableRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

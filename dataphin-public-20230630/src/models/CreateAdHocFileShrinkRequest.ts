@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAdHocFileShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request for creating an ad hoc query file.
+   * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsRequest extends $dara.Model {
   /**
    * @remarks
+   * Asset table catalog: name of the business unit or project space.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTableColumnsRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetTableColumnsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Table name.
+   * 
    * This parameter is required.
    * 
    * @example

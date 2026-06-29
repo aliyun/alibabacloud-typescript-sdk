@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSecurityClassifyCatalogResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of full paths of child catalogs that were also deleted.
+   */
   childCatalogFullPathList?: string[];
+  /**
+   * @remarks
+   * The list of classification IDs that were also deleted.
+   */
   classifyIdList?: number[];
+  /**
+   * @remarks
+   * Indicates whether the deletion was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -39,17 +51,30 @@ export class DeleteSecurityClassifyCatalogResponseBodyData extends $dara.Model {
 
 export class DeleteSecurityClassifyCatalogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The deletion result details.
+   */
   data?: DeleteSecurityClassifyCatalogResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -62,6 +87,10 @@ export class DeleteSecurityClassifyCatalogResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

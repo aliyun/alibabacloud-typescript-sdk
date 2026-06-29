@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
   /**
    * @remarks
+   * The environment for the current operation. Valid values:
+   * 
+   * - DEV: the development environment.
+   * - PROD: the production environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The ID of the project to which the integration pipeline node belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,26 +51,40 @@ export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
 
 export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * comment
    */
   comment?: string;
   /**
    * @remarks
+   * Specifies whether to delete the node.
+   * 
    * This parameter is required.
    */
   delete?: boolean;
   /**
+   * @remarks
+   * The file ID of the integration node. You can use this parameter to query the node.
+   * 
    * @example
    * 123
    */
   fileId?: number;
   /**
+   * @remarks
+   * The schedule node ID of the integration node. You can use this parameter to query the node.
+   * 
    * @example
    * n_123
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The primary key ID of the integration pipeline. You can use this parameter to query the node.
+   * 
    * @example
    * 123
    */
@@ -100,16 +121,22 @@ export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
 export class OfflinePipelineByAsyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   context?: OfflinePipelineByAsyncRequestContext;
   /**
    * @remarks
+   * The offline pipeline node command.
+   * 
    * This parameter is required.
    */
   offlineCommand?: OfflinePipelineByAsyncRequestOfflineCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

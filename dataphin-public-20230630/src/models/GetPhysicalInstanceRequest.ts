@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Environment identifier.
+   * DEV: Development environment.
+   * PROD (default): Production environment.
+   * 
    * @example
    * PROD
    */
   env?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +35,8 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Project ID
+   * 
    * This parameter is required.
    * 
    * @example

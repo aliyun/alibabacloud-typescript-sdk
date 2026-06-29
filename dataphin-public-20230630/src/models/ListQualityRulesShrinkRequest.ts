@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListQualityRulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged query conditions.
+   */
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $dara.Model {
   /**
+   * @remarks
+   * The end time in the format of HH:mm.
+   * 
    * @example
    * 20:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * The custom interval.
+   * 
    * @example
    * 1
    */
   interval?: number;
   /**
+   * @remarks
+   * The interval unit. Valid values:
+   * 
+   * - MINUTE
+   * - HOUR.
+   * 
    * @example
    * HOUR
    */
   intervalUnit?: string;
   /**
+   * @remarks
+   * The scheduling period.
+   * 
    * @example
    * DAILY
    */
   schedulePeriod?: string;
   /**
+   * @remarks
+   * The start time in the format of HH:mm.
+   * 
    * @example
    * 08:00
    */
@@ -59,11 +77,17 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
 
 export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * Value
    */
@@ -93,6 +117,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $dara.Model {
 
 export class GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo extends $dara.Model {
   /**
+   * @remarks
+   * The Spark client version name.
+   * 
    * @example
    * abc
    */
@@ -120,11 +147,22 @@ export class GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo extends $dara.M
 
 export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod extends $dara.Model {
   /**
+   * @remarks
+   * The period offset. This parameter is required when PeriodType is set to LAST_N_PERIOD.
+   * 
    * @example
    * 1
    */
   periodOffset?: number;
   /**
+   * @remarks
+   * The dependency period type. Valid values:
+   * 
+   * - CURRENT_PERIOD
+   * - LAST_PERIOD
+   * - LAST_N_PERIOD
+   * - LAST_24_HOUR.
+   * 
    * @example
    * CURRENT_PERIOD
    */
@@ -153,45 +191,84 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod extend
 }
 
 export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Model {
+  /**
+   * @remarks
+   * The dependency period.
+   */
   dependPeriod?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod;
   /**
+   * @remarks
+   * The dependency strategy. Valid values: ALL, FIRST, LAST, NEAR.
+   * 
    * @example
    * LAST
    */
   dependStrategy?: string;
+  /**
+   * @remarks
+   * The dependent logical table fields.
+   */
   fieldList?: string[];
   /**
+   * @remarks
+   * The upstream dependency node type. Valid values:
+   * 
+   * - PHYSICAL: physical node.
+   * - LOGICAL: logical table dependency.
+   * 
    * @example
    * PHYSICAL
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
+   * 
    * @example
    * 1
    */
   periodDiff?: number;
+  /**
+   * @remarks
+   * Indicates whether the upstream node is enabled.
+   */
   sourceNodeEnabled?: boolean;
   /**
+   * @remarks
+   * The upstream node ID.
+   * 
    * @example
    * n_2001
    */
   sourceNodeId?: string;
   /**
+   * @remarks
+   * The upstream node name.
+   * 
    * @example
    * t_input1
    */
   sourceNodeName?: string;
   /**
+   * @remarks
+   * The output name of the upstream node.
+   * 
    * @example
    * t_input1
    */
   sourceNodeOutputName?: string;
   /**
+   * @remarks
+   * The username of the upstream node owner.
+   * 
    * @example
    * 张三
    */
   sourceNodeUserName?: string;
   /**
+   * @remarks
+   * The name of the input table.
+   * 
    * @example
    * t_input1
    */
@@ -245,149 +322,288 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
 
 export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
+   * @remarks
+   * The node code.
+   * 
    * @example
    * show tables;
    */
   code?: string;
   /**
+   * @remarks
+   * The cron expression for automatic scheduling. Refer to the Linux cron expression format.
+   * 
    * @example
    * 0 0 1 * * ?
    */
   cronExpression?: string;
+  /**
+   * @remarks
+   * The custom scheduling interval configuration.
+   */
   customScheduleConfig?: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig;
   /**
+   * @remarks
+   * The ID of the DAG to which the node belongs.
+   * 
    * @example
    * dag_102121211
    */
   dagId?: string;
   /**
+   * @remarks
+   * The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * 
    * @example
    * mysql_catalog
    */
   dataSourceCatalog?: string;
   /**
+   * @remarks
+   * The data source ID for database SQL nodes.
+   * 
    * @example
    * 12131111
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * 
    * @example
    * erp
    */
   dataSourceSchema?: string;
   /**
+   * @remarks
+   * The user ID of the development owner.
+   * 
    * @example
    * 30231123
    */
   developOwnerId?: string;
   /**
+   * @remarks
+   * The name of the development owner.
+   * 
    * @example
    * 张三
    */
   developOwnerName?: string;
   /**
+   * @remarks
+   * The node ID in the directory tree.
+   * 
    * @example
    * 12113111
    */
   fileId?: number;
+  /**
+   * @remarks
+   * Indicates whether the node has a development environment node.
+   */
   hasDevNode?: boolean;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * 测试任务1
    */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether the node needs to be published.
+   */
   needPublish?: boolean;
   /**
+   * @remarks
+   * The node description.
+   * 
    * @example
    * xx测试
    */
   nodeDescription?: string;
   /**
+   * @remarks
+   * The node source, indicating the organization or application that created the node.
+   * 
    * @example
    * openapi
    */
   nodeFrom?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * n_1011_21232132322
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The node name.
+   * 
    * @example
    * 测试任务1
    */
   nodeName?: string;
+  /**
+   * @remarks
+   * The list of node output names.
+   */
   nodeOutputNameList?: string[];
   /**
+   * @remarks
+   * The node status. Valid values:
+   * 
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * @example
    * 1
    */
   nodeStatus?: number;
   /**
+   * @remarks
+   * The user ID of the current operator.
+   * 
    * @example
    * 30231123
    */
   operatorUserId?: string;
   /**
+   * @remarks
+   * The user ID of the O&M owner.
+   * 
    * @example
    * 30231123
    */
   opsOwnerId?: string;
   /**
+   * @remarks
+   * The name of the O&M owner.
+   * 
    * @example
    * 张三
    */
   opsOwnerName?: string;
   /**
+   * @remarks
+   * The name of the node owner.
+   * 
    * @example
    * 张三
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The user ID of the node owner.
+   * 
    * @example
    * 30231123
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The list of custom node parameters.
+   */
   paramList?: GetBatchTaskInfoResponseBodyTaskInfoParamList[];
+  /**
+   * @remarks
+   * Indicates whether the node is paused for scheduling.
+   */
   paused?: boolean;
   /**
+   * @remarks
+   * The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 131211211
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Indicates whether the node is published.
+   */
   published?: boolean;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test xx
    */
   remark?: string;
+  /**
+   * @remarks
+   * Indicates whether the node can be rerun.
+   */
   rerunable?: boolean;
   /**
+   * @remarks
+   * The scheduling period. Valid values:
+   * 
+   * - YEARLY
+   * - MONTHLY
+   * - WEEKLY
+   * - DAILY
+   * - HOURLY
+   * - MINUTELY.
+   * 
    * @example
    * DAILY
    */
   schedulePeriod?: string;
   /**
+   * @remarks
+   * The scheduling type. Valid values:
+   * 
+   * - 1: periodic node.
+   * - 3: manual node.
+   * 
    * @example
    * 3
    */
   scheduleType?: number;
+  /**
+   * @remarks
+   * The Spark client information.
+   */
   sparkClientInfo?: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo;
   /**
+   * @remarks
+   * The submit status. Valid values:
+   * 
+   * - 0: draft.
+   * - 1: submitted.
+   * - 100: in development.
+   * 
    * @example
    * 测试任务1
    */
   status?: string;
   /**
+   * @remarks
+   * The node type. For more information, refer to the create offline compute node operation.
+   * 
    * @example
    * 21
    */
   taskType?: number;
+  /**
+   * @remarks
+   * The upstream dependencies.
+   */
   upStreamList?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamList[];
   static names(): { [key: string]: string } {
     return {
@@ -499,26 +715,46 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
 
 export class GetBatchTaskInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The node details.
+   */
   taskInfo?: GetBatchTaskInfoResponseBodyTaskInfo;
   static names(): { [key: string]: string } {
     return {

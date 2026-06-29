@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionListRemarkForDebugList extends $dara.Model {
   /**
+   * @remarks
+   * The configuration item.
+   * 
    * @example
    * k1
    */
   key?: string;
   /**
+   * @remarks
+   * The configuration item value.
+   * 
    * @example
    * v1
    */
@@ -46,57 +52,99 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
    */
   appId?: number;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * The name of the creator.
+   * 
    * @example
    * test
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 1121
    */
   creator?: string;
   /**
+   * @remarks
+   * The role of the current logon user relative to this record. Valid values:
+   * - SuperAdmin: the current user is a super administrator.
+   * - ProjMan: the current user is a project administrator for this record.
+   * - NormalUser: the current user is a regular user for this record, meaning the user is neither a super administrator nor a project administrator.
+   * 
    * @example
    * NormalUser
    */
   currentUserRole?: string;
   /**
+   * @remarks
+   * The ID of the owner.
+   * 
    * @example
    * 1121
    */
   owner?: string;
   /**
+   * @remarks
+   * The name of the owner.
+   * 
    * @example
    * test
    */
   ownerUserName?: string;
   /**
+   * @remarks
+   * The user to whom the permission belongs.
+   * 
    * @example
    * 1121
    */
   privilegeBelongTo?: string;
   /**
+   * @remarks
+   * The source of the authorization. Valid values:
+   * - 0: owner.
+   * 
    * @example
    * 0
    */
   privilegeFrom?: number;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 112101
    */
   projectId?: number;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * test
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The description, used for troubleshooting.
+   */
   remarkForDebugList?: ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionListRemarkForDebugList[];
   /**
+   * @remarks
+   * The role. Valid values:
+   * - 0: owner.
+   * 
    * @example
    * 0
    */
@@ -150,8 +198,15 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
 }
 
 export class ListDataServiceMyAppPermissionsResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The paginated permission list.
+   */
   permissionList?: ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 68
    */
@@ -184,20 +239,33 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResult extends $dara
 
 export class ListDataServiceMyAppPermissionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The paging query result.
+   */
   pageResult?: ListDataServiceMyAppPermissionsResponseBodyPageResult;
   /**
    * @remarks
@@ -207,6 +275,10 @@ export class ListDataServiceMyAppPermissionsResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

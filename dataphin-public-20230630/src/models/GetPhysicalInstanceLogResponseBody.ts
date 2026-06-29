@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhysicalInstanceLogResponseBodyTaskrunLogList extends $dara.Model {
   /**
+   * @remarks
+   * The execution duration of the task. Unit: seconds.
+   * 
    * @example
    * 60s
    */
   duration?: string;
   /**
+   * @remarks
+   * The time when the task finished running.
+   * 
    * @example
    * 2024-05-30 16:48:13
    */
   endTime?: string;
   /**
+   * @remarks
+   * The execution log content. This value is empty if the task has not been run.
+   * 
    * @example
    * xx
    */
   logContent?: string;
   /**
+   * @remarks
+   * The time when the task started running.
+   * 
    * @example
    * 2024-05-30 16:47:13
    */
   startTime?: string;
   /**
+   * @remarks
+   * The execution status.
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID for each run.
+   * 
    * @example
    * tr_23231
    */
@@ -66,30 +84,49 @@ export class GetPhysicalInstanceLogResponseBodyTaskrunLogList extends $dara.Mode
 
 export class GetPhysicalInstanceLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of OK indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * All execution logs of the instance, including logs from multiple reruns.
+   */
   taskrunLogList?: GetPhysicalInstanceLogResponseBodyTaskrunLogList[];
   static names(): { [key: string]: string } {
     return {

@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetProjectRequest extends $dara.Model {
   /**
+   * @remarks
+   * Project environment. Valid values:
+   *  - DEV: development environment.
+   *  - PROD: production environment.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class GetProjectRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

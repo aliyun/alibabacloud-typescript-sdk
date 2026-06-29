@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRowPermissionRequestPageRowPermissionQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * 业务
+   */
   keyword?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class ListRowPermissionRequestPageRowPermissionQuery extends $dara.Model 
   pageNum?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +59,8 @@ export class ListRowPermissionRequestPageRowPermissionQuery extends $dara.Model 
 export class ListRowPermissionRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +69,8 @@ export class ListRowPermissionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The request command.
+   * 
    * This parameter is required.
    */
   pageRowPermissionQuery?: ListRowPermissionRequestPageRowPermissionQuery;

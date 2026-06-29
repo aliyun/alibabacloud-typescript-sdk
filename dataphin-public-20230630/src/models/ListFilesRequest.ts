@@ -5,6 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesRequestListQuery extends $dara.Model {
   /**
    * @remarks
+   * Menu tree category
+   * - Ad hoc query: tempCode
+   * - Code task: codeManage
+   * - Offline pipeline: offlinePipeline
+   * - Pipeline custom component: offlinePipelineCustomPlugin
+   * - Sync task: dataX
+   * - Real-time meta table: streamMeta
+   * - Real-time custom source: streamCustomDataSource
+   * - Real-time computing template: streamTemplate
+   * - Resource management: resourceManage
+   * - Offline function: udfResource
+   * - Real-time function: streamFunction
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +26,8 @@ export class ListFilesRequestListQuery extends $dara.Model {
   category?: string;
   /**
    * @remarks
+   * File directory
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +36,10 @@ export class ListFilesRequestListQuery extends $dara.Model {
   directory?: string;
   /**
    * @remarks
+   * Environment identifier
+   * - DEV
+   * - PROD
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +48,8 @@ export class ListFilesRequestListQuery extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * Project ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +58,10 @@ export class ListFilesRequestListQuery extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * Whether to recursively traverse and query
+   * - true: Yes, returns all nodes under the directory
+   * - false: No, returns only the first-level nodes under the directory
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,11 +100,15 @@ export class ListFilesRequestListQuery extends $dara.Model {
 export class ListFilesRequest extends $dara.Model {
   /**
    * @remarks
+   * Query conditions
+   * 
    * This parameter is required.
    */
   listQuery?: ListFilesRequestListQuery;
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example

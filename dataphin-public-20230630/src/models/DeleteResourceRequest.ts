@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * Remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteResourceRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * Resource file ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteResourceRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DeleteResourceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Project ID.
+   * 
    * This parameter is required.
    * 
    * @example

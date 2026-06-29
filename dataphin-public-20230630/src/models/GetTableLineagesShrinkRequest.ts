@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTableLineagesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filterQueryShrink?: string;
   /**
    * @remarks
+   * Tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The GUID of the table, which is the unique identifier of each asset.
+   * 
    * This parameter is required.
    * 
    * @example

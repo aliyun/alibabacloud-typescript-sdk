@@ -4,41 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStreamJobsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development.
+   * - PROD: production.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The mapping ID of the real-time node.
+   * 
    * @example
    * 716555
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the real-time node.
+   * 
    * @example
    * flink_order_detail
    */
   jobName?: string;
   /**
+   * @remarks
+   * The ID of the user who last modified the node.
+   * 
    * @example
    * 300006788
    */
   modifierId?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 300006788
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The Dataphin project ID.
+   * 
    * @example
    * 7162269257990111
    */
   projectId?: string;
   /**
+   * @remarks
+   * The node status. Valid values:
+   * - 0: draft.
+   * - 1: submitting.
+   * - 2: submitted.
+   * - 3: published.
+   * - 100: in development.
+   * 
    * @example
    * 0
    */
   status?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * - FLINK_SQL
+   * - FLINK_DATASTREAM.
+   * 
    * @example
    * FLINK_SQL
    */
@@ -80,17 +113,30 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
 
 export class GetStreamJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetStreamJobsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -104,6 +150,9 @@ export class GetStreamJobsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

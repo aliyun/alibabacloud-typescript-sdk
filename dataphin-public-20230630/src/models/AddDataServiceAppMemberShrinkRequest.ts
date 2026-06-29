@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceAppMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The regular member to add to the data service application.
+   * 
    * This parameter is required.
    */
   addCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

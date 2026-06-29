@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference extends $dara.Model {
   /**
+   * @remarks
+   * The directory to which the lookup table belongs.
+   * 
    * @example
    * /dir1/dir2
    */
@@ -31,21 +34,33 @@ export class GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference
 
 export class GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueList extends $dara.Model {
   /**
+   * @remarks
+   * The code description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The English name of the code.
+   * 
    * @example
    * HZ
    */
   englishName?: string;
   /**
+   * @remarks
+   * The code name.
+   * 
    * @example
    * Hangzhou
    */
   name?: string;
   /**
+   * @remarks
+   * The code value.
+   * 
    * @example
    * 杭州
    */
@@ -79,63 +94,107 @@ export class GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueLi
 
 export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Model {
   /**
+   * @remarks
+   * The code of the lookup table.
+   * 
    * @example
    * CITY
    */
   code?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The user ID of the creator.
+   * 
    * @example
    * 30012021
    */
   creator?: string;
   /**
+   * @remarks
+   * The username of the creator.
+   * 
    * @example
    * test
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The description of the lookup table.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The directory to which the lookup table belongs.
+   */
   directoryReference?: GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference;
   /**
+   * @remarks
+   * The lookup table ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The user ID of the last modifier.
+   * 
    * @example
    * 30012021
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * The username of the last modifier.
+   * 
    * @example
    * test
    */
   lastModifierName?: string;
+  /**
+   * @remarks
+   * The list of lookup table values.
+   */
   lookupTableValueList?: GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueList[];
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The name of the lookup table.
+   * 
    * @example
    * 城市码表
    */
   name?: string;
   /**
+   * @remarks
+   * The user ID of the owner.
+   * 
    * @example
    * 30012021
    */
   owner?: string;
   /**
+   * @remarks
+   * The username of the owner.
+   * 
    * @example
    * test
    */
@@ -195,17 +254,30 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
 
 export class GetStandardLookupTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The lookup table details.
+   */
   lookupTableInfo?: GetStandardLookupTableResponseBodyLookupTableInfo;
   /**
+   * @remarks
+   * The details of the backend exception.
+   * 
    * @example
    * internal error
    */
@@ -218,6 +290,10 @@ export class GetStandardLookupTableResponseBody extends $dara.Model {
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

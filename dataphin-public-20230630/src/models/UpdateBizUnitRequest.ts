@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBizUnitRequestUpdateCommandBizUnitAccountList extends $dara.Model {
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,11 +37,15 @@ export class UpdateBizUnitRequestUpdateCommandBizUnitAccountList extends $dara.M
 export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * The domain architects.
+   * 
    * This parameter is required.
    */
   bizUnitAccountList?: UpdateBizUnitRequestUpdateCommandBizUnitAccountList[];
   /**
    * @remarks
+   * The data domain ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,12 +53,17 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
    */
   bizUnitId?: number;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the data domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +72,8 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The preset icon. For more information, refer to the create data domain operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +82,8 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   icon?: string;
   /**
    * @remarks
+   * The data domain code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,6 +127,8 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
 export class UpdateBizUnitRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,6 +137,8 @@ export class UpdateBizUnitRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The update request.
+   * 
    * This parameter is required.
    */
   updateCommand?: UpdateBizUnitRequestUpdateCommand;

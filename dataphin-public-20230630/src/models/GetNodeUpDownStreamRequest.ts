@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNodeUpDownStreamRequestNodeId extends $dara.Model {
   /**
+   * @remarks
+   * This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, the full table is used by default.
+   * 
    * @example
    * 12
    */
   fieldIdList?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,22 +46,34 @@ export class GetNodeUpDownStreamRequestNodeId extends $dara.Model {
 
 export class GetNodeUpDownStreamRequest extends $dara.Model {
   /**
+   * @remarks
+   * The downstream depth. Default value: 1.
+   * 
    * @example
    * 1
    */
   downStreamDepth?: number;
   /**
+   * @remarks
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD (default): production environment.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    */
   nodeId?: GetNodeUpDownStreamRequestNodeId;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,11 +81,17 @@ export class GetNodeUpDownStreamRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 113123
    */
   projectId?: number;
   /**
+   * @remarks
+   * The upstream depth. Default value: 1.
+   * 
    * @example
    * 1
    */

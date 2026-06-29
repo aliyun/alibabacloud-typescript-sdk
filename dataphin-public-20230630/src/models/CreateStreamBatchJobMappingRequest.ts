@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * 这是一段任务的描述信息
    */
   description?: string;
   /**
    * @remarks
+   * The folder in which the node is generated.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   directory?: string;
   /**
    * @remarks
+   * The Flink DPI engine version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   engineVersion?: string;
   /**
    * @remarks
+   * The environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   env?: string;
   /**
    * @remarks
+   * The file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +63,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   fileName?: string;
   /**
    * @remarks
+   * The file type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +73,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   fileType?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +83,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   projectId?: number;
   /**
    * @remarks
+   * The queue name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,6 +93,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   queueName?: string;
   /**
    * @remarks
+   * The VVP cluster type. Valid values: SESSION and PREJOB. This parameter is specific to VVP. If not applicable, leave this parameter empty or do not pass it.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -122,6 +143,8 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
 export class CreateStreamBatchJobMappingRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -130,6 +153,8 @@ export class CreateStreamBatchJobMappingRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The stream-batch integrated node information.
+   * 
    * This parameter is required.
    */
   streamBatchJobMappingCreateCommand?: CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand;

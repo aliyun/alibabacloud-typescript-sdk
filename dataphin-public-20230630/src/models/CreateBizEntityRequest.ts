@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBizEntityRequestCreateCommandBizObject extends $dara.Model {
   /**
+   * @remarks
+   * The description of the business object. The description can be up to 128 characters in length.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateBizEntityRequestCreateCommandBizObject extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,18 +32,34 @@ export class CreateBizEntityRequestCreateCommandBizObject extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The user ID of the business object owner.
+   * 
    * @example
    * 30010010
    */
   ownerUserId?: string;
   /**
+   * @remarks
+   * The parent entity from which the business object inherits. Only common business objects support inheritance, and the parent entity must be an online business object.
+   * 
    * @example
    * 116306
    */
   parentId?: number;
+  /**
+   * @remarks
+   * The list of associated online business entity IDs.
+   */
   refBizEntityIdList?: number[];
   /**
    * @remarks
+   * The object type of the business object. Valid values:
+   * - NORMAL: common object.
+   * - ENUM: enumeration object.
+   * - VIRTUAL: virtual object.
+   * - HIERARCHY: hierarchy object.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,14 +103,23 @@ export class CreateBizEntityRequestCreateCommandBizObject extends $dara.Model {
 }
 
 export class CreateBizEntityRequestCreateCommandBizProcess extends $dara.Model {
+  /**
+   * @remarks
+   * The list of business event activity IDs included in the business process activity. This parameter takes effect only when the current activity is a business process activity.
+   */
   bizEventEntityIdList?: number[];
   /**
+   * @remarks
+   * The description of the business activity. The description can be up to 128 characters in length.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the business activity. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,6 +128,8 @@ export class CreateBizEntityRequestCreateCommandBizProcess extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The code name of the business activity. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,14 +137,30 @@ export class CreateBizEntityRequestCreateCommandBizProcess extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The user ID of the business activity owner.
+   * 
    * @example
    * 30010010
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The list of preceding business process activity IDs for the business process activity.
+   */
   preBizProcessIdList?: number[];
+  /**
+   * @remarks
+   * The list of associated online business entity IDs.
+   */
   refBizEntityIdList?: number[];
   /**
    * @remarks
+   * The type of the business activity. Valid values:
+   * - BIZ_EVENT: business event.
+   * - BIZ_SNAPSHOT: business snapshot.
+   * - BIZ_PROCESS: business process.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -162,10 +212,20 @@ export class CreateBizEntityRequestCreateCommandBizProcess extends $dara.Model {
 }
 
 export class CreateBizEntityRequestCreateCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The business object.
+   */
   bizObject?: CreateBizEntityRequestCreateCommandBizObject;
+  /**
+   * @remarks
+   * The business activity.
+   */
   bizProcess?: CreateBizEntityRequestCreateCommandBizProcess;
   /**
    * @remarks
+   * The ID of the business unit to which the business activity belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -174,6 +234,8 @@ export class CreateBizEntityRequestCreateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
+   * The ID of the data domain to which the business activity belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -182,6 +244,10 @@ export class CreateBizEntityRequestCreateCommand extends $dara.Model {
   dataDomainId?: number;
   /**
    * @remarks
+   * The business type. Valid values: 
+   * - BIZ_OBJECT: business object.
+   * - BIZ_PROCESS: business activity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -226,11 +292,15 @@ export class CreateBizEntityRequestCreateCommand extends $dara.Model {
 export class CreateBizEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The create request.
+   * 
    * This parameter is required.
    */
   createCommand?: CreateBizEntityRequestCreateCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
+   * Application ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,22 @@ export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
    */
   appId?: number;
   /**
+   * @remarks
+   * The new application key, which must be globally unique and is used when calling APIs.
+   * The length is 8 to 128 English characters, and can contain digits, underscores (_), and hyphens (-).
+   * Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+   * 
    * @example
    * 200000001
    */
   appKey?: string;
   /**
+   * @remarks
+   * The new application secret.
+   * If this parameter is left empty, the system automatically generates a new AppSecret value.
+   * The length is 8 to 127 English characters, and can contain digits, underscores (_), and hyphens (-).
+   * Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+   * 
    * @example
    * abc123456789
    */
@@ -49,6 +62,8 @@ export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
 export class ResetDataServiceAppSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * Tenant ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +72,8 @@ export class ResetDataServiceAppSecretRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * Reset Data Service Application Key
+   * 
    * This parameter is required.
    */
   updateCommand?: ResetDataServiceAppSecretRequestUpdateCommand;
