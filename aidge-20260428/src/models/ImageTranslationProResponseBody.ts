@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
   degree?: number;
   /**
    * @remarks
-   * The height.
+   * Height
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
   height?: number;
   /**
    * @remarks
-   * The left coordinate.
+   * Left coordinate
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
   left?: number;
   /**
    * @remarks
-   * The top coordinate.
+   * Top coordinate
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
   top?: number;
   /**
    * @remarks
-   * The width.
+   * Width
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
    * 
    * @example
    * 0
@@ -83,7 +83,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
   degree?: number;
   /**
    * @remarks
-   * The height.
+   * Height
    * 
    * @example
    * 54
@@ -91,7 +91,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
   height?: number;
   /**
    * @remarks
-   * The left coordinate.
+   * Left coordinate
    * 
    * @example
    * 43
@@ -99,7 +99,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
   left?: number;
   /**
    * @remarks
-   * The top coordinate.
+   * Top coordinate
    * 
    * @example
    * 83
@@ -107,7 +107,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
   top?: number;
   /**
    * @remarks
-   * The width.
+   * Width
    * 
    * @example
    * 418
@@ -145,7 +145,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
    * 
    * @example
    * 0
@@ -153,7 +153,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
   degree?: number;
   /**
    * @remarks
-   * The height.
+   * Height
    * 
    * @example
    * 30
@@ -161,7 +161,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
   height?: number;
   /**
    * @remarks
-   * The left coordinate.
+   * Left coordinate
    * 
    * @example
    * 8
@@ -169,7 +169,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
   left?: number;
   /**
    * @remarks
-   * The top coordinate.
+   * Top coordinate
    * 
    * @example
    * 95
@@ -177,7 +177,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
   top?: number;
   /**
    * @remarks
-   * The width.
+   * Width
    * 
    * @example
    * 488
@@ -215,7 +215,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts extends $dara.Model {
   /**
    * @remarks
-   * The color of the translated text.
+   * Translated text color
    * 
    * @example
    * #515151
@@ -223,7 +223,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   color?: string;
   /**
    * @remarks
-   * The font size of the translated text.
+   * Font size of the translated text
    * 
    * @example
    * 29
@@ -231,7 +231,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout. Valid values: center, left, right.
+   * Horizontal layout mode. Available values: center, left, right
    * 
    * @example
    * center
@@ -239,12 +239,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   horizontalLayout?: string;
   /**
    * @remarks
-   * The coordinates of the image repair area.
+   * Image repair area coordinates
    */
   imageRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect;
   /**
    * @remarks
-   * The target language code for translation.
+   * Translation target language code
    * 
    * @example
    * en
@@ -252,7 +252,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   language?: string;
   /**
    * @remarks
-   * The number of lines in the text box.
+   * Number of lines in the text box
    * 
    * @example
    * 1
@@ -260,7 +260,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   lineCount?: number;
   /**
    * @remarks
-   * The Ovis model error message and execution time.
+   * Ovis model error message and execution time
    * 
    * @example
    * | ovis time: 0.748
@@ -268,12 +268,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   ovisErrMsg?: string;
   /**
    * @remarks
-   * The coordinates of the text box area.
+   * Text box area coordinates
    */
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
   /**
    * @remarks
-   * Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is false.
+   * Whether the TextItem is valid. It is invalid when this value does not exist or is false.
    * 
    * @example
    * true
@@ -281,7 +281,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   valid?: boolean;
   /**
    * @remarks
-   * The translated text content.
+   * Translated text content
    * 
    * @example
    * Adorable Design · Crisp Bell Sound
@@ -289,7 +289,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   value?: string;
   /**
    * @remarks
-   * The vertical layout. Valid values: center, top, down.
+   * Vertical layout mode. Available values: center, top, down
    * 
    * @example
    * center
@@ -345,7 +345,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extends $dara.Model {
   /**
    * @remarks
-   * The text color, such as #ffffff.
+   * Text color, e.g., #ffffff
    * 
    * @example
    * #515151
@@ -353,7 +353,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   color?: string;
   /**
    * @remarks
-   * The original text before translation.
+   * Original text before translation
    * 
    * @example
    * 萌趣造型·清脆响铃
@@ -361,7 +361,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   content?: string;
   /**
    * @remarks
-   * The font size.
+   * Font size
    * 
    * @example
    * 32
@@ -369,7 +369,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout. Valid values: center, left, right.
+   * Horizontal layout mode. Available values: center, left, right
    * 
    * @example
    * left
@@ -377,7 +377,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   horizontalLayout?: string;
   /**
    * @remarks
-   * The number of lines in the text box.
+   * Number of lines in the text box
    * 
    * @example
    * 1
@@ -385,12 +385,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   lineCount?: number;
   /**
    * @remarks
-   * The list of translated texts. Each element corresponds to the translation result for a target language.
+   * Translated text list, where each element corresponds to the translation result for one target language
    */
   texts?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts[];
   /**
    * @remarks
-   * The vertical layout. Valid values: center, top, down.
+   * Vertical layout mode. Available values: center, top, down
    * 
    * @example
    * center
@@ -435,22 +435,22 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
 export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of font types.
+   * Font type list
    */
   font?: string[];
   /**
    * @remarks
-   * The coordinate information of the product bounding box area.
+   * Product bounding box area coordinate information
    */
   goodsRects?: ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects;
   /**
    * @remarks
-   * The list of target languages for translation.
+   * Translation target language list
    */
   languages?: string[];
   /**
    * @remarks
-   * The URL of the image with all text removed.
+   * Image URL after all text has been inpainted
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/repaired.png
@@ -458,12 +458,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   repairedUrl?: string;
   /**
    * @remarks
-   * The collection of global IDs of translated images.
+   * Collection of translated image global IDs
    */
   resultImageIds?: string[];
   /**
    * @remarks
-   * The list of text boxes, which contains information about all recognized text areas.
+   * Text box list, containing information about all recognized text areas
    */
   textAreas?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas[];
   static names(): { [key: string]: string } {
@@ -515,7 +515,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
 export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara.Model {
   /**
    * @remarks
-   * The URL of the translated image file.
+   * Translated image file URL
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -523,7 +523,7 @@ export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara
   fileUrl?: string;
   /**
    * @remarks
-   * The target language for translation.
+   * Translation target language
    * 
    * @example
    * en
@@ -555,17 +555,17 @@ export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara
 export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
   /**
    * @remarks
-   * The editor information, which contains recognized information such as text areas, product areas, and fonts.
+   * Editor information, containing recognized information such as text areas, product areas, and fonts
    */
   editInfo?: ImageTranslationProResponseBodyDataGenFilesEditInfo;
   /**
    * @remarks
-   * The collection of translation results.
+   * Translation result collection
    */
   resultList?: ImageTranslationProResponseBodyDataGenFilesResultList[];
   /**
    * @remarks
-   * The URL of the original image.
+   * Original image URL
    * 
    * @example
    * https://img.alicdn.com/imgextra/i3/O1CN01HTDhDi28Fd85ZYs7H_!!6000000007903-0-tps-800-800.jpg
@@ -605,7 +605,7 @@ export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
 export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
   /**
    * @remarks
-   * The URL of the image translation result image.
+   * Image translation result image URL
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -613,7 +613,7 @@ export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The target language for image translation.
+   * Image translation target language
    * 
    * @example
    * en
@@ -645,17 +645,17 @@ export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
 export class ImageTranslationProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The editor protocol, which contains the translation result files and editing information.
+   * Editor protocol, containing translation result files and editing information
    */
   genFiles?: ImageTranslationProResponseBodyDataGenFiles[];
   /**
    * @remarks
-   * The list of image translation results.
+   * Image translation result list
    */
   resultList?: ImageTranslationProResponseBodyDataResultList[];
   /**
    * @remarks
-   * The asynchronous task ID. This is not returned for synchronous calls.
+   * Asynchronous task ID, not returned during synchronous calls.
    * 
    * @example
    * abc123-task-id
@@ -663,7 +663,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information, including the number of processed images.
+   * Usage information, including the number of processed images, etc.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -705,7 +705,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
 export class ImageTranslationProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. For other response codes, see the error codes.
+   * Response code. 200 indicates a successful call. For other response codes, refer to the error code documentation.
    * 
    * @example
    * 200
@@ -713,12 +713,12 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data. ResultList contains the URL of the translation result. GenFiles contains EditInfo with the recognized text information.
+   * Translation result data. ResultList contains the URL of the translation result, and GenFiles contains EditInfo with recognized text information.
    */
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls, such as "The content contains sensitive data. Try other input.".
+   * Error message. Returns "Success" during normal calls. Returns specific error information during exceptions, such as "Content contains sensitive data, please try other input".
    * 
    * @example
    * Success
@@ -726,7 +726,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * Request ID, used to identify a unique request call.
    * 
    * @example
    * 61785C32-80C2-19A3-9E55-2C3702C84B40
@@ -734,7 +734,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Whether the call was successful. true indicates success, false indicates failure.
    * 
    * @example
    * true
