@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkOptimizationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 3528160969****
@@ -13,12 +13,12 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule-based configurations. The value range is as follows:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - global: Query global configuration.
-   * - rule: Query rule-based configuration.
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
-   * This parameter is optional; if not provided, it does not distinguish between global and rule-based configurations.
+   * This parameter is optional. If you do not specify this parameter, both global and rule configurations are returned.
    * 
    * @example
    * global
@@ -26,7 +26,7 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number, defaulting to 1 if not provided.
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, with a maximum of 500. Defaults to 500 if not provided.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -42,7 +42,7 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name, which can be used to find the rule with the specified name.
+   * The rule name. You can use this parameter to query the rule that matches the specified name.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 1

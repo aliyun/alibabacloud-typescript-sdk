@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSitePauseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID for the request.
+   * The request ID.
    * 
    * @example
    * 6abd807e-ed2a-44de-ac54-ac38a62472e6

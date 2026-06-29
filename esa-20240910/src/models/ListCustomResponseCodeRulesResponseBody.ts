@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 395386449776640
@@ -14,10 +14,8 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   /**
    * @remarks
    * The configuration type. Valid values:
-   * 
-   * - global: Global configuration.
-   * 
-   * - rule: Rule configuration.
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -41,11 +39,9 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   returnCode?: string;
   /**
    * @remarks
-   * The rule content. Use a conditional expression to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
-   * 
-   * - Match all incoming requests: Set the value to true.
-   * 
-   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
+   * The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two usage scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specific requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -53,11 +49,9 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Do not set this parameter when adding a global configuration. Valid values:
-   * 
-   * - on: Enabled.
-   * 
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enables the rule.
+   * - off: disables the rule.
    * 
    * @example
    * on
@@ -65,7 +59,7 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. Do not set this parameter when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -73,7 +67,7 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -81,7 +75,7 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with configuration version control enabled, this parameter specifies the site version for which the configuration takes effect. The default value is version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0
@@ -127,12 +121,12 @@ export class ListCustomResponseCodeRulesResponseBodyConfigs extends $dara.Model 
 export class ListCustomResponseCodeRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * You can modify the response code configuration list.
+   * The list of custom response code configurations.
    */
   configs?: ListCustomResponseCodeRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * Page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -140,7 +134,7 @@ export class ListCustomResponseCodeRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 500. Valid values: 1 to 500.
+   * Page size. Default value: 500. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -148,7 +142,7 @@ export class ListCustomResponseCodeRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -156,7 +150,7 @@ export class ListCustomResponseCodeRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total number of entries.
    * 
    * @example
    * 10
@@ -164,7 +158,7 @@ export class ListCustomResponseCodeRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * Total number of pages.
    * 
    * @example
    * 1

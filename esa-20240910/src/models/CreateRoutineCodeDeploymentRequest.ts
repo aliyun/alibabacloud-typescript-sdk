@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model {
   /**
    * @remarks
-   * The version of the code.
+   * The code version number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model 
   codeVersion?: string;
   /**
    * @remarks
-   * The phased release ratio of the code version. Valid values: 1 to 100.
+   * The canary release percentage for the code version. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -49,14 +49,17 @@ export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model 
 export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
+   * The list of percentage-based canary release version configurations. A maximum of two versions are supported, and the total percentage must equal 100.
    * 
    * This parameter is required.
    */
   codeVersions?: CreateRoutineCodeDeploymentRequestCodeVersions[];
   /**
    * @remarks
-   * The name of the environment. Only supports test environment `staging` or production environment `production`.
+   * The environment name.  
+   * Valid values:
+   * - `staging`: staging environment 
+   * - `production`: production environment
    * 
    * This parameter is required.
    * 
@@ -66,7 +69,7 @@ export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The function name.
+   * The name of the Edge Function Routine.
    * 
    * This parameter is required.
    * 
@@ -76,7 +79,9 @@ export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The deployment policy. Valid value: percentage.
+   * The deployment strategy.  
+   * Valid values:
+   * - `percentage`: percentage mode
    * 
    * This parameter is required.
    * 

@@ -13,10 +13,9 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * The configuration type. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -24,7 +23,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The custom end parameter for FLV files.
+   * The custom FLV end parameter.
    * 
    * @example
    * end
@@ -32,7 +31,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   flvSeekEnd?: string;
   /**
    * @remarks
-   * The custom start parameter for FLV files.
+   * The custom FLV start parameter.
    * 
    * @example
    * start
@@ -40,10 +39,9 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   flvSeekStart?: string;
   /**
    * @remarks
-   * FLV seeking. Valid values:
-   * 
-   * *   by_byte: Seek by byte.
-   * *   by_time: Seek by time.
+   * The FLV seeking mode. Valid values:
+   * - by_byte: seek by byte.
+   * - by_time: seek by time.
    * 
    * @example
    * by_byte
@@ -51,7 +49,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   flvVideoSeekMode?: string;
   /**
    * @remarks
-   * Customize the mp4 end parameter.
+   * The custom MP4 end parameter.
    * 
    * @example
    * end
@@ -59,7 +57,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   mp4SeekEnd?: string;
   /**
    * @remarks
-   * Customize the mp4 start parameter.
+   * The custom MP4 start parameter.
    * 
    * @example
    * start
@@ -75,10 +73,9 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * The rule switch. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -94,7 +91,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed. The smaller the value, the higher the priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -102,7 +99,7 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * The version number of the site configuration.
    * 
    * @example
    * 1
@@ -110,10 +107,11 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Video seeking. Valid values:
+   * The audio seeking switch. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: enabled.
+   * 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -167,12 +165,12 @@ export class ListVideoProcessingsResponseBodyConfigs extends $dara.Model {
 export class ListVideoProcessingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations.
+   * The list of configurations.
    */
   configs?: ListVideoProcessingsResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -196,7 +194,7 @@ export class ListVideoProcessingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 55
@@ -204,7 +202,7 @@ export class ListVideoProcessingsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 3

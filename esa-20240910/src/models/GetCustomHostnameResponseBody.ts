@@ -21,7 +21,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certApplyCode?: number;
   /**
    * @remarks
-   * The error description for the free certificate application.
+   * The error message for the free certificate application.
    * 
    * @example
    * canceled
@@ -29,7 +29,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certApplyMessage?: string;
   /**
    * @remarks
-   * The certificate verification HTTP address.
+   * The HTTP address for certificate verification.
    * 
    * @example
    * http://custom.site.com/.well-known/acme-challenge/jLmMHlEaZ3jb352Qo3ciaSoAC8KZ5Hk0F-4_1xLQtgc
@@ -37,7 +37,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certHttpKey?: string;
   /**
    * @remarks
-   * The certificate verification HTTP content.
+   * The HTTP content for certificate verification.
    * 
    * @example
    * jLmMHlEaZ3jb352Qo3ciaSoAC8KZ5Hk0F-4_1xLQtgc.GridYdfJJB5PgFEL-t89XfaFvMPB4f2-I9fwLpKl6e0
@@ -53,7 +53,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certId?: string;
   /**
    * @remarks
-   * The certificate expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The certificate expiration time, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -74,7 +74,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certStatus?: string;
   /**
    * @remarks
-   * The certificate verification TXT name.
+   * The TXT name for certificate verification.
    * 
    * @example
    * _acme-challenge.custom.site.com
@@ -82,7 +82,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certTxtKey?: string;
   /**
    * @remarks
-   * The certificate verification TXT content.
+   * The TXT content for certificate verification.
    * 
    * @example
    * lcKYad3UQXgrZLvMm_6TBUYKK4xTkGmninV0Mzx4gjM
@@ -114,6 +114,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
    * - **existing_record**: Conflicts with an existing site record.
    * - **existing_load_balancer**: Conflicts with an existing load balancing instance.
    * - **existing_origin_pool**: Conflicts with an existing origin IPAM pool.
+   * - **existing_site**: Conflicts with an existing site.
    * 
    * @example
    * existing_custom_hostname
@@ -121,7 +122,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   conflictWith?: string;
   /**
    * @remarks
-   * The time when the SaaS domain name was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the SaaS domain name was created, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -150,7 +151,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
    * - **internally_disabled**: Disabled by the system.
    * - **missing_icp**: The domain name does not have an ICP filing.
    * - **content_violation**: Content violation.
-   * - **proactively_disabled**: You proactively disabled the domain name or the usage cap that you configured was reached.
+   * - **proactively_disabled**: You proactively disabled the domain name or the usage cap you configured was reached.
    * 
    * @example
    * missing_icp
@@ -221,7 +222,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The time when the SaaS domain name was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the SaaS domain name was last updated, in ISO 8601 format with UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -229,7 +230,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   updateTime?: string;
   /**
    * @remarks
-   * The domain verification TXT content.
+   * The TXT content for domain verification.
    * 
    * @example
    * verify_16ab7f4d389d4dff6655f995c6a997bd
@@ -237,7 +238,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   verifyCode?: string;
   /**
    * @remarks
-   * The domain verification TXT name.
+   * The TXT name for domain verification.
    * 
    * @example
    * _esa_custom_hostname.custom.site.com

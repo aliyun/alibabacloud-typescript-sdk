@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID. You can obtain this ID by calling the `ListHttpIncomingResponseHeaderModificationRules` operation.
+   * The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,16 +15,14 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest exten
   configId?: number;
   /**
    * @remarks
-   * A list of objects specifying modifications to response headers. Supported operations include `add`, `del`, and `modify`.
+   * The response header modifications. Three operation types are supported: add, delete, and modify.
    */
   responseHeaderModificationShrink?: string;
   /**
    * @remarks
-   * The condition expression used to match incoming requests. This parameter is not required for a global configuration. You can use this parameter in two ways:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -32,11 +30,10 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest exten
   rule?: string;
   /**
    * @remarks
-   * The status of the rule. This parameter is not required for a global configuration. Valid values:
+   * The rule switch. This parameter is not required when adding a global configuration. Valid values:
    * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -44,7 +41,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest exten
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required for a global configuration.
+   * The rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -52,7 +49,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest exten
   ruleName?: string;
   /**
    * @remarks
-   * The priority of the rule. Rules with a lower value are executed first.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -60,7 +57,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest exten
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the `ListSites` operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

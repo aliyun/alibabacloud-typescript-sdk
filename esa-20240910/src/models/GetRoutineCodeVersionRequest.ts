@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineCodeVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The code version.
+   * The code version number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRoutineCodeVersionRequest extends $dara.Model {
   codeVersion?: string;
   /**
    * @remarks
-   * The routine name.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 

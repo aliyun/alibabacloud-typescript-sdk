@@ -4,18 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetImageTransformResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable adaptive AVIF. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
    * @example
    * on
    */
   autoAvif?: string;
   /**
+   * @remarks
+   * Specifies whether to enable adaptive WebP. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
    * @example
    * on
    */
   autoWebp?: string;
   /**
    * @remarks
-   * The config ID.
+   * The configuration ID.
    * 
    * @example
    * 352816096987136
@@ -24,10 +34,8 @@ export class GetImageTransformResponseBody extends $dara.Model {
   /**
    * @remarks
    * The configuration type. Valid values:
-   * 
-   * - global: The global configuration.
-   * 
-   * - rule: A rule configuration.
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -35,10 +43,8 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether image transformation is enabled. Valid values:
-   * 
+   * Specifies whether to enable image transformation. Valid values:
    * - on: Enabled.
-   * 
    * - off: Disabled.
    * 
    * @example
@@ -55,11 +61,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The conditional expression of the rule, used to match user requests. This parameter is relevant only for a rule configuration.
-   * 
-   * - A value of true matches all incoming requests.
-   * 
-   * - A custom expression, such as (http.host eq "video.example.com"), matches specific requests.
+   * The rule content, which uses a conditional expression to match user requests. This parameter does not need to be set when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -67,10 +71,8 @@ export class GetImageTransformResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The status of the rule. This parameter is relevant only for a rule configuration. Valid values:
-   * 
+   * The rule switch. This parameter does not need to be set when you add a global configuration. Valid values:
    * - on: Enabled.
-   * 
    * - off: Disabled.
    * 
    * @example
@@ -79,7 +81,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is relevant only for a rule configuration.
+   * The rule name. This parameter does not need to be set when you add a global configuration.
    * 
    * @example
    * test
@@ -87,7 +89,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution sequence of the rule. A smaller value indicates a higher execution priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 2
@@ -95,7 +97,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For a site that has configuration versioning enabled, this value indicates the version to which the configuration applies. The default value is 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 0

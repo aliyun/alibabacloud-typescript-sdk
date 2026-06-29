@@ -13,7 +13,7 @@ export class CreateUrlObservationResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F

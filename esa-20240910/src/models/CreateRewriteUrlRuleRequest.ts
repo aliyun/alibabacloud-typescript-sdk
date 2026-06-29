@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The query string after the rewrite.
+   * The query string after rewriting.
    * 
    * @example
    * example=123
@@ -13,11 +13,10 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The query string rewrite mode. Valid values:
+   * The query string rewrite type. Valid values:
    * 
-   * - `static`: Static mode.
-   * 
-   * - `dynamic`: Dynamic mode.
+   * - static: static mode.
+   * - dynamic: dynamic mode.
    * 
    * @example
    * static
@@ -28,11 +27,10 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * The URI rewrite mode. Valid values:
+   * The URI rewrite type. Valid values:
    * 
-   * - `static`: Static mode.
-   * 
-   * - `dynamic`: Dynamic mode.
+   * - static: static mode.
+   * - dynamic: dynamic mode.
    * 
    * @example
    * static
@@ -43,11 +41,9 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * The conditional expression used to match user requests. This parameter is not required when you add a global configuration. Two use cases are supported:
-   * 
-   * - To match all inbound requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content, which uses conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -55,11 +51,9 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * This parameter is not required when you add a global configuration. Valid values:
-   * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * The rule switch. This parameter does not need to be set when adding global configurations. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -67,7 +61,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you add a global configuration.
+   * The rule name. This parameter does not need to be set when adding global configurations.
    * 
    * @example
    * rule_example
@@ -75,7 +69,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution priority of the rule. A lower value indicates a higher priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -83,7 +77,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. Obtain it by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -93,7 +87,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * If configuration versioning is enabled for the site, this parameter specifies the target version. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0
@@ -101,7 +95,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The target URI after the rewrite.
+   * The destination URI after rewriting.
    * 
    * @example
    * /image/example.jpg

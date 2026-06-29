@@ -6,10 +6,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * The bypass mode. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -25,11 +23,10 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of configuration. You can query global configurations or rule-based configurations based on this parameter. Valid values:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - `global`: A global configuration.
-   * 
-   * - `rule`: A rule-based configuration.
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -37,11 +34,9 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether to enable fallback to origin. If this feature is enabled, the request is routed to the origin server when an exception occurs in the edge function, such as exceeding the CPU usage limit. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -50,10 +45,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * The configuration mode. Valid values:
-   * 
-   * - `simple`: Simple mode.
-   * 
-   * - `custom`: Custom mode.
+   * - simple: simple mode.
+   * - custom: custom mode.
    * 
    * @example
    * simple
@@ -61,11 +54,9 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Indicates whether the route is enabled. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * The route switch status. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -81,7 +72,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The edge function routine name.
+   * The name of the Edge Routine.
    * 
    * @example
    * test-routine1
@@ -97,7 +88,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -121,7 +112,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The site configuration version.
+   * The version number of the site configuration.
    * 
    * @example
    * 1
@@ -129,7 +120,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The timeout period. Unit: seconds.
+   * The Edge Routine timeout period. Valid values: 5 to 60.
    * 
    * @example
    * 5
@@ -185,12 +176,12 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
 export class ListRoutineRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of configurations.
+   * The configuration list in the response body.
    */
   configs?: ListRoutineRoutesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -198,7 +189,7 @@ export class ListRoutineRoutesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -214,7 +205,7 @@ export class ListRoutineRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query criteria.
+   * The total number of records.
    * 
    * @example
    * 83
@@ -222,7 +213,7 @@ export class ListRoutineRoutesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 2

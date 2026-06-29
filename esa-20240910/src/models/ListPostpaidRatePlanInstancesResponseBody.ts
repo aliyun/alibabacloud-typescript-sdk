@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends $dara.Model {
   /**
    * @remarks
-   * The ID of the site.
+   * The site ID.
    * 
    * @example
    * 123456****
@@ -13,7 +13,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
   siteId?: number;
   /**
    * @remarks
-   * The name of the site.
+   * The site name.
    * 
    * @example
    * example.com
@@ -21,15 +21,12 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
   siteName?: string;
   /**
    * @remarks
-   * The status of the site. Valid values:
+   * The site status. Valid values:
    * 
-   * - `pending`: The site is awaiting configuration.
-   * 
-   * - `active`: The site is active.
-   * 
-   * - `offline`: The site is offline.
-   * 
-   * - `moved`: The site has been replaced.
+   * - pending: The site is pending configuration.
+   * - active: The site is activated.
+   * - offline: The site is offline.
+   * - moved: The site has been replaced.
    * 
    * @example
    * pending
@@ -63,9 +60,8 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
 export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid value:
-   * 
-   * - `dps_month95`: Monthly 95th percentile.
+   * The billable methods. Valid values:
+   * - dps_month95: monthly 95th percentile billing.
    * 
    * @example
    * SUBSCRIBE
@@ -73,9 +69,9 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   billingMethod?: string;
   /**
    * @remarks
-   * The billing mode. Valid value:
+   * The billing mode. Valid values:
    * 
-   * - `POSTPAY`: pay-as-you-go.
+   *  * POSTPAY: pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -83,13 +79,11 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   billingMode?: string;
   /**
    * @remarks
-   * The coverage area of the instance. Only sites within this area can be bound to the instance. If multiple areas are supported, they are separated by a comma (`,`). Valid values:
+   * The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
    * 
-   * - `domestic`: Chinese mainland.
-   * 
-   * - `overseas`: Regions outside the Chinese mainland.
-   * 
-   * - `global`: Global (including the Chinese mainland).
+   * - domestic: the Chinese mainland.
+   * - overseas: global (excluding the Chinese mainland).
+   * - global: global (including the Chinese mainland).
    * 
    * @example
    * domestic
@@ -97,23 +91,23 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   coverages?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the instance was created. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
-   * YYYY-MM-DDThh:mm:ssZ
+   * 2026-04-19T11:15:20Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The time of a scheduled configuration change.
+   * The scheduled specification change time. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
-   * YYYY-MM-DDThh:mm:ssZ
+   * 2026-04-19T11:15:20Z
    */
   expectedUpdateTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -137,11 +131,9 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   planNameCn?: string;
   /**
    * @remarks
-   * The type of the plan. Valid values:
-   * 
-   * - `normal`: Normal plan.
-   * 
-   * - `enterprise`: Enterprise plan.
+   * The plan type of the instance. Valid values:
+   * - normal: Fixed plan.
+   * - enterprise: Enterprise plan.
    * 
    * @example
    * normal
@@ -149,7 +141,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   planType?: string;
   /**
    * @remarks
-   * The maximum number of sites that can be bound to the instance.
+   * The site quota.
    * 
    * @example
    * 1
@@ -157,12 +149,12 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   siteQuota?: string;
   /**
    * @remarks
-   * A list of sites bound to the instance.
+   * The list of sites.
    */
   sites?: ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites[];
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * online
@@ -217,12 +209,12 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
 export class ListPostpaidRatePlanInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of instances.
+   * The list of instance information.
    */
   instanceInfo?: ListPostpaidRatePlanInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * The page number.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -238,7 +230,7 @@ export class ListPostpaidRatePlanInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, used for troubleshooting.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
@@ -246,7 +238,7 @@ export class ListPostpaidRatePlanInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1

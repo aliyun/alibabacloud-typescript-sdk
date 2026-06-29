@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the response header.
+   * The response header name.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,11 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHead
   name?: string;
   /**
    * @remarks
-   * The operation to perform. Valid values:
+   * The operation type. Valid values:
    * 
-   * - `add`: Adds a response header.
-   * 
-   * - `del`: Deletes a response header.
-   * 
-   * - `modify`: Modifies an existing response header.
+   * - add: Add.
+   * - del: Delete.
+   * - modify: Modify.
    * 
    * This parameter is required.
    * 
@@ -31,11 +29,9 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHead
   operation?: string;
   /**
    * @remarks
-   * The type of the header value. This parameter is required when `Operation` is `add` or `modify`. Valid values:
-   * 
-   * - `static`: The value is a fixed string.
-   * 
-   * - `dynamic`: The value is a variable.
+   * The value type. Valid values:
+   * - static: Static pattern.
+   * - dynamic: Dynamic schema.
    * 
    * @example
    * static
@@ -43,7 +39,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHead
   type?: string;
   /**
    * @remarks
-   * The value of the response header. This parameter is required when `Operation` is `add` or `modify`.
+   * The response header value.
    * 
    * @example
    * headerValue
@@ -79,7 +75,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHead
 export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID. You can obtain this ID by calling the `ListHttpIncomingResponseHeaderModificationRules` operation.
+   * The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -89,16 +85,14 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $da
   configId?: number;
   /**
    * @remarks
-   * A list of objects specifying modifications to response headers. Supported operations include `add`, `del`, and `modify`.
+   * The response header modifications. Three operation types are supported: add, delete, and modify.
    */
   responseHeaderModification?: UpdateHttpIncomingResponseHeaderModificationRuleRequestResponseHeaderModification[];
   /**
    * @remarks
-   * The condition expression used to match incoming requests. This parameter is not required for a global configuration. You can use this parameter in two ways:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -106,11 +100,10 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $da
   rule?: string;
   /**
    * @remarks
-   * The status of the rule. This parameter is not required for a global configuration. Valid values:
+   * The rule switch. This parameter is not required when adding a global configuration. Valid values:
    * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -118,7 +111,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $da
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required for a global configuration.
+   * The rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -126,7 +119,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $da
   ruleName?: string;
   /**
    * @remarks
-   * The priority of the rule. Rules with a lower value are executed first.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -134,7 +127,7 @@ export class UpdateHttpIncomingResponseHeaderModificationRuleRequest extends $da
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the `ListSites` operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

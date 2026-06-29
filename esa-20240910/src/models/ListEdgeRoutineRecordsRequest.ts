@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeRoutineRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number for a paged query. The value must be greater than or equal to 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListEdgeRoutineRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**.
+   * The number of records per page for a paged query. Valid values: 1 to 500. Default value: **500**.
    * 
    * @example
    * 20
@@ -21,15 +21,11 @@ export class ListEdgeRoutineRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The match mode to filter the record names.
-   * 
+   * The matching mode used to filter by record name. Valid values:
    * - **fuzzy**: fuzzy match.
-   * 
-   * - **prefix**: match by prefix.
-   * 
-   * - **suffix**: match by suffix.
-   * 
-   * - **exact** (default): exact match .
+   * - **prefix**: prefix match.
+   * - **suffix**: suffix match.
+   * - **exact**: exact match (default).
    * 
    * @example
    * fuzzy
@@ -37,7 +33,7 @@ export class ListEdgeRoutineRecordsRequest extends $dara.Model {
   recordMatchType?: string;
   /**
    * @remarks
-   * The record name.
+   * Filters by the specified record name.
    * 
    * @example
    * a.example.com
@@ -45,7 +41,7 @@ export class ListEdgeRoutineRecordsRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

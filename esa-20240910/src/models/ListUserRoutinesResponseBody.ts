@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   /**
    * @remarks
-   * The time when the function was created.
+   * The time when the Edge Routine was created. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2024-03-11T01:23:02.883361712Z
@@ -13,7 +13,7 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The default record name to access.
+   * The default access record associated with the Routine.
    * 
    * @example
    * serverless-test-2.154edaf6.er.aliyun-esa.net
@@ -21,7 +21,7 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   defaultRelatedRecord?: string;
   /**
    * @remarks
-   * The function description.
+   * The Routine description.
    * 
    * @example
    * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg==
@@ -29,7 +29,7 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to include the Assets file tag.
+   * Indicates whether the Routine contains asset files.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   hasAssets?: boolean;
   /**
    * @remarks
-   * The function name.
+   * The Routine name.
    * 
    * @example
    * hello
@@ -75,7 +75,7 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
 export class ListUserRoutinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class ListUserRoutinesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The maximum number of functions supported by the billing plan.
+   * The Routine quota for the current plan.
    * 
    * @example
    * 20
@@ -107,12 +107,12 @@ export class ListUserRoutinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The functions.
+   * The list of Routines.
    */
   routines?: ListUserRoutinesResponseBodyRoutines[];
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -120,7 +120,7 @@ export class ListUserRoutinesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of functions that were already created.
+   * The number of Routines already created.
    * 
    * @example
    * 5

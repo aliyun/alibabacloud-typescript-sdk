@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpIncomingRequestHeaderModificationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * BFEF3861-8BB7-5B63-954C-6575EA7FB2CA

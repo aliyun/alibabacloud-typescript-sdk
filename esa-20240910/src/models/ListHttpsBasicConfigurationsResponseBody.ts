@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Custom ciphersuite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
+   * The custom cipher suite, which specifies the encryption algorithms selected when CiphersuiteGroup is set to custom.
    * 
    * @example
    * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
@@ -13,13 +13,10 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ciphersuite?: string;
   /**
    * @remarks
-   * Ciphersuite group, defaults to enabling all ciphersuites. Value range:
-   * 
-   * - all: all ciphersuites.
-   * 
-   * - strict: strong ciphersuites.
-   * 
-   * - custom: custom ciphersuites.
+   * The cipher suite group. All cipher suites are enabled by default. Valid values:
+   * - all: all cipher suites.
+   * - strict: strong cipher suites.
+   * - custom: custom cipher suites.
    * 
    * @example
    * strict
@@ -27,7 +24,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ciphersuiteGroup?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 395386449776640
@@ -35,11 +32,10 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - global: Query global configuration.
-   * 
-   * - rule: Query rule configuration.
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
    * @example
    * global
@@ -47,10 +43,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   configType?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2, default is on. Value range:
-   * 
+   * Specifies whether to enable HTTP/2. HTTP/2 is enabled by default. Valid values:
    * - on: enabled.
-   * 
    * - off: disabled.
    * 
    * @example
@@ -59,10 +53,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   http2?: string;
   /**
    * @remarks
-   * Whether to enable HTTP3, default is on. Value range:
-   * 
+   * Specifies whether to enable HTTP/3. HTTP/3 is enabled by default. Valid values:
    * - on: enabled.
-   * 
    * - off: disabled.
    * 
    * @example
@@ -71,19 +63,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   http3?: string;
   /**
    * @remarks
-   * Whether to enable HTTPS, default is enabled. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
-   * 
-   * @example
-   * on
-   */
-  https?: string;
-  /**
-   * @remarks
-   * Whether to enable OCSP, default is off. Value range:
+   * Specifies whether to enable HTTPS. HTTPS is enabled by default. Valid values:
    * 
    * - on: enabled.
    * 
@@ -92,14 +72,22 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
    * @example
    * on
    */
+  https?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable OCSP stapling. OCSP stapling is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
+   * 
+   * @example
+   * on
+   */
   ocspStapling?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * 
-   * - Match all incoming requests: Set the value to true.
-   * 
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -107,11 +95,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -119,7 +105,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -127,7 +113,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -135,11 +121,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   sequence?: number;
   /**
    * @remarks
-   * Whether to enable TLS1.0, default is disabled. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
+   * Specifies whether to enable TLS 1.0. TLS 1.0 is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -147,11 +131,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   tls10?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.1, default is disabled. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
+   * Specifies whether to enable TLS 1.1. TLS 1.1 is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -159,11 +141,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   tls11?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.2, default is disabled. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
+   * Specifies whether to enable TLS 1.2. TLS 1.2 is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -171,11 +151,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   tls12?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.3, default is disabled. Value range:
-   * 
-   * - on: Enable.
-   * 
-   * - off: Disable.
+   * Specifies whether to enable TLS 1.3. TLS 1.3 is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -235,12 +213,12 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
 export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configuration.
+   * The configurations returned.
    */
   configs?: ListHttpsBasicConfigurationsResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -248,7 +226,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -256,7 +234,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -264,7 +242,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 20
@@ -272,7 +250,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

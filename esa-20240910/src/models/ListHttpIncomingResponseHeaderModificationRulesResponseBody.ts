@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the response header.
+   * The response header name.
    * 
    * @example
    * headerName
@@ -13,11 +13,10 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsR
   name?: string;
   /**
    * @remarks
-   * The action. Specifies whether to check the image used by the instance supports hot migration. Valid values:
-   * 
-   * *   add: adds a response header.
-   * *   del: deletes a response header.
-   * *   modify: modifies a response header.
+   * The operation type. Valid values:
+   * - add: adds a response header.
+   * - del: deletes a response header.
+   * - modify: modifies a response header.
    * 
    * @example
    * add
@@ -25,10 +24,9 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsR
   operation?: string;
   /**
    * @remarks
-   * The type of the header. Valid values:
-   * 
-   * *   static
-   * *   dynamic
+   * The value type. Valid values:
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -36,7 +34,7 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsR
   type?: string;
   /**
    * @remarks
-   * The value of the response header.
+   * The response header value.
    * 
    * @example
    * headerValue
@@ -80,10 +78,9 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * The configuration type. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * rule
@@ -91,15 +88,14 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   configType?: string;
   /**
    * @remarks
-   * The configurations of modifying response headers. You can add, delete, or modify a response header.
+   * The response header modifications. Three operations are supported: add, delete, and modify.
    */
   responseHeaderModification?: ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification[];
   /**
    * @remarks
-   * The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
-   * 
-   * *   true: Match all incoming requests.
-   * *   Set the value to a custom expression, for example:(http.host eq "video.example.com"): Match the specified request.
+   * The rule content, which uses a conditional expression to match user requests. This parameter does not need to be set when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -107,10 +103,9 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
-   * 
-   * *   on
-   * *   off
+   * The rule switch. This parameter does not need to be set when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -118,7 +113,7 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. You do not need to set this parameter when you add global configuration.
+   * The rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -126,7 +121,7 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed. A smaller value gives priority to the rule.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -134,7 +129,7 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 0
@@ -181,12 +176,12 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs 
 export class ListHttpIncomingResponseHeaderModificationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of incoming response header modification rules.
+   * The list of configurations for modifying HTTP incoming response headers.
    */
   configs?: ListHttpIncomingResponseHeaderModificationRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The number of the returned page. Default value: 1
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -218,7 +213,7 @@ export class ListHttpIncomingResponseHeaderModificationRulesResponseBody extends
   totalCount?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 395386449776640
@@ -13,10 +13,10 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule-based configurations. The value range is as follows:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - global: Query global configuration.
-   * - rule: Query rule-based configuration.
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -24,7 +24,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Whether to enable GRPC, default is off. The value range is:
+   * Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
    * - on: enabled.
    * - off: disabled.
    * 
@@ -34,10 +34,10 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   grpc?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2 origin, defaulting to off. The value range is as follows:
+   * Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -45,9 +45,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   http2Origin?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -55,9 +55,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. The value range is as follows:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -65,7 +65,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -73,7 +73,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 1
@@ -89,9 +89,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Whether to enable smart routing service, defaulting to off. The value range is as follows:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether to enable the smart routing service. This feature is disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -99,7 +99,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * Maximum file size for upload, in MB. The value range is 100 to 500.
+   * The maximum upload file size, in MB. Valid values: 100 to 500.
    * 
    * @example
    * 500
@@ -107,9 +107,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Whether to enable Websocket, enabled by default. Value range: 
-   * - on: Enabled. 
-   * - off: Disabled.
+   * Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -161,12 +161,12 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
 export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configurations.
+   * The configurations returned in the response body.
    */
   configs?: ListNetworkOptimizationsResponseBodyConfigs[];
   /**
    * @remarks
-   * The current page number.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of the page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -182,7 +182,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -190,7 +190,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -198,7 +198,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

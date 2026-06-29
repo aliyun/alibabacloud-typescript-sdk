@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   /**
    * @remarks
-   * The access key for private authentication. Required for private origins.
+   * The AccessKey required for private authentication.
    * 
    * @example
    * yourAccessKeyID
@@ -15,13 +15,10 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
    * @remarks
    * The authentication type. Valid values:
    * 
-   * - public: For public OSS or S3 origins.
-   * 
-   * - private_same_account: For private OSS origins in the same account.
-   * 
-   * - private_cross_account: For private OSS origins that use cross-account authentication.
-   * 
-   * - private: For private S3 origins.
+   * - public: public read/write. Use this value when the origin server is OSS or S3 with public read/write access.
+   * - private_same_account: private same-account. Use this value when the origin server is OSS with same-account private authentication.
+   * - private_cross_account: private cross-account. Use this value when the origin server is OSS with cross-account private authentication.
+   * - private: Use this value when the origin server is S3 with private authentication.
    * 
    * @example
    * public
@@ -29,7 +26,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The region of the origin. This parameter is required if the origin type is S3.
+   * The region of the origin server required when the origin server is AWS S3.
    * 
    * @example
    * us-east-1
@@ -37,7 +34,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The secret key for private authentication. Required for private origins.
+   * The SecretKey required for private authentication.
    * 
    * @example
    * yourAccessKeySecret
@@ -45,7 +42,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The signature version. This parameter is required if the origin type is S3.
+   * The signature version required when the origin server is AWS S3.
    * 
    * @example
    * v2
@@ -83,7 +80,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
 export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   /**
    * @remarks
-   * The origin\\"s domain name or IP address.
+   * The addresses of the origin server, such as www.example.com.
    * 
    * @example
    * www.example.com
@@ -91,16 +88,15 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The authentication configuration. Required for private OSS or S3 origins.
+   * The authentication information. This parameter is required when the origin server is OSS, S3, or another origin server that requires authentication.
    */
   authConf?: UpdateOriginPoolRequestOriginsAuthConf;
   /**
    * @remarks
-   * Specifies whether to enable the origin:
+   * Specifies whether the origin server is enabled. Valid values:
    * 
-   * - true: Enables the origin.
-   * 
-   * - false: Disables the origin.
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -108,7 +104,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The request header to add to back-to-origin requests. Only the Host header is supported.
+   * The request header included in back-to-origin requests. Only Host is supported.
    * 
    * @example
    * {
@@ -120,15 +116,11 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * The IP version policy for back-to-origin requests. Valid values:
-   * 
-   * - round_robin: (Default) Randomly selects an IPv4 or IPv6 origin.
-   * 
-   * - ipv4_first: Prioritizes IPv4 origins.
-   * 
-   * - ipv6_first: Prioritizes IPv6 origins.
-   * 
-   * - follow: Uses the same IP version as the client request.
+   * The IP protocol version used for back-to-origin requests. Valid values:
+   * - round_robin: default policy. Randomly polls IPv4 or IPv6 origin servers.
+   * - ipv4_first: preferentially uses IPv4 origin servers.
+   * - ipv6_first: preferentially uses IPv6 origin servers.
+   * - follow: preferentially follows the IP version used by the client.
    * 
    * @example
    * round_robin
@@ -136,7 +128,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   ipVersionPolicy?: string;
   /**
    * @remarks
-   * The name of the origin. The name must be unique within the origin pool.
+   * The origin server name. The name must be unique within an origin address pool.
    * 
    * @example
    * origin1
@@ -144,13 +136,11 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The origin type. Valid values:
+   * The origin server type. Valid values:
    * 
-   * - ip_domain: An IP address or a domain name.
-   * 
-   * - OSS: An OSS origin.
-   * 
-   * - S3: An AWS S3 origin.
+   * - ip_domain: an IP address or domain name-based origin server.
+   * - OSS: an OSS address-based origin server.
+   * - S3: an AWS S3 origin server.
    * 
    * @example
    * OSS
@@ -158,7 +148,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The weight of the origin. The value must be an integer from 0 to 100.
+   * The weight. The value is an integer from 0 to 100.
    * 
    * @example
    * 50
@@ -205,11 +195,10 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
 export class UpdateOriginPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the origin pool:
+   * Specifies whether the origin address pool is enabled. Valid values:
    * 
-   * - true: Enables the origin pool.
-   * 
-   * - false: Disables the origin pool.
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -217,7 +206,7 @@ export class UpdateOriginPoolRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The origin pool ID. Get this ID by calling the [ListOriginPools](~~ListOriginPools~~) operation.
+   * The origin address pool ID. You can call the [ListOriginPools](~~ListOriginPools~~) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -227,12 +216,12 @@ export class UpdateOriginPoolRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * An array of origin configurations.
+   * The origin server information added to the origin address pool. Use an array to pass multiple origin servers.
    */
   origins?: UpdateOriginPoolRequestOrigins[];
   /**
    * @remarks
-   * The site ID. Get this ID by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

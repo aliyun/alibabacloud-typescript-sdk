@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateImageTransformRequest extends $dara.Model {
   /**
+   * @remarks
+   * The adaptive AVIF setting.
+   * 
    * @example
    * on
    */
   autoAvif?: string;
   /**
+   * @remarks
+   * The adaptive WebP setting.
+   * 
    * @example
    * on
    */
   autoWebp?: string;
   /**
    * @remarks
-   * The configuration ID. You can obtain this ID by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) operation.
+   * The configuration ID. You can call the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -25,11 +31,10 @@ export class UpdateImageTransformRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable image transform. Valid values:
+   * Specifies whether to enable image transformation. Valid values:
    * 
-   * - `on`: Enables image transform.
-   * 
-   * - `off`: Disables image transform.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -37,11 +42,9 @@ export class UpdateImageTransformRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The rule content, which is a conditional expression for matching user requests. This parameter is not required when you configure a global rule. The expression can be used in the following ways:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, for example, `(http.host eq "video.example.com")`.
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -49,11 +52,9 @@ export class UpdateImageTransformRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when you configure a global rule. Valid values:
-   * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61,7 +62,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you configure a global rule.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * test
@@ -69,7 +70,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution priority of the rule. A smaller value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -77,7 +78,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

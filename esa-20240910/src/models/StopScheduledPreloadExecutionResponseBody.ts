@@ -13,7 +13,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
+   * The end time of the scheduled preload plan, in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -21,7 +21,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The prefetch plan ID.
+   * The preload plan ID.
    * 
    * @example
    * 66599bd7397885b43804901c
@@ -29,7 +29,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The interval between each batch execution of the scheduled prefetch plan, in seconds.
+   * The execution interval between batches in the scheduled preload plan, in seconds.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The prefetch job ID.
+   * The preload task ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -53,7 +53,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of URLs prefetched per batch.
+   * The number of URLs per batch in the scheduled preload.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the scheduled prefetch plan, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
+   * The start time of the scheduled preload plan, in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00
@@ -69,12 +69,12 @@ export class StopScheduledPreloadExecutionResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the scheduled prefetch plan. Valid values:
-   * - **waiting**: waiting to be executed.
-   * - **running**: being executed.
-   * - **finished**: execution completed.
-   * - **failed**: execution failed.
-   * - **stopped**: execution paused.
+   * The status of the scheduled preload plan. Valid values:
+   * - **waiting**: Waiting to be executed.
+   * - **running**: Being executed.
+   * - **finished**: Execution completed.
+   * - **failed**: Execution failed.
+   * - **stopped**: Execution paused.
    * 
    * @example
    * stopped

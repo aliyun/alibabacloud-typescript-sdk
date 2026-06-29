@@ -6,7 +6,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
    * The bypass mode. Valid values:
-   * - on: enabled.
+   * - on: enabled
    * - off: disabled.
    * 
    * @example
@@ -16,8 +16,8 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
    * The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -26,8 +26,10 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
    * The route switch. Valid values:
-   * - on: enabled.
+   * - on: enabled
    * - off: disabled.
+   * 
+   * This parameter is required.
    * 
    * @example
    * on
@@ -37,13 +39,15 @@ export class CreateRoutineRouteRequest extends $dara.Model {
    * @remarks
    * The route name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test_route
    */
   routeName?: string;
   /**
    * @remarks
-   * The name of the edge function routine.
+   * The Edge Routine name.
    * 
    * This parameter is required.
    * 
@@ -55,13 +59,15 @@ export class CreateRoutineRouteRequest extends $dara.Model {
    * @remarks
    * The rule content.
    * 
+   * This parameter is required.
+   * 
    * @example
    * (http.host eq \\"video.example.com\\")
    */
   rule?: string;
   /**
    * @remarks
-   * The rule execution sequence.
+   * The rule execution order.
    * 
    * @example
    * 1
@@ -69,7 +75,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -79,7 +85,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The edge routine timeout period. Valid values: 5 to 60. Unit: seconds.
+   * The Edge Routine timeout period. Valid values: 5 to 60.
    * 
    * @example
    * 5

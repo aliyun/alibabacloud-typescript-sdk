@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The header name.
+   * The request header name.
    * 
    * @example
    * headerName
@@ -13,13 +13,11 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
   name?: string;
   /**
    * @remarks
-   * The operation. Valid values:
+   * The operation type. Valid values:
    * 
-   * - add: Add a header.
-   * 
-   * - del: Delete a header.
-   * 
-   * - modify: Modify a header.
+   * - add: adds a header.
+   * - del: deletes a header.
+   * - modify: modifies a header.
    * 
    * @example
    * add
@@ -28,10 +26,8 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
   /**
    * @remarks
    * The value type. Valid values:
-   * 
-   * - static: Static value.
-   * 
-   * - dynamic: Dynamic value.
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -39,7 +35,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
   type?: string;
   /**
    * @remarks
-   * The header value.
+   * The request header value.
    * 
    * @example
    * headerValue
@@ -84,10 +80,8 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   /**
    * @remarks
    * The configuration type. Valid values:
-   * 
-   * - global: Global configuration.
-   * 
-   * - rule: Rule configuration.
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -95,16 +89,14 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   configType?: string;
   /**
    * @remarks
-   * The modifications to apply to the request headers, such as adding, deleting, or modifying them.
+   * The request header modifications, which support add, delete, and modify operations.
    */
   requestHeaderModification?: ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification[];
   /**
    * @remarks
-   * The conditional expression that determines which requests this rule applies to. This parameter is not required for global configurations. There are two use cases:
-   * 
-   * - To match all incoming requests, set the value to true.
-   * 
-   * - To match specified requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
+   * The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -112,11 +104,9 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the rule is enabled or disabled. This parameter is not required for global configurations. Valid values:
-   * 
-   * - on: Enabled.
-   * 
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -124,7 +114,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required for global configurations.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -132,7 +122,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleName?: string;
   /**
    * @remarks
-   * The execution priority of the rule. A smaller value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -140,7 +130,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, this parameter specifies the version to which the configuration applies. The default is 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 1
@@ -187,12 +177,12 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
 export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request header modification configurations.
+   * The list of HTTP request header modification configurations.
    */
   configs?: ListHttpRequestHeaderModificationRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number. Default: **1**.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -200,7 +190,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default: **500**. Range: **1 to 500**.
+   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
    * 
    * @example
    * 20
@@ -216,7 +206,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The total count of entries.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -224,7 +214,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   totalCount?: number;
   /**
    * @remarks
-   * The total count of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

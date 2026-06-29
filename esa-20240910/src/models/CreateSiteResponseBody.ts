@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSiteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A comma-separated list of name servers assigned to the site. This parameter is returned only if the site uses NS-based access. To activate the site, you must change your domain\\"s DNS servers to these name servers. This verifies your ownership of the site and activates it.
+   * The list of name servers assigned to the site, separated by commas (,). This field has a value when the access type of the site is NS. You need to change the DNS servers of the site to these name servers. Then you can verify the site ownership and activate the site.
    * 
    * @example
    * ns1.example.com,ns2.example.com
@@ -21,7 +21,7 @@ export class CreateSiteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the site.
+   * The site ID.
    * 
    * @example
    * 1234567890123
@@ -29,7 +29,7 @@ export class CreateSiteResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The verification code for the site. This parameter is returned only if the site uses CNAME-based access. To activate the site, you must add a TXT record to your domain\\"s DNS settings. Set the record\\"s host to **_esaauth.[your_site_name]** and its value to this **verification code**. This verifies your ownership of the site and activates it.
+   * The verification code of the site. When the access type of the site is CNAME, you need to add a TXT record with the record name **_esaauth.[site name]** and the record value set to the **verification code** on the DNS server of the site. Then you can verify the site ownership and activate the site.
    * 
    * @example
    * verify_aah9dioasmov****

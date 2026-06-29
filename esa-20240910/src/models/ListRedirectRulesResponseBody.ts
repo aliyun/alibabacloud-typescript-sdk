@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,9 +13,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration.
-   * - rule: Rule configuration.
+   * The configuration type. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * rule
@@ -23,7 +23,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Preserve query string. Value range:
+   * Specifies whether to preserve the query string. Valid values:
    * - on: enabled.
    * - off: disabled.
    * 
@@ -33,9 +33,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -43,9 +43,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -53,7 +53,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter does not need to be set when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61,7 +61,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, with the default being version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 1
@@ -77,12 +77,12 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Response status code used by the node to respond to the client with the redirect address. Possible values:
+   * The HTTP status code used when the node responds to the client with the redirect address. Valid values:
    * - 301
    * - 302
    * - 303
    * - 307
-   * - 308
+   * - 308.
    * 
    * @example
    * 301
@@ -90,7 +90,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * Target URL after redirection.
+   * The target URL after the redirect.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -98,9 +98,10 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * Redirect type. Possible values:
-   * - static: Static mode.
-   * - dynamic: Dynamic mode.
+   * The redirect type. Valid values:
+   * 
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -150,12 +151,12 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
 export class ListRedirectRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of redirect configurations.
+   * The redirect configuration list.
    */
   configs?: ListRedirectRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -163,7 +164,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -171,7 +172,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -179,7 +180,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -187,7 +188,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

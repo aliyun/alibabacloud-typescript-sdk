@@ -5,14 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The client IP pass-through mode. Valid values:
-   * 
-   * - **off**: Client IP pass-through is disabled.
-   * 
+   * The client IP pass-through protocol. Valid values:
+   * - **off**: disabled.
    * - **PPv1**: PROXY Protocol v1, which supports client IP pass-through for TCP.
-   * 
-   * - **PPv2**: PROXY Protocol v2, which supports client IP pass-through for both TCP and UDP.
-   * 
+   * - **PPv2**: PROXY Protocol v2, which supports client IP pass-through for TCP and UDP.
    * - **SPP**: Simple Proxy Protocol, which supports client IP pass-through for UDP.
    * 
    * @example
@@ -21,7 +17,7 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   clientIPPassThroughMode?: string;
   /**
    * @remarks
-   * A comment about the forwarding rule.
+   * The comment for the rule.
    * 
    * @example
    * Test
@@ -31,11 +27,9 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
    * @remarks
    * The edge port. The following formats are supported:
    * 
-   * - A single port, for example, `80`.
-   * 
-   * - A port range, such as `81-85` (ports 81 to 85).
-   * 
-   * - A comma-separated list of ports and port ranges, such as `80,81-85,90`.
+   * - A single port, such as 80.
+   * - A port range, such as 81-85, which represents ports 81, 82, 83, 84, and 85.
+   * - A combination of ports and port ranges separated by commas, such as 80,81-85,90, which represents ports 80, 81, 82, 83, 84, 85, and 90.
    * 
    * @example
    * 80
@@ -43,11 +37,10 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   edgePort?: string;
   /**
    * @remarks
-   * The protocol for the forwarding rule. Valid values:
+   * The protocol of the forwarding rule. Valid values:
    * 
-   * - **TCP**: For TCP traffic.
-   * 
-   * - **UDP**: For UDP traffic.
+   * - TCP: TCP protocol.
+   * - UDP: UDP protocol.
    * 
    * @example
    * TCP
@@ -63,7 +56,7 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The origin. This value must be consistent with the specified origin type.
+   * The specific value of the origin server, which must match the origin server type.
    * 
    * @example
    * 1.1.1.1
@@ -71,11 +64,10 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The origin port. The following formats are supported:
+   * The origin server port. The following formats are supported:
    * 
-   * - A single port. A single origin port can be mapped to one or more edge ports.
-   * 
-   * - A port range. When mapping a range of edge ports to a range of origin ports, both ranges must contain the same number of ports. For example, you cannot map edge ports `90-93` (4 ports) to origin ports `81-85` (5 ports).
+   * - A single port. When the origin server port is a single port, any valid edge port combination is supported.
+   * - A port range. The origin server port can be set to a port range only when the edge port is a port range, and the range size must be the same as the edge port range. For example, if the edge port is 90-93, you cannot set the origin server port to 81-85 because the origin server port range is 5 while the edge port range is 4, which are inconsistent.
    * 
    * @example
    * 80
@@ -83,15 +75,11 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
   sourcePort?: string;
   /**
    * @remarks
-   * The origin type. Valid values:
-   * 
-   * - **ip**: An IP address.
-   * 
-   * - **domain**: A domain name.
-   * 
-   * - **OP**: An origin address pool.
-   * 
-   * - **LB**: A load balancer.
+   * The origin server type. Valid values:
+   * - **ip**: IP address.
+   * - **domain**: domain name.
+   * - **OP**: IPAM pool.
+   * - **LB**: load balancing.
    * 
    * @example
    * domain
@@ -133,7 +121,25 @@ export class GetTransportLayerApplicationResponseBodyRules extends $dara.Model {
 }
 
 export class GetTransportLayerApplicationResponseBodyStaticIpV4List extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 1.1.1.2
+   */
   address?: string;
+  /**
+   * @remarks
+   * The status of the IP address. Valid values:
+   * 
+   * - healthy: Healthy.
+   * - unhealthy: Unhealthy.
+   * - unknown: The IP address is being prepared.
+   * 
+   * @example
+   * healthy
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,7 +167,7 @@ export class GetTransportLayerApplicationResponseBodyStaticIpV4List extends $dar
 export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Transport Layer Application.
+   * The Layer 4 application ID.
    * 
    * @example
    * 17099311410****
@@ -169,7 +175,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * The CNAME domain name of the Transport Layer Application. This parameter is returned only if the Site was added using the CNAME method.
+   * The CNAME domain name of the Layer 4 acceleration application. This field is non-empty only when the site is connected by using the CNAME method.
    * 
    * @example
    * example.com.ialicdn.com
@@ -177,11 +183,9 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * Indicates whether network optimization for access from the Chinese mainland is enabled. This feature is disabled by default. Valid values:
-   * 
-   * - **on**: Enabled.
-   * 
-   * - **off**: Disabled.
+   * Specifies whether to enable network access optimization for the Chinese mainland. This feature is disabled by default. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -189,11 +193,10 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * Indicates whether the IP Access Rule feature is enabled. If enabled, IP Access Rules in Web Application Firewall (WAF) take effect for the Transport Layer Application. Valid values:
+   * The IP access rule switch. When enabled, IP access rules in WAF take effect for the Layer 4 application. Valid values:
    * 
-   * - **on**: Enabled.
-   * 
-   * - **off**: Disabled.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -201,7 +204,9 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * Indicates whether IPv6 is enabled.
+   * The IPv6 switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -209,12 +214,18 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   ipv6?: string;
   /**
    * @remarks
-   * Indicates whether keep-alive protection is enabled.
+   * Specifies whether to enable keep-alive protection. This feature is disabled by default. Valid values:
+   * 
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
    */
   keepAliveProtection?: string;
   /**
    * @remarks
-   * The domain name of the Transport Layer Application.
+   * The domain name of the Layer 4 application.
    * 
    * @example
    * test.example.com
@@ -222,7 +233,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EB635996-1FD6-5DFD-BA57-27A849599940
@@ -230,12 +241,12 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of forwarding rules.
+   * The list of forwarding rules.
    */
   rules?: GetTransportLayerApplicationResponseBodyRules[];
   /**
    * @remarks
-   * The number of forwarding rules in the Transport Layer Application.
+   * The number of forwarding rules in the Layer 4 acceleration application.
    * 
    * @example
    * 1
@@ -243,21 +254,34 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
   rulesCount?: number;
   /**
    * @remarks
-   * The ID of the Site.
+   * The site ID.
    * 
    * @example
    * 123456****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable static IP. This feature is disabled by default. Valid values:
+   * 
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   staticIp?: string;
+  /**
+   * @remarks
+   * The list of static IPv4 addresses assigned to this Layer 4 application after the static IP feature is enabled.
+   */
   staticIpV4List?: GetTransportLayerApplicationResponseBodyStaticIpV4List[];
   /**
    * @remarks
-   * The status of the Transport Layer Application. Valid values:
+   * The Layer 4 application status. Valid values:
    * 
-   * - **deploying**: The application is deploying. You cannot modify or delete the application in this state.
-   * 
-   * - **active**: The application is active.
+   * - **deploying**: Being deployed. Modifications and deletions are not allowed in this state.
+   * - **active**: Active.
    * 
    * @example
    * active

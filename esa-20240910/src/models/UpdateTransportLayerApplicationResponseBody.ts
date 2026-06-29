@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransportLayerApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 9e5448c7-edaf-49aa-9887-0fcd0832306c

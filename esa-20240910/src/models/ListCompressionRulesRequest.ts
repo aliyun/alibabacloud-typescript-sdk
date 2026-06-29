@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompressionRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID, which can be obtained by calling the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) interface.
+   * The configuration ID. You can call the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) operation to obtain the configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,9 +13,9 @@ export class ListCompressionRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration.
-   * - rule: Rule-based configuration.
+   * The configuration type. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * rule
@@ -23,7 +23,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -47,7 +47,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

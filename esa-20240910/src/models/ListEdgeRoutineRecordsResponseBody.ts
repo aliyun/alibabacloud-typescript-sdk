@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time of the record. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -13,7 +13,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * The CNAME of the record. When the site uses CNAME access, this is the CNAME value that needs to be configured for the record.
    * 
    * @example
    * a.example.com.cnamezone.com
@@ -29,7 +29,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 5407498413****
@@ -37,7 +37,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site to which the record belongs.
    * 
    * @example
    * example.com
@@ -45,7 +45,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The update time of the record. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-12-22T08:32:02Z
@@ -85,7 +85,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
 export class ListEdgeRoutineRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of pages returned.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListEdgeRoutineRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records displayed per page.
    * 
    * @example
    * 10
@@ -114,7 +114,7 @@ export class ListEdgeRoutineRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records returned.
+   * The total number of records.
    * 
    * @example
    * 121

@@ -2,34 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRewriteUrlRuleResponseBody extends $dara.Model {
+export class DescribeDDoSOverseasAttackCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Id of the request
    * 
    * @example
-   * 39237781679****
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+   * EBCECE18-DA96-5307-8506-01E5A0E21530
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of attacks supported by the plan.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  /**
+   * @remarks
+   * The number of attacks that have been used.
+   * 
+   * @example
+   * 0
+   */
+  usedCount?: number;
   static names(): { [key: string]: string } {
     return {
-      configId: 'ConfigId',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      usedCount: 'UsedCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configId: 'number',
       requestId: 'string',
+      totalCount: 'number',
+      usedCount: 'number',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the edge function Routine.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 

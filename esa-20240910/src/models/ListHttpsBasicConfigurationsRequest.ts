@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,13 +13,11 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
-   * - global: Query global configuration.
-   * 
-   * - rule: Query rule configuration.
-   * 
-   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
+   * This parameter is optional. If you do not specify this parameter, both global and rule configurations are returned.
    * 
    * @example
    * global
@@ -27,7 +25,7 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number, default is 1 if not provided.
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -35,7 +33,7 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, maximum is 500, default is 500 if not provided.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -43,7 +41,7 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name, which can be used to find the rule with the specified name.
+   * The rule name. You can use this parameter to query the rule that matches the specified name.
    * 
    * @example
    * test
@@ -51,7 +49,7 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time when the job was created, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+   * The time when the task was created, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-06-02T02:23:26Z
@@ -21,7 +21,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of preload domains.
+   * The list of domain names to prefetch.
    * 
    * @example
    * testurl.com
@@ -45,7 +45,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The file ID of the URL list, which is used for downloading.
+   * The ID of the URL list file, which is used for downloading.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -53,7 +53,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -61,7 +61,9 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The URL insertion method.
+   * The URL insertion method. Valid values:
+   * - oss: URLs are imported in batches from an OSS file.
+   * - testBox: URLs are entered one by one in a text box.
    * 
    * @example
    * oss
@@ -69,7 +71,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   insertWay?: string;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * example
@@ -93,7 +95,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of URLs that have been submitted to the system for preloading.
+   * The number of URLs that have been submitted to the system for prefetching.
    * 
    * @example
    * 1
@@ -101,7 +103,10 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type (refresh/preload).
+   * The task type (refresh or prefetch). Valid values:
+   * - path: directory refresh.
+   * - refresh: URL refresh.
+   * - preload: URL prefetch.
    * 
    * @example
    * preload

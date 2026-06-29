@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.Model {
   /**
    * @remarks
-   * The version of the code.
+   * The code version number.
    * 
    * @example
    * 1723599747213377175
@@ -13,7 +13,7 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
   codeVersion?: string;
   /**
    * @remarks
-   * The phased release ratio.
+   * The canary release percentage for the code version.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
 export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration list of the phased release version number.
+   * The list of percentage-based canary release code version configurations.
    */
   codeVersions?: CreateRoutineCodeDeploymentResponseBodyCodeVersions[];
   /**
@@ -66,7 +66,7 @@ export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The phased release policy. The constant string is "percentage".
+   * The canary release strategy. Fixed value: percentage.
    * 
    * @example
    * percentage

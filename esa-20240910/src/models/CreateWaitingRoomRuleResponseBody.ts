@@ -13,7 +13,7 @@ export class CreateWaitingRoomRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting room bypass rule ID.
+   * The ID of the waiting room bypass rule.
    * 
    * @example
    * 420072638347264

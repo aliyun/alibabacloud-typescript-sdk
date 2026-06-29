@@ -23,11 +23,11 @@ export class ListInstanceQuotasResponseBodyQuotas extends $dara.Model {
    * @remarks
    * The threshold type of the quota. Valid values:
    * 
-   * *   value: enumerates the values of the quota.
-   * *   bool: specifies whether the quota is available.
-   * *   num: the upper limit of the quota.
-   * *   range: the value range for the quota.
-   * *   custom: other types than the preceding four quota threshold types.
+   * - **value**: enumeration type. The enumeration range of quota values.
+   * - **bool**: Boolean type. Indicates whether the quota is available.
+   * - **num**: numeric type. The maximum usage of the quota.
+   * - **range**: range type. The value range of the quota.
+   * - **custom**: custom type. Other types that do not fall into the preceding four threshold types.
    * 
    * @example
    * bool
@@ -61,7 +61,7 @@ export class ListInstanceQuotasResponseBodyQuotas extends $dara.Model {
 export class ListInstanceQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plan ID.
+   * The plan instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -69,7 +69,7 @@ export class ListInstanceQuotasResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The quotas in the plan.
+   * The list of plan instance quotas.
    */
   quotas?: ListInstanceQuotasResponseBodyQuotas[];
   /**
@@ -82,11 +82,11 @@ export class ListInstanceQuotasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The plan status. Valid values:
+   * The plan instance status. Valid values:
    * 
-   * *   online: The plan is in service.
-   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
-   * *   disable: The plan is released.
+   * - **online**: The instance is in normal service.
+   * - **offline**: The instance has expired but has not exceeded the grace period and is unavailable.
+   * - **disable**: The instance has been released.
    * 
    * @example
    * online

@@ -7,9 +7,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
    * @remarks
    * The access type. Valid values:
    * 
-   * - **NS**: NS access.
+   * - **NS**: NS-based access.
    * 
-   * - **CNAME**: CNAME access.
+   * - **CNAME**: CNAME-based access.
    * 
    * @example
    * NS
@@ -18,12 +18,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The acceleration region. Valid values:
-   * 
-   * - **domestic**: Chinese mainland only.
-   * 
-   * - **global**: Global.
-   * 
-   * - **overseas**: Global (excluding the Chinese mainland).
+   * - **domestic**: the Chinese mainland only.
+   * - **global**: global.
+   * - **overseas**: global (excluding the Chinese mainland).
    * 
    * @example
    * global
@@ -31,7 +28,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Specifies whether to return only sites that use the Enterprise Edition.
+   * Specifies whether to query only Enterprise Edition sites. Set this parameter to **true** to query only Enterprise Edition sites.
    * 
    * @example
    * false
@@ -39,11 +36,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
   onlyEnterprise?: boolean;
   /**
    * @remarks
-   * The field to sort the results by. By default, results are sorted by creation time (gmtCreate). Supported values:
-   * 
-   * - `gmtCreate`: site creation time
-   * 
-   * - `visitTime`: site access time
+   * The sort field. By default, results are sorted by creation time. Valid values:
+   * - gmtCreate: site creation time.
+   * - visitTime: site access time.
    * 
    * @example
    * visitTime
@@ -51,7 +46,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of the page to return. The default value is **1**.
+   * The page number for paging. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -59,7 +54,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **500**.
+   * The number of entries per page for paging. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -67,14 +62,10 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subscription plan type. Valid values:
-   * 
+   * The plan subscription type. Valid values:
    * - **basicplan**: Basic Edition.
-   * 
    * - **standardplan**: Standard Edition.
-   * 
-   * - **advancedplan**: Advanced Edition.
-   * 
+   * - **advancedplan**: Premium Edition.
    * - **enterpriseplan**: Enterprise Edition.
    * 
    * @example
@@ -83,7 +74,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   planSubscribeType?: string;
   /**
    * @remarks
-   * The resource group ID, used to filter query results.
+   * The resource group ID. Used as a filter condition for the query.
    * 
    * @example
    * rg-aekzd3styujvyei
@@ -91,7 +82,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The site name, used to filter query results.
+   * The site name. Used as a filter condition for the query.
    * 
    * @example
    * example.com
@@ -99,14 +90,11 @@ export class ListSitesShrinkRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The match mode for the `SiteName` parameter. The default value is `exact`. Valid values:
+   * The search matching mode for the site name. Default is exact match. Valid values:
    * 
    * - **prefix**: prefix match.
-   * 
    * - **suffix**: suffix match.
-   * 
    * - **exact**: exact match.
-   * 
    * - **fuzzy**: fuzzy match.
    * 
    * @example
@@ -115,7 +103,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   siteSearchType?: string;
   /**
    * @remarks
-   * The site status, used to filter query results.
+   * The site status. Used as a filter condition for the query.
    * 
    * @example
    * pending
@@ -123,7 +111,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A list of tags to use for filtering sites.
+   * The tag filter rules.
    */
   tagFilterShrink?: string;
   static names(): { [key: string]: string } {

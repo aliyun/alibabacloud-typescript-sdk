@@ -13,7 +13,7 @@ export class GetRoutineCodeVersionResponseBody extends $dara.Model {
   codeDescription?: string;
   /**
    * @remarks
-   * The time when the version was created.
+   * The creation time. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2024-03-11T01:23:21Z

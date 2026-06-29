@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 436490043994112
@@ -13,11 +13,10 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Use this parameter to query global or rule configurations. Valid values:
+   * Configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - global: Queries global configurations.
-   * 
-   * - rule: Queries rule configurations.
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
    * @example
    * global
@@ -25,7 +24,7 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number. The default value is 1 if you do not specify this parameter.
+   * Page number. Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +32,7 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The maximum value is 500. The default value is 500 if you do not specify this parameter.
+   * Number of entries per page. Maximum value: 500. Default value: 500.
    * 
    * @example
    * 20
@@ -41,7 +40,7 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * Rule name.
    * 
    * @example
    * rule_example
@@ -49,7 +48,7 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. For more information, see [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 
@@ -59,7 +58,7 @@ export class ListCustomResponseCodeRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with configuration version control enabled, specify the site version for which the configuration takes effect using this parameter. The default value is version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

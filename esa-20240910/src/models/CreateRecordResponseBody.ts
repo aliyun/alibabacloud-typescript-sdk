@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The record ID.
+   * The ID of the created record.
    * 
    * @example
    * 1234567890123

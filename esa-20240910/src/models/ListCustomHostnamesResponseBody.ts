@@ -13,7 +13,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   certApplyCode?: number;
   /**
    * @remarks
-   * The error description for the free certificate application.
+   * The error message for the free certificate application.
    * 
    * @example
    * canceled
@@ -46,11 +46,11 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   /**
    * @remarks
    * The certificate status. Valid values:
-   * - **OK**: Normal.
-   * - **Applying**: Being applied.
-   * - **ApplyFailed**: Application failed.
-   * - **Expiring**: About to expire.
-   * - **Expired**: Expired.
+   * - **OK**: normal.
+   * - **Applying**: being applied.
+   * - **ApplyFailed**: application failed.
+   * - **Expiring**: about to expire.
+   * - **Expired**: expired.
    * 
    * @example
    * OK
@@ -58,7 +58,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   certStatus?: string;
   /**
    * @remarks
-   * The TXT name for certificate verification.
+   * The TXT record name for certificate verification.
    * 
    * @example
    * _acme-challenge.custom.site.com
@@ -66,7 +66,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   certTxtKey?: string;
   /**
    * @remarks
-   * The TXT content for certificate verification.
+   * The TXT record content for certificate verification.
    * 
    * @example
    * lcKYad3UQXgrZLvMm_6TBUYKK4xTkGmninV0Mzx4gjM
@@ -86,10 +86,11 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   /**
    * @remarks
    * The reason why the SaaS domain name is occupied. Valid values:
-   * - **existing_custom_hostname**: Conflicts with an existing SaaS domain name.
-   * - **existing_record**: Conflicts with an existing site record.
-   * - **existing_load_balancer**: Conflicts with an existing load balancing instance.
-   * - **existing_origin_pool**: Conflicts with an existing origin IPAM pool.
+   * - **existing_custom_hostname**: conflicts with an existing SaaS domain name.
+   * - **existing_site**: conflicts with an existing site.
+   * - **existing_record**: conflicts with an existing site record.
+   * - **existing_load_balancer**: conflicts with an existing load balancing instance.
+   * - **existing_origin_pool**: conflicts with an existing origin IPAM pool.
    * 
    * @example
    * existing_custom_hostname
@@ -97,7 +98,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   conflictWith?: string;
   /**
    * @remarks
-   * The time when the SaaS domain name was created, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the SaaS domain name, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -122,11 +123,11 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   /**
    * @remarks
    * The reason why the SaaS domain name was taken offline. Valid values:
-   * - **expiration_ arrears**: The subscription plan has expired or the account has an overdue payment.
-   * - **internally_disabled**: Disabled by the system.
-   * - **missing_icp**: The domain name does not have an ICP filing.
-   * - **content_violation**: Content violation.
-   * - **proactively_disabled**: You proactively disabled the domain name or the usage cap you configured was reached.
+   * - **expiration_arrears**: the subscription plan expired or the account has an overdue payment.
+   * - **internally_disabled**: disabled by the system.
+   * - **missing_icp**: the domain name does not have an ICP filing.
+   * - **content_violation**: content violation.
+   * - **proactively_disabled**: proactively disabled by you or disabled because the usage cap you configured was reached.
    * 
    * @example
    * missing_icp
@@ -189,7 +190,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the SaaS domain name was last updated, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The update time of the SaaS domain name, in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -197,7 +198,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The TXT content for domain name verification.
+   * The TXT record content for domain name verification.
    * 
    * @example
    * verify_16ab7f4d389d4dff6655f995c6a997bd
@@ -205,7 +206,7 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
   verifyCode?: string;
   /**
    * @remarks
-   * The TXT name for domain name verification.
+   * The TXT record name for domain name verification.
    * 
    * @example
    * _esa_custom_hostname.custom.site.com
@@ -279,12 +280,12 @@ export class ListCustomHostnamesResponseBodyHostnames extends $dara.Model {
 export class ListCustomHostnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of SaaS domain names.
+   * The list of SaaS domain names returned.
    */
   hostnames?: ListCustomHostnamesResponseBodyHostnames[];
   /**
    * @remarks
-   * The page number.
+   * The current page number. This value is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -300,7 +301,7 @@ export class ListCustomHostnamesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Configuration. You can get this value by calling the [ListHttpResponseHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) API.
+   * The configuration ID. You can call the [ListHttpResponseHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,16 +15,14 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   configId?: number;
   /**
    * @remarks
-   * A list of objects, each defining a modification to a Response Header. Supported operations are `add`, `del`, and `modify`.
+   * The response header modifications. Three operation types are supported: add, delete, and modify.
    */
   responseHeaderModificationShrink?: string;
   /**
    * @remarks
-   * The matching condition for the Rule, written as a Conditional Expression. This parameter is optional for global Configurations. Use cases:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -32,11 +30,9 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the rule is enabled. This parameter is optional for a global Configuration. Valid values:
-   * 
-   * - `on`: Enables the Rule.
-   * 
-   * - `off`: Disables the Rule.
+   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -44,7 +40,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the Rule. This parameter is optional for a global Configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -52,7 +48,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   ruleName?: string;
   /**
    * @remarks
-   * The execution order for the Rule. A lower value indicates a higher priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -60,7 +56,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   sequence?: number;
   /**
    * @remarks
-   * The ID of the Site. You can get this value by calling the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

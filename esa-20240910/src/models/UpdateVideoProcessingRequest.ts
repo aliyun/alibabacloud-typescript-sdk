@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVideoProcessingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the ID.
+   * The configuration ID. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The custom end parameter for FLV files.
+   * The custom FLV end parameter.
    * 
    * @example
    * end
@@ -23,7 +23,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   flvSeekEnd?: string;
   /**
    * @remarks
-   * The custom start parameter for FLV files.
+   * The custom FLV start parameter.
    * 
    * @example
    * start
@@ -31,10 +31,9 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   flvSeekStart?: string;
   /**
    * @remarks
-   * FLV Seeking Valid values:
-   * 
-   * *   by_byte: Seek by byte.
-   * *   by_time: Seek by time.
+   * The FLV seeking mode. Valid values:
+   * - by_byte: seek by byte.
+   * - by_time: seek by time.
    * 
    * @example
    * by_byte
@@ -42,7 +41,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   flvVideoSeekMode?: string;
   /**
    * @remarks
-   * Customize the mp4 end parameter.
+   * The custom MP4 end parameter.
    * 
    * @example
    * end
@@ -50,7 +49,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   mp4SeekEnd?: string;
   /**
    * @remarks
-   * Customize the mp4 start parameter.
+   * The custom MP4 start parameter.
    * 
    * @example
    * start
@@ -58,10 +57,9 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   mp4SeekStart?: string;
   /**
    * @remarks
-   * The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Two scenarios:
-   * 
-   * *   true: Match all incoming requests
-   * *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -69,10 +67,9 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
-   * 
-   * *   on
-   * *   off
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -80,7 +77,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. You do not need to set this parameter when you add global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -88,7 +85,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed. A smaller value gives priority to the rule.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -96,7 +93,7 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -106,10 +103,9 @@ export class UpdateVideoProcessingRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Video seeking. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Specifies whether to enable the video seeking feature. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on

@@ -2,24 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateSeoBypassResponseBody extends $dara.Model {
+export class GetDcvDelegationRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * 123456****
    */
-  requestId?: string;
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      siteId: 'number',
     };
   }
 

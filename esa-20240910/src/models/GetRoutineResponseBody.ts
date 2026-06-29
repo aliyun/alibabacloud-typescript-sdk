@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Model {
   /**
    * @remarks
-   * The code version ID.
+   * The code version number.
    * 
    * @example
    * 1746583193971399525
@@ -13,7 +13,7 @@ export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Mode
   codeVersion?: string;
   /**
    * @remarks
-   * The creation time of the code version.
+   * The time when the code version was created. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2025-07-23T09:01:40Z
@@ -29,7 +29,7 @@ export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The percentage of traffic routed to this code version.
+   * The canary release percentage of the code version.
    * 
    * @example
    * 100
@@ -65,12 +65,12 @@ export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Mode
 export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
   /**
    * @remarks
-   * A list of deployed code versions.
+   * The list of deployed code version numbers.
    */
   codeVersions?: GetRoutineResponseBodyEnvsCodeDeployCodeVersions[];
   /**
    * @remarks
-   * The time the deployment was created.
+   * The time when the deployment was created. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2023-05-11T09:21:36Z
@@ -78,7 +78,7 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The deployment ID.
+   * The deployment record ID.
    * 
    * @example
    * 589267
@@ -86,7 +86,7 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
   deployId?: string;
   /**
    * @remarks
-   * The deployment strategy. The default value is `percentage`.
+   * The deployment strategy. Default value: percentage.
    * 
    * @example
    * percentage
@@ -125,7 +125,7 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
   /**
    * @remarks
-   * Details of the canary release for a code version.
+   * The percentage-based canary release deployment information.
    */
   codeDeploy?: GetRoutineResponseBodyEnvsCodeDeploy;
   /**
@@ -165,7 +165,7 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
 export class GetRoutineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the edge function Routine.
+   * The time when the Edge Routine was created. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2024-03-11T01:23:21Z
@@ -173,7 +173,7 @@ export class GetRoutineResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The default domain name for accessing the Routine.
+   * The default access record.
    * 
    * @example
    * routine1.example.com
@@ -181,7 +181,7 @@ export class GetRoutineResponseBody extends $dara.Model {
   defaultRelatedRecord?: string;
   /**
    * @remarks
-   * The description of the edge function Routine.
+   * The description of the Edge Routine.
    * 
    * @example
    * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
@@ -189,12 +189,12 @@ export class GetRoutineResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A list of environments.
+   * The list of environment context.
    */
   envs?: GetRoutineResponseBodyEnvs[];
   /**
    * @remarks
-   * Indicates whether the Routine includes Assets.
+   * Indicates whether the Routine has the Assets tag.
    * 
    * @example
    * false
