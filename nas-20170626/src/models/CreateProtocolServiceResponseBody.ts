@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProtocolServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the protocol service.
+   * The protocol service cluster ID.
    * 
    * @example
    * ptc-197ed6a00f2b****

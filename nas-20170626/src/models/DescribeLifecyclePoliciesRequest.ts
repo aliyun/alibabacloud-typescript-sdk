@@ -6,8 +6,7 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the policy.
-   * 
-   * >  Only CPFS for Lingjun supports this parameter.
+   * >Only CPFS for Lingjun supports this parameter.
    * 
    * @example
    * 描述
@@ -15,7 +14,7 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * 31a8e4****
@@ -31,11 +30,12 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy. The naming rules are as follows:
+   * The lifecycle policy name. Naming rules:
    * 
-   * The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
    * 
-   * >  Optional for General-purpose NAS file systems. If this parameter is provided, it takes precedence over LifecyclePolicyId. If left empty, LifecyclePolicyId is used.
+   * The name must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
+   * 
+   * >Optional for General-purpose NAS file systems. If specified, this parameter takes precedence. If not specified, LifecyclePolicyId is used instead.
    * 
    * @example
    * lifecyclepolicy_01
@@ -43,14 +43,12 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   lifecyclePolicyName?: string;
   /**
    * @remarks
-   * The type of the lifecycle policy.
+   * The policy type.
    * 
    * Valid values:
-   * 
-   * *   Auto: The job is automatically triggered.
-   * *   OnDemand: On-demand execution.
-   * 
-   * >  Only CPFS for Lingjun supports this parameter.
+   * - Auto: automatic execution
+   * - OnDemand: on-demand execution
+   * >Only CPFS for Lingjun supports this parameter.
    * 
    * @example
    * Auto
@@ -58,9 +56,9 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   lifecyclePolicyType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value (default value): 1.
    * 
    * @example
    * 1
@@ -68,7 +66,7 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of lifecycle management policies on each page.
    * 
    * Valid values: 1 to 100.
    * 
@@ -80,9 +78,8 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filter by path.
-   * 
-   * >  Only CPFS for Lingjun supports this parameter.
+   * Filters results by path.
+   * >Only CPFS for Lingjun supports this parameter.
    * 
    * @example
    * /abc/
@@ -90,12 +87,10 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The storage class.
-   * 
-   * *   InfrequentAccess: the Infrequent Access (IA) storage class.
-   * *   Archive: the Archive storage class.
-   * 
-   * >  If StorageType is not specified, all lifecycle policies are returned.
+   * The storage class type. Valid values:
+   * - InfrequentAccess: IA storage class.
+   * - Archive: Archive storage class.
+   * > If StorageType is not specified, all lifecycle policies are returned.
    * 
    * @example
    * InfrequentAccess

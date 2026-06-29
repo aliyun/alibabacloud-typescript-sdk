@@ -13,7 +13,7 @@ export class CreateAccessPointResponseBodyAccessPoint extends $dara.Model {
   accessPointDomain?: string;
   /**
    * @remarks
-   * The ID of the access point.
+   * The access point ID.
    * 
    * @example
    * ap-ie15yd****

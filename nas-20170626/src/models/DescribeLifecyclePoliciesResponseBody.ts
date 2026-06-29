@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules extends $dara.Model {
   /**
    * @remarks
-   * Attribute of the rule.
+   * The attribute of the retrieval rule.
    * 
    * @example
    * RetrieveType
@@ -13,7 +13,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules
   attribute?: string;
   /**
    * @remarks
-   * Threshold for the rule.
+   * The threshold of the retrieval rule.
    * 
    * @example
    * All
@@ -45,7 +45,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules extends $dara.Model {
   /**
    * @remarks
-   * Attribute of the rule.
+   * The attribute of the transit rule.
    * 
    * @example
    * Atime
@@ -53,7 +53,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules 
   attribute?: string;
   /**
    * @remarks
-   * Threshold for the rule.
+   * The threshold of the transit rule.
    * 
    * @example
    * 3
@@ -85,9 +85,9 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules 
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dara.Model {
   /**
    * @remarks
-   * The time when the lifecycle policy was created.
+   * The time when the lifecycle management policy was created.
    * 
-   * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time follows the ISO 8601 standard in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2019-10-30T10:08:08Z
@@ -95,7 +95,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   createTime?: string;
   /**
    * @remarks
-   * Description
+   * The description of the policy.
    * 
    * @example
    * 描述
@@ -103,7 +103,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   description?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * 31a8e4****
@@ -119,7 +119,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy.
+   * The lifecycle management policy name.
    * 
    * @example
    * lifecyclepolicy_01
@@ -127,7 +127,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   lifecyclePolicyName?: string;
   /**
    * @remarks
-   * The type of the lifecycle policy.
+   * The policy type.
    * 
    * @example
    * Auto
@@ -135,14 +135,13 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   lifecyclePolicyType?: string;
   /**
    * @remarks
-   * The management rule that is associated with the lifecycle policy.
+   * The management rule associated with the lifecycle management policy.
    * 
    * Valid values:
-   * 
-   * *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days.
-   * *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days.
-   * *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days.
-   * *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days.
+   * - DEFAULT_ATIME_14: files not accessed in the last 14 days
+   * - DEFAULT_ATIME_30: files not accessed in the last 30 days
+   * - DEFAULT_ATIME_60: files not accessed in the last 60 days
+   * - DEFAULT_ATIME_90: files not accessed in the last 90 days.
    * 
    * @example
    * DEFAULT_ATIME_14
@@ -150,7 +149,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   lifecycleRuleName?: string;
   /**
    * @remarks
-   * The absolute path of a directory with which the lifecycle policy is associated.
+   * The absolute path of the single directory configured in the lifecycle management policy.
    * 
    * @example
    * /pathway/to/folder
@@ -158,20 +157,19 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   path?: string;
   /**
    * @remarks
-   * The absolute paths of directories with which the lifecycle policy is associated.
+   * The list of absolute paths of multiple directories configured in the lifecycle management policy.
    */
   paths?: string[];
   /**
    * @remarks
-   * File data retrieval rules.
+   * The data retrieval rules for files.
    */
   retrieveRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules[];
   /**
    * @remarks
-   * The storage class.
-   * 
-   * *   InfrequentAccess: the IA storage class.
-   * *   Archive: the Archive storage class.
+   * The storage class type. Valid values:
+   * - InfrequentAccess: IA storage class.
+   * - Archive: Archive storage class.
    * 
    * @example
    * InfrequentAccess
@@ -179,7 +177,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   storageType?: string;
   /**
    * @remarks
-   * Data transition rules.
+   * The data transit rules for files.
    */
   transitRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules[];
   static names(): { [key: string]: string } {
@@ -237,12 +235,12 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
 export class DescribeLifecyclePoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried lifecycle policies.
+   * The collection of lifecycle management policy information.
    */
   lifecyclePolicies?: DescribeLifecyclePoliciesResponseBodyLifecyclePolicies[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -250,7 +248,7 @@ export class DescribeLifecyclePoliciesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of lifecycle management policies on each page.
    * 
    * @example
    * 10
@@ -266,7 +264,7 @@ export class DescribeLifecyclePoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of lifecycle policies.
+   * The total number of lifecycle management policies.
    * 
    * @example
    * 10

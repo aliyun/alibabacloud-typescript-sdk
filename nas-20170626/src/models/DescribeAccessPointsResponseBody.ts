@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The ID of the POSIX user group.
+   * The POSIX group ID.
    * 
    * @example
    * 12
@@ -13,12 +13,12 @@ export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara
   posixGroupId?: number;
   /**
    * @remarks
-   * The IDs of the secondary user groups.
+   * The secondary group ID.
    */
   posixSecondaryGroupIds?: number[];
   /**
    * @remarks
-   * The ID of the POSIX user.
+   * The POSIX user ID.
    * 
    * @example
    * 123
@@ -55,7 +55,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara
 export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The ID of the owner group.
+   * The file group ID of the owner.
    * 
    * @example
    * 12
@@ -63,7 +63,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
   ownerGroupId?: number;
   /**
    * @remarks
-   * The owner ID.
+   * The user ID of the owner.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
 export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that is added to the resource.
+   * The tag key.
    * 
    * @example
    * TestKey
@@ -113,7 +113,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * Tag value
+   * The tag value.
    * 
    * @example
    * TestValue
@@ -145,7 +145,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Mode
 export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access point.
+   * The access point ARN.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -153,7 +153,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   ARN?: string;
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
    * @example
    * test
@@ -161,7 +161,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessGroup?: string;
   /**
    * @remarks
-   * The ID of the access point.
+   * The access point ID.
    * 
    * @example
    * ap-ie15y*****
@@ -169,7 +169,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The name of the access point.
+   * The access point name.
    * 
    * @example
    * test
@@ -193,7 +193,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether the Resource Access Management (RAM) policy is enabled.
+   * Indicates whether the RAM policy is enabled.
    * 
    * @example
    * false
@@ -201,7 +201,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   enabledRam?: boolean;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * 31a8e4****
@@ -209,7 +209,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was modified.
+   * The time when the access point was last modified.
    * 
    * @example
    * 1709619668276167
@@ -217,7 +217,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The Portable Operating System Interface for UNIX (POSIX) user.
+   * The POSIX user.
    */
   posixUser?: DescribeAccessPointsResponseBodyAccessPointsPosixUser;
   /**
@@ -230,18 +230,18 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The permissions on the root directory.
+   * The root directory permissions.
    */
   rootPathPermission?: DescribeAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
    * @remarks
-   * The status of the root directory.
+   * The current root directory status.
    * 
    * Valid values:
    * 
-   * *   0: The rootpath status is unknown.
-   * *   1: The rootpath does not exist and may be deleted.
-   * *   2: The rootpath is normal.
+   * - 0: The root path status is unknown.
+   * - 1: The root path does not exist. It may have been deleted by the user.
+   * - 2: The root path status is normal.
    * 
    * @example
    * 2
@@ -249,16 +249,16 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPathStatus?: string;
   /**
    * @remarks
-   * The status of the access point.
+   * The current access point status.
    * 
    * Valid values:
    * 
-   * *   Active: The access point is available.
-   * *   Inactive: The access point is unavailable.
-   * *   Pending: The access point is being created.
-   * *   Deleting: The access point is being deleted.
+   * - Active: available.
+   * - Inactive: unavailable.
+   * - Pending: being created.
+   * - Deleting: being deleted.
    * 
-   * >  You can mount a file system only if the access point is in the Active state.
+   * > You can mount a file system only when the status is Active.
    * 
    * @example
    * Active
@@ -266,12 +266,12 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the access point.
+   * The list of access point tags.
    */
   tags?: DescribeAccessPointsResponseBodyAccessPointsTags[];
   /**
    * @remarks
-   * Switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2zevmwkwyztjuoffg****
@@ -350,12 +350,12 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
 export class DescribeAccessPointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the access point.
+   * The access point information.
    */
   accessPoints?: DescribeAccessPointsResponseBodyAccessPoints[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The query token. Set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
@@ -363,7 +363,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * This parameter is required.
    * 

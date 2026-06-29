@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessPointsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * Limits:
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   Maximum length is 128 characters.
-   * *   Cannot start with aliyun or acs:.
-   * *   Cannot contain http:// or https://.
+   * - Valid values of N: 1 to 20.
+   * - The tag key can be up to 128 characters in length.
+   * - The tag key cannot start with aliyun or acs:.
+   * - The tag key cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -20,14 +20,14 @@ export class DescribeAccessPointsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * Limits:
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   Maximum length is 128 characters.
-   * *   Cannot start with aliyun or acs:.
-   * *   Cannot contain http:// or https://.
+   * - Valid values of N: 1 to 20.
+   * - The tag value can be up to 128 characters in length.
+   * - The tag value cannot start with aliyun or acs:.
+   * - The tag value cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -59,11 +59,11 @@ export class DescribeAccessPointsRequestTag extends $dara.Model {
 export class DescribeAccessPointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
-   * This parameter is required for a General-purpose NAS file system.
+   * This parameter is required if the file system is a General-purpose NAS file system.
    * 
-   * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
+   * Default permission group: DEFAULT_VPC_GROUP_NAME (the default VPC permission group).
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -71,7 +71,7 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   accessGroup?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * 174494****
@@ -89,7 +89,7 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. Do not specify this parameter for the first request. For subsequent requests, set this value to the NextToken returned in the previous response.
+   * The query token. Set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
@@ -97,7 +97,7 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The tags of the access point.
+   * The list of access point tags.
    */
   tag?: DescribeAccessPointsRequestTag[];
   static names(): { [key: string]: string } {

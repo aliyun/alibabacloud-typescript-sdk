@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * bmcpfs-290t15yn4uo8lid****
@@ -13,7 +13,7 @@ export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Mo
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the virtual storage channel.
+   * The virtual storage channel ID.
    * 
    * @example
    * vsc-8vb864o3ppwfvh****
@@ -76,7 +76,8 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
    * @remarks
    * The number of results for each query.
    * 
-   * Valid values: 10 to 100. Default value: 10.
+   * Valid values: 10 to 100.
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -84,7 +85,7 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token, which is the NextToken value returned from the previous API call.
+   * The query token. Set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -92,7 +93,7 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID information of the file system and virtual storage channel. Each batch can contain up to 10 IDs.
+   * The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
    * 
    * This parameter is required.
    */

@@ -9,11 +9,11 @@ export class CreateAccessGroupRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The name must be 3 to 64 characters in length.
-   * *   The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must be different from the name of the default permission group.
+   * - The name must be 3 to 64 characters in length.
+   * - The name must start with a letter and can contain letters, digits, underscores (_), or hyphens (-).
+   * - The name of the new permission group cannot be the same as the name of the default permission group.
    * 
-   * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
+   * Default permission group: DEFAULT_VPC_GROUP_NAME (default VPC permission group).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateAccessGroupRequest extends $dara.Model {
   accessGroupName?: string;
   /**
    * @remarks
-   * The network type of the permission group. Valid value: **Vpc**.
+   * The type of the permission group. Set the value to **Vpc**, which indicates VPC.
    * 
    * This parameter is required.
    * 
@@ -37,9 +37,9 @@ export class CreateAccessGroupRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   By default, the description of a permission group is the same as the name of the permission group. The description must be 2 to 128 characters in length.
-   * *   The name must start with a letter and cannot start with `http://` or `https://`.
-   * *   The description can contain digits, colons (:), underscores (_), and hyphens (-).
+   * - The description defaults to the permission group name and must be 2 to 128 characters in length.
+   * - The description must start with a letter and cannot start with `http://` or `https://`.
+   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * vpctestaccessgroup
@@ -51,8 +51,8 @@ export class CreateAccessGroupRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-   * *   extreme: Extreme NAS file system.
+   * - standard (default): General-purpose NAS.
+   * - extreme: Extreme NAS.
    * 
    * @example
    * standard

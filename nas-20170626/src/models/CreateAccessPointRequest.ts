@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessPointRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag. Limits:
+   * The tag key.
+   * Limits:
    * 
-   * *   Cannot be null or an empty string.
-   * *   Can be up to 128 characters in length.
-   * *   Cannot start with aliyun or acs:.
-   * *   Cannot contain http:// or https://.
+   * - Cannot be empty or an empty string.
+   * - Can be up to 128 characters in length.
+   * - Cannot start with aliyun or acs:.
+   * - Cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -18,11 +19,12 @@ export class CreateAccessPointRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag. Limits:
+   * The tag value.
+   * Limits:
    * 
-   * *   Cannot be null or an empty string.
-   * *   Can be up to 128 characters in length.
-   * *   Cannot contain http:// or https://.
+   * - Cannot be empty or an empty string.
+   * - Can be up to 128 characters in length.
+   * - Cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -56,11 +58,10 @@ export class CreateAccessPointRequest extends $dara.Model {
    * @remarks
    * The name of the permission group.
    * 
-   * This parameter is required for a General-purpose File Storage NAS (NAS) file system.
+   * This parameter is required if the file system is a General-purpose NAS file system.
    * 
-   * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
-   * 
-   * This parameter is required.
+   * Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -76,12 +77,24 @@ export class CreateAccessPointRequest extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the RAM policy. Valid values:
+   * The AgenticSpace ID.
+   * >This parameter is required for Agentic file systems.
    * 
-   * *   true: The RAM policy is enabled.
-   * *   false (default): The RAM policy is disabled.
+   * @example
+   * agentic-229oypxjgpau2****
+   */
+  agenticSpaceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable access point policy.
+   * Valid values:
    * 
-   * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted. For more information about how to configure permissions on access points, see [Configure a policy for the access point](https://help.aliyun.com/document_detail/2545998.html).
+   * - true: enabled.
+   * - false (default): not enabled.
+   * 
+   * > After you enable access point policy for the access point, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must grant the corresponding access permissions through authorization and then mount and access the file system through the access point. After you disable access point policy, the access point allows anonymity mounting. For more information about how to configure access point permissions, see [Configure access point policies](https://help.aliyun.com/document_detail/2545998.html).
+   * 
+   * >For Agentic file systems, this parameter must be set to true.
    * 
    * @example
    * false
@@ -89,7 +102,7 @@ export class CreateAccessPointRequest extends $dara.Model {
   enabledRam?: boolean;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -99,9 +112,10 @@ export class CreateAccessPointRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the owner group.
+   * The owner group ID.
    * 
    * This parameter is required if the RootDirectory directory does not exist.
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 1
@@ -109,9 +123,10 @@ export class CreateAccessPointRequest extends $dara.Model {
   ownerGroupId?: number;
   /**
    * @remarks
-   * The owner ID.
+   * The owner user ID.
    * 
    * This parameter is required if the RootDirectory directory does not exist.
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 1
@@ -119,9 +134,10 @@ export class CreateAccessPointRequest extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * The Portable Operating System Interface for UNIX (POSIX) permission. Default value: 0777.
+   * The POSIX permission. Default value: "0755". The value must be a four-digit octal number that starts with 0.
    * 
-   * This field takes effect only if you specify the OwnerUserId and OwnerGroupId parameters.
+   * This parameter takes effect only after you specify the OwnerUserId and OwnerGroupId parameters.
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 0755
@@ -129,7 +145,8 @@ export class CreateAccessPointRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The ID of the POSIX user group.
+   * The POSIX group ID.
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 123
@@ -137,7 +154,8 @@ export class CreateAccessPointRequest extends $dara.Model {
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary user group. Separate multiple user group IDs with commas (,).
+   * The secondary group IDs. Separate multiple group IDs with commas (,).
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 123,345
@@ -145,7 +163,8 @@ export class CreateAccessPointRequest extends $dara.Model {
   posixSecondaryGroupIds?: string;
   /**
    * @remarks
-   * The ID of the POSIX user.
+   * The POSIX user ID.
+   * >Not supported for Agentic file systems.
    * 
    * @example
    * 123
@@ -153,7 +172,9 @@ export class CreateAccessPointRequest extends $dara.Model {
   posixUserId?: number;
   /**
    * @remarks
-   * The root directory of the access point. The default value is /. If the directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+   * The root directory of the access point.
+   * Default value: "/". If the access point directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+   * >Supported only for Agentic file systems.
    * 
    * @example
    * /
@@ -161,12 +182,12 @@ export class CreateAccessPointRequest extends $dara.Model {
   rootDirectory?: string;
   /**
    * @remarks
-   * The tags of the access point.
+   * The list of access point tags.
    */
   tag?: CreateAccessPointRequestTag[];
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * This parameter is required.
    * 
@@ -188,6 +209,7 @@ export class CreateAccessPointRequest extends $dara.Model {
     return {
       accessGroup: 'AccessGroup',
       accessPointName: 'AccessPointName',
+      agenticSpaceId: 'AgenticSpaceId',
       enabledRam: 'EnabledRam',
       fileSystemId: 'FileSystemId',
       ownerGroupId: 'OwnerGroupId',
@@ -207,6 +229,7 @@ export class CreateAccessPointRequest extends $dara.Model {
     return {
       accessGroup: 'string',
       accessPointName: 'string',
+      agenticSpaceId: 'string',
       enabledRam: 'boolean',
       fileSystemId: 'string',
       ownerGroupId: 'number',

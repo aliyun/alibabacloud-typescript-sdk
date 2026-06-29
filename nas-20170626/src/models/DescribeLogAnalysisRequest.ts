@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogAnalysisRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose NAS file system
-   * *   extreme: Extreme NAS file system
-   * *   all (default): all types
+   * - standard: General-purpose NAS
+   * - extreme: Extreme NAS
+   * - all (default): all types.
    * 
    * @example
    * all
@@ -19,7 +19,7 @@ export class DescribeLogAnalysisRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the file system list. Default value: 1.
    * 
    * @example
    * 1
@@ -27,7 +27,7 @@ export class DescribeLogAnalysisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of file systems on each page in a paging query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 1

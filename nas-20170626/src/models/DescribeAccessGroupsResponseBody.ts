@@ -76,7 +76,7 @@ export class DescribeAccessGroupsResponseBody extends $dara.Model {
   accessGroups?: DescribeAccessGroupsResponseBodyAccessGroups;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class DescribeAccessGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of permission groups returned per page.
+   * The number of permission groups on each page.
    * 
    * @example
    * 2

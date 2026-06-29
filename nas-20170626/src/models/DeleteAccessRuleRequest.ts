@@ -15,7 +15,7 @@ export class DeleteAccessRuleRequest extends $dara.Model {
   accessGroupName?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the permission rule.
    * 
    * This parameter is required.
    * 
@@ -29,8 +29,8 @@ export class DeleteAccessRuleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system.
-   * *   extreme: Extreme NAS file system.
+   * - standard (default): General-purpose NAS.
+   * - extreme: Extreme NAS.
    * 
    * @example
    * standard

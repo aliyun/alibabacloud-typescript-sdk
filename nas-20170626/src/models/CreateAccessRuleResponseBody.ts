@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the permission rule.
    * 
    * @example
    * 1

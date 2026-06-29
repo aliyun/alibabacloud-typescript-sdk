@@ -45,6 +45,36 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "nas.aliyuncs.com",
       'eu-west-1-oxs': "nas.aliyuncs.com",
       'rus-west-1-pop': "nas.aliyuncs.com",
+      'us-west-1': "nas.us-west-1.aliyuncs.com",
+      'us-east-1': "nas.us-east-1.aliyuncs.com",
+      'me-east-1': "nas.me-east-1.aliyuncs.com",
+      'me-central-1': "nas.me-central-1.aliyuncs.com",
+      'eu-west-1': "nas.eu-west-1.aliyuncs.com",
+      'eu-central-1': "nas.eu-central-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "nas.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "nas.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "nas.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen-finance-1': "nas.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "nas.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "nas.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "nas.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "nas.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "nas.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "nas.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "nas.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou': "nas.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "nas.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "nas.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "nas.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "nas.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "nas.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "nas.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "nas.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "nas.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "nas.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "nas.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "nas.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "nas.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("nas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -189,19 +219,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds AutoRefresh configurations to a dataflow.
+   * Configures automatic updates for a specified data flow.
    * 
    * @remarks
-   * - 该接口仅适用于CPFS文件系统。
-   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
-   * - 仅支持状态为`Running（正常）`状态的数据流动添加自动更新配置。
-   * - 一个数据流动最多可以添加5个自动更新配置。
-   * - 创建自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html)查询数据流动状态。
-   * - 自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
-   *   > CPFS在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改和删除，否则自动更新无法正常工作。
-   * - 自动更新的作用对象是prefix，由参数RefreshPath指定。在CPFS数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS数据流动处理。
-   * - 配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
-   * - 自动更新间隔（AutoRefreshInterval）指CPFS每隔该时间间隔，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为Misconfigured，您可以提升数据流动规格，或者降低OSS修改频率来解决。
+   * - This operation applies only to Cloud Parallel File Storage (CPFS) file systems.
+   * - Only CPFS 2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * - You can add auto-refresh configurations only for data flows in the `Running` state.
+   * - You can add up to five auto-refresh configurations for a data flow.
+   * - It takes 2 to 5 minutes to create an auto-refresh configuration. You can call [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) to query the data flow status.
+   * - Auto-refresh relies on EventBridge to collect object modification events from the source OSS storage. [Activate EventBridge](https://help.aliyun.com/document_detail/182246.html) before you proceed.
+   *   > The event buses and event rules that CPFS creates in EventBridge contain the description `Create for cpfs auto refresh`. Do not modify or delete these event buses or event rules. Otherwise, auto-refresh cannot work properly.
+   * - Auto-refresh targets a prefix specified by the RefreshPath parameter. When you configure auto-refresh for a prefix in a CPFS data flow, an event bus is created on the user side, and an event rule is created for the prefix of the source OSS bucket. When objects within the prefix of the source OSS bucket are modified, OSS events are generated in EventBridge and processed by the CPFS data flow.
+   * - After you configure auto-refresh (AutoRefresh), when data changes in the source storage, the changed metadata is automatically synchronized to the CPFS file system. The changed data is loaded on demand when a user accesses the file, or loaded by starting a data flow node to load data.
+   * - The auto-refresh interval (AutoRefreshInterval) specifies the interval at which CPFS checks whether data updates exist in the prefix of the source OSS bucket. If data updates exist, an auto-refresh node is started. When the frequency of object modification events in the source OSS bucket exceeds the processing capacity of the CPFS data flow, automatic synchronization nodes accumulate, metadata updates are delayed, and the data stream status changes to Misconfigured. To resolve this issue, upgrade the data stream specifications or reduce the modification frequency in OSS.
    * 
    * @param request - ApplyDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -256,19 +286,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds AutoRefresh configurations to a dataflow.
+   * Configures automatic updates for a specified data flow.
    * 
    * @remarks
-   * - 该接口仅适用于CPFS文件系统。
-   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
-   * - 仅支持状态为`Running（正常）`状态的数据流动添加自动更新配置。
-   * - 一个数据流动最多可以添加5个自动更新配置。
-   * - 创建自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html)查询数据流动状态。
-   * - 自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
-   *   > CPFS在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改和删除，否则自动更新无法正常工作。
-   * - 自动更新的作用对象是prefix，由参数RefreshPath指定。在CPFS数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS数据流动处理。
-   * - 配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
-   * - 自动更新间隔（AutoRefreshInterval）指CPFS每隔该时间间隔，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为Misconfigured，您可以提升数据流动规格，或者降低OSS修改频率来解决。
+   * - This operation applies only to Cloud Parallel File Storage (CPFS) file systems.
+   * - Only CPFS 2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
+   * - You can add auto-refresh configurations only for data flows in the `Running` state.
+   * - You can add up to five auto-refresh configurations for a data flow.
+   * - It takes 2 to 5 minutes to create an auto-refresh configuration. You can call [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) to query the data flow status.
+   * - Auto-refresh relies on EventBridge to collect object modification events from the source OSS storage. [Activate EventBridge](https://help.aliyun.com/document_detail/182246.html) before you proceed.
+   *   > The event buses and event rules that CPFS creates in EventBridge contain the description `Create for cpfs auto refresh`. Do not modify or delete these event buses or event rules. Otherwise, auto-refresh cannot work properly.
+   * - Auto-refresh targets a prefix specified by the RefreshPath parameter. When you configure auto-refresh for a prefix in a CPFS data flow, an event bus is created on the user side, and an event rule is created for the prefix of the source OSS bucket. When objects within the prefix of the source OSS bucket are modified, OSS events are generated in EventBridge and processed by the CPFS data flow.
+   * - After you configure auto-refresh (AutoRefresh), when data changes in the source storage, the changed metadata is automatically synchronized to the CPFS file system. The changed data is loaded on demand when a user accesses the file, or loaded by starting a data flow node to load data.
+   * - The auto-refresh interval (AutoRefreshInterval) specifies the interval at which CPFS checks whether data updates exist in the prefix of the source OSS bucket. If data updates exist, an auto-refresh node is started. When the frequency of object modification events in the source OSS bucket exceeds the processing capacity of the CPFS data flow, automatic synchronization nodes accumulate, metadata updates are delayed, and the data stream status changes to Misconfigured. To resolve this issue, upgrade the data stream specifications or reduce the modification frequency in OSS.
    * 
    * @param request - ApplyDataFlowAutoRefreshRequest
    * @returns ApplyDataFlowAutoRefreshResponse
@@ -279,11 +309,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates the VSC device with the file system.
+   * Associates a VSC device with a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch operations are supported. In batch mode, only one VscId can be associated with multiple file system IDs (FileSystemId). This means the ResourceIds.VscId values must be the same.
    * 
    * @param request - AttachVscToFilesystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -322,11 +352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates the VSC device with the file system.
+   * Associates a VSC device with a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch operations are supported. In batch mode, only one VscId can be associated with multiple file system IDs (FileSystemId). This means the ResourceIds.VscId values must be the same.
    * 
    * @param request - AttachVscToFilesystemsRequest
    * @returns AttachVscToFilesystemsResponse
@@ -337,11 +367,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes automatic snapshot policies from one or more file systems.
+   * Cancels the automatic snapshot policy that is created for a file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support this feature.
+   * <props="china">.
+   * -  This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * -  Only Advanced Extreme NAS supports this feature.
+   * .
+   * <props="intl">.
+   * -  This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * -  Only Advanced Extreme NAS supports this feature.
+   * .
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -372,11 +408,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes automatic snapshot policies from one or more file systems.
+   * Cancels the automatic snapshot policy that is created for a file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support this feature.
+   * <props="china">.
+   * -  This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * -  Only Advanced Extreme NAS supports this feature.
+   * .
+   * <props="intl">.
+   * -  This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * -  Only Advanced Extreme NAS supports this feature.
+   * .
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @returns CancelAutoSnapshotPolicyResponse
@@ -599,10 +641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the directory quota of a file system.
+   * Cancels a directory quota for a file system.
    * 
    * @remarks
-   * Only General-purpose file systems support the directory quota feature.
+   * Only General-purpose NAS NFS file systems support the directory quota feature.
    * 
    * @param request - CancelDirQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -645,10 +687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the directory quota of a file system.
+   * Cancels a directory quota for a file system.
    * 
    * @remarks
-   * Only General-purpose file systems support the directory quota feature.
+   * Only General-purpose NAS NFS file systems support the directory quota feature.
    * 
    * @param request - CancelDirQuotaRequest
    * @returns CancelDirQuotaResponse
@@ -817,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a file system belongs.
+   * Changes the resource group to which a file system instance belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -860,7 +902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a file system belongs.
+   * Changes the resource group to which a file system instance belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -874,9 +916,9 @@ export default class Client extends OpenApi {
    * Creates a permission group.
    * 
    * @remarks
-   * - 一个阿里云账号在单个地域内最多可以创建20个权限组。
-   * - 一个权限组最多支持添加300个规则。
-   * - 仅支持创建专有网络类型的权限组。
+   * - You can create up to 20 permission groups in a single region within an Alibaba Cloud account.
+   * - A permission group supports up to 300 rules.
+   * - Only permission groups of the VPC network type can be created.
    * 
    * @param request - CreateAccessGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -922,9 +964,9 @@ export default class Client extends OpenApi {
    * Creates a permission group.
    * 
    * @remarks
-   * - 一个阿里云账号在单个地域内最多可以创建20个权限组。
-   * - 一个权限组最多支持添加300个规则。
-   * - 仅支持创建专有网络类型的权限组。
+   * - You can create up to 20 permission groups in a single region within an Alibaba Cloud account.
+   * - A permission group supports up to 300 rules.
+   * - Only permission groups of the VPC network type can be created.
    * 
    * @param request - CreateAccessGroupRequest
    * @returns CreateAccessGroupResponse
@@ -938,9 +980,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   * - 在使用CreateAccessPoint接口创建接入点时部分资源的生成是异步完成的。因此在执行CreateAccessPoint接口成功后，请先调用[DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html)或者[DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html)接口查询接入点状态，当接入点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
-   * - 仅通用型NAS NFS协议文件系统支持该功能。
-   * - 如果开启RAM策略（EnabledRam），需要配置对应的RAM权限，具体请参考[管理接入点](https://help.aliyun.com/document_detail/2545998.html)。
+   * - When you invoke the CreateAccessPoint operation to create an access point, some resources are generated asynchronously. After the CreateAccessPoint operation succeeds, execute the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the access point status. Mount the file system only after the access point status becomes **Active**. Otherwise, the mount operation may fail.
+   * - Only General-purpose NAS NFS file systems support this feature.
+   * - If you enable the RAM policy (EnabledRam), configure the corresponding RAM permissions. For more information, see [Manage access points](https://help.aliyun.com/document_detail/2545998.html).
    * 
    * @param request - CreateAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -955,6 +997,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.accessPointName)) {
       query["AccessPointName"] = request.accessPointName;
+    }
+
+    if (!$dara.isNull(request.agenticSpaceId)) {
+      query["AgenticSpaceId"] = request.agenticSpaceId;
     }
 
     if (!$dara.isNull(request.enabledRam)) {
@@ -1026,9 +1072,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   * - 在使用CreateAccessPoint接口创建接入点时部分资源的生成是异步完成的。因此在执行CreateAccessPoint接口成功后，请先调用[DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html)或者[DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html)接口查询接入点状态，当接入点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
-   * - 仅通用型NAS NFS协议文件系统支持该功能。
-   * - 如果开启RAM策略（EnabledRam），需要配置对应的RAM权限，具体请参考[管理接入点](https://help.aliyun.com/document_detail/2545998.html)。
+   * - When you invoke the CreateAccessPoint operation to create an access point, some resources are generated asynchronously. After the CreateAccessPoint operation succeeds, execute the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the access point status. Mount the file system only after the access point status becomes **Active**. Otherwise, the mount operation may fail.
+   * - Only General-purpose NAS NFS file systems support this feature.
+   * - If you enable the RAM policy (EnabledRam), configure the corresponding RAM permissions. For more information, see [Manage access points](https://help.aliyun.com/document_detail/2545998.html).
    * 
    * @param request - CreateAccessPointRequest
    * @returns CreateAccessPointResponse
@@ -1039,10 +1085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a rule for a permission group.
+   * Creates a permission rule for a permission group.
    * 
    * @remarks
-   * 一个权限组最多支持添加300个规则。
+   * A maximum of 300 rules can be added to a permission group.
    * 
    * @param request - CreateAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1097,10 +1143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a rule for a permission group.
+   * Creates a permission rule for a permission group.
    * 
    * @remarks
-   * 一个权限组最多支持添加300个规则。
+   * A maximum of 300 rules can be added to a permission group.
    * 
    * @param request - CreateAccessRuleRequest
    * @returns CreateAccessRuleResponse
@@ -1111,19 +1157,105 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - CreateAgenticSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticSpaceResponse
+   */
+  async createAgenticSpaceWithOptions(request: $_model.CreateAgenticSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.azone)) {
+      query["Azone"] = request.azone;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.fileSystemPath)) {
+      query["FileSystemPath"] = request.fileSystemPath;
+    }
+
+    if (!$dara.isNull(request.quota)) {
+      query["Quota"] = request.quota;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticSpace",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticSpaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticSpaceResponse({}));
+  }
+
+  /**
+   * 创建Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - CreateAgenticSpaceRequest
+   * @returns CreateAgenticSpaceResponse
+   */
+  async createAgenticSpace(request: $_model.CreateAgenticSpaceRequest): Promise<$_model.CreateAgenticSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticSpaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support the snapshot feature.
-   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+   * <props="china">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * - Only Advanced Extreme NAS supports this feature.
+   * - You can create a maximum of 100 automatic snapshot policies per Alibaba Cloud account in each region.
+   * - If a file system contains a large amount of data and the time required to create an automatic snapshot exceeds the interval between two scheduled time points, the next time point is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as automatic snapshot time points. Because the file system contains a large amount of data, snapshot creation starts at 09:00 and completes at 10:20, taking 80 minutes. The system skips the 10:00 time point and creates the next automatic snapshot at 11:00.
+   * - Each file system supports a maximum of 128 automatic snapshots. After the snapshot quota is reached, the system automatically deletes the earliest automatic snapshots. Manual snapshots are not affected.
+   * - When you modify the retention period of an automatic snapshot policy, the change takes effect only for new snapshots. Existing snapshots retain their original retention period.
+   * - If an automatic snapshot is being created for a file system, you must wait until the automatic snapshot is complete before you can manually create a snapshot.
+   * - Automatic snapshot policies cannot be executed on file systems that are not in the Normal state.
+   * - Automatic snapshots follow a unified naming format: `auto_yyyyMMdd_X`. In this format, `auto` indicates an automatic snapshot, distinguishing it from manual snapshots. `yyyyMMdd` indicates the date when the snapshot is created, where `y` represents the year, `M` represents the month, and `d` represents the day. `X` indicates the sequence number of the automatic snapshot created on that day. For example, `auto_20201018_1` indicates the first automatic snapshot created on October 18, 2020.
+   * - A created automatic snapshot policy can be applied to any file system by calling ApplyAutoSnapshotPolicy, and the policy content can be modified by calling ModifyAutoSnapshotPolicy.
+   * .
+   * <props="intl">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * - Only Advanced Extreme NAS supports this feature.
+   * - You can create a maximum of 100 automatic snapshot policies per Alibaba Cloud account in each region.
+   * - If a file system contains a large amount of data and the time required to create an automatic snapshot exceeds the interval between two scheduled time points, the next time point is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as automatic snapshot time points. Because the file system contains a large amount of data, snapshot creation starts at 09:00 and completes at 10:20, taking 80 minutes. The system skips the 10:00 time point and creates the next automatic snapshot at 11:00.
+   * - Each file system supports a maximum of 128 automatic snapshots. After the snapshot quota is reached, the system automatically deletes the earliest automatic snapshots. Manual snapshots are not affected.
+   * - When you modify the retention period of an automatic snapshot policy, the change takes effect only for new snapshots. Existing snapshots retain their original retention period.
+   * - If an automatic snapshot is being created for a file system, you must wait until the automatic snapshot is complete before you can manually create a snapshot.
+   * - Automatic snapshot policies cannot be executed on file systems that are not in the Normal state.
+   * - Automatic snapshots follow a unified naming format: `auto_yyyyMMdd_X`. In this format, `auto` indicates an automatic snapshot, distinguishing it from manual snapshots. `yyyyMMdd` indicates the date when the snapshot is created, where `y` represents the year, `M` represents the month, and `d` represents the day. `X` indicates the sequence number of the automatic snapshot created on that day. For example, `auto_20201018_1` indicates the first automatic snapshot created on October 18, 2020.
+   * - A created automatic snapshot policy can be applied to any file system by calling ApplyAutoSnapshotPolicy, and the policy content can be modified by calling ModifyAutoSnapshotPolicy.
+   * .
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1173,16 +1305,30 @@ export default class Client extends OpenApi {
    * Creates an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support the snapshot feature.
-   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+   * <props="china">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * - Only Advanced Extreme NAS supports this feature.
+   * - You can create a maximum of 100 automatic snapshot policies per Alibaba Cloud account in each region.
+   * - If a file system contains a large amount of data and the time required to create an automatic snapshot exceeds the interval between two scheduled time points, the next time point is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as automatic snapshot time points. Because the file system contains a large amount of data, snapshot creation starts at 09:00 and completes at 10:20, taking 80 minutes. The system skips the 10:00 time point and creates the next automatic snapshot at 11:00.
+   * - Each file system supports a maximum of 128 automatic snapshots. After the snapshot quota is reached, the system automatically deletes the earliest automatic snapshots. Manual snapshots are not affected.
+   * - When you modify the retention period of an automatic snapshot policy, the change takes effect only for new snapshots. Existing snapshots retain their original retention period.
+   * - If an automatic snapshot is being created for a file system, you must wait until the automatic snapshot is complete before you can manually create a snapshot.
+   * - Automatic snapshot policies cannot be executed on file systems that are not in the Normal state.
+   * - Automatic snapshots follow a unified naming format: `auto_yyyyMMdd_X`. In this format, `auto` indicates an automatic snapshot, distinguishing it from manual snapshots. `yyyyMMdd` indicates the date when the snapshot is created, where `y` represents the year, `M` represents the month, and `d` represents the day. `X` indicates the sequence number of the automatic snapshot created on that day. For example, `auto_20201018_1` indicates the first automatic snapshot created on October 18, 2020.
+   * - A created automatic snapshot policy can be applied to any file system by calling ApplyAutoSnapshotPolicy, and the policy content can be modified by calling ModifyAutoSnapshotPolicy.
+   * .
+   * <props="intl">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * - Only Advanced Extreme NAS supports this feature.
+   * - You can create a maximum of 100 automatic snapshot policies per Alibaba Cloud account in each region.
+   * - If a file system contains a large amount of data and the time required to create an automatic snapshot exceeds the interval between two scheduled time points, the next time point is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as automatic snapshot time points. Because the file system contains a large amount of data, snapshot creation starts at 09:00 and completes at 10:20, taking 80 minutes. The system skips the 10:00 time point and creates the next automatic snapshot at 11:00.
+   * - Each file system supports a maximum of 128 automatic snapshots. After the snapshot quota is reached, the system automatically deletes the earliest automatic snapshots. Manual snapshots are not affected.
+   * - When you modify the retention period of an automatic snapshot policy, the change takes effect only for new snapshots. Existing snapshots retain their original retention period.
+   * - If an automatic snapshot is being created for a file system, you must wait until the automatic snapshot is complete before you can manually create a snapshot.
+   * - Automatic snapshot policies cannot be executed on file systems that are not in the Normal state.
+   * - Automatic snapshots follow a unified naming format: `auto_yyyyMMdd_X`. In this format, `auto` indicates an automatic snapshot, distinguishing it from manual snapshots. `yyyyMMdd` indicates the date when the snapshot is created, where `y` represents the year, `M` represents the month, and `d` represents the day. `X` indicates the sequence number of the automatic snapshot created on that day. For example, `auto_20201018_1` indicates the first automatic snapshot created on October 18, 2020.
+   * - A created automatic snapshot policy can be applied to any file system by calling ApplyAutoSnapshotPolicy, and the policy content can be modified by calling ModifyAutoSnapshotPolicy.
+   * .
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @returns CreateAutoSnapshotPolicyResponse
@@ -2135,8 +2281,8 @@ export default class Client extends OpenApi {
    * Creates a data retrieval task.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+   * - Only General-purpose NAS file systems support this feature.
+   * - Each Alibaba Cloud account can have up to 20 running data retrieval tasks in the same region.
    * 
    * @param request - CreateLifecycleRetrieveJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2178,8 +2324,8 @@ export default class Client extends OpenApi {
    * Creates a data retrieval task.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+   * - Only General-purpose NAS file systems support this feature.
+   * - Each Alibaba Cloud account can have up to 20 running data retrieval tasks in the same region.
    * 
    * @param request - CreateLifecycleRetrieveJobRequest
    * @returns CreateLifecycleRetrieveJobResponse
@@ -2239,8 +2385,8 @@ export default class Client extends OpenApi {
    * Creates a mount target.
    * 
    * @remarks
-   * - 在使用CreateMountTarget接口创建挂载点时部分资源的生成是异步完成的。因此在执行CreateMountTarget接口成功后，请先调用DescribeMountTargets接口查询挂载点状态，当挂载点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
-   * - 调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
+   * - When you call the CreateMountTarget operation to create a mount target, some resources are generated asynchronously. After the CreateMountTarget operation succeeds, first invoke the DescribeMountTargets operation to query the mount target status. Execute the file system mount operation only after the mount target status changes to **Active**. Otherwise, the mount operation may fail.
+   * - Invoking this operation triggers the automatic creation of the service-linked role required for the operation. For more information, see [Manage the service-linked role for NAS](https://help.aliyun.com/document_detail/208530.html).
    * 
    * @param request - CreateMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2302,8 +2448,8 @@ export default class Client extends OpenApi {
    * Creates a mount target.
    * 
    * @remarks
-   * - 在使用CreateMountTarget接口创建挂载点时部分资源的生成是异步完成的。因此在执行CreateMountTarget接口成功后，请先调用DescribeMountTargets接口查询挂载点状态，当挂载点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
-   * - 调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
+   * - When you call the CreateMountTarget operation to create a mount target, some resources are generated asynchronously. After the CreateMountTarget operation succeeds, first invoke the DescribeMountTargets operation to query the mount target status. Execute the file system mount operation only after the mount target status changes to **Active**. Otherwise, the mount operation may fail.
+   * - Invoking this operation triggers the automatic creation of the service-linked role required for the operation. For more information, see [Manage the service-linked role for NAS](https://help.aliyun.com/document_detail/208530.html).
    * 
    * @param request - CreateMountTargetRequest
    * @returns CreateMountTargetResponse
@@ -2317,15 +2463,15 @@ export default class Client extends OpenApi {
    * Creates an export directory for a protocol service.
    * 
    * @remarks
-   * -  该接口仅适用于CPFS文件系统。
-   * -  前提条件
+   * -  This operation is applicable only to Cloud Parallel File Storage (CPFS) file systems.
+   * -  Before you begin
    *   
-   *    已创建协议服务。
-   * - 其它
-   *     - 协议服务的导出VPC网段不可与文件系统VPC网段重叠。
-   *     - 一个协议服务上的多个导出VPC之间网段不可重叠。
-   *     - 同一个协议服务最多可以创建10个导出目录。
-   *     - 创建协议服务导出目录会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
+   *    The CPFS file system must be in the Running state and a protocol service must be created.
+   * - Other information
+   *     - The VPC CIDR block of the protocol service export cannot overlap with the VPC CIDR block of the file system.
+   *     - The VPC CIDR blocks of multiple exports on the same protocol service cannot overlap with each other.
+   *     - You can create up to 10 export directories for a single protocol service.
+   *     - Creating a protocol service export directory consumes IP addresses from the specified vSwitch (up to 32 IP addresses). Make sure that the target vSwitch has sufficient IP address resources.
    * 
    * @param request - CreateProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2399,15 +2545,15 @@ export default class Client extends OpenApi {
    * Creates an export directory for a protocol service.
    * 
    * @remarks
-   * -  该接口仅适用于CPFS文件系统。
-   * -  前提条件
+   * -  This operation is applicable only to Cloud Parallel File Storage (CPFS) file systems.
+   * -  Before you begin
    *   
-   *    已创建协议服务。
-   * - 其它
-   *     - 协议服务的导出VPC网段不可与文件系统VPC网段重叠。
-   *     - 一个协议服务上的多个导出VPC之间网段不可重叠。
-   *     - 同一个协议服务最多可以创建10个导出目录。
-   *     - 创建协议服务导出目录会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
+   *    The CPFS file system must be in the Running state and a protocol service must be created.
+   * - Other information
+   *     - The VPC CIDR block of the protocol service export cannot overlap with the VPC CIDR block of the file system.
+   *     - The VPC CIDR blocks of multiple exports on the same protocol service cannot overlap with each other.
+   *     - You can create up to 10 export directories for a single protocol service.
+   *     - Creating a protocol service export directory consumes IP addresses from the specified vSwitch (up to 32 IP addresses). Make sure that the target vSwitch has sufficient IP address resources.
    * 
    * @param request - CreateProtocolMountTargetRequest
    * @returns CreateProtocolMountTargetResponse
@@ -2418,22 +2564,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+   * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation process takes approximately 5 to 10 minutes.
    * 
    * @remarks
-   * - 该接口仅适用于CPFS文件系统。
-   * -  仅CPFS 2.3.0及以上版本支持协议服务。您可以通过调用[DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html)接口查询目标文件系统的版本号。
-   * - 协议服务规格
-   *   协议服务包括两种协议类型：通用型和缓存型。缓存型相比通用型，提供热点数据缓存能力。在命中缓存的情况下，缓存型协议服务的带宽可超过CPFS文件系统的带宽，达到协议服务设定的最大带宽值。
+   * - This operation is applicable only to CPFS file systems.
+   * -  Only CPFS 2.3.0 and later support protocol services. You can call the [DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html) operation to query the version of the file system.
+   * - Protocol service specifications.
+   *   Protocol services include two Protocol Types: General and Cache. Compared with the General type, the Cache type provides hot spot data caching. When the cache is hit, the bandwidth of the Cache type protocol service can exceed the bandwidth of the CPFS file system and reach the maximum bandwidth configured for the protocol service.
    *   
-   *     -   通用型：为CPFS提供NFS协议访问能力和[目录级挂载点](https://help.aliyun.com/document_detail/427175.html)，用户无需配置POSIX客户端管理集群。该功能免费。
-   *     -  缓存型：在通用型基础上提供基于LRU策略的服务端内存缓存。当数据缓存于内存中时，CPFS可提供更高的内网带宽。缓存型协议服务分为缓存1型和缓存2型两种协议服务规格，差异点为内网带宽大小和内存缓存大小。
-   *      >  缓存型协议服务为收费服务，正在邀测。有关缓存型协议服务的付费方式，请参见[计费项](https://help.aliyun.com/document_detail/111858.html)。如果您有任何反馈或疑问，欢迎加入钉钉用户群（钉钉群号：31045006299）与CPFS工程师进行交流讨论。
-   * - 协议类型
-   *   仅支持NFSv3协议。
-   * - 其它
-   *     - 一个CPFS文件系统只能创建一个协议服务。
-   *     - 创建协议服务会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
+   *     -   General: Provides NFS protocol access and [folder-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS. You do not need to configure a POSIX client cluster management. This feature is free of charge.
+   *     -  Cache: Provides server-side in-memory caching based on the LRU policy in addition to the General type capabilities. When data is cached in memory, CPFS can provide higher internal network bandwidth. The Cache type protocol service is available in two specifications: Cache L1 and Cache L2, which differ in internal network bandwidth and memory cache size.
+   *      >  The Cache type protocol service is a paid service and is in invitational preview. For information about the billing of the Cache type protocol service, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, join the DingTalk user group (group ID: 31045006299) to communicate with CPFS engineers.
+   * - Protocol type.
+   *   Only NFSv3 is supported.
+   * - Prerequisites.
+   *   The CPFS file system must be created and in the Running state.
+   * - Other information.
+   *     - Only one protocol service can be created for each CPFS file system.
+   *     - Creating a protocol service consumes IP addresses on the specified vSwitch (up to 32 IP addresses). Make sure that the target vSwitch has sufficient IP address resources.
    * 
    * @param request - CreateProtocolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2496,22 +2644,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+   * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation process takes approximately 5 to 10 minutes.
    * 
    * @remarks
-   * - 该接口仅适用于CPFS文件系统。
-   * -  仅CPFS 2.3.0及以上版本支持协议服务。您可以通过调用[DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html)接口查询目标文件系统的版本号。
-   * - 协议服务规格
-   *   协议服务包括两种协议类型：通用型和缓存型。缓存型相比通用型，提供热点数据缓存能力。在命中缓存的情况下，缓存型协议服务的带宽可超过CPFS文件系统的带宽，达到协议服务设定的最大带宽值。
+   * - This operation is applicable only to CPFS file systems.
+   * -  Only CPFS 2.3.0 and later support protocol services. You can call the [DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html) operation to query the version of the file system.
+   * - Protocol service specifications.
+   *   Protocol services include two Protocol Types: General and Cache. Compared with the General type, the Cache type provides hot spot data caching. When the cache is hit, the bandwidth of the Cache type protocol service can exceed the bandwidth of the CPFS file system and reach the maximum bandwidth configured for the protocol service.
    *   
-   *     -   通用型：为CPFS提供NFS协议访问能力和[目录级挂载点](https://help.aliyun.com/document_detail/427175.html)，用户无需配置POSIX客户端管理集群。该功能免费。
-   *     -  缓存型：在通用型基础上提供基于LRU策略的服务端内存缓存。当数据缓存于内存中时，CPFS可提供更高的内网带宽。缓存型协议服务分为缓存1型和缓存2型两种协议服务规格，差异点为内网带宽大小和内存缓存大小。
-   *      >  缓存型协议服务为收费服务，正在邀测。有关缓存型协议服务的付费方式，请参见[计费项](https://help.aliyun.com/document_detail/111858.html)。如果您有任何反馈或疑问，欢迎加入钉钉用户群（钉钉群号：31045006299）与CPFS工程师进行交流讨论。
-   * - 协议类型
-   *   仅支持NFSv3协议。
-   * - 其它
-   *     - 一个CPFS文件系统只能创建一个协议服务。
-   *     - 创建协议服务会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
+   *     -   General: Provides NFS protocol access and [folder-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS. You do not need to configure a POSIX client cluster management. This feature is free of charge.
+   *     -  Cache: Provides server-side in-memory caching based on the LRU policy in addition to the General type capabilities. When data is cached in memory, CPFS can provide higher internal network bandwidth. The Cache type protocol service is available in two specifications: Cache L1 and Cache L2, which differ in internal network bandwidth and memory cache size.
+   *      >  The Cache type protocol service is a paid service and is in invitational preview. For information about the billing of the Cache type protocol service, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, join the DingTalk user group (group ID: 31045006299) to communicate with CPFS engineers.
+   * - Protocol type.
+   *   Only NFSv3 is supported.
+   * - Prerequisites.
+   *   The CPFS file system must be created and in the Running state.
+   * - Other information.
+   *     - Only one protocol service can be created for each CPFS file system.
+   *     - Creating a protocol service consumes IP addresses on the specified vSwitch (up to 32 IP addresses). Make sure that the target vSwitch has sufficient IP address resources.
    * 
    * @param request - CreateProtocolServiceRequest
    * @returns CreateProtocolServiceResponse
@@ -2696,10 +2846,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a permission group.
+   * Delete an existing access group.
    * 
    * @remarks
-   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持删除。
+   * The default access group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
    * 
    * @param request - DeleteAccessGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2734,10 +2884,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a permission group.
+   * Delete an existing access group.
    * 
    * @remarks
-   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持删除。
+   * The default access group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
    * 
    * @param request - DeleteAccessGroupRequest
    * @returns DeleteAccessGroupResponse
@@ -2802,10 +2952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule from a permission group.
+   * Deletes a permission rule from a permission group.
    * 
    * @remarks
-   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持删除。
+   * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
    * 
    * @param request - DeleteAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2844,10 +2994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule from a permission group.
+   * Deletes a permission rule from a permission group.
    * 
    * @remarks
-   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持删除。
+   * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
    * 
    * @param request - DeleteAccessRuleRequest
    * @returns DeleteAccessRuleResponse
@@ -2855,6 +3005,66 @@ export default class Client extends OpenApi {
   async deleteAccessRule(request: $_model.DeleteAccessRuleRequest): Promise<$_model.DeleteAccessRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccessRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - DeleteAgenticSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticSpaceResponse
+   */
+  async deleteAgenticSpaceWithOptions(request: $_model.DeleteAgenticSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agenticSpaceId)) {
+      query["AgenticSpaceId"] = request.agenticSpaceId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticSpace",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticSpaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticSpaceResponse({}));
+  }
+
+  /**
+   * 删除Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - DeleteAgenticSpaceRequest
+   * @returns DeleteAgenticSpaceResponse
+   */
+  async deleteAgenticSpace(request: $_model.DeleteAgenticSpaceRequest): Promise<$_model.DeleteAgenticSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticSpaceWithOptions(request, runtime);
   }
 
   /**
@@ -3029,9 +3239,10 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   * - This operation is supported only for CPFS file systems of version 2.2.0 or later and CPFS for AI and HPC file systems of version 2.7.0 or later. Deleting a fileset permanently removes all data in the associated directory. Use this operation with caution.
-   * - If deletion protection is enabled, you must disable it before you can delete the fileset.
-   * - When you delete a fileset from a CPFS file system, the disk space is released immediately. When you delete a fileset from a CPFS for AI and HPC file system, the disk space is released gradually.
+   * - Only CPFS 2.2.0 and later and CPFS for Lingjun 2.7.0 and later support fileset deletion. After a fileset is deleted, all data in the directory is permanently deleted and cannot be recovered. Proceed with caution.
+   * - If deletion protection is enabled, disable it before you delete the fileset.
+   * - All filesets on the target file system must be in the CREATED desired state before you can perform the deletion.
+   * - Deleting a CPFS general-purpose fileset immediately releases disk space. Deleting a CPFS for Lingjun fileset gradually releases disk space. Deleted data cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3077,9 +3288,10 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   * - This operation is supported only for CPFS file systems of version 2.2.0 or later and CPFS for AI and HPC file systems of version 2.7.0 or later. Deleting a fileset permanently removes all data in the associated directory. Use this operation with caution.
-   * - If deletion protection is enabled, you must disable it before you can delete the fileset.
-   * - When you delete a fileset from a CPFS file system, the disk space is released immediately. When you delete a fileset from a CPFS for AI and HPC file system, the disk space is released gradually.
+   * - Only CPFS 2.2.0 and later and CPFS for Lingjun 2.7.0 and later support fileset deletion. After a fileset is deleted, all data in the directory is permanently deleted and cannot be recovered. Proceed with caution.
+   * - If deletion protection is enabled, disable it before you delete the fileset.
+   * - All filesets on the target file system must be in the CREATED desired state before you can perform the deletion.
+   * - Deleting a CPFS general-purpose fileset immediately releases disk space. Deleting a CPFS for Lingjun fileset gradually releases disk space. Deleted data cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteFilesetRequest
    * @returns DeleteFilesetResponse
@@ -3425,11 +3637,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a snapshot or cancels a snapshot that is being created.
+   * Deletes a specified snapshot or cancels a snapshot task that is being created.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support this feature.
+   * <props="china">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * - Only Advanced Extreme NAS file systems support this feature.
+   * <props="intl">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * - Only Advanced Extreme NAS file systems support this feature.
+   * .
    * 
    * @param request - DeleteSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3460,11 +3677,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a snapshot or cancels a snapshot that is being created.
+   * Deletes a specified snapshot or cancels a snapshot task that is being created.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-   * *   Only advanced Extreme NAS file systems support this feature.
+   * <props="china">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201803061139_99860.html?spm=a2c4g.11186623.0.0.5c895ff2YPLrwe) is not guaranteed.
+   * - Only Advanced Extreme NAS file systems support this feature.
+   * <props="intl">.
+   * - This feature is in free public preview. During the public preview, the [File Storage NAS Service-Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed.
+   * - Only Advanced Extreme NAS file systems support this feature.
+   * .
    * 
    * @param request - DeleteSnapshotRequest
    * @returns DeleteSnapshotResponse
@@ -3475,7 +3697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries permission groups.
+   * Queries permission group information.
    * 
    * @param request - DescribeAccessGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3522,7 +3744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries permission groups.
+   * Queries permission group information.
    * 
    * @param request - DescribeAccessGroupsRequest
    * @returns DescribeAccessGroupsResponse
@@ -3536,7 +3758,7 @@ export default class Client extends OpenApi {
    * Queries the details of an access point.
    * 
    * @remarks
-   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * Only General-purpose NAS NFS file systems support this feature.
    * 
    * @param request - DescribeAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3574,7 +3796,7 @@ export default class Client extends OpenApi {
    * Queries the details of an access point.
    * 
    * @remarks
-   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * Only General-purpose NAS NFS file systems support this feature.
    * 
    * @param request - DescribeAccessPointRequest
    * @returns DescribeAccessPointResponse
@@ -3585,10 +3807,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of access points.
+   * Queries access point information.
    * 
    * @remarks
-   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * Only General-purpose NAS NFS file systems support this feature.
+   * 
+   * @deprecated OpenAPI DescribeAccessPoints is deprecated, please use NAS::2017-06-26::ListAccessPoints instead.
    * 
    * @param request - DescribeAccessPointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3635,14 +3859,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of access points.
+   * Queries access point information.
    * 
    * @remarks
-   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * Only General-purpose NAS NFS file systems support this feature.
+   * 
+   * @deprecated OpenAPI DescribeAccessPoints is deprecated, please use NAS::2017-06-26::ListAccessPoints instead.
    * 
    * @param request - DescribeAccessPointsRequest
    * @returns DescribeAccessPointsResponse
    */
+  // Deprecated
   async describeAccessPoints(request: $_model.DescribeAccessPointsRequest): Promise<$_model.DescribeAccessPointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccessPointsWithOptions(request, runtime);
@@ -3704,6 +3931,66 @@ export default class Client extends OpenApi {
   async describeAccessRules(request: $_model.DescribeAccessRulesRequest): Promise<$_model.DescribeAccessRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccessRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Agentic空间
+   * 
+   * @remarks
+   * 适用 agentic 类型文件系统。
+   * 
+   * @param request - DescribeAgenticSpacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticSpacesResponse
+   */
+  async describeAgenticSpacesWithOptions(request: $_model.DescribeAgenticSpacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticSpacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticSpaces",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticSpacesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticSpacesResponse({}));
+  }
+
+  /**
+   * 查询Agentic空间
+   * 
+   * @remarks
+   * 适用 agentic 类型文件系统。
+   * 
+   * @param request - DescribeAgenticSpacesRequest
+   * @returns DescribeAgenticSpacesResponse
+   */
+  async describeAgenticSpaces(request: $_model.DescribeAgenticSpacesRequest): Promise<$_model.DescribeAgenticSpacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticSpacesWithOptions(request, runtime);
   }
 
   /**
@@ -4195,7 +4482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation retrieves information about file systems.
+   * Queries file system information.
    * 
    * @param request - DescribeFileSystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4250,7 +4537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation retrieves information about file systems.
+   * Queries file system information.
    * 
    * @param request - DescribeFileSystemsRequest
    * @returns DescribeFileSystemsResponse
@@ -4261,12 +4548,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about created filesets.
+   * Queries the list of created filesets.
    * 
    * @remarks
-   * - 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
-   * - 筛选键（Filters）中，FsetIds需要做全字匹配，FileSystemPath、Description支持模糊匹配。
-   * - 支持组合查询。
+   * - Only CPFS 2.2.0 and later and CPFS for Lingjun 2.7.0 and later support filesets. You can view the version information on the file system details page in the console.
+   * - In the filter keys (Filters), FsetIds requires an exact match, while FileSystemPath and Description support fuzzy match.
+   * - Combination queries are supported.
    * 
    * @param request - DescribeFilesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4317,12 +4604,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about created filesets.
+   * Queries the list of created filesets.
    * 
    * @remarks
-   * - 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
-   * - 筛选键（Filters）中，FsetIds需要做全字匹配，FileSystemPath、Description支持模糊匹配。
-   * - 支持组合查询。
+   * - Only CPFS 2.2.0 and later and CPFS for Lingjun 2.7.0 and later support filesets. You can view the version information on the file system details page in the console.
+   * - In the filter keys (Filters), FsetIds requires an exact match, while FileSystemPath and Description support fuzzy match.
+   * - Combination queries are supported.
    * 
    * @param request - DescribeFilesetsRequest
    * @returns DescribeFilesetsResponse
@@ -4393,11 +4680,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about virtual storage channels associated with a file system.
+   * Queries the information about virtual storage channels associated with a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch execution is supported. In batch execution mode, only one VscId can be associated with multiple FileSystemIds, which means the values of ResourceIds.VscId must be the same.
    * 
    * @param request - DescribeFilesystemsVscAttachInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4440,11 +4727,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about virtual storage channels associated with a file system.
+   * Queries the information about virtual storage channels associated with a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch execution is supported. In batch execution mode, only one VscId can be associated with multiple FileSystemIds, which means the values of ResourceIds.VscId must be the same.
    * 
    * @param request - DescribeFilesystemsVscAttachInfoRequest
    * @returns DescribeFilesystemsVscAttachInfoResponse
@@ -4455,10 +4742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries lifecycle policies.
+   * Retrieves a list of lifecycle management policies.
    * 
    * @remarks
-   * 仅通用型NAS文件系统和 CPFS 智算版支持该功能。
+   * Only General-purpose NAS file systems and CPFS for Lingjun support this feature.
    * 
    * @param request - DescribeLifecyclePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4485,10 +4772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries lifecycle policies.
+   * Retrieves a list of lifecycle management policies.
    * 
    * @remarks
-   * 仅通用型NAS文件系统和 CPFS 智算版支持该功能。
+   * Only General-purpose NAS file systems and CPFS for Lingjun support this feature.
    * 
    * @param request - DescribeLifecyclePoliciesRequest
    * @returns DescribeLifecyclePoliciesResponse
@@ -4559,7 +4846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log dump information configured in log analysis.
+   * Lists the log analysis configurations in log analysis.
    * 
    * @param request - DescribeLogAnalysisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4602,7 +4889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log dump information configured in log analysis.
+   * Lists the log analysis configurations in log analysis.
    * 
    * @param request - DescribeLogAnalysisRequest
    * @returns DescribeLogAnalysisResponse
@@ -5199,11 +5486,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unassociates a VSC device from a file system.
+   * Dissociates a VSC device from a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch operations are supported. For batch operations, only one VscId can be associated with multiple FileSystemIds. This means the ResourceIds.VscId values must be the same.
    * 
    * @param request - DetachVscFromFilesystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5242,11 +5529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unassociates a VSC device from a file system.
+   * Dissociates a VSC device from a file system.
    * 
    * @remarks
-   * - 仅CPFS智算版支持该功能。
-   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
+   * - Only CPFS for Lingjun supports this feature.
+   * - Batch operations are supported. For batch operations, only one VscId can be associated with multiple FileSystemIds. This means the ResourceIds.VscId values must be the same.
    * 
    * @param request - DetachVscFromFilesystemsRequest
    * @returns DetachVscFromFilesystemsResponse
@@ -5545,6 +5832,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Agentic空间
+   * 
+   * @remarks
+   * 适用 agentic 类型文件系统。
+   * 
+   * @param request - GetAgenticSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticSpaceResponse
+   */
+  async getAgenticSpaceWithOptions(request: $_model.GetAgenticSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agenticSpaceId)) {
+      query["AgenticSpaceId"] = request.agenticSpaceId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticSpace",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticSpaceResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticSpaceResponse({}));
+  }
+
+  /**
+   * 查询Agentic空间
+   * 
+   * @remarks
+   * 适用 agentic 类型文件系统。
+   * 
+   * @param request - GetAgenticSpaceRequest
+   * @returns GetAgenticSpaceResponse
+   */
+  async getAgenticSpace(request: $_model.GetAgenticSpaceRequest): Promise<$_model.GetAgenticSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticSpaceWithOptions(request, runtime);
+  }
+
+  /**
    * Checks if a specified directory contains infrequent access or archive storage files, or if a specified file is an infrequent access or archive storage file.
    * 
    * @remarks
@@ -5752,6 +6091,66 @@ export default class Client extends OpenApi {
   async getRecycleBinAttribute(request: $_model.GetRecycleBinAttributeRequest): Promise<$_model.GetRecycleBinAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRecycleBinAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询接入点信息
+   * 
+   * @remarks
+   * 仅通用型 NAS NFS 协议文件系统支持。
+   * 
+   * @param request - ListAccessPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccessPointsResponse
+   */
+  async listAccessPointsWithOptions(request: $_model.ListAccessPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAccessPointsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAccessPoints",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAccessPointsResponse>(await this.callApi(params, req, runtime), new $_model.ListAccessPointsResponse({}));
+  }
+
+  /**
+   * 查询接入点信息
+   * 
+   * @remarks
+   * 仅通用型 NAS NFS 协议文件系统支持。
+   * 
+   * @param request - ListAccessPointsRequest
+   * @returns ListAccessPointsResponse
+   */
+  async listAccessPoints(request: $_model.ListAccessPointsRequest): Promise<$_model.ListAccessPointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAccessPointsWithOptions(request, runtime);
   }
 
   /**
@@ -6131,10 +6530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about an access point.
+   * Modifies access point information.
    * 
    * @remarks
-   * Only General-purpose Network File System (NFS) file systems support this operation.
+   * Only General-purpose NAS NFS file systems support this feature.
    * 
    * @param request - ModifyAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6181,10 +6580,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about an access point.
+   * Modifies access point information.
    * 
    * @remarks
-   * Only General-purpose Network File System (NFS) file systems support this operation.
+   * Only General-purpose NAS NFS file systems support this feature.
    * 
    * @param request - ModifyAccessPointRequest
    * @returns ModifyAccessPointResponse
@@ -6268,6 +6667,70 @@ export default class Client extends OpenApi {
   async modifyAccessRule(request: $_model.ModifyAccessRuleRequest): Promise<$_model.ModifyAccessRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccessRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - ModifyAgenticSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAgenticSpaceResponse
+   */
+  async modifyAgenticSpaceWithOptions(request: $_model.ModifyAgenticSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAgenticSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agenticSpaceId)) {
+      query["AgenticSpaceId"] = request.agenticSpaceId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAgenticSpace",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAgenticSpaceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAgenticSpaceResponse({}));
+  }
+
+  /**
+   * 修改Agentic空间
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - ModifyAgenticSpaceRequest
+   * @returns ModifyAgenticSpaceResponse
+   */
+  async modifyAgenticSpace(request: $_model.ModifyAgenticSpaceRequest): Promise<$_model.ModifyAgenticSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAgenticSpaceWithOptions(request, runtime);
   }
 
   /**
@@ -7219,6 +7682,74 @@ export default class Client extends OpenApi {
   async retryLifecycleRetrieveJob(request: $_model.RetryLifecycleRetrieveJobRequest): Promise<$_model.RetryLifecycleRetrieveJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.retryLifecycleRetrieveJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置Agentic空间配额
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - SetAgenticSpaceQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAgenticSpaceQuotaResponse
+   */
+  async setAgenticSpaceQuotaWithOptions(request: $_model.SetAgenticSpaceQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAgenticSpaceQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agenticSpaceId)) {
+      query["AgenticSpaceId"] = request.agenticSpaceId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.fileCountLimit)) {
+      query["FileCountLimit"] = request.fileCountLimit;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.sizeLimit)) {
+      query["SizeLimit"] = request.sizeLimit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAgenticSpaceQuota",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAgenticSpaceQuotaResponse>(await this.callApi(params, req, runtime), new $_model.SetAgenticSpaceQuotaResponse({}));
+  }
+
+  /**
+   * 设置Agentic空间配额
+   * 
+   * @remarks
+   * 适用agentic类型文件系统。
+   * 
+   * @param request - SetAgenticSpaceQuotaRequest
+   * @returns SetAgenticSpaceQuotaResponse
+   */
+  async setAgenticSpaceQuota(request: $_model.SetAgenticSpaceQuotaRequest): Promise<$_model.SetAgenticSpaceQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAgenticSpaceQuotaWithOptions(request, runtime);
   }
 
   /**

@@ -9,10 +9,10 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The name must be 2 to 128 characters in length.
-   * *   The name must start with a letter.
-   * *   The name can contain digits, colons (:), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
-   * *   This parameter is empty by default.
+   * - The name must be 2 to 128 characters in length.
+   * - The name must start with a letter or a Chinese character.
+   * - The name can contain digits, colons (:), underscores (_), or hyphens (-). It cannot start with `http://` or `https://`.
+   * - Default value: empty.
    * 
    * @example
    * FinanceJoshua
@@ -22,7 +22,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid value: extreme, which indicates Extreme NAS file systems.
+   * Valid values: extreme (Extreme NAS).
    * 
    * This parameter is required.
    * 
@@ -32,13 +32,13 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The days of a week on which to create automatic snapshots.
+   * The days of the week on which automatic snapshots are created.
    * 
    * Cycle: week.
    * 
-   * Valid values: 1 to 7. The values from 1 to 7 indicate the seven days in a week from Monday to Sunday.
+   * Valid values: 1 to 7, which represent Monday through Sunday.
    * 
-   * If you want to create multiple auto snapshots within a week, you can specify multiple days from Monday to Sunday and separate the days with commas (,). You can specify a maximum of seven days.
+   * To create automatic snapshots on multiple days in a week, specify multiple values separated by commas (,). You can specify a maximum of 7 values.
    * 
    * This parameter is required.
    * 
@@ -48,14 +48,14 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   repeatWeekdays?: string;
   /**
    * @remarks
-   * The retention period of auto snapshots.
+   * The retention period of automatic snapshots.
    * 
    * Unit: days.
    * 
    * Valid values:
    * 
-   * *   \\-1 (default). Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
-   * *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
+   * - -1 (default): Automatic snapshots are permanently retained. When the snapshot quota is reached, the earliest automatic snapshots are automatically deleted.
+   * - 1 to 65536: Automatic snapshots are retained for the specified number of days. Snapshots are subject to automatic release after the retention period expires.
    * 
    * @example
    * 30
@@ -63,13 +63,13 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The points in time at which auto snapshots were created.
+   * The time points at which automatic snapshots are created.
    * 
    * Unit: hours.
    * 
-   * Valid values: 0 to 23. The values from 0 to 23 indicate a total of 24 hours from 00:00 to 23:00. For example, the value 1 indicates 01:00.
+   * Valid values: 0 to 23, which represent the 24 time points from 00:00 to 23:00. For example, 1 indicates 01:00.
    * 
-   * If you want to create multiple auto snapshots within a day, you can specify multiple points in time and separate the points in time with commas (,). You can specify a maximum of 24 points in time.
+   * To create multiple automatic snapshots within a day, specify multiple time points separated by commas (,). You can specify a maximum of 24 time points.
    * 
    * This parameter is required.
    * 

@@ -13,12 +13,12 @@ export class CancelDirQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * The request status.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

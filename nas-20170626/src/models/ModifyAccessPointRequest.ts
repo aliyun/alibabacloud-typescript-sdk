@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission group.
+   * The permission group name.
    * 
-   * This parameter is required for a General-purpose File Storage NAS (NAS) file system.
+   * This parameter is required when the file system is a General-purpose NAS file system.
    * 
-   * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
+   * Default permission group: DEFAULT_VPC_GROUP_NAME (the default VPC permission group).
+   * > Agentic file systems do not support this parameter.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -17,7 +18,7 @@ export class ModifyAccessPointRequest extends $dara.Model {
   accessGroup?: string;
   /**
    * @remarks
-   * The ID of the access point.
+   * The access point ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +28,7 @@ export class ModifyAccessPointRequest extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The name of the access point.
+   * The access point name.
    * 
    * @example
    * test
@@ -35,12 +36,14 @@ export class ModifyAccessPointRequest extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Resource Access Management (RAM) policy. Valid values:
+   * Specifies whether to enable the RAM policy. Valid values:
    * 
-   * *   true: The RAM policy is enabled.
-   * *   false (default): The RAM policy is disabled.
+   * - true: Enabled.
+   * - false (default): Not enabled.
    * 
-   * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted.
+   * > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must grant the corresponding access permissions through authorization and mount and access data through the access point. After you disable the RAM policy, the access point allows anonymity mounting.
+   * 
+   * > Agentic file systems do not support this parameter.
    * 
    * @example
    * false
@@ -48,7 +51,7 @@ export class ModifyAccessPointRequest extends $dara.Model {
   enabledRam?: boolean;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 

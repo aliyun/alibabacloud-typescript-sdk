@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachVscFromFilesystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF518948****

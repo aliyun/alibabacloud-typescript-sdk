@@ -60,7 +60,7 @@ export class DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfo extends $
 export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of directories to return for each query.
+   * The number of entries returned per query.
    * 
    * Valid values: 10 to 1000.
    * 
@@ -72,7 +72,7 @@ export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token, which is the NextToken value returned from the previous API call.
+   * The query token. Set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -88,7 +88,7 @@ export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of associated information.
+   * The total number of association entries.
    * 
    * @example
    * 1

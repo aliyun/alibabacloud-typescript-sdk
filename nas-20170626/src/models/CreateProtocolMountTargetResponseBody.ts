@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProtocolMountTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the export directory for the protocol service.
+   * The ID of the protocol service export directory.
    * 
    * @example
    * exp-19abf5beab8d****

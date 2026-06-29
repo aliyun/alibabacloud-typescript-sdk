@@ -93,7 +93,7 @@ export class DescribeLogAnalysisResponseBody extends $dara.Model {
   analyses?: DescribeLogAnalysisResponseBodyAnalyses;
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -101,7 +101,7 @@ export class DescribeLogAnalysisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the log analysis entries.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class DescribeLogAnalysisResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log dump entries returned per page.
+   * The number of log analysis entries on each page.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeLogAnalysisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of log dump entries in the region.
+   * The total number of log analysis entries in the region.
    * 
    * @example
    * 10

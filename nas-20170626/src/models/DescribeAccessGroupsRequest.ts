@@ -9,8 +9,9 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The name must be 3 to 64 characters in length.
-   * *   The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
+   * - The name must be 3 to 64 characters in length.
+   * 
+   * - The name must start with a letter and can contain letters, digits, underscores (_), or hyphens (-).
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -22,9 +23,9 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose NAS
-   * *   extreme: Extreme NAS
-   * *   cpfs: CPFS
+   * - standard (default): General-purpose NAS.
+   * - extreme: Extreme NAS.
+   * - cpfs: Cloud Parallel File Storage (CPFS).
    * 
    * @example
    * standard
@@ -32,9 +33,9 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value (default value): 1.
    * 
    * @example
    * 1
@@ -42,7 +43,7 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of permission groups returned per page.
+   * The number of permission groups on each page.
    * 
    * Valid values: 1 to 100.
    * 
@@ -54,12 +55,12 @@ export class DescribeAccessGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether the time to return is displayed in UTC.
+   * Specifies whether the returned time is displayed in UTC.
    * 
    * Valid values:
    * 
-   * *   true (default): The time is displayed in UTC.
-   * *   false: The time is not displayed in UTC.
+   * - true (default): The returned time is displayed in UTC.
+   * - false: The returned time is not displayed in UTC.
    * 
    * @example
    * true

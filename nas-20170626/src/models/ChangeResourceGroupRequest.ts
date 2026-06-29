@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new resource group.
+   * The new resource group ID.
    * 
-   * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
+   * You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the zone.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2412111.html) operation to query the latest region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/2412111.html) to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * Set the value to filesystem.
+   * Valid values: filesystem (file system).
    * 
    * This parameter is required.
    * 
