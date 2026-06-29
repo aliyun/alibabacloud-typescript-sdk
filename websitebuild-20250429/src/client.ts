@@ -1280,6 +1280,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a resource plan.
+   * 
+   * @param request - CreateInspirationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInspirationResponse
+   */
+  async createInspirationWithOptions(request: $_model.CreateInspirationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInspirationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amountspec)) {
+      query["Amountspec"] = request.amountspec;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInspiration",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInspirationResponse>(await this.callApi(params, req, runtime), new $_model.CreateInspirationResponse({}));
+  }
+
+  /**
+   * Creates a resource plan.
+   * 
+   * @param request - CreateInspirationRequest
+   * @returns CreateInspirationResponse
+   */
+  async createInspiration(request: $_model.CreateInspirationRequest): Promise<$_model.CreateInspirationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInspirationWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a task to create a logo.
    * 
    * @param request - CreateLogoTaskRequest

@@ -31,6 +31,7 @@ export { CreateAppInstanceTicketResponseBodyModule } from './CreateAppInstanceTi
 export { CreateAppLlmApiKeyForPartnerResponseBodyModule } from './CreateAppLlmApiKeyForPartnerResponseBody';
 export { CreateAppNotificationSceneResponseBodyModule } from './CreateAppNotificationSceneResponseBody';
 export { CreateAppTokenServiceResponseBodyModule } from './CreateAppTokenServiceResponseBody';
+export { CreateInspirationResponseBodyModule } from './CreateInspirationResponseBody';
 export { CreateMaterialDirectoryResponseBodyModule } from './CreateMaterialDirectoryResponseBody';
 export { DeleteAppDomainCertificateResponseBodyModule } from './DeleteAppDomainCertificateResponseBody';
 export { DeleteAppDomainRedirectResponseBodyModule } from './DeleteAppDomainRedirectResponseBody';
@@ -255,6 +256,9 @@ export { CreateAppNotificationSceneResponse } from './CreateAppNotificationScene
 export { CreateAppTokenServiceRequest } from './CreateAppTokenServiceRequest';
 export { CreateAppTokenServiceResponseBody } from './CreateAppTokenServiceResponseBody';
 export { CreateAppTokenServiceResponse } from './CreateAppTokenServiceResponse';
+export { CreateInspirationRequest } from './CreateInspirationRequest';
+export { CreateInspirationResponseBody } from './CreateInspirationResponseBody';
+export { CreateInspirationResponse } from './CreateInspirationResponse';
 export { CreateLogoTaskRequest } from './CreateLogoTaskRequest';
 export { CreateLogoTaskResponseBody } from './CreateLogoTaskResponseBody';
 export { CreateLogoTaskResponse } from './CreateLogoTaskResponse';
