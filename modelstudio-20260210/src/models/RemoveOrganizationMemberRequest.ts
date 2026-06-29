@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsRequest extends $dara.Model {
+export class RemoveOrganizationMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of target member IDs.
+   * The list of member account IDs to be removed.
    */
   accountIds?: string[];
   /**
@@ -16,24 +16,10 @@ export class BatchAssignSeatsRequest extends $dara.Model {
    * zh-CN
    */
   locale?: string;
-  /**
-   * @remarks
-   * The seat type. Valid values:
-   * - standard: standard seat
-   * - pro: pro seat
-   * - max: premium seat
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * standard
-   */
-  seatType?: string;
   static names(): { [key: string]: string } {
     return {
       accountIds: 'AccountIds',
       locale: 'Locale',
-      seatType: 'SeatType',
     };
   }
 
@@ -41,7 +27,6 @@ export class BatchAssignSeatsRequest extends $dara.Model {
     return {
       accountIds: { 'type': 'array', 'itemType': 'string' },
       locale: 'string',
-      seatType: 'string',
     };
   }
 

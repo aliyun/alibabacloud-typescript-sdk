@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsResponseBody extends $dara.Model {
+export class SetTokenPlanOrgInviteConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
@@ -16,12 +16,15 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * None
+   * OK
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

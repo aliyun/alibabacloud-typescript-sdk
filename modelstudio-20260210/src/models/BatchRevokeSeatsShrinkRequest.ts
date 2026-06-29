@@ -2,36 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateTokenPlanKeyRequest extends $dara.Model {
+export class BatchRevokeSeatsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * acc_123456789
+   * The list of revocation items. This parameter is required.
    */
-  accountId?: string;
+  itemsShrink?: string;
   /**
    * @remarks
-   * The description of the key.
+   * The language. Valid values: zh-CN and en-US.
    * 
    * @example
-   * APIKEY描述
+   * zh-CN
    */
-  description?: string;
+  locale?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      description: 'Description',
+      itemsShrink: 'Items',
+      locale: 'Locale',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      description: 'string',
+      itemsShrink: 'string',
+      locale: 'string',
     };
   }
 

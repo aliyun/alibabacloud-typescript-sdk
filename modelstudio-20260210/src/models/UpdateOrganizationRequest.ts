@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateTokenPlanKeyRequest extends $dara.Model {
+export class UpdateOrganizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
-   * 
-   * This parameter is required.
+   * The organization description.
    * 
    * @example
-   * acc_123456789
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The description of the key.
-   * 
-   * @example
-   * APIKEY描述
+   * 新的组织描述
    */
   description?: string;
+  /**
+   * @remarks
+   * The organization name.
+   * 
+   * @example
+   * 新的组织名称
+   */
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
       description: 'Description',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
       description: 'string',
+      name: 'string',
     };
   }
 

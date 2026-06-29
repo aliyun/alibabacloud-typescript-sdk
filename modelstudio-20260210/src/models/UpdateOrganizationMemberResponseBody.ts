@@ -2,27 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsResponseBody extends $dara.Model {
+export class UpdateOrganizationMemberResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response status code.
-   * 
    * @example
    * 200
    */
   code?: string;
   /**
-   * @remarks
-   * The response message.
-   * 
    * @example
    * None
    */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
+   * @example
+   * 9531C132-DF05-5C7F-8BB0-96EA8C4D00D7
+   */
+  requestId?: string;
+  /**
    * @example
    * True
    */
@@ -30,7 +31,9 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -38,7 +41,9 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      httpStatusCode: 'number',
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }

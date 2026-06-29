@@ -2,36 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class AddOrganizationMemberResponseBodyData extends $dara.Model {
+export class GetTokenPlanOrgInviteConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The default organization role ID to assign. Valid values:
+   * 
+   * - SYSTEM_ROLE_ORG_ADMIN
+   * - SYSTEM_ROLE_ORG_MEMBER
    * 
    * @example
-   * acc_123456789
+   * ORG_MEMBER
    */
-  accountId?: string;
+  defaultRoleId?: string;
   /**
    * @remarks
-   * Indicates whether the seat was assigned successfully.
+   * The organization ID.
    * 
    * @example
-   * true
+   * org_123456789
    */
-  seatAssigned?: boolean;
+  orgId?: string;
+  /**
+   * @remarks
+   * The default seat allocation strategy. Valid values:
+   * 
+   * - HIGH_TO_LOW
+   * - LOW_TO_HIGH 
+   * - NONE
+   * 
+   * @example
+   * NONE
+   */
+  seatAssignStrategy?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      seatAssigned: 'SeatAssigned',
+      defaultRoleId: 'DefaultRoleId',
+      orgId: 'OrgId',
+      seatAssignStrategy: 'SeatAssignStrategy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      seatAssigned: 'boolean',
+      defaultRoleId: 'string',
+      orgId: 'string',
+      seatAssignStrategy: 'string',
     };
   }
 
@@ -44,59 +59,44 @@ export class AddOrganizationMemberResponseBodyData extends $dara.Model {
   }
 }
 
-export class AddOrganizationMemberResponseBody extends $dara.Model {
+export class GetTokenPlanOrgInviteConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
    * 
    * @example
-   * Success
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The business data.
+   * The data result of the current category statistics.
    */
-  data?: AddOrganizationMemberResponseBodyData;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * None
-   */
-  httpStatusCode?: number;
+  data?: GetTokenPlanOrgInviteConfigResponseBodyData;
   /**
    * @remarks
    * The response message.
    * 
    * @example
-   * Success.
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Indicates whether the API call is successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
-   * 385C2BC3-52FC-564F-9312-97E5DFE1DFC0
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * True
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
-      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -104,10 +104,8 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AddOrganizationMemberResponseBodyData,
-      httpStatusCode: 'number',
+      data: GetTokenPlanOrgInviteConfigResponseBodyData,
       message: 'string',
-      requestId: 'string',
       success: 'boolean',
     };
   }

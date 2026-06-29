@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $dara.Model {
+export class ListSubscriptionSharedPackagesResponseBodyDataItemsEquityList extends $dara.Model {
   /**
    * @remarks
    * The end time of the current cycle, in milliseconds.
    * 
    * @example
-   * 1755273600
+   * 1756310400
    */
   cycleEndTime?: number;
   /**
    * @remarks
-   * The equity code (subscription code). This does not need to be consumed in CREDITS scenarios.
+   * The equity code (subscription code). This is not required for consumption in the credits scenario.
    * 
    * @example
    * 123456
@@ -45,7 +45,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   cycleTotalValue?: number;
   /**
    * @remarks
-   * The time-series version of the current cycle.
+   * The sequential version of the current cycle.
    * 
    * @example
    * 1
@@ -92,55 +92,12 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   }
 }
 
-export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model {
+export class ListSubscriptionSharedPackagesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The mailbox of the member accounts.
-   * 
-   * @example
-   * test@email.com
+   * The currently active equity instances.
    */
-  accountEmail?: string;
-  /**
-   * @remarks
-   * The ID of the attached member accounts.
-   * 
-   * @example
-   * acc_123456789
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The name of the member accounts.
-   * 
-   * @example
-   * ExampleName
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * The assignment status. Valid values:
-   * 
-   * - ASSIGNED
-   * - UNASSIGNED
-   * 
-   * @example
-   * ASSIGNED
-   */
-  assignedStatus?: string;
-  /**
-   * @remarks
-   * The expiration time of the seat.
-   * 
-   * @example
-   * 1781422733
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The currently active equity instances. For TokenPlan products, this list contains only one active equity instance.
-   */
-  equityList?: GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList[];
+  equityList?: ListSubscriptionSharedPackagesResponseBodyDataItemsEquityList[];
   /**
    * @remarks
    * The instance code of the seat.
@@ -151,35 +108,8 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   instanceCode?: string;
   /**
    * @remarks
-   * The seat ID.
-   * 
-   * @example
-   * seat_123456
-   */
-  seatId?: string;
-  /**
-   * @remarks
-   * The seat type. Valid values: 
-   * 
-   * - standard: standard seat.
-   * - pro: pro seat.
-   * - max: premium seat.
-   * 
-   * @example
-   * standard
-   */
-  specType?: string;
-  /**
-   * @remarks
-   * The start time of the seat.
-   * 
-   * @example
-   * 1781422733
-   */
-  startTime?: number;
-  /**
-   * @remarks
    * The seat status. Valid values:
+   * 
    * - CREATING: being created.
    * - NORMAL: active.
    * - LIMIT: restricted due to overdue payment.
@@ -193,32 +123,16 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      accountEmail: 'AccountEmail',
-      accountId: 'AccountId',
-      accountName: 'AccountName',
-      assignedStatus: 'AssignedStatus',
-      endTime: 'EndTime',
       equityList: 'EquityList',
       instanceCode: 'InstanceCode',
-      seatId: 'SeatId',
-      specType: 'SpecType',
-      startTime: 'StartTime',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountEmail: 'string',
-      accountId: 'string',
-      accountName: 'string',
-      assignedStatus: 'string',
-      endTime: 'number',
-      equityList: { 'type': 'array', 'itemType': GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList },
+      equityList: { 'type': 'array', 'itemType': ListSubscriptionSharedPackagesResponseBodyDataItemsEquityList },
       instanceCode: 'string',
-      seatId: 'string',
-      specType: 'string',
-      startTime: 'number',
       status: 'string',
     };
   }
@@ -235,15 +149,15 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   }
 }
 
-export class GetSubscriptionSeatDetailsResponseBodyData extends $dara.Model {
+export class ListSubscriptionSharedPackagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data items.
+   * The data entries.
    */
-  items?: GetSubscriptionSeatDetailsResponseBodyDataItems[];
+  items?: ListSubscriptionSharedPackagesResponseBodyDataItems[];
   /**
    * @remarks
-   * The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -276,7 +190,7 @@ export class GetSubscriptionSeatDetailsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': GetSubscriptionSeatDetailsResponseBodyDataItems },
+      items: { 'type': 'array', 'itemType': ListSubscriptionSharedPackagesResponseBodyDataItems },
       pageNo: 'number',
       pageSize: 'number',
       total: 'number',
@@ -295,7 +209,7 @@ export class GetSubscriptionSeatDetailsResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetSubscriptionSeatDetailsResponseBody extends $dara.Model {
+export class ListSubscriptionSharedPackagesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
@@ -308,21 +222,21 @@ export class GetSubscriptionSeatDetailsResponseBody extends $dara.Model {
    * @remarks
    * The business data.
    */
-  data?: GetSubscriptionSeatDetailsResponseBodyData;
+  data?: ListSubscriptionSharedPackagesResponseBodyData;
   /**
    * @remarks
    * The response message.
    * 
    * @example
-   * OK
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * True
@@ -340,7 +254,7 @@ export class GetSubscriptionSeatDetailsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetSubscriptionSeatDetailsResponseBodyData,
+      data: ListSubscriptionSharedPackagesResponseBodyData,
       message: 'string',
       success: 'boolean',
     };

@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class AddOrganizationMemberResponseBodyData extends $dara.Model {
+export class GetTokenPlanInviteLinkResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The expiration time. Unit: milliseconds.
    * 
    * @example
-   * acc_123456789
+   * 1778379206
    */
-  accountId?: string;
+  expireTime?: number;
   /**
    * @remarks
-   * Indicates whether the seat was assigned successfully.
+   * The generated token.
    * 
    * @example
-   * true
+   * sk-ws-D.****.*******
    */
-  seatAssigned?: boolean;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      seatAssigned: 'SeatAssigned',
+      expireTime: 'ExpireTime',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      seatAssigned: 'boolean',
+      expireTime: 'number',
+      token: 'string',
     };
   }
 
@@ -44,59 +42,44 @@ export class AddOrganizationMemberResponseBodyData extends $dara.Model {
   }
 }
 
-export class AddOrganizationMemberResponseBody extends $dara.Model {
+export class GetTokenPlanInviteLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
    * 
    * @example
-   * Success
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The business data.
+   * The returned data.
    */
-  data?: AddOrganizationMemberResponseBodyData;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * None
-   */
-  httpStatusCode?: number;
+  data?: GetTokenPlanInviteLinkResponseBodyData;
   /**
    * @remarks
    * The response message.
    * 
    * @example
-   * Success.
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
-   * 385C2BC3-52FC-564F-9312-97E5DFE1DFC0
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * True
+   * False
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
-      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -104,10 +87,8 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AddOrganizationMemberResponseBodyData,
-      httpStatusCode: 'number',
+      data: GetTokenPlanInviteLinkResponseBodyData,
       message: 'string',
-      requestId: 'string',
       success: 'boolean',
     };
   }

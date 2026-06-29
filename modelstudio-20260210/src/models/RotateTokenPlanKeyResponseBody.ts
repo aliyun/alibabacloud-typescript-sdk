@@ -2,36 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class AddOrganizationMemberResponseBodyData extends $dara.Model {
+export class RotateTokenPlanKeyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The API Key ID, which is system-generated.
    * 
    * @example
-   * acc_123456789
+   * ak_123456
    */
-  accountId?: string;
+  apiKeyId?: string;
   /**
    * @remarks
-   * Indicates whether the seat was assigned successfully.
+   * The new masked_api_key returned by BaiLian, such as sk_***cdef.
    * 
    * @example
-   * true
+   * sk_***6
    */
-  seatAssigned?: boolean;
+  maskedApiKey?: string;
+  /**
+   * @remarks
+   * The new plaintext API Key returned by BaiLian. This value is returned only once during the reset operation.
+   * 
+   * @example
+   * sk-ws.abc123456
+   */
+  plainApiKey?: string;
+  /**
+   * @remarks
+   * The time when the API key was reset.
+   * 
+   * @example
+   * 2025-07-18T03:19:17Z
+   */
+  resetAt?: string;
+  /**
+   * @remarks
+   * The source_id returned by BaiLian.
+   * 
+   * @example
+   * 123456
+   */
+  sourceId?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      seatAssigned: 'SeatAssigned',
+      apiKeyId: 'ApiKeyId',
+      maskedApiKey: 'MaskedApiKey',
+      plainApiKey: 'PlainApiKey',
+      resetAt: 'ResetAt',
+      sourceId: 'SourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      seatAssigned: 'boolean',
+      apiKeyId: 'string',
+      maskedApiKey: 'string',
+      plainApiKey: 'string',
+      resetAt: 'string',
+      sourceId: 'string',
     };
   }
 
@@ -44,7 +72,7 @@ export class AddOrganizationMemberResponseBodyData extends $dara.Model {
   }
 }
 
-export class AddOrganizationMemberResponseBody extends $dara.Model {
+export class RotateTokenPlanKeyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
@@ -57,15 +85,7 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
    * @remarks
    * The business data.
    */
-  data?: AddOrganizationMemberResponseBodyData;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * None
-   */
-  httpStatusCode?: number;
+  data?: RotateTokenPlanKeyResponseBodyData;
   /**
    * @remarks
    * The response message.
@@ -76,15 +96,10 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * @example
-   * 385C2BC3-52FC-564F-9312-97E5DFE1DFC0
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True
@@ -94,9 +109,7 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
     return {
       code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
-      requestId: 'RequestId',
       success: 'Success',
     };
   }
@@ -104,10 +117,8 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AddOrganizationMemberResponseBodyData,
-      httpStatusCode: 'number',
+      data: RotateTokenPlanKeyResponseBodyData,
       message: 'string',
-      requestId: 'string',
       success: 'boolean',
     };
   }

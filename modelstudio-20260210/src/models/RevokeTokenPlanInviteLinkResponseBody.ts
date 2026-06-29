@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsResponseBody extends $dara.Model {
+export class RevokeTokenPlanInviteLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
@@ -16,15 +16,18 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * None
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the API call is successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
-   * True
+   * False
    */
   success?: boolean;
   static names(): { [key: string]: string } {

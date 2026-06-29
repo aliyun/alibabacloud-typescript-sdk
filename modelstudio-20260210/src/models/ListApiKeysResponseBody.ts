@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   /**
    * @remarks
-   * IP access whitelist.
+   * The IP address whitelist.
    */
   accessIps?: string[];
   /**
    * @remarks
-   * All: All permissions; Custom: Custom permissions.
+   * All: all permissions. Custom: custom permissions.
    * 
    * @example
    * Custom
@@ -45,7 +45,7 @@ export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
 export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   /**
    * @remarks
-   * API Key ID.
+   * API Key ID。
    * 
    * @example
    * 2965964
@@ -53,7 +53,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Value of the API Key.
+   * The value of the API key.
    * 
    * @example
    * sk-ws-djI.8O7d*****2aICctnid4u4
@@ -61,12 +61,12 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   apiKeyValue?: string;
   /**
    * @remarks
-   * Permission settings.
+   * The permission settings.
    */
   auth?: ListApiKeysResponseBodyApiKeysAuth;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 1378030599924858
@@ -74,7 +74,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -82,7 +82,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the API Key is disabled.
+   * Indicates whether the API key is disabled. Valid values:
    * 
    * - **0**: Active.
    * - **1**: Disabled.
@@ -93,7 +93,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   disabled?: number;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1774338222000
@@ -101,7 +101,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * ws-950f9aca7e76c816
@@ -148,12 +148,12 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
 export class ListApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of API Keys.
+   * The list of API keys.
    */
   apiKeys?: ListApiKeysResponseBodyApiKeys[];
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -161,7 +161,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -169,7 +169,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -177,7 +177,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -185,7 +185,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
+   * The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
    * 
    * @example
    * lwytFRtLdNk=
@@ -201,7 +201,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call is successful:
+   * Indicates whether the API call was successful. Valid values:
    * 
    * - true: Successful.
    * - false: Failed.
@@ -212,7 +212,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 4

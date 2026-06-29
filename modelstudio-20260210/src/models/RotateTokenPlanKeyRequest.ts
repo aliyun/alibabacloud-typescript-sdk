@@ -2,36 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateTokenPlanKeyRequest extends $dara.Model {
+export class RotateTokenPlanKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * API Key ID
    * 
    * This parameter is required.
    * 
    * @example
-   * acc_123456789
+   * ak_123456
    */
-  accountId?: string;
-  /**
-   * @remarks
-   * The description of the key.
-   * 
-   * @example
-   * APIKEY描述
-   */
-  description?: string;
+  apiKeyId?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      description: 'Description',
+      apiKeyId: 'ApiKeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      description: 'string',
+      apiKeyId: 'string',
     };
   }
 

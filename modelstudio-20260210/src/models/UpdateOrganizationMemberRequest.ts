@@ -2,46 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The list of target member IDs.
-   */
+export class UpdateOrganizationMemberRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @remarks
-   * The language. Valid values: zh-CN and en-US.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The seat type. Valid values:
-   * - standard: standard seat
-   * - pro: pro seat
-   * - max: premium seat
-   * 
    * This parameter is required.
    * 
    * @example
-   * standard
+   * ORG_MEMBER
    */
-  seatType?: string;
+  newRoleCode?: string;
   static names(): { [key: string]: string } {
     return {
       accountIds: 'AccountIds',
-      locale: 'Locale',
-      seatType: 'SeatType',
+      newRoleCode: 'NewRoleCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountIds: { 'type': 'array', 'itemType': 'string' },
-      locale: 'string',
-      seatType: 'string',
+      newRoleCode: 'string',
     };
   }
 

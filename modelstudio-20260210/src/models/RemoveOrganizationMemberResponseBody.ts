@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsResponseBody extends $dara.Model {
+export class RemoveOrganizationMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The error code. This parameter is empty if the operation is successful.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The error message. This parameter is empty if the operation is successful.
    * 
    * @example
-   * None
+   * Success.
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True

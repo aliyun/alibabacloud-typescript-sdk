@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchAssignSeatsResponseBody extends $dara.Model {
+export class BatchRevokeSeatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The error code. This parameter is empty if the request was successful.
    * 
    * @example
    * 200
@@ -13,10 +13,10 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The error message. This parameter is empty if the request was successful.
    * 
    * @example
-   * None
+   * Successful
    */
   message?: string;
   /**

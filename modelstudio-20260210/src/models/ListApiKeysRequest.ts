@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * Exact search by API Key ID.
+   * The API key ID for exact match.
    * 
    * @example
    * 3076140
@@ -13,7 +13,7 @@ export class ListApiKeysRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Fuzzy search by description keyword.
+   * The keyword for fuzzy match against the description.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListApiKeysRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 30
@@ -29,7 +29,7 @@ export class ListApiKeysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Used to return more results. This parameter is not required for the first query. The token required for subsequent queries can be obtained from the returned results.
+   * The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
    * 
    * @example
    * w9Z+S5+TZyw=
@@ -37,7 +37,31 @@ export class ListApiKeysRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Exact search by workspace ID.
+   * The sort order. Valid values:
+   * 
+   * - DESC (default)
+   * 
+   * - ASC.
+   * 
+   * @example
+   * ASC
+   */
+  order?: string;
+  /**
+   * @remarks
+   * The field by which to sort results. Valid values:
+   * 
+   * - apiKeyId (default)
+   * 
+   * - gmtCreate.
+   * 
+   * @example
+   * gmtCreate
+   */
+  orderBy?: string;
+  /**
+   * @remarks
+   * The workspace ID for exact match.
    * 
    * @example
    * ws-ac3ef438bec22dc5
@@ -49,6 +73,8 @@ export class ListApiKeysRequest extends $dara.Model {
       description: 'description',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      order: 'order',
+      orderBy: 'orderBy',
       workspaceId: 'workspaceId',
     };
   }
@@ -59,6 +85,8 @@ export class ListApiKeysRequest extends $dara.Model {
       description: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      order: 'string',
+      orderBy: 'string',
       workspaceId: 'string',
     };
   }
