@@ -2,36 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateInstanceRequest extends $dara.Model {
+export class UpdateAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the instance.
+   * agent storage description
    * 
    * @example
-   * instance-test
+   * description for agent storage
    */
-  aliasName?: string;
+  agentStorageDescription?: string;
   /**
    * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * the test instance
-   */
-  instanceDescription?: string;
-  /**
-   * @remarks
-   * The name of the instance whose information you want to update.
+   * agent storage name
    * 
    * This parameter is required.
    * 
    * @example
-   * instance-test
+   * agent-test
    */
-  instanceName?: string;
+  agentStorageName?: string;
   /**
    * @remarks
-   * (Deprecated) The network type of the instance. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
+   * The alias of the agent storage.
+   * 
+   * @example
+   * agent-test
+   */
+  aliasName?: string;
+  /**
+   * @remarks
+   * (Deprecated) The network type of the agent storage. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
    * 
    * @example
    * VPC
@@ -39,27 +39,23 @@ export class UpdateInstanceRequest extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The new sources of the network from which access is allowed. By default, all sources of networks are allowed. Valid value:
-   * 
-   * TRUST_PROXY: the console
+   * The list of network sources allowed for the agent storage. All sources are allowed by default. Valid values:
+   * - TRUST_PROXY: console.
    */
   networkSourceACL?: string[];
   /**
    * @remarks
-   * The new types of the network from which access is allowed. By default, all types of networks are allowed. Valid values:
-   * 
-   * - INTERNET: the Internet
-   * 
-   * - VPC: VPCs
-   * 
-   * - CLASSIC: the classic network
+   * The list of network types allowed for the agent storage. All types are allowed by default. Valid values:
+   * - CLASSIC: classic network.
+   * - INTERNET: public network.
+   * - VPC: VPC network.
    */
   networkTypeACL?: string[];
   static names(): { [key: string]: string } {
     return {
+      agentStorageDescription: 'AgentStorageDescription',
+      agentStorageName: 'AgentStorageName',
       aliasName: 'AliasName',
-      instanceDescription: 'InstanceDescription',
-      instanceName: 'InstanceName',
       network: 'Network',
       networkSourceACL: 'NetworkSourceACL',
       networkTypeACL: 'NetworkTypeACL',
@@ -68,9 +64,9 @@ export class UpdateInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentStorageDescription: 'string',
+      agentStorageName: 'string',
       aliasName: 'string',
-      instanceDescription: 'string',
-      instanceName: 'string',
       network: 'string',
       networkSourceACL: { 'type': 'array', 'itemType': 'string' },
       networkTypeACL: { 'type': 'array', 'itemType': 'string' },

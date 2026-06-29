@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindInstance2VpcRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindInstance2VpcRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
+   * The VPC name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class BindInstance2VpcRequest extends $dara.Model {
   instanceVpcName?: string;
   /**
    * @remarks
+   * The virtual switch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,7 +35,7 @@ export class BindInstance2VpcRequest extends $dara.Model {
   virtualSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The VPC ID.
    * 
    * This parameter is required.
    * 

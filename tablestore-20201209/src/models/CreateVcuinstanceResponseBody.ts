@@ -4,23 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVCUInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code of the response.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The name of the created instance.
+   * 
    * @example
    * instance-test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The description of the response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * request id
+   * The request ID.
    * 
    * @example
    * 39871ED2-62C0-578F-A32E-B88072D5582F

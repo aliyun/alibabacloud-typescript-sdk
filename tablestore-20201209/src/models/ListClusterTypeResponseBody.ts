@@ -4,10 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClusterTypeResponseBodyClusterTypeInfos extends $dara.Model {
   /**
+   * @remarks
+   * The cluster type.
+   * 
+   * - HYBRID: Capacity.
+   * 
+   * - SSD: Performance.
+   * 
    * @example
    * SSD
    */
   clusterType?: string;
+  /**
+   * @remarks
+   * Indicates whether the cluster supports deployment in multiple availability zones (AZs).
+   * 
+   * - true: The cluster supports multi-zone deployment and provides zone-redundant storage.
+   * 
+   * - false: The cluster does not support multi-zone deployment and provides locally redundant storage.
+   * 
+   * @example
+   * true
+   */
   isMultiAZ?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -33,9 +51,20 @@ export class ListClusterTypeResponseBodyClusterTypeInfos extends $dara.Model {
 }
 
 export class ListClusterTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of the detailed information about the cluster types.
+   */
   clusterTypeInfos?: ListClusterTypeResponseBodyClusterTypeInfos[];
+  /**
+   * @remarks
+   * A list of cluster types.
+   */
   clusterTypes?: string[];
   /**
+   * @remarks
+   * The request ID. Use this ID to troubleshoot issues.
+   * 
    * @example
    * 88BA193C-4918-08C4-9870-E1FE6BBECF34
    */

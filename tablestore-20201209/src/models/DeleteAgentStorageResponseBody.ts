@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteVCUInstanceResponseBody extends $dara.Model {
+export class DeleteAgentStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request. You can use this ID to locate and troubleshoot issues.
+   * Id of the request
    * 
    * @example
-   * 39871ED2-62C0-578F-A32E-B88072D5582F
+   * E734979F-5A44-5993-9CE5-C23103576923
    */
   requestId?: string;
   static names(): { [key: string]: string } {

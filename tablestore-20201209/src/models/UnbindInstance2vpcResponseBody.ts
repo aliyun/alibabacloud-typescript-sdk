@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindInstance2VpcResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 18DD77BF-F967-576D-80D1-79121399AB53
    */

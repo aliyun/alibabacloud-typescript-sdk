@@ -2,20 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateInstanceRequestTags extends $dara.Model {
+/**
+ */
+export class CreateAgentStorageRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 64 characters in length.
+   * The key of the tag.
+   * The key can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * p_instance
+   * created
    */
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 64 characters in length.
+   * The value of the tag.
+   * The value can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -46,84 +50,46 @@ export class CreateInstanceRequestTags extends $dara.Model {
   }
 }
 
-export class CreateInstanceRequest extends $dara.Model {
+export class CreateAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance.
+   * agent storage description
+   * 
+   * @example
+   * description for agent storage
+   */
+  agentStorageDescription?: string;
+  /**
+   * @remarks
+   * agent storage name
    * 
    * This parameter is required.
    * 
    * @example
-   * SSD
+   * first-ins
    */
-  clusterType?: string;
+  agentStorageName?: string;
   /**
    * @remarks
-   * (Deprecated) Specifies whether to enable disaster recovery for the instance.
-   * 
-   * Valid values:
-   * 
-   * *   false
-   * *   true
+   * （已弃用）智能体存储网络类型。NORMAL, VPC_CONSOLE。默认为NORMAL。
    * 
    * @example
-   * false
-   * 
-   * @deprecated
-   */
-  disableReplication?: boolean;
-  /**
-   * @remarks
-   * The description of the instance. The instance description must be 3 to 256 characters in length.
-   * 
-   * @example
-   * the test instance
-   */
-  instanceDescription?: string;
-  /**
-   * @remarks
-   * The name of the instance. Instance naming conventions:
-   * 
-   * *   The name can contain only letters, digits, and hyphens (-).
-   * *   The name must start with a letter.
-   * *   The name cannot end with a hyphen (-).
-   * *   The name is case-insensitive.
-   * *   The name must be 3 to 16 characters in length.
-   * *   The name cannot contain the following words: ali, ay, ots, taobao, and admin.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * instance-test
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * (Deprecated) The network type of the instance. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
-   * 
-   * @example
-   * NORMAL
+   * VPC
    */
   network?: string;
   /**
    * @remarks
-   * The types of the source from which access is allowed. By default, the following source type is allowed:
-   * 
-   * TRUST_PROXY: console
+   * The list of network sources allowed for the agent storage instance. By default, all network sources are allowed. Valid values: TRUST_PROXY: console.
    */
   networkSourceACL?: string[];
   /**
    * @remarks
-   * The types of the network from which access is allowed. By default, the following network types are allowed:
-   * 
-   * *   INTERNET: Internet
-   * *   VPC: virtual private cloud (VPC)
-   * *   CLASSIC: classic network
+   * The list of network types allowed for the agent storage instance. By default, all network types are allowed. Valid values: CLASSIC: classic network. INTERNET: Internet. VPC: VPC.
    */
   networkTypeACL?: string[];
   /**
    * @remarks
-   * The instance policy in the JSON format.
+   * The access control policy of the agent storage instance in JSON format. For the policy syntax, see https://www.alibabacloud.com/help/en/ram/user-guide/policy-structure-and-syntax.
    * 
    * @example
    * {
@@ -134,7 +100,7 @@ export class CreateInstanceRequest extends $dara.Model {
    *                 "ots:*"
    *             ],
    *             "Resource": [
-   *                 "acs:ots:*:13791xxxxxxxxxxx:instance/myinstance*"
+   *                 "acs:ots:*:13791xxxxxxxxxxx:agentstorage/myagentstorage*"
    *             ],
    *             "Principal": [
    *                 "*"
@@ -160,7 +126,7 @@ export class CreateInstanceRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * resource group id
    * 
    * @example
    * rg-acfmxh4em5jnbcd
@@ -168,15 +134,13 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * tag
    */
-  tags?: CreateInstanceRequestTags[];
+  tags?: CreateAgentStorageRequestTags[];
   static names(): { [key: string]: string } {
     return {
-      clusterType: 'ClusterType',
-      disableReplication: 'DisableReplication',
-      instanceDescription: 'InstanceDescription',
-      instanceName: 'InstanceName',
+      agentStorageDescription: 'AgentStorageDescription',
+      agentStorageName: 'AgentStorageName',
       network: 'Network',
       networkSourceACL: 'NetworkSourceACL',
       networkTypeACL: 'NetworkTypeACL',
@@ -188,16 +152,14 @@ export class CreateInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clusterType: 'string',
-      disableReplication: 'boolean',
-      instanceDescription: 'string',
-      instanceName: 'string',
+      agentStorageDescription: 'string',
+      agentStorageName: 'string',
       network: 'string',
       networkSourceACL: { 'type': 'array', 'itemType': 'string' },
       networkTypeACL: { 'type': 'array', 'itemType': 'string' },
       policy: 'string',
       resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
+      tags: { 'type': 'array', 'itemType': CreateAgentStorageRequestTags },
     };
   }
 

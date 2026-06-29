@@ -11,7 +11,35 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "tablestore.us-west-1.aliyuncs.com",
+      'us-east-1': "tablestore.us-east-1.aliyuncs.com",
+      'me-east-1': "tablestore.me-east-1.aliyuncs.com",
+      'me-central-1': "tablestore.me-central-1.aliyuncs.com",
+      'eu-west-1': "tablestore.eu-west-1.aliyuncs.com",
+      'eu-central-1': "tablestore.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "tablestore.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "tablestore.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "tablestore.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "tablestore.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "tablestore.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "tablestore.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "tablestore.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "tablestore.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "tablestore.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "tablestore.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "tablestore.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "tablestore.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "tablestore.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "tablestore.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "tablestore.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "tablestore.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "tablestore.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "tablestore.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "tablestore.ap-south-1.aliyuncs.com",
+      'ap-northeast-1': "tablestore.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("tablestore", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +58,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定vpc
+   * Binds an instance to a VPC.
    * 
    * @param request - BindInstance2VpcRequest
    * @param headers - map
@@ -75,7 +103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定vpc
+   * Binds an instance to a VPC.
    * 
    * @param request - BindInstance2VpcRequest
    * @returns BindInstance2VpcResponse
@@ -185,6 +213,91 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an agent storage instance.
+   * 
+   * @remarks
+   * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+   * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * 
+   * @param request - CreateAgentStorageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentStorageResponse
+   */
+  async createAgentStorageWithOptions(request: $_model.CreateAgentStorageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentStorageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageDescription)) {
+      body["AgentStorageDescription"] = request.agentStorageDescription;
+    }
+
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["Network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.networkSourceACL)) {
+      body["NetworkSourceACL"] = request.networkSourceACL;
+    }
+
+    if (!$dara.isNull(request.networkTypeACL)) {
+      body["NetworkTypeACL"] = request.networkTypeACL;
+    }
+
+    if (!$dara.isNull(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentStorage",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/createagentstorage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentStorageResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentStorageResponse({}));
+  }
+
+  /**
+   * Creates an agent storage instance.
+   * 
+   * @remarks
+   * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+   * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * 
+   * @param request - CreateAgentStorageRequest
+   * @returns CreateAgentStorageResponse
+   */
+  async createAgentStorage(request: $_model.CreateAgentStorageRequest): Promise<$_model.CreateAgentStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAgentStorageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates an instance.
    * 
    * @remarks
@@ -276,7 +389,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建VCU实例
+   * Creates a VCU instance.
+   * 
+   * @remarks
+   * - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+   * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
    * 
    * @param request - CreateVCUInstanceRequest
    * @param headers - map
@@ -349,7 +467,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建VCU实例
+   * Creates a VCU instance.
+   * 
+   * @remarks
+   * - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+   * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
    * 
    * @param request - CreateVCUInstanceRequest
    * @returns CreateVCUInstanceResponse
@@ -358,6 +481,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVCUInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes an agent store.
+   * 
+   * @remarks
+   * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+   * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+   * 
+   * @param request - DeleteAgentStorageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentStorageResponse
+   */
+  async deleteAgentStorageWithOptions(request: $_model.DeleteAgentStorageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentStorageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentStorage",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/deleteagentstorage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentStorageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentStorageResponse({}));
+  }
+
+  /**
+   * Deletes an agent store.
+   * 
+   * @remarks
+   * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+   * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+   * 
+   * @param request - DeleteAgentStorageRequest
+   * @returns DeleteAgentStorageResponse
+   */
+  async deleteAgentStorage(request: $_model.DeleteAgentStorageRequest): Promise<$_model.DeleteAgentStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentStorageWithOptions(request, headers, runtime);
   }
 
   /**
@@ -473,7 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除VCU实例
+   * Deletes a VCU instance.
    * 
    * @param request - DeleteVCUInstanceRequest
    * @param headers - map
@@ -506,7 +682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除VCU实例
+   * Deletes a VCU instance.
    * 
    * @param request - DeleteVCUInstanceRequest
    * @returns DeleteVCUInstanceResponse
@@ -518,7 +694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries supported regions.
+   * Retrieves a list of available regions.
    * 
    * @param request - DescribeRegionsRequest
    * @param headers - map
@@ -551,7 +727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries supported regions.
+   * Retrieves a list of available regions.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -560,6 +736,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves agent storage.
+   * 
+   * @param request - GetAgentStorageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentStorageResponse
+   */
+  async getAgentStorageWithOptions(request: $_model.GetAgentStorageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentStorageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      query["AgentStorageName"] = request.agentStorageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentStorage",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/getagentstorage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentStorageResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentStorageResponse({}));
+  }
+
+  /**
+   * Retrieves agent storage.
+   * 
+   * @param request - GetAgentStorageRequest
+   * @returns GetAgentStorageResponse
+   */
+  async getAgentStorage(request: $_model.GetAgentStorageRequest): Promise<$_model.GetAgentStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentStorageWithOptions(request, headers, runtime);
   }
 
   /**
@@ -608,7 +829,86 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举集群类型
+   * Lists agent storages.
+   * 
+   * @param tmpReq - ListAgentStoragesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentStoragesResponse
+   */
+  async listAgentStoragesWithOptions(tmpReq: $_model.ListAgentStoragesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentStoragesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAgentStoragesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentStorageNameList)) {
+      request.agentStorageNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentStorageNameList, "AgentStorageNameList", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      query["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.agentStorageNameListShrink)) {
+      query["AgentStorageNameList"] = request.agentStorageNameListShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentStorages",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/listagentstorages`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentStoragesResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentStoragesResponse({}));
+  }
+
+  /**
+   * Lists agent storages.
+   * 
+   * @param request - ListAgentStoragesRequest
+   * @returns ListAgentStoragesResponse
+   */
+  async listAgentStorages(request: $_model.ListAgentStoragesRequest): Promise<$_model.ListAgentStoragesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAgentStoragesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Lists the supported cluster types in the current region.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -633,7 +933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举集群类型
+   * Lists the supported cluster types in the current region.
    * @returns ListClusterTypeResponse
    */
   async listClusterType(): Promise<$_model.ListClusterTypeResponse> {
@@ -793,7 +1093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的vpcInfo列表
+   * Retrieves a list of VPC information for an instance.
    * 
    * @param request - ListVpcInfoByInstanceRequest
    * @param headers - map
@@ -834,7 +1134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的vpcInfo列表
+   * Retrieves a list of VPC information for an instance.
    * 
    * @param request - ListVpcInfoByInstanceRequest
    * @returns ListVpcInfoByInstanceResponse
@@ -846,7 +1146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的vpcInfo列表
+   * Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
    * 
    * @param request - ListVpcInfoByVpcRequest
    * @param headers - map
@@ -887,7 +1187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的vpcInfo列表
+   * Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
    * 
    * @param request - ListVpcInfoByVpcRequest
    * @returns ListVpcInfoByVpcResponse
@@ -952,7 +1252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑vpc
+   * Detaches an instance from a VPC.
    * 
    * @param request - UnbindInstance2VpcRequest
    * @param headers - map
@@ -989,7 +1289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑vpc
+   * Detaches an instance from a VPC.
    * 
    * @param request - UnbindInstance2VpcRequest
    * @returns UnbindInstance2VpcResponse
@@ -1064,6 +1364,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates agent storage.
+   * 
+   * @param request - UpdateAgentStorageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentStorageResponse
+   */
+  async updateAgentStorageWithOptions(request: $_model.UpdateAgentStorageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentStorageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageDescription)) {
+      body["AgentStorageDescription"] = request.agentStorageDescription;
+    }
+
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.aliasName)) {
+      body["AliasName"] = request.aliasName;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["Network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.networkSourceACL)) {
+      body["NetworkSourceACL"] = request.networkSourceACL;
+    }
+
+    if (!$dara.isNull(request.networkTypeACL)) {
+      body["NetworkTypeACL"] = request.networkTypeACL;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgentStorage",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/updateagentstorage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentStorageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentStorageResponse({}));
+  }
+
+  /**
+   * Updates agent storage.
+   * 
+   * @param request - UpdateAgentStorageRequest
+   * @returns UpdateAgentStorageResponse
+   */
+  async updateAgentStorage(request: $_model.UpdateAgentStorageRequest): Promise<$_model.UpdateAgentStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentStorageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Updates instance information.
    * 
    * @param request - UpdateInstanceRequest
@@ -1132,9 +1497,9 @@ export default class Client extends OpenApi {
    * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
    * 
    * @remarks
-   *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-   * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-   * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+   * - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+   * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
    * 
    * @param request - UpdateInstanceElasticVCUUpperLimitRequest
    * @param headers - map
@@ -1174,9 +1539,9 @@ export default class Client extends OpenApi {
    * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
    * 
    * @remarks
-   *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-   * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-   * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+   * - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+   * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
    * 
    * @param request - UpdateInstanceElasticVCUUpperLimitRequest
    * @returns UpdateInstanceElasticVCUUpperLimitResponse

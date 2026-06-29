@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVCUInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The key of the tag. The key can be up to 64 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateVCUInstanceRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The value of the tag. The value can be up to 64 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,18 +48,24 @@ export class CreateVCUInstanceRequestTags extends $dara.Model {
 
 export class CreateVCUInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The alias of the instance.
+   * 
    * @example
-   * 实例别名
+   * test
    */
   aliasName?: string;
   /**
+   * @remarks
+   * The auto-renewal cycle. This parameter is required if auto-renewal is enabled.
+   * 
    * @example
    * 1
    */
   autoRenewPeriodInMonth?: number;
   /**
    * @remarks
-   * cluster type
+   * The cluster type.
    * 
    * This parameter is required.
    * 
@@ -64,19 +74,35 @@ export class CreateVCUInstanceRequest extends $dara.Model {
    */
   clusterType?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run. If you perform a dry run, no instance is created.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal.
+   */
   enableAutoRenew?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable instance elasticity. If you enable instance elasticity, the peak VCU usage can exceed the purchased VCU amount, but additional fees are incurred.
+   */
   enableElasticVCU?: boolean;
   /**
+   * @remarks
+   * The description of the instance.
+   * 
    * @example
-   * 实例描述
+   * testvcu
    */
   instanceDescription?: string;
   /**
    * @remarks
+   * The subscription duration. Unit: month.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,7 +111,7 @@ export class CreateVCUInstanceRequest extends $dara.Model {
   periodInMonth?: number;
   /**
    * @remarks
-   * resource group id
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxh4em5jnbcd
@@ -93,11 +119,13 @@ export class CreateVCUInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * tag
+   * The tags.
    */
   tags?: CreateVCUInstanceRequestTags[];
   /**
    * @remarks
+   * The instance type: the number of VCUs.
+   * 
    * This parameter is required.
    * 
    * @example

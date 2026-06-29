@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The key of the region.
+   * The region key.
    * 
    * @example
    * yunjiankong.cloud.region.cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   i18nKey?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -45,9 +45,16 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * A list of regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 39871ED2-62C0-578F-A32E-B88072D5582F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

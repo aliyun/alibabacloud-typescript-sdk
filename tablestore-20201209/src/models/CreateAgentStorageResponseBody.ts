@@ -2,23 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteVCUInstanceResponseBody extends $dara.Model {
+export class CreateAgentStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request. You can use this ID to locate and troubleshoot issues.
+   * The response status code.
    * 
    * @example
-   * 39871ED2-62C0-578F-A32E-B88072D5582F
+   * OK
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * request id
+   * 
+   * @example
+   * 18DD77BF-F967-576D-80D1-79121399AB53
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }

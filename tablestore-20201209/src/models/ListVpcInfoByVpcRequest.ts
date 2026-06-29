@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVpcInfoByVpcRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of VPCs to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * VPC ID
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 

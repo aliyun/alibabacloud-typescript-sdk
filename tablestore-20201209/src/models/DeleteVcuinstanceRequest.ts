@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVCUInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

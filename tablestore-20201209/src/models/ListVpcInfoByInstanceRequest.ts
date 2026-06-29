@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcInfoByInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListVpcInfoByInstanceRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of VPCs to return on each page.
+   * 
    * @example
    * 8
    */
