@@ -3897,6 +3897,10 @@ export default class Client extends OpenApi {
   async grantPromotionOfferForPartnerWithOptions(request: $_model.GrantPromotionOfferForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GrantPromotionOfferForPartnerResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.activityCode)) {
+      query["ActivityCode"] = request.activityCode;
+    }
+
     if (!$dara.isNull(request.activityId)) {
       query["ActivityId"] = request.activityId;
     }

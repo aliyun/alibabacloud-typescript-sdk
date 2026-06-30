@@ -89,7 +89,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore it.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -105,7 +105,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
@@ -131,7 +131,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -139,7 +139,7 @@ export class GrantPromotionOfferForPartnerResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
+  activityCode?: string;
   /**
    * @remarks
    * The activity ID.
@@ -45,6 +46,7 @@ export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      activityCode: 'ActivityCode',
       activityId: 'ActivityId',
       belongId: 'BelongId',
       channel: 'Channel',
@@ -55,6 +57,7 @@ export class GrantPromotionOfferForPartnerRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityCode: 'string',
       activityId: 'string',
       belongId: 'string',
       channel: 'string',

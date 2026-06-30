@@ -146,7 +146,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBodyModule extends $dara
   records?: ListPromotionOfferRecordsForPartnerResponseBodyModuleRecords[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -193,7 +193,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBody extends $dara.Model
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -269,7 +269,7 @@ export class ListPromotionOfferRecordsForPartnerResponseBody extends $dara.Model
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
    * 系统异常
