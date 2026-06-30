@@ -55,55 +55,92 @@ export class GetRulesCountListResponseBodyMessages extends $dara.Model {
 }
 
 export class GetRulesCountListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Business type. This field has no practical meaning and can be ignored.
+   * 
+   * @example
+   * 忽略
+   */
   businessType?: number;
   /**
+   * @remarks
+   * Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 20
    */
   count?: number;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   data?: GetRulesCountListResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if the request failed. Returns "successful" on success.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: GetRulesCountListResponseBodyMessages;
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of rows per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9987D326-83D9-4A42-B9A5-0B27F9B40539
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to determine request success: true means success; false or null means failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 7
    */

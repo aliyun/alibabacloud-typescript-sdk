@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillGroupConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The complete JSON string. For details, see the following section.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -171,22 +171,38 @@ export class GetRuleResponseBodyData extends $dara.Model {
 
 export class GetRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. **200** means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data
+   */
   data?: GetRuleResponseBodyData;
   /**
+   * @remarks
+   * Error details if the request fails. Returns **successful** if the request succeeds.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID
+   * 
    * @example
    * F190ADE9-619A-447D-84E3-7E241A5C428E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. true means success. **false** or **null** means failure.
+   * 
    * @example
    * true
    */

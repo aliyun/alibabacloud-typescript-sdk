@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillGroupConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Full JSON string. For details, see the following table.
+   * 
    * This parameter is required.
    * 
    * @example

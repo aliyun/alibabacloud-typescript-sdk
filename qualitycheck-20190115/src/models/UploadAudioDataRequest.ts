@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadAudioDataRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID. This ID is used to select a specific workspace in a multi-workspace scenario. The default workspace is used if you do not specify this parameter.
+   * 
    * @example
    * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The complete JSON string. For more information, see the details below.
+   * 
    * This parameter is required.
    * 
    * @example

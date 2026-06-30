@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class AssignReviewerRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the following sections.
+   * 
    * This parameter is required.
    * 
    * @example

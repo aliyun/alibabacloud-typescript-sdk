@@ -941,27 +941,42 @@ export class GetResultToReviewResponseBodyDataReviewTypeIdList extends $dara.Mod
 
 export class GetResultToReviewResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Protocol used in the audio URL. Possible values: http, https.
+   * 
    * @example
    * https
    */
   audioScheme?: string;
   /**
+   * @remarks
+   * Audio URL without the protocol prefix (http\\:// or https\\://). Combine with AudioScheme to form the full URL.
+   * 
    * @example
    * sca-ccc-test.oss-cn-beijing.aliyuncs.com/xxxxx
    */
   audioURL?: string;
   /**
+   * @remarks
+   * Review comments.
+   * 
    * @example
    * xxx
    */
   comments?: string;
   dialogues?: GetResultToReviewResponseBodyDataDialogues;
   /**
+   * @remarks
+   * File ID.
+   * 
    * @example
    * e790e6c919d84b82b64ee*****
    */
   fileId?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * xxx.wav
    */
@@ -971,16 +986,25 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   reviewHistoryList?: GetResultToReviewResponseBodyDataReviewHistoryList;
   reviewTypeIdList?: GetResultToReviewResponseBodyDataReviewTypeIdList;
   /**
+   * @remarks
+   * Current task status. 0: incomplete. 1: complete. Use this field to check completion. Any other value indicates an error.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * Quality inspection score.
+   * 
    * @example
    * 99
    */
   totalScore?: number;
   /**
+   * @remarks
+   * File ID.
+   * 
    * @example
    * 6fa76916-3ce6-45d8-ac64-01b7f31***
    */
@@ -1047,22 +1071,38 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
 
 export class GetResultToReviewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success. Any other value means failure. Use this field to identify the cause.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Detailed response data.
+   */
   data?: GetResultToReviewResponseBodyData;
   /**
+   * @remarks
+   * Error details if the call fails. Returns **successful** on success.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. true means success. **false** or **null** means failure.
+   * 
    * @example
    * true
    */

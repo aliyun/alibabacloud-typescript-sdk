@@ -4,7 +4,18 @@ import { JudgeNodeMetaDesc } from "./JudgeNodeMetaDesc";
 
 
 export class NextNodeSituationsConditionGroup extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of matching conditions
+   */
   conditions?: JudgeNodeMetaDesc[];
+  /**
+   * @remarks
+   * The matching relationship between conditions
+   * 
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +44,18 @@ export class NextNodeSituationsConditionGroup extends $dara.Model {
 }
 
 export class NextNodeSituations extends $dara.Model {
+  /**
+   * @remarks
+   * Judgment Conditions
+   */
   conditionGroup?: NextNodeSituationsConditionGroup[];
+  /**
+   * @remarks
+   * The matching relationship between conditions: currently all are OR relationships.
+   * 
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -30,27 +30,42 @@ export class BatchSubmitReviewInfoResponseBodyMessages extends $dara.Model {
 
 export class BatchSubmitReviewInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this code to identify the cause of a failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error details if the request fails. If the request is successful, the value is \\`successful\\`.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: BatchSubmitReviewInfoResponseBodyMessages;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F190ADE9-619A-447D-84E3-7E241A5C428E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * 
    * @example
    * true
    */

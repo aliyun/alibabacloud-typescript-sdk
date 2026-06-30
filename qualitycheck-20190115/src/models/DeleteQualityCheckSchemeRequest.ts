@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityCheckSchemeRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * JSON request body. For details, see the parameter description below.
+   * 
    * @example
    * {"schemeId":191}
    */

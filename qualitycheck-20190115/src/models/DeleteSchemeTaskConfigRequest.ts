@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSchemeTaskConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * A JSON object that contains the request parameters. For more information, see the parameter details.
+   * 
    * @example
    * {"schemeId":"329"}
    */

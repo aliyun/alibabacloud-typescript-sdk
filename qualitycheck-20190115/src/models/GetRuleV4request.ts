@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleV4Request extends $dara.Model {
   /**
    * @remarks
+   * Rule ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 531
    */
   ruleId?: number;
   static names(): { [key: string]: string } {

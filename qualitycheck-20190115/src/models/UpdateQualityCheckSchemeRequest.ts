@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQualityCheckSchemeRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
+  /**
+   * @remarks
+   * The request parameters in JSON format. For more information, see the supplementary description of request parameters.
+   * 
+   * @example
+   * 无
+   */
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {

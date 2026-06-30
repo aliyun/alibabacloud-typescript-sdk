@@ -421,54 +421,91 @@ export class ListSchemeTaskConfigResponseBodyMessages extends $dara.Model {
 
 export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Total entries.
+   * 
    * @example
    * 22
    */
   count?: number;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   data?: ListSchemeTaskConfigResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * This field marks the data. When querying more than 10,000 entries using GetResult, include the \\`lastDataId\\` of the last entry from the previous query in each request parameter.
+   * 
    * @example
    * xxx
    */
   lastDataId?: string;
   /**
+   * @remarks
+   * Provides error details on failure. For success, it is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: ListSchemeTaskConfigResponseBodyMessages;
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Entries displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 4B0A8DCD-0DDF-5E80-8B9C-0A2F68B3403B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Internal field. Ignore it.
+   * 
+   * @example
+   * 忽略
+   */
   resultCountId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: \\`true\\` for success, \\`false\\`/\\`null\\` for failure.
+   * 
    * @example
    * true
    */

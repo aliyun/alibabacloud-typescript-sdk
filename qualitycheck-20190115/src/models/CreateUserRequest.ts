@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
+  /**
+   * @remarks
+   * A complete **JSON string**. For details, see the table below.
+   * 
+   * @example
+   * [{"aliUid":123,"roleName":"AGENT","userName":"kefu01"}]
+   */
   jsonStr?: string;
   static names(): { [key: string]: string } {
     return {

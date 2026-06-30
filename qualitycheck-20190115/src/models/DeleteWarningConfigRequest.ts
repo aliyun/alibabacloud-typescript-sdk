@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWarningConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The complete JSON string. For more information, see the details below.
+   * 
    * This parameter is required.
    * 
    * @example

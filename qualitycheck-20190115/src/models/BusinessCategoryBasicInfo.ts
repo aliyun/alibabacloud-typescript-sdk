@@ -3,13 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BusinessCategoryBasicInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Business ID
+   * 
+   * @example
+   * 1
+   */
   bid?: number;
+  /**
+   * @remarks
+   * Business name
+   * 
+   * @example
+   * 全部
+   */
   name?: string;
   /**
    * @remarks
    * originalId
+   * 
+   * @example
+   * 1
    */
   originalId?: number;
+  /**
+   * @remarks
+   * Service Type (ServiceCategory).
+   * 
+   * @example
+   * 1
+   */
   serviceType?: number;
   static names(): { [key: string]: string } {
     return {

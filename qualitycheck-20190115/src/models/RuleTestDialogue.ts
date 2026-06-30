@@ -3,15 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RuleTestDialogueContent extends $dara.Model {
+  /**
+   * @remarks
+   * Start Time in long
+   * 
+   * @example
+   * 360
+   */
   begin?: number;
+  /**
+   * @remarks
+   * Start Time in long
+   * 
+   * @example
+   * 350
+   */
   beginTime?: number;
+  /**
+   * @remarks
+   * Emotion energy value
+   * 
+   * @example
+   * 1
+   */
   emotionValue?: number;
+  /**
+   * @remarks
+   * End time in long
+   * 
+   * @example
+   * 1360
+   */
   end?: number;
+  /**
+   * @remarks
+   * Hour, minute, second
+   * 
+   * @example
+   * 00:00:00
+   */
   hourMinSec?: string;
+  /**
+   * @remarks
+   * Identity
+   * 
+   * @example
+   * 客户
+   */
   identity?: string;
+  /**
+   * @remarks
+   * Role
+   * 
+   * @example
+   * 客户
+   */
   role?: string;
+  /**
+   * @remarks
+   * Silence duration
+   * 
+   * @example
+   * 100
+   */
   silenceDuration?: number;
+  /**
+   * @remarks
+   * Speech rate
+   * 
+   * @example
+   * 100
+   */
   speechRate?: number;
+  /**
+   * @remarks
+   * Dialogue
+   * 
+   * @example
+   * 方便
+   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,9 +123,34 @@ export class RuleTestDialogueContent extends $dara.Model {
 }
 
 export class RuleTestDialogue extends $dara.Model {
+  /**
+   * @remarks
+   * Content
+   */
   content?: RuleTestDialogueContent[];
+  /**
+   * @remarks
+   * Conversation ID
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * Conversation Name
+   * 
+   * @example
+   * xx
+   */
   name?: string;
+  /**
+   * @remarks
+   * group
+   * 
+   * @example
+   * xx
+   */
   userGroup?: string;
   static names(): { [key: string]: string } {
     return {

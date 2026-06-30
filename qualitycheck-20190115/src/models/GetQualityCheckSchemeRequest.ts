@@ -6,9 +6,15 @@ export class GetQualityCheckSchemeRequest extends $dara.Model {
   /**
    * @remarks
    * baseMeAgentId
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * The request parameters in JSON format. For more information, see the additional information for request parameters.
+   * 
    * @example
    * {"schemeId":"187","ruleRequireInfos":["BusinessNameInfo","RuleCategory"]}
    */

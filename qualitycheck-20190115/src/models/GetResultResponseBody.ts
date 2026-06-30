@@ -1521,42 +1521,66 @@ export class GetResultResponseBodyData extends $dara.Model {
 
 export class GetResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. `200` indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 1
    */
   count?: number;
   data?: GetResultResponseBodyData;
   /**
+   * @remarks
+   * Error details if the request failed. Returns successful if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * 3CEA0495-341B-4482-9AD9-8191EF4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Reserved field. Ignore this field.
+   * 
    * @example
    * XXX
    */
   resultCountId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * 
    * @example
    * true
    */

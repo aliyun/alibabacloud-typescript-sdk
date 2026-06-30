@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyWsTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * Workspace ID
+   * 
    * @example
    * 123456
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * Complete JSON string information. For details, see the following specifications.
+   * 
    * @example
    * {
    *     "business": "test",

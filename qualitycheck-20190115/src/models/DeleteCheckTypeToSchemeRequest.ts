@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCheckTypeToSchemeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 123456
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * A JSON string that contains the custom parameters for the operation. For more information, see the **jsonStr properties** section below.
+   * 
    * @example
    * {"schemeId":"1376","checkType":"4"}
    */

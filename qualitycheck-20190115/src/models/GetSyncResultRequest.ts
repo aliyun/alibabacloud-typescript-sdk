@@ -6,10 +6,15 @@ export class GetSyncResultRequest extends $dara.Model {
   /**
    * @remarks
    * baseMeAgentId
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Complete JSON string. For details, see the following information.
+   * 
    * This parameter is required.
    * 
    * @example

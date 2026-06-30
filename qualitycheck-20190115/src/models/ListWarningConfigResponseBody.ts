@@ -213,22 +213,34 @@ export class ListWarningConfigResponseBodyData extends $dara.Model {
 
 export class ListWarningConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. A value of **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: ListWarningConfigResponseBodyData;
   /**
+   * @remarks
+   * Error details if the request fails. Returns successful if the request succeeds.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4D55C6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * 
    * @example
    * true
    */

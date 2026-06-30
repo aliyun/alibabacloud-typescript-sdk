@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class InvalidRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Full JSON string information. See the following details for specific content.
+   * 
    * This parameter is required.
    * 
    * @example

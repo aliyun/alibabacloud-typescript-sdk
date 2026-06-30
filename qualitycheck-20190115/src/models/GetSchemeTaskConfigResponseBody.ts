@@ -4,22 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests extends $dara.Model {
   /**
+   * @remarks
+   * Type of the value
+   * 
+   * - 0: String
+   * 
+   * - 1: Number
+   * 
+   * - 2: List (use list type for all parameter values when using =)
+   * 
+   * - 3: Date
+   * 
+   * - 4: List_Json
+   * 
    * @example
    * 3
    */
   dataType?: number;
+  /**
+   * @remarks
+   * List of on-the-fly recording data
+   */
   listObject?: any[];
   /**
+   * @remarks
+   * Check item name
+   * 
    * @example
    * callStartTime
    */
   name?: string;
   /**
+   * @remarks
+   * Operator
+   * 
+   * - 1: ==
+   * 
+   * - 2: >
+   * 
+   * - 3: <
+   * 
+   * - 4: range
+   * 
+   * - 5: >=
+   * 
+   * - 6: <=
+   * 
+   * - 7: !=
+   * 
+   * - 8: null
+   * 
+   * - 9: not null
+   * 
+   * - 10: contains
+   * 
+   * - 11: does not contain
+   * 
    * @example
    * 4
    */
   symbol?: number;
   /**
+   * @remarks
+   * Matching value for on-the-fly recording data
+   * 
    * @example
    * {\\"start\\":\\"2022-09-01 00:00:00\\",\\"end\\":\\"2022-09-30 00:00:00\\"}
    */
@@ -57,6 +105,10 @@ export class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignCon
 }
 
 export class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * Parameter matching configurations for on-the-fly recording
+   */
   assignConfigContests?: GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigsAssignConfigContests[];
   static names(): { [key: string]: string } {
     return {
@@ -83,18 +135,31 @@ export class GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs extends 
 }
 
 export class GetSchemeTaskConfigResponseBodyDataDataConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Data screening items for on-the-fly recording
+   */
   assignConfigs?: GetSchemeTaskConfigResponseBodyDataDataConfigAssignConfigs[];
   /**
+   * @remarks
+   * Dataset task. Manage datasets.
+   * 
    * @example
    * []
    */
   dataSets?: string;
   /**
+   * @remarks
+   * Index number
+   * 
    * @example
    * 0
    */
   index?: number;
   /**
+   * @remarks
+   * JSON text for filtering conditions used in secondary quality inspection. For details, see the request parameters of the GetResult API.
+   * 
    * @example
    * {}
    */
@@ -130,8 +195,18 @@ export class GetSchemeTaskConfigResponseBodyDataDataConfig extends $dara.Model {
 }
 
 export class GetSchemeTaskConfigResponseBodyDataSchemeList extends $dara.Model {
+  /**
+   * @remarks
+   * Quality inspection scheme name
+   * 
+   * @example
+   * 质检方案B
+   */
   name?: string;
   /**
+   * @remarks
+   * Quality inspection scheme ID
+   * 
    * @example
    * 158
    */
@@ -160,35 +235,121 @@ export class GetSchemeTaskConfigResponseBodyDataSchemeList extends $dara.Model {
 }
 
 export class GetSchemeTaskConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Task priority:
+   * 
+   * - 0 (low)
+   * 
+   * - 1 (medium)
+   * 
+   * - 2 (high)
+   * 
+   * @example
+   * 2
+   */
   asrTaskPriority?: number;
+  /**
+   * @remarks
+   * Assignment type
+   * 
+   * @example
+   * 0
+   */
   assignType?: number;
+  /**
+   * @remarks
+   * Data configuration
+   */
   dataConfig?: GetSchemeTaskConfigResponseBodyDataDataConfig;
   /**
+   * @remarks
+   * Quality inspection task ID
+   * 
    * @example
    * 3
    */
   id?: number;
+  /**
+   * @remarks
+   * Manual review
+   * 
+   * @example
+   * 0
+   */
   manualReview?: number;
+  /**
+   * @remarks
+   * Language model ID
+   * 
+   * @example
+   * cdae396590b*****ec40f3476e274fc
+   */
   modeCustomizationId?: string;
+  /**
+   * @remarks
+   * Language model name
+   * 
+   * @example
+   * 自定义模型
+   */
   modelName?: string;
   /**
+   * @remarks
+   * Quality inspection task name
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * Quality inspection scheme IDs
+   */
   schemeIdList?: number[];
+  /**
+   * @remarks
+   * Quality inspection schemes
+   */
   schemeList?: GetSchemeTaskConfigResponseBodyDataSchemeList[];
   /**
+   * @remarks
+   * Quality inspection task ID
+   * 
    * @example
    * 123
    */
   schemeTaskConfigId?: number;
   /**
+   * @remarks
+   * Quality inspection result type:
+   * 
+   * - 1: offline voice
+   * 
+   * - 2: offline text
+   * 
+   * - 3: real-time voice
+   * 
+   * - 4: real-time text
+   * 
+   * - 5: contact center secondary quality inspection
+   * 
+   * - 51: call center voice secondary quality inspection
+   * 
+   * - 52: call center text secondary quality inspection
+   * 
+   * - 11: dataset voice
+   * 
+   * - 12: dataset text
+   * 
    * @example
    * 1
    */
   sourceDataType?: string;
   /**
+   * @remarks
+   * Enable status. Valid values: 0 (disabled) or 1 (enabled)
+   * 
    * @example
    * 1
    */
@@ -249,27 +410,48 @@ export class GetSchemeTaskConfigResponseBodyData extends $dara.Model {
 
 export class GetSchemeTaskConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success.
+   * 
+   * > Any other value means failure. The caller can use this field to identify the cause.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data. See the additional notes below.
+   */
   data?: GetSchemeTaskConfigResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Error details if the request failed. Returns successful if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 3CEA0495-341B-4482-9AD9-8191EF4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to check the result: true means success, false or null means failure.
+   * 
    * @example
    * true
    */

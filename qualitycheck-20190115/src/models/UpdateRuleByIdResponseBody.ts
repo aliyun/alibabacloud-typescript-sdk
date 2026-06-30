@@ -30,27 +30,42 @@ export class UpdateRuleByIdResponseBodyMessages extends $dara.Model {
 
 export class UpdateRuleByIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Provides error details on failure, and **successful** on success.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: UpdateRuleByIdResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4D55C6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: true for success, false/null for failure.
+   * 
    * @example
    * true
    */

@@ -4,28 +4,50 @@ import { RulesInfo } from "./RulesInfo";
 
 
 export class GetQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the quality check dimension.
+   * 
+   * @example
+   * 服务规范性检测
+   */
   checkName?: string;
   /**
+   * @remarks
+   * The ID of the quality check dimension type.
+   * 
    * @example
    * 0
    */
   checkType?: number;
   /**
+   * @remarks
+   * The status. Valid values: 0 (disabled) and 1 (enabled).
+   * 
    * @example
    * 1
    */
   enable?: number;
   /**
+   * @remarks
+   * The quality check plan ID.
+   * 
    * @example
    * 32
    */
   schemeId?: number;
   /**
+   * @remarks
+   * The score of the quality check dimension.
+   * 
    * @example
    * 20
    */
   score?: number;
   /**
+   * @remarks
+   * The original score.
+   * 
    * @example
    * 10
    */
@@ -63,66 +85,128 @@ export class GetQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $d
 
 export class GetQualityCheckSchemeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 1616113198000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The username of the creator.
+   * 
    * @example
    * xxx
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The data type of the quality check plan. Valid values: 0 (text) and 1 (audio).
+   * 
    * @example
    * 1
    */
   dataType?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 售前使用
+   */
   description?: string;
+  /**
+   * @remarks
+   * The total score of the quality check plan.
+   * 
+   * @example
+   * 100
+   */
   initScore?: string;
   /**
+   * @remarks
+   * The name of the quality check plan.
+   * 
    * @example
    * xxx
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of associated rule IDs.
+   */
   ruleIds?: string[];
+  /**
+   * @remarks
+   * The list of rules.
+   */
   ruleList?: RulesInfo[];
+  /**
+   * @remarks
+   * The list of quality check dimensions.
+   */
   schemeCheckTypeList?: GetQualityCheckSchemeResponseBodyDataSchemeCheckTypeList[];
   /**
+   * @remarks
+   * The quality check plan ID.
+   * 
    * @example
    * 112**
    */
   schemeId?: number;
   /**
+   * @remarks
+   * The quality check plan template ID.
+   * 
    * @example
    * 1
    */
   schemeTemplateId?: number;
   /**
+   * @remarks
+   * The status. Valid values: 0 (deleted), 1 (published), 2 (unpublished), and 3 (updated but not published). Default value: 2.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The type of the quality check plan template. Valid values: 1 (system-built) and 2 (custom).
+   * 
    * @example
    * 1
    */
   templateType?: number;
   /**
+   * @remarks
+   * The type of the quality check plan. Valid values: 0 (system-built) and 1 (custom).
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * The time when the plan was last updated.
+   * 
    * @example
    * 1616113198000
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The username of the user who last updated the plan.
+   * 
    * @example
    * xxx
    */
   updateUserName?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1616113198000
    */
@@ -191,28 +275,51 @@ export class GetQualityCheckSchemeResponseBodyData extends $dara.Model {
 
 export class GetQualityCheckSchemeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of 200 indicates success. Other values indicate failure. Use this code to determine the cause of a failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The QualityCheckScheme object. This is the JSON object of the quality check plan. For more information, see [`Description of quality check task objects`](https://help.aliyun.com/document_detail/453292.html).
+   */
   data?: GetQualityCheckSchemeResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * If an error occurs, this field provides details about the error. If the request is successful, the value is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of returned messages.
+   */
   messages?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 96138D8D-8D26-4E41-BFF4-77AED1088BBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success. A value of false or null indicates failure.
+   * 
    * @example
    * true
    */

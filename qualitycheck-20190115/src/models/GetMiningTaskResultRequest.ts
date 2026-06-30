@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMiningTaskResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Workspace ID
+   * 
    * @example
    * 123456
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */

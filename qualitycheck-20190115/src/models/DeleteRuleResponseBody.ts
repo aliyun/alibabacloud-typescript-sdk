@@ -30,27 +30,42 @@ export class DeleteRuleResponseBodyMessages extends $dara.Model {
 
 export class DeleteRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Details of the error if the request failed. If the request succeeded, the value is "successful".
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: DeleteRuleResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to determine request status: true means success. **false** or **null** means failure.
+   * 
    * @example
    * true
    */

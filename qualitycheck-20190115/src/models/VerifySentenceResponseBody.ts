@@ -175,37 +175,58 @@ export class VerifySentenceResponseBodyData extends $dara.Model {
 
 export class VerifySentenceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: VerifySentenceResponseBodyData;
   /**
+   * @remarks
+   * Number of incorrect characters in this sentence.
+   * 
    * @example
    * 2
    */
   incorrectWords?: number;
   /**
+   * @remarks
+   * Error details if the request failed. Returns successful if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Correct role after manual verification. Valid values: 0 (agent), 1 (customer).
+   * 
    * @example
    * 0
    */
   sourceRole?: number;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Set to true for success. Set to false or null for failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Transcribed role. Valid values: 0 (agent), 1 (customer).
+   * 
    * @example
    * 1
    */

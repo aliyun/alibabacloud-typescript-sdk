@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBusinessCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The complete JSON string. For more information, see the details below.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"bid ":"适用业务ID"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

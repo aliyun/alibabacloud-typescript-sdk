@@ -30,27 +30,42 @@ export class RevertAssignedSessionResponseBodyMessages extends $dara.Model {
 
 export class RevertAssignedSessionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. A value of **200** indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if the request failed. Returns **successful** if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: RevertAssignedSessionResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4D55C6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Set to true for success. Set to false or null for failure.
+   * 
    * @example
    * true
    */

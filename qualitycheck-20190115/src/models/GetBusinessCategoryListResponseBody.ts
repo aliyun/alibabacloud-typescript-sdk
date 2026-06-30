@@ -59,22 +59,37 @@ export class GetBusinessCategoryListResponseBodyData extends $dara.Model {
 
 export class GetBusinessCategoryListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. The value **200** indicates success. Any other value indicates failure, and the caller can determine the cause of failure based on this field.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: GetBusinessCategoryListResponseBodyData;
   /**
+   * @remarks
+   * When an error occurs, this field provides error details; when successful, the value is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * A186A419-FDBE-464C-AED4-7121CAC73BF1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. The caller can use this field to determine the request outcome:
+   * 
+   * - **true** indicates success
+   * - **false/null** indicates failure
+   * 
    * @example
    * false
    */

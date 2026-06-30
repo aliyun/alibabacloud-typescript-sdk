@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomizationConfigListRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Set this parameter to an empty string.
+   * 
    * This parameter is required.
    * 
    * @example

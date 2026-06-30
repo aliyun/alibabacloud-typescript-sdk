@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAsrVocabRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Full JSON string. See the details below.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"name":"热词名称"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

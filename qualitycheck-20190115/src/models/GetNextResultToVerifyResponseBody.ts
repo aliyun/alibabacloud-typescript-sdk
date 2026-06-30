@@ -266,67 +266,106 @@ export class GetNextResultToVerifyResponseBodyDataDialogues extends $dara.Model 
 
 export class GetNextResultToVerifyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The protocol of the audio URL. Possible values: http, https.
+   * 
    * @example
    * http
    */
   audioScheme?: string;
   /**
+   * @remarks
+   * The audio URL, excluding http/https.
+   * 
    * @example
    * sca-bucket.oss-cn-hangzhou.aliyuncs.com/upload_1173636551461420/dateset_1584674455133_SzC/%E4%BA%BA%E5%B7%A5%E6%A0%A1%E9%AA%8C%E6%B5%8B%E8%AF%95-%E6%9F%A5%E5%8C%97%E4%BA%AC%E5%A4%A9%E6%B0%94.wav?Expires=1584847372&amp;OSSAccessKeyId=*****&amp;Signature=HccAKnLOJwoYvzE*********
    */
   audioURL?: string;
   dialogues?: GetNextResultToVerifyResponseBodyDataDialogues;
   /**
+   * @remarks
+   * The total duration of files in the current task, in seconds.
+   * 
    * @example
    * 23421
    */
   duration?: number;
   /**
+   * @remarks
+   * File ID.
+   * 
    * @example
    * e790e6c919d84b82b64ee*****
    */
   fileId?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * xxx.wav
    */
   fileName?: string;
   /**
+   * @remarks
+   * The number of incorrect words in the transcription.
+   * 
    * @example
    * 23
    */
   incorrectWords?: number;
   /**
+   * @remarks
+   * The index of the current file. Pass this value when manually verifying the next data entry. It starts from 1, so the first entry has a value of 1.
+   * 
    * @example
    * 2
    */
   index?: number;
   /**
+   * @remarks
+   * Current recognition accuracy.
+   * 
    * @example
    * 0.97079998
    */
   precision?: number;
   /**
+   * @remarks
+   * File status. Possible values: 0: Not completed; 1: Not completed; 2: Completed; 3: Completed.
+   * 
    * @example
    * 3
    */
   status?: number;
   /**
+   * @remarks
+   * The total number of files for this task.
+   * 
    * @example
    * 3
    */
   totalCount?: number;
   /**
+   * @remarks
+   * Last update time.
+   * 
    * @example
    * 2020-03-20T11:26Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Indicates whether manual verification has been performed. Possible values: \\`false\\`: Not yet verified; \\`true\\`: Already verified.
+   * 
    * @example
    * true
    */
   verified?: boolean;
   /**
+   * @remarks
+   * The total number of verified files.
+   * 
    * @example
    * 2
    */
@@ -383,22 +422,38 @@ export class GetNextResultToVerifyResponseBodyData extends $dara.Model {
 
 export class GetNextResultToVerifyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates success. Other values indicate failure. The caller can determine the cause of failure using this field.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * File details.
+   */
   data?: GetNextResultToVerifyResponseBodyData;
   /**
+   * @remarks
+   * Error details if an error occurs. If successful, the value is \\"successful\\".
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. The caller can determine if the request was successful using this field: \\`true\\` indicates success; \\`false\\`/\\`null\\` indicates failure.
+   * 
    * @example
    * true
    */

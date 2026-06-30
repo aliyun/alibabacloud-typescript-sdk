@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the following section.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"conditions":"所有条件的配置信息"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

@@ -5,11 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SyncQualityCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
+   * 
+   * @example
+   * 1244721
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Complete JSON string information. See the details below.
+   * 
    * This parameter is required.
    * 
    * @example

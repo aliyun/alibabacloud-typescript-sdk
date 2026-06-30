@@ -9,6 +9,9 @@ export class ListSchemeTaskConfigRequest extends $dara.Model {
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * The request parameter JSON. For details, see the supplementary description of request parameters.
+   * 
    * @example
    * {"pageNumber":1,"pageSize":10,"sourceDataType":"1"}
    */

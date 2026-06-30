@@ -7,30 +7,49 @@ import { RuleInfo } from "./RuleInfo";
 
 export class RulesInfo extends $dara.Model {
   /**
+   * @remarks
+   * Rule condition information; conditions for multiple rules are all placed in a single list
+   * 
    * **if can be null:**
    * true
    */
   conditions?: ConditionBasicInfo[];
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 100
    */
   count?: number;
   /**
+   * @remarks
+   * Testing copy
+   * 
    * **if can be null:**
    * true
    */
   dialogues?: RuleTestDialogue[];
   /**
+   * @remarks
+   * Current page
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Basic rule information; multiple rules may exist
+   */
   rules?: RuleInfo[];
   static names(): { [key: string]: string } {
     return {

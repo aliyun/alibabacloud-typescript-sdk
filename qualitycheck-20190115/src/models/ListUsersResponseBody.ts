@@ -77,37 +77,58 @@ export class ListUsersResponseBodyData extends $dara.Model {
 
 export class ListUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of `200` indicates success. Other values indicate failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 12
    */
   count?: number;
   data?: ListUsersResponseBodyData;
   /**
+   * @remarks
+   * The message returned. The value is successful if the request is successful. Otherwise, an error message is returned.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success. A value of false or null indicates failure.
+   * 
    * @example
    * true
    */

@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTaskAssignRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the input parameter description below.
+   * 
    * This parameter is required.
    * 
    * @example

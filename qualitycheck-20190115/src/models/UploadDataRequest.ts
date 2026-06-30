@@ -5,11 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UploadDataRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID. Use this to select a specific workspace in multi-workspace scenarios. Defaults to the default workspace.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * JsonStr is a JSON string that contains all custom parameters for this API. See the JsonStr property description below.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -6,10 +6,15 @@ export class UpdateSyncQualityCheckDataRequest extends $dara.Model {
   /**
    * @remarks
    * baseMeAgentId
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * jsonStr is a JSON string that contains all Custom Parameters for this API. For details, see **jsonStr property description** below.
+   * 
    * This parameter is required.
    * 
    * @example

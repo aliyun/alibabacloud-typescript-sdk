@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of 200 indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error message if the request fails. The value is successful if the request succeeds.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * 
    * @example
    * true
    */

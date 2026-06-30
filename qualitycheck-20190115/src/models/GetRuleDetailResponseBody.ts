@@ -655,16 +655,25 @@ export class GetRuleDetailResponseBodyDataRules extends $dara.Model {
 export class GetRuleDetailResponseBodyData extends $dara.Model {
   conditions?: GetRuleDetailResponseBodyDataConditions;
   /**
+   * @remarks
+   * The total number of items.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */
@@ -707,22 +716,42 @@ export class GetRuleDetailResponseBodyData extends $dara.Model {
 
 export class GetRuleDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. **200** means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetRuleDetailResponseBodyData;
   /**
+   * @remarks
+   * The error message if the request fails. If the request succeeds, the value is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4987D326-83D9-4A42-B9A5-0B27F9B40539
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to check the result:
+   * 
+   * - **true** means success.
+   * 
+   * - false or **null** means failure.
+   * 
    * @example
    * true
    */

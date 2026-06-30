@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetNextResultToVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Complete JSON string information. See the details below.
+   * 
    * This parameter is required.
    * 
    * @example

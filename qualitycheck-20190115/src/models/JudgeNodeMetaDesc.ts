@@ -42,32 +42,50 @@ export class JudgeNodeMetaDescExpressionMetaDesc extends $dara.Model {
 
 export class JudgeNodeMetaDesc extends $dara.Model {
   /**
+   * @remarks
+   * Actual value
+   * 
    * @example
    * xx
    */
   actualValue?: string;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * 1
    */
   dataType?: number;
   expressionMetaDesc?: JudgeNodeMetaDescExpressionMetaDesc;
   /**
+   * @remarks
+   * System field
+   * 
    * @example
    * remark1
    */
   field?: string;
   /**
+   * @remarks
+   * Field data source type: 1: System predefined field. 2: Quality inspection field for passed parameters.
+   * 
    * @example
    * 1
    */
   fieldType?: number;
   /**
+   * @remarks
+   * Expression
+   * 
    * @example
    * 1
    */
   symbol?: number;
   /**
+   * @remarks
+   * Preset value
+   * 
    * @example
    * xxx
    */

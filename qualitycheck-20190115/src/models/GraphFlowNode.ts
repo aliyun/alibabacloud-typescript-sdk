@@ -5,30 +5,49 @@ import { ConditionBasicInfo } from "./ConditionBasicInfo";
 
 export class GraphFlowNodeNextNodes extends $dara.Model {
   /**
+   * @remarks
+   * Quality check dimension
+   * 
    * @example
    * 1
    */
   checkType?: number;
   /**
+   * @remarks
+   * Flow branch priority. A smaller value indicates higher priority.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
+   * @remarks
+   * Lambda expression for the next hop.
+   * 
    * @example
    * a
    */
   lambda?: string;
   /**
+   * @remarks
+   * Conditional branch name.
+   * 
    * @example
    * a
    */
   name?: string;
   /**
+   * @remarks
+   * Next node ID.
+   * 
    * @example
    * 31533
    */
   nextNodeId?: number;
+  /**
+   * @remarks
+   * Operators to follow.
+   */
   triggers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -66,59 +85,107 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
 
 export class GraphFlowNodeProperties extends $dara.Model {
   /**
+   * @remarks
+   * 1: Do not auto-review.
+   * 
    * @example
    * 1
    */
   autoReview?: number;
   /**
+   * @remarks
+   * Enable branch judgment.
+   * 
    * @example
    * true
    */
   branchJudge?: boolean;
   /**
+   * @remarks
+   * Maximum N sentences to check.
+   * 
    * @example
    * 1
    */
   checkMoreSize?: number;
   /**
+   * @remarks
+   * Quality check dimension
+   * 
    * @example
    * 1
    */
   checkType?: number;
   /**
+   * @remarks
+   * General operator logic.
+   * 
    * @example
    * a
    */
   lambda?: string;
+  /**
+   * @remarks
+   * Role when the type is \\`single\\`.
+   * 
+   * @example
+   * 客户
+   */
   role?: string;
   /**
+   * @remarks
+   * Is scored.
+   * 
    * @example
    * 1
    */
   ruleScoreType?: number;
+  /**
+   * @remarks
+   * Indicates expression when the type is \\`single\\`.
+   */
   sayType?: string;
   /**
+   * @remarks
+   * Score value
+   * 
    * @example
    * 1
    */
   scoreNum?: number;
   /**
+   * @remarks
+   * 0: Add or deduct points after the rule is triggered; 1: Score once after the rule is triggered.
+   * 
    * @example
    * 1
    */
   scoreNumType?: number;
   /**
+   * @remarks
+   * 0: Score when the node is hit.
+   * 
    * @example
    * 0
    */
   scoreRuleHitType?: number;
   /**
+   * @remarks
+   * 1: Add points; 3: Deduct points; default is 1.
+   * 
    * @example
    * 1
    */
   scoreType?: number;
+  /**
+   * @remarks
+   * Operators to follow.
+   */
   triggers?: string[];
   /**
+   * @remarks
+   * Property type
+   * 
    * @example
    * xx
    */
@@ -174,39 +241,73 @@ export class GraphFlowNodeProperties extends $dara.Model {
 }
 
 export class GraphFlowNode extends $dara.Model {
+  /**
+   * @remarks
+   * Operator information.
+   */
   conditions?: ConditionBasicInfo[];
   /**
+   * @remarks
+   * Used for frontend display.
+   * 
    * @example
    * {}
    */
   content?: string;
   /**
+   * @remarks
+   * Node ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
    * @remarks
-   * index
+   * Index
    * 
    * @example
    * 1
    */
   index?: number;
+  /**
+   * @remarks
+   * Node name
+   * 
+   * @example
+   * 开始节点
+   */
   name?: string;
+  /**
+   * @remarks
+   * Child nodes
+   */
   nextNodes?: GraphFlowNodeNextNodes[];
   /**
+   * @remarks
+   * Node Type
+   * 
    * @example
    * startNode
    */
   nodeType?: string;
+  /**
+   * @remarks
+   * Node properties
+   */
   properties?: GraphFlowNodeProperties;
   /**
+   * @remarks
+   * Rule ID. \\`rid\\` is empty if the rule is not persisted. If the rule is persisted, \\`rid\\` equals \\`ID\\`.
+   * 
    * @example
    * 1
    */
   rid?: number;
   /**
+   * @remarks
+   * Whether to use operator matching or legacy matching.
+   * 
    * @example
    * true
    */

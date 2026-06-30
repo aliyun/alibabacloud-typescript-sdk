@@ -156,37 +156,58 @@ export class ListPrecisionTaskResponseBodyData extends $dara.Model {
 
 export class ListPrecisionTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. A value of **200** means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Total number of items.
+   * 
    * @example
    * 22
    */
   count?: number;
   data?: ListPrecisionTaskResponseBodyData;
   /**
+   * @remarks
+   * Error details if the request failed. Returns successful if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. If true, the request succeeded. If false or null, the request failed.
+   * 
    * @example
    * true
    */

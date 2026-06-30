@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class RevertAssignedSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * Input JSON. For details, see the request parameter description.
+   * 
    * @example
    * {"isSchemeData":1,"searchParam":{"schemeTaskConfigId":1,"sourceDataType":1,"startTime":"2022-09-20 00:00:00","endTime":"2022-09-26 23:59:59"}}
    */

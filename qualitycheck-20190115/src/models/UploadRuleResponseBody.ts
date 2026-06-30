@@ -30,22 +30,38 @@ export class UploadRuleResponseBodyData extends $dara.Model {
 
 export class UploadRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success. Any other value indicates failure. Use this field to diagnose errors.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: UploadRuleResponseBodyData;
   /**
+   * @remarks
+   * Error details if the call fails. **successful** if successful.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4987D326-83D9-4A42-B9A5-0B27F9B40539
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request succeeded. Use this field to verify success:
+   * 
+   * - **true** means success.
+   * 
+   * - false or **null** means failure.
+   * 
    * @example
    * true
    */

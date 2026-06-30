@@ -30,27 +30,42 @@ export class DeleteQualityCheckSchemeResponseBodyMessages extends $dara.Model {
 
 export class DeleteQualityCheckSchemeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. A value of 200 means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if the request failed. Returns "successful" if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: DeleteQualityCheckSchemeResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. If true, the request succeeded. If **false** or **null**, the request failed.
+   * 
    * @example
    * true
    */

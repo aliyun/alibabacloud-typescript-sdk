@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAsrVocabRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * BaseMeAgentId
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the table below.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"vocabId":"指定热词Id"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

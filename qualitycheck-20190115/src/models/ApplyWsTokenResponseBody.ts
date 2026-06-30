@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyWsTokenResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 42e59bcd-7206-44c5-ad34-525d364687c4
    */
   sessionId?: string;
   /**
+   * @remarks
+   * User access token
+   * 
    * @example
    * 5607b21d1728700640
    */
   token?: string;
   /**
+   * @remarks
+   * WebSocket connection domain name
+   * 
    * @example
    * wss://ws-gateway-real-voice.aliyuncs.com
    */
@@ -45,12 +54,22 @@ export class ApplyWsTokenResponseBodyData extends $dara.Model {
 
 export class ApplyWsTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   data?: ApplyWsTokenResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */

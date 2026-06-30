@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DelRuleCategoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether to select a new rule category.
+   * 
    * @example
    * false
    */
@@ -31,22 +34,38 @@ export class DelRuleCategoryResponseBodyData extends $dara.Model {
 
 export class DelRuleCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DelRuleCategoryResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

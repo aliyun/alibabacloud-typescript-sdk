@@ -5,10 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRuleToSchemeRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
+   * 
+   * @example
+   * 1232927
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * Request JSON. For details, see the request parameter description below.
+   * 
    * @example
    * {"schemeId":"10","schemeRules":[{"ruleId":229,"checkType":0}]}
    */

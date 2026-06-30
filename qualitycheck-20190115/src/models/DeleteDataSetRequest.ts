@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSetRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the following information.
+   * 
    * This parameter is required.
    * 
    * @example

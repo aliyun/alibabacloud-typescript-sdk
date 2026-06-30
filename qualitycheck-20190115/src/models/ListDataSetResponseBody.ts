@@ -145,48 +145,75 @@ export class ListDataSetResponseBodyMessages extends $dara.Model {
 
 export class ListDataSetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 23
    */
   count?: number;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 10
    */
   currentPage?: number;
   data?: ListDataSetResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if an error occurs; "successful" on success.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: ListDataSetResponseBodyMessages;
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 96138D8D-8D26-4E41-BFF4-77AED1088BBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: true for success; false/null for failure.
+   * 
    * @example
    * true
    */

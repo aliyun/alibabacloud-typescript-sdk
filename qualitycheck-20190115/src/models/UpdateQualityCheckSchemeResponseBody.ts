@@ -30,27 +30,42 @@ export class UpdateQualityCheckSchemeResponseBodyMessages extends $dara.Model {
 
 export class UpdateQualityCheckSchemeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates success. Other values indicate failure. Use this field to determine the cause of a failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error details if the request fails. If the request is successful, the value is \\`successful\\`.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: UpdateQualityCheckSchemeResponseBodyMessages;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 96138D8D-8D26-4E41-BFF4-77AED1088BBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * 
    * @example
    * true
    */

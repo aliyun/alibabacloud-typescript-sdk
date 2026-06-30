@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Set the value to an empty string.
+   * 
    * This parameter is required.
    * 
    * @example

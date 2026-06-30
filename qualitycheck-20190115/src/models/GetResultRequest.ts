@@ -5,11 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GetResultRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
+   * 
+   * @example
+   * 12345
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Full JSON string. See the detailed description below.
+   * 
    * This parameter is required.
    * 
    * @example

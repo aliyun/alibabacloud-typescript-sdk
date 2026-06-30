@@ -30,32 +30,50 @@ export class UpdateRuleToSchemeResponseBodyMessages extends $dara.Model {
 
 export class UpdateRuleToSchemeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Quality check plan ID.
+   * 
    * @example
    * 30
    */
   data?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if the request failed. Returns successful if the request succeeded.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: UpdateRuleToSchemeResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9987D326-83D9-4A42-B9A5-0B27F9B40539
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to determine success: true means success. **false** or **null** means failure.
+   * 
    * @example
    * true
    */

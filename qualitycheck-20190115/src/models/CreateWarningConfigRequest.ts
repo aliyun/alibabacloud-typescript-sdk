@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWarningConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Complete JSON string information. See the following details for specific content.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"ridList":[15670],"configName":"投诉预警","channels":[{"type":1,"url":"https://xxx"}]}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

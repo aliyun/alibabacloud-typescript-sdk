@@ -120,22 +120,34 @@ export class GetScoreInfoResponseBodyData extends $dara.Model {
 
 export class GetScoreInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** means the call succeeded. Any other value means the call failed. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: GetScoreInfoResponseBodyData;
   /**
+   * @remarks
+   * Details about the error if the call fails. If the call succeeds, this value is successful.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * 
    * @example
    * true
    */

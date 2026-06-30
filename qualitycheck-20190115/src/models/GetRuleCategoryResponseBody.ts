@@ -59,22 +59,34 @@ export class GetRuleCategoryResponseBodyData extends $dara.Model {
 
 export class GetRuleCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates success. Other values indicate failure. Use this field to determine the cause of a failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: GetRuleCategoryResponseBodyData;
   /**
+   * @remarks
+   * If an error occurs, this field provides error details. If the call is successful, the value is \\`successful\\`.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F190ADE9-619A-447D-84E3-7E241A5C428E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * 
    * @example
    * true
    */

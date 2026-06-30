@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddRuleCategoryResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the newly added rule category is selected.
+   * 
+   * @example
+   * false
+   */
   select?: boolean;
+  /**
+   * @remarks
+   * Rule category ID
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,18 +44,38 @@ export class AddRuleCategoryResponseBodyData extends $dara.Model {
 
 export class AddRuleCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   data?: AddRuleCategoryResponseBodyData;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * D10B9203-1A6A-49DA-AE56-4D160DD37DBC
+   */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

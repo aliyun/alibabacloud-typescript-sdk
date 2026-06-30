@@ -408,22 +408,34 @@ export class UploadDataSyncResponseBodyData extends $dara.Model {
 
 export class UploadDataSyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result `code`. A value of **200** indicates that the request was successful. Other values indicate failure. Use this field to identify the cause of the failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: UploadDataSyncResponseBodyData;
   /**
+   * @remarks
+   * The response message. If the request succeeds, the value is **successful**. Otherwise, this parameter provides error details.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The `request ID`.
+   * 
    * @example
    * 4987D326-83D9-4A42-B9A5-0B27F9B***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Specifies whether the request succeeded. `true` indicates success; `false` or `null` indicates failure.
+   * 
    * @example
    * true
    */

@@ -30,32 +30,50 @@ export class CreateCheckTypeToSchemeResponseBodyMessages extends $dara.Model {
 
 export class CreateCheckTypeToSchemeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success. Any other value means failure. Callers can use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Quality check dimension ID.
+   * 
    * @example
    * 5
    */
   data?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details when the request fails. Returns **successful** on success.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: CreateCheckTypeToSchemeResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Callers can use this field to determine success: true means success. false or null means failure.
+   * 
    * @example
    * true
    */

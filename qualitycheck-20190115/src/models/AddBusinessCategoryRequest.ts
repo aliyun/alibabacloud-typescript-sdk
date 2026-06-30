@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddBusinessCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. For details, see the table below.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"name":"适用业务名称"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListWarningConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Full JSON string. For details, see the parameter descriptions below.
+   * 
    * This parameter is required.
    * 
    * @example

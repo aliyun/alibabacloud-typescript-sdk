@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * A complete JSON string. See the detailed information below.
+   * 
    * This parameter is required.
    * 
    * @example

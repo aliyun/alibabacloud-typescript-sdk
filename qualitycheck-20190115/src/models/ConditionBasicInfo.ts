@@ -3,11 +3,30 @@ import * as $dara from '@darabonba/typescript';
 import { OperatorBasicInfo } from "./OperatorBasicInfo";
 
 
-/**
- */
 export class ConditionBasicInfoCheckRangeAnchor extends $dara.Model {
+  /**
+   * @remarks
+   * Condition ID
+   * 
+   * @example
+   * a
+   */
   cid?: string;
+  /**
+   * @remarks
+   * Hit count
+   * 
+   * @example
+   * 1
+   */
   hitTime?: number;
+  /**
+   * @remarks
+   * Location
+   * 
+   * @example
+   * BEFORE
+   */
   location?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +54,21 @@ export class ConditionBasicInfoCheckRangeAnchor extends $dara.Model {
 }
 
 export class ConditionBasicInfoCheckRangeRange extends $dara.Model {
+  /**
+   * @remarks
+   * Start index of the conversation
+   * 
+   * @example
+   * 1
+   */
   from?: number;
+  /**
+   * @remarks
+   * End index of the conversation
+   * 
+   * @example
+   * 2
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,11 +94,47 @@ export class ConditionBasicInfoCheckRangeRange extends $dara.Model {
 }
 
 export class ConditionBasicInfoCheckRange extends $dara.Model {
+  /**
+   * @remarks
+   * false: relative position; the sentence position is determined in combination with the anchor and the role
+   * 
+   * @example
+   * true
+   */
   absolute?: boolean;
+  /**
+   * @remarks
+   * true: Every sentence must satisfy the condition;
+   * 
+   * @example
+   * true
+   */
   allSentencesSatisfy?: boolean;
+  /**
+   * @remarks
+   * Precondition and postcondition
+   */
   anchor?: ConditionBasicInfoCheckRangeAnchor;
+  /**
+   * @remarks
+   * Relative range
+   */
   range?: ConditionBasicInfoCheckRangeRange;
+  /**
+   * @remarks
+   * Corresponds to RoleType.type
+   * 
+   * @example
+   * 客服
+   */
   role?: string;
+  /**
+   * @remarks
+   * Corresponds to RoleType.id
+   * 
+   * @example
+   * 1
+   */
   roleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -105,14 +174,71 @@ export class ConditionBasicInfoCheckRange extends $dara.Model {
 }
 
 export class ConditionBasicInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Detection range
+   */
   checkRange?: ConditionBasicInfoCheckRange;
+  /**
+   * @remarks
+   * Condition ID, which may be the primary key in the database or a transformed identifier such as a, b, or c
+   * 
+   * @example
+   * a
+   */
   cid?: string;
+  /**
+   * @remarks
+   * Exclude
+   * 
+   * @example
+   * 0
+   */
   exclusion?: number;
+  /**
+   * @remarks
+   * Primary key in the database
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * Lambda expression; for example: a&&b
+   * 
+   * @example
+   * a
+   */
   lambda?: string;
+  /**
+   * @remarks
+   * Condition name
+   * 
+   * @example
+   * xx
+   */
   name?: string;
+  /**
+   * @remarks
+   * List of operators
+   */
   operators?: OperatorBasicInfo[];
+  /**
+   * @remarks
+   * ID of the rule to which the condition belongs
+   * 
+   * @example
+   * 1
+   */
   rid?: string;
+  /**
+   * @remarks
+   * User group
+   * 
+   * @example
+   * xxxx
+   */
   userGroup?: string;
   static names(): { [key: string]: string } {
     return {

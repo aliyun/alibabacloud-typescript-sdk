@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleByIdRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The business space ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The rule ID.
+   * 
    * This parameter is required.
    * 
    * @example

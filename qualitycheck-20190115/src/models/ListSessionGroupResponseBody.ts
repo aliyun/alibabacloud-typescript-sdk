@@ -333,54 +333,91 @@ export class ListSessionGroupResponseBodyMessages extends $dara.Model {
 
 export class ListSessionGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of \\`200\\` indicates that the request was successful. Other values indicate that the request failed.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 2228
    */
   count?: number;
   /**
+   * @remarks
+   * The number of the returned page. The default value is 1.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   data?: ListSessionGroupResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The data marker. To retrieve more than 10,000 records, include the LastDataId from the previous response in the next request.
+   * 
    * @example
    * xxx
    */
   lastDataId?: string;
   /**
+   * @remarks
+   * The error details if the request fails. \\`successful\\` is returned if the request is successful.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: ListSessionGroupResponseBodyMessages;
   /**
+   * @remarks
+   * The number of the current page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F190ADE9-619A-447D-84E3-7E241A5C428E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A reserved parameter. You can ignore this parameter.
+   * 
+   * @example
+   * 忽略
+   */
   resultCountId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates that the request was successful. A value of \\`false\\` or \\`null\\` indicates that the request failed.
+   * 
    * @example
    * true
    */

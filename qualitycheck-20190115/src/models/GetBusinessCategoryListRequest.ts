@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetBusinessCategoryListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Workspace ID
+   * 
+   * @example
+   * 123456
+   */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Pass an empty string as the value.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -30,27 +30,42 @@ export class UpdateSchemeTaskConfigResponseBodyMessages extends $dara.Model {
 
 export class UpdateSchemeTaskConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** means success. Other values mean failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error details if an error occurs. When successful, the value is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   messages?: UpdateSchemeTaskConfigResponseBodyMessages;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. true means success. false or null means failure.
+   * 
    * @example
    * true
    */

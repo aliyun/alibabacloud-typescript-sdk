@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMiningTaskResultResponseBodyDataFilePathList extends $dara.Model {
+  /**
+   * @remarks
+   * Generated file type
+   * 
+   * @example
+   * CSV
+   */
   fileType?: string;
+  /**
+   * @remarks
+   * Generated file URL
+   * 
+   * @example
+   * http://vxxxcustomer-pop.oss-cn-shanghai.aliyuncs.com/100.csv
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,22 +44,38 @@ export class GetMiningTaskResultResponseBodyDataFilePathList extends $dara.Model
 
 export class GetMiningTaskResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * File path
+   * 
    * @example
-   * 123.22.com/manger/static/login-back.jpg
+   * 123.22.com/manager/static/login-back.jpg
    */
   filePath?: string;
+  /**
+   * @remarks
+   * List of returned file paths
+   */
   filePathList?: GetMiningTaskResultResponseBodyDataFilePathList[];
   /**
+   * @remarks
+   * Markdown file path
+   * 
    * @example
-   * 123.22.com/manger/static/login-back.md
+   * 123.22.com/manager/static/login-back.md
    */
   filePathMd?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 20201231de3d34ec-40fa-4a55-8d27-76ea*****
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * finish
    */
@@ -84,25 +114,38 @@ export class GetMiningTaskResultResponseBodyData extends $dara.Model {
 
 export class GetMiningTaskResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Result code. **200** indicates success. Any other value indicates failure. Use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Quality inspection task ID.
+   */
   data?: GetMiningTaskResultResponseBodyData;
   /**
+   * @remarks
+   * Details of the error if an error occurs. Otherwise, **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. true means success. false or null means failure.
+   * 
    * @example
    * true
    */

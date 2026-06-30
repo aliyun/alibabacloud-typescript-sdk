@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetScoreInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID.
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Paged queries are not supported. Pass an empty string.
+   * 
    * This parameter is required.
    * 
    * @example

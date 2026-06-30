@@ -6,10 +6,15 @@ export class UpdateQualityCheckDataRequest extends $dara.Model {
   /**
    * @remarks
    * baseMeAgentId
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * Complete JSON string containing detailed information. For specific content, see the details below.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -65,49 +65,90 @@ export class GetPrecisionTaskResponseBodyDataPrecisions extends $dara.Model {
 
 export class GetPrecisionTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * If the source is a dataset, this is the dataset ID.
+   * 
    * @example
    * 1212
    */
   dataSetId?: number;
+  /**
+   * @remarks
+   * If the source is a dataset, this is the dataset name.
+   * 
+   * @example
+   * 数据集名称
+   */
   dataSetName?: string;
   /**
+   * @remarks
+   * The total duration of the audio recording.
+   * 
    * @example
    * 3423
    */
   duration?: number;
   /**
+   * @remarks
+   * The number of incorrectly transcribed words.
+   * 
    * @example
    * 23
    */
   incorrectWords?: number;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * 任务名称
+   */
   name?: string;
   precisions?: GetPrecisionTaskResponseBodyDataPrecisions;
   /**
+   * @remarks
+   * The source of the file. Possible values: 3: Dataset. 0: Call center.
+   * 
    * @example
    * 3
    */
   source?: number;
   /**
+   * @remarks
+   * The task status. Possible values: 0: Transcribing. 1: Transcription complete.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 7C1DEF5F-2C18-4D36-99C6-8C27*****
    */
   taskId?: string;
   /**
+   * @remarks
+   * The total number of files in the task.
+   * 
    * @example
    * 3
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The time when the task was last updated.
+   * 
    * @example
    * 2020-03-10 20:26:29
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The total number of verified files.
+   * 
    * @example
    * 2
    */
@@ -160,22 +201,38 @@ export class GetPrecisionTaskResponseBodyData extends $dara.Model {
 
 export class GetPrecisionTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates that the request was successful. Other values indicate that the request failed. Use this field to determine the cause of the failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The task details.
+   */
   data?: GetPrecisionTaskResponseBodyData;
   /**
+   * @remarks
+   * If the request fails, this field provides the error details. If the request is successful, the value is \\`successful\\`.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * 
    * @example
    * true
    */

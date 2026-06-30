@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitReviewInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
    * @remarks
+   * The complete JSON string information. See the following details for specific content.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "taskId": "任务ID",
+   *     "vid": "文件ID"
+   * }
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

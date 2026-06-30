@@ -287,22 +287,34 @@ export class ListSkillGroupConfigResponseBodyData extends $dara.Model {
 
 export class ListSkillGroupConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of 200 indicates success. Any other value indicates failure. Use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   data?: ListSkillGroupConfigResponseBodyData;
   /**
+   * @remarks
+   * Details of the error if the request failed. If successful, the value is "successful".
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3CEA0495-341B-4482-9AD9-8191EF4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * 
    * @example
    * true
    */

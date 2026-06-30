@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hangzhou': "qualitycheck.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("qualitycheck", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,6 +33,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a business category.
+   * 
    * @param request - AddBusinessCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddBusinessCategoryResponse
@@ -63,6 +68,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a business category.
+   * 
    * @param request - AddBusinessCategoryRequest
    * @returns AddBusinessCategoryResponse
    */
@@ -72,6 +79,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Add a rule category.
+   * 
    * @param request - AddRuleCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddRuleCategoryResponse
@@ -105,6 +114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Add a rule category.
+   * 
    * @param request - AddRuleCategoryRequest
    * @returns AddRuleCategoryResponse
    */
@@ -114,7 +125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4创建规则
+   * This operation creates a rule on the Quality Inspection Rule Configuration page. For Apsara Stack, the URL is ip:port/api/client/UpdateRuleById.json.
    * 
    * @param request - AddRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -155,7 +166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4创建规则
+   * This operation creates a rule on the Quality Inspection Rule Configuration page. For Apsara Stack, the URL is ip:port/api/client/UpdateRuleById.json.
    * 
    * @param request - AddRuleV4Request
    * @returns AddRuleV4Response
@@ -166,7 +177,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申领实时语音所需token
+   * Performs tag categorization.
+   * 
+   * @param request - AnalyzeLabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeLabelResponse
+   */
+  async analyzeLabelWithOptions(request: $_model.AnalyzeLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AnalyzeLabelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeLabel",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AnalyzeLabelResponse>(await this.callApi(params, req, runtime), new $_model.AnalyzeLabelResponse({}));
+  }
+
+  /**
+   * Performs tag categorization.
+   * 
+   * @param request - AnalyzeLabelRequest
+   * @returns AnalyzeLabelResponse
+   */
+  async analyzeLabel(request: $_model.AnalyzeLabelRequest): Promise<$_model.AnalyzeLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.analyzeLabelWithOptions(request, runtime);
+  }
+
+  /**
+   * Apply for the token required for real-time speech processing.
    * 
    * @param request - ApplyWsTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -201,7 +258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申领实时语音所需token
+   * Apply for the token required for real-time speech processing.
    * 
    * @param request - ApplyWsTokenRequest
    * @returns ApplyWsTokenResponse
@@ -212,6 +269,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually assign quality reviewers.
+   * 
+   * @remarks
+   * You can manually assign files that have completed quality inspection to reviewers. Assignments can be made one file at a time or in batches:
+   * Single-file assignment: Assign a specific file to a specified reviewer.
+   * Batch assignment: Assign multiple filtered files to one or more reviewers. You can specify how many files each reviewer receives, or let the system distribute the files evenly among reviewers.
+   * 
    * @param request - AssignReviewerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignReviewerResponse
@@ -245,6 +309,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually assign quality reviewers.
+   * 
+   * @remarks
+   * You can manually assign files that have completed quality inspection to reviewers. Assignments can be made one file at a time or in batches:
+   * Single-file assignment: Assign a specific file to a specified reviewer.
+   * Batch assignment: Assign multiple filtered files to one or more reviewers. You can specify how many files each reviewer receives, or let the system distribute the files evenly among reviewers.
+   * 
    * @param request - AssignReviewerRequest
    * @returns AssignReviewerResponse
    */
@@ -254,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 会话组批量分配
+   * Frontend location: Quality Check Plan Management > Task Results > Session Groups > Batch Assign. Apsara Stack URL: ip:port/api/job/AssignReviewerBySessionGroup.json.
    * 
    * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
    * 
@@ -291,7 +362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 会话组批量分配
+   * Frontend location: Quality Check Plan Management > Task Results > Session Groups > Batch Assign. Apsara Stack URL: ip:port/api/job/AssignReviewerBySessionGroup.json.
    * 
    * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
    * 
@@ -305,7 +376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量复核
+   * This operation implements the Batch Review feature, which is available in the frontend under Task Management > Task Result.
+   * For private cloud deployments, use the URL: ip:port/api/qcsBatchSubmitReviewInfo.json.
+   * You can use this operation to perform a batch review on all filtered data.
+   * Note: This operation updates a large volume of data. The changes may take some time to appear.
    * 
    * @param request - BatchSubmitReviewInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -340,7 +414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量复核
+   * This operation implements the Batch Review feature, which is available in the frontend under Task Management > Task Result.
+   * For private cloud deployments, use the URL: ip:port/api/qcsBatchSubmitReviewInfo.json.
+   * You can use this operation to perform a batch review on all filtered data.
+   * Note: This operation updates a large volume of data. The changes may take some time to appear.
    * 
    * @param request - BatchSubmitReviewInfoRequest
    * @returns BatchSubmitReviewInfoResponse
@@ -351,7 +428,102 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词模型
+   * Creates an agent.
+   * 
+   * @param request - CreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
+  async createAgentWithOptions(request: $_model.CreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResponse({}));
+  }
+
+  /**
+   * Creates an agent.
+   * 
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
+  async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+   * 
+   * @param request - CreateAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentTaskResponse
+   */
+  async createAgentTaskWithOptions(request: $_model.CreateAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentTask",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentTaskResponse({}));
+  }
+
+  /**
+   * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+   * 
+   * @param request - CreateAgentTaskRequest
+   * @returns CreateAgentTaskResponse
+   */
+  async createAgentTask(request: $_model.CreateAgentTaskRequest): Promise<$_model.CreateAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Uploads a set of speech hotwords to the server and obtains the hotword ID in the response.
+   * 
+   * @remarks
+   * > Hotwords help improve recognition accuracy for specific terms, such as names, place names, or technical terms. [Learn more](https://help.aliyun.com/document_detail/213249.html).
    * 
    * @param request - CreateAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -386,7 +558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词模型
+   * Uploads a set of speech hotwords to the server and obtains the hotword ID in the response.
+   * 
+   * @remarks
+   * > Hotwords help improve recognition accuracy for specific terms, such as names, place names, or technical terms. [Learn more](https://help.aliyun.com/document_detail/213249.html).
    * 
    * @param request - CreateAsrVocabRequest
    * @returns CreateAsrVocabResponse
@@ -397,7 +572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建质检方案中的质检维度
+   * UI path: Quality Check Plan Management > Add or Edit Quality Check Dimension > Add Quality Check Dimension. Apsara Stack API endpoint: ip:port/api/qcs/CreateCheckTypeToScheme.json.
    * 
    * @param request - CreateCheckTypeToSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -432,7 +607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建质检方案中的质检维度
+   * UI path: Quality Check Plan Management > Add or Edit Quality Check Dimension > Add Quality Check Dimension. Apsara Stack API endpoint: ip:port/api/qcs/CreateCheckTypeToScheme.json.
    * 
    * @param request - CreateCheckTypeToSchemeRequest
    * @returns CreateCheckTypeToSchemeResponse
@@ -443,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标签挖掘任务
+   * Creates a label mining task.
    * 
    * @param request - CreateMiningTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -492,7 +667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标签挖掘任务
+   * Creates a label mining task.
    * 
    * @param request - CreateMiningTaskRequest
    * @returns CreateMiningTaskResponse
@@ -503,7 +678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增质检方案
+   * You can access this operation from the Quality Check Plan Management page in the console. The Apsara Stack endpoint is ip:port/api/qcs/CreateQualityCheckScheme.json.
    * 
    * @param request - CreateQualityCheckSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -538,7 +713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增质检方案
+   * You can access this operation from the Quality Check Plan Management page in the console. The Apsara Stack endpoint is ip:port/api/qcs/CreateQualityCheckScheme.json.
    * 
    * @param request - CreateQualityCheckSchemeRequest
    * @returns CreateQualityCheckSchemeResponse
@@ -549,7 +724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建质检任务
+   * Corresponding frontend feature location: Plan Management > Create Quality Inspection Job. Apsara Stack URL: ip:port/api/task/CreateSchemeTaskConfig.json.
    * 
    * @param request - CreateSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -584,7 +759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建质检任务
+   * Corresponding frontend feature location: Plan Management > Create Quality Inspection Job. Apsara Stack URL: ip:port/api/task/CreateSchemeTaskConfig.json.
    * 
    * @param request - CreateSchemeTaskConfigRequest
    * @returns CreateSchemeTaskConfigResponse
@@ -595,6 +770,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a configuration.
+   * 
    * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
    * 
    * @param request - CreateSkillGroupConfigRequest
@@ -630,6 +807,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a configuration.
+   * 
    * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
    * 
    * @param request - CreateSkillGroupConfigRequest
@@ -642,6 +821,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a label node.
+   * 
+   * @param request - CreateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagResponse
+   */
+  async createTagWithOptions(request: $_model.CreateTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTag",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTagResponse>(await this.callApi(params, req, runtime), new $_model.CreateTagResponse({}));
+  }
+
+  /**
+   * Creates a label node.
+   * 
+   * @param request - CreateTagRequest
+   * @returns CreateTagResponse
+   */
+  async createTag(request: $_model.CreateTagRequest): Promise<$_model.CreateTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an automatic allocation rule for quality review tasks.
+   * 
    * @param request - CreateTaskAssignRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTaskAssignRuleResponse
@@ -675,6 +902,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an automatic allocation rule for quality review tasks.
+   * 
    * @param request - CreateTaskAssignRuleRequest
    * @returns CreateTaskAssignRuleResponse
    */
@@ -684,7 +913,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户
+   * Create a user
+   * 
+   * @remarks
+   * Alibaba Cloud uses Resource Access Management (RAM) for unified account management. Before you create a user in Smart Conversation Analysis, first create the user in [RAM](https://ram.console.aliyun.com). Then, obtain the user’s UID, username, and display name. Finally, add the RAM user to Smart Conversation Analysis to grant them access to the Smart Conversation Analysis service.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -719,7 +951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户
+   * Create a user
+   * 
+   * @remarks
+   * Alibaba Cloud uses Resource Access Management (RAM) for unified account management. Before you create a user in Smart Conversation Analysis, first create the user in [RAM](https://ram.console.aliyun.com). Then, obtain the user’s UID, username, and display name. Finally, add the RAM user to Smart Conversation Analysis to grant them access to the Smart Conversation Analysis service.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -730,6 +965,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a warning configuration.
+   * 
    * @param request - CreateWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWarningConfigResponse
@@ -763,6 +1000,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a warning configuration.
+   * 
    * @param request - CreateWarningConfigRequest
    * @returns CreateWarningConfigResponse
    */
@@ -818,6 +1057,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a rule category.
+   * 
    * @param request - DelRuleCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DelRuleCategoryResponse
@@ -851,6 +1092,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a rule category.
+   * 
    * @param request - DelRuleCategoryRequest
    * @returns DelRuleCategoryResponse
    */
@@ -860,6 +1103,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an agent.
+   * 
+   * @param request - DeleteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgentWithOptions(request: $_model.DeleteAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentResponse({}));
+  }
+
+  /**
+   * Deletes an agent.
+   * 
+   * @param request - DeleteAgentRequest
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgent(request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a hotword group.
+   * 
    * @param request - DeleteAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAsrVocabResponse
@@ -893,6 +1184,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a hotword group.
+   * 
    * @param request - DeleteAsrVocabRequest
    * @returns DeleteAsrVocabResponse
    */
@@ -902,6 +1195,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a business category.
+   * 
    * @param request - DeleteBusinessCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBusinessCategoryResponse
@@ -935,6 +1230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a business category.
+   * 
    * @param request - DeleteBusinessCategoryRequest
    * @returns DeleteBusinessCategoryResponse
    */
@@ -944,7 +1241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检唯独
+   * Deletes a dimension from a quality inspection scheme.
    * 
    * @param request - DeleteCheckTypeToSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +1276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检唯独
+   * Deletes a dimension from a quality inspection scheme.
    * 
    * @param request - DeleteCheckTypeToSchemeRequest
    * @returns DeleteCheckTypeToSchemeResponse
@@ -990,6 +1287,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a language model.
+   * 
    * @param request - DeleteCustomizationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomizationConfigResponse
@@ -1023,6 +1322,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a language model.
+   * 
    * @param request - DeleteCustomizationConfigRequest
    * @returns DeleteCustomizationConfigResponse
    */
@@ -1032,6 +1333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a dataset.
+   * 
    * @deprecated OpenAPI DeleteDataSet is deprecated
    * 
    * @param request - DeleteDataSetRequest
@@ -1067,6 +1370,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a dataset.
+   * 
    * @deprecated OpenAPI DeleteDataSet is deprecated
    * 
    * @param request - DeleteDataSetRequest
@@ -1079,6 +1384,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a speech recognition quality check task.
+   * 
    * @param request - DeletePrecisionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrecisionTaskResponse
@@ -1112,6 +1419,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a speech recognition quality check task.
+   * 
    * @param request - DeletePrecisionTaskRequest
    * @returns DeletePrecisionTaskResponse
    */
@@ -1121,7 +1430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检方案
+   * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
    * 
    * @param request - DeleteQualityCheckSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1156,7 +1465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检方案
+   * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
    * 
    * @param request - DeleteQualityCheckSchemeRequest
    * @returns DeleteQualityCheckSchemeResponse
@@ -1167,7 +1476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除规则
+   * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
    * 
    * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
@@ -1214,7 +1523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除规则
+   * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
    * 
    * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
@@ -1228,7 +1537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4删除规则
+   * Frontend feature location: Quality Inspection Rule Configuration — Delete. Apsara Stack URL: ip:port/api/client/DeleteRule.json.
    * 
    * @param request - DeleteRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1269,7 +1578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4删除规则
+   * Frontend feature location: Quality Inspection Rule Configuration — Delete. Apsara Stack URL: ip:port/api/client/DeleteRule.json.
    * 
    * @param request - DeleteRuleV4Request
    * @returns DeleteRuleV4Response
@@ -1280,7 +1589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检任务
+   * This feature is not available on the frontend. The Apsara Stack API endpoint is ip:port/api/task/DeleteSchemeTaskConfig.json.
    * 
    * @param request - DeleteSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1315,7 +1624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除质检任务
+   * This feature is not available on the frontend. The Apsara Stack API endpoint is ip:port/api/task/DeleteSchemeTaskConfig.json.
    * 
    * @param request - DeleteSchemeTaskConfigRequest
    * @returns DeleteSchemeTaskConfigResponse
@@ -1326,6 +1635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a configuration.
+   * 
    * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
    * 
    * @param request - DeleteSkillGroupConfigRequest
@@ -1361,6 +1672,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a configuration.
+   * 
    * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
    * 
    * @param request - DeleteSkillGroupConfigRequest
@@ -1373,6 +1686,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a label node.
+   * 
+   * @param request - DeleteTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagResponse
+   */
+  async deleteTagWithOptions(request: $_model.DeleteTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTag",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTagResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTagResponse({}));
+  }
+
+  /**
+   * Deletes a label node.
+   * 
+   * @param request - DeleteTagRequest
+   * @returns DeleteTagResponse
+   */
+  async deleteTag(request: $_model.DeleteTagRequest): Promise<$_model.DeleteTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an automatic allocation rule for review tasks.
+   * 
    * @param request - DeleteTaskAssignRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTaskAssignRuleResponse
@@ -1406,6 +1767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an automatic allocation rule for review tasks.
+   * 
    * @param request - DeleteTaskAssignRuleRequest
    * @returns DeleteTaskAssignRuleResponse
    */
@@ -1415,6 +1778,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a warning configuration.
+   * 
    * @param request - DeleteWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteWarningConfigResponse
@@ -1448,6 +1813,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a warning configuration.
+   * 
    * @param request - DeleteWarningConfigRequest
    * @returns DeleteWarningConfigResponse
    */
@@ -1503,6 +1870,249 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Runs an agent.
+   * 
+   * @param request - ExecuteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAgentResponse
+   */
+  async *executeAgentWithSSE(request: $_model.ExecuteAgentRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ExecuteAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ExecuteAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ExecuteAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Runs an agent.
+   * 
+   * @param request - ExecuteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAgentResponse
+   */
+  async executeAgentWithOptions(request: $_model.ExecuteAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteAgentResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteAgentResponse({}));
+  }
+
+  /**
+   * Runs an agent.
+   * 
+   * @param request - ExecuteAgentRequest
+   * @returns ExecuteAgentResponse
+   */
+  async executeAgent(request: $_model.ExecuteAgentRequest): Promise<$_model.ExecuteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Generates labels.
+   * 
+   * @param request - GenerateLabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateLabelResponse
+   */
+  async generateLabelWithOptions(request: $_model.GenerateLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateLabelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateLabel",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateLabelResponse>(await this.callApi(params, req, runtime), new $_model.GenerateLabelResponse({}));
+  }
+
+  /**
+   * Generates labels.
+   * 
+   * @param request - GenerateLabelRequest
+   * @returns GenerateLabelResponse
+   */
+  async generateLabel(request: $_model.GenerateLabelRequest): Promise<$_model.GenerateLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateLabelWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of an agent.
+   * 
+   * @param request - GetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentResponse
+   */
+  async getAgentWithOptions(request: $_model.GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an agent.
+   * 
+   * @param request - GetAgentRequest
+   * @returns GetAgentResponse
+   */
+  async getAgent(request: $_model.GetAgentRequest): Promise<$_model.GetAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the task result of an agent node.
+   * 
+   * @param request - GetAgentTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentTaskResultResponse
+   */
+  async getAgentTaskResultWithOptions(request: $_model.GetAgentTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentTaskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentTaskResult",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentTaskResultResponse({}));
+  }
+
+  /**
+   * Retrieves the task result of an agent node.
+   * 
+   * @param request - GetAgentTaskResultRequest
+   * @returns GetAgentTaskResultResponse
+   */
+  async getAgentTaskResult(request: $_model.GetAgentTaskResultRequest): Promise<$_model.GetAgentTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentTaskResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves details for a specified hotword group.
+   * 
    * @param request - GetAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAsrVocabResponse
@@ -1536,6 +2146,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves details for a specified hotword group.
+   * 
    * @param request - GetAsrVocabRequest
    * @returns GetAsrVocabResponse
    */
@@ -1545,6 +2157,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the list of applicable businesses.
+   * 
    * @param request - GetBusinessCategoryListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBusinessCategoryListResponse
@@ -1578,6 +2192,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain the list of applicable businesses.
+   * 
    * @param request - GetBusinessCategoryListRequest
    * @returns GetBusinessCategoryListResponse
    */
@@ -1587,7 +2203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语音模型列表
+   * Retrieves a list of language models.
    * 
    * @param request - GetCustomizationConfigListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1622,7 +2238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语音模型列表
+   * Retrieves a list of language models.
    * 
    * @param request - GetCustomizationConfigListRequest
    * @returns GetCustomizationConfigListResponse
@@ -1633,7 +2249,99 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取标签挖掘任务结果
+   * Queries the results of tag categorization analysis.
+   * 
+   * @param request - GetLabelAnalysisResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLabelAnalysisResultResponse
+   */
+  async getLabelAnalysisResultWithOptions(request: $_model.GetLabelAnalysisResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLabelAnalysisResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLabelAnalysisResult",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLabelAnalysisResultResponse>(await this.callApi(params, req, runtime), new $_model.GetLabelAnalysisResultResponse({}));
+  }
+
+  /**
+   * Queries the results of tag categorization analysis.
+   * 
+   * @param request - GetLabelAnalysisResultRequest
+   * @returns GetLabelAnalysisResultResponse
+   */
+  async getLabelAnalysisResult(request: $_model.GetLabelAnalysisResultRequest): Promise<$_model.GetLabelAnalysisResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLabelAnalysisResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the result of a label generation task.
+   * 
+   * @param request - GetLabelGeneratedResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLabelGeneratedResultResponse
+   */
+  async getLabelGeneratedResultWithOptions(request: $_model.GetLabelGeneratedResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLabelGeneratedResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLabelGeneratedResult",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLabelGeneratedResultResponse>(await this.callApi(params, req, runtime), new $_model.GetLabelGeneratedResultResponse({}));
+  }
+
+  /**
+   * Queries the result of a label generation task.
+   * 
+   * @param request - GetLabelGeneratedResultRequest
+   * @returns GetLabelGeneratedResultResponse
+   */
+  async getLabelGeneratedResult(request: $_model.GetLabelGeneratedResultRequest): Promise<$_model.GetLabelGeneratedResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLabelGeneratedResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieve the result of a tag mining task.
    * 
    * @param request - GetMiningTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1668,7 +2376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取标签挖掘任务结果
+   * Retrieve the result of a tag mining task.
    * 
    * @param request - GetMiningTaskResultRequest
    * @returns GetMiningTaskResultResponse
@@ -1679,6 +2387,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the next file details for manual verification.
+   * 
    * @param request - GetNextResultToVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNextResultToVerifyResponse
@@ -1712,6 +2422,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the next file details for manual verification.
+   * 
    * @param request - GetNextResultToVerifyRequest
    * @returns GetNextResultToVerifyResponse
    */
@@ -1721,6 +2433,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a (speech recognition) detection task.
+   * 
    * @param request - GetPrecisionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPrecisionTaskResponse
@@ -1754,6 +2468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a (speech recognition) detection task.
+   * 
    * @param request - GetPrecisionTaskRequest
    * @returns GetPrecisionTaskResponse
    */
@@ -1763,7 +2479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检方案
+   * This operation implements the query feature in quality check plan management on the frontend. The Apsara Stack URL is ip:port/api/qcs/GetQualityCheckScheme.json.
    * 
    * @param request - GetQualityCheckSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1798,7 +2514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检方案
+   * This operation implements the query feature in quality check plan management on the frontend. The Apsara Stack URL is ip:port/api/qcs/GetQualityCheckScheme.json.
    * 
    * @param request - GetQualityCheckSchemeRequest
    * @returns GetQualityCheckSchemeResponse
@@ -1809,7 +2525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检结果
+   * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+   * 
+   * @remarks
+   * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
    * 
    * @param request - GetResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1844,7 +2563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检结果
+   * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+   * 
+   * @remarks
+   * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
    * 
    * @param request - GetResultRequest
    * @returns GetResultResponse
@@ -1855,7 +2577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检结果详情用于复核
+   * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
    * 
    * @param request - GetResultToReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1890,7 +2612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检结果详情用于复核
+   * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
    * 
    * @param request - GetResultToReviewRequest
    * @returns GetResultToReviewResponse
@@ -1901,6 +2623,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves basic information about rules.
+   * 
+   * @remarks
+   * > This operation returns basic rule information such as the **id** and **name**. You can use this information with [GetRuleDetails](https://help.aliyun.com/document_detail/142310.html).
+   * 
    * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
    * @param request - GetRuleRequest
@@ -1936,6 +2663,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves basic information about rules.
+   * 
+   * @remarks
+   * > This operation returns basic rule information such as the **id** and **name**. You can use this information with [GetRuleDetails](https://help.aliyun.com/document_detail/142310.html).
+   * 
    * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
    * @param request - GetRuleRequest
@@ -1948,7 +2680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取规则
+   * Retrieves the details of a specific quality inspection rule. It corresponds to the **Edit** action on the **Quality Inspection Rule Configuration** page. The URL for this operation in a private cloud is `ip:port/api/client/GetRuleById.json`.
    * 
    * @deprecated OpenAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
@@ -1987,7 +2719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取规则
+   * Retrieves the details of a specific quality inspection rule. It corresponds to the **Edit** action on the **Quality Inspection Rule Configuration** page. The URL for this operation in a private cloud is `ip:port/api/client/GetRuleById.json`.
    * 
    * @deprecated OpenAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
@@ -2001,6 +2733,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of rule types.
+   * 
    * @param request - GetRuleCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRuleCategoryResponse
@@ -2034,6 +2768,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of rule types.
+   * 
    * @param request - GetRuleCategoryRequest
    * @returns GetRuleCategoryResponse
    */
@@ -2043,6 +2779,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the detailed information of a rule.
+   * 
+   * @remarks
+   * > This operation is used in conjunction with [Get basic rule information](https://help.aliyun.com/document_detail/142333.html). First, call the GetRule operation to obtain the rule ID. Then, use the rule ID as a parameter to call the **GetRuleDetail** operation.
+   * 
    * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
    * @param request - GetRuleDetailRequest
@@ -2078,6 +2819,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the detailed information of a rule.
+   * 
+   * @remarks
+   * > This operation is used in conjunction with [Get basic rule information](https://help.aliyun.com/document_detail/142333.html). First, call the GetRule operation to obtain the rule ID. Then, use the rule ID as a parameter to call the **GetRuleDetail** operation.
+   * 
    * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
    * 
    * @param request - GetRuleDetailRequest
@@ -2090,7 +2836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4获取规则
+   * This API is located in the frontend at Quality Check Rule Configuration > Query. The Apsara Stack URL is ip:port/api/client/GetRuleById.json.
    * 
    * @param request - GetRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2121,7 +2867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4获取规则
+   * This API is located in the frontend at Quality Check Rule Configuration > Query. The Apsara Stack URL is ip:port/api/client/GetRuleById.json.
    * 
    * @param request - GetRuleV4Request
    * @returns GetRuleV4Response
@@ -2132,7 +2878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得规则列表
+   * Corresponds to the frontend feature location: Quality Inspection Rule Configuration > List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - GetRulesCountListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2265,7 +3011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得规则列表
+   * Corresponds to the frontend feature location: Quality Inspection Rule Configuration > List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - GetRulesCountListRequest
    * @returns GetRulesCountListResponse
@@ -2276,7 +3022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检任务配置详情
+   * Obtain the configuration details of a quality inspection task.
    * 
    * @param request - GetSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2311,7 +3057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检任务配置详情
+   * Obtain the configuration details of a quality inspection task.
    * 
    * @param request - GetSchemeTaskConfigRequest
    * @returns GetSchemeTaskConfigResponse
@@ -2322,6 +3068,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves information about all scoring items.
+   * 
    * @deprecated OpenAPI GetScoreInfo is deprecated
    * 
    * @param request - GetScoreInfoRequest
@@ -2357,6 +3105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves information about all scoring items.
+   * 
    * @deprecated OpenAPI GetScoreInfo is deprecated
    * 
    * @param request - GetScoreInfoRequest
@@ -2369,6 +3119,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration that is specified by its ID.
+   * 
    * @deprecated OpenAPI GetSkillGroupConfig is deprecated
    * 
    * @param request - GetSkillGroupConfigRequest
@@ -2404,6 +3156,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration that is specified by its ID.
+   * 
    * @deprecated OpenAPI GetSkillGroupConfig is deprecated
    * 
    * @param request - GetSkillGroupConfigRequest
@@ -2416,6 +3170,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can obtain the real-time quality inspection result of the hotline.
+   * 
    * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
    * 
    * @param request - GetSyncResultRequest
@@ -2451,6 +3207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can obtain the real-time quality inspection result of the hotline.
+   * 
    * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
    * 
    * @param request - GetSyncResultRequest
@@ -2460,6 +3218,52 @@ export default class Client extends OpenApi {
   async getSyncResult(request: $_model.GetSyncResultRequest): Promise<$_model.GetSyncResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSyncResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a label node.
+   * 
+   * @param request - GetTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTagResponse
+   */
+  async getTagWithOptions(request: $_model.GetTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTag",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTagResponse>(await this.callApi(params, req, runtime), new $_model.GetTagResponse({}));
+  }
+
+  /**
+   * Queries the details of a label node.
+   * 
+   * @param request - GetTagRequest
+   * @returns GetTagResponse
+   */
+  async getTag(request: $_model.GetTagRequest): Promise<$_model.GetTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTagWithOptions(request, runtime);
   }
 
   /**
@@ -2509,6 +3313,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Handles a complaint.
+   * 
+   * @remarks
+   * Only quality checkers or administrators can call this operation.
+   * 
    * @param request - HandleComplaintRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HandleComplaintResponse
@@ -2542,6 +3351,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Handles a complaint.
+   * 
+   * @remarks
+   * Only quality checkers or administrators can call this operation.
+   * 
    * @param request - HandleComplaintRequest
    * @returns HandleComplaintResponse
    */
@@ -2551,6 +3365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete rules.
+   * 
    * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
    * @param request - InvalidRuleRequest
@@ -2586,6 +3402,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete rules.
+   * 
    * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
    * @param request - InvalidRuleRequest
@@ -2598,7 +3416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热词模型列表
+   * Retrieves a list of vocabulary groups without their specific content.
    * 
    * @param request - ListAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2633,7 +3451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热词模型列表
+   * Retrieves a list of vocabulary groups without their specific content.
    * 
    * @param request - ListAsrVocabRequest
    * @returns ListAsrVocabResponse
@@ -2644,7 +3462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集列表
+   * This feature is located in the Dataset management section of the frontend. The Apsara Stack URL is ip:port/api/dataset/ListDataSet.json.
    * 
    * @deprecated OpenAPI ListDataSet is deprecated
    * 
@@ -2681,7 +3499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集列表
+   * This feature is located in the Dataset management section of the frontend. The Apsara Stack URL is ip:port/api/dataset/ListDataSet.json.
    * 
    * @deprecated OpenAPI ListDataSet is deprecated
    * 
@@ -2695,6 +3513,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
+   * 
    * @param request - ListPrecisionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrecisionTaskResponse
@@ -2728,6 +3548,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
+   * 
    * @param request - ListPrecisionTaskRequest
    * @returns ListPrecisionTaskResponse
    */
@@ -2737,7 +3559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 质检方案列表
+   * Retrieves a list of quality check schemes.
    * 
    * @param request - ListQualityCheckSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2772,7 +3594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 质检方案列表
+   * Retrieves a list of quality check schemes.
    * 
    * @param request - ListQualityCheckSchemeRequest
    * @returns ListQualityCheckSchemeResponse
@@ -2783,6 +3605,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists rules.
+   * 
    * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
    * 
    * @param request - ListRulesRequest
@@ -2818,6 +3642,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists rules.
+   * 
    * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
    * 
    * @param request - ListRulesRequest
@@ -2830,7 +3656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4获得规则列表
+   * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - ListRulesV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2963,7 +3789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4获得规则列表
+   * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - ListRulesV4Request
    * @returns ListRulesV4Response
@@ -2974,7 +3800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检任务列表
+   * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
    * 
    * @param request - ListSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3009,7 +3835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质检任务列表
+   * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
    * 
    * @param request - ListSchemeTaskConfigRequest
    * @returns ListSchemeTaskConfigResponse
@@ -3020,7 +3846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话组列表
+   * This API corresponds to the frontend location: Task Management > View Results > Task Result > Session Group Results tab. The Apsara Stack URL is: ip:port/api/session/group/ListSessionGroup.json. It aggregates multi-turn sessions by their session group ID for unified management. You must pass the `sessionGroupId` field. For more information, see the UploadData and UploadAudioData API documentation.
    * 
    * @deprecated OpenAPI ListSessionGroup is deprecated
    * 
@@ -3057,7 +3883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话组列表
+   * This API corresponds to the frontend location: Task Management > View Results > Task Result > Session Group Results tab. The Apsara Stack URL is: ip:port/api/session/group/ListSessionGroup.json. It aggregates multi-turn sessions by their session group ID for unified management. You must pass the `sessionGroupId` field. For more information, see the UploadData and UploadAudioData API documentation.
    * 
    * @deprecated OpenAPI ListSessionGroup is deprecated
    * 
@@ -3071,6 +3897,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call ListSkillGroupConfig to obtain the configuration list.
+   * 
    * @deprecated OpenAPI ListSkillGroupConfig is deprecated
    * 
    * @param request - ListSkillGroupConfigRequest
@@ -3106,6 +3934,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call ListSkillGroupConfig to obtain the configuration list.
+   * 
    * @deprecated OpenAPI ListSkillGroupConfig is deprecated
    * 
    * @param request - ListSkillGroupConfigRequest
@@ -3118,6 +3948,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of label nodes.
+   * 
+   * @param request - ListTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResponse
+   */
+  async listTagWithOptions(request: $_model.ListTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTag",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResponse({}));
+  }
+
+  /**
+   * Queries the list of label nodes.
+   * 
+   * @param request - ListTagRequest
+   * @returns ListTagResponse
+   */
+  async listTag(request: $_model.ListTagRequest): Promise<$_model.ListTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists automatic allocation rules for review tasks.
+   * 
    * @param request - ListTaskAssignRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskAssignRulesResponse
@@ -3151,6 +4029,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists automatic allocation rules for review tasks.
+   * 
    * @param request - ListTaskAssignRulesRequest
    * @returns ListTaskAssignRulesResponse
    */
@@ -3160,6 +4040,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of users. Set the service endpoint to China (Hangzhou) (cn-hangzhou).
+   * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersResponse
@@ -3193,6 +4075,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of users. Set the service endpoint to China (Hangzhou) (cn-hangzhou).
+   * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
    */
@@ -3202,6 +4086,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists warning configurations.
+   * 
    * @param request - ListWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListWarningConfigResponse
@@ -3235,6 +4121,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists warning configurations.
+   * 
    * @param request - ListWarningConfigRequest
    * @returns ListWarningConfigResponse
    */
@@ -3290,7 +4178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量回收
+   * Frontend location: Task Management > Task Results > Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSession.json.
    * 
    * @param request - RevertAssignedSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3325,7 +4213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量回收
+   * Frontend location: Task Management > Task Results > Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSession.json.
    * 
    * @param request - RevertAssignedSessionRequest
    * @returns RevertAssignedSessionResponse
@@ -3336,7 +4224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 会话组批量回收
+   * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
    * 
    * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
    * 
@@ -3373,7 +4261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 会话组批量回收
+   * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
    * 
    * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
    * 
@@ -3387,7 +4275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用原生Prompt调用通义晓蜜
+   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
    * 
    * @param tmpReq - RunCompletionMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3446,7 +4334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用原生Prompt调用通义晓蜜
+   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
    * 
    * @param tmpReq - RunCompletionMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3491,7 +4379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用原生Prompt调用通义晓蜜
+   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
    * 
    * @param request - RunCompletionMessageRequest
    * @returns RunCompletionMessageResponse
@@ -3502,6 +4390,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the speaker role configuration for a dataset.
+   * 
    * @deprecated OpenAPI SaveConfigDataSet is deprecated
    * 
    * @param request - SaveConfigDataSetRequest
@@ -3537,6 +4427,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the speaker role configuration for a dataset.
+   * 
    * @deprecated OpenAPI SaveConfigDataSet is deprecated
    * 
    * @param request - SaveConfigDataSetRequest
@@ -3549,6 +4441,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a complaint.
+   * 
    * @param request - SubmitComplaintRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitComplaintResponse
@@ -3582,6 +4476,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a complaint.
+   * 
    * @param request - SubmitComplaintRequest
    * @returns SubmitComplaintResponse
    */
@@ -3591,6 +4487,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
+   * 
    * @param request - SubmitPrecisionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitPrecisionTaskResponse
@@ -3624,6 +4522,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
+   * 
    * @param request - SubmitPrecisionTaskRequest
    * @returns SubmitPrecisionTaskResponse
    */
@@ -3633,6 +4533,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a new dataset quality check task.
+   * 
    * @param request - SubmitQualityCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitQualityCheckTaskResponse
@@ -3666,6 +4568,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a new dataset quality check task.
+   * 
    * @param request - SubmitQualityCheckTaskRequest
    * @returns SubmitQualityCheckTaskResponse
    */
@@ -3675,6 +4579,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+   * 
+   * @remarks
+   * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+   * 
    * @param request - SubmitReviewInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitReviewInfoResponse
@@ -3708,6 +4617,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+   * 
+   * @remarks
+   * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+   * 
    * @param request - SubmitReviewInfoRequest
    * @returns SubmitReviewInfoResponse
    */
@@ -3717,7 +4631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交复核结果v4
+   * Review quality inspection results
    * 
    * @param request - SubmitReviewInfoV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3752,7 +4666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交复核结果v4
+   * Review quality inspection results
    * 
    * @param request - SubmitReviewInfoV4Request
    * @returns SubmitReviewInfoV4Response
@@ -3763,6 +4677,22 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Perform real-time quality inspection for hotlines.
+   * 
+   * @remarks
+   * Real-time hotline quality inspection transcribes spoken dialogue into text during a call. It sends the text to the Smart Conversation Analysis system for real-time quality inspection to detect potential issues or risks. You can display the dialogue text and inspection results in real time on the customer service representative\\"s workbench (a third-party system). This differs from offline quality inspection, which uses UploadAudioData for inspection or dataset inspection. For details, see the developer guide. Offline quality inspection occurs after the call ends and the recording file is generated.
+   * **Usage Flow**
+   * You can implement real-time transcription of audio streams to text during calls, or use Alibaba Cloud Call Center (CC) directly. CC integrates deeply with Smart Conversation Analysis, enabling real-time quality inspection during calls without API integration.
+   * If you implement audio-to-text conversion yourself, invoke the SyncQualityCheck API for real-time quality inspection after a speaker finishes a sentence and generates dialogue text. This returns the inspection result for that sentence synchronously.
+   * You should include skill group information when uploading data. Then, you can use the Call Center Quality Inspection - Configuration Management feature to configure different quality inspection rules for calls from different skill groups.
+   * After the call ends, you can store the recording file on a storage server accessible over the public network. You can invoke the recording information maintenance API: UpdateSyncQualityCheckData. You can submit the recording name, recording file URL, and other details to the Smart Conversation Analysis service. This lets quality inspectors play back the recording during review.
+   * After the call ends, you can view the quality inspection results in Call Center Quality Inspection - Result Display - Real-time Quality Inspection Results. You can also invoke the real-time quality inspection result query API: GetSyncResult to retrieve the results. You can use Score Dashboard - Real-time Dashboard to view data charts for customer service representatives, skill groups, and scoring items.
+   * **Full-Text Quality Inspection**
+   * Quality inspection rules include dozens of operators. Some operators require dialogue context (multi-turn conversations between customer service representatives and customers) for analysis. However, real-time quality inspection occurs during a call and typically uses text from only one sentence spoken by a single speaker. Some operators are not suitable for real-time quality inspection. Therefore, quality inspection rules are divided into real-time quality inspection rules and full-text quality inspection rules:
+   * **Real-time quality inspection rules**: Rules used for real-time quality inspection. They support a limited number of operator types. They do not support specifying the detection range for operators.
+   * **Full-text quality inspection rules**: Rules used for offline quality inspection. They support all operator types. They support custom detection ranges for operators.
+   * For calls that underwent real-time quality inspection, you can apply full-text quality inspection rules to the complete dialogue text after the call ends. To enable full-text quality inspection after real-time inspection, see the full-text quality inspection description in Call Center Quality Inspection - Configuration Management.
+   * 
    * @param request - SyncQualityCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncQualityCheckResponse
@@ -3796,6 +4726,22 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Perform real-time quality inspection for hotlines.
+   * 
+   * @remarks
+   * Real-time hotline quality inspection transcribes spoken dialogue into text during a call. It sends the text to the Smart Conversation Analysis system for real-time quality inspection to detect potential issues or risks. You can display the dialogue text and inspection results in real time on the customer service representative\\"s workbench (a third-party system). This differs from offline quality inspection, which uses UploadAudioData for inspection or dataset inspection. For details, see the developer guide. Offline quality inspection occurs after the call ends and the recording file is generated.
+   * **Usage Flow**
+   * You can implement real-time transcription of audio streams to text during calls, or use Alibaba Cloud Call Center (CC) directly. CC integrates deeply with Smart Conversation Analysis, enabling real-time quality inspection during calls without API integration.
+   * If you implement audio-to-text conversion yourself, invoke the SyncQualityCheck API for real-time quality inspection after a speaker finishes a sentence and generates dialogue text. This returns the inspection result for that sentence synchronously.
+   * You should include skill group information when uploading data. Then, you can use the Call Center Quality Inspection - Configuration Management feature to configure different quality inspection rules for calls from different skill groups.
+   * After the call ends, you can store the recording file on a storage server accessible over the public network. You can invoke the recording information maintenance API: UpdateSyncQualityCheckData. You can submit the recording name, recording file URL, and other details to the Smart Conversation Analysis service. This lets quality inspectors play back the recording during review.
+   * After the call ends, you can view the quality inspection results in Call Center Quality Inspection - Result Display - Real-time Quality Inspection Results. You can also invoke the real-time quality inspection result query API: GetSyncResult to retrieve the results. You can use Score Dashboard - Real-time Dashboard to view data charts for customer service representatives, skill groups, and scoring items.
+   * **Full-Text Quality Inspection**
+   * Quality inspection rules include dozens of operators. Some operators require dialogue context (multi-turn conversations between customer service representatives and customers) for analysis. However, real-time quality inspection occurs during a call and typically uses text from only one sentence spoken by a single speaker. Some operators are not suitable for real-time quality inspection. Therefore, quality inspection rules are divided into real-time quality inspection rules and full-text quality inspection rules:
+   * **Real-time quality inspection rules**: Rules used for real-time quality inspection. They support a limited number of operator types. They do not support specifying the detection range for operators.
+   * **Full-text quality inspection rules**: Rules used for offline quality inspection. They support all operator types. They support custom detection ranges for operators.
+   * For calls that underwent real-time quality inspection, you can apply full-text quality inspection rules to the complete dialogue text after the call ends. To enable full-text quality inspection after real-time inspection, see the full-text quality inspection description in Call Center Quality Inspection - Configuration Management.
+   * 
    * @param request - SyncQualityCheckRequest
    * @returns SyncQualityCheckResponse
    */
@@ -3805,7 +4751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试规则
+   * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
    * 
    * @param request - TestRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3840,7 +4786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试规则
+   * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
    * 
    * @param request - TestRuleV4Request
    * @returns TestRuleV4Response
@@ -3851,6 +4797,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an agent.
+   * 
+   * @param request - UpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
+  async updateAgentWithOptions(request: $_model.UpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgent",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentResponse({}));
+  }
+
+  /**
+   * Modifies an agent.
+   * 
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
+  async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the hotword vocabulary.
+   * 
    * @param request - UpdateAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAsrVocabResponse
@@ -3884,6 +4878,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the hotword vocabulary.
+   * 
    * @param request - UpdateAsrVocabRequest
    * @returns UpdateAsrVocabResponse
    */
@@ -3893,7 +4889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案中的质检维度
+   * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
    * 
    * @param request - UpdateCheckTypeToSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3928,7 +4924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案中的质检维度
+   * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
    * 
    * @param request - UpdateCheckTypeToSchemeRequest
    * @returns UpdateCheckTypeToSchemeResponse
@@ -3939,7 +4935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新会话随录数据
+   * Update session recording data (third-party business fields) to facilitate statistics and queries across more business dimensions.
    * 
    * @param request - UpdateQualityCheckDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3974,7 +4970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新会话随录数据
+   * Update session recording data (third-party business fields) to facilitate statistics and queries across more business dimensions.
    * 
    * @param request - UpdateQualityCheckDataRequest
    * @returns UpdateQualityCheckDataResponse
@@ -3985,7 +4981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案
+   * Updates a quality check scheme.
    * 
    * @param request - UpdateQualityCheckSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4020,7 +5016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案
+   * Updates a quality check scheme.
    * 
    * @param request - UpdateQualityCheckSchemeRequest
    * @returns UpdateQualityCheckSchemeResponse
@@ -4031,6 +5027,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update rule information.
+   * 
+   * @remarks
+   * > Update an existing rule. You can modify its conditions and operators as needed. The rule ID (rid) remains unchanged, but condition IDs and operator IDs may change.
+   * 
    * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
    * 
    * @param request - UpdateRuleRequest
@@ -4066,6 +5067,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update rule information.
+   * 
+   * @remarks
+   * > Update an existing rule. You can modify its conditions and operators as needed. The rule ID (rid) remains unchanged, but condition IDs and operator IDs may change.
+   * 
    * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
    * 
    * @param request - UpdateRuleRequest
@@ -4078,7 +5084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新规则
+   * This API maps to the frontend function location: Quality Inspection Rule Configuration - Create & Update. The Apsara Stack URL is: ip:port/api/client/UpdateRuleById.json.
    * 
    * @deprecated OpenAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
    * 
@@ -4129,7 +5135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新规则
+   * This API maps to the frontend function location: Quality Inspection Rule Configuration - Create & Update. The Apsara Stack URL is: ip:port/api/client/UpdateRuleById.json.
    * 
    * @deprecated OpenAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
    * 
@@ -4143,7 +5149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案的规则
+   * Frontend location: Quality Check Plan Management > Create or edit a quality check task > Associate quality check rules. Apsara Stack URL: ip:port/api/qcs/UpdateRuleToScheme.json.
    * 
    * @param request - UpdateRuleToSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4178,7 +5184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检方案的规则
+   * Frontend location: Quality Check Plan Management > Create or edit a quality check task > Associate quality check rules. Apsara Stack URL: ip:port/api/qcs/UpdateRuleToScheme.json.
    * 
    * @param request - UpdateRuleToSchemeRequest
    * @returns UpdateRuleToSchemeResponse
@@ -4189,7 +5195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4更新规则
+   * Corresponding frontend feature location: Rule Configuration - Update. Apsara Stack URL: ip:port/api/client/UpdateRuleById.json.
    * 
    * @param request - UpdateRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4230,7 +5236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * V4更新规则
+   * Corresponding frontend feature location: Rule Configuration - Update. Apsara Stack URL: ip:port/api/client/UpdateRuleById.json.
    * 
    * @param request - UpdateRuleV4Request
    * @returns UpdateRuleV4Response
@@ -4241,7 +5247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检任务
+   * Frontend path: Task Management > Edit any data on the right. Apsara Stack URL: ip:port/api/task/UpdateSchemeTaskConfig.json.
+   * 
+   * @remarks
+   * Updates quality inspection task information.
    * 
    * @param request - UpdateSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4276,7 +5285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新质检任务
+   * Frontend path: Task Management > Edit any data on the right. Apsara Stack URL: ip:port/api/task/UpdateSchemeTaskConfig.json.
+   * 
+   * @remarks
+   * Updates quality inspection task information.
    * 
    * @param request - UpdateSchemeTaskConfigRequest
    * @returns UpdateSchemeTaskConfigResponse
@@ -4287,6 +5299,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call UpdateSkillGroupConfig to update a configuration.
+   * 
    * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
    * 
    * @param request - UpdateSkillGroupConfigRequest
@@ -4322,6 +5336,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call UpdateSkillGroupConfig to update a configuration.
+   * 
    * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
    * 
    * @param request - UpdateSkillGroupConfigRequest
@@ -4334,6 +5350,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Maintain the recording information after real-time quality inspection is completed, which is used to play back the recording during review. After the recording information is maintained, the task status will change to Succeeded.
+   * 
    * @param request - UpdateSyncQualityCheckDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSyncQualityCheckDataResponse
@@ -4367,6 +5385,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Maintain the recording information after real-time quality inspection is completed, which is used to play back the recording during review. After the recording information is maintained, the task status will change to Succeeded.
+   * 
    * @param request - UpdateSyncQualityCheckDataRequest
    * @returns UpdateSyncQualityCheckDataResponse
    */
@@ -4376,6 +5396,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a label node.
+   * 
+   * @param request - UpdateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTagResponse
+   */
+  async updateTagWithOptions(request: $_model.UpdateTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTag",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTagResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTagResponse({}));
+  }
+
+  /**
+   * Updates a label node.
+   * 
+   * @param request - UpdateTagRequest
+   * @returns UpdateTagResponse
+   */
+  async updateTag(request: $_model.UpdateTagRequest): Promise<$_model.UpdateTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Update the automatic allocation rule for quality review tasks.
+   * 
    * @param request - UpdateTaskAssignRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTaskAssignRuleResponse
@@ -4409,6 +5477,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update the automatic allocation rule for quality review tasks.
+   * 
    * @param request - UpdateTaskAssignRuleRequest
    * @returns UpdateTaskAssignRuleResponse
    */
@@ -4418,6 +5488,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update users by modifying their roles in batches.
+   * 
+   * @remarks
+   * When you update users, you can modify only their roles. You cannot modify other account information because all Alibaba Cloud products use a unified account management system. Smart Conversation Analysis uses these accounts. To modify account information, go to [Resource Access Management (RAM)](https://ram.console.aliyun.com/).
+   * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserResponse
@@ -4451,6 +5526,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update users by modifying their roles in batches.
+   * 
+   * @remarks
+   * When you update users, you can modify only their roles. You cannot modify other account information because all Alibaba Cloud products use a unified account management system. Smart Conversation Analysis uses these accounts. To modify account information, go to [Resource Access Management (RAM)](https://ram.console.aliyun.com/).
+   * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse
    */
@@ -4460,6 +5540,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the warning configuration.
+   * 
    * @param request - UpdateWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateWarningConfigResponse
@@ -4493,6 +5575,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the warning configuration.
+   * 
    * @param request - UpdateWarningConfigRequest
    * @returns UpdateWarningConfigResponse
    */
@@ -4548,6 +5632,33 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Uploads offline audio data—such as recorded call session files—for quality inspection. This operation supports two call center agent scenarios.
+   * Scenario 1: Native integration with Alibaba Cloud Call Center (CC). No development is required. You can push call data to Smart Conversation Analysis (SCA) with a single click.
+   * Scenario 2: Integration with your own call center system. Each time a recording is generated, the call center pushes it to SCA for analysis.
+   * 
+   * @remarks
+   * ### Process description
+   * The process is as follows: An API call uploads the audio file for quality inspection → The audio file is converted to text → The transcribed text is separated by speaker role (agent and customer), based on the specified channel separation method → The role-separated text is analyzed using quality inspection rules → Quality inspection completes.
+   * ### Task execution efficiency
+   * Task execution speed depends on how quickly the audio file is transcribed. A 5-minute audio file is typically transcribed in about 2 minutes. However, if the transcription service queue is long, a waiting period occurs. Transcription usually completes within 6 hours, except when large volumes of data are uploaded simultaneously—more than 500 hours of audio within 30 minutes. After transcription, quality inspection analysis completes in milliseconds.
+   * ### Audio file URL requirements
+   * - Supports single-channel or dual-channel audio files in WAV or MP3 format. File size must be less than 512 MB.
+   * - The URL must be accessible over HTTP. Local files are not supported. The audio file must have public access permissions.
+   * - The URL must use a domain name, not an IP address. The URL cannot contain spaces or Chinese characters.
+   * - After transcription, the system deletes the downloaded audio file. No copy of the recording is retained.
+   * - If your audio URL has an expiration period—such as a presigned URL for an audio file stored in Alibaba Cloud Object Storage Service (OSS)—set the validity period to at least 12 hours. Ideally, set it to 24 hours. Because transcription may involve queuing, the audio file is downloaded only when transcription begins. A longer validity period prevents the URL from expiring before download starts.
+   * - After quality inspection completes, the provided URL is used for playback when you review the file in the console. Ensure the URL remains valid long-term. Otherwise, audio playback fails.
+   * ### Role separation
+   * After transcription, the system automatically separates the text into two speaker roles but cannot determine which role corresponds to the agent and which to the customer. You must define rules for role separation. Role separation accuracy is critical because many quality inspection rules apply to a specific role—for example, checking only agent or only customer utterances. Incorrect role separation significantly reduces quality inspection accuracy.
+   * Audio files are typically either single-channel (mono) or dual-channel (stereo):
+   * - Single-channel recording: The voices of the agent and customer are mixed on one channel. After transcription, the system uses a built-in algorithm to separate dialogue into two roles. You can provide a list of keywords commonly spoken by agents. The system analyzes the transcribed text sentence by sentence. When a sentence contains a keyword, that speaker is identified as the agent, and the other speaker is identified as the customer. For more information, see the recognizeRoleDataSetId and serviceChannelKeywords request parameters. Because conversations can be unpredictable—for example, speakers may talk over each other—role separation for single-channel recordings cannot achieve 100% accuracy. We strongly recommend saving recordings as dual-channel audio.
+   * - Dual-channel recording: The voices of the agent and customer are stored on separate channels. Even if speakers talk over each other, transcription accurately distinguishes between them. Specify the agent and customer channels using the serviceChannel and clientChannel request parameters.
+   * ### Retrieve quality inspection results
+   * Because audio analysis is asynchronous, you must retrieve results asynchronously. You can retrieve results in one of the following three ways:
+   * - Message notification: For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to retrieve detailed results. (Recommended)
+   * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task completes. After you receive the callback, call the GetResult operation to retrieve detailed results.
+   * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the getResult operation and retrieve the result asynchronously. Check the `status` parameter in the response to determine whether the task is complete. We recommend a polling interval of 30 seconds or longer because analysis typically completes within a few minutes. (Not recommended)
+   * 
    * @param request - UploadAudioDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UploadAudioDataResponse
@@ -4581,6 +5692,33 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Uploads offline audio data—such as recorded call session files—for quality inspection. This operation supports two call center agent scenarios.
+   * Scenario 1: Native integration with Alibaba Cloud Call Center (CC). No development is required. You can push call data to Smart Conversation Analysis (SCA) with a single click.
+   * Scenario 2: Integration with your own call center system. Each time a recording is generated, the call center pushes it to SCA for analysis.
+   * 
+   * @remarks
+   * ### Process description
+   * The process is as follows: An API call uploads the audio file for quality inspection → The audio file is converted to text → The transcribed text is separated by speaker role (agent and customer), based on the specified channel separation method → The role-separated text is analyzed using quality inspection rules → Quality inspection completes.
+   * ### Task execution efficiency
+   * Task execution speed depends on how quickly the audio file is transcribed. A 5-minute audio file is typically transcribed in about 2 minutes. However, if the transcription service queue is long, a waiting period occurs. Transcription usually completes within 6 hours, except when large volumes of data are uploaded simultaneously—more than 500 hours of audio within 30 minutes. After transcription, quality inspection analysis completes in milliseconds.
+   * ### Audio file URL requirements
+   * - Supports single-channel or dual-channel audio files in WAV or MP3 format. File size must be less than 512 MB.
+   * - The URL must be accessible over HTTP. Local files are not supported. The audio file must have public access permissions.
+   * - The URL must use a domain name, not an IP address. The URL cannot contain spaces or Chinese characters.
+   * - After transcription, the system deletes the downloaded audio file. No copy of the recording is retained.
+   * - If your audio URL has an expiration period—such as a presigned URL for an audio file stored in Alibaba Cloud Object Storage Service (OSS)—set the validity period to at least 12 hours. Ideally, set it to 24 hours. Because transcription may involve queuing, the audio file is downloaded only when transcription begins. A longer validity period prevents the URL from expiring before download starts.
+   * - After quality inspection completes, the provided URL is used for playback when you review the file in the console. Ensure the URL remains valid long-term. Otherwise, audio playback fails.
+   * ### Role separation
+   * After transcription, the system automatically separates the text into two speaker roles but cannot determine which role corresponds to the agent and which to the customer. You must define rules for role separation. Role separation accuracy is critical because many quality inspection rules apply to a specific role—for example, checking only agent or only customer utterances. Incorrect role separation significantly reduces quality inspection accuracy.
+   * Audio files are typically either single-channel (mono) or dual-channel (stereo):
+   * - Single-channel recording: The voices of the agent and customer are mixed on one channel. After transcription, the system uses a built-in algorithm to separate dialogue into two roles. You can provide a list of keywords commonly spoken by agents. The system analyzes the transcribed text sentence by sentence. When a sentence contains a keyword, that speaker is identified as the agent, and the other speaker is identified as the customer. For more information, see the recognizeRoleDataSetId and serviceChannelKeywords request parameters. Because conversations can be unpredictable—for example, speakers may talk over each other—role separation for single-channel recordings cannot achieve 100% accuracy. We strongly recommend saving recordings as dual-channel audio.
+   * - Dual-channel recording: The voices of the agent and customer are stored on separate channels. Even if speakers talk over each other, transcription accurately distinguishes between them. Specify the agent and customer channels using the serviceChannel and clientChannel request parameters.
+   * ### Retrieve quality inspection results
+   * Because audio analysis is asynchronous, you must retrieve results asynchronously. You can retrieve results in one of the following three ways:
+   * - Message notification: For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to retrieve detailed results. (Recommended)
+   * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task completes. After you receive the callback, call the GetResult operation to retrieve detailed results.
+   * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the getResult operation and retrieve the result asynchronously. Check the `status` parameter in the response to determine whether the task is complete. We recommend a polling interval of 30 seconds or longer because analysis typically completes within a few minutes. (Not recommended)
+   * 
    * @param request - UploadAudioDataRequest
    * @returns UploadAudioDataResponse
    */
@@ -4590,7 +5728,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+   * Upload offline plain text quality inspection data (plain text sessions). This applies to online agent scenarios. Use the UploadDataV4 API. Differences between UploadDataV4 and UploadData include the following: UploadDataV4 supports only POST requests, and it supports longer JsonStr values.
+   * 
+   * @remarks
+   * You can call UploadData.json to upload text-based quality inspection data. Text typically originates from online customer service interactions or tickets. The API returns a task ID. You can retrieve results in one of three ways:
+   * - Message notification: For details, see [message queues](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult API to retrieve detailed results. (Recommended)
+   * - Callback: Specify a callback URL in your request parameters. After the task completes, the system sends a callback to that URL. Then call the GetResult API to retrieve detailed results.
+   * - Polling: Use the returned task ID to poll the GetResult API asynchronously. Check whether the status field in the response indicates completion. (Not recommended)
    * 
    * @deprecated OpenAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
    * 
@@ -4627,7 +5771,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+   * Upload offline plain text quality inspection data (plain text sessions). This applies to online agent scenarios. Use the UploadDataV4 API. Differences between UploadDataV4 and UploadData include the following: UploadDataV4 supports only POST requests, and it supports longer JsonStr values.
+   * 
+   * @remarks
+   * You can call UploadData.json to upload text-based quality inspection data. Text typically originates from online customer service interactions or tickets. The API returns a task ID. You can retrieve results in one of three ways:
+   * - Message notification: For details, see [message queues](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult API to retrieve detailed results. (Recommended)
+   * - Callback: Specify a callback URL in your request parameters. After the task completes, the system sends a callback to that URL. Then call the GetResult API to retrieve detailed results.
+   * - Polling: Use the returned task ID to poll the GetResult API asynchronously. Check whether the status field in the response indicates completion. (Not recommended)
    * 
    * @deprecated OpenAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
    * 
@@ -4641,7 +5791,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http_hsf
+   * Real-time text quality check
+   * 
+   * @remarks
+   * This API pushes text data to SCA for real-time quality inspection based on specified rules and synchronously returns the analysis results. Unlike post-call quality inspection, which requires uploading the full transcript after a dialogue ends, real-time quality inspection offers lower latency by analyzing text immediately after a speaker completes one or more utterances.
+   * - If you push a single utterance from one speaker, some rule operators may fail because the required dialogue context is missing. Examples include the context repetition check, speech interruption check, and call mute check.
+   * - SCA returns analysis results synchronously and does not save call records, so you cannot query the results later via an API.
    * 
    * @param request - UploadDataSyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4676,7 +5831,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * http_hsf
+   * Real-time text quality check
+   * 
+   * @remarks
+   * This API pushes text data to SCA for real-time quality inspection based on specified rules and synchronously returns the analysis results. Unlike post-call quality inspection, which requires uploading the full transcript after a dialogue ends, real-time quality inspection offers lower latency by analyzing text immediately after a speaker completes one or more utterances.
+   * - If you push a single utterance from one speaker, some rule operators may fail because the required dialogue context is missing. Examples include the context repetition check, speech interruption check, and call mute check.
+   * - SCA returns analysis results synchronously and does not save call records, so you cannot query the results later via an API.
    * 
    * @param request - UploadDataSyncRequest
    * @returns UploadDataSyncResponse
@@ -4700,12 +5860,14 @@ export default class Client extends OpenApi {
       query["BaseMeAgentId"] = request.baseMeAgentId;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
+      body["JsonStr"] = request.jsonStr;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UploadDataSyncForLLM",
@@ -4733,7 +5895,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UploadDataV4
+   * Uploads offline plain text conversation data for quality inspection in online agent scenarios. We recommend that you use the UploadDataV4 API. Compared to the UploadData API, UploadDataV4 supports only POST requests and allows a longer JsonStr.
+   * 
+   * @remarks
+   * You can call the UploadData.json operation to upload text data for quality inspection. The text usually comes from sources such as online customer service and tickets. The API returns a task ID. You can retrieve the results in one of the following three ways:
+   * - Message notifications: After you receive a notification, call the GetResult API to obtain the detailed results. For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). (Recommended)
+   * - Callbacks: Specify a callbackUrl in the request parameters. The system automatically initiates a callback after the task is complete. After you receive the callback, call the GetResult API to retrieve the detailed results.
+   * - Polling: Use the task ID returned by this API to poll the GetResult API and asynchronously retrieve the results. Check the status in the response to determine whether the task is complete. (Not recommended)
    * 
    * @param request - UploadDataV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4768,7 +5936,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UploadDataV4
+   * Uploads offline plain text conversation data for quality inspection in online agent scenarios. We recommend that you use the UploadDataV4 API. Compared to the UploadData API, UploadDataV4 supports only POST requests and allows a longer JsonStr.
+   * 
+   * @remarks
+   * You can call the UploadData.json operation to upload text data for quality inspection. The text usually comes from sources such as online customer service and tickets. The API returns a task ID. You can retrieve the results in one of the following three ways:
+   * - Message notifications: After you receive a notification, call the GetResult API to obtain the detailed results. For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). (Recommended)
+   * - Callbacks: Specify a callbackUrl in the request parameters. The system automatically initiates a callback after the task is complete. After you receive the callback, call the GetResult API to retrieve the detailed results.
+   * - Polling: Use the task ID returned by this API to poll the GetResult API and asynchronously retrieve the results. Check the status in the response to determine whether the task is complete. (Not recommended)
    * 
    * @param request - UploadDataV4Request
    * @returns UploadDataV4Response
@@ -4779,6 +5953,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a rule. You can use this operation to provide your own rule editing interface.
+   * 
+   * @remarks
+   * > For more information, see [Rule configuration](https://help.aliyun.com/document_detail/213225.html).
+   * 
    * @param request - UploadRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UploadRuleResponse
@@ -4812,6 +5991,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a rule. You can use this operation to provide your own rule editing interface.
+   * 
+   * @remarks
+   * > For more information, see [Rule configuration](https://help.aliyun.com/document_detail/213225.html).
+   * 
    * @param request - UploadRuleRequest
    * @returns UploadRuleResponse
    */
@@ -4821,6 +6005,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the verification result of a single file.
+   * 
    * @param request - VerifyFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyFileResponse
@@ -4854,6 +6040,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the verification result of a single file.
+   * 
    * @param request - VerifyFileRequest
    * @returns VerifyFileResponse
    */
@@ -4863,6 +6051,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Save the verification result for a single sentence.
+   * 
    * @param request - VerifySentenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifySentenceResponse
@@ -4896,6 +6086,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Save the verification result for a single sentence.
+   * 
    * @param request - VerifySentenceRequest
    * @returns VerifySentenceResponse
    */

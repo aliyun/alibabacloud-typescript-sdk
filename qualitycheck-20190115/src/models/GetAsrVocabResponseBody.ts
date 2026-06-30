@@ -55,9 +55,30 @@ export class GetAsrVocabResponseBodyDataWords extends $dara.Model {
 }
 
 export class GetAsrVocabResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ASR version.
+   * 
+   * - 2 or **null**: V2 (Intelligent Speech Interaction ASR)
+   * 
+   * - **3**: V3 (Paraformer ASR)
+   * 
+   * @example
+   * 3
+   */
   asrVersion?: number;
+  /**
+   * @remarks
+   * The language model ID. This field appears only for V3.
+   * 
+   * @example
+   * paraformer-8k-v2
+   */
   modelCustomizationId?: string;
   /**
+   * @remarks
+   * The hotword group name.
+   * 
    * @example
    * test
    */
@@ -95,22 +116,42 @@ export class GetAsrVocabResponseBodyData extends $dara.Model {
 
 export class GetAsrVocabResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** means success. Any other value means failure. Use this field to identify the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetAsrVocabResponseBodyData;
   /**
+   * @remarks
+   * Error details if the request fails. If successful, the value is **successful**.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3CEA0495-341B-4482-9AD9-8191EF4***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Use this field to check the result:
+   * 
+   * - **true** means success
+   * 
+   * - false or **null** means failure
+   * 
    * @example
    * true
    */

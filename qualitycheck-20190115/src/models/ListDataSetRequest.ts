@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSetRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * Workspace ID
    */
   baseMeAgentId?: number;
   /**
+   * @remarks
+   * Input parameter JSON string
+   * 
    * @example
    * {"pageNumber":1,"pageSize":10}
    */
