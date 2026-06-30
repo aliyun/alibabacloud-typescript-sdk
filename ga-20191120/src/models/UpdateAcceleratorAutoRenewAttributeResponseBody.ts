@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAcceleratorAutoRenewAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * @example
    * ga-bp17frjjh0udz4qz****
@@ -13,7 +13,7 @@ export class UpdateAcceleratorAutoRenewAttributeResponseBody extends $dara.Model
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F591955F-5CB5-4CCE-A75D-17CF2085CE22

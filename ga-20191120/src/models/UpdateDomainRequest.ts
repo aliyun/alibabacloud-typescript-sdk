@@ -17,7 +17,7 @@ export class UpdateDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +25,7 @@ export class UpdateDomainRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The accelerated domain name to be modified.
+   * The accelerated domain name that you want to update.
    * 
    * This parameter is required.
    * 

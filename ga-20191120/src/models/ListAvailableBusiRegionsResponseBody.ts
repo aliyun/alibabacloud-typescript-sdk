@@ -7,8 +7,9 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $dara.Model {
    * @remarks
    * Indicates whether the region is in the Chinese mainland. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -26,8 +27,9 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $dara.Model {
    * @remarks
    * Indicates whether it is a point of presence (PoP) of Alibaba Cloud. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false

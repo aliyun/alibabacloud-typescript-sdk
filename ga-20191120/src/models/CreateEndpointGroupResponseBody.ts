@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEndpointGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint group.
+   * The endpoint group ID.
    * 
    * @example
    * epg-bp1dmlohjjz4kqaun****
@@ -13,7 +13,7 @@ export class CreateEndpointGroupResponseBody extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

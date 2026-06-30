@@ -9,7 +9,7 @@ export class UpdateBasicEndpointGroupRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -49,8 +49,9 @@ export class UpdateBasicEndpointGroupRequest extends $dara.Model {
    * 
    * This parameter is required only if the accelerated IP address is associated with the secondary private IP address of an ECS instance or an ENI.
    * 
-   * *   If you set the endpoint type to **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If you leave this parameter empty, the primary private IP address of the primary ENI is used.
-   * *   If you set the endpoint type to **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If you leave this parameter empty, the primary private IP address of the secondary ENI is used.
+   * - If you set the endpoint type to **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If you leave this parameter empty, the primary private IP address of the primary ENI is used.
+   * 
+   * - If you set the endpoint type to **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If you leave this parameter empty, the primary private IP address of the secondary ENI is used.
    * 
    * @example
    * 172.16.XX.XX
@@ -60,9 +61,11 @@ export class UpdateBasicEndpointGroupRequest extends $dara.Model {
    * @remarks
    * The type of the endpoint. Valid values:
    * 
-   * *   **ENI**: elastic network interface (ENI).
-   * *   **SLB**: Classic Load Balancer (CLB) instance.
-   * *   **ECS**: Elastic Compute Service (ECS) instance.
+   * - **ENI**: elastic network interface (ENI).
+   * 
+   * - **SLB**: Classic Load Balancer (CLB) instance.
+   * 
+   * - **ECS**: Elastic Compute Service (ECS) instance.
    * 
    * @example
    * ENI

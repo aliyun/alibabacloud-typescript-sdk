@@ -25,7 +25,7 @@ export class ListCustomRoutingPortMappingsByDestinationRequest extends $dara.Mod
   endpointId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListCustomRoutingPortMappingsByDestinationRequest extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -41,7 +41,7 @@ export class ListCustomRoutingPortMappingsByDestinationRequest extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

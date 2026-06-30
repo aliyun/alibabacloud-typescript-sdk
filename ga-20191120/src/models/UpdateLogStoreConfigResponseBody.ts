@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLogStoreConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
    */

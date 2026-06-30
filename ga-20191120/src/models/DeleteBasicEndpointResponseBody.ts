@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBasicEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The ID of the endpoint of the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ep-bp14sz7ftcwwjgrdm****
@@ -13,7 +13,7 @@ export class DeleteBasicEndpointResponseBody extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

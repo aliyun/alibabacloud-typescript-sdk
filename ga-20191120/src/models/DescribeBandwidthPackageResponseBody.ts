@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBandwidthPackageResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N that is added to the bandwidth plan.
+   * The tag key.
    * 
    * @example
    * tag-key
@@ -13,7 +13,7 @@ export class DescribeBandwidthPackageResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that is added to the bandwidth plan.
+   * The tag value.
    * 
    * @example
    * tag-value
@@ -45,7 +45,7 @@ export class DescribeBandwidthPackageResponseBodyTags extends $dara.Model {
 export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance that is associated with the bandwidth plan.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance attached to the bandwidth plan.
    */
   accelerators?: string[];
   /**
@@ -58,7 +58,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The bandwidth plan ID.
    * 
    * @example
    * gbwp-bp1sgzldyj6b4q7cx****
@@ -66,11 +66,13 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The type of the bandwidth. Valid values:
+   * The bandwidth type. Valid values:
    * 
-   * *   **Basic**: basic bandwidth
-   * *   **Enhanced**: enhanced bandwidth
-   * *   **Advanced**: premium bandwidth
+   * - **Basic**: standard acceleration bandwidth.
+   * 
+   * - **Enhanced**: enhanced acceleration bandwidth.
+   * 
+   * - **Advanced**: premium acceleration bandwidth.
    * 
    * @example
    * Basic
@@ -78,10 +80,9 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   bandwidthType?: string;
   /**
    * @remarks
-   * The metering method that is used when you use the pay-as-you-go billing method. Valid values:
-   * 
-   * *   **PayByTraffic**: pay-by-data-transfer
-   * *   **PayBY95**: pay-by-95th-percentile
+   * The billable methods for the pay-as-you-go billing method. Valid values:
+   * - **PayByTraffic**: pay-by-data-transfer.
+   * - **PayBY95**: pay-by-95th-percentile.
    * 
    * @example
    * PayByTraffic
@@ -89,9 +90,9 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   billingType?: string;
   /**
    * @remarks
-   * Area A specified in the cross-region acceleration bandwidth plan. Only **China-mainland** (the Chinese mainland) is returned.
+   * The interconnected area A of the cross-border acceleration bandwidth plan. The value is returned only as **China-mainland** (the Chinese mainland).
    * 
-   * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+   * This parameter is returned only on the Alibaba Cloud International Website (www.alibabacloud.com).
    * 
    * @example
    * China-mainland
@@ -99,9 +100,9 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   cbnGeographicRegionIdA?: string;
   /**
    * @remarks
-   * Area B specified in the cross-region acceleration bandwidth plan. Only **Global** (global) is returned.
+   * The interconnected area B of the cross-border acceleration bandwidth plan. The value is returned only as **Global**.
    * 
-   * This parameter is returned only if you call this operation on the International site (alibabacloud.com).
+   * This parameter is returned only on the Chinese site (Chinese mainland).
    * 
    * @example
    * Global
@@ -109,10 +110,9 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   cbnGeographicRegionIdB?: string;
   /**
    * @remarks
-   * The billing method of the bandwidth plan.
-   * 
-   * *   **PREPAY**: subscription. This is the default value.
-   * *   **POSTPAY**: pay-as-you-go.
+   * The billing method. Valid values:
+   * - **PREPAY** (default): subscription.
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -120,7 +120,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the bandwidth plan was created.
+   * The timestamp when the bandwidth plan was created.
    * 
    * @example
    * 1578966918000
@@ -136,7 +136,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the bandwidth plan expires.
+   * The timestamp when the bandwidth plan expires.
    * 
    * @example
    * 1578966918000
@@ -152,7 +152,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used. Valid values: **30** to **100**.
+   * The minimum percentage for the pay-by-95th-percentile metering method. Valid values: **30** to **100**.
    * 
    * @example
    * 30
@@ -160,7 +160,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   ratio?: number;
   /**
    * @remarks
-   * The ID of the region where GA instance is deployed. **cn-hangzhou** is returned.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * @example
    * cn-hangzhou
@@ -168,7 +168,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B6DBBB0-2D01-4C6A-A384-4129266E6B78
@@ -176,7 +176,7 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfnvueepcihjiq
@@ -184,16 +184,23 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the bandwidth plan. Valid values:
+   * The status of the bandwidth plan. Valid values:
    * 
-   * *   **init**: The bandwidth plan is being initialized.
-   * *   **active**: The bandwidth plan is available.
-   * *   **binded**: The bandwidth plan is associated with a GA instance.
-   * *   **binding**: The bandwidth plan is being associated.
-   * *   **unbinding**: The bandwidth plan is being disassociated.
-   * *   **updating**: The bandwidth plan is being updated.
-   * *   **finacialLocked**: The bandwidth plan is locked due to overdue payments.
-   * *   **Locked**: The bandwidth plan is locked.
+   * - **init**: initialization.
+   * 
+   * - **active**: active.
+   * 
+   * - **binded**: attached.
+   * 
+   * - **binding**: being attached.
+   * 
+   * - **unbinding**: being disassociated.
+   * 
+   * - **updating**: being updated.
+   * 
+   * - **finacialLocked**: locked due to overdue payment.
+   * 
+   * - **locked**: locked.
    * 
    * @example
    * active
@@ -201,17 +208,18 @@ export class DescribeBandwidthPackageResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Tag objects.
+   * The resource tags.
    */
   tags?: DescribeBandwidthPackageResponseBodyTags[];
   /**
    * @remarks
    * The type of the bandwidth plan. Valid values:
    * 
-   * *   **Basic**: a basic bandwidth plan
-   * *   **CrossDomain**: a cross-region acceleration bandwidth plan
+   * - **Basic**: basic bandwidth plan.
    * 
-   * If you call this operation on the Alibaba Cloud China Site (aliyun.com), only **Basic** is returned.
+   * - **CrossDomain**: cross-border acceleration bandwidth plan.
+   * 
+   * Only **Basic** is returned on the Alibaba Cloud China Website (www.aliyun.com).
    * 
    * @example
    * Basic

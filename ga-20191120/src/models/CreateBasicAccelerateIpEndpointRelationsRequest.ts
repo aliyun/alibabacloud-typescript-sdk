@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpointRelations extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the accelerated IP addresses.
+   * The ID of the accelerated IP address of the basic Global Accelerator instance.
    * 
-   * You can call the [ListBasicAccelerateIps](https://help.aliyun.com/document_detail/2253393.html) operation to query the IDs of the accelerated IP addresses.
+   * You can call [ListBasicAccelerateIps](https://help.aliyun.com/document_detail/2253393.html) to query accelerated IP address IDs.
    * 
-   * You can specify up to 20 IP address IDs.
+   * You can specify up to 20 accelerated IP address IDs.
    * 
    * @example
    * gaip-bp1****
@@ -17,9 +17,9 @@ export class CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpoint
   accelerateIpId?: string;
   /**
    * @remarks
-   * The IDs of the endpoints.
+   * The endpoint ID of the basic Global Accelerator instance.
    * 
-   * You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/2253406.html) to query the IDs of the endpoints.
+   * You can call [ListBasicEndpoints](https://help.aliyun.com/document_detail/2253406.html) to query endpoint IDs.
    * 
    * You can specify up to 20 endpoint IDs.
    * 
@@ -53,14 +53,14 @@ export class CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpoint
 export class CreateBasicAccelerateIpEndpointRelationsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of accelerated IP addresses and the endpoints with which the accelerated IP addresses are associated.
+   * The list of attachments between accelerated IP addresses and endpoints for the basic Global Accelerator instance.
    * 
    * This parameter is required.
    */
   accelerateIpEndpointRelations?: CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpointRelations[];
   /**
    * @remarks
-   * The ID of the basic GA instance.
+   * The ID of the basic Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -72,9 +72,9 @@ export class CreateBasicAccelerateIpEndpointRelationsRequest extends $dara.Model
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -82,7 +82,7 @@ export class CreateBasicAccelerateIpEndpointRelationsRequest extends $dara.Model
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

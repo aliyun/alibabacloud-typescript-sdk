@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListenerResponseBodyBackendPorts extends $dara.Model {
   /**
    * @remarks
-   * The first port in the range of ports that are used by the backend server to receive requests.
+   * The start port of the backend server that is used to receive requests.
    * 
-   * This parameter is returned only if an HTTPS listener is configured and the listener port is the same as the service port of the backend server.
+   * This parameter is returned only when the listener protocol is HTTPS and the listener port is the same as the service port of the backend server.
    * 
    * @example
    * 80
@@ -15,7 +15,7 @@ export class DescribeListenerResponseBodyBackendPorts extends $dara.Model {
   fromPort?: string;
   /**
    * @remarks
-   * The last port in the range of ports that are used by the backend server to receive requests.
+   * The end port of the backend server that is used to receive requests.
    * 
    * @example
    * 80
@@ -55,9 +55,9 @@ export class DescribeListenerResponseBodyCertificates extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the SSL certificate.
+   * The type of the certificate.
    * 
-   * Only **Server** may be returned, which indicates a server certificate.
+   * Only **Server** is returned, which indicates a server-side certificate.
    * 
    * @example
    * Server
@@ -89,7 +89,7 @@ export class DescribeListenerResponseBodyCertificates extends $dara.Model {
 export class DescribeListenerResponseBodyPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The first port in the range of listener ports that are used to receive and forward requests to endpoints.
+   * The start of the listener port range that is used to receive and forward requests to endpoints.
    * 
    * @example
    * 20
@@ -97,7 +97,7 @@ export class DescribeListenerResponseBodyPortRanges extends $dara.Model {
   fromPort?: number;
   /**
    * @remarks
-   * The last port in the range of listener ports that are used to receive and forward requests to endpoints.
+   * The end of the listener port range that is used to receive and forward requests to endpoints.
    * 
    * @example
    * 20
@@ -129,7 +129,7 @@ export class DescribeListenerResponseBodyPortRanges extends $dara.Model {
 export class DescribeListenerResponseBodyRelatedAcls extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL that is associated with the listener.
+   * The ID of the access control list (ACL) that is associated with the listener.
    * 
    * @example
    * 123
@@ -137,13 +137,12 @@ export class DescribeListenerResponseBodyRelatedAcls extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * Indicates whether the access control feature is enabled. Valid values:
+   * Indicates whether the access control feature is enabled.
    * 
-   * *   **on**: enabled.
-   * *   **off**: disabled.
+   * - **Associated**: The access control feature is enabled.
    * 
    * @example
-   * off
+   * Associated
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -174,12 +173,17 @@ export class DescribeListenerResponseBodyServiceManagedInfos extends $dara.Model
    * @remarks
    * The name of the action on the managed instance. Valid values:
    * 
-   * *   **Create**
-   * *   **Update**
-   * *   **Delete**
-   * *   **Associate**
-   * *   **UserUnmanaged**
-   * *   **CreateChild**
+   * - **Create**: Create an instance.
+   * 
+   * - **Update**: Update the current instance.
+   * 
+   * - **Delete**: Delete the current instance.
+   * 
+   * - **Associate**: Associate the instance with other resources.
+   * 
+   * - **UserUnmanaged**: Unmanage the instance.
+   * 
+   * - **CreateChild**: Create a child resource in the instance.
    * 
    * @example
    * Update
@@ -189,15 +193,21 @@ export class DescribeListenerResponseBodyServiceManagedInfos extends $dara.Model
    * @remarks
    * The type of the child resource. Valid values:
    * 
-   * *   **Listener**: a listener.
-   * *   **IpSet**: an acceleration region.
-   * *   **EndpointGroup**: an endpoint group.
-   * *   **ForwardingRule**: a forwarding rule.
-   * *   **Endpoint**: an endpoint.
-   * *   **EndpointGroupDestination**: a protocol mapping of an endpoint group associated with a custom routing listener.
-   * *   **EndpointPolicy**: a traffic policy of an endpoint associated with a custom routing listener.
+   * - **Listener**: listener.
    * 
-   * >  This parameter is returned only if the value of **Action** is **CreateChild**.
+   * - **IpSet**: acceleration region.
+   * 
+   * - **EndpointGroup**: endpoint group.
+   * 
+   * - **ForwardingRule**: forwarding rule.
+   * 
+   * - **Endpoint**: endpoint.
+   * 
+   * - **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
+   * 
+   * - **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+   * 
+   * > This parameter is returned only when **Action** is set to **CreateChild**.
    * 
    * @example
    * Listener
@@ -205,10 +215,11 @@ export class DescribeListenerResponseBodyServiceManagedInfos extends $dara.Model
   childType?: string;
   /**
    * @remarks
-   * Indicates whether the specified actions are managed.
+   * Indicates whether the specified action is managed. Valid values:
    * 
-   * *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-   * *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+   * - **true**: The specified action is managed. You cannot perform the specified action on the managed instance.
+   * 
+   * - **false**: The specified action is not managed. You can perform the specified action on the managed instance.
    * 
    * @example
    * false
@@ -242,12 +253,13 @@ export class DescribeListenerResponseBodyServiceManagedInfos extends $dara.Model
 export class DescribeListenerResponseBodyXForwardedForConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the `GA-AP` header is used to retrieve information about acceleration regions. Valid values:
+   * Indicates whether the `GA-AP` header is used to retrieve information about the acceleration region.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is available only for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -255,12 +267,13 @@ export class DescribeListenerResponseBodyXForwardedForConfig extends $dara.Model
   XForwardedForGaApEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the `GA-ID` header is used to retrieve the ID of the GA instance. Valid values:
+   * Indicates whether the `GA-ID` header is used to retrieve the ID of the GA instance.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is available only for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -268,12 +281,13 @@ export class DescribeListenerResponseBodyXForwardedForConfig extends $dara.Model
   XForwardedForGaIdEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the `GA-X-Forward-Port` header is used to retrieve the listener ports of the GA instance. Valid values:
+   * Indicates whether the `GA-X-Forward-Port` header is used to retrieve the listener port of the GA instance.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is available only for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -281,12 +295,13 @@ export class DescribeListenerResponseBodyXForwardedForConfig extends $dara.Model
   XForwardedForPortEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the `GA-X-Forward-Proto` header is used to retrieve the listener protocol of the GA instance. Valid values:
+   * Indicates whether the `GA-X-Forward-Proto` header is used to retrieve the listener protocol of the GA instance.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is available only for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -294,12 +309,13 @@ export class DescribeListenerResponseBodyXForwardedForConfig extends $dara.Model
   XForwardedForProtoEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the `X-Real-IP` header is used to retrieve client IP addresses. Valid values:
+   * Indicates whether the `X-Real-IP` header is used to retrieve the real IP addresses of clients.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is available only for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -345,12 +361,13 @@ export class DescribeListenerResponseBody extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The type of the ACL. Valid values:
+   * The type of the ACL.
    * 
-   * *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists are suitable for scenarios in which you want to allow only specific IP addresses to access an application. If a whitelist is improperly configured, risks may arise. After a whitelist is configured for a listener, only requests from the IP addresses that are added to the whitelist are distributed by the listener. If the whitelist is enabled but no IP addresses are added to the ACL, the listener does not forward requests.
-   * *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are blocked. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses to an application. If the blacklist is enabled but no IP addresses are added to the ACL, the listener forwards all requests.
+   * - **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists are suitable for applications that allow access only from specific IP addresses. If you enable a whitelist but do not add an IP address to the ACL, the GA listener does not forward requests.
    * 
-   * This parameter is returned only if the value of **Status** is **on**.
+   * - **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are denied. Blacklists are suitable for applications that deny access from specific IP addresses. If you enable a blacklist but do not add an IP address to the ACL, the GA listener forwards all requests.
+   * 
+   * This parameter is returned when an ACL is associated with the listener.
    * 
    * @example
    * white
@@ -358,20 +375,21 @@ export class DescribeListenerResponseBody extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The information about the backend ports.
+   * The backend port information.
    */
   backendPorts?: DescribeListenerResponseBodyBackendPorts[];
   /**
    * @remarks
-   * The SSL certificates.
+   * The list of SSL certificates.
    */
   certificates?: DescribeListenerResponseBodyCertificates[];
   /**
    * @remarks
-   * Indicates whether client affinity is enabled for the listener.
+   * Client affinity.
    * 
-   * *   If **NONE** is returned, client affinity is disabled. Requests from the same client may be forwarded to different endpoints.
-   * *   If **SOURCE_IP** is returned, client affinity is enabled. When a client accesses stateful applications, requests from the same client are forwarded to the same endpoint regardless of the source port or protocol.
+   * - If **NONE** is returned, client affinity is disabled. In this case, requests from the same client may be forwarded to different endpoints.
+   * 
+   * - If **SOURCE_IP** is returned, client affinity is enabled. When a client accesses a stateful application, all requests from the same client are forwarded to the same endpoint regardless of the source port or protocol.
    * 
    * @example
    * SOURCE_IP
@@ -379,7 +397,7 @@ export class DescribeListenerResponseBody extends $dara.Model {
   clientAffinity?: string;
   /**
    * @remarks
-   * The time when the listener was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+   * The timestamp that indicates when the listener was created. Unit: milliseconds.
    * 
    * @example
    * 1577786252000
@@ -397,11 +415,13 @@ export class DescribeListenerResponseBody extends $dara.Model {
    * @remarks
    * The maximum version of the HTTP protocol. Valid values:
    * 
-   * *   **http3**
-   * *   **http2**
-   * *   **http1.1**
+   * - **http3**: HTTP/3.
    * 
-   * >  This parameter is returned only for HTTPS listeners.
+   * - **http2**: HTTP/2.
+   * 
+   * - **http1.1**: HTTP/1.1.
+   * 
+   * > This parameter is available only for HTTPS listeners.
    * 
    * @example
    * http2
@@ -409,7 +429,7 @@ export class DescribeListenerResponseBody extends $dara.Model {
   httpVersion?: string;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds.
+   * The timeout period for idle connections. Unit: seconds.
    * 
    * @example
    * 900
@@ -417,7 +437,7 @@ export class DescribeListenerResponseBody extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The ID of the listener.
+   * The listener ID.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -433,28 +453,32 @@ export class DescribeListenerResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The information about the listener ports.
+   * The listener port information.
    */
   portRanges?: DescribeListenerResponseBodyPortRanges[];
   /**
    * @remarks
-   * The network transmission protocol that is used by the listener. Valid values:
+   * The network transport protocol that is used by the listener.
    * 
-   * *   **tcp**: TCP.
-   * *   **udp**: UDP.
-   * *   **http**: HTTP.
-   * *   **https**: HTTPS.
+   * - **TCP**: TCP.
+   * 
+   * - **UDP**: UDP.
+   * 
+   * - **HTTP**: HTTP.
+   * 
+   * - **HTTPS**: HTTPS.
    * 
    * @example
-   * tcp
+   * TCP
    */
   protocol?: string;
   /**
    * @remarks
-   * Indicates whether the client IP address preservation feature is enabled. Valid values:
+   * Indicates whether the proxy protocol is used to preserve client IP addresses.
    * 
-   * *   **true** You can view the source IP addresses of clients over the backend service.
-   * *   **false**
+   * - **true**: The proxy protocol is used to preserve client IP addresses. After this feature is enabled, you can view the original IP addresses of clients on the backend service.
+   * 
+   * - **false**: The proxy protocol is not used to preserve client IP addresses.
    * 
    * @example
    * false
@@ -464,12 +488,12 @@ export class DescribeListenerResponseBody extends $dara.Model {
   proxyProtocol?: boolean;
   /**
    * @remarks
-   * The information about the access control list (ACL) that is associated with the listener.
+   * The access control policy groups that are associated with the listener.
    */
   relatedAcls?: DescribeListenerResponseBodyRelatedAcls[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6FEA0CF3-D3B9-43E5-A304-D217037876A8
@@ -477,9 +501,9 @@ export class DescribeListenerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timeout period of HTTP or HTTPS requests. Unit: seconds.
+   * The timeout period for HTTP or HTTPS requests. Unit: seconds.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners. If no responses are received from the backend server within the specified timeout period, GA returns the HTTP 504 error code to the client.
+   * > This parameter is available only for HTTP and HTTPS listeners. If a backend server does not respond within the timeout period, GA returns an HTTP 504 error to the client.
    * 
    * @example
    * 60
@@ -489,32 +513,37 @@ export class DescribeListenerResponseBody extends $dara.Model {
    * @remarks
    * The ID of the security policy.
    * 
-   * *   **tls_cipher_policy_1_0**
+   * - **tls_cipher_policy_1_0**
    * 
-   *     *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2.
-   *     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+   *   - Supported TLS versions: TLS 1.0, TLS 1.1, and TLS 1.2.
    * 
-   * *   **tls_cipher_policy_1_1**
+   *   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
    * 
-   *     *   Supported TLS versions: TLS 1.1 and TLS 1.2.
-   *     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+   * - **tls_cipher_policy_1_1**
    * 
-   * *   **tls_cipher_policy_1_2**
+   *   - Supported TLS versions: TLS 1.1 and TLS 1.2.
    * 
-   *     *   Supported TLS version: TLS 1.2.
-   *     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+   *   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
    * 
-   * *   **tls_cipher_policy_1_2_strict**
+   * - **tls_cipher_policy_1_2**
    * 
-   *     *   Supported TLS version: TLS 1.2.
-   *     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+   *   - Supported TLS versions: TLS 1.2.
    * 
-   * *   **tls_cipher_policy_1_2_strict_with_1_3**
+   *   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
    * 
-   *     *   Supported TLS versions: TLS 1.2 and TLS 1.3.
-   *     *   Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+   * - **tls_cipher_policy_1_2_strict**
    * 
-   * >  This parameter is returned only for HTTPS listeners.
+   *   - Supported TLS versions: TLS 1.2.
+   * 
+   *   - Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+   * 
+   * - **tls_cipher_policy_1_2_strict_with_1_3**
+   * 
+   *   - Supported TLS versions: TLS 1.2 and TLS 1.3.
+   * 
+   *   - Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
+   * 
+   * > This parameter is available only for HTTPS listeners.
    * 
    * @example
    * tls_cipher_policy_1_0
@@ -524,7 +553,7 @@ export class DescribeListenerResponseBody extends $dara.Model {
    * @remarks
    * The ID of the service that manages the instance.
    * 
-   * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
+   * > This parameter is returned only when **ServiceManaged** is set to **True**.
    * 
    * @example
    * ALB
@@ -532,10 +561,11 @@ export class DescribeListenerResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Indicates whether the instance is managed. Valid values:
+   * Indicates whether the instance is a managed instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is a managed instance.
+   * 
+   * - **false**: The instance is not a managed instance.
    * 
    * @example
    * true
@@ -543,19 +573,24 @@ export class DescribeListenerResponseBody extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The actions that users can perform on the managed instance.
-   * >*   This parameter is returned only if the value of **ServiceManaged** is **true**.
-   * >*   Users can perform only specific actions on a managed instance.
+   * The actions that you can perform on the managed instance.
+   * 
+   * > - This parameter is returned only when **ServiceManaged** is set to **True**.
+   * >
+   * > - When the instance is in a managed state, you cannot perform some operations on the instance.
    */
   serviceManagedInfos?: DescribeListenerResponseBodyServiceManagedInfos[];
   /**
    * @remarks
-   * The status of the listener. Valid values:
+   * The status of the listener.
    * 
-   * *   **configuring**: The listener is being configured.
-   * *   **init**: The listener is being initialized.
-   * *   **updating**: The listener is being updated.
-   * *   **deleting:** The listener is being deleted.
+   * - **configuring**: The listener is being configured.
+   * 
+   * - **init**: The listener is being initialized.
+   * 
+   * - **updating**: The listener is being updated.
+   * 
+   * - **deleting**: The listener is being deleted.
    * 
    * @example
    * active
@@ -563,10 +598,11 @@ export class DescribeListenerResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The routing type of the listener. Valid values:
+   * The routing type of the listener.
    * 
-   * *   **Standard**: intelligent routing.
-   * *   **CustomRouting**: custom routing.
+   * - **Standard**: intelligent routing.
+   * 
+   * - **CustomRouting**: custom routing.
    * 
    * @example
    * Standard
@@ -574,7 +610,7 @@ export class DescribeListenerResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The configurations of the `XForward` headers.
+   * The configurations of the `X-Forwarded-For` headers.
    */
   XForwardedForConfig?: DescribeListenerResponseBodyXForwardedForConfig;
   static names(): { [key: string]: string } {

@@ -69,8 +69,7 @@ export class DescribeLogStoreOfEndpointGroupResponseBody extends $dara.Model {
    * *   **off:** The endpoint group is not bound to the Simple Log Service project.
    * 
    * @example
-   * on - binding
-   * off - unbinding
+   * on
    */
   status?: string;
   static names(): { [key: string]: string } {

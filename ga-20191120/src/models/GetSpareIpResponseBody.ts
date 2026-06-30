@@ -13,10 +13,9 @@ export class GetSpareIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the secondary IP address. Valid values:
-   * 
-   * *   **active:** The secondary IP address is available.
-   * *   **inuse:** The secondary IP address is in use.
+   * The status of the CNAME spare IP address. Valid values:
+   * - **active**: active.
+   * - **inuse**: in use.
    * 
    * @example
    * active

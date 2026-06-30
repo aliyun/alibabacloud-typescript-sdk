@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEntriesToAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ACL ID.
+   * The ID of the access control policy group.
    * 
    * @example
    * nacl-hp34s2h0xx1ht4nwo****

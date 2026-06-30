@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBasicIpSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the GA instance.
+   * The acceleration region instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ips-bp11r5jb8ogp122xl****

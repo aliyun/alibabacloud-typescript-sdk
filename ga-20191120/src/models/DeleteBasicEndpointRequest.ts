@@ -7,9 +7,9 @@ export class DeleteBasicEndpointRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Set this parameter to a value that is generated from your client to make sure that the value is unique among different requests. The ClientToken value supports only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class DeleteBasicEndpointRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the endpoint group to which the endpoint to be deleted belongs.
+   * The ID of the endpoint group to which the endpoint that you want to delete belongs. You can call the [ListBasicEndpointGroups](~~~~) operation to query the endpoint group ID of a basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteBasicEndpointRequest extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the endpoint that you want to delete.
+   * The ID of the endpoint that you want to delete from the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DeleteBasicEndpointRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Global Accelerator instance. Set the value to **ap-southeast-1**.
    * 
    * This parameter is required.
    * 

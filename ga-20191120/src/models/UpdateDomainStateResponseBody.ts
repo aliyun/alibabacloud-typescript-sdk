@@ -23,10 +23,13 @@ export class UpdateDomainStateResponseBody extends $dara.Model {
    * @remarks
    * The ICP filing status of the accelerated domain name. Valid values:
    * 
-   * *   **illegal:** The domain name is illegal.
-   * *   **inactive:** The domain name has not completed ICP filing.
-   * *   **active:** The domain name has a valid ICP number.
-   * *   **unknown:** The ICP filing status is unknown.
+   * - **illegal:** The domain name is illegal.
+   * 
+   * - **inactive:** The domain name has not completed ICP filing.
+   * 
+   * - **active:** The domain name has a valid ICP number.
+   * 
+   * - **unknown:** The ICP filing status is unknown.
    * 
    * @example
    * active

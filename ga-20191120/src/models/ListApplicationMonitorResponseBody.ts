@@ -23,8 +23,9 @@ export class ListApplicationMonitorResponseBodyApplicationMonitors extends $dara
    * @remarks
    * Indicates whether the automatic diagnostics feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -78,10 +79,13 @@ export class ListApplicationMonitorResponseBodyApplicationMonitors extends $dara
    * @remarks
    * The status of the origin probing task. Valid values:
    * 
-   * *   **active:** The origin probing task is running.
-   * *   **inactive:** The origin probing task is stopped.
-   * *   **init:** The origin probing task is being initialized.
-   * *   **deleting:** The origin probing task is being deleted.
+   * - **active:** The origin probing task is running.
+   * 
+   * - **inactive:** The origin probing task is stopped.
+   * 
+   * - **init:** The origin probing task is being initialized.
+   * 
+   * - **deleting:** The origin probing task is being deleted.
    * 
    * @example
    * active

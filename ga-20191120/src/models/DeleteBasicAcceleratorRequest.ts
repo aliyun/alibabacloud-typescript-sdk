@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBasicAcceleratorRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the basic GA instance.
+   * The instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteBasicAcceleratorRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
+   * The region ID of the basic Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
    * 
    * This parameter is required.
    * 

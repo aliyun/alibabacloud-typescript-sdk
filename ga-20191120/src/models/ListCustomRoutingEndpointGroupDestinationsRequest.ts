@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance for which you want to query endpoint group destination configurations.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the endpoint group.
+   * The ID of the endpoint group for which you want to query destination configurations.
    * 
    * @example
    * epg-bp16jdc00bhe97sr5****
@@ -23,9 +23,9 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   endpointGroupId?: string;
   /**
    * @remarks
-   * The start port of the backend service port range of the endpoint group.
+   * The start port of the backend service of the endpoint group.
    * 
-   * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+   * Valid values: **1** to **65499**. The value of **FromPort** must be less than or equal to the value of **ToPort**.
    * 
    * @example
    * 80
@@ -33,7 +33,7 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   fromPort?: number;
   /**
    * @remarks
-   * The ID of the listener.
+   * The ID of the listener for which you want to query endpoint group destination configurations.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -41,7 +41,7 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   listenerId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -57,20 +57,22 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The backend service protocols of the endpoint group. Valid values:
+   * The protocol type of the backend service of the endpoint group. Valid values:
    * 
-   * - **TCP**: TCP.
-   * - **UDP**: UDP.
-   * - **TCP,UDP**: TCP and UDP.
+   * - **TCP**: TCP protocol.
    * 
-   * If this parameter is empty, all types of protocols are queried.
+   * - **UDP**: UDP protocol.
    * 
-   * You can specify up to 10 protocols.
+   * - **TCP,UDP**: TCP and UDP protocols.
+   * 
+   * If this parameter is left empty, all protocol types are queried.
+   * 
+   * You can specify up to 10 protocol entries.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The region ID of the GA instance. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -80,9 +82,9 @@ export class ListCustomRoutingEndpointGroupDestinationsRequest extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The end port of the backend service port range of the endpoint group.
+   * The end port of the backend service of the endpoint group.
    * 
-   * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
+   * Valid values: **1** to **65499**. The value of **FromPort** must be less than or equal to the value of **ToPort**.
    * 
    * @example
    * 80

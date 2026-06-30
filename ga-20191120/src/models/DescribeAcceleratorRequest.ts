@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAcceleratorRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance that you want to query.
+   * The ID of the Global Accelerator instance that you want to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAcceleratorRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

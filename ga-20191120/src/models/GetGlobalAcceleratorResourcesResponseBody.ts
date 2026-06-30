@@ -4,31 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGlobalAcceleratorResourcesResponseBodyAssociatedResources extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID of Alibaba Cloud Global Accelerator (GA).
+   * 
    * @example
    * ga-bp1odcab8tmno0hdq****
    */
   acceleratorId?: string;
   /**
+   * @remarks
+   * Association pattern:  
+   * - **Managed**: Managed mode, where GA restricts user operations based on management policies.  
+   * - **Associated** (default): Loose coupling association, where GA does not restrict user operations; WAF uses loose coupling.
+   * 
    * @example
    * Associated
    */
   associatedMode?: string;
   /**
+   * @remarks
+   * ID of the linked instance.
+   * 
    * @example
    * waf_v2_public_cn-x0r****gr1i
    */
   associatedResourceId?: string;
   /**
+   * @remarks
+   * Region ID of the linked instance.
+   * 
    * @example
    * cn-hangzhou
    */
   associatedResourceRegionId?: string;
   /**
+   * @remarks
+   * Resource type of the linked instance.
+   * 
    * @example
    * WAF
    */
   associatedResourceType?: string;
   /**
+   * @remarks
+   * Status of the association between the Alibaba Cloud Global Accelerator (GA) instance and other cloud product resources.  
+   * 
+   * - **active**: The resource is active.  
+   * 
+   * - **binding**: The resource is being attached.  
+   * 
+   * - **unBinding**: The resource is being detached.  
+   * 
+   * - **wafRelease**: The WAF instance has been released.
+   * 
    * @example
    * active
    */
@@ -65,10 +93,14 @@ export class GetGlobalAcceleratorResourcesResponseBodyAssociatedResources extend
 }
 
 export class GetGlobalAcceleratorResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of linked instances.
+   */
   associatedResources?: GetGlobalAcceleratorResourcesResponseBodyAssociatedResources[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6

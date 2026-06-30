@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomRoutingEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the endpoints.
+   * The list of endpoint IDs.
    */
   endpointIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

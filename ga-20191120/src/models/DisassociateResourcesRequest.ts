@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * Alibaba Cloud Global Accelerator (GA) instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisassociateResourcesRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
+   * Linked instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class DisassociateResourcesRequest extends $dara.Model {
    */
   associatedResourceId?: string;
   /**
+   * @remarks
+   * Region ID of the linked instance.
+   * 
    * @example
    * cn-hangzhou
    */
   associatedResourceRegionId?: string;
   /**
    * @remarks
+   * Resource type of the linked peripheral resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +42,19 @@ export class DisassociateResourcesRequest extends $dara.Model {
    */
   associatedResourceType?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run of the request. Valid values:  
+   * - **true**: Sends a dry run request without detaching the resource. The system checks whether required parameters are specified, whether the request format is valid, and whether business limits are met. If the check fails, an error is returned. If the check passes, an HTTP 2xx status code is returned.  
+   * - **false** (default): Sends a normal request. If the check passes, an HTTP 2xx status code is returned and the endpoint group is created immediately.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * Region ID of the Alibaba Cloud Global Accelerator (GA) instance. Valid value: **cn-hangzhou** only.
+   * 
    * @example
    * cn-hangzhou
    */

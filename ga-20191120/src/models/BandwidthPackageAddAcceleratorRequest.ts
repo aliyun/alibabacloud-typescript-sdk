@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BandwidthPackageAddAcceleratorRequest extends $dara.Model {
   /**
    * @remarks
-   * The GA instance ID.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance to which the bandwidth plan is attached.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BandwidthPackageAddAcceleratorRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The bandwidth plan ID.
+   * The ID of the bandwidth plan to attach to the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BandwidthPackageAddAcceleratorRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The region ID of the GA instance. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance to which the traffic policies belong.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance for which you want to query traffic policies.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   acceleratorId?: string;
   /**
    * @remarks
-   * The IP address of the traffic destination.
+   * The IP address of the traffic policy destination.
    * 
    * @example
    * 10.0.XX.XX
@@ -23,7 +23,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   address?: string;
   /**
    * @remarks
-   * The ID of the endpoint group to which the traffic policies belong.
+   * The ID of the endpoint group for which you want to query traffic policies.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -31,7 +31,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the endpoint to which the traffic policies belong.
+   * The ID of the endpoint for which you want to query traffic policies.
    * 
    * @example
    * ep-bp16jdc00bhe97sr5****
@@ -39,7 +39,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the listener to which the traffic policies belong.
+   * The ID of the listener for which you want to query traffic policies.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -47,7 +47,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   listenerId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **ap-southeast-1**.
    * 
    * This parameter is required.
    * 

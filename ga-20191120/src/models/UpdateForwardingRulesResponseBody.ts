@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateForwardingRulesResponseBodyForwardingRules extends $dara.Model {
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * @example
    * frule-bp1dii16gu9qdvb34****
@@ -35,12 +35,12 @@ export class UpdateForwardingRulesResponseBodyForwardingRules extends $dara.Mode
 export class UpdateForwardingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the forwarding rules.
+   * A list of forwarding rules.
    */
   forwardingRules?: UpdateForwardingRulesResponseBodyForwardingRules[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF

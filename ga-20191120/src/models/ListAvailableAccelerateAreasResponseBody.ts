@@ -7,24 +7,26 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $da
    * @remarks
    * Indicates whether the region is in the Chinese mainland. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The region is in the Chinese mainland.
+   * 
+   * - **false**: The region is not in the Chinese mainland.
    * 
    * @example
-   * false
+   * true
    */
   chinaMainland?: boolean;
   /**
    * @remarks
-   * The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
+   * The line type of the public IP address in the acceleration region.
    * 
-   * *   **BGP**: BGP (Multi-ISP) lines.
-   * *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
+   * - **BGP** (default): BGP (Multi-ISP) line.
+   * 
+   * - **BGP_PRO**: BGP (Multi-ISP) Pro line.
    */
   ispTypeList?: string[];
   /**
    * @remarks
-   * The acceleration region name.
+   * The name of the region.
    * 
    * @example
    * China (Qingdao)
@@ -32,10 +34,11 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $da
   localName?: string;
   /**
    * @remarks
-   * Indicates whether multiple zones are supported. Valid values:
+   * Indicates whether multi-zone deployment is supported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Multi-zone deployment is supported.
+   * 
+   * - **false**: Multi-zone deployment is not supported.
    * 
    * @example
    * true
@@ -43,7 +46,7 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $da
   multiAz?: boolean;
   /**
    * @remarks
-   * The ID of the acceleration region.
+   * The ID of the region.
    * 
    * @example
    * cn-qingdao
@@ -53,8 +56,9 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $da
    * @remarks
    * Indicates whether IPv6 is supported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: IPv6 is supported.
+   * 
+   * - **false**: IPv6 is not supported.
    * 
    * @example
    * true
@@ -97,7 +101,7 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $da
 export class ListAvailableAccelerateAreasResponseBodyAreas extends $dara.Model {
   /**
    * @remarks
-   * The ID of the acceleration area.
+   * The ID of the area.
    * 
    * @example
    * cn-huabei
@@ -105,15 +109,15 @@ export class ListAvailableAccelerateAreasResponseBodyAreas extends $dara.Model {
   areaId?: string;
   /**
    * @remarks
-   * The acceleration area name.
+   * The name of the area.
    * 
    * @example
-   * North China
+   * China North
    */
   localName?: string;
   /**
    * @remarks
-   * The information about acceleration regions.
+   * The list of regions.
    */
   regionList?: ListAvailableAccelerateAreasResponseBodyAreasRegionList[];
   static names(): { [key: string]: string } {
@@ -147,12 +151,12 @@ export class ListAvailableAccelerateAreasResponseBodyAreas extends $dara.Model {
 export class ListAvailableAccelerateAreasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about acceleration areas.
+   * The list of areas.
    */
   areas?: ListAvailableAccelerateAreasResponseBodyAreas[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A9B4E54C-9CCD-4002-91A9-D38C6C209192

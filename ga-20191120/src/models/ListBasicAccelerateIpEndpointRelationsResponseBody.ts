@@ -80,7 +80,7 @@ export class ListBasicAccelerateIpEndpointRelationsResponseBodyAccelerateIpEndpo
    * *   **NLB**: Network Load Balancer (NLB) instance.
    * 
    * @example
-   * NLB
+   * ENI
    */
   endpointType?: string;
   /**

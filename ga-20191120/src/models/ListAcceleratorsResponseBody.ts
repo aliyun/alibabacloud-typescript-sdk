@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth value of the basic bandwidth plan. Unit: Mbit/s.
+   * The bandwidth of the basic bandwidth plan. Unit: Mbit/s.
    * 
    * @example
    * 2
@@ -13,11 +13,13 @@ export class ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage exten
   bandwidth?: number;
   /**
    * @remarks
-   * The bandwidth type that is provided by the basic bandwidth plan. Valid values:
+   * The type of the bandwidth. Valid values:
    * 
-   * *   **Basic**
-   * *   **Enhanced**
-   * *   **Advanced**
+   * - **Basic**: standard acceleration bandwidth.
+   * 
+   * - **Enhanced**: enhanced acceleration bandwidth.
+   * 
+   * - **Advanced**: premium acceleration bandwidth.
    * 
    * @example
    * Basic
@@ -59,7 +61,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage exten
 export class ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth value of the cross-border acceleration bandwidth plan. Unit: Mbit/s.
+   * The bandwidth of the cross-domain acceleration bandwidth plan. Unit: Mbit/s.
    * 
    * @example
    * 2
@@ -67,7 +69,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage
   bandwidth?: number;
   /**
    * @remarks
-   * The ID of the cross-border acceleration bandwidth plan.
+   * The ID of the cross-domain acceleration bandwidth plan.
    * 
    * @example
    * gbwp-bp1d8xk8bg139j0fw****
@@ -97,7 +99,21 @@ export class ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage
 }
 
 export class ListAcceleratorsResponseBodyAcceleratorsDdosConfigList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro/Premium instance.
+   * 
+   * @example
+   * ddoscoo-cn-a8w4ekcb**
+   */
   ddosId?: string;
+  /**
+   * @remarks
+   * The region ID of the Anti-DDoS Pro/Premium instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   ddosRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -127,8 +143,9 @@ export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $dara.M
    * @remarks
    * The access mode of the acceleration area. Valid values:
    * 
-   * *   **UserDefine**: custom nearby access mode. You can select acceleration areas and regions based on your business requirements. GA allocates a separate elastic IP address (EIP) to each acceleration region.
-   * *   **Anycast**: automatic nearby access mode. You do not need to specify an acceleration area. GA allocates an Anycast EIP to multiple regions across the globe. Users can connect to the nearest access point of the Alibaba Cloud global transmission network by sending requests to the Anycast EIP.
+   * - **UserDefine**: custom nearby access mode. You can select acceleration areas and regions based on your business needs. Global Accelerator provides a separate elastic IP address (EIP) for each acceleration region.
+   * 
+   * - **Anycast**: automatic nearby access mode. You do not need to configure an acceleration area. Global Accelerator provides an Anycast EIP for multiple regions across the globe. Users can connect to the nearest access point of the Alibaba Cloud network using the Anycast EIP.
    * 
    * @example
    * UserDefine
@@ -158,14 +175,19 @@ export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $dara.M
 export class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the action that is performed on the managed instance. Valid values:
+   * The name of the action on the managed instance. Valid values:
    * 
-   * *   **Create**
-   * *   **Update**
-   * *   **Delete**
-   * *   **Associate**
-   * *   **UserUnmanaged**
-   * *   **CreateChild**
+   * - **Create**: create an instance.
+   * 
+   * - **Update**: update the current instance.
+   * 
+   * - **Delete**: delete the current instance.
+   * 
+   * - **Associate**: associate the instance with other resources.
+   * 
+   * - **UserUnmanaged**: disassociate the instance from the service.
+   * 
+   * - **CreateChild**: create a child resource in the instance.
    * 
    * @example
    * Update
@@ -175,15 +197,21 @@ export class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos extends
    * @remarks
    * The type of the child resource. Valid values:
    * 
-   * *   **Listener**: listener.
-   * *   **IpSet**: acceleration region.
-   * *   **EndpointGroup**: endpoint group.
-   * *   **ForwardingRule**: forwarding rule.
-   * *   **Endpoint**: endpoint.
-   * *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
-   * *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+   * - **Listener**: listener.
    * 
-   * >  This parameter takes effect only if the value of **Action** is **CreateChild**.
+   * - **IpSet**: acceleration region.
+   * 
+   * - **EndpointGroup**: endpoint group.
+   * 
+   * - **ForwardingRule**: forwarding rule.
+   * 
+   * - **Endpoint**: endpoint.
+   * 
+   * - **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
+   * 
+   * - **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+   * 
+   * > This parameter is returned only when **Action** is set to **CreateChild**.
    * 
    * @example
    * Listener
@@ -191,10 +219,11 @@ export class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos extends
   childType?: string;
   /**
    * @remarks
-   * Indicates whether the specified actions are managed. Valid values:
+   * Indicates whether the specified action is managed. Valid values:
    * 
-   * *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-   * *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+   * - **true**: The specified action is managed, and you cannot perform the specified action on the managed instance.
+   * 
+   * - **false**: The specified action is not managed, and you can perform the specified action on the managed instance.
    * 
    * @example
    * false
@@ -228,7 +257,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos extends
 export class ListAcceleratorsResponseBodyAcceleratorsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * test-key
@@ -236,7 +265,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * tast-value
@@ -268,7 +297,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsTags extends $dara.Model {
 export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -276,7 +305,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The bandwidth of the GA instance. Unit: Mbit/s.
+   * The bandwidth of the Global Accelerator instance. Unit: Mbit/s.
    * 
    * @example
    * 5
@@ -284,10 +313,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The bandwidth metering method. Valid values:
+   * The billing method for the bandwidth.
    * 
-   * *   **BandwidthPackage**: billed based on bandwidth plans.
-   * *   **CDT**: billed based on data transfer.
+   * - **BandwidthPackage**: pay-by-bandwidth-plan.
+   * 
+   * - **CDT**: pay-by-data-transfer.
    * 
    * @example
    * CDT
@@ -295,12 +325,12 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   bandwidthBillingType?: string;
   /**
    * @remarks
-   * The information about the basic bandwidth plan that is associated with the GA instance.
+   * The details of the basic bandwidth plan that is associated with the Global Accelerator instance.
    */
   basicBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance that is associated with the GA instance.
+   * The Cloud Enterprise Network (CEN) instance that is bound to the Global Accelerator instance.
    * 
    * @example
    * cen-hjfufhjfuwff****
@@ -308,7 +338,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the GA instance was created.
+   * The timestamp that indicates when the Global Accelerator instance was created.
    * 
    * @example
    * 1650643200
@@ -316,10 +346,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
+   * The type of cross-border acceleration for the instance that uses the pay-by-data-transfer billing method. Valid values:
    * 
-   * *   **bpgPro**: BGP (Multi-ISP) Pro lines.
-   * *   **private**: cross-border Express Connect circuit.
+   * - **bpgPro**: premium bandwidth for cross-border acceleration.
+   * 
+   * - **private**: <props="china">China Unicom leased line for cross-border acceleration.<props="intl">Leased line for cross-domain acceleration.
    * 
    * @example
    * bpgPro
@@ -327,10 +358,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   crossBorderMode?: string;
   /**
    * @remarks
-   * Indicates whether cross-border acceleration is enabled for the GA instance. Valid values:
+   * Indicates whether cross-border data transfer is enabled for the Global Accelerator instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Cross-border data transfer is enabled, which can accelerate data transfer across borders.
+   * 
+   * - **false**: Cross-border data transfer is disabled, which cannot accelerate data transfer across borders.
    * 
    * @example
    * false
@@ -338,15 +370,19 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   crossBorderStatus?: boolean;
   /**
    * @remarks
-   * The information about the cross-border acceleration bandwidth plan that is associated with the GA instance.
+   * The details of the cross-domain acceleration bandwidth plan that is associated with the Global Accelerator instance.
    * 
-   * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
+   * This array is returned only by the Alibaba Cloud International Website (www\\.alibabacloud.com).
    */
   crossDomainBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
+  /**
+   * @remarks
+   * The list of Anti-DDoS Pro/Premium configurations.
+   */
   ddosConfigList?: ListAcceleratorsResponseBodyAcceleratorsDdosConfigList[];
   /**
    * @remarks
-   * The ID of the Anti-DDoS Pro or Anti-DDOS Premium instance that is associated with the GA instance.
+   * The ID of the Anti-DDoS Pro/Premium instance that is associated with the Global Accelerator instance.
    * 
    * @example
    * ddoscoo-cn-zz11vq7j****
@@ -356,7 +392,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   ddosId?: string;
   /**
    * @remarks
-   * The description of the GA instance.
+   * The description of the Global Accelerator instance.
    * 
    * @example
    * Accelerator
@@ -364,7 +400,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The CNAME that is assigned to the GA instance.
+   * The canonical name (CNAME) assigned to the Global Accelerator instance.
    * 
    * @example
    * ga-bp15u1i2hmtbk8c3i****.aliyunga0019.com
@@ -372,7 +408,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   dnsName?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the GA instance expires.
+   * The timestamp that indicates when the Global Accelerator instance expires.
    * 
    * @example
    * 1653235200
@@ -380,7 +416,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   expiredTime?: number;
   /**
    * @remarks
-   * The billing method of the GA instance.
+   * The billing method of the Global Accelerator instance.
    * 
    * @example
    * PREPAY
@@ -388,12 +424,12 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The configurations of the acceleration area.
+   * The configuration of the acceleration area.
    */
   ipSetConfig?: ListAcceleratorsResponseBodyAcceleratorsIpSetConfig;
   /**
    * @remarks
-   * The name of the GA instance.
+   * The name of the Global Accelerator instance.
    * 
    * @example
    * Accelerator
@@ -401,7 +437,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where GA instance is deployed. Only **cn-hangzhou** may be returned.
+   * The region ID of the Global Accelerator instance. The value is set to **cn-hangzhou**.
    * 
    * @example
    * cn-hangzhou
@@ -419,7 +455,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The CNAME that is used to associate the GA instance with an Anti-DDoS Pro instance or an Anti-DDOS Premium instance.
+   * The CNAME that is assigned to the Global Accelerator instance after it is associated with an Anti-DDoS Pro/Premium instance.
    * 
    * @example
    * ga-bp1f609c76zg6zuna****-1.aliyunga0047.com
@@ -429,7 +465,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
    * @remarks
    * The ID of the service that manages the instance.
    * 
-   * >  This parameter takes effect only if the value of **ServiceManaged** is **true**.
+   * > This parameter is returned only when **ServiceManaged** is set to **True**.
    * 
    * @example
    * ALB
@@ -437,10 +473,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Indicates whether the GA instance is managed. Valid values:
+   * Indicates whether the instance is a managed instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is a managed instance.
+   * 
+   * - **false**: The instance is not a managed instance.
    * 
    * @example
    * true
@@ -448,35 +485,52 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The actions that users can perform on the managed instance.
-   * > *   This parameter takes effect only if the value of **ServiceManaged** is **true**.
-   * > *   Users can perform only specific actions on a managed instance.
+   * The actions that you can perform on the managed instance.
+   * 
+   * > - This parameter is returned only when **ServiceManaged** is set to **True**.
+   * >
+   * > - When the instance is in a managed state, you have limited permissions to perform operations on the instance.
    */
   serviceManagedInfos?: ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos[];
   /**
    * @remarks
-   * The specification of the GA instance. Valid values:
+   * The instance type of the Global Accelerator instance. Valid values:
    * 
-   * *   **1**: Small Ⅰ.
-   * *   **2**: Small Ⅱ.
-   * *   **3**: Small Ⅲ.
-   * *   **5**: Medium Ⅰ.
-   * *   **8**: Medium Ⅱ.
-   * *   **10**: Medium Ⅲ.
-   * *   **20**: Large Ⅰ.
-   * *   **30**: Large Ⅱ.
-   * *   **40**: Large Ⅲ.
-   * *   **50**: Large IV.
-   * *   **60**: Large V.
-   * *   **70**: Large VI.
-   * *   **80**: Large VII.
-   * *   **90**: Large VIII.
-   * *   **100**: Super Large Ⅰ.
-   * *   **200**: Super Large Ⅱ.
+   * - **1**: Small I
    * 
-   * >  The Large Ⅲ specification and higher specifications are available only to accounts that are added to the whitelist. To use these specifications, contact your Alibaba Cloud account manager.
+   * - **2**: Small II
    * 
-   * Different specifications provide different capabilities. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/153127.html).
+   * - **3**: Small III
+   * 
+   * - **5**: Medium I
+   * 
+   * - **8**: Medium II
+   * 
+   * - **10**: Medium III
+   * 
+   * - **20**: Large I
+   * 
+   * - **30**: Large II
+   * 
+   * - **40**: Large III
+   * 
+   * - **50**: Large IV
+   * 
+   * - **60**: Large V
+   * 
+   * - **70**: Large VI
+   * 
+   * - **80**: Large VII
+   * 
+   * - **90**: Large VIII
+   * 
+   * - **100**: Extra Large I
+   * 
+   * - **200**: Extra Large II
+   * 
+   * > Currently, the Large III and higher instance types are available only to users on the whitelist. To use these instance types, contact your account manager.
+   * 
+   * Different instance types have different definitions. For more information, see [Instance types](https://help.aliyun.com/document_detail/153127.html).
    * 
    * @example
    * 1
@@ -484,15 +538,21 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The status of the GA instance. Valid values:
+   * The state of the Global Accelerator instance. Valid values:
    * 
-   * *   **init**: The GA instance is being initialized.
-   * *   **active**: The GA instance is available.
-   * *   **configuring**: The GA instance is being configured.
-   * *   **binding**: The GA instance is being associated.
-   * *   **unbinding**: The GA instance is being disassociated.
-   * *   **deleting**: The GA instance is being deleted.
-   * *   **finacialLocked**: The GA instance is locked due to overdue payments.
+   * - **init**: The instance is being initialized.
+   * 
+   * - **active**: The instance is active.
+   * 
+   * - **configuring**: The instance is being configured.
+   * 
+   * - **binding**: The instance is being bound.
+   * 
+   * - **unbinding**: The instance is being unbound.
+   * 
+   * - **deleting**: The instance is being deleted.
+   * 
+   * - **finacialLocked**: The instance is locked due to an overdue payment.
    * 
    * @example
    * active
@@ -500,24 +560,26 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The tags that are added to the resource.
+   * The tags of the resource.
    */
   tags?: ListAcceleratorsResponseBodyAcceleratorsTags[];
   /**
    * @remarks
-   * An invalid parameter.
+   * This parameter is invalid.
    * 
    * @example
-   * Invalid parameter
+   * None
    */
   type?: string;
   /**
    * @remarks
-   * Indicates whether the GA instance can be upgraded. Valid values:
+   * The upgrade status of the Global Accelerator instance. Valid values:
    * 
-   * *   **notUpgradable**: The GA instance does not need to be upgraded.
-   * *   **upgradable**: The GA instance can be upgraded to the latest version.
-   * *   **upgradeFailed**: The GA instance failed to be upgraded.
+   * - **notUpgradable**: The instance does not need to be upgraded.
+   * 
+   * - **upgradable**: The instance can be upgraded to the latest version.
+   * 
+   * - **upgradeFailed**: The instance failed to be upgraded.
    * 
    * @example
    * notUpgradable
@@ -619,12 +681,12 @@ export class ListAcceleratorsResponseBodyAccelerators extends $dara.Model {
 export class ListAcceleratorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the GA instances.
+   * The details of the Global Accelerator instances.
    */
   accelerators?: ListAcceleratorsResponseBodyAccelerators[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -632,7 +694,7 @@ export class ListAcceleratorsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -640,7 +702,7 @@ export class ListAcceleratorsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
@@ -648,7 +710,7 @@ export class ListAcceleratorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of entries returned.
    * 
    * @example
    * 10

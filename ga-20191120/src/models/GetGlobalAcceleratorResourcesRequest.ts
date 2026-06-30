@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetGlobalAcceleratorResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,33 @@ export class GetGlobalAcceleratorResourcesRequest extends $dara.Model {
    */
   acceleratorId?: string;
   /**
+   * @remarks
+   * The ID of the linked peripheral resource.
+   * 
    * @example
    * waf_v2_public_cn-x0r****gr1i
    */
   associatedResourceId?: string;
   /**
+   * @remarks
+   * The Region ID where the linked instance is located.
+   * 
    * @example
    * cn-hangzhou
    */
   associatedResourceRegionId?: string;
   /**
+   * @remarks
+   * The resource type of the linked peripheral resource.
+   * 
    * @example
    * WAF
    */
   associatedResourceType?: string;
   /**
    * @remarks
+   * The Region ID where the Alibaba Cloud Global Accelerator (GA) instance is located. The only valid value is cn-hangzhou.
+   * 
    * This parameter is required.
    * 
    * @example

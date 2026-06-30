@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListEndpointGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the endpoint group. It cannot be an empty string.
+   * The tag key. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * You can specify up to 20 tag keys.
+   * The tag key can be up to 64 characters long and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * test-key
@@ -17,11 +15,9 @@ export class ListEndpointGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the endpoint group. The tag value can be an empty string.
+   * The tag value. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-   * 
-   * You can specify up to 20 tag values.
+   * The tag value can be up to 128 characters long and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * test-value
@@ -53,7 +49,7 @@ export class ListEndpointGroupsRequestTag extends $dara.Model {
 export class ListEndpointGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -63,10 +59,11 @@ export class ListEndpointGroupsRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * Specifies whether the access logging feature is enabled. Default value: off. Valid values:
+   * Whether to enable the access log. Valid values:
    * 
-   * *   **on**: The access logging feature is enabled.
-   * *   **off**: The access logging feature is disabled.
+   * - **on**: enables the access log.
+   * 
+   * - **off** (default): disables the access log.
    * 
    * @example
    * on
@@ -80,13 +77,16 @@ export class ListEndpointGroupsRequest extends $dara.Model {
    * epg-bp16jdc00bhe97sr5****
    */
   endpointGroupId?: string;
+  endpointGroupRegion?: string;
   /**
    * @remarks
-   * The type of the endpoint group. Valid values: Valid values:
+   * The type of the endpoint group. Valid values:
    * 
-   * *   **default**
-   * *   **virtual**
-   * *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
+   * - **default**: a default endpoint group.
+   * 
+   * - **virtual**: a virtual endpoint group.
+   * 
+   * - If you omit this parameter, the operation returns all default and virtual endpoint groups.
    * 
    * @example
    * virtual
@@ -110,7 +110,7 @@ export class ListEndpointGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -118,7 +118,7 @@ export class ListEndpointGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -128,7 +128,7 @@ export class ListEndpointGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tag of the endpoint group.
+   * The tags used to filter endpoint groups. You can specify up to 20 tags.
    * 
    * **if can be null:**
    * false
@@ -139,6 +139,7 @@ export class ListEndpointGroupsRequest extends $dara.Model {
       acceleratorId: 'AcceleratorId',
       accessLogSwitch: 'AccessLogSwitch',
       endpointGroupId: 'EndpointGroupId',
+      endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
       listenerId: 'ListenerId',
       pageNumber: 'PageNumber',
@@ -153,6 +154,7 @@ export class ListEndpointGroupsRequest extends $dara.Model {
       acceleratorId: 'string',
       accessLogSwitch: 'string',
       endpointGroupId: 'string',
+      endpointGroupRegion: 'string',
       endpointGroupType: 'string',
       listenerId: 'string',
       pageNumber: 'number',

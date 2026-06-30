@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint group that you want to query.
+   * The ID of the endpoint group.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeEndpointGroupRequest extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the region where your Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

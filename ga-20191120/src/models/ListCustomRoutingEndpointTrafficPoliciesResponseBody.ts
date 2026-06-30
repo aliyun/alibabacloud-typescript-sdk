@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The first port of the port range used by the traffic destination to process requests.
+   * The start port of the traffic policy destination for processing requests.
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRan
   fromPort?: number;
   /**
    * @remarks
-   * The last port of the port range used by the traffic destination to process requests.
+   * The end port of the traffic policy destination for processing requests.
    * 
    * @example
    * 80
@@ -45,14 +45,13 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRan
 export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the action on the managed instance. Valid values:
-   * 
-   * *   **Create**: Create an instance.
-   * *   **Update**: Update the current instance.
-   * *   **Delete**: Delete the current instance.
-   * *   **Associate**: Reference the current instance.
-   * *   **UserUnmanaged**: Unmanage the instance.
-   * *   **CreateChild**: Create a child resource in the current instance.
+   * The name of the managed policy action. Valid values:
+   * - **Create**: Create an instance.
+   * - **Update**: Update the current instance.
+   * - **Delete**: Delete the current instance.
+   * - **Associate**: Reference or be referenced by the current instance.
+   * - **UserUnmanaged**: Unmanage the instance.
+   * - **CreateChild**: Create a child resource under the current instance.
    * 
    * @example
    * Update
@@ -62,15 +61,21 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesService
    * @remarks
    * The type of the child resource. Valid values:
    * 
-   * *   **Listener**: listener.
-   * *   **IpSet**: acceleration region.
-   * *   **EndpointGroup**: endpoint group.
-   * *   **ForwardingRule**: forwarding rule.
-   * *   **Endpoint**: endpoint.
-   * *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
-   * *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+   * - **Listener**: listener resource.
    * 
-   * >  This parameter is returned only if the value of **Action** is **CreateChild**.
+   * - **IpSet**: acceleration region resource.
+   * 
+   * - **EndpointGroup**: endpoint group resource.
+   * 
+   * - **ForwardingRule**: forwarding rule resource.
+   * 
+   * - **Endpoint**: endpoint resource.
+   * 
+   * - **EndpointGroupDestination**: protocol mapping resource of the endpoint group under the custom routing listener.
+   * 
+   * - **EndpointPolicy**: traffic policy resource of the endpoint under the custom routing listener.
+   * 
+   * > This parameter is valid only when **Action** is set to **CreateChild**.
    * 
    * @example
    * Listener
@@ -78,10 +83,11 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesService
   childType?: string;
   /**
    * @remarks
-   * Indicates whether the specified actions are managed. Valid values:
+   * Indicates whether the managed policy action is managed. Valid values:
    * 
-   * *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-   * *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+   * - **true**: The managed policy action is managed. The user cannot perform the action specified by Action on the managed instance.
+   * 
+   * - **false**: The managed policy action is not managed. The user can perform the action specified by Action on the managed instance.
    * 
    * @example
    * false
@@ -115,7 +121,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesService
 export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance to which the endpoint belongs.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance to which the endpoint belongs.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -123,7 +129,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   acceleratorId?: string;
   /**
    * @remarks
-   * The IP addresses of the traffic policies.
+   * The IP address of the traffic policy destination.
    * 
    * @example
    * 10.0.XX.XX
@@ -147,7 +153,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the custom routing listener to which the endpoint belongs.
+   * The ID of the custom routing type listener to which the endpoint belongs.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -155,7 +161,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the traffic policy.
+   * The traffic policy ID.
    * 
    * @example
    * ply-bp1dmlohjjz4kqaun****
@@ -163,14 +169,13 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   policyId?: string;
   /**
    * @remarks
-   * The port range of the traffic policy.
+   * The port range of the traffic policy destination.
    */
   portRanges?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges[];
   /**
    * @remarks
-   * The ID of the service that manages the instance.
-   * 
-   * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
+   * The ID of the service to which the managed instance belongs.
+   * > This parameter is valid only when **ServiceManaged** is set to **True**.
    * 
    * @example
    * ALB
@@ -179,9 +184,8 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   /**
    * @remarks
    * Indicates whether the instance is managed. Valid values:
-   * 
-   * *   **true**: The GA instance is managed.
-   * *   **false**: The GA instance is not managed.
+   * - **true**: The instance is managed.
+   * - **false**: The instance is not managed.
    * 
    * @example
    * true
@@ -189,10 +193,10 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The actions that users can perform on the managed instance.
+   * The list of action policies that the user can perform on the managed instance.
    * 
-   * > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
-   * >*   Users can perform only specific actions on a managed instance.
+   * > - This parameter is valid only when **ServiceManaged** is set to **True**.
+   * > - When the instance is in the managed state, user operations on the instance are restricted, and certain operations are prohibited.
    */
   serviceManagedInfos?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos[];
   static names(): { [key: string]: string } {
@@ -243,7 +247,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extend
 export class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -251,7 +255,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends $dara.
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -259,7 +263,7 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends $dara.
   pageSize?: number;
   /**
    * @remarks
-   * A list of traffic policies.
+   * The list of traffic policies.
    */
   policies?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies[];
   /**

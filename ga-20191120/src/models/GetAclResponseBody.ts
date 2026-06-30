@@ -59,7 +59,7 @@ export class GetAclResponseBodyRelatedListeners extends $dara.Model {
    * *   **black**: All requests from the IP addresses or CIDR blocks in the ACL are rejected. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses to an application. If a blacklist is enabled but no IP address is added to the blacklist, the listener forwards all requests.
    * 
    * @example
-   * White
+   * white
    */
   aclType?: string;
   /**

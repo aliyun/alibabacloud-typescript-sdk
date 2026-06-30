@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateAclsWithListenerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The ID of the access control policy group.
    */
   aclIds?: string[];
   /**
    * @remarks
-   * The ID of the listener.
+   * The listener ID.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -18,7 +18,7 @@ export class AssociateAclsWithListenerResponseBody extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF

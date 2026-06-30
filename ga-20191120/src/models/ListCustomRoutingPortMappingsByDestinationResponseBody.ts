@@ -45,7 +45,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsD
 export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance to which the port mapping belongs.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -66,10 +66,11 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
   destinationSocketAddress?: ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress;
   /**
    * @remarks
-   * The access policy of traffic for the backend instance.
+   * The traffic policy for the backend instance.
    * 
-   * *   **allow**: allows traffic to the backend instance.
-   * *   **deny**: denies all traffic to the backend instance.
+   * - **allow**: allows the backend instance to receive traffic.
+   * 
+   * - **deny**: denies the backend instance from receiving traffic.
    * 
    * @example
    * allow
@@ -85,7 +86,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the region in which the endpoint group resides.
+   * The ID of the region where the endpoint group is deployed.
    * 
    * @example
    * us-west-1
@@ -101,7 +102,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the listener.
+   * The ID of the custom routing listener to which the port mapping belongs.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -111,13 +112,14 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
    * @remarks
    * The protocol of the backend service.
    * 
-   * *   **tcp**: TCP
-   * *   **udp**: UDP
+   * - **TCP**: TCP.
+   * 
+   * - **UDP**: UDP.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The name of the endpoint (vSwitch).
+   * The name of the vSwitch instance of the endpoint.
    * 
    * @example
    * vsw-test01
@@ -171,7 +173,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
 export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -179,7 +181,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $dar
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -187,12 +189,12 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $dar
   pageSize?: number;
   /**
    * @remarks
-   * Details about the port mapping table.
+   * The information about the port mappings.
    */
   portMappings?: ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * String	04F0F334-1335-436C-A1D7-6C044FE73368
@@ -200,7 +202,7 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $dar
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1

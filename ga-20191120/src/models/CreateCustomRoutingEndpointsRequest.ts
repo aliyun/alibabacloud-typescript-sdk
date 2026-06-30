@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The first port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+   * The start port of the traffic destination that can receive traffic. The port value must fall within the backend service port range of the endpoint group.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 first ports for each destination.
+   * You can specify up to 20 port ranges for each endpoint, and up to 20 start ports for each traffic destination.
    * 
    * @example
    * 80
@@ -17,11 +17,11 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConf
   fromPort?: number;
   /**
    * @remarks
-   * The last port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+   * The end port of the traffic destination that can receive traffic. The port value must fall within the backend service port range of the endpoint group.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 last ports for each destination.
+   * You can specify up to 20 port ranges for each endpoint, and up to 20 end ports for each traffic destination.
    * 
    * @example
    * 80
@@ -53,11 +53,11 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConf
 export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the destination to which traffic is forwarded.
+   * The IP address of the traffic destination that can receive traffic.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify up to 20 destination IP addresses for each endpoint.
+   * You can specify up to 20 traffic destination IP addresses for each endpoint.
    * 
    * This parameter is required.
    * 
@@ -67,13 +67,13 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConf
   address?: string;
   /**
    * @remarks
-   * The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+   * The port range of the traffic destination that can receive traffic. The port range must fall within the backend service port range of the endpoint group.
    * 
-   * If you leave this parameter empty, traffic is forwarded to all destination ports.
+   * If this parameter is left empty, all ports of the traffic destination are supported.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 port ranges for each destination.
+   * You can specify up to 20 port ranges for each endpoint, and up to 20 port ranges for each traffic destination.
    */
   portRanges?: CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges[];
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConf
 export class CreateCustomRoutingEndpointsRequestEndpointConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch that is specified as an endpoint.
+   * The instance ID of the endpoint vSwitch.
    * 
    * @example
    * vsw-test01
@@ -113,20 +113,18 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurations extends $
   endpoint?: string;
   /**
    * @remarks
-   * The destination to which traffic is forwarded.
+   * The traffic destination configurations.
    * 
-   * You can specify up to 20 destinations for each endpoint.
+   * You can specify up to 20 traffic destinations for each endpoint.
    */
   policyConfigurations?: CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations[];
   /**
    * @remarks
-   * The traffic policy that is used to process traffic to the endpoint. Valid values:
-   * 
-   * *   **DenyAll** (default): denies all traffic to the endpoint.
-   * *   **AllowAll**: allows all traffic to the endpoint.
-   * *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
-   * 
-   * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
+   * The traffic policy for the backend service. Valid values:
+   * - **DenyAll** (default): denies all traffic to the specified backend service.
+   * - **AllowAll**: allows all traffic to the specified backend service.
+   * - **AllowCustom**: allows traffic only to specified destinations.
+   * You must specify the IP address and port range of the destination. If the port range is left empty, all ports of the destination are supported.
    * 
    * @example
    * DenyAll
@@ -134,9 +132,9 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurations extends $
   trafficToEndpointPolicy?: string;
   /**
    * @remarks
-   * The type of endpoint.
+   * The backend service type of the endpoint. Valid values:
    * 
-   * Set the value to **PrivateSubNet**, which specifies a private CIDR block. This is the default value.
+   *  **PrivateSubNet** (default): private CIDR block.
    * 
    * @example
    * PrivateSubNet
@@ -175,11 +173,11 @@ export class CreateCustomRoutingEndpointsRequestEndpointConfigurations extends $
 export class CreateCustomRoutingEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of a request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -187,16 +185,16 @@ export class CreateCustomRoutingEndpointsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The information about the endpoints.
+   * The endpoint configurations.
    * 
-   * You can specify information for up to 20 endpoints.
+   * You can specify up to 20 endpoint configurations.
    * 
    * This parameter is required.
    */
   endpointConfigurations?: CreateCustomRoutingEndpointsRequestEndpointConfigurations[];
   /**
    * @remarks
-   * The ID of the endpoint group in which to create endpoints.
+   * The ID of the endpoint group in which you want to create an endpoint.
    * 
    * This parameter is required.
    * 
@@ -206,7 +204,7 @@ export class CreateCustomRoutingEndpointsRequest extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

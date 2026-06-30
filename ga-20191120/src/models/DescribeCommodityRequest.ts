@@ -9,13 +9,15 @@ export class DescribeCommodityRequest extends $dara.Model {
    * 
    * Valid values on the China site (aliyun.com):
    * 
-   * *   **ga_gapluspre_public_cn**: GA instance.
-   * *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+   * - **ga_gapluspre_public_cn**: GA instance.
+   * 
+   * - **ga_plusbwppre_public_cn**: basic bandwidth plan.
    * 
    * Valid values on the international site (alibabacloud.com):
    * 
-   * *   **ga_pluspre_public_intl**: GA instance.
-   * *   **ga_bwppreintl_public_intl:** basic bandwidth plan.
+   * - **ga_pluspre_public_intl**: GA instance.
+   * 
+   * - **ga_bwppreintl_public_intl:** basic bandwidth plan.
    * 
    * This parameter is required.
    * 
@@ -27,9 +29,11 @@ export class DescribeCommodityRequest extends $dara.Model {
    * @remarks
    * The type of the order. Valid values:
    * 
-   * *   **BUY**: purchase order.
-   * *   **RENEW**: renewal order.
-   * *   **UPGRADE**: upgrade order.
+   * - **BUY**: purchase order.
+   * 
+   * - **RENEW**: renewal order.
+   * 
+   * - **UPGRADE**: upgrade order.
    * 
    * This parameter is required.
    * 

@@ -5,32 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the action that you can perform on the managed instance. Valid values:
-   * 
-   * *   **Create**: Create an instance.
-   * *   **Update**: Update the current instance.
-   * *   **Delete**: Delete the current instance.
-   * *   **Associate**: Reference the current instance.
-   * *   **UserUnmanaged**: Unmanage the instance.
-   * *   **CreateChild**: Create a child resource in the current instance.
+   * The name of the managed policy action. Valid values:
+   * - **Create**: Create an instance.
+   * - **Update**: Update the current instance.
+   * - **Delete**: Delete the current instance.
+   * - **Associate**: Reference or be referenced by the current instance.
+   * - **UserUnmanaged**: Unmanage the instance.
+   * - **CreateChild**: Create a child resource under the current instance.
    * 
    * @example
-   * Update
+   * Create
    */
   action?: string;
   /**
    * @remarks
    * The type of the child resource. Valid values:
-   * 
-   * *   **Listener**: listener.
-   * *   **IpSet**: acceleration region.
-   * *   **EndpointGroup**: endpoint group.
-   * *   **ForwardingRule**: forwarding rule.
-   * *   **Endpoint**: endpoint.
-   * *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
-   * *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
-   * 
-   * >  This parameter takes effect only if **Action** is set to **CreateChild**.
+   * - **Listener**: listener resource.
+   * - **IpSet**: acceleration region resource.
+   * - **EndpointGroup**: endpoint group resource.
+   * - **ForwardingRule**: forwarding rule resource.
+   * - **Endpoint**: endpoint resource.
+   * - **EndpointGroupDestination**: protocol mapping resource of the endpoint group under a custom routing listener.
+   * - **EndpointPolicy**: endpoint traffic policy resource under a custom routing listener.
+   * > This parameter is valid only when **Action** is set to **CreateChild**.
    * 
    * @example
    * Listener
@@ -38,10 +35,9 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsS
   childType?: string;
   /**
    * @remarks
-   * Indicates whether the specified actions are managed. Valid values:
-   * 
-   * *   **true**: The specified actions are managed, and you cannot perform the specified actions on the managed instance.
-   * *   **false**: The specified actions are not managed, and you can perform the specified actions on the managed instance.
+   * Indicates whether the managed policy action is managed. Valid values:
+   * - **true**: The managed policy action is managed. The user cannot perform the action specified by Action on the managed instance.
+   * - **false**: The managed policy action is not managed. The user can perform the action specified by Action on the managed instance.
    * 
    * @example
    * false
@@ -75,7 +71,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsS
 export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations extends $dara.Model {
   /**
    * @remarks
-   * The GA instance ID.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance to which the endpoint group destination configuration belongs.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -83,7 +79,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the endpoint group mapping.
+   * The ID of the endpoint group destination configuration.
    * 
    * @example
    * dst-123abc****
@@ -91,7 +87,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   destinationId?: string;
   /**
    * @remarks
-   * The endpoint group ID.
+   * The ID of the endpoint group to which the destination configuration belongs.
    * 
    * @example
    * epg-bp14sz7ftcwwjgrdm****
@@ -99,7 +95,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   endpointGroupId?: string;
   /**
    * @remarks
-   * The first port of the backend service port range.
+   * The start port of the backend service of the endpoint group.
    * 
    * @example
    * 80
@@ -107,7 +103,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   fromPort?: number;
   /**
    * @remarks
-   * The listener ID.
+   * The ID of the listener to which the endpoint group destination configuration belongs.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -115,18 +111,19 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   listenerId?: string;
   /**
    * @remarks
-   * The backend service protocols of the endpoint group. Valid values:
+   * The Protocol Type of the backend service of the endpoint group.
    * 
-   * *   **TCP**
-   * *   **UDP**
-   * *   **TCP,UDP**
+   * - **TCP**: TCP protocol.
+   * 
+   * - **UDP**: UDP protocol.
+   * 
+   * - **TCP,UDP**: TCP and UDP protocols.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The ID of the service that manages the GA instance.
-   * 
-   * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+   * The ID of the service to which the managed instance belongs.
+   * > This parameter is valid only when **ServiceManaged** is set to **True**.
    * 
    * @example
    * ALB
@@ -134,10 +131,11 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   serviceId?: string;
   /**
    * @remarks
-   * Indicates whether the GA instance is managed. Valid values:
+   * Indicates whether the instance is managed. Valid values:  
    * 
-   * *   true
-   * *   false
+   * - true: The instance is managed.  
+   * 
+   * - false: The instance is not managed.
    * 
    * @example
    * true
@@ -145,15 +143,14 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The actions that you can perform on the managed instance.
-   * 
-   * >  - This parameter takes effect only if **ServiceManaged** is set to **True**.
-   * >  - You can perform only specific actions on the managed instance.
+   * The list of action policies that the user can execute on the managed instance.
+   * > This parameter is valid only when **ServiceManaged** is set to **True**.
+   * > - When the instance is in the managed state, user operations on the instance are restricted, and certain operations are prohibited.
    */
   serviceManagedInfos?: ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos[];
   /**
    * @remarks
-   * The last port of the backend service port range.
+   * The end port of the backend service of the endpoint group.
    * 
    * @example
    * 80
@@ -207,12 +204,12 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations 
 export class ListCustomRoutingEndpointGroupDestinationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the endpoint group mappings.
+   * The destination configurations of the endpoint group.
    */
   destinations?: ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -220,7 +217,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBody extends $dar
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -228,7 +225,7 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBody extends $dar
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

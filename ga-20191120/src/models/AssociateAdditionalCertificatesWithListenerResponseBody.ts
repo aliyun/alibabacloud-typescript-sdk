@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateAdditionalCertificatesWithListenerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The listener ID.
+   * The listener instance ID.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****

@@ -3,34 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $dara.Model {
+  apiKeys?: string[];
   /**
    * @remarks
-   * Specifies whether to automatically preserve client IP addresses. Valid values:
+   * Specifies whether to preserve client IP addresses. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: preserves client IP addresses.
    * 
-   * > *   By default, client IP address preservation is disabled for an endpoint group of a UDP or TCP listener. You can configure this parameter based on your business requirements.
-   * >*   By default, client IP address preservation is enabled for an endpoint group of an HTTP or HTTP listener. You can obtain client IP addresses by using the X-Forwarded-For header. You cannot disable the feature.
-   * >*   EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
-   * >>  For more information, see [Preserve client IP addresses](https://help.aliyun.com/document_detail/158080.html).
+   * - **false** (default): does not preserve client IP addresses.
+   * 
+   * > * By default, client IP address preservation is disabled for endpoint groups of TCP and UDP listeners. You can enable it based on your business needs.
+   * >
+   * > * Client IP address preservation is enabled by default for endpoint groups of HTTP and HTTPS listeners. The client IP addresses are retrieved from the X-Forwarded-For header field. You cannot disable this feature.
+   * >
+   * > * EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
+   * >
+   * > * For more information, see [](t1863665.xdita#).
    */
   enableClientIPPreservation?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+   * Specifies whether to use the Proxy Protocol to preserve client IP addresses. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: uses the Proxy Protocol.
    * 
-   * > *   This parameter is available only to endpoint groups of TCP listeners.
-   * >*   EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
-   * >>For more information, see [Preserve client IP addresses](https://help.aliyun.com/document_detail/158080.html).
+   * - **false** (default): does not use the Proxy Protocol.
+   * 
+   * > * This parameter is available only for endpoint groups of TCP listeners.
+   * >
+   * > * EnableClientIPPreservation and EnableProxyProtocol cannot be set to true at the same time.
+   * >
+   * > * For more information, see [](t1863665.xdita#).
    */
   enableProxyProtocol?: boolean;
   /**
    * @remarks
-   * The IP address, domain name, or instance ID based on the value of Type.
+   * The IP address, domain name, or instance ID of the endpoint, based on the value of Type.
    * 
    * This parameter is required.
    * 
@@ -39,11 +47,15 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
    */
   endpoint?: string;
   /**
+   * @example
+   * BAILIAN
+   */
+  provider?: string;
+  /**
    * @remarks
    * The private IP address of the ENI.
    * 
-   * >  If you set the endpoint type to ENI, you can specify this parameter. 
-   * >If you leave this parameter empty, the primary private IP address of the ENI is used.
+   * > - This parameter is available only when the endpoint type is ENI. You can specify this parameter. If you do not specify this parameter, the primary private IP address of the ENI is used.
    * 
    * @example
    * 172.168.XX.XX
@@ -51,23 +63,35 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   subAddress?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The type of the endpoint.
    * 
-   * *   **Domain**: a custom domain name.
-   * *   **Ip**: a custom IP address.
-   * *   **IpTarget**: a custom private IP address.
-   * *   **PublicIp**: a public IP address provided by Alibaba Cloud.
-   * *   **ECS**: an Elastic Compute Service (ECS) instance.
-   * *   **SLB**: a Server Load Balancer (SLB) instance.
-   * *   **ALB**: an Application Load Balancer (ALB) instance.
-   * *   **OSS**: an Object Storage Service (OSS) bucket.
-   * *   **ENI**: an elastic network interface (ENI).
-   * *   **NLB**: a Network Load Balancer (NLB) instance.
+   * - **Domain**: a custom domain name.
    * 
-   * > *   If you set this parameter to **ECS**, **ENI**, **SLB**, **ALB**, **NLB**, or **IpTarget** and the AliyunServiceRoleForGaVpcEndpoint service-linked role does not exist, the system automatically creates the role.
-   * > *   If you set this parameter to **ALB** and the AliyunServiceRoleForGaAlb service-linked role does not exist, the system automatically creates the role.
-   * > *   If you set this parameter to **OSS** and the AliyunServiceRoleForGaOss service-linked role does not exist, the system automatically creates the role.
-   * > > For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/178360.html).
+   * - **Ip**: a custom IP address.
+   * 
+   * - **IpTarget**: a custom private IP address.
+   * 
+   * - **PublicIp**: an Alibaba Cloud public IP address.
+   * 
+   * - **ECS**: an Alibaba Cloud Elastic Compute Service (ECS) instance.
+   * 
+   * - **SLB**: an Alibaba Cloud Server Load Balancer (SLB) instance.
+   * 
+   * - **ALB**: an Alibaba Cloud Application Load Balancer (ALB) instance.
+   * 
+   * - **OSS**: an Alibaba Cloud Object Storage Service (OSS) bucket.
+   * 
+   * - **ENI**: an Alibaba Cloud Elastic Network Interface (ENI).
+   * 
+   * - **NLB**: an Alibaba Cloud Network Load Balancer (NLB) instance.
+   * 
+   * > * If you set the endpoint type to **ECS**, **ENI**, **SLB**, **NLB**, or **IpTarget**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaVpcEndpoint.
+   * >
+   * > * If you set the endpoint type to **ALB**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaAlb.
+   * >
+   * > * If you set the endpoint type to **OSS**, and the service-linked role does not exist, the system automatically creates a service-linked role named AliyunServiceRoleForGaOss.
+   * >
+   * > > For more information, see [](t1963894.xdita#).
    * 
    * This parameter is required.
    * 
@@ -77,16 +101,16 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   type?: string;
   /**
    * @remarks
-   * The IDs of vSwitches that are deployed in the VPC.
+   * The list of vSwitches in the VPC.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The ID of the virtual private cloud (VPC).
    * 
-   * You can specify one VPC ID for an endpoint group of an intelligent routing listener.
+   * You can specify at most one VPC ID for an endpoint group that is associated with a listener that uses smart routing.
    * 
-   * >  This parameter is valid and required only if Type is set to **IpTarget**.
+   * > This parameter is required and takes effect only when the endpoint type is **IpTarget**.
    * 
    * @example
    * vpc-uf66oesmrqge1t2gs****
@@ -98,7 +122,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
    * 
    * Valid values: **0** to **255**.
    * 
-   * >  If you set the weight of an endpoint to 0, GA stops distributing traffic to the endpoint. Proceed with caution.
+   * > If you set the weight of an endpoint to 0, GA stops distributing traffic to the endpoint. Handle this with care.
    * 
    * This parameter is required.
    * 
@@ -108,9 +132,11 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      apiKeys: 'ApiKeys',
       enableClientIPPreservation: 'EnableClientIPPreservation',
       enableProxyProtocol: 'EnableProxyProtocol',
       endpoint: 'Endpoint',
+      provider: 'Provider',
       subAddress: 'SubAddress',
       type: 'Type',
       vSwitchIds: 'VSwitchIds',
@@ -121,9 +147,11 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
 
   static types(): { [key: string]: any } {
     return {
+      apiKeys: { 'type': 'array', 'itemType': 'string' },
       enableClientIPPreservation: 'boolean',
       enableProxyProtocol: 'boolean',
       endpoint: 'string',
+      provider: 'string',
       subAddress: 'string',
       type: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -133,6 +161,9 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
   }
 
   validate() {
+    if(Array.isArray(this.apiKeys)) {
+      $dara.Model.validateArray(this.apiKeys);
+    }
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);
     }
@@ -161,9 +192,11 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides
    * 
    * Valid values: **1** to **65499**.
    * 
-   * > *   You cannot configure port mappings for virtual endpoint groups of TCP listeners. If a virtual endpoint group already exists on the listener, you cannot configure port mappings for the default endpoint group. If port mappings are configured for the default endpoint group, you cannot add a virtual endpoint group.
-   * >*   If you configure port mappings for a listener, you cannot modify the listener protocol. You can only switch between HTTP and HTTPS.
-   * >*   Listener port: When you modify the listener port range, make sure that the port range includes the ports configured in port mappings. For example, if you set the listener port range to 80 to 82 and map the listener ports to endpoint ports 100 to 102, you cannot change the listener port range to 80 to 81.
+   * > - For TCP listeners, virtual endpoint groups do not support port mapping. If a virtual endpoint group already exists under the listener, you cannot configure port mapping for the default endpoint group. If port mapping is already configured for the default endpoint group, you cannot add a virtual endpoint group.
+   * >
+   * > - After you configure port mapping, the following limits apply to subsequent listener modifications: You cannot change the listener protocol, except for changing it between HTTP and HTTPS.
+   * >
+   * > - Listener port: The modified listener port range must include all listener ports that are currently mapped. For example, if the listener port range is 80-82 and the ports are mapped to endpoint ports 100-102, you cannot change the listener port range to 80-81.
    * 
    * @example
    * 443
@@ -195,10 +228,11 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
+   * Specifies whether to use the Proxy Protocol to preserve client IP addresses. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -208,8 +242,9 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
    * @remarks
    * Specifies whether to use the TCP Option Address (TOA) module to preserve client IP addresses. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -217,14 +252,14 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   enableClientIPPreservationToa?: boolean;
   /**
    * @remarks
-   * The configurations of the endpoints in the endpoint group.
+   * The configurations of the endpoint.
    */
   endpointConfigurations?: UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
   /**
    * @remarks
    * The description of the endpoint group.
    * 
-   * The description cannot exceed 200 characters in length and cannot start with http:// or https://.
+   * The description can be up to 200 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * group1
@@ -232,7 +267,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   endpointGroupDescription?: string;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint group.
    * 
    * This parameter is required.
    * 
@@ -244,7 +279,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
    * @remarks
    * The name of the endpoint group.
    * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 1 to 128 characters in length, start with a letter or a Chinese character, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * group1
@@ -253,12 +288,13 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   endpointIpVersion?: string;
   /**
    * @remarks
-   * The backend service protocol of the endpoint that is associated with the intelligent routing listener. Valid values:
+   * The version of the backend service protocol for endpoints in a listener that uses smart routing. Valid values:
    * 
-   * *   **HTTP1.1** (default)
-   * *   **HTTP2**
+   * - **HTTP1.1** (default): HTTP/1.1
    * 
-   * >  You can specify this parameter only if EndpointRequestProtocol is set to HTTPS.
+   * - **HTTP2**: HTTP/2
+   * 
+   * > This parameter is available only when you set EndpointRequestProtocol to HTTPS.
    * 
    * @example
    * HTTP1.1
@@ -266,13 +302,15 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   endpointProtocolVersion?: string;
   /**
    * @remarks
-   * The backend service protocol. Valid values:
+   * The protocol of the backend service. Valid values:
    * 
-   * *   **HTTP**
-   * *   **HTTPS**
+   * - **HTTP**: HTTP
    * 
-   * > *   You can specify this parameter only if the listener that is associated with the endpoint group uses HTTP or HTTPS.
-   * > *   The backend service protocol of an HTTP listener must be HTTP.
+   * - **HTTPS**: HTTPS
+   * 
+   * > * You can set this parameter only when you create an endpoint group for an HTTP or HTTPS listener.
+   * >
+   * > * For an HTTP listener, the backend service protocol must be HTTP.
    * 
    * @example
    * HTTP
@@ -280,10 +318,11 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   endpointRequestProtocol?: string;
   /**
    * @remarks
-   * Specifies whether to enable the health check feature. Valid values:
+   * Specifies whether to enable the health check feature.
    * 
-   * *   **true**: enables the health check feature.
-   * *   **false** (default): disables the health check feature.
+   * - **true**: enables the health check feature.
+   * 
+   * - **false** (default): disables the health check feature.
    * 
    * @example
    * true
@@ -292,7 +331,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   healthCheckHost?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds. Valid values: **1** to **50**.
+   * The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
    * 
    * @example
    * 3
@@ -300,7 +339,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   healthCheckIntervalSeconds?: number;
   /**
    * @remarks
-   * The health check path.
+   * The path of the health check.
    * 
    * @example
    * /healthcheck
@@ -308,7 +347,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   healthCheckPath?: string;
   /**
    * @remarks
-   * The port that you want to use for health checks.
+   * The port that is used for health checks.
    * 
    * Valid values: **1** to **65535**.
    * 
@@ -318,11 +357,13 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   healthCheckPort?: number;
   /**
    * @remarks
-   * The protocol over which health check requests are sent. Valid values:
+   * The protocol that is used for health checks.
    * 
-   * *   **tcp** or **TCP**
-   * *   **http** or **HTTP**
-   * *   **https** or **HTTPS**
+   * - **tcp** or **TCP**: TCP
+   * 
+   * - **http** or **HTTP**: HTTP
+   * 
+   * - **https** or **HTTPS**: HTTPS
    * 
    * @example
    * tcp
@@ -330,12 +371,12 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   healthCheckProtocol?: string;
   /**
    * @remarks
-   * The port mappings.
+   * The port mapping.
    */
   portOverrides?: UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides[];
   /**
    * @remarks
-   * The number of failed consecutive health checks that must occur before a healthy endpoint group is considered unhealthy or the number of successful consecutive health checks that must occur before an unhealthy endpoint group is considered healthy.
+   * The number of consecutive health checks that an endpoint must pass to be considered healthy, or fail to be considered unhealthy.
    * 
    * Valid values: **2** to **10**.
    * 
@@ -345,7 +386,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $dar
   thresholdCount?: number;
   /**
    * @remarks
-   * The traffic ratio of the endpoint group when the specified listener is associated with multiple endpoint groups.
+   * The traffic distribution ratio. If a listener is associated with multiple endpoint groups, you can specify this parameter to distribute traffic to the endpoint groups.
    * 
    * Valid values: **1** to **100**.
    * 
@@ -419,9 +460,9 @@ export class UpdateEndpointGroupsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a value for this parameter on your client. Make sure that the value is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -429,10 +470,11 @@ export class UpdateEndpointGroupsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true:** performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, a 2xx HTTP status code is returned.
+   * 
+   * - **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -440,14 +482,14 @@ export class UpdateEndpointGroupsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The configurations of the endpoint groups.
+   * The configurations of the endpoint group.
    * 
    * This parameter is required.
    */
   endpointGroupConfigurations?: UpdateEndpointGroupsRequestEndpointGroupConfigurations[];
   /**
    * @remarks
-   * The listener ID.
+   * The ID of the listener.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachDdosToAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Pro/Premium instance that is associated with the GA instance.
+   * The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance associated with the Global Accelerator (GA) instance.
    * 
    * @example
    * ddoscoo-cn-zz11vq7j****
@@ -15,7 +15,7 @@ export class AttachDdosToAcceleratorResponseBody extends $dara.Model {
   ddosId?: string;
   /**
    * @remarks
-   * The ID of the GA instance that is associated with the Anti-DDoS Pro/Premium instance.
+   * The ID of the Global Accelerator (GA) instance with which the Anti-DDoS Pro or Anti-DDoS Premium instance is associated.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -23,7 +23,7 @@ export class AttachDdosToAcceleratorResponseBody extends $dara.Model {
   gaId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6

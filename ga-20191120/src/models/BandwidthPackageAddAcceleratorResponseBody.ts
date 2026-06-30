@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BandwidthPackageAddAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The GA instance IDs.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance to which the bandwidth plan is attached.
    */
   accelerators?: string[];
   /**
    * @remarks
-   * The bandwidth plan ID.
+   * The ID of the bandwidth plan attached to the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * gbwp-bp1sgzldyj6b4q7cx****

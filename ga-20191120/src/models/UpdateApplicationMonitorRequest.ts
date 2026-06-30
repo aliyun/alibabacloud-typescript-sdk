@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL or IP address that is probed.
+   * The URL or IP address to be probed.
    * 
    * @example
    * https://www.aliyun.com
@@ -15,9 +15,9 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -27,8 +27,9 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the automatic diagnostics feature. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Enabled.
+   * 
+   * - **false** (default): Disabled.
    * 
    * @example
    * false
@@ -36,7 +37,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   detectEnable?: boolean;
   /**
    * @remarks
-   * Set the threshold that is used to trigger the automatic diagnostics feature. If the liveness of the origin in percentile drops below the specified threshold, the automatic diagnostics feature is triggered.
+   * The threshold that triggers automatic diagnostics. When the origin availability rate falls below this threshold, automatic diagnostics is triggered.
    * 
    * Valid values: **0** to **100**.
    * 
@@ -46,7 +47,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   detectThreshold?: number;
   /**
    * @remarks
-   * The number of times that the threshold must be reached before the automatic diagnostics feature is triggered.
+   * The number of consecutive times that the availability rate must fall below the threshold before automatic diagnostics is triggered.
    * 
    * Valid values: **1** to **20**.
    * 
@@ -56,7 +57,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   detectTimes?: number;
   /**
    * @remarks
-   * The ID of the listener that you want to modify. The listener runs the origin probing task.
+   * The instance ID of the listener associated with the origin probing task that you want to modify.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -64,7 +65,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The extended options of the listener protocol that is used by the origin probing task. The options vary based on the listener protocol.
+   * The advanced extension options for the listener protocol type of the origin probing task. Different listener protocol types correspond to different extension options.
    * 
    * @example
    * { "http_method": "get","header": "key:asd","acceptable_response_code": "500","cert_verify": true }
@@ -72,7 +73,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   optionsJson?: string;
   /**
    * @remarks
-   * The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * @example
    * cn-hangzhou
@@ -80,9 +81,9 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic task, GA must wait until the silence period ends before GA can trigger another automatic diagnostic task.
+   * The silence period for automatic diagnostics. This specifies the interval between automatic diagnostics triggers when the availability rate does not recover to normal after diagnostics is triggered.
    * 
-   * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+   * When the availability rate falls below the automatic diagnostics threshold for consecutive times (as specified by **DetectTimes**), automatic diagnostics is triggered. If the availability rate remains below the threshold during the silence period, automatic diagnostics is not triggered again within the silence period. If the availability rate has not recovered after the silence period expires, automatic diagnostics is triggered again.
    * 
    * Unit: seconds. Valid values: **300** to **86400**.
    * 
@@ -104,7 +105,7 @@ export class UpdateApplicationMonitorRequest extends $dara.Model {
    * @remarks
    * The name of the origin probing task.
    * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 1 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * task1

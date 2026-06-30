@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The ID of the access control policy group.
    * 
    * @example
    * nacl-hp34s2h0xx1ht4nwo****

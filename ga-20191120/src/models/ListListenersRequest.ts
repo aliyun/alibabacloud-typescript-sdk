@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListListenersRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -23,16 +23,23 @@ export class ListListenersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to **50**. Default value: **10**.
+   * The number of entries to return on each page. The maximum value is **50**. The default value is **10**.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The transport layer protocol used by the listener.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

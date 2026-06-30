@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBandwidthPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The bandwidth plan ID.
    * 
    * @example
    * gbwp-bp1sgzldyj6b4q7cx****
@@ -15,9 +15,11 @@ export class CreateBandwidthPackageResponseBody extends $dara.Model {
    * @remarks
    * The order ID.
    * 
-   * If bills are not automatically paid, you must go to the Order Center to complete the payments.
+   * <props="china">This parameter is returned only when you set ChargeType to PREPAY. If you set AutoPay to false, go to the [Order Hub](https://usercenter2.aliyun.com/order/list) to complete the payment.
    * 
-   * This parameter is returned only if ChargeType is set to PREPAY. If AutoPay is set to false, you must go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
+   * <props="intl">
+   * 
+   * This parameter is returned only when you set ChargeType to PREPAY. If you set AutoPay to false, go to the [Order Hub](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
    * 
    * @example
    * 208257****
@@ -25,7 +27,7 @@ export class CreateBandwidthPackageResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B6DBBB0-2D01-4C6A-A384-4129266E6B78

@@ -5,25 +5,44 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogStoreConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of Alibaba Cloud Global Accelerator (GA).
+   * 
    * This parameter is required.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
    */
   acceleratorId?: string;
+  /**
+   * @remarks
+   * A list of custom header field names to be included in access logs.
+   */
   accessLogRecordCustomizedHeaderList?: string[];
   /**
+   * @remarks
+   * Specifies whether to include custom headers in access logs. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false** (default): No.
+   * 
+   * > You can set this parameter to **true** only when the **AccessLogEnabled** toggle for the instance is turned on.
+   * 
    * @example
    * False
    */
   accessLogRecordCustomizedHeadersEnabled?: boolean;
   /**
+   * @remarks
+   * An idempotent token.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the endpoint group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +51,8 @@ export class UpdateLogStoreConfigRequest extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
+   * The listener ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +61,8 @@ export class UpdateLogStoreConfigRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. The only valid value is cn-hangzhou.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +71,8 @@ export class UpdateLogStoreConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The name of the Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +81,8 @@ export class UpdateLogStoreConfigRequest extends $dara.Model {
   slsLogStoreName?: string;
   /**
    * @remarks
+   * The name of the Data Service Project.
+   * 
    * This parameter is required.
    * 
    * @example

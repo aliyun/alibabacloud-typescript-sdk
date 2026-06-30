@@ -16,7 +16,7 @@ export class DescribeApplicationMonitorResponseBodyIspCityList extends $dara.Mod
    * The name of the city in which the probe point of the ISP is deployed.
    * 
    * @example
-   * Singapore
+   * 新加坡
    */
   cityName?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeApplicationMonitorResponseBodyIspCityList extends $dara.Mod
    * The probe point name of the ISP.
    * 
    * @example
-   * Alibaba
+   * 阿里巴巴
    */
   ispName?: string;
   static names(): { [key: string]: string } {
@@ -83,8 +83,9 @@ export class DescribeApplicationMonitorResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the automatic diagnostics feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -161,11 +162,15 @@ export class DescribeApplicationMonitorResponseBody extends $dara.Model {
    * @remarks
    * The status of the origin probing task. Valid values:
    * 
-   * *   **init**
-   * *   **active**
-   * *   **updating**
-   * *   **inactive**
-   * *   **deleting**
+   * - **init**
+   * 
+   * - **active**
+   * 
+   * - **updating**
+   * 
+   * - **inactive**
+   * 
+   * - **deleting**
    * 
    * @example
    * active

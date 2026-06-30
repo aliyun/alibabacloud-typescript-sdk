@@ -5,10 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the client IP address preservation feature is enabled. Valid values:
+   * The API keys in the endpoint configuration.
+   */
+  apiKeys?: string[];
+  /**
+   * @remarks
+   * Specifies whether to preserve client IP addresses.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Client IP preservation is enabled.
+   * 
+   * - **false**: Client IP preservation is disabled.
    * 
    * @example
    * false
@@ -16,15 +22,16 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   enableClientIPPreservation?: boolean;
   /**
    * @remarks
-   * Indicates whether the proxy protocol is used to preserve client IP addresses. Valid values:
+   * Specifies whether to use Proxy Protocol to preserve client IP addresses.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Proxy Protocol is enabled.
+   * 
+   * - **false**: Proxy Protocol is disabled.
    */
   enableProxyProtocol?: boolean;
   /**
    * @remarks
-   * The IP address or domain name of the endpoint.
+   * The endpoint\\"s IP address, domain name, or instance ID.
    * 
    * @example
    * 47.1.XX.XX
@@ -40,7 +47,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   endpointId?: string;
   /**
    * @remarks
-   * The port that is used to monitor latency.
+   * The port used for latency monitoring probes.
    * 
    * @example
    * 80
@@ -48,10 +55,11 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   probePort?: number;
   /**
    * @remarks
-   * The protocol that is used to monitor latency.
+   * The protocol that is used for latency monitoring probes.
    * 
-   * *   **icmp**
-   * *   **tcp**
+   * - **icmp**: ICMP
+   * 
+   * - **tcp**: TCP
    * 
    * @example
    * tcp
@@ -59,7 +67,15 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   probeProtocol?: string;
   /**
    * @remarks
-   * The private IP address of the ENI.
+   * The service provider.
+   * 
+   * @example
+   * BAILIAN
+   */
+  provider?: string;
+  /**
+   * @remarks
+   * The private IP address of the elastic network interface.
    * 
    * @example
    * 172.168.XX.XX
@@ -67,18 +83,27 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   subAddress?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The type of endpoint. Valid values:
    * 
-   * *   **Domain**: a custom domain name.
-   * *   **Ip**: a custom IP address.
-   * *   **IpTarget**: a custom private IP address.
-   * *   **PublicIp**: a public IP address provided by Alibaba Cloud.
-   * *   **ECS**: an Elastic Compute Service (ECS) instance.
-   * *   **SLB**: a Server Load Balancer (SLB) instance.
-   * *   **ALB**: an Application Load Balancer (ALB) instance.
-   * *   **OSS**: an Object Storage Service (OSS) bucket.
-   * *   **ENI**: an elastic network interface (ENI).
-   * *   **NLB**: a Network Load Balancer (NLB) instance.
+   * - **Domain**: a custom domain name.
+   * 
+   * - **Ip**: a custom IP address.
+   * 
+   * - **IpTarget**: a custom private IP address.
+   * 
+   * - **PublicIp**: an Alibaba Cloud public IP address.
+   * 
+   * - **ECS**: an Alibaba Cloud ECS instance.
+   * 
+   * - **SLB**: an Alibaba Cloud SLB instance.
+   * 
+   * - **ALB**: an Alibaba Cloud ALB instance.
+   * 
+   * - **OSS**: an Alibaba Cloud OSS bucket.
+   * 
+   * - **ENI**: an Alibaba Cloud elastic network interface.
+   * 
+   * - **NLB**: an Alibaba Cloud NLB instance.
    * 
    * @example
    * Ip
@@ -86,12 +111,12 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   type?: string;
   /**
    * @remarks
-   * The IDs of vSwitches that are deployed in the VPC.
+   * A list of vSwitches in the VPC.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-8vbhucmd5b2q2fpqqu****
@@ -107,12 +132,14 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      apiKeys: 'ApiKeys',
       enableClientIPPreservation: 'EnableClientIPPreservation',
       enableProxyProtocol: 'EnableProxyProtocol',
       endpoint: 'Endpoint',
       endpointId: 'EndpointId',
       probePort: 'ProbePort',
       probeProtocol: 'ProbeProtocol',
+      provider: 'Provider',
       subAddress: 'SubAddress',
       type: 'Type',
       vSwitchIds: 'VSwitchIds',
@@ -123,12 +150,14 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
 
   static types(): { [key: string]: any } {
     return {
+      apiKeys: { 'type': 'array', 'itemType': 'string' },
       enableClientIPPreservation: 'boolean',
       enableProxyProtocol: 'boolean',
       endpoint: 'string',
       endpointId: 'string',
       probePort: 'number',
       probeProtocol: 'string',
+      provider: 'string',
       subAddress: 'string',
       type: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -138,6 +167,9 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
   }
 
   validate() {
+    if(Array.isArray(this.apiKeys)) {
+      $dara.Model.validateArray(this.apiKeys);
+    }
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);
     }
@@ -151,7 +183,21 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
 
 export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointPrivateIpList extends $dara.Model {
   CIDR?: string;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * 172.19.115.37
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * gsw-0jl6tmriqep1ga***
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -221,14 +267,19 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides extends $
 export class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos extends $dara.Model {
   /**
    * @remarks
-   * The name of the action that was performed on the managed instance. Valid values:
+   * The name of the action on the managed instance. Valid values:
    * 
-   * *   **Create:** Create an instance.
-   * *   **Update:** Update the current instance.
-   * *   **Delete:** Delete the current instance.
-   * *   **Associate:** Reference the current instance.
-   * *   **UserUnmanaged:** Unmanage the instance.
-   * *   **CreateChild:** Create a child resource in the current instance.
+   * - **Create**: creates an instance.
+   * 
+   * - **Update**: updates the instance.
+   * 
+   * - **Delete**: deletes the instance.
+   * 
+   * - **Associate**: associates the instance with other resources.
+   * 
+   * - **UserUnmanaged**: Reverts the instance to an unmanaged state.
+   * 
+   * - **CreateChild**: creates a child resource for the instance.
    * 
    * @example
    * Update
@@ -238,15 +289,21 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos ext
    * @remarks
    * The type of the child resource. Valid values:
    * 
-   * *   **Listener:** listener.
-   * *   **IpSet:** acceleration region.
-   * *   **EndpointGroup:** endpoint group.
-   * *   **ForwardingRule:** forwarding rule.
-   * *   **Endpoint:** endpoint.
-   * *   **EndpointGroupDestination:** the protocol mapping of an endpoint group associated with a custom routing listener.
-   * *   **EndpointPolicy:** the traffic policy of an endpoint associated with a custom routing listener.
+   * - **Listener**: a listener.
    * 
-   * >  This parameter takes effect only if you set **Action** to **CreateChild**.
+   * - **IpSet**: an acceleration region.
+   * 
+   * - **EndpointGroup**: an endpoint group.
+   * 
+   * - **ForwardingRule**: a forwarding rule.
+   * 
+   * - **Endpoint**: an endpoint.
+   * 
+   * - **EndpointGroupDestination**: a protocol mapping for an endpoint group of a custom routing listener.
+   * 
+   * - **EndpointPolicy**: a traffic policy for an endpoint of a custom routing listener.
+   * 
+   * > This parameter is returned only if **Action** is set to **CreateChild**.
    * 
    * @example
    * Listener
@@ -254,10 +311,11 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos ext
   childType?: string;
   /**
    * @remarks
-   * Indicates whether the specified actions are managed. Valid values:
+   * Specifies whether the action is managed. Valid values:
    * 
-   * *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-   * *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+   * - **true**: The action is managed. You cannot perform the specified action on the managed instance.
+   * 
+   * - **false**: The action is not managed. You can perform the specified action on the managed instance.
    * 
    * @example
    * false
@@ -291,7 +349,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos ext
 export class ListEndpointGroupsResponseBodyEndpointGroupsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the endpoint group.
+   * The tag key.
    * 
    * @example
    * test-key
@@ -299,7 +357,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsTags extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The tag value of the endpoint group.
+   * The tag value.
    * 
    * @example
    * test-value
@@ -331,7 +389,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsTags extends $dara.Mode
 export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -347,7 +405,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The configurations of the endpoints in the endpoint group.
+   * A list of endpoint configurations.
    */
   endpointConfigurations?: ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations[];
   /**
@@ -360,12 +418,16 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The endpoint group IP addresses.
+   * A list of public egress IP addresses of the endpoint group.
+   * 
+   * >Notice: 
+   * 
+   * For endpoint groups connected to private backend services, the console shows only the private source IP addresses, not the public ones. If the network connection type of a backend service changes (for example, from private to public), monitor the source IP addresses and update the backend service\\"s access control list (ACL).
    */
   endpointGroupIpList?: string[];
   /**
    * @remarks
-   * The ID of the region where the endpoint group is created.
+   * The ID of the region where the endpoint group is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -375,8 +437,9 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
    * @remarks
    * The type of the endpoint group. Valid values:
    * 
-   * *   **default**: a default endpoint group
-   * *   **virtual:** a virtual endpoint group.
+   * - **default**: a default endpoint group.
+   * 
+   * - **virtual**: a virtual endpoint group.
    * 
    * @example
    * default
@@ -384,25 +447,47 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   endpointGroupType?: string;
   /**
    * @remarks
-   * The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+   * The list of new IP addresses in the endpoint group that require confirmation after a Global Accelerator instance is upgraded.
    */
   endpointGroupUnconfirmedIpList?: string[];
+  /**
+   * @remarks
+   * The IP protocol of the backend service. Valid values:
+   * 
+   * - **IPv4** (default): Connections to the backend service use IPv4.
+   * 
+   * - **IPv6**: Connections to the backend service use IPv6.
+   * 
+   * - **ProtocolAffinity**: The connection to the backend service uses the same IP protocol as the client request.
+   * 
+   * @example
+   * IPv4
+   */
   endpointIpVersion?: string;
+  /**
+   * @remarks
+   * A list of private IP addresses of the endpoints.
+   */
   endpointPrivateIpList?: ListEndpointGroupsResponseBodyEndpointGroupsEndpointPrivateIpList[];
   /**
    * @remarks
-   * The protocol version that is used by the backend service. Valid values:
+   * The version of the backend service protocol. Valid values:
    * 
-   * *   **HTTP1.1**
-   * *   **HTTP2**
+   * - **HTTP1.1**: HTTP/1.1
+   * 
+   * - **HTTP2**: HTTP/2
+   * 
+   * @example
+   * HTTP1.1
    */
   endpointProtocolVersion?: string;
   /**
    * @remarks
-   * The protocol that is used by the backend server.
+   * The protocol of the backend service. Valid values:
    * 
-   * *   **HTTP**
-   * *   **HTTPS**
+   * - **HTTP**: HTTP
+   * 
+   * - **HTTPS**: HTTPS
    * 
    * @example
    * HTTP
@@ -410,24 +495,32 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   endpointRequestProtocol?: string;
   /**
    * @remarks
-   * The IDs of the forwarding rules that are associated with the endpoint group.
+   * The IDs of forwarding rules associated with the endpoint group.
    */
   forwardingRuleIds?: string[];
   /**
    * @remarks
-   * Indicates whether the health check feature is enabled.
+   * Specifies whether to enable health checks.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Health checks are enabled.
+   * 
+   * - **false**: Health checks are disabled.
    * 
    * @example
    * true
    */
   healthCheckEnabled?: boolean;
+  /**
+   * @remarks
+   * The domain name used for health checks.
+   * 
+   * @example
+   * www.taobao.com
+   */
   healthCheckHost?: string;
   /**
    * @remarks
-   * The interval at which you want to perform health checks. Unit: seconds.
+   * The health check interval, in seconds.
    * 
    * @example
    * 3
@@ -435,7 +528,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   healthCheckIntervalSeconds?: number;
   /**
    * @remarks
-   * The path that is used for health checks.
+   * The health check path.
    * 
    * @example
    * /healthcheck
@@ -443,7 +536,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   healthCheckPath?: string;
   /**
    * @remarks
-   * The port that is used for health checks.
+   * The port used for health checks.
    * 
    * @example
    * 10
@@ -451,11 +544,13 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   healthCheckPort?: number;
   /**
    * @remarks
-   * The protocol over which health check requests are sent. Valid values:
+   * The protocol used for health checks.
    * 
-   * *   **tcp** or **TCP**
-   * *   **http** or **HTTP**
-   * *   **https** or **HTTPS**
+   * - **tcp** or **TCP**: TCP
+   * 
+   * - **http** or **HTTP**: HTTP
+   * 
+   * - **https** or **HTTPS**: HTTPS
    * 
    * @example
    * tcp
@@ -479,14 +574,14 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port mapping.
+   * The port mappings.
    */
   portOverrides?: ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides[];
   /**
    * @remarks
-   * The service that manages the instance.
+   * The ID of the service that manages the instance.
    * 
-   * >  This parameter takes effect only if the value of **Service managed** is **true**.
+   * > This parameter is returned only if **ServiceManaged** is **true**.
    * 
    * @example
    * ALB
@@ -494,10 +589,11 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Indicates whether the GA instance is managed. Valid values:
+   * Specifies whether the instance is managed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is a managed instance.
+   * 
+   * - **false**: The instance is not a managed instance.
    * 
    * @example
    * true
@@ -505,20 +601,24 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The actions that users can perform on the managed instance.
+   * The actions that you can perform on the managed instance.
    * 
-   * > -  This parameter takes effect only if the value of **ServiceManaged** is **true**.
-   * > -   Users can perform only specific actions on a managed instance.
+   * > - This parameter is returned only if **ServiceManaged** is **true**.
+   * >
+   * > - Your permissions to operate on a managed instance are restricted.
    */
   serviceManagedInfos?: ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos[];
   /**
    * @remarks
-   * The status of the endpoint group. Valid values:
+   * The state of the endpoint group.
    * 
-   * *   **init:** The endpoint group is being initialized.
-   * *   **active:** The endpoint group is running normally.
-   * *   **updating:**The endpoint group is being updated.
-   * *   **deleteing:** The endpoint group is being deleted.
+   * - **init**: The endpoint group is initializing.
+   * 
+   * - **active**: The endpoint group is stable.
+   * 
+   * - **updating**: The endpoint group is updating.
+   * 
+   * - **deleting**: The endpoint group is deleting.
    * 
    * @example
    * active
@@ -526,12 +626,12 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The tag of the endpoint group.
+   * The tags attached to the endpoint group.
    */
   tags?: ListEndpointGroupsResponseBodyEndpointGroupsTags[];
   /**
    * @remarks
-   * The number of consecutive failed health checks that must occur before an endpoint is considered unhealthy.
+   * The number of consecutive failed health checks required to mark an endpoint as unhealthy.
    * 
    * @example
    * 3
@@ -539,10 +639,10 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
   thresholdCount?: number;
   /**
    * @remarks
-   * The value of the traffic distribution ratio. If a listener is associated with multiple endpoint groups, you can set this parameter to distribute different percentages of traffic to the endpoint groups.
+   * The percentage of traffic routed to the endpoint group. This parameter applies only if a listener is associated with multiple endpoint groups.
    * 
    * @example
-   * 20
+   * 100
    */
   trafficPercentage?: number;
   static names(): { [key: string]: string } {
@@ -649,12 +749,12 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $dara.Model {
 export class ListEndpointGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the endpoint groups.
+   * The list of endpoint groups.
    */
   endpointGroups?: ListEndpointGroupsResponseBodyEndpointGroups[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -670,7 +770,7 @@ export class ListEndpointGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A052D49E-CCC2-41DB-816C-DC3381503194

@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The first port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+   * The start port of the traffic destination that is allowed to receive traffic. The port value must fall within the backend service port range of the endpoint group.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * If the first port and the last port are not specified, traffic on all ports of the destination is allowed.
+   * If you leave both the start port and end port empty, all ports of the traffic destination are supported.
    * 
-   * You can specify port ranges for up to 500 destinations in each endpoint and specify up to 10 first ports for each destination.
+   * You can specify up to 500 port ranges for each endpoint, and up to 10 start ports for each traffic destination.
    * 
    * @example
    * 80
@@ -19,13 +19,13 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfiguratio
   fromPort?: number;
   /**
    * @remarks
-   * The last port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+   * The end port of the traffic destination that is allowed to receive traffic. The port value must fall within the backend service port range of the endpoint group.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * If the first port and the last port are not specified, traffic on all ports of the destination is allowed.
+   * If you leave both the start port and end port empty, all ports of the traffic destination are supported.
    * 
-   * You can specify port ranges for up to 500 destinations in each endpoint and specify up to 10 last ports for each destination.
+   * You can specify up to 500 port ranges for each endpoint, and up to 10 end ports for each traffic destination.
    * 
    * @example
    * 80
@@ -57,11 +57,11 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfiguratio
 export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the destination to which traffic is forwarded.
+   * The IP address of the traffic destination that is allowed to receive traffic.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify up to 500 destination IP addresses for each endpoint.
+   * You can specify up to 500 traffic destination IP addresses for each endpoint.
    * 
    * > This parameter is required.
    * 
@@ -71,13 +71,13 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfiguratio
   address?: string;
   /**
    * @remarks
-   * The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+   * The port range of the traffic destination that is allowed to receive traffic. The port range must fall within the backend service port range of the endpoint group.
    * 
-   * If you leave this parameter empty, traffic is forwarded to all destination ports.
+   * If you leave this parameter empty, all ports of the traffic destination are supported.
    * 
    * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
    * 
-   * You can specify port ranges for up to 500 traffic destinations in each endpoint and specify up to 10 port ranges for each traffic destination.
+   * You can specify up to 500 port ranges for each endpoint, and up to 10 port ranges for each traffic destination.
    */
   portRanges?: CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges[];
   static names(): { [key: string]: string } {
@@ -109,11 +109,11 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfiguratio
 export class CreateCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of a request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -121,7 +121,7 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Mod
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the endpoint for which you want to create traffic destinations.
+   * The ID of the endpoint for which you want to create traffic policies.
    * 
    * This parameter is required.
    * 
@@ -131,16 +131,16 @@ export class CreateCustomRoutingEndpointTrafficPoliciesRequest extends $dara.Mod
   endpointId?: string;
   /**
    * @remarks
-   * The configurations of the traffic destinations.
+   * The traffic policy configurations.
    * 
-   * You can specify up to 500 traffic destinations for each endpoint.
+   * You can specify up to 500 traffic policies for each endpoint.
    * 
    * This parameter is required.
    */
   policyConfigurations?: CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations[];
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Global Accelerator instance. Set the value to **ap-southeast-1**.
    * 
    * This parameter is required.
    * 

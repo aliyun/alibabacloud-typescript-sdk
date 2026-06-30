@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBasicAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the basic GA instance.
+   * The instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ga-bp17frjjh0udz4qz****
@@ -15,9 +15,10 @@ export class CreateBasicAcceleratorResponseBody extends $dara.Model {
    * @remarks
    * The order ID.
    * 
-   * This parameter is returned only if ChargeType is set to PREPAY.
+   * This parameter is returned only when ChargeType is set to PREPAY (upfront).
    * 
-   * If **AutoPay** is set to **false**, go to [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment after an order is generated.
+   * If **AutoPay** is set to **false**, which means automatic payment of the bill is not enabled, go to the <props="china">[Order Center](https://usercenter2.aliyun.com/order/list)
+   * <props="intl">[Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
    * 
    * @example
    * 2082574365
@@ -25,7 +26,7 @@ export class CreateBasicAcceleratorResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F591955F-5CB5-4CCE-A75D-17CF2085CE22

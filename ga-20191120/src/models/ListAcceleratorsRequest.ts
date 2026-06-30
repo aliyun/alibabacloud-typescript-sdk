@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAcceleratorsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the GA resource. The tag key cannot be an empty string.
+   * The tag key of the Global Accelerator resource. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * You can specify up to 20 tag keys.
    * 
@@ -17,9 +17,9 @@ export class ListAcceleratorsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the GA resource. The tag value can be an empty string.
+   * The tag value of the Global Accelerator resource. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * You can specify up to 20 tag values.
    * 
@@ -53,7 +53,7 @@ export class ListAcceleratorsRequestTag extends $dara.Model {
 export class ListAcceleratorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -77,7 +77,7 @@ export class ListAcceleratorsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Global Accelerator instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -97,15 +97,21 @@ export class ListAcceleratorsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the GA instance. Valid values:
+   * The state of the Global Accelerator instance. Valid values:
    * 
-   * *   **init**: The GA instance is being initialized.
-   * *   **active**: The GA instance is available.
-   * *   **configuring**: The GA instance is being configured.
-   * *   **binding**: The GA instance is being associated.
-   * *   **unbinding**: The GA instance is being disassociated.
-   * *   **deleting**: The GA instance is being deleted.
-   * *   **finacialLocked**: The GA instance is locked due to overdue payments.
+   * - **init**: The instance is being initialized.
+   * 
+   * - **active**: The instance is active.
+   * 
+   * - **configuring**: The instance is being configured.
+   * 
+   * - **binding**: The instance is being bound.
+   * 
+   * - **unbinding**: The instance is being unbound.
+   * 
+   * - **deleting**: The instance is being deleted.
+   * 
+   * - **finacialLocked**: The instance is locked due to an overdue payment.
    * 
    * @example
    * active
@@ -113,7 +119,7 @@ export class ListAcceleratorsRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The tags of the GA instance.
+   * The tags of the resource.
    */
   tag?: ListAcceleratorsRequestTag[];
   static names(): { [key: string]: string } {

@@ -20,7 +20,7 @@ export class DescribeCommodityResponseBodyComponentsPropertiesPropertyValueList 
    * The returned information varies based on the commodity module.
    * 
    * @example
-   * 1 Month
+   * 1 month
    */
   text?: string;
   /**
@@ -30,7 +30,7 @@ export class DescribeCommodityResponseBodyComponentsPropertiesPropertyValueList 
    * The returned information varies based on the commodity module.
    * 
    * @example
-   * 1 Month
+   * 1 month
    */
   tips?: string;
   /**
@@ -88,7 +88,7 @@ export class DescribeCommodityResponseBodyComponentsProperties extends $dara.Mod
    * The returned information varies based on the commodity module.
    * 
    * @example
-   * Duration
+   * Subscription duration
    */
   name?: string;
   /**
@@ -134,7 +134,7 @@ export class DescribeCommodityResponseBodyComponents extends $dara.Model {
    * The returned information varies based on the commodity module.
    * 
    * @example
-   * Duration
+   * Subscription duration
    */
   componentCode?: string;
   /**
@@ -144,7 +144,7 @@ export class DescribeCommodityResponseBodyComponents extends $dara.Model {
    * The returned information varies based on the commodity module.
    * 
    * @example
-   * Duration
+   * Subscription duration
    */
   componentName?: string;
   /**
@@ -189,13 +189,15 @@ export class DescribeCommodityResponseBody extends $dara.Model {
    * 
    * Examples for the China site (aliyun.com):
    * 
-   * *   **ga_gapluspre_public_cn**: GA instance.
-   * *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
+   * - **ga_gapluspre_public_cn**: GA instance.
+   * 
+   * - **ga_plusbwppre_public_cn**: basic bandwidth plan.
    * 
    * Examples for the international site (alibabacloud.com):
    * 
-   * *   **ga_pluspre_public_intl**: GA instance.
-   * *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+   * - **ga_pluspre_public_intl**: GA instance.
+   * 
+   * - **ga_bwppreintl_public_intl**: basic bandwidth plan.
    * 
    * @example
    * ga_gapluspre_public_cn

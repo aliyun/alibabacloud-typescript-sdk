@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -29,14 +29,14 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The IDs of the endpoint groups.
+   * The list of endpoint group IDs.
    * 
    * This parameter is required.
    */
   endpointGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the listener.
+   * The instance ID of the listener.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The region ID of the Alibaba Cloud Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the SLS Logstore.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   slsLogStoreName?: string;
   /**
    * @remarks
-   * The name of the Log Service project.
+   * The name of the SLS project.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class AttachLogStoreToEndpointGroupRequest extends $dara.Model {
   slsProjectName?: string;
   /**
    * @remarks
-   * The region ID of the Log Service project.
+   * The region ID of the SLS service.
    * 
    * This parameter is required.
    * 

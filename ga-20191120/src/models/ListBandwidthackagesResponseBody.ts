@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBandwidthackagesResponseBodyBandwidthPackagesTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the bandwidth plan.
+   * The tag key.
    * 
    * @example
    * tag-key
@@ -13,7 +13,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackagesTags extends $dara
   key?: string;
   /**
    * @remarks
-   * The tag value of the bandwidth plan.
+   * The tag value.
    * 
    * @example
    * tag-value
@@ -45,12 +45,12 @@ export class ListBandwidthackagesResponseBodyBandwidthPackagesTags extends $dara
 export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the GA instances that are associated with the bandwidth plans.
+   * The IDs of the Global Accelerator instances that are associated with the bandwidth plan.
    */
   accelerators?: string[];
   /**
    * @remarks
-   * The bandwidth of the bandwidth plan. Unit: Mbit/s.
+   * The bandwidth of the bandwidth plan. Unit: Mbps.
    * 
    * @example
    * 2
@@ -66,10 +66,11 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The billing method of the bandwidth plan. Valid values:
+   * The billing method.
    * 
-   * *   **PREPAY**: subscription. This is the default value.
-   * *   **POSTPAY**: pay-as-you-go.
+   * - **PREPAY** (default): subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -77,7 +78,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   chargeType?: string;
   /**
    * @remarks
-   * The time when the bandwidth plan was created.
+   * The timestamp that indicates when the bandwidth plan was created.
    * 
    * @example
    * 1578966918000
@@ -93,7 +94,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The expiration time of the bandwidth plan.
+   * The timestamp that indicates when the bandwidth plan expires.
    * 
    * @example
    * 1578966918000
@@ -101,7 +102,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   expiredTime?: string;
   /**
    * @remarks
-   * The name of the GA instance.
+   * The name of the bandwidth plan.
    * 
    * @example
    * Accelerator
@@ -109,7 +110,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the region.
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
@@ -125,16 +126,23 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the bandwidth plan. Valid values:
+   * The status of the bandwidth plan.
    * 
-   * *   **init:** The bandwidth plan is being initialized.
-   * *   **active:** The bandwidth plan is available.
-   * *   **binded:** The bandwidth plan is associated with a GA instance.
-   * *   **binding:** The bandwidth plan is being associated with a GA instance.
-   * *   **unbinding:** The bandwidth plan is being disassociated from a GA instance.
-   * *   **updating:** The bandwidth plan is being updated.
-   * *   **finacialLocked:** The bandwidth plan is locked due to overdue payments.
-   * *   **locked:** The bandwidth plan is locked.
+   * - **init**: The bandwidth plan is being initialized.
+   * 
+   * - **active**: The bandwidth plan is available.
+   * 
+   * - **binded**: The bandwidth plan is bound.
+   * 
+   * - **binding**: The bandwidth plan is being bound.
+   * 
+   * - **unbinding**: The bandwidth plan is being unbound.
+   * 
+   * - **updating**: The bandwidth plan is being updated.
+   * 
+   * - **finacialLocked**: The bandwidth plan is financially locked.
+   * 
+   * - **locked**: The bandwidth plan is locked.
    * 
    * @example
    * active
@@ -142,7 +150,7 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $dara.Mod
   state?: string;
   /**
    * @remarks
-   * The tag of the bandwidth plan.
+   * The tags of the resource.
    */
   tags?: ListBandwidthackagesResponseBodyBandwidthPackagesTags[];
   static names(): { [key: string]: string } {
@@ -202,7 +210,7 @@ export class ListBandwidthackagesResponseBody extends $dara.Model {
   bandwidthPackages?: ListBandwidthackagesResponseBodyBandwidthPackages[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -210,7 +218,7 @@ export class ListBandwidthackagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on each page.
    * 
    * @example
    * 10
@@ -218,7 +226,7 @@ export class ListBandwidthackagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B6DBBB0-2D01-4C6A-A384-4129266E6B78

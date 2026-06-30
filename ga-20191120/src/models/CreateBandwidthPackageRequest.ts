@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBandwidthPackageRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the bandwidth plan. The tag key cannot be an empty string.
    * 
-   * The tag keys cannot be an empty string. The tag key can be up to 64 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * tag-key
@@ -17,11 +17,11 @@ export class CreateBandwidthPackageRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the bandwidth plan. The tag value can be an empty string.
    * 
-   * Each tag key corresponds to a tag value. Valid values of **N**: **1** to **20**.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * The value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * You can specify up to 20 tag values.
    * 
    * @example
    * tag-value
@@ -55,8 +55,9 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
-   * *   **true**: enables automatic payment. Payments are automatically completed.
+   * - **false** (default): Disables automatic payment. After an order is generated, go to the Order Hub to complete the payment.
+   * 
+   * - **true**: Enables automatic payment. Payments are automatically completed.
    * 
    * @example
    * false
@@ -64,10 +65,11 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the bandwidth plan. Valid values:
+   * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   **true**: enables auto-renewal.
-   * *   **false** (default): does not enable auto-renewal.
+   * - **true**: Yes.
+   * 
+   * - **false** (default): No.
    * 
    * @example
    * false
@@ -79,7 +81,7 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * 
    * Valid values: **1** to **12**. Default value: **1**.
    * 
-   * >  This parameter is required only if **AutoRenew** is set to **true**.
+   * > This parameter takes effect only if **AutoRenew** is set to **true**.
    * 
    * @example
    * 1
@@ -87,12 +89,13 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   autoRenewDuration?: number;
   /**
    * @remarks
-   * Specifies whether to automatically pay bills by using coupons. Valid values:
+   * Specifies whether to use a coupon to automatically pay for the bill. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false** (default): no
+   * - **true**: Yes.
    * 
-   * >  This parameter is required only if **AutoPay** is set to **true**.
+   * - **false** (default): No.
+   * 
+   * > This parameter takes effect only if **AutoPay** is set to **true**.
    * 
    * @example
    * false
@@ -100,8 +103,7 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   autoUseCoupon?: string;
   /**
    * @remarks
-   * The bandwidth of the bandwidth plan. Unit: Mbit/s.
-   * 
+   * The bandwidth of the bandwidth plan. Unit: Mbps.
    * Valid values: **2** to **2000**.
    * 
    * This parameter is required.
@@ -112,13 +114,15 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The type of the bandwidth. Valid values:
+   * The type of bandwidth. Valid values:
    * 
-   * *   **Basic**: standard bandwidth
-   * *   **Enhanced**: enhanced bandwidth
-   * *   **Advanced**: premium bandwidth
+   * - **Basic**: Basic bandwidth.
    * 
-   * If **Type** is set to **Basic**, this parameter is required.
+   * - **Enhanced**: Enhanced bandwidth.
+   * 
+   * - **Advanced**: Advanced bandwidth.
+   * 
+   * This parameter is required if you set **Type** to **Basic**.
    * 
    * @example
    * Basic
@@ -126,12 +130,13 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   bandwidthType?: string;
   /**
    * @remarks
-   * The metering method that is used when you use the pay-as-you-go billing method. Valid values:
+   * The billing method for a pay-as-you-go bandwidth plan. Valid values:
    * 
-   * *   **PayByTraffic** (default)
-   * *   **PayBY95** By default, the pay-by-95th-percentile metering method is unavailable. If you want to use the metering method, contact your account manager.
+   * - **PayByTraffic** (default): pay-by-traffic.
    * 
-   * >  This parameter takes effect only if you set **ChargeType** to **POSTPAY**.
+   * - **PayBY95**: pay-by-95th-percentile. This billing method is not available by default. Contact your account manager to use this billing method.
+   * 
+   * > This parameter takes effect only if **ChargeType** is set to **POSTPAY**.
    * 
    * @example
    * PayByTraffic
@@ -139,9 +144,9 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   billingType?: string;
   /**
    * @remarks
-   * Area A to be connected. Set the value to **China-mainland**.
+   * Connected area A of the cross-region acceleration bandwidth plan. Set the value to **China-mainland**.
    * 
-   * You can set this parameter only if you call this operation on the international site (alibabacloud.com).
+   * This parameter is available only on the Alibaba Cloud International Website (www\\.alibabacloud.com).
    * 
    * @example
    * China-mainland
@@ -149,9 +154,9 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   cbnGeographicRegionIdA?: string;
   /**
    * @remarks
-   * Area B to be connected. Set the value to **Global**.
+   * Connected area B of the cross-region acceleration bandwidth plan. Set the value to **Global**.
    * 
-   * You can set this parameter only if you call this operation on the international site (alibabacloud.com).
+   * This parameter is available only on the Alibaba Cloud International Website (www\\.alibabacloud.com).
    * 
    * @example
    * Global
@@ -159,10 +164,11 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   cbnGeographicRegionIdB?: string;
   /**
    * @remarks
-   * The billing method of the bandwidth plan. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **PREPAY** (default): subscription.
-   * *   **POSTPAY**: pay-as-you-go. By default, the pay-as-you-go billing method is unavailable. If you want to use the billing method, contact your account manager.
+   * - **PREPAY** (default): subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go. The pay-as-you-go billing method is not available by default. Contact your account manager to use this billing method.
    * 
    * @example
    * PREPAY
@@ -172,9 +178,9 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a client token from your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 123e4567****
@@ -184,10 +190,11 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * The subscription duration.
    * 
-   * *   If the **PricingCycle** parameter is set to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-   * *   If the **PricingCycle** parameter is set to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+   * - If you set **PricingCycle** to **Month**, valid values for **Duration** are **1** to **9**.
    * 
-   * If **ChargeType** is set to **PREPAY**, this parameter is required.
+   * - If you set **PricingCycle** to **Year**, valid values for **Duration** are **1** to **3**.
+   * 
+   * This parameter is required if you set **ChargeType** to **PREPAY**.
    * 
    * @example
    * 1
@@ -197,10 +204,11 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * The billing cycle. Valid values:
    * 
-   * *   **Month**: billed on a monthly basis.
-   * *   **Year**: billed on an annual basis.
+   * - **Month**: monthly billing.
    * 
-   * If **ChargeType** is set to **PREPAY**, this parameter is required.
+   * - **Year**: yearly billing.
+   * 
+   * This parameter is required if you set **ChargeType** to **PREPAY**.
    * 
    * @example
    * Month
@@ -210,7 +218,7 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * The coupon code.
    * 
-   * >  This parameter is only available on the international site (alibabacloud.com).
+   * > This parameter is available only on the Alibaba Cloud International Website (www\\.alibabacloud.com).
    * 
    * @example
    * 50003298014****
@@ -218,9 +226,9 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The percentage of the minimum bandwidth guaranteed if the pay-by-95th-percentile-bandwidth metering method is used. Valid values: **30** to **100**.
+   * The percentage of the guaranteed minimum bandwidth if you use the pay-by-95th-percentile metering method. Valid values: **30** to **100**.
    * 
-   * >  This parameter is required only if **BillingType** is set to **PayBY95**.
+   * > This parameter takes effect only if **BillingType** is set to **PayBY95**.
    * 
    * @example
    * 30
@@ -228,7 +236,7 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   ratio?: number;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. **cn-hangzhou** is returned.
+   * The region ID of the GA instance. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -238,7 +246,7 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzrnd67gq****
@@ -246,17 +254,18 @@ export class CreateBandwidthPackageRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the bandwidth plan.
+   * The tags of the bandwidth plan.
    */
   tag?: CreateBandwidthPackageRequestTag[];
   /**
    * @remarks
    * The type of the bandwidth plan. Valid values:
    * 
-   * *   **Basic**: a basic bandwidth plan
-   * *   **CrossDomain**: a cross-region acceleration bandwidth plan
+   * - **Basic**: a basic bandwidth plan.
    * 
-   * If you call this operation on the Alibaba Cloud China site, only **Basic** is supported.
+   * - **CrossDomain**: a cross-region acceleration bandwidth plan.
+   * 
+   * Only **Basic** is supported on the Alibaba Cloud China Website (www\\.aliyun.com).
    * 
    * This parameter is required.
    * 

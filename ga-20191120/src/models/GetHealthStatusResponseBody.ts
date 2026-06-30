@@ -23,19 +23,21 @@ export class GetHealthStatusResponseBodyEndpointGroupsEndpoints extends $dara.Mo
    * @remarks
    * The health check details of the endpoint.
    * 
-   * >  This parameter is unavailable.
+   * > This parameter is unavailable.
    * 
    * @example
-   * null
+   * 无
    */
   healthDetail?: string;
   /**
    * @remarks
    * The health status of the endpoint. Valid values:
    * 
-   * *   **init:** The endpoint is being initialized.
-   * *   **normal:** The endpoint is normal.
-   * *   **abnormal:** The endpoint is abnormal.
+   * - **init:** The endpoint is being initialized.
+   * 
+   * - **normal:** The endpoint is normal.
+   * 
+   * - **abnormal:** The endpoint is abnormal.
    * 
    * @example
    * normal
@@ -53,15 +55,23 @@ export class GetHealthStatusResponseBodyEndpointGroupsEndpoints extends $dara.Mo
    * @remarks
    * The type of the endpoint. Valid values:
    * 
-   * *   **Domain:** a custom domain name.
-   * *   **Ip:** a custom IP address.
-   * *   **PublicIp:** a public IP address provided by Alibaba Cloud.
-   * *   **ECS:** an Elastic Compute Service (ECS) instance.
-   * *   **SLB:** a Classic Load Balancer (CLB) instance.
-   * *   **ALB:** an Application Load Balancer (ALB) instance.
-   * *   **OSS:** an Object Storage Service (OSS) bucket.
-   * *   **ENI:** an elastic network interface (ENI).
-   * *   **NLB:** a Network Load Balancer (NLB) instance.
+   * - **Domain:** a custom domain name.
+   * 
+   * - **Ip:** a custom IP address.
+   * 
+   * - **PublicIp:** a public IP address provided by Alibaba Cloud.
+   * 
+   * - **ECS:** an Elastic Compute Service (ECS) instance.
+   * 
+   * - **SLB:** a Classic Load Balancer (CLB) instance.
+   * 
+   * - **ALB:** an Application Load Balancer (ALB) instance.
+   * 
+   * - **OSS:** an Object Storage Service (OSS) bucket.
+   * 
+   * - **ENI:** an elastic network interface (ENI).
+   * 
+   * - **NLB:** a Network Load Balancer (NLB) instance.
    * 
    * @example
    * Ip
@@ -111,8 +121,9 @@ export class GetHealthStatusResponseBodyEndpointGroups extends $dara.Model {
    * @remarks
    * The type of the endpoint group. Valid values:
    * 
-   * *   **default:** the default endpoint group.
-   * *   **virtual:** a virtual endpoint group.
+   * - **default:** the default endpoint group.
+   * 
+   * - **virtual:** a virtual endpoint group.
    * 
    * @example
    * default
@@ -132,10 +143,13 @@ export class GetHealthStatusResponseBodyEndpointGroups extends $dara.Model {
    * @remarks
    * The health status of the endpoint group. Valid values:
    * 
-   * *   **init:** The endpoint group is being initialized.
-   * *   **normal:** The endpoint group is normal.
-   * *   **abnormal:** The endpoint group is abnormal.
-   * *   **partiallyAbnormal:** The endpoint group is partially abnormal.
+   * - **init:** The endpoint group is being initialized.
+   * 
+   * - **normal:** The endpoint group is normal.
+   * 
+   * - **abnormal:** The endpoint group is abnormal.
+   * 
+   * - **partiallyAbnormal:** The endpoint group is partially abnormal.
    * 
    * @example
    * normal
@@ -186,9 +200,11 @@ export class GetHealthStatusResponseBody extends $dara.Model {
    * @remarks
    * The health status of endpoints and endpoint groups. Valid values:
    * 
-   * *   **normal**
-   * *   **abnormal**
-   * *   **partiallyAbnormal**
+   * - **normal**
+   * 
+   * - **abnormal**
+   * 
+   * - **partiallyAbnormal**
    * 
    * @example
    * normal

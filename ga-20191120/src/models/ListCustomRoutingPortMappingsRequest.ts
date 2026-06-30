@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingPortMappingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the GA instance whose port mapping table you want to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCustomRoutingPortMappingsRequest extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the endpoint group.
+   * The ID of the endpoint group whose port mapping table you want to query.
    * 
    * @example
    * epg-bp16jdc00bhe97sr5****
@@ -23,7 +23,7 @@ export class ListCustomRoutingPortMappingsRequest extends $dara.Model {
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the listener.
+   * The ID of the listener whose port mapping table you want to query.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -31,7 +31,7 @@ export class ListCustomRoutingPortMappingsRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class ListCustomRoutingPortMappingsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10

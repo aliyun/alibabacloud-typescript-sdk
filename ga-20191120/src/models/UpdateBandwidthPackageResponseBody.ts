@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBandwidthPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth plan ID.
+   * The ID of the bandwidth plan.
    * 
    * @example
    * gbwp-bp1eo4f57z1kbbcmn****

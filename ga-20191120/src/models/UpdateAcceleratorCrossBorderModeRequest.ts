@@ -31,8 +31,9 @@ export class UpdateAcceleratorCrossBorderModeRequest extends $dara.Model {
    * @remarks
    * The type of transmission network of the GA instance. Valid values:
    * 
-   * *   **bgpPro**: BGP (Multi-ISP) Pro. BGP (Multi-ISP) Pro lines are used for cross-border acceleration. You do not need to complete real-name verification.
-   * *   **private**: cross-border Express Connect circuit. Cross-border Express Connect circuits provide better acceleration performance but require real-name verification.
+   * - **bgpPro**: BGP (Multi-ISP) Pro. BGP (Multi-ISP) Pro lines are used for cross-border acceleration. You do not need to complete real-name verification.
+   * 
+   * - **private**: cross-border Express Connect circuit. Cross-border Express Connect circuits provide better acceleration performance but require real-name verification.
    * 
    * This parameter is required.
    * 

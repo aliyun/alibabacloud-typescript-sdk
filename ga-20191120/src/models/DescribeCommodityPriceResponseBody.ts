@@ -24,7 +24,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsModuleDetails extends
    * The name of the commodity module.
    * 
    * @example
-   * Specification
+   * 规格
    */
   moduleName?: string;
   /**
@@ -77,7 +77,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $
    * @remarks
    * The discounted price.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * 0.01
@@ -87,7 +87,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $
    * @remarks
    * The code of the discount option.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * youhui_quan
@@ -97,7 +97,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $
    * @remarks
    * The sub-type of the discount.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * deduct
@@ -107,7 +107,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $
    * @remarks
    * The ID of the discount item.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * 50003298014****
@@ -117,7 +117,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $
    * @remarks
    * The name of the discount item.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * coupon
@@ -166,7 +166,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetails extends $dara.Model 
    * The name of the commodity.
    * 
    * @example
-   * Global Accelerator_Instance Type (Subscription)
+   * 全球加速_实例规格（包年包月）
    */
   commodityName?: string;
   /**
@@ -194,7 +194,7 @@ export class DescribeCommodityPriceResponseBodyOrderDetails extends $dara.Model 
    * @remarks
    * The details of the discount.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    */
   promDetails?: DescribeCommodityPriceResponseBodyOrderDetailsPromDetails[];
   /**
@@ -269,7 +269,7 @@ export class DescribeCommodityPriceResponseBodyPromotions extends $dara.Model {
    * @remarks
    * The discounted amount.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * 0
@@ -279,7 +279,7 @@ export class DescribeCommodityPriceResponseBodyPromotions extends $dara.Model {
    * @remarks
    * The code of the commodity to which the coupon can be applied.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * youhui_quan
@@ -289,7 +289,7 @@ export class DescribeCommodityPriceResponseBodyPromotions extends $dara.Model {
    * @remarks
    * The name of the coupon.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -298,8 +298,10 @@ export class DescribeCommodityPriceResponseBodyPromotions extends $dara.Model {
   /**
    * @remarks
    * The code of the coupon.
-   * > *   `youhuiquan_promotion_option_id_for_blank` indicates coupons that cannot be applied to the commodity.
-   * > *   This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * 
+   * > - `youhuiquan_promotion_option_id_for_blank` indicates coupons that cannot be applied to the commodity.
+   * >
+   * > - This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * 50003298014****
@@ -309,10 +311,11 @@ export class DescribeCommodityPriceResponseBodyPromotions extends $dara.Model {
    * @remarks
    * Indicates whether the coupon was selected.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * - **false**
+   * 
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    * 
    * @example
    * false
@@ -361,7 +364,7 @@ export class DescribeCommodityPriceResponseBodyRuleDetails extends $dara.Model {
    * The name of the discount rule.
    * 
    * @example
-   * GA New Customers Small II Specification Monthly Subscription - 20% Discount
+   * GA新客户小型II规格月付-8折优惠
    */
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -392,8 +395,9 @@ export class DescribeCommodityPriceResponseBody extends $dara.Model {
    * @remarks
    * The currency unit.
    * 
-   * *   China site: **CNY**.
-   * *   International site: **USD**.
+   * - China site: **CNY**.
+   * 
+   * - International site: **USD**.
    * 
    * @example
    * CNY
@@ -424,7 +428,7 @@ export class DescribeCommodityPriceResponseBody extends $dara.Model {
    * @remarks
    * The details of the coupon.
    * 
-   * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
+   * > This parameter does not take effect for accounts registered on the China site (aliyun.com).
    */
   promotions?: DescribeCommodityPriceResponseBodyPromotions[];
   /**

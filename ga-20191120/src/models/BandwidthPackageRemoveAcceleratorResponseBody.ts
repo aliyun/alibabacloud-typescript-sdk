@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BandwidthPackageRemoveAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance disassociated from the bandwidth plan.
    */
   accelerators?: string[];
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The ID of the bandwidth plan disassociated from the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * gbwp-bp1sgzldyj6b4q7cx****
@@ -18,7 +18,7 @@ export class BandwidthPackageRemoveAcceleratorResponseBody extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B7770CB9-9745-4FE5-9EDA-D14B01A12A50

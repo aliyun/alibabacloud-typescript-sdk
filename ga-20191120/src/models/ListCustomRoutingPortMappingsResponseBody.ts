@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress extends $dara.Model {
   /**
    * @remarks
-   * The service IP address of the backend instance.
+   * The IP address of the backend service.
    * 
    * @example
    * 10.0.XX.XX
@@ -13,7 +13,7 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSoc
   ipAddress?: string;
   /**
    * @remarks
-   * The service port of the backend instance.
+   * The port of the backend service.
    * 
    * @example
    * 443
@@ -45,7 +45,7 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSoc
 export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the GA instance to which the port mapping belongs.
    * 
    * @example
    * ga-bp1odcab8tmno0hdq****
@@ -61,15 +61,16 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara
   acceleratorPort?: number;
   /**
    * @remarks
-   * The service IP address and port of the backend instance.
+   * The IP address and port of the backend service.
    */
   destinationSocketAddress?: ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress;
   /**
    * @remarks
-   * The access policy of traffic for the backend instance. Valid values:
+   * The traffic policy for the backend instance.
    * 
-   * *   **allow**: allows traffic to the backend instance.
-   * *   **deny**: denies traffic to the backend instance.
+   * - **allow**: allows the backend instance to receive traffic.
+   * 
+   * - **deny**: denies the backend instance from receiving traffic.
    * 
    * @example
    * allow
@@ -85,7 +86,7 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara
   endpointGroupId?: string;
   /**
    * @remarks
-   * The ID of the region in which the endpoint group resides.
+   * The ID of the region to which the endpoint group belongs.
    * 
    * @example
    * us-west-1
@@ -101,7 +102,7 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the listener.
+   * The ID of the custom routing listener to which the port mapping belongs.
    * 
    * @example
    * lsr-bp1bpn0kn908w4nbw****
@@ -111,13 +112,14 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara
    * @remarks
    * The protocol of the backend service.
    * 
-   * *   **tcp**: TCP
-   * *   **udp**: UDP
+   * - **TCP**: the TCP protocol.
+   * 
+   * - **UDP**: the UDP protocol.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The name of the endpoint (vSwitch).
+   * The name of the vSwitch of the endpoint.
    * 
    * @example
    * vsw-test01
@@ -171,7 +173,7 @@ export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $dara
 export class ListCustomRoutingPortMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -179,7 +181,7 @@ export class ListCustomRoutingPortMappingsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -187,12 +189,12 @@ export class ListCustomRoutingPortMappingsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Details about the port mapping table.
+   * The information about the port mappings.
    */
   portMappings?: ListCustomRoutingPortMappingsResponseBodyPortMappings[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -200,7 +202,7 @@ export class ListCustomRoutingPortMappingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1

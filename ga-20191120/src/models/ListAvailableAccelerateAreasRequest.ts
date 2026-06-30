@@ -5,16 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvailableAccelerateAreasRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Global Accelerator instance.
    * 
    * @example
    * ga-bp1yeeq8yfoyszmqy****
    */
   acceleratorId?: string;
+  /**
+   * @remarks
+   * The access mode of the acceleration area. Valid values:
+   * 
+   * - anycast: queries the supported anycast acceleration areas.
+   * 
+   * - Other values: queries the supported non-anycast acceleration areas.
+   * 
+   * @example
+   * anycast
+   */
   accessMode?: string;
   /**
    * @remarks
-   * The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+   * The ID of the region where the Global Accelerator instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 

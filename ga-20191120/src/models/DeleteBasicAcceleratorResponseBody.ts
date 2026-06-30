@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBasicAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the basic GA instance.
+   * The instance ID of the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ga-bp17frjjh0udz4qz****
@@ -13,7 +13,7 @@ export class DeleteBasicAcceleratorResponseBody extends $dara.Model {
   acceleratorId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B45

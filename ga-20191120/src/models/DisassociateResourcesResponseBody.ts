@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisassociateResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud Global Accelerator (GA) instance ID.
+   * 
    * @example
    * ga-bp1odcab8tmno0hdq****
    */
   acceleratorId?: string;
   /**
+   * @remarks
+   * Linked instance ID.
+   * 
    * @example
    * c66d65f411b9143bab253bfef61c03c48
    */
   associatedResourceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6

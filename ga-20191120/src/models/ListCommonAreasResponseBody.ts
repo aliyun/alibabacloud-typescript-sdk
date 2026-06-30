@@ -61,7 +61,7 @@ export class ListCommonAreasResponseBodyAreas extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The information about the regions.
+   * The region list.
    */
   regionList?: ListCommonAreasResponseBodyAreasRegionList[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListCommonAreasResponseBodyAreas extends $dara.Model {
 export class ListCommonAreasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the areas.
+   * The area information.
    */
   areas?: ListCommonAreasResponseBodyAreas[];
   /**

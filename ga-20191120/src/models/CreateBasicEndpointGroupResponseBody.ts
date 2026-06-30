@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBasicEndpointGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoint group ID.
+   * The ID of the endpoint group for the basic Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * epg-bp1dmlohjjz4kqaun****

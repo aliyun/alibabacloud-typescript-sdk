@@ -44,7 +44,7 @@ export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceMan
    * *   **false**: Users can perform the specified actions on the managed instance.
    * 
    * @example
-   * false
+   * true
    */
   isManaged?: boolean;
   static names(): { [key: string]: string } {

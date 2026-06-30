@@ -15,7 +15,7 @@ export class DescribeListenerRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+   * The ID of the region where the Alibaba Cloud Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
