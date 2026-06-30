@@ -2508,6 +2508,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模型算子 API KEY
+   * 
+   * @param request - CreateModelOperatorApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelOperatorApiKeyResponse
+   */
+  async createModelOperatorApiKeyWithOptions(request: $_model.CreateModelOperatorApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelOperatorApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelOperatorApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelOperatorApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelOperatorApiKeyResponse({}));
+  }
+
+  /**
+   * 创建模型算子 API KEY
+   * 
+   * @param request - CreateModelOperatorApiKeyRequest
+   * @returns CreateModelOperatorApiKeyResponse
+   */
+  async createModelOperatorApiKey(request: $_model.CreateModelOperatorApiKeyRequest): Promise<$_model.CreateModelOperatorApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelOperatorApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a model service.
    * 
    * @remarks
@@ -8456,6 +8498,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取模型算子 API KEY 详情
+   * 
+   * @param request - DescribeModelOperatorApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelOperatorApiKeyResponse
+   */
+  async describeModelOperatorApiKeyWithOptions(request: $_model.DescribeModelOperatorApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelOperatorApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["ApiKeyId"] = request.apiKeyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelOperatorApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelOperatorApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelOperatorApiKeyResponse({}));
+  }
+
+  /**
+   * 获取模型算子 API KEY 详情
+   * 
+   * @param request - DescribeModelOperatorApiKeyRequest
+   * @returns DescribeModelOperatorApiKeyResponse
+   */
+  async describeModelOperatorApiKey(request: $_model.DescribeModelOperatorApiKeyRequest): Promise<$_model.DescribeModelOperatorApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelOperatorApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取模型算子用量
+   * 
+   * @param tmpReq - DescribeModelOperatorUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelOperatorUsageResponse
+   */
+  async describeModelOperatorUsageWithOptions(tmpReq: $_model.DescribeModelOperatorUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelOperatorUsageResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeModelOperatorUsageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apiKeyIds)) {
+      request.apiKeyIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiKeyIds, "ApiKeyIds", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.keys)) {
+      request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.modelNames)) {
+      request.modelNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelNames, "ModelNames", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiKeyIdsShrink)) {
+      query["ApiKeyIds"] = request.apiKeyIdsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.groupBy)) {
+      query["GroupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.keysShrink)) {
+      query["Keys"] = request.keysShrink;
+    }
+
+    if (!$dara.isNull(request.modelNamesShrink)) {
+      query["ModelNames"] = request.modelNamesShrink;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelOperatorUsage",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelOperatorUsageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelOperatorUsageResponse({}));
+  }
+
+  /**
+   * 获取模型算子用量
+   * 
+   * @param request - DescribeModelOperatorUsageRequest
+   * @returns DescribeModelOperatorUsageResponse
+   */
+  async describeModelOperatorUsage(request: $_model.DescribeModelOperatorUsageRequest): Promise<$_model.DescribeModelOperatorUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelOperatorUsageWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a model service.
    * 
    * @remarks
@@ -12341,6 +12505,98 @@ export default class Client extends OpenApi {
   async listInstanceExtensions(request: $_model.ListInstanceExtensionsRequest): Promise<$_model.ListInstanceExtensionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstanceExtensionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取模型算子 API KEY 列表
+   * 
+   * @param request - ListModelOperatorApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelOperatorApiKeysResponse
+   */
+  async listModelOperatorApiKeysWithOptions(request: $_model.ListModelOperatorApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelOperatorApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelOperatorApiKeys",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelOperatorApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListModelOperatorApiKeysResponse({}));
+  }
+
+  /**
+   * 获取模型算子 API KEY 列表
+   * 
+   * @param request - ListModelOperatorApiKeysRequest
+   * @returns ListModelOperatorApiKeysResponse
+   */
+  async listModelOperatorApiKeys(request: $_model.ListModelOperatorApiKeysRequest): Promise<$_model.ListModelOperatorApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelOperatorApiKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取模型服务列表
+   * 
+   * @param request - ListModelOperatorServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelOperatorServicesResponse
+   */
+  async listModelOperatorServicesWithOptions(request: $_model.ListModelOperatorServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelOperatorServicesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelOperatorServices",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelOperatorServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelOperatorServicesResponse({}));
+  }
+
+  /**
+   * 获取模型服务列表
+   * 
+   * @param request - ListModelOperatorServicesRequest
+   * @returns ListModelOperatorServicesResponse
+   */
+  async listModelOperatorServices(request: $_model.ListModelOperatorServicesRequest): Promise<$_model.ListModelOperatorServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelOperatorServicesWithOptions(request, runtime);
   }
 
   /**
