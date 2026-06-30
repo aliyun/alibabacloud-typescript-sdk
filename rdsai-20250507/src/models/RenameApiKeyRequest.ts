@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenameApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * API KEY
+   * The API key to rename.
    * 
    * This parameter is required.
    * 
@@ -14,12 +14,17 @@ export class RenameApiKeyRequest extends $dara.Model {
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * rds_copilot***_public_cn-*********6
    */
   instanceId?: string;
   /**
    * @remarks
+   * The new name for the API key.
+   * 
    * This parameter is required.
    * 
    * @example

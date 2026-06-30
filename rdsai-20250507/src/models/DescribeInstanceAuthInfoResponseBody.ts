@@ -8,20 +8,22 @@ export class DescribeInstanceAuthInfoResponseBodyApiKeys extends $dara.Model {
    * The ANON_KEY of Supabase.
    * 
    * @example
-   * eyxxxJ9.ey****
+   * eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz****J9.eyJpc3MiOiJzdXBhYmFzZSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzU1Nzg1ODc1LCJleHAiOjEzMjY2NDI1ODc1fQ.EGNFdeWRZBsdB051EzQsBwvDJveC9IMEXWUCDLX****
    */
   anonKey?: string;
+  e2bApiKey?: string;
   /**
    * @remarks
    * The SERVICE_ROLE_KEY of Supabase.
    * 
    * @example
-   * eyxxxJ9.ey****KfQ.DaYxxxt4Q
+   * eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz****J9.eyJpc3MiOiJzdXBhYmFzZSIsInJvbGUiOiJzZXJ2aWNlX3JvbGUiLCJpYXQiOjE3NTU3ODU4NzUsImV4cCI6MTMyNjY0MjU4NzV9.oJt4UF8cpSDOvjW39IM4fLp2750rEvxFnkNqcVM****
    */
   serviceKey?: string;
   static names(): { [key: string]: string } {
     return {
       anonKey: 'AnonKey',
+      e2bApiKey: 'E2bApiKey',
       serviceKey: 'ServiceKey',
     };
   }
@@ -29,6 +31,7 @@ export class DescribeInstanceAuthInfoResponseBodyApiKeys extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       anonKey: 'string',
+      e2bApiKey: 'string',
       serviceKey: 'string',
     };
   }
@@ -47,17 +50,17 @@ export class DescribeInstanceAuthInfoResponseBodyConfigList extends $dara.Model 
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * *   **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Enables authentication via external email addresses.
-   * *   **GOTRUE_SITE_URL**: the URL that is displayed in the emails sent from the instance.
-   * *   **GOTRUE_SMTP_PORT**: the port of the SMTP service provider.
-   * *   **GOTRUE_SMTP_SENDER_NAME**: the name of the sender of the email.
-   * *   **GOTRUE_SMTP_USER**: the username of the SMTP service provider.
-   * *   **GOTRUE_SMTP_PASS**: the key of the SMTP service provider.
-   * *   **GOTRUE_SMTP_ADMIN_EMAIL**: the email address of the SMTP service provider.
-   * *   **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
-   * *   **GOTRUE_MAILER_AUTOCONFIRM**: specifies whether to enable automatic confirmation.
-   * *   **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
-   * *   **GOTRUE_MAILER_OTP_LENGTH**: The verification code length of the one-time password (OTP). The value must be an integer greater than or equal to 6.
+   * - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether to allow external email addresses.
+   * - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
+   * - **GOTRUE_SMTP_PORT**: The port of the SMTP provider.
+   * - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
+   * - **GOTRUE_SMTP_USER**: The username of the SMTP provider.
+   * - **GOTRUE_SMTP_PASS**: The secret key of the SMTP provider.
+   * - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP provider.
+   * - **GOTRUE_SMTP_HOST**: The host address of the SMTP provider.
+   * - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable automatic confirmation.
+   * - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
+   * - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
    * 
    * @example
    * GOTRUE_SITE_URL
@@ -97,17 +100,17 @@ export class DescribeInstanceAuthInfoResponseBodyConfigList extends $dara.Model 
 export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API keys.
+   * API Keys。
    */
   apiKeys?: DescribeInstanceAuthInfoResponseBodyApiKeys;
   /**
    * @remarks
-   * The authentication configurations.
+   * The list of authentication configurations.
    */
   configList?: DescribeInstanceAuthInfoResponseBodyConfigList[];
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -115,10 +118,10 @@ export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The JWT key.
+   * The JWT secret.
    * 
    * @example
-   * i5o1XAp4sR*****oyOb3O
+   * g7jgepleljS8nxAwsOd2EDWkBWi7JcU1m2Gj****
    */
   jwtSecret?: string;
   /**
@@ -126,7 +129,7 @@ export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 87249A6F-xxx-804C-E1E0AD1FAD90
+   * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
   static names(): { [key: string]: string } {

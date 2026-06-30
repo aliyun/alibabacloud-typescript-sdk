@@ -6,6 +6,9 @@ export class CreateSkillRequest extends $dara.Model {
   /**
    * @remarks
    * The content of the skill.
+   * 
+   * @example
+   * {"MySQL": "MySQL 优化指南...","PostgreSQL": "PostgreSQL 优化指南..."}
    */
   content?: { [key: string]: any };
   /**
@@ -20,6 +23,9 @@ export class CreateSkillRequest extends $dara.Model {
    * The description of the skill. It can be up to 1000 characters in length.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * SQL 查询优化技能。
    */
   description?: string;
   /**

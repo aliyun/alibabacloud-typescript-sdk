@@ -37,7 +37,7 @@ export class GetCustomAgentResponseBodySkills extends $dara.Model {
 export class GetCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the agent.
+   * The time when the custom agent was created.
    * 
    * @example
    * 2025-06-04T02:25:43Z
@@ -53,7 +53,7 @@ export class GetCustomAgentResponseBody extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The ID of the backup set.
+   * The ID of the custom agent.
    * 
    * @example
    * 17053
@@ -61,7 +61,10 @@ export class GetCustomAgentResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the dedicated agent.
+   * The name of the custom agent.
+   * 
+   * @example
+   * 查询实例列表Agent
    */
   name?: string;
   /**
@@ -69,23 +72,26 @@ export class GetCustomAgentResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * FE9C65D7-930F-57A5-A207-8C396329241C
+   * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   skills?: GetCustomAgentResponseBodySkills[];
   /**
    * @remarks
-   * The system prompts.
+   * The system prompt for the agent.
+   * 
+   * @example
+   * 我是您用来查询实例列表的专属Agent
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The details of the tools.
+   * A list of tools enabled for the agent.
    */
   tools?: string[];
   /**
    * @remarks
-   * The modification time of the agent.
+   * The time when the custom agent was last updated.
    * 
    * @example
    * 2020-11-27 16:02:28

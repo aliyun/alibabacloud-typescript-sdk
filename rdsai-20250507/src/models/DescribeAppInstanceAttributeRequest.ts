@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -13,7 +13,7 @@ export class DescribeAppInstanceAttributeRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeAppInstanceAttribute**.
+   * The region.
    * 
    * @example
    * cn-beijing

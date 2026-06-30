@@ -11,6 +11,9 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
    * 
    * *   like
    * *   dislike
+   * 
+   * @example
+   * 无法理解上下文；答非所问
    */
   content?: string;
   /**

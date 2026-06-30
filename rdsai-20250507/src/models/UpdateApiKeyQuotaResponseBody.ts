@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model {
   /**
    * @remarks
-   * Api Key
+   * The API key.
    * 
    * @example
    * sk-rds-xxx
@@ -13,15 +13,35 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
   apiKey?: string;
   /**
    * @example
+   * 1000000000
+   */
+  dailyTokenQuota?: number;
+  /**
+   * @remarks
+   * The limit rate.
+   * 
+   * @example
    * 0.2
    */
   limitRate?: number;
   /**
+   * @remarks
+   * The quota limiting method. Valid values:
+   * 
+   * - `ratio`: Sets the limit based on a ratio.
+   * 
+   * - `fixed`: Sets the limit to a fixed value.
+   * 
+   * - `auto`: Allocates the limit automatically.
+   * 
    * @example
    * fixed
    */
   limitType?: string;
   /**
+   * @remarks
+   * The token quota for the API key.
+   * 
    * @example
    * 10000
    */
@@ -29,6 +49,7 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       apiKey: 'ApiKey',
+      dailyTokenQuota: 'DailyTokenQuota',
       limitRate: 'LimitRate',
       limitType: 'LimitType',
       tokenQuota: 'TokenQuota',
@@ -38,6 +59,7 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      dailyTokenQuota: 'number',
       limitRate: 'number',
       limitType: 'string',
       tokenQuota: 'number',
@@ -54,6 +76,10 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
 }
 
 export class UpdateApiKeyQuotaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of custom API keys.
+   */
   customKeyList?: UpdateApiKeyQuotaResponseBodyDataCustomKeyList[];
   static names(): { [key: string]: string } {
     return {
@@ -80,21 +106,31 @@ export class UpdateApiKeyQuotaResponseBodyData extends $dara.Model {
 }
 
 export class UpdateApiKeyQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: UpdateApiKeyQuotaResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

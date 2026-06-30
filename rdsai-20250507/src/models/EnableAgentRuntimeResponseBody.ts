@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableAgentRuntimeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the AI application.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */

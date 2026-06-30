@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableAgentRuntimeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the AI application instance.
+   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D984FD38-6C2D-55DF-B0D7-8BCAC2E1F8C2

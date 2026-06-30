@@ -14,6 +14,9 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description in Japanese.
+   * 
+   * @example
+   * RDS インスタンスの一覧を照会します。
    */
   ja?: string;
   /**
@@ -27,6 +30,9 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description in Traditional Chinese.
+   * 
+   * @example
+   * 查詢 RDS 實例清單。
    */
   tc?: string;
   /**
@@ -40,6 +46,9 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description in Simplified Chinese.
+   * 
+   * @example
+   * 查询RDS实例列表。
    */
   zh?: string;
   static names(): { [key: string]: string } {

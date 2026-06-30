@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceRAGConfigRequestConfigList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the configuration item.
+   * 
    * @example
    * LLM_MODEL
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * qwen-flash
    */

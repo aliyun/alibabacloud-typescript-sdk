@@ -13,7 +13,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * The state of the event.
+   * The event status.
    * 
    * @example
    * None
@@ -21,12 +21,15 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * The event.
+   * A list of event times.
    */
   eventTimeList?: string[];
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
+   * 
+   * @example
+   * 测试实例
    */
   instanceDescription?: string;
   /**
@@ -34,7 +37,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-2zecnb327gp36e7lh
+   * rm-2zecnb327gp36****
    */
   instanceId?: string;
   /**
@@ -45,6 +48,10 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
    * 2025-07-23T02:11:07Z
    */
   recoveryTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,7 +92,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
 export class DescribeEventsListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of events.
+   * The count for each event code.
    * 
    * @example
    * OtherException:3,MysqlIOException:1
@@ -93,12 +100,12 @@ export class DescribeEventsListResponseBody extends $dara.Model {
   eventCodeCounts?: string;
   /**
    * @remarks
-   * The information about the events.
+   * A list of events.
    */
   events?: DescribeEventsListResponseBodyEvents[];
   /**
    * @remarks
-   * The total number of pages.
+   * The number of pages returned.
    * 
    * @example
    * 1
@@ -106,7 +113,7 @@ export class DescribeEventsListResponseBody extends $dara.Model {
   pageCount?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -114,7 +121,7 @@ export class DescribeEventsListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -125,12 +132,12 @@ export class DescribeEventsListResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * FE9C65D7-930F-57A5-A207-8C396329241C
+   * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 20
@@ -138,7 +145,7 @@ export class DescribeEventsListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The total number of pages.
    * 
    * @example
    * 10

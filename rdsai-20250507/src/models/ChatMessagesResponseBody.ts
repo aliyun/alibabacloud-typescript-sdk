@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ChatMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The answer.
+   * The content of the generated answer.
+   * 
+   * @example
+   * 您询问的实例rm-bp14as9914vd3**** 磁盘使用率为23%，暂时不需要进行扩容。如果您需要进一步查看某个实例的详细配置、性能监控或进行其他操作，请告诉我你的具体需求！
    */
   answer?: string;
   /**
@@ -18,7 +21,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time of the conversation.
+   * The time when the message was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1763986004
@@ -26,7 +29,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The event.
+   * The event associated with the message.
    * 
    * @example
    * MysqlIOException
@@ -34,7 +37,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The message ID.
+   * The ID of the message, which is distinct from `MessageId`.
    * 
    * @example
    * 60b335ca-124d-4ee1-864b-de554987****
@@ -42,7 +45,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The message ID.
+   * The unique ID of the message.
    * 
    * @example
    * oas8pwy2-slxw-sf98-bx83-cb2hkktl****
@@ -51,11 +54,14 @@ export class ChatMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The query mode.
+   * 
+   * @example
+   * 以后会下线，不用关注。
    */
   mode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****

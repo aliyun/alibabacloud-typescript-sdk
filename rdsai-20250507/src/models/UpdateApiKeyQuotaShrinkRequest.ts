@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateApiKeyQuotaShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rds_copilot***_public_cn-*********6
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * A list of API keys.
+   */
   keysShrink?: string;
   static names(): { [key: string]: string } {
     return {

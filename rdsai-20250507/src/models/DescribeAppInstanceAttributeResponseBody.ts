@@ -28,6 +28,41 @@ export class DescribeAppInstanceAttributeResponseBodyComponents extends $dara.Mo
   }
 }
 
+export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara.Model {
+  isSystemKey?: boolean;
+  remark?: string;
+  slsStorageBytes?: number;
+  status?: string;
+  uploadKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isSystemKey: 'IsSystemKey',
+      remark: 'Remark',
+      slsStorageBytes: 'SlsStorageBytes',
+      status: 'Status',
+      uploadKey: 'UploadKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSystemKey: 'boolean',
+      remark: 'string',
+      slsStorageBytes: 'number',
+      status: 'string',
+      uploadKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -39,7 +74,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application type. Only **supabase** is supported. For more information, see [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+   * The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
    * 
    * @example
    * supabase
@@ -48,7 +83,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   components?: DescribeAppInstanceAttributeResponseBodyComponents[];
   /**
    * @remarks
-   * The ID of the RDS for PostgreSQL instance with which the RDS Supabase instances are associated.
+   * The instance ID of the ApsaraDB RDS for PostgreSQL database to which the AI application is connected.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -58,7 +93,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   eipStatus?: string;
   /**
    * @remarks
-   * The instance type of the RDS Supabase instance.
+   * The instance type of the AI application.
    * 
    * @example
    * rdsai.supabase.basic
@@ -66,7 +101,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The minor version number of RDS Supabase instance.
+   * The minor version of the RDS AI application instance.
    * 
    * @example
    * 20241231
@@ -74,12 +109,13 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   instanceMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
+  loginToken?: string;
   natCreatedBy?: string;
   natGatewayId?: string;
   natStatus?: string;
@@ -107,17 +143,21 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
+  retentionHours?: string;
+  sqlExtendMoInstanceId?: string;
   /**
    * @remarks
-   * The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/2623972.html).
+   * The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/2623972.html).
    * 
    * @example
    * Running
    */
   status?: string;
+  uploadKey?: string;
+  uploadKeyList?: DescribeAppInstanceAttributeResponseBodyUploadKeyList[];
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2zeaepb8k4ku05ov2****
@@ -150,13 +190,18 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       instanceClass: 'InstanceClass',
       instanceMinorVersion: 'InstanceMinorVersion',
       instanceName: 'InstanceName',
+      loginToken: 'LoginToken',
       natCreatedBy: 'NatCreatedBy',
       natGatewayId: 'NatGatewayId',
       natStatus: 'NatStatus',
       publicConnectionString: 'PublicConnectionString',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      retentionHours: 'RetentionHours',
+      sqlExtendMoInstanceId: 'SqlExtendMoInstanceId',
       status: 'Status',
+      uploadKey: 'UploadKey',
+      uploadKeyList: 'UploadKeyList',
       vSwitchId: 'VSwitchId',
       vpcConnectionString: 'VpcConnectionString',
       zoneId: 'ZoneId',
@@ -174,13 +219,18 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       instanceClass: 'string',
       instanceMinorVersion: 'string',
       instanceName: 'string',
+      loginToken: 'string',
       natCreatedBy: 'string',
       natGatewayId: 'string',
       natStatus: 'string',
       publicConnectionString: 'string',
       regionId: 'string',
       requestId: 'string',
+      retentionHours: 'string',
+      sqlExtendMoInstanceId: 'string',
       status: 'string',
+      uploadKey: 'string',
+      uploadKeyList: { 'type': 'array', 'itemType': DescribeAppInstanceAttributeResponseBodyUploadKeyList },
       vSwitchId: 'string',
       vpcConnectionString: 'string',
       zoneId: 'string',
@@ -190,6 +240,9 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.components)) {
       $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.uploadKeyList)) {
+      $dara.Model.validateArray(this.uploadKeyList);
     }
     super.validate();
   }

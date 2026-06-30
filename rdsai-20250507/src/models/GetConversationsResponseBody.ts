@@ -22,11 +22,17 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The introduction to the conversation.
+   * 
+   * @example
+   * 测试搜索RDS资源
    */
   introduction?: string;
   /**
    * @remarks
    * The name of the history conversation.
+   * 
+   * @example
+   * 搜索RDS资源。
    */
   name?: string;
   static names(): { [key: string]: string } {

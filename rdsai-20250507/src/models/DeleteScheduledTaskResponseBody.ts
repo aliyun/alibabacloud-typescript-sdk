@@ -8,7 +8,7 @@ export class DeleteScheduledTaskResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * The scheduled task is deleted.
+   * 定时任务删除成功
    */
   message?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsListRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the query period.
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
    * 
    * @example
    * 2025-08-28 18:00:00
@@ -13,15 +13,15 @@ export class DescribeEventsListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The region ID.
+   * The instance IDs. You can specify one or more instance IDs.
    * 
    * @example
-   * r-uf6ce0r08lr7xnriq2
+   * r-uf6ce0r08lr7xn****
    */
   instanceIdList?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The end time of the query period.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeEventsList**.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The RDS Supabase instances.
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
    * 
    * @example
    * 2025-01-01 18:00:00

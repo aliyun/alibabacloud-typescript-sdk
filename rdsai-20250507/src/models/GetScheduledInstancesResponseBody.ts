@@ -14,6 +14,9 @@ export class GetScheduledInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
    * The instance description.
+   * 
+   * @example
+   * 巡检测试实例。
    */
   instanceDesc?: string;
   /**
@@ -78,6 +81,9 @@ export class GetScheduledInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * 获取巡检实例ID列表成功
    */
   message?: string;
   /**

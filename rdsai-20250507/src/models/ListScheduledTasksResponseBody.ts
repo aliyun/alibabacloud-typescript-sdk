@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the task.
+   * The time the task was created, in UTC.
    * 
    * @example
    * 2026-02-04T06:51:24Z
@@ -13,23 +13,33 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the inspection task.
+   * The description of the inspection.
+   * 
+   * @example
+   * 每天凌晨2点自动巡检生产环境RDS实例
    */
   description?: string;
   /**
    * @remarks
-   * The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+   * The inspection frequency. Multiple values are separated by commas. The default is DAILY. Valid values:
    * 
-   * *   DAILY
-   * *   Monday
-   * *   Tuesday
-   * *   Wednesday
-   * *   Thursday
-   * *   Friday
-   * *   Saturday
-   * *   Sunday
+   * - DAILY: Every day
    * 
-   * ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you set this parameter to DAILY,Monday, the backend will use DAILY as the inspection frequency.
+   * - Monday: Monday
+   * 
+   * - Tuesday: Tuesday
+   * 
+   * - Wednesday: Wednesday
+   * 
+   * - Thursday: Thursday
+   * 
+   * - Friday: Friday
+   * 
+   * - Saturday: Saturday
+   * 
+   * - Sunday: Sunday
+   * 
+   * ### Note: The DAILY setting overrides any specified days of the week. For example, if you specify DAILY,Monday, the inspection runs daily.
    * 
    * @example
    * Monday
@@ -38,7 +48,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The number of instances covered by the task.
+   * The number of instances in the task.
    * 
    * @example
    * 1
@@ -47,6 +57,9 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * 巡检测试
    */
   name?: string;
   regionId?: string;
@@ -62,7 +75,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The actual start time of the task.
+   * The task start time, in UTC.
    * 
    * @example
    * 18:00:00Z
@@ -70,7 +83,10 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   taskStartTime?: string;
   /**
    * @remarks
-   * The inspection time range. The default value is the latest 24 hours. Valid values: 1 to 168. The maximum value is 7 days.
+   * The inspection time range in hours. Default: 24. Valid values: 1 to 168.
+   * 
+   * @example
+   * 24小时
    */
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -120,6 +136,9 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * 任务信息查询成功
    */
   message?: string;
   /**
@@ -132,7 +151,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -148,7 +167,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of scheduled inspection tasks.
+   * A list of scheduled inspection tasks.
    */
   schedules?: ListScheduledTasksResponseBodySchedules[];
   /**
@@ -161,7 +180,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 20

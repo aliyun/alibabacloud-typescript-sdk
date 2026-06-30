@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetCustomAgent**.
+   * The ID of the custom agent.
    * 
    * @example
-   * ebe44453-3b41-4c74-94d1-01d088d7xxxx
+   * ebe44453-3b41-4c74-94d1-01d088d7****
    */
   customAgentId?: string;
   static names(): { [key: string]: string } {

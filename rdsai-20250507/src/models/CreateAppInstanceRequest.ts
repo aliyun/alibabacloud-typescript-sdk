@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAppInstanceRequestComponents extends $dara.Model {
+  /**
+   * @remarks
+   * Module type
+   * 
+   * @example
+   * supabase
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27,16 +34,25 @@ export class CreateAppInstanceRequestComponents extends $dara.Model {
 
 export class CreateAppInstanceRequestDBInstanceConfig extends $dara.Model {
   /**
+   * @remarks
+   * The instance type of the database instance.
+   * 
    * @example
    * pg.n2.2c.1m
    */
   DBInstanceClass?: string;
   /**
+   * @remarks
+   * The storage capacity of the database instance.
+   * 
    * @example
    * 100
    */
   DBInstanceStorage?: number;
   /**
+   * @remarks
+   * The payment type of the database instance.
+   * 
    * @example
    * Postpaid
    */
@@ -93,6 +109,10 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * List of modules
+   */
   components?: CreateAppInstanceRequestComponents[];
   /**
    * @remarks
@@ -125,6 +145,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * supabase
    */
   dashboardUsername?: string;
+  /**
+   * @example
+   * test_database_01
+   */
+  database?: string;
   /**
    * @remarks
    * The idempotency token. The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
@@ -209,6 +234,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       DBInstanceName: 'DBInstanceName',
       dashboardPassword: 'DashboardPassword',
       dashboardUsername: 'DashboardUsername',
+      database: 'Database',
       databasePassword: 'DatabasePassword',
       initializeWithExistingData: 'InitializeWithExistingData',
       instanceClass: 'InstanceClass',
@@ -230,6 +256,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       DBInstanceName: 'string',
       dashboardPassword: 'string',
       dashboardUsername: 'string',
+      database: 'string',
       databasePassword: 'string',
       initializeWithExistingData: 'boolean',
       instanceClass: 'string',

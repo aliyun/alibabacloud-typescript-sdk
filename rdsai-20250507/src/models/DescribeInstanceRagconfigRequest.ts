@@ -10,7 +10,7 @@ export class DescribeInstanceRAGConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ra-supabase-8moov5lxba***
+   * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**

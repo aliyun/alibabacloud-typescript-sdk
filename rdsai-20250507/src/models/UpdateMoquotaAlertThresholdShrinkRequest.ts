@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMOQuotaAlertThresholdShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of API keys.
+   * 
    * This parameter is required.
    */
   apikeyShrink?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

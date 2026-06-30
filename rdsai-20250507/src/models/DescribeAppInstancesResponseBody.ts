@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAppInstancesResponseBodyInstancesComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The component status.
+   */
   status?: string;
+  /**
+   * @remarks
+   * The component type.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +39,7 @@ export class DescribeAppInstancesResponseBodyInstancesComponents extends $dara.M
 export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The name of the AI application.
+   * The application name.
    * 
    * @example
    * test-supabase
@@ -39,16 +47,20 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application type. Only **supabase** is supported. For more information, see [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+   * The application type. The only supported value is **supabase**, which represents [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
    * 
    * @example
    * supabase
    */
   appType?: string;
+  /**
+   * @remarks
+   * The components of the instance.
+   */
   components?: DescribeAppInstancesResponseBodyInstancesComponents[];
   /**
    * @remarks
-   * The ID of the RDS for PostgreSQL instance with which the RDS Supabase instances are associated.
+   * The DB instance ID of the connected ApsaraDB RDS for PostgreSQL instance.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -64,7 +76,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The minor version number of RDS Supabase instance.
+   * The minor version of the AI application.
    * 
    * @example
    * 20241231
@@ -72,7 +84,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The ID of the application instance.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -80,7 +92,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public endpoint of the AI application.
+   * The public connection string.
    * 
    * @example
    * 8.152. XXX.XXX:8000
@@ -96,7 +108,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance status. For more information, see [Instance state table](https://help.aliyun.com/document_detail/2623972.html).
+   * The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/2623972.html).
    * 
    * @example
    * Running
@@ -104,7 +116,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The VSwitch ID.
    * 
    * @example
    * vsw-2zeaepb8k4ku05ov2****
@@ -112,7 +124,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The internal endpoint of the AI application.
+   * The VPC connection string.
    * 
    * @example
    * 172.16.XXX.XXX:8000
@@ -167,12 +179,12 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the RDS Supabase instances.
+   * A list of instances.
    */
   instances?: DescribeAppInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * This parameter is reserved for future use.
    * 
    * @example
    * None
@@ -180,7 +192,7 @@ export class DescribeAppInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -188,7 +200,7 @@ export class DescribeAppInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10

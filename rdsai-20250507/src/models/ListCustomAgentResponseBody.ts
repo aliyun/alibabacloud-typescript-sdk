@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the agent.
+   * The creation time.
    * 
    * @example
    * 2020-11-27 16:01:28
@@ -21,7 +21,7 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The ID of the agent.
+   * The agent ID.
    * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
@@ -29,22 +29,28 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the dedicated agent.
+   * The name of the custom agent.
+   * 
+   * @example
+   * 日志分析Agent
    */
   name?: string;
   /**
    * @remarks
-   * The system prompts.
+   * The system prompt.
+   * 
+   * @example
+   * 我是您用来查询实例列表的专属Agent。
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The information about the tool.
+   * A list of tools.
    */
   tools?: string[];
   /**
    * @remarks
-   * The modification time of the agent.
+   * The update time.
    * 
    * @example
    * 2020-11-27 16:02:28
@@ -87,9 +93,25 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
 }
 
 export class ListCustomAgentResponseBodySkills extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the skill.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The skill ID.
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the skill.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the skill.
+   */
   skillType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,12 +143,12 @@ export class ListCustomAgentResponseBodySkills extends $dara.Model {
 export class ListCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * A list of custom agents.
    */
   data?: ListCustomAgentResponseBodyData[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -134,7 +156,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -148,10 +170,14 @@ export class ListCustomAgentResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of skills.
+   */
   skills?: ListCustomAgentResponseBodySkills[];
   /**
    * @remarks
-   * The total number of entries returned. By default, this parameter is not returned.
+   * The total number of entries that match the query. This parameter is not returned by default.
    * 
    * @example
    * 20

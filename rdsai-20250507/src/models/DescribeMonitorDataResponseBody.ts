@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMonitorDataResponseBodyDataValue extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp of the data point.
+   * 
    * @example
    * 1774972800
    */
   time?: string;
   /**
+   * @remarks
+   * The value of the metric at the specified timestamp.
+   * 
    * @example
    * 60
    */
@@ -38,10 +44,17 @@ export class DescribeMonitorDataResponseBodyDataValue extends $dara.Model {
 
 export class DescribeMonitorDataResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The metric name.
+   * 
    * @example
    * qps
    */
   name?: string;
+  /**
+   * @remarks
+   * An array of data points for the metric.
+   */
   value?: DescribeMonitorDataResponseBodyDataValue[];
   static names(): { [key: string]: string } {
     return {
@@ -70,21 +83,31 @@ export class DescribeMonitorDataResponseBodyData extends $dara.Model {
 }
 
 export class DescribeMonitorDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: DescribeMonitorDataResponseBodyData[];
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

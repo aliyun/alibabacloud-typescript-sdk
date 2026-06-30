@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeWhitelistIpsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * www.test123.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The list of IP addresses and CIDR blocks on the whitelist.
+   * 
    * @example
    * 127.0.0.1,192.168.1.0/24
    */
@@ -37,21 +43,31 @@ export class DescribeWhitelistIpsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeWhitelistIpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: DescribeWhitelistIpsResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

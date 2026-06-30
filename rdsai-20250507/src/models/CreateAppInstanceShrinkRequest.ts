@@ -29,6 +29,10 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * List of modules
+   */
   componentsShrink?: string;
   /**
    * @remarks
@@ -61,6 +65,11 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * supabase
    */
   dashboardUsername?: string;
+  /**
+   * @example
+   * test_database_01
+   */
+  database?: string;
   /**
    * @remarks
    * The idempotency token. The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
@@ -145,6 +154,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       DBInstanceName: 'DBInstanceName',
       dashboardPassword: 'DashboardPassword',
       dashboardUsername: 'DashboardUsername',
+      database: 'Database',
       databasePassword: 'DatabasePassword',
       initializeWithExistingData: 'InitializeWithExistingData',
       instanceClass: 'InstanceClass',
@@ -166,6 +176,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       DBInstanceName: 'string',
       dashboardPassword: 'string',
       dashboardUsername: 'string',
+      database: 'string',
       databasePassword: 'string',
       initializeWithExistingData: 'boolean',
       instanceClass: 'string',

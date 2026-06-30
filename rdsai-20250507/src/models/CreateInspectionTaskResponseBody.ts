@@ -35,12 +35,15 @@ export class CreateInspectionTaskResponseBodyData extends $dara.Model {
 export class CreateInspectionTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the result is returned.
+   * The response data.
    */
   data?: CreateInspectionTaskResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
+   * 
+   * @example
+   * 任务创建成功
    */
   message?: string;
   /**

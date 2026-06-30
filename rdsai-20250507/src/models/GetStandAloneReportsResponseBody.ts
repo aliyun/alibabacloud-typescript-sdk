@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the inspection task.
+   * The time the inspection task was created.
    * 
    * @example
    * 2026-01-22T08:20:31Z
@@ -13,19 +13,23 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The end time of the inspection. The time is in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The end time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
    * 
    * @example
    * 2026-01-23T08:20:31Z
    */
   endTime?: string;
   inspectionItems?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   */
   regionId?: string;
   reportLanguage?: string;
   reportType?: string;
   /**
    * @remarks
-   * The start time of the inspection. The time is in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The start time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
    * 
    * @example
    * 2026-01-23T08:00:31Z
@@ -41,7 +45,7 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the inspection report.
+   * The ID of the inspection task.
    * 
    * @example
    * 0f19210c-7bb8-4e38-a099-f94152df****
@@ -88,11 +92,14 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * 获取巡检报告列表成功
    */
   message?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -100,7 +107,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page. Default value: 20. Maximum value: 100.
+   * The number of entries per page. The default value is 20 and the maximum value is 100.
    * 
    * @example
    * 10
@@ -108,7 +115,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The reports.
+   * A list of inspection reports.
    */
   reports?: GetStandAloneReportsResponseBodyReports[];
   /**
@@ -121,7 +128,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -129,7 +136,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries across all pages.
    * 
    * @example
    * 20

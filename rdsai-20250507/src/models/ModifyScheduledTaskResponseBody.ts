@@ -6,6 +6,9 @@ export class ModifyScheduledTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * 定时任务更新成功
    */
   message?: string;
   /**
@@ -18,7 +21,7 @@ export class ModifyScheduledTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

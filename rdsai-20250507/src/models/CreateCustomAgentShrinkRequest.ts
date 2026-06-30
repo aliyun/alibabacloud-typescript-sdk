@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The system prompts.
+   * Specifies whether to enable tools.
    * 
    * @example
    * true
@@ -13,20 +13,26 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **CreateCustomAgent**.
+   * The name of the agent.
+   * 
+   * @example
+   * 查询实例列表Agent
    */
   name?: string;
   skillIdsShrink?: string;
   /**
    * @remarks
-   * The name of the dedicated agent.
+   * The system prompt.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 我是您用来查询实例列表的专属Agent
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * Specifies whether to enable tools.
+   * The tool information.
    */
   toolsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Api Key
+   * The API key to delete.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class DeleteApiKeyRequest extends $dara.Model {
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rds_copilot***_public_cn-*********6
    */

@@ -37,7 +37,7 @@ export class CreateCustomAgentResponseBodySkills extends $dara.Model {
 export class CreateCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the agent.
+   * The creation time.
    * 
    * @example
    * 2020-11-27 16:01:28
@@ -45,7 +45,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Indicates whether tools are enabled.
+   * Specifies whether to enable tools.
    * 
    * @example
    * true
@@ -62,6 +62,9 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the agent.
+   * 
+   * @example
+   * 查询实例列表Agent
    */
   name?: string;
   /**
@@ -75,12 +78,15 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   skills?: CreateCustomAgentResponseBodySkills[];
   /**
    * @remarks
-   * The system prompts.
+   * The system prompt.
+   * 
+   * @example
+   * 我是您用来查询实例列表的专属Agent
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The information about the tool.
+   * The tool information.
    */
   tools?: string[];
   static names(): { [key: string]: string } {

@@ -5,30 +5,67 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   /**
    * @remarks
-   * API Key
+   * The API key.
    * 
    * @example
    * sk-rds-*****
    */
   apiKey?: string;
+  /**
+   * @example
+   * 100000000
+   */
+  dailyTokenQuota?: number;
+  /**
+   * @remarks
+   * Specifies if the API key is rate-limited.
+   * 
+   * @example
+   * false
+   */
   isRateLimited?: boolean;
   /**
+   * @remarks
+   * The key name.
+   * 
    * @example
    * api-*****
    */
   keyName?: string;
   /**
+   * @remarks
+   * The limit, specified as a ratio in decimal format. This parameter is used when LimitType is ratio.
+   * 
    * @example
    * 0.2
    */
   limitRate?: number;
   /**
+   * @remarks
+   * The limit type. Valid values:
+   * 
+   * - **fixed**: A fixed value.
+   * 
+   * - **ratio**: A percentage of the total quota.
+   * 
+   * - **auto**: The quota is allocated automatically.
+   * 
    * @example
    * fixed
    */
   limitType?: string;
+  /**
+   * @remarks
+   * The alarm threshold percentage. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+   * 
+   * @example
+   * 80
+   */
   thresholdPercent?: number;
   /**
+   * @remarks
+   * The token quota.
+   * 
    * @example
    * 10000
    */
@@ -36,6 +73,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'ApiKey',
+      dailyTokenQuota: 'DailyTokenQuota',
       isRateLimited: 'IsRateLimited',
       keyName: 'KeyName',
       limitRate: 'LimitRate',
@@ -48,6 +86,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      dailyTokenQuota: 'number',
       isRateLimited: 'boolean',
       keyName: 'string',
       limitRate: 'number',
@@ -68,29 +107,67 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
 
 export class ListApiKeysResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The base URL for model calls.
+   * 
    * @example
    * http://xxx.yy/v1
    */
   baseUrl?: string;
+  /**
+   * @remarks
+   * The custom API key list.
+   */
   customKeyList?: ListApiKeysResponseBodyDataCustomKeyList[];
+  /**
+   * @example
+   * 100000000
+   */
+  dailyTokenQuota?: number;
+  /**
+   * @remarks
+   * Specifies if the system-generated key is rate-limited.
+   * 
+   * @example
+   * false
+   */
   isRateLimited?: boolean;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The system-generated key.
+   * 
    * @example
    * sk-rds-xxx
    */
   systemApiKey?: string;
+  /**
+   * @remarks
+   * The alarm threshold percentage for the SystemApiKey. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+   * 
+   * @example
+   * 80
+   */
   thresholdPercent?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 138
    */
@@ -99,6 +176,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
     return {
       baseUrl: 'BaseUrl',
       customKeyList: 'CustomKeyList',
+      dailyTokenQuota: 'DailyTokenQuota',
       isRateLimited: 'IsRateLimited',
       page: 'Page',
       pageSize: 'PageSize',
@@ -112,6 +190,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
     return {
       baseUrl: 'string',
       customKeyList: { 'type': 'array', 'itemType': ListApiKeysResponseBodyDataCustomKeyList },
+      dailyTokenQuota: 'number',
       isRateLimited: 'boolean',
       page: 'number',
       pageSize: 'number',
@@ -134,21 +213,31 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
 }
 
 export class ListApiKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListApiKeysResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request succeeded.
+   * 
    * @example
    * true
    */

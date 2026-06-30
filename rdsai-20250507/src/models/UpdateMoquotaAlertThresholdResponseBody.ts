@@ -5,27 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMOQuotaAlertThresholdResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * API Key
+   * The API key.
    * 
    * @example
    * sk-rds-*****
    */
   apikey?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rds_copilot***_public_cn-o*****1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The API key name.
+   * 
    * @example
    * api-*****
    */
   keyName?: string;
   /**
+   * @remarks
+   * The key type.
+   * 
    * @example
    * system / custom
    */
   keyType?: string;
+  /**
+   * @remarks
+   * The alert threshold percentage. For example, a value of 80 triggers an alert when usage reaches 80% of the usage quota. The alert is reset after the usage falls below this percentage.
+   * 
+   * @example
+   * [0, 100]，0 会清理告警设置
+   */
   thresholdPercent?: number;
   static names(): { [key: string]: string } {
     return {
@@ -59,14 +75,21 @@ export class UpdateMOQuotaAlertThresholdResponseBodyResults extends $dara.Model 
 export class UpdateMOQuotaAlertThresholdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result list.
+   */
   results?: UpdateMOQuotaAlertThresholdResponseBodyResults[];
   /**
+   * @remarks
+   * A value of `true` indicates that the request was successful.
+   * 
    * @example
    * true
    */

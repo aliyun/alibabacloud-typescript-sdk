@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAuthInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -13,7 +13,7 @@ export class DescribeInstanceAuthInfoRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeInstanceAuthInfo**.
+   * The region ID.
    * 
    * @example
    * cn-beijing

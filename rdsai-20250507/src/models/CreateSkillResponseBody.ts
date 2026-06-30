@@ -6,6 +6,9 @@ export class CreateSkillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The database engine-specific content.
+   * 
+   * @example
+   * {"MySQL": "MySQL 优化指南...","PostgreSQL": "PostgreSQL 优化指南..."}
    */
   content?: { [key: string]: any };
   /**
@@ -24,6 +27,9 @@ export class CreateSkillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The description of the skill.
+   * 
+   * @example
+   * SQL查询优化技能。
    */
   description?: string;
   /**

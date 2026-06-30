@@ -4,19 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RenameApiKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request succeeded.
+   * 
    * @example
    * true
    */

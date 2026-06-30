@@ -44,9 +44,6 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
    */
   instanceName?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */

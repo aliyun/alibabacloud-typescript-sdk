@@ -6,6 +6,9 @@ export class UpdateSkillRequest extends $dara.Model {
   /**
    * @remarks
    * The content of the skill.
+   * 
+   * @example
+   * {"MySQL": "MySQL 优化指南...","PostgreSQL": "PostgreSQL 优化指南..."}
    */
   content?: { [key: string]: any };
   /**
@@ -16,6 +19,9 @@ export class UpdateSkillRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the Skill. It can be up to 1000 characters in length.
+   * 
+   * @example
+   * SQL审查专家：全面审核SQL的安全性、性能与规范性，识别风险并提供优化建议。用户提交SQL或询问“SQL审核”“SQL Review”“有风险吗”“如何优化”时，立即启用。
    */
   description?: string;
   /**
