@@ -553,7 +553,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMaps extends $dara.Model {
 export class DescribeCenRouteMapsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1

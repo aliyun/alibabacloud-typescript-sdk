@@ -7,9 +7,9 @@ export class CreateTransitRouterRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag keys cannot be an empty string. The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
-   * You can specify at most 20 tag keys in each call.
+   * You can specify at most 20 tag keys.
    * 
    * @example
    * tagtest
@@ -19,9 +19,9 @@ export class CreateTransitRouterRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be empty or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https:// `.
    * 
-   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values.
    * 
    * @example
    * TagValue
@@ -61,7 +61,7 @@ export class CreateTransitRouterRequestTransitRouterCidrList extends $dara.Model
   cidr?: string;
   /**
    * @remarks
-   * The description of the transit router CIDR block.
+   * The description of the CIDR block.
    * 
    * The description must be 1 to 256 characters in length.
    * 
@@ -71,7 +71,7 @@ export class CreateTransitRouterRequestTransitRouterCidrList extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The name of the transit router CIDR block.
+   * The name of the CIDR block.
    * 
    * The name must be 1 to 128 characters in length.
    * 
@@ -81,17 +81,17 @@ export class CreateTransitRouterRequestTransitRouterCidrList extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
+   * Specifies whether to automatically advertise the route of the CIDR block to the route table of the transit router.
    * 
-   * *   **true** (default)
+   * - **true** (default): yes.
    * 
-   *     If you set the value to true, after you create a VPN attachment on a private VPN gateway and enable route learning for the VPN attachment, the system automatically adds the following route to the route table of the transit router that is in route learning relationship with the VPN attachment:
+   *   If you select this option, after you create a VPN connection that uses a private gateway and create a route learning correlation for the VPN connection, the system automatically adds the following route to the route table of the transit router with which the VPN connection is associated:
    * 
-   *     A blackhole route whose destination CIDR block is the transit router CIDR block, which refers to the CIDR block from which gateway IP addresses are allocated to the IPsec-VPN connection.
+   *   A blackhole route whose destination CIDR block is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which a gateway IP address is allocated to the IPsec connection.
    * 
-   *     The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
+   *   This blackhole route is advertised only to the route tables of virtual border router (VBR) instances that are connected to the transit router.
    * 
-   * *   **false**
+   * - **false**: no.
    * 
    * @example
    * true
@@ -127,7 +127,7 @@ export class CreateTransitRouterRequestTransitRouterCidrList extends $dara.Model
 export class CreateTransitRouterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * This parameter is required.
    * 
@@ -138,9 +138,10 @@ export class CreateTransitRouterRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** of each API request is different.
+   * Generate a client token to make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -148,10 +149,11 @@ export class CreateTransitRouterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Check items include permissions and the status of the specified cloud resources. Valid values:
+   * Specifies whether to perform a dry run. The dry run checks permissions and whether the required parameters are specified. Valid values:
    * 
-   * *   **false** (default): sends the request. If the request passes the check, an Enterprise Edition transit router is created.
-   * *   **true**: checks the request but does not create the Enterprise Edition transit router. If you use this value, the system checks whether the required parameters are set, and whether the request syntax is valid. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request and creates the instance after the request passes the check.
+   * 
+   * - **true**: sends a dry run request to check the parameters without creating the instance. The system checks the required parameters, request format, and permissions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false
@@ -177,10 +179,11 @@ export class CreateTransitRouterRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the multicast feature for the Enterprise Edition transit router. Valid values:
    * 
-   * *   **false** (default): no
-   * *   **true**: yes
+   * - **false** (default): disables the multicast feature.
    * 
-   * The multicast feature is supported only in specific regions. You can call [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) to query the regions that support multicast.
+   * - **true**: enables the multicast feature.
+   * 
+   * The multicast feature is supported only in some regions. You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query the regions that support multicast.
    * 
    * @example
    * false
@@ -188,19 +191,19 @@ export class CreateTransitRouterRequest extends $dara.Model {
   supportMulticast?: boolean;
   /**
    * @remarks
-   * The tags.
+   * The tag.
    */
   tag?: CreateTransitRouterRequestTag[];
   /**
    * @remarks
-   * The CIDR blocks to be added to the transit router.
+   * The CIDR blocks of the transit router.
    */
   transitRouterCidrList?: CreateTransitRouterRequestTransitRouterCidrList[];
   /**
    * @remarks
    * The description of the Enterprise Edition transit router instance.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -208,9 +211,9 @@ export class CreateTransitRouterRequest extends $dara.Model {
   transitRouterDescription?: string;
   /**
    * @remarks
-   * The name of the Enterprise Edition transit router.
+   * The name of the Enterprise Edition transit router instance.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname

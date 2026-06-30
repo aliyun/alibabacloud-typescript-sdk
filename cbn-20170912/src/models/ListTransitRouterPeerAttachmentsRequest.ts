@@ -7,9 +7,9 @@ export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * tagtest
@@ -19,9 +19,9 @@ export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
    * 
    * @example
    * tagtest
@@ -53,7 +53,7 @@ export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -61,7 +61,7 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**. Maximum value: **100**.
+   * The number of entries to return on each page. Default value: **20**. Maximum value: **100**.
    * 
    * @example
    * 20
@@ -69,10 +69,11 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - If this is your first query or no next query is to be sent, do not specify this parameter.
+   * 
+   * - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
    * 
    * @example
    * 1
@@ -84,7 +85,7 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the Enterprise Edition transit router is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/36063.html).
    * 
    * @example
    * cn-hangzhou
@@ -94,9 +95,9 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tag.
+   * The tags.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can specify up to 20 tags.
    */
   tag?: ListTransitRouterPeerAttachmentsRequestTag[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FBDB18D8-E91E-4978-8D6C-6E2E3EE10133

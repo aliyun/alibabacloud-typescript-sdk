@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TempUpgradeCenBandwidthPackageSpecRequest extends $dara.Model {
   /**
    * @remarks
+   * The maximum temporary bandwidth. Unit: Mbps.
+   * 
+   * Valid values: **2 to 10,000**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class TempUpgradeCenBandwidthPackageSpecRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
+   * Bandwidth package ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class TempUpgradeCenBandwidthPackageSpecRequest extends $dara.Model {
   cenBandwidthPackageId?: string;
   /**
    * @remarks
+   * The expiration time of the temporary upgrade. It follows the ISO8601 standard and is displayed in UTC time, `YYYY-MM-DDThh:mm:ssZ`.
+   * 
    * This parameter is required.
    * 
    * @example

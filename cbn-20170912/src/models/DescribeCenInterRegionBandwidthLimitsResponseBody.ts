@@ -76,7 +76,7 @@ export class DescribeCenInterRegionBandwidthLimitsResponseBody extends $dara.Mod
   cenInterRegionBandwidthLimits?: DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -100,7 +100,7 @@ export class DescribeCenInterRegionBandwidthLimitsResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

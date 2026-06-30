@@ -15,7 +15,7 @@ export class WithdrawPublishedRouteEntriesRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the attached network instance.
+   * The ID of the network instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,9 @@ export class WithdrawPublishedRouteEntriesRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the attached network instance is created.
+   * The region ID of the network instance.
+   * 
+   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +37,7 @@ export class WithdrawPublishedRouteEntriesRequest extends $dara.Model {
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the route table of the attached network instance.
+   * The route table ID of the network instance.
    * 
    * This parameter is required.
    * 
@@ -45,9 +47,11 @@ export class WithdrawPublishedRouteEntriesRequest extends $dara.Model {
   childInstanceRouteTableId?: string;
   /**
    * @remarks
-   * The type of the attached network instance.
+   * The type of the network instance. Valid values:
    * 
-   * Set the value to **VPC**, which indicates a virtual private cloud (VPC).
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
    * 
    * This parameter is required.
    * 
@@ -57,12 +61,12 @@ export class WithdrawPublishedRouteEntriesRequest extends $dara.Model {
   childInstanceType?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route that you want to withdraw.
+   * The destination CIDR block of the route entry that you want to withdraw.
    * 
    * This parameter is required.
    * 
    * @example
-   * 172.XX.XX.0/24
+   * 172.16.1.0/24
    */
   destinationCidrBlock?: string;
   resourceOwnerAccount?: string;

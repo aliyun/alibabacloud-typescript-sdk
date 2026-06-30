@@ -45,10 +45,11 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Enterprise Edition transit router is allowed to automatically advertise routes to the VBR. Valid values:
+   * Indicates whether the Enterprise Edition transit router automatically advertises routes to the VBR.
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false**: no.
+   * 
+   * - **true**: yes.
    * 
    * @example
    * false
@@ -66,7 +67,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The time when the VBR connection was created.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time is displayed in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-06-15T15:20Z
@@ -75,10 +76,11 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   managedService?: string;
   /**
    * @remarks
-   * The entity that pays the fees of the network instance. Valid values:
+   * The payer for the network instance. Valid values:
    * 
-   * *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-   * *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+   * - **PayByCenOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the transit router.
+   * 
+   * - **PayByResourceOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the VBR.
    * 
    * @example
    * PayByCenOwner
@@ -86,12 +88,9 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   orderType?: string;
   /**
    * @remarks
-   * The type of resource to which the transit router is connected. Valid values:
+   * The resource type of the connection.
    * 
-   * *   **VPC**
-   * *   **CCN**
-   * *   **VBR**
-   * *   **TR**
+   * The value is set to **VBR**, which indicates a VBR instance.
    * 
    * @example
    * VBR
@@ -99,12 +98,13 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   resourceType?: string;
   /**
    * @remarks
-   * The status of the VBR connection. Valid values:
+   * The status of the VBR connection.
    * 
-   * *   **Attached**
-   * *   **Attaching**
-   * *   **Detaching**
-   * *   **Detached**
+   * - **Attached**: The connection is established.
+   * 
+   * - **Attaching**: The connection is being established.
+   * 
+   * - **Detaching**: The connection is being removed.
    * 
    * @example
    * Attached
@@ -112,7 +112,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   status?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
@@ -141,7 +141,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The description of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****
@@ -165,7 +165,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
   vbrOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the VBR.
+   * The ID of the region where the VBR is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -226,7 +226,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVbrAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 20
@@ -234,7 +234,11 @@ export class ListTransitRouterVbrAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token that is used for the next query.
+   * 
+   * - If this parameter is empty, no more data is returned.
+   * 
+   * - If a value is returned for this parameter, it is the token that you can use to retrieve the next page of results.
    * 
    * @example
    * dd20****

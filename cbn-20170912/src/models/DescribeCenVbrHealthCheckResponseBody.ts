@@ -78,7 +78,7 @@ export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks extends $dara.
 export class DescribeCenVbrHealthCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1

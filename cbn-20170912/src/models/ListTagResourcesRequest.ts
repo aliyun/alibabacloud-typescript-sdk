@@ -7,9 +7,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key cannot exceed 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can enter a maximum of 20 tag keys.
    * 
    * @example
    * test
@@ -19,9 +19,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag values.
+   * You can enter a maximum of 20 tag values.
    * 
    * @example
    * Bp
@@ -53,10 +53,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * - If this is your first query or no next query is to be sent, you do not need to specify this parameter.
+   * 
+   * - If a subsequent query is to be sent, set the value to the NextToken value that is returned from the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -76,7 +77,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the resource is deployed.
    * 
-   * You can ignore this parameter if ResourceType is set to Cen or BandwidthPackage.
+   * This parameter is not required for the Cen and BandwidthPackage resource types. It is required for all other resource types.
    * 
    * @example
    * cn-hangzhou
@@ -84,9 +85,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the CEN instances.
+   * The ID of the CEN instance.
    * 
-   * You can specify at most 20 IDs in each call.
+   * You can enter a maximum of 20 CEN instance IDs.
    * 
    * @example
    * cen-8z69wtwqel33lq****
@@ -96,27 +97,27 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource to which you want to add the tag. Valid values:
+   * The resource type. Valid values:
    * 
-   * **Cen**: CEN instance
+   * **Cen**: a CEN instance.
    * 
-   * **BandwidthPackage**: bandwidth plan
+   * **BandwidthPackage**: a bandwidth plan.
    * 
-   * **TransitRouter**: transit router
+   * **TransitRouter**: a transit router.
    * 
-   * **TransitRouterVpcAttachment**: virtual private cloud (VPC) connection
+   * **TransitRouterVpcAttachment**: a VPC connection.
    * 
-   * **TransitRouterVbrAttachment**: virtual border router (VBR) connection
+   * **TransitRouterVbrAttachment**: a VBR connection.
    * 
-   * **TransitRouterPeerAttachment**: inter-region connection
+   * **TransitRouterPeerAttachment**: an inter-region connection.
    * 
-   * **TransitRouterVpnAttachment**: VPN connection
+   * **TransitRouterVpnAttachment**: a VPN connection.
    * 
-   * **TransitRouterRouteTable**: route table
+   * **TransitRouterRouteTable**: a route table.
    * 
-   * **Flowlog**: flow log
+   * **Flowlog**: a flow log.
    * 
-   * **TransitRouterMulticastDomain**: multicast domain
+   * **TransitRouterMulticastDomain**: a multicast domain.
    * 
    * This parameter is required.
    * 
@@ -126,9 +127,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The information about the tags that are added to the CEN instance.
+   * The tags of the CEN instance.
    * 
-   * You can query at most 20 tags in each call.
+   * You can query a maximum of 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

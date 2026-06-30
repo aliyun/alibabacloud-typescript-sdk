@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterCidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0876E54E-3E36-5C31-89F0-9EE8A9266F9A
@@ -13,7 +13,7 @@ export class CreateTransitRouterCidrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the CIDR block.
+   * The ID of the transit router CIDR block.
    * 
    * @example
    * cidr-0zv0q9crqpntzz****

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ECMP routing is enabled. Valid values:
+   * The multi-region ECMP routing feature. Valid values:
    * 
-   * *   **disable** If ECMP routing is disabled, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetic order. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
-   * *   **enable** If ECMP routing is enabled, routes that are learned from different regions but have the same prefix and attributes form an ECMP route. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
+   * - **disable**: Disables multi-region ECMP routing. After this feature is disabled, for routes that are learned from different regions and have the same prefix and other attributes, the system selects the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetical order. This changes the latency and bandwidth consumption between different regions. Make sure that you fully evaluate the impact before you disable the feature.
+   * 
+   * - **enable**: Enables multi-region ECMP routing. After this feature is enabled, for routes that are learned from different regions and have the same prefix and other attributes, ECMP routing is formed. This changes the latency and bandwidth consumption between different regions. Make sure that you fully evaluate the impact before you enable the feature.
    * 
    * @example
    * disable
@@ -80,7 +81,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
    * @remarks
    * The time when the route table was created.
    * 
-   * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+   * The time is displayed in the YYYY-MM-DDThh:mmZ format in UTC.
    * 
    * @example
    * 2021-03-15T09:39Z
@@ -88,7 +89,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   createTime?: string;
   /**
    * @remarks
-   * The region ID of the Enterprise Edition transit router.
+   * The ID of the region where the Enterprise Edition transit router is deployed.
    * 
    * @example
    * cn-beijing
@@ -101,12 +102,12 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   routeTableOptions?: ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesTags[];
   /**
    * @remarks
-   * The transit router ID.
+   * The ID of the transit router.
    * 
    * @example
    * tr-8vb8bie2koduo5awz****
@@ -122,7 +123,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   transitRouterRouteTableDescription?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * vtb-bp1dudbh2d5na6b50****
@@ -138,11 +139,13 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   transitRouterRouteTableName?: string;
   /**
    * @remarks
-   * The status of the route table. Valid values:
+   * The status of the route table.
    * 
-   * *   **Creating**
-   * *   **Deleting**
-   * *   **Active**
+   * - **Creating**: The route table is being created.
+   * 
+   * - **Deleting**: The route table is being deleted.
+   * 
+   * - **Active**: The route table is available.
    * 
    * @example
    * Active
@@ -150,10 +153,11 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   transitRouterRouteTableStatus?: string;
   /**
    * @remarks
-   * The type of the route table. Valid values:
+   * The type of the route table.
    * 
-   * *   **Custom**
-   * *   **System**
+   * - **Custom**: a custom route table.
+   * 
+   * - **System**: the default route table.
    * 
    * @example
    * System
@@ -215,10 +219,11 @@ export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
-   * *   If a value of **NextToken** is not returned, it indicates that no additional results exist.
+   * - If **NextToken** is empty, it indicates that no next query is to be sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * dd20****
@@ -226,7 +231,7 @@ export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 82678F4A-C9F7-4CC1-8BF0-D619A63BFC57
@@ -242,7 +247,7 @@ export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of route tables.
+   * The list of route tables.
    */
   transitRouterRouteTables?: ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables[];
   static names(): { [key: string]: string } {

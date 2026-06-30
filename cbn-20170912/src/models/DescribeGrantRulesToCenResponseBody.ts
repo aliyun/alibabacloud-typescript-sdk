@@ -87,8 +87,9 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   grantRules?: DescribeGrantRulesToCenResponseBodyGrantRules;
   /**
    * @remarks
-   * *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
-   * *   If a value is specified for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
+   * - The maximum number of entries to return per page.
+   * 
+   * - This value is the same as the **MaxResults** value that you specified in the request.
    * 
    * @example
    * 20
@@ -96,10 +97,11 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If the **NextToken** parameter is empty, no more results are available.
+   * 
+   * - To retrieve the next page, set the NextToken request parameter to this value.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -115,7 +117,7 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the transit router to automatically advertise routes to the IPsec-VPN attachment. Valid values:
+   * Specifies whether to allow the Enterprise Edition transit router to automatically publish routes to the IPsec-VPN connection. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The Enterprise Edition transit router automatically publishes routes to the IPsec-VPN connection.
+   * 
+   * - **false**: The Enterprise Edition transit router does not automatically publish routes to the IPsec-VPN connection.
    * 
    * @example
    * true
@@ -16,11 +17,11 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token that is used to ensure the idempotence of the request.
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -30,8 +31,9 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**:performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request.
+   * - **true**: Performs a dry run to check the request without modifying the attributes of the VPN connection. The system checks the required parameters, request format, and service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (Default): Sends a normal request. If the request passes the check, the system modifies the attributes of the VPN connection.
    * 
    * @example
    * false
@@ -48,9 +50,9 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new description of the VPN attachment.
+   * The new description of the VPN connection.
    * 
-   * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -58,7 +60,7 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The ID of the VPN attachment.
+   * The ID of the VPN connection.
    * 
    * This parameter is required.
    * 
@@ -68,9 +70,9 @@ export class UpdateTransitRouterVpnAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The name of the VPN attachment.
+   * The new name of the VPN connection.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest

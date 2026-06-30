@@ -5,21 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the IGMP feature is enabled for the multicast domain.
+   * Indicates whether IGMPv2 is enabled for the multicast domain.
    * 
    * @example
    * enable
    */
   igmpv2Support?: string;
+  /**
+   * @example
+   * enable
+   */
+  strictSourceControl?: string;
   static names(): { [key: string]: string } {
     return {
       igmpv2Support: 'Igmpv2Support',
+      strictSourceControl: 'StrictSourceControl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       igmpv2Support: 'string',
+      strictSourceControl: 'string',
     };
   }
 
@@ -75,22 +82,22 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
 export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomains extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The ID of the CEN instance.
    * 
    * @example
-   * cen-a7syd349kne38g****
+   * cen-h19xdb0qy2b3ir****
    */
   cenId?: string;
   /**
    * @remarks
-   * Multicast domain feature.
+   * The options of the multicast domain.
    */
   options?: ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsOptions;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The ID of the region where the transit router is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -100,7 +107,7 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
    * @remarks
    * The status of the multicast domain.
    * 
-   * The valid value is **Active**, which indicates that the multicast domain is available.
+   * The value is **Active**, which indicates that the multicast domain is available.
    * 
    * @example
    * Active
@@ -108,12 +115,12 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags[];
   /**
    * @remarks
-   * The transit router ID.
+   * The ID of the transit router.
    * 
    * @example
    * tr-bp1c23ijrl6d6c226h***
@@ -189,7 +196,7 @@ export class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticast
 export class ListTransitRouterMulticastDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -197,10 +204,11 @@ export class ListTransitRouterMulticastDomainsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query.
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * - If the value of **NextToken** is empty, it indicates that no next query is to be sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -216,7 +224,7 @@ export class ListTransitRouterMulticastDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

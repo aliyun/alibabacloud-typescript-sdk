@@ -7,7 +7,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can only contain ASCII characters.
+   * Generate a token from your client to ensure that it is unique among different requests. The ClientToken parameter can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -23,10 +23,11 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token that determines the start point of the next query. Valid values:
    * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * - If this is your first query and no next query is to be sent, ignore this parameter.
+   * 
+   * - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -48,7 +49,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
    * @remarks
    * The type of resource associated with the multicast domain.
    * 
-   * Valid value: **VPC**.
+   * The value is **VPC**.
    * 
    * @example
    * VPC
@@ -72,7 +73,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   transitRouterMulticastDomainId?: string;
   /**
    * @remarks
-   * The IDs of vSwitches.
+   * The list of vSwitch IDs.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {

@@ -9,7 +9,7 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,10 +17,11 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **false** (default): performs a dry run and performs the actual request.
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. The route entry is created after the request passes the check.
+   * 
+   * - **true**: sends a dry run request to check the request. The route entry is not created. The system checks the required parameters, request format, and service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false
@@ -32,9 +33,9 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The description of the route.
+   * The description of the route entry.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -42,7 +43,7 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryDescription?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route entry. IPv4 and IPv6 addresses are supported.
+   * The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
    * 
    * This parameter is required.
    * 
@@ -52,9 +53,9 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryDestinationCidrBlock?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The name of the route entry.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname
@@ -62,7 +63,7 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryName?: string;
   /**
    * @remarks
-   * The ID of the network instance connection that you want to specify as the next hop.
+   * The ID of the network instance connection that is associated with the next hop.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -70,10 +71,11 @@ export class CreateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryNextHopId?: string;
   /**
    * @remarks
-   * The type of the next hop. Valid values:
+   * The next hop type. Valid values:
    * 
-   * *   **BlackHole**: routes network traffic to a black hole. All packets that match this route are dropped. If you select this option, you do not need to specify the next hop information.
-   * *   **Attachment**: routes network traffic to a network instance connection. If you select this option, you must specify the ID of the network instance connection. All packets that match this route are routed to the specified network instance connection.
+   * - **BlackHole**: The route is a blackhole route. All packets to the destination CIDR block are dropped. You do not need to specify a next hop.
+   * 
+   * - **Attachment**: The next hop of the route is a network instance connection. You must specify the ID of the network instance connection. All packets to the destination CIDR block are forwarded to the specified network instance connection.
    * 
    * This parameter is required.
    * 

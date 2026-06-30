@@ -7,9 +7,9 @@ export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * tagtest
@@ -19,9 +19,9 @@ export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
    * 
    * @example
    * value_A1
@@ -53,7 +53,7 @@ export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-rsgxs8ng2awen2****
@@ -69,10 +69,11 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * - If this is your first query or no next query is to be sent, you do not need to specify this parameter.
+   * 
+   * - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -82,9 +83,9 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The ID of the region where the transit router is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * For more information, see [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html).
    * 
    * @example
    * cn-hangzhou
@@ -94,14 +95,14 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags that are added to the CEN instance.
+   * The tags of the CEN instance.
    * 
-   * You can query at most 20 tags in each call.
+   * You can query a maximum of 20 tags at a time.
    */
   tag?: ListTransitRouterVpnAttachmentsRequestTag[];
   /**
    * @remarks
-   * The ID of the VPN attachment.
+   * The ID of the VPN connection.
    * 
    * @example
    * tr-attach-a6p8voaodog5c0****

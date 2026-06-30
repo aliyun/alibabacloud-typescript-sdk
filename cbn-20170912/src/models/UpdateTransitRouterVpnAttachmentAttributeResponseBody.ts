@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterVpnAttachmentAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AB038F2-96E5-560B-9F6E-734311D466FA

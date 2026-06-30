@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastGroups extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the multicast group to which the multicast resource belongs.
+   * The IP address of the multicast group.
    * 
    * @example
    * 239.XX.XX.2
@@ -13,10 +13,11 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   groupIpAddress?: string;
   /**
    * @remarks
-   * Indicates whether the multicast resource is a multicast member. Valid values:
+   * Indicates whether the multicast resource is a multicast member.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The resource is a multicast member.
+   * 
+   * - **false**: The resource is not a multicast member.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   groupMember?: boolean;
   /**
    * @remarks
-   * Indicates whether the multicast resource is a multicast source. Valid values:
+   * Indicates whether the multicast resource is a multicast source.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The resource is a multicast source.
+   * 
+   * - **false**: The resource is not a multicast source.
    * 
    * @example
    * false
@@ -35,9 +37,11 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   groupSource?: boolean;
   /**
    * @remarks
-   * The type of the multicast source.
+   * The type of the multicast member.
    * 
-   * If the value is **Static**, the multicast source is manually specified.
+   * - **Static**: The multicast member is manually specified.
+   * 
+   * - **IGMPv2**: The multicast member dynamically joins the multicast group based on Internet Group Management Protocol Version 2 (IGMPv2).
    * 
    * @example
    * Static
@@ -45,7 +49,7 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   memberType?: string;
   /**
    * @remarks
-   * The ID of the ENI, which is a multicast resource.
+   * The ID of the ENI. The ENI is the multicast resource.
    * 
    * @example
    * eni-p0weuda3lszwzjly****
@@ -53,7 +57,7 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the multicast domain associated with the multicast resource that is deployed across regions.
+   * The ID of the multicast domain that is associated with the cross-region multicast resource.
    * 
    * @example
    * tr-mcast-domain-91wpg6wbhchjeq****
@@ -69,18 +73,19 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the multicast resource belongs.
+   * The ID of the Alibaba Cloud account that owns the multicast resource.
    * 
    * @example
-   * 253460731706911258
+   * 11081188765****
    */
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the multicast resource. Valid values:
+   * The type of the multicast resource.
    * 
-   * *   **VPC**: The multicast resource is in a VPC.
-   * *   **TR**: The multicast resource is deployed across regions.
+   * - **VPC**: The multicast resource is in a VPC.
+   * 
+   * - **TR**: The multicast resource is a cross-region resource.
    * 
    * @example
    * VPC
@@ -88,9 +93,11 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   resourceType?: string;
   /**
    * @remarks
-   * The type of the multicast member.
+   * The type of the multicast source.
    * 
-   * If the value is **Static**, the multicast member is manually specified.
+   * - **Static**: The multicast source is manually specified.
+   * 
+   * - **IGMPv2**: The multicast source dynamically joins the multicast group based on IGMPv2.
    * 
    * @example
    * Static
@@ -98,11 +105,13 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   sourceType?: string;
   /**
    * @remarks
-   * The status of the multicast resource. Valid values:
+   * The status of the multicast resource.
    * 
-   * *   **Registering**: being created
-   * *   **Registered**: available
-   * *   **Deregistering**: being deleted
+   * - **Registering**: The resource is being created.
+   * 
+   * - **Registered**: The resource is available.
+   * 
+   * - **Deregistering**: The resource is being deleted.
    * 
    * @example
    * Registered
@@ -126,7 +135,7 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
   transitRouterMulticastDomainId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the multicast resource belongs.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-p0w9s2ig1jnwgrbzl****
@@ -182,7 +191,7 @@ export class ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastG
 export class ListTransitRouterMulticastGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -190,10 +199,11 @@ export class ListTransitRouterMulticastGroupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next page of results.
    * 
-   * *   If **NextToken** was not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token for the next page.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -201,7 +211,7 @@ export class ListTransitRouterMulticastGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FB3C4A16-0933-5850-9D43-0C3EA37BCBFB
@@ -209,7 +219,7 @@ export class ListTransitRouterMulticastGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

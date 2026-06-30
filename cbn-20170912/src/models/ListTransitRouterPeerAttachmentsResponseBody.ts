@@ -45,10 +45,11 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
 export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the local Enterprise Edition transit router automatically advertises routes of the cross-region connection to the peer transit router. Valid values:
+   * Indicates whether the Enterprise Edition transit router automatically advertises routes to the peer region.
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false** (default): No.
+   * 
+   * - **true**: Yes.
    * 
    * @example
    * false
@@ -56,10 +57,11 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The bandwidth value of the inter-region connection. Unit: Mbit/s.
+   * The bandwidth of the inter-region connection. Unit: Mbit/s.
    * 
-   * *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
-   * *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
+   * - If **BandwidthType** is set to **BandwidthPackage**, this parameter indicates the bandwidth that is allocated to the inter-region connection.
+   * 
+   * - If **BandwidthType** is set to **DataTransfer**, this parameter indicates the maximum bandwidth of the inter-region connection.
    * 
    * @example
    * 2
@@ -69,8 +71,9 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
    * @remarks
    * The bandwidth allocation method. Valid values:
    * 
-   * *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-   * *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
+   * - **BandwidthPackage**: Bandwidth is allocated from a bandwidth plan.
+   * 
+   * - **DataTransfer**: The inter-region connection is not allocated a specific bandwidth and is billed on a pay-by-traffic basis.
    * 
    * @example
    * BandwidthPackage
@@ -78,7 +81,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   bandwidthType?: string;
   /**
    * @remarks
-   * The ID of the bandwidth plan that is used to allocate bandwidth to the inter-region connection.
+   * The ID of the bandwidth plan that is associated with the inter-region connection.
    * 
    * @example
    * cenbwp-3xrxupouolw5ou****
@@ -86,7 +89,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   cenBandwidthPackageId?: string;
   /**
    * @remarks
-   * The CEN instance ID.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -96,7 +99,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
    * @remarks
    * The time when the inter-region connection was created.
    * 
-   * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+   * The time is displayed in the ISO 8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
    * 
    * @example
    * 2021-06-16T02:50Z
@@ -104,10 +107,11 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   creationTime?: string;
   /**
    * @remarks
-   * The default line type.
+   * The default link type.
    * 
-   * *   **Gold** (default)
-   * *   **Platinum**
+   * - **Gold** (default): Gold.
+   * 
+   * - **Platinum**: Platinum.
    * 
    * @example
    * Gold
@@ -115,7 +119,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   defaultLinkType?: string;
   /**
    * @remarks
-   * The areas that are connected by the bandwidth plan.
+   * The connected areas of the bandwidth plan.
    * 
    * @example
    * china_china
@@ -139,7 +143,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   peerTransitRouterOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the peer transit router.
+   * The ID of the region where the peer transit router is deployed.
    * 
    * @example
    * cn-qingdao
@@ -147,7 +151,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   peerTransitRouterRegionId?: string;
   /**
    * @remarks
-   * The region ID of the Enterprise Edition transit router.
+   * The ID of the region where the Enterprise Edition transit router is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -155,12 +159,15 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource to which the transit router is connected. Valid values:
+   * The type of resource that is associated with the connection.
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **CCN**: Cloud Connect Network (CCN) instance
-   * *   **VBR**: virtual border router (VBR)
-   * *   **TR**: transit router
+   * - **VPC**: virtual private cloud (VPC).
+   * 
+   * - **CCN**: Cloud Connect Network (CCN) instance.
+   * 
+   * - **VBR**: virtual border router (VBR).
+   * 
+   * - **TR**: transit router.
    * 
    * @example
    * TR
@@ -168,12 +175,15 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   resourceType?: string;
   /**
    * @remarks
-   * The status of the inter-region connection. Valid values:
+   * The status of the inter-region connection.
    * 
-   * *   **Attached**
-   * *   **Attaching**
-   * *   **Detaching**
-   * *   **Detached**
+   * - **Attached**: The connection is attached.
+   * 
+   * - **Attaching**: The connection is being attached.
+   * 
+   * - **Detaching**: The connection is being detached.
+   * 
+   * - **Detached**: The connection is detached.
    * 
    * @example
    * Attached
@@ -181,7 +191,7 @@ export class ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachment
   status?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: ListTransitRouterPeerAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
@@ -287,10 +297,11 @@ export class ListTransitRouterPeerAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If the **NextToken** parameter is empty, no next page exists.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If this parameter is empty, no more data is returned.
+   * 
+   * - If a value is returned for this parameter, the value is the token that is used for the next query.
    * 
    * @example
    * dd20****

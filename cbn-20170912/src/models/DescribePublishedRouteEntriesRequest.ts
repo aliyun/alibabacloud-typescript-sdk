@@ -27,7 +27,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the network instance is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * For more information, see [](t2264556.xdita#).
    * 
    * This parameter is required.
    * 
@@ -47,9 +47,11 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: VPC
-   * *   **VBR**: VBR
-   * *   **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * This parameter is required.
    * 
@@ -67,7 +69,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -75,7 +77,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page. Default value: **10**. Valid values: **1** to **500**.
    * 
    * @example
    * 10

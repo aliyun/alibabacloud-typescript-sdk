@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRouteServiceInCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3

@@ -7,9 +7,9 @@ export class AssociateTransitRouterAttachmentWithRouteTableRequest extends $dara
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,10 +17,11 @@ export class AssociateTransitRouterAttachmentWithRouteTableRequest extends $dara
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run to check for potential issues, such as permissions and instance status. Valid values:
    * 
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. An association is created after the request passes the check.
+   * 
+   * - **true**: sends a check request to perform a dry run. The system checks the required parameters, request format, and other items. No association is created. If the check fails, an error message is returned. If the check passes, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false

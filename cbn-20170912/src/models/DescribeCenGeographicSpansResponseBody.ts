@@ -61,7 +61,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   geographicSpanModels?: DescribeCenGeographicSpansResponseBodyGeographicSpanModels;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 09780287-BC24-4164-8334-773432E32696
@@ -85,7 +85,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

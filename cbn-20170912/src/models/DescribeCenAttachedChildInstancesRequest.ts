@@ -27,9 +27,9 @@ export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: virtual private cloud (VPC)
+   * - **VBR**: virtual border router (VBR)
+   * - **CCN**: Cloud Connect Network (CCN) instance
    * 
    * @example
    * VPC

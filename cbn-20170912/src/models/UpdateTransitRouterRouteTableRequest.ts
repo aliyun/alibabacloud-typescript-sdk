@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterRouteTableRequestRouteTableOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether multi-region ECMP routing is enabled. Valid values:
+   * The multi-region ECMP routing feature. Valid values:
    * 
-   * - **disable**: If multi-region ECMP routing is disabled, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetic order. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
-   * - **enable**: If multi-region ECMP routing is enabled, routes that are learned from different regions but have the same prefix and attributes form an ECMP route. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
+   * - **disable**: Disables multi-region ECMP routing. After you disable this feature, if routes with the same prefix are learned from different regions and have the same attributes, the route that is learned from the region with the alphabetically smallest ID is used as the next hop. This may change traffic latency and inter-region bandwidth consumption. Evaluate the impact before you disable this feature.
+   * 
+   * - **enable**: Enables multi-region ECMP routing. After you enable this feature, if routes with the same prefix are learned from different regions and have the same attributes, ECMP routes are formed. This may change traffic latency and inter-region bandwidth consumption. Evaluate the impact before you enable this feature.
    * 
    * @example
    * disable
@@ -40,9 +41,9 @@ export class UpdateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a parameter value from your client to make sure that the value is unique among different requests. The ClientToken can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -50,10 +51,11 @@ export class UpdateTransitRouterRouteTableRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default values:
+   * Specifies whether to perform a dry run. The dry run checks permissions and the status of the instance. Valid values:
    * 
-   * *   **false** (default): performs a dry run and sends the request.
-   * *   **true**: performs a dry run. The system checks the required parameters and the request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request. After the request passes the check, the name and description of the route table are modified.
+   * 
+   * - **true**: Sends a check request. The system checks the required parameters and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
    * 
    * @example
    * false
@@ -72,7 +74,7 @@ export class UpdateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The description of the route table.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -80,7 +82,7 @@ export class UpdateTransitRouterRouteTableRequest extends $dara.Model {
   transitRouterRouteTableDescription?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the route table for the Enterprise Edition transit router.
    * 
    * This parameter is required.
    * 
@@ -92,7 +94,7 @@ export class UpdateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The name of the route table.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname

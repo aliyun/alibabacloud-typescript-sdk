@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterPeerAttachmentRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag that you want to attach.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * You cannot specify an empty string as a tag key. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify at most 20 tag keys in each call.
    * 
    * @example
    * tag_A1
@@ -17,11 +17,11 @@ export class CreateTransitRouterPeerAttachmentRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag that you want to attach to the specified resource.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each key-value pair must be unique. You can specify at most 20 tag values in each call.
    * 
    * @example
    * value_A1
@@ -55,8 +55,9 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the local Enterprise Edition transit router to automatically advertise the routes of the inter-region connection to the peer transit router. Valid values:
    * 
-   * *   **false** (default): no
-   * *   **true**: yes
+   * - **false** (default): no.
+   * 
+   * - **true**: yes.
    * 
    * @example
    * false
@@ -64,10 +65,11 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The bandwidth value of the inter-region connection. Unit: Mbit/s.
+   * The bandwidth value of the inter-region connection. Unit: Mbps.
    * 
-   * *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
-   * *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
+   * - When **BandwidthType** is set to **BandwidthPackage**, this parameter specifies the bandwidth value that the inter-region connection can use.
+   * 
+   * - When **BandwidthType** is set to **DataTransfer**, this parameter specifies the maximum bandwidth value of the inter-region connection.
    * 
    * @example
    * 2
@@ -77,8 +79,9 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * The method that is used to allocate bandwidth to the inter-region connection. Valid values:
    * 
-   * *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-   * *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
+   * - **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+   * 
+   * - **DataTransfer**: does not allocate bandwidth to the inter-region connection and charges based on pay-by-traffic.
    * 
    * @example
    * BandwidthPackage
@@ -88,7 +91,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * The ID of the bandwidth plan that you want to associate with the inter-region connection.
    * 
-   * >  If you set **BandwidthType** to **DataTransfer**, you can skip this parameter.
+   * > You do not need to configure this parameter when **BandwidthType** is set to **DataTransfer**.
    * 
    * @example
    * cenbwp-3xrxupouolw5ou****
@@ -104,11 +107,11 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** is different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -118,9 +121,9 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * The default line type.
    * 
-   * Valid values: Platinum and Gold.
+   * Valid values: Platinum and Gold. Default value: Gold.
    * 
-   * Platinum is supported only when BandwidthType is set to DataTransfer.
+   * You can set this parameter to Platinum only when the bandwidth allocation method is pay-by-traffic.
    * 
    * @example
    * Gold
@@ -128,10 +131,11 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   defaultLinkType?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default values:
+   * Specifies whether to perform a dry run to check information such as the permissions and instance status. Valid values:
    * 
-   * *   **false** (default): performs a dry run and sends the request.
-   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+   * - **false** (default): sends a normal request. After the request passes the check, the system creates an inter-region connection.
+   * 
+   * - **true**: sends a check request. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, a request ID is returned.
    * 
    * @example
    * false
@@ -141,7 +145,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the peer transit router.
+   * The ID of the peer transit router instance.
    * 
    * This parameter is required.
    * 
@@ -151,7 +155,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   peerTransitRouterId?: string;
   /**
    * @remarks
-   * The ID of the region where the peer transit router is deployed.
+   * The ID of the region where the peer transit router instance is deployed.
    * 
    * @example
    * cn-qingdao
@@ -159,9 +163,9 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   peerTransitRouterRegionId?: string;
   /**
    * @remarks
-   * The ID of the region where the local Enterprise Edition transit router is deployed.
+   * The ID of the region where the local Enterprise Edition transit router instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -171,7 +175,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags.
+   * The tag information.
    * 
    * You can specify at most 20 tags in each call.
    */
@@ -180,7 +184,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * The description of the inter-region connection.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * The description is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -190,7 +194,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
    * @remarks
    * The name of the inter-region connection.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname
@@ -198,7 +202,7 @@ export class CreateTransitRouterPeerAttachmentRequest extends $dara.Model {
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The ID of the local Enterprise Edition transit router.
+   * The ID of the local Enterprise Edition transit router instance.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****

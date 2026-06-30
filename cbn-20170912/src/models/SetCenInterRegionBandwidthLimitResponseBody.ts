@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetCenInterRegionBandwidthLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 530BC816-F575-412A-AAB2-435125D26328

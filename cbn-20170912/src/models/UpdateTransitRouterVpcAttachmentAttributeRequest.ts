@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTransitRouterVpcAttachmentAttributeRequestOptions extends $dara.Model {
+  /**
+   * @example
+   * enable
+   */
   applianceModeSupport?: string;
+  /**
+   * @example
+   * enable
+   */
   ipv6Support?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +39,11 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequestOptions extends $da
 export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the Enterprise Edition transit router to advertise routes to the VPC. Valid values:
+   * Specifies whether to allow the Enterprise Edition transit router to automatically advertise routes to the VPC.
    * 
-   * *   **false:** (default)
-   * *   **true**
+   * - **false**: The transit router does not automatically advertise routes.
+   * 
+   * - **true**: The transit router automatically advertises routes.
    * 
    * @example
    * true
@@ -44,9 +53,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * You can generate the token from your client, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -54,17 +63,25 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default values:
+   * Specifies whether to perform a dry run, which checks for issues such as permissions and instance status. Valid values:
    * 
-   * *   **false** (default): performs a dry run and sends the request.
-   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+   * - **false** (default): sends a normal request. After the request passes the check, the system modifies the name and description of the VPC connection.
+   * 
+   * - **true**: sends a check request. The system validates the request without modifying the VPC connection. If the check passes, the system returns the ID of the request. Otherwise, the system returns an error.
    * 
    * @example
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The billing method.
+   */
   options?: UpdateTransitRouterVpcAttachmentAttributeRequestOptions;
   /**
+   * @remarks
+   * The billing method.
+   * 
    * @example
    * PayByCenOwner
    */
@@ -75,9 +92,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The description of the VPC connection.
+   * The new description of the VPC connection.
    * 
-   * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -95,9 +112,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The name of the VPC connection.
+   * The new name of the VPC connection.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname
@@ -105,7 +122,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The features of the VPC connection.
+   * The feature properties of the VPC connection. This parameter is deprecated. We recommend that you use the `Options` parameter.
    */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   static names(): { [key: string]: string } {

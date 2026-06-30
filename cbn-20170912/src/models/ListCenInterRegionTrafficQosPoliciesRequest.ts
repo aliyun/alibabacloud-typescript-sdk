@@ -13,10 +13,11 @@ export class ListCenInterRegionTrafficQosPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next page of results. Valid values:
    * 
-   * *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+   * - If this is your first query or no next page exists, do not specify this parameter.
+   * 
+   * - If a next page exists, set the value to the **NextToken** value returned from the previous call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -30,7 +31,7 @@ export class ListCenInterRegionTrafficQosPoliciesRequest extends $dara.Model {
    * @remarks
    * The description of the QoS policy.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -48,7 +49,7 @@ export class ListCenInterRegionTrafficQosPoliciesRequest extends $dara.Model {
    * @remarks
    * The name of the QoS policy.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest
@@ -64,7 +65,7 @@ export class ListCenInterRegionTrafficQosPoliciesRequest extends $dara.Model {
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the TransitRouter instance.
    * 
    * @example
    * tr-bp1rmwxnk221e3fas****

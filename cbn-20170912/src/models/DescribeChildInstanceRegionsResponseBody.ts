@@ -58,7 +58,7 @@ export class DescribeChildInstanceRegionsResponseBody extends $dara.Model {
   regions?: DescribeChildInstanceRegionsResponseBodyRegions;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D5CEED59-36AA-47CC-9D81-16F71C46BD80

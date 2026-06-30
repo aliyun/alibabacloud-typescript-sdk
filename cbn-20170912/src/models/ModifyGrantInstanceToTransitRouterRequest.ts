@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGrantInstanceToTransitRouterRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the CEN instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,12 +17,21 @@ export class ModifyGrantInstanceToTransitRouterRequest extends $dara.Model {
    */
   cenId?: string;
   /**
+   * @remarks
+   * A token used to ensure the idempotence of the request.
+   * 
+   * You can generate this token from your client, but you must ensure it is unique for each request. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system uses the request\\"s **RequestId** as the **ClientToken**. The **RequestId** is unique for each API request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the network instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +43,8 @@ export class ModifyGrantInstanceToTransitRouterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The payer for the network instance.
+   * 
    * This parameter is required.
    * 
    * @example

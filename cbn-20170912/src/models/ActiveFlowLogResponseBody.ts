@@ -15,8 +15,9 @@ export class ActiveFlowLogResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true

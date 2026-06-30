@@ -15,9 +15,9 @@ export class DeleteCenRouteMapRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the region in which the routing policy is applied.
+   * The ID of the region where the routing policy is applied.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
    * 
    * This parameter is required.
    * 

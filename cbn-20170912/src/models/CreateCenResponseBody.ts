@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-dc4vwznpwbobrl****

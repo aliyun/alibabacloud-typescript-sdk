@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCenBandwidthPackageSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The new maximum bandwidth value of the bandwidth plan. Unit: Mbit/s.
+   * The new maximum bandwidth of the bandwidth plan. Unit: Mbps.
    * 
    * Valid values: **2** to **10000**.
    * 

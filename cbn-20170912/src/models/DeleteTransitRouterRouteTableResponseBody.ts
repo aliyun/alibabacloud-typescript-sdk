@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTransitRouterRouteTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EAB2F133-8556-4D7C-9E91-7EE4FE9CC7D2

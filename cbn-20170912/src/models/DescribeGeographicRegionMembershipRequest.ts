@@ -7,10 +7,10 @@ export class DescribeGeographicRegionMembershipRequest extends $dara.Model {
    * @remarks
    * The ID of the area that you want to query. Valid values:
    * 
-   * *   **china**: the Chinese mainland
-   * *   **asia-pacific**: Asia Pacific
-   * *   **europe**: Europe
-   * *   **north-america**: North America
+   * - **china**: the Chinese mainland
+   * - **asia-pacific**: Asia Pacific
+   * - **europe**: Europe
+   * - **north-america**: North America
    * 
    * This parameter is required.
    * 

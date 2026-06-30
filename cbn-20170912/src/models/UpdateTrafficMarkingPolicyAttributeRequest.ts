@@ -127,7 +127,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
    * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
-   * Guangzhou Testing
+   * Guangzhou test
    */
   trafficMatchRuleName?: string;
   static names(): { [key: string]: string } {
@@ -233,7 +233,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules e
    * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
-   * Hangzhou-to-Qingdao CAT
+   * Hangzhou-Qingdao CAT
    */
   trafficMatchRuleDescription?: string;
   /**

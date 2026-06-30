@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
    * @example
    * cen-44m0p68spvlrqq****
@@ -13,7 +13,7 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
   cenId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the CEN instance belongs.
+   * The ID of the main account that owns the Cloud Enterprise Network (CEN) instance.
    * 
    * @example
    * 1250123456123456
@@ -21,7 +21,7 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
   cenOwnerId?: number;
   /**
    * @remarks
-   * The timestamp when the permissions were granted. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The timestamp when the permission was granted. The value is in UTC and follows the ISO 8601 standard: `YYYY-MM-DDThh:mmZ`.
    * 
    * @example
    * 2024-01-24T16:46Z
@@ -34,10 +34,11 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
   effectiveOrderType?: string;
   /**
    * @remarks
-   * The entity that pays the fees of the network instance. Valid values: Valid values:
+   * The payer for the network instance. Valid values:
    * 
-   * *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
-   * *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
+   * - **PayByCenOwner**: The CEN instance owner pays the Transit Router connection and data processing fees for the network instance.
+   * 
+   * - **PayByResourceOwner**: The network instance owner pays the Transit Router connection and data processing fees for the network instance.
    * 
    * @example
    * PayByCenOwner
@@ -75,13 +76,14 @@ export class DescribeGrantRulesToResourceResponseBodyGrantRules extends $dara.Mo
 export class DescribeGrantRulesToResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The permissions that are granted to the CEN instance.
+   * A list of permission records.
    */
   grantRules?: DescribeGrantRulesToResourceResponseBodyGrantRules[];
   /**
    * @remarks
-   * *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
-   * *   If a value is specified for **MaxResults**, query results are returned in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
+   * - If the **MaxResults** parameter was not included in the request, this field indicates the total number of entries.
+   * 
+   * - If the **MaxResults** parameter was included in the request, this field indicates the number of entries on the current page.
    * 
    * @example
    * 1
@@ -89,10 +91,11 @@ export class DescribeGrantRulesToResourceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token to use in your next request to retrieve a new page of results. Valid values:
    * 
-   * *   If the **NextToken** parameter is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * - If the **NextToken** parameter is empty, no more results are available.
+   * 
+   * - If a value is returned for **NextToken**, use it for the next request to get the next page of results.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

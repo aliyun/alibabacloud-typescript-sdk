@@ -13,12 +13,15 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceId?: string;
   /**
    * @remarks
-   * The type of the network instance. Valid values:
+   * The type of the network instance.
    * 
-   * *   **VPC**: VPC
-   * *   **VBR**: VBR
-   * *   **TR**: transit router
-   * *   **VPN**: VPN connection
+   * - **VPC**: a VPC.
+   * 
+   * - **VBR**: a VBR.
+   * 
+   * - **TR**: a transit router.
+   * 
+   * - **VPN**: a VPN connection.
    * 
    * @example
    * VPC
@@ -26,11 +29,13 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceType?: string;
   /**
    * @remarks
-   * The status of the route learning correlation. Valid values:
+   * The status of the route propagation.
    * 
-   * *   **Enabling**: being enabled
-   * *   **Disabling**: being disabled
-   * *   **Active**: available
+   * - **Enabling**: The propagation is being enabled.
+   * 
+   * - **Disabling**: The propagation is being disabled.
+   * 
+   * - **Active**: The propagation is active.
    * 
    * @example
    * Active
@@ -92,7 +97,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * dd20****
@@ -100,7 +105,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04C81E0D-945E-4D61-A561-3DEA322F243B
@@ -108,7 +113,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -116,7 +121,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * A list of route learning correlations.
+   * A list of the route propagations.
    */
   transitRouterPropagations?: ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPropagations[];
   static names(): { [key: string]: string } {

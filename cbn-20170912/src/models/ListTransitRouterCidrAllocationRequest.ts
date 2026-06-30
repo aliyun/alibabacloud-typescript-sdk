@@ -29,7 +29,7 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The CIDR blocks that have IP addresses allocated to network instances.
+   * The allocated CIDR block.
    * 
    * @example
    * 192.168.10.0/28
@@ -37,11 +37,11 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a token from your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -49,9 +49,9 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The CIDR block that is for exclusive use.
+   * The dedicated CIDR block.
    * 
-   * Set the value to **VPN**, which specifies the CIDR block that is reserved for VPN connections.
+   * The only valid value is **VPN**. This value specifies that you want to query the CIDR block that is reserved by the system for creating VPN connections.
    * 
    * @example
    * VPN
@@ -61,8 +61,9 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request.
+   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request. After the request passes the check, the system queries the allocation details of the CIDR block.
    * 
    * @example
    * false
@@ -72,11 +73,11 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   If you do not specify a value for **MaxResults**, entries are returned in one response. After you send the request, the value of **MaxResults** includes all entries.
+   * - If you do not specify this parameter, the query is not paginated.
    * 
-   * *   If you specify a value for **MaxResults**, entries are returned in batches. Valid values: **1** to **100**. We recommend that you set **MaxResults** to **20**.
+   * - If you specify this parameter, the query is paginated. Valid values: **1** to **100**. The recommended value is **20**.
    * 
-   *     The value of **MaxResults** in the response indicates that number of entries in the current batch.
+   *   The value of the returned **MaxResults** parameter indicates the number of list entries in the current query batch.
    * 
    * @example
    * 20
@@ -84,10 +85,11 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+   * - You do not need to specify this parameter for the first request.
+   * 
+   * - If a next page exists, set the value to the **NextToken** value returned from the previous request.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -97,9 +99,9 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The ID of the region where the Transit Router instance is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -111,9 +113,9 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the CIDR block.
+   * The ID of the CIDR block of the transit router.
    * 
-   * You can call the [ListTransitRouterCidr](https://help.aliyun.com/document_detail/462772.html) operation to query the ID of a CIDR block.
+   * You can call the [ListTransitRouterCidr](https://help.aliyun.com/document_detail/462772.html) operation to query the IDs of the CIDR blocks of the transit router.
    * 
    * @example
    * cidr-0zv0q9crqpntzz****
@@ -121,7 +123,7 @@ export class ListTransitRouterCidrAllocationRequest extends $dara.Model {
   transitRouterCidrId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the Transit Router instance.
    * 
    * This parameter is required.
    * 

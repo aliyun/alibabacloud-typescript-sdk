@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeactiveFlowLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -13,11 +13,9 @@ export class DeactiveFlowLogRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The unique, one-use client token that is used to ensure the idempotence of the request. It can contain only ASCII characters.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
-   * 
-   * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request is different.
+   * > If you leave this parameter empty, the system automatically uses the **request ID** as the **client token**.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -37,9 +35,9 @@ export class DeactiveFlowLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the flow log is deployed.
+   * The region ID of the flow log.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

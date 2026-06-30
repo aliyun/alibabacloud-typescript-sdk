@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAssociations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop resource.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -13,12 +13,15 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
   resourceId?: string;
   /**
    * @remarks
-   * The type of next hop. Valid values:
+   * The type of the next hop resource.
    * 
-   * *   **VPC**: VPC
-   * *   **VBR**: VBR
-   * *   **TR**: transit router
-   * *   **VPN** :VPN attachment
+   * - **VPC**: virtual private cloud (VPC).
+   * 
+   * - **VBR**: virtual border router (VBR).
+   * 
+   * - **TR**: transit router.
+   * 
+   * - **VPN**: VPN connection.
    * 
    * @example
    * VPC
@@ -26,12 +29,15 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
   resourceType?: string;
   /**
    * @remarks
-   * The status of the associated forwarding correlation. Valid values:
+   * The status of the association.
    * 
-   * *   **Active**: The associated forwarding correlation is available.
-   * *   **Associating**: The associated forwarding correlation is being created.
-   * *   **Dissociating**: The associated forwarding correlation is being deleted.
-   * *   **Deleted**: The associated forwarding correlation is deleted.
+   * - **Active**: The association is active.
+   * 
+   * - **Associating**: The association is being created.
+   * 
+   * - **Dissociating**: The association is being deleted.
+   * 
+   * - **Deleted**: The association is deleted.
    * 
    * @example
    * Associating
@@ -93,10 +99,11 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next query.
    * 
-   * *   If **NextToken** was not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If this parameter is not returned, it indicates that no more results are to be returned.
+   * 
+   * - If a value is returned for this parameter, the value is the token that is used for the next query.
    * 
    * @example
    * a415****
@@ -104,7 +111,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F6B1D9AB-176D-4399-801D-8BC576F4EB0D
@@ -112,7 +119,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -120,7 +127,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * A list of associated forwarding correlations.
+   * A list of forwarding associations.
    */
   transitRouterAssociations?: ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAssociations[];
   static names(): { [key: string]: string } {

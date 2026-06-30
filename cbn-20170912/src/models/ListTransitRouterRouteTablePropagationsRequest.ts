@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **50**.
+   * The number of entries to return on each page. The default value is **50**.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * dd20****
@@ -25,11 +25,13 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the route learning correlation. Valid values:
+   * The status of the route propagation.
    * 
-   * *   **Active**: available
-   * *   **Enabling**: being enabled
-   * *   **Disabling**: being disabled
+   * - **Active**: The propagation is active.
+   * 
+   * - **Enabling**: The propagation is being enabled.
+   * 
+   * - **Disabling**: The propagation is being disabled.
    * 
    * @example
    * Active
@@ -53,12 +55,15 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentResourceId?: string;
   /**
    * @remarks
-   * The type of the network instance. Valid values:
+   * The type of the network instance.
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **TR**: transit router
-   * *   **VPN**: VPN connection
+   * - **VPC**: a virtual private cloud (VPC).
+   * 
+   * - **VBR**: a virtual border router (VBR).
+   * 
+   * - **TR**: a transit router.
+   * 
+   * - **VPN**: a VPN connection.
    * 
    * @example
    * VPC

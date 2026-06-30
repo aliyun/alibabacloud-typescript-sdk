@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+   * Generate a unique value from your client for each request. The \\`ClientToken\\` parameter can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
    * @remarks
    * The IP address of the multicast group.
    * 
-   * Each multicast group is identified by its IP address.
+   * Each multicast group is identified by a multicast IP address.
    * 
    * @example
    * 239.XX.XX.2
@@ -25,14 +25,17 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   groupIpAddress?: string;
   /**
    * @remarks
-   * Specified whether to query the multicast members. Valid values:
+   * Specifies whether to query multicast members.
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: No.
    * 
-   * >- This parameter must be specified together with the IsGroupMember parameter.
-   * >- If you do not set IsGroupMember or IsGroupSource, both the multicast sources and members are queried.
-   * >- If you set only one of them or both of them, the specified values prevail.
+   * - **true**: Yes.
+   * 
+   * > This parameter works with \\`IsGroupSource\\`.
+   * >
+   * > - If you do not specify \\`IsGroupMember\\` or \\`IsGroupSource\\`, the system queries both multicast members and sources.
+   * >
+   * > - If you specify one or both parameters, the system queries resources based on the specified parameters.
    * 
    * @example
    * false
@@ -40,14 +43,17 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   isGroupMember?: boolean;
   /**
    * @remarks
-   * Specifies whether to query the multicast sources. Valid values:
+   * Specifies whether to query multicast sources.
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: No.
    * 
-   * > - This parameter must be specified together with the IsGroupMember parameter.
-   * > *   If you do not specify IsGroupMember or IsGroupSource, both the multicast sources and members are queried.
-   * > *   If you specify only one of them or both of them, the specified values prevail.
+   * - **true**: Yes.
+   * 
+   * > This parameter works with \\`IsGroupMember\\`.
+   * >
+   * > - If you do not specify \\`IsGroupSource\\` or \\`IsGroupMember\\`, the system queries both multicast sources and members.
+   * >
+   * > - If you specify one or both parameters, the system queries resources based on the specified parameters.
    * 
    * @example
    * true
@@ -63,15 +69,16 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The IDs of ENIs.
+   * A list of Elastic Network Interface (ENI) IDs.
    */
   networkInterfaceIds?: string[];
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next page of results.
    * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * - If this is your first query or if no next page exists, do not specify this parameter.
+   * 
+   * - If a next page exists, set this parameter to the \\`NextToken\\` value that is returned from the previous call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -81,7 +88,7 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the inter-region multicast domain.
+   * A list of IDs of cross-region multicast domains.
    */
   peerTransitRouterMulticastDomains?: string[];
   /**
@@ -96,10 +103,11 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the multicast resource. Valid values:
+   * The type of the multicast resource.
    * 
-   * *   **VPC**: queries multicast resources by VPC.
-   * *   **TR**: queries multicast resources that are also deployed in a different region.
+   * - **VPC**: queries information about multicast resources in a VPC.
+   * 
+   * - **TR**: queries information about cross-region multicast resources.
    * 
    * @example
    * VPC
@@ -107,9 +115,9 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the network instance connection
+   * The ID of the network instance connection.
    * 
-   * You must configure one of the TransitRouterMulticastDomainId and TransitRouterAttachmentId parameters.
+   * You must specify \\`TransitRouterMulticastDomainId\\` or \\`TransitRouterAttachmentId\\`.
    * 
    * @example
    * tr-attach-g3kz2k3u76amsk****
@@ -119,7 +127,7 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
    * @remarks
    * The ID of the multicast domain.
    * 
-   * You must configure one of the TransitRouterMulticastDomainId and TransitRouterAttachmentId parameters.
+   * You must specify \\`TransitRouterMulticastDomainId\\` or \\`TransitRouterAttachmentId\\`.
    * 
    * @example
    * tr-mcast-domain-5mjb5gjb6dgu98****
@@ -127,7 +135,7 @@ export class ListTransitRouterMulticastGroupsRequest extends $dara.Model {
   transitRouterMulticastDomainId?: string;
   /**
    * @remarks
-   * The vSwitch IDs.
+   * A list of vSwitch IDs.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {

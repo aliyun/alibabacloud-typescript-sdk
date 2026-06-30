@@ -192,14 +192,21 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: VPC
-   * *   **VBR**: VBR
-   * *   **CCN**: CCN instance
+   * - **VPC**: VPC
+   * - **VBR**: VBR
+   * - **CCN**: CCN instance
    * 
    * @example
    * VPC
    */
   childInstanceType?: string;
+  /**
+   * @remarks
+   * The cloud service that the network instance belongs to. Its standard code is only returned when the VPC is connected to the transit router. For self-managed VPCs, no code is returned.
+   * 
+   * @example
+   * swas
+   */
   managedService?: string;
   /**
    * @remarks
@@ -213,9 +220,9 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
    * @remarks
    * Indicates whether the network instance is attached to the CEN instance.
    * 
-   * *   **Attaching**: The network instance is being attached to the CEN instance.
-   * *   **Attached**: The network instance is attached to the CEN instance.
-   * *   **Detaching**: The network instance is being detached from the CEN instance.
+   * - **Attaching**: The network instance is being attached to the CEN instance.
+   * - **Attached**: The network instance is attached to the CEN instance.
+   * - **Detaching**: The network instance is being detached from the CEN instance.
    * 
    * @example
    * Attached

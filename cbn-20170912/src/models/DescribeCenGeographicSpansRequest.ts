@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenGeographicSpansRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the areas that are connected by the CEN instance.
+   * The ID of the geographic span.
    * 
-   * > If you do not set this parameter, the system queries the information about all areas supported by CEN.
+   * > If you do not specify this parameter, the system queries all geographic spans that are supported by Cloud Enterprise Network (CEN).
    * 
    * @example
    * china_asia-pacific
@@ -17,7 +17,7 @@ export class DescribeCenGeographicSpansRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeCenGeographicSpansRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

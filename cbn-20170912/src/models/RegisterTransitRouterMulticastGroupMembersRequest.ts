@@ -9,7 +9,7 @@ export class RegisterTransitRouterMulticastGroupMembersRequest extends $dara.Mod
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -19,8 +19,8 @@ export class RegisterTransitRouterMulticastGroupMembersRequest extends $dara.Mod
    * @remarks
    * Specifies whether to perform a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the request.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and performs the request.
    * 
    * @example
    * false
@@ -66,8 +66,8 @@ export class RegisterTransitRouterMulticastGroupMembersRequest extends $dara.Mod
    * @remarks
    * The ID of the VPC to which the ENI belongs.
    * 
-   * *   If the ENI belongs to the current Alibaba Cloud account, ignore this parameter.
-   * *   If the ENI belongs to a different Alibaba Cloud account, you must set this parameter.
+   * - If the ENI belongs to the current Alibaba Cloud account, ignore this parameter.
+   * - If the ENI belongs to a different Alibaba Cloud account, you must set this parameter.
    * 
    * @example
    * vpc-wz9fusm6zq8uy7cfa****

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTransitRouterRouteEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+   * The token must be unique for each request and can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,10 +17,11 @@ export class DeleteTransitRouterRouteEntryRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request but not perform the operation. The system checks the permissions and the status of the specified instances. Valid values:
+   * Specifies whether to perform a dry run. A dry run checks for potential issues, such as missing parameter values, incorrect request syntax, and service limits. Valid values:
    * 
-   * *   **false** (default): sends the request. If the request passes the precheck, the route is deleted.
-   * *   **true**: sends a precheck request. The route is not deleted after the request passes the precheck. If you use this value, the system checks the required parameters and the request syntax. If the check fails, the corresponding error message is returned. If the request passes the check, the system returns the ID of the request.
+   * - **false** (default): Sends the request. If the request passes the check, the route entry is deleted.
+   * 
+   * - **true**: Performs only a dry run. The system checks the request for potential issues. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
    * 
    * @example
    * false
@@ -32,7 +33,7 @@ export class DeleteTransitRouterRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination CIDR block.
+   * The destination CIDR block of the route.
    * 
    * @example
    * 192.168.0.0/24
@@ -48,7 +49,7 @@ export class DeleteTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryId?: string;
   /**
    * @remarks
-   * The ID of the network instance connection that you want to specify as the next hop.
+   * The ID of the network instance connection that serves as the next hop.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -58,8 +59,9 @@ export class DeleteTransitRouterRouteEntryRequest extends $dara.Model {
    * @remarks
    * The type of the next hop. Valid values:
    * 
-   * *   **BlackHole**: a blackhole route. You do not need to specify a next hop.
-   * *   **Attachment**: a network instance connection. You must specify a network instance connection as the next hop.
+   * - **BlackHole**: The route is a blackhole route. You do not need to specify a next hop.
+   * 
+   * - **Attachment**: The next hop is a network instance connection. You must specify the ID of the network instance connection.
    * 
    * @example
    * BlackHole

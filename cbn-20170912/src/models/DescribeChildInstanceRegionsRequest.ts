@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChildInstanceRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh-CN (Chinese, which is the default language), en-US (English), and ja (Japanese).
+   * The language of the response. Valid values:
    * 
    * @example
    * zh-CN
@@ -17,9 +17,11 @@ export class DescribeChildInstanceRegionsRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: a virtual private cloud (VPC).
+   * 
+   * - **VBR**: a virtual border router (VBR).
+   * 
+   * - **CCN**: a Cloud Connect Network (CCN) instance.
    * 
    * @example
    * VPC

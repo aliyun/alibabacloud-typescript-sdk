@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocations extends $dara.Model {
   /**
    * @remarks
-   * The CIDR blocks that have IP addresses allocated to network instances.
+   * The allocated CIDR block.
    * 
    * @example
    * 192.168.10.0/28
@@ -37,7 +37,7 @@ export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocat
   cidr?: string;
   /**
    * @remarks
-   * The ID of the CIDR block.
+   * The ID of the CIDR block of the transit router.
    * 
    * @example
    * cidr-0zv0q9crqpntzz****
@@ -75,10 +75,11 @@ export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocat
 export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
-   * *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
-   * *   If a value is specified for **MaxResults**, query results are returned in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
+   * - If you did not set the **MaxResults** parameter in the request, this parameter indicates the total number of entries.
+   * 
+   * - If you set the **MaxResults** parameter in the request, this parameter indicates the number of entries on the current page.
    * 
    * @example
    * 1
@@ -86,10 +87,11 @@ export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If **NextToken** was not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If **NextToken** is not empty, the value of this parameter indicates the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -97,7 +99,7 @@ export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0876E54E-3E36-5C31-89F0-9EE8A9266F9A
@@ -113,7 +115,7 @@ export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the CIDR blocks that have IP addresses allocated to network instances.
+   * A list of CIDR block allocations.
    */
   transitRouterCidrAllocations?: ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocations[];
   static names(): { [key: string]: string } {

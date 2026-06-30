@@ -17,9 +17,9 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a token on your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -29,7 +29,7 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The description of the transit router CIDR block.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -39,8 +39,9 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request.
+   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the transit router CIDR block is created.
    * 
    * @example
    * false
@@ -50,7 +51,7 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The name of the transit router CIDR block.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest
@@ -60,15 +61,15 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
+   * Specifies whether to allow the system to automatically add a route that points to the transit router CIDR block to the route table of the transit router.
    * 
-   * *   **true** (default)
+   * - **true** (default): Yes.
    * 
-   *     If you set the value to true, after you create a VPN attachment on a private VPN gateway and enable route learning for the VPN attachment, the system automatically adds the following route to the route table of the transit router that is in route learning relationship with the VPN attachment:
+   *   After you create a VPN connection that uses a private VPN gateway and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the associated transit router. The destination of this route is the transit router CIDR block. The transit router CIDR block is the CIDR block from which a gateway IP address is allocated to the IPsec connection. This blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
    * 
-   *     A blackhole route whose destination CIDR block is the transit router CIDR block, which refers to the CIDR block from which gateway IP addresses are allocated to the IPsec-VPN connection. The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
+   *   A blackhole route whose destination CIDR block is the transit router CIDR block, which refers to the CIDR block from which gateway IP addresses are allocated to the IPsec-VPN connection. The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
    * 
-   * *   **false**
+   * - **false**: No.
    * 
    * @example
    * true
@@ -76,9 +77,9 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
   publishCidrRoute?: boolean;
   /**
    * @remarks
-   * The ID of the region to which the transfer router belongs.
+   * The ID of the region where the transit router is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterVbrAttachmentsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https:// `.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * tagtest
@@ -17,11 +17,11 @@ export class ListTransitRouterVbrAttachmentsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
    * 
    * @example
    * tagtest
@@ -53,7 +53,7 @@ export class ListTransitRouterVbrAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterVbrAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the CEN instances.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -61,7 +61,7 @@ export class ListTransitRouterVbrAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The maximum number of entries to return for a single query. The default value is **20**.
    * 
    * @example
    * 20
@@ -69,7 +69,11 @@ export class ListTransitRouterVbrAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used for the next query. Valid values:
+   * 
+   * - If this is your first query, you do not need to specify this parameter.
+   * 
+   * - If a subsequent query is to be sent, set the value to the NextToken value that is returned in the previous request.
    * 
    * @example
    * dd20****
@@ -79,9 +83,9 @@ export class ListTransitRouterVbrAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Enterprise Edition transit router.
+   * The ID of the region where the Enterprise Edition transit router is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -91,9 +95,9 @@ export class ListTransitRouterVbrAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags.
+   * The tag.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can specify up to 20 tags.
    */
   tag?: ListTransitRouterVbrAttachmentsRequestTag[];
   /**

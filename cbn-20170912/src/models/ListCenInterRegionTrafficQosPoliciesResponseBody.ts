@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues extends $dara.Model {
   /**
    * @remarks
-   * If the QoS queues are assigned absolute bandwidth values, this parameter indicates the absolute bandwidth value that is allocated to the queue.
+   * The bandwidth value allocated to the queue of the inter-region connection. This parameter is returned when the bandwidth guarantee type is byBandwidth.
    * 
    * @example
    * 1
@@ -13,12 +13,12 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   bandwidth?: string;
   /**
    * @remarks
-   * The differentiated services code point (DSCP) value that is used to match packets.
+   * The Differentiated Services Code Point (DSCP) values of the traffic messages that are matched by the queue.
    */
   dscps?: number[];
   /**
    * @remarks
-   * The actual bandwidth value of the current queue.
+   * The actual bandwidth of the queue.
    * 
    * @example
    * 1.35
@@ -34,7 +34,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   qosQueueDescription?: string;
   /**
    * @remarks
-   * The queue ID.
+   * The ID of the queue.
    * 
    * @example
    * qos-queue-njcrmr9fiu1jii****
@@ -50,7 +50,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   qosQueueName?: string;
   /**
    * @remarks
-   * If the QoS queues are assigned bandwidth percentages, this parameter indicates the percentage of bandwidth that is allocated to the queue.
+   * The percentage of the inter-region connection bandwidth that is used by the queue. This parameter is returned when the bandwidth guarantee type is byBandwidthPercent.
    * 
    * @example
    * 1
@@ -95,10 +95,11 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies extends $dara.Model {
   /**
    * @remarks
-   * The guaranteed bandwidth mode.
+   * The bandwidth guarantee type.
    * 
-   * *   **byBandwidth**: allocates absolute bandwidth values to QoS queues.
-   * *   **byBandwidthPercent**: assigns bandwidth percentages to QoS queues.
+   * - **byBandwidth**: The QoS queues are configured based on an absolute bandwidth value.
+   * 
+   * - **byBandwidthPercent**: The QoS queues are configured based on a bandwidth percentage.
    * 
    * @example
    * byBandwidthPercent
@@ -132,10 +133,13 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
    * @remarks
    * The status of the QoS policy.
    * 
-   * *   **Creating**: The QoS policy is being created.
-   * *   **Active**: The QoS policy is available.
-   * *   **Modifying**: The policy is being modified.
-   * *   **Deleting**: The QoS policy is being deleted.
+   * - **Creating**: The policy is being created.
+   * 
+   * - **Active**: The policy is active.
+   * 
+   * - **Modifying**: The policy is being modified.
+   * 
+   * - **Deleting**: The policy is being deleted.
    * 
    * @example
    * Creating
@@ -143,7 +147,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
   trafficQosPolicyStatus?: string;
   /**
    * @remarks
-   * A list of queues.
+   * The list of queues.
    */
   trafficQosQueues?: ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues[];
   /**
@@ -156,7 +160,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the TransitRouter instance.
    * 
    * @example
    * tr-2ze4ta4v32umj0rb***
@@ -211,10 +215,11 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * *   If **NextToken** was not returned in the previous query, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -222,7 +227,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBody extends $dara.Mode
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 113BFD47-63DF-5D9D-972C-033FB9C360CD
@@ -230,7 +235,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of entries returned.
    * 
    * @example
    * 1
@@ -238,7 +243,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBody extends $dara.Mode
   totalCount?: number;
   /**
    * @remarks
-   * A list of QoS policies.
+   * The list of QoS policies.
    */
   trafficQosPolicies?: ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies[];
   static names(): { [key: string]: string } {

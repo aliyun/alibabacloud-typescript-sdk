@@ -3,7 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether appliance mode is enabled.
+   * 
+   * - **disable** (default): Appliance mode is disabled.
+   * 
+   * - **enable**: Appliance mode is enabled.
+   * 
+   * @example
+   * enable
+   */
   applianceModeSupport?: string;
+  /**
+   * @remarks
+   * Specifies whether IPv6 is enabled.
+   * 
+   * - **disable** (default): IPv6 is disabled.
+   * 
+   * - **enable**: IPv6 is enabled.
+   * 
+   * @example
+   * enable
+   */
   ipv6Support?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,7 +93,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI created by the Enterprise Edition transit router in the vSwitch.
+   * The ID of the ENI that the Enterprise Edition transit router creates in the vSwitch.
    * 
    * @example
    * eni-bp149hmyaqegerml****
@@ -79,7 +101,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1a214sbus8z3b54****
@@ -87,7 +109,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-h
@@ -121,10 +143,11 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Enterprise Edition transit router can automatically advertise routes to the VPC. Valid values:
+   * Specifies whether the Enterprise Edition transit router automatically advertises routes to the VPC.
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: Routes are not automatically advertised.
+   * 
+   * - **true**: Routes are automatically advertised.
    * 
    * @example
    * true
@@ -142,7 +165,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The billing method of the VPC connection.
    * 
-   * Only **POSTPAY** may be returned, which indicates the default pay-as-you-go billing method.
+   * The value is always **POSTPAY**, which indicates the pay-as-you-go billing method.
    * 
    * @example
    * POSTPAY
@@ -152,20 +175,32 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The time when the VPC connection was created.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time is in the `YYYY-MM-DDThh:mmZ` format and in UTC.
    * 
    * @example
    * 2021-06-15T02:14Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The cloud service to which the resource belongs.
+   * 
+   * @example
+   * SAS
+   */
   managedService?: string;
+  /**
+   * @remarks
+   * A collection of feature attributes.
+   */
   options?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions;
   /**
    * @remarks
-   * The entity that pays the fees of the network instance. Valid values:
+   * Specifies who pays for the network instance. Valid values:
    * 
-   * *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-   * *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+   * - **PayByCenOwner**: The account that owns the CEN instance pays the fees.
+   * 
+   * - **PayByResourceOwner**: The account that owns the network instance pays the fees.
    * 
    * @example
    * PayByCenOwner
@@ -173,9 +208,9 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   orderType?: string;
   /**
    * @remarks
-   * The type of resource to which the transit router is connected.
+   * The type of resource to which the connection is attached.
    * 
-   * Only **VPC** may be returned, which indicates VPCs.
+   * The value is always **VPC**, which indicates a VPC.
    * 
    * @example
    * VPC
@@ -183,11 +218,13 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   resourceType?: string;
   /**
    * @remarks
-   * The status of the VPC connection. Valid values:
+   * The status of the VPC connection.
    * 
-   * *   **Attached**
-   * *   **Attaching**
-   * *   **Detaching**
+   * - **Attached**: The connection is established.
+   * 
+   * - **Attaching**: The connection is being created.
+   * 
+   * - **Detaching**: The connection is being deleted.
    * 
    * @example
    * Attached
@@ -195,7 +232,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tags?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
@@ -208,7 +245,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The VPC connection ID.
+   * The ID of the VPC connection.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -224,7 +261,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The description of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****
@@ -232,12 +269,12 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   transitRouterId?: string;
   /**
    * @remarks
-   * The features of the VPC connection.
+   * The feature attributes of the VPC connection. This parameter is deprecated. We recommend that you use the Options parameter instead.
    */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -245,7 +282,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * The ID of the account that owns the VPC.
    * 
    * @example
    * 1250123456123456
@@ -253,7 +290,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   vpcOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region where the VPC is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -261,7 +298,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   vpcRegionId?: string;
   /**
    * @remarks
-   * The primary and secondary zones, vSwitches, and ENIs of the VPC.
+   * The zone mappings of the VPC connection. This includes the vSwitches and elastic network interfaces (ENIs) in the associated VPC.
    */
   zoneMappings?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsZoneMappings[];
   static names(): { [key: string]: string } {
@@ -336,7 +373,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVpcAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -344,10 +381,11 @@ export class ListTransitRouterVpcAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token to retrieve the next page of results.
    * 
-   * *   If **NextToken** is returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If this parameter is empty, all results have been returned.
+   * 
+   * - If a value is returned for **NextToken**, it is the token to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -355,7 +393,7 @@ export class ListTransitRouterVpcAttachmentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The request ID.
    * 
    * @example
    * C97FF53F-3EF8-4883-B459-60E171924B23
@@ -363,7 +401,7 @@ export class ListTransitRouterVpcAttachmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -371,7 +409,7 @@ export class ListTransitRouterVpcAttachmentsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the VPC connection.
+   * A list of VPC connections.
    */
   transitRouterAttachments?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments[];
   static names(): { [key: string]: string } {

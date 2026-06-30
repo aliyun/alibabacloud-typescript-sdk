@@ -15,9 +15,9 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The region ID of the routing policy.
+   * The ID of the region where the routing policy is applied.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +27,7 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The routing policy ID.
+   * The ID of the routing policy.
    * 
    * @example
    * cenrmap-y40mxdvf7joc12****
@@ -53,7 +53,7 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
   routeMapId?: string;
   /**
    * @remarks
-   * The route table ID of the transit router with which the routing policy is associated.
+   * The ID of the route table of the transit router that is associated with the routing policy.
    * 
    * @example
    * vtb-gw8nx3515m1mbd1z1****
@@ -63,13 +63,13 @@ export class DescribeCenRouteMapsRequest extends $dara.Model {
    * @remarks
    * The direction in which the routing policy is applied. Valid values:
    * 
-   * *   **RegionIn**: Routes are advertised to the gateways in the regions that are connected by the CEN instance.
+   * - **RegionIn**: Inbound. The routing policy is applied to routes that are advertised to the gateway of a region.
    * 
-   * For example, routes are advertised from network instances deployed in the current region or other regions to the gateway deployed in the current region.
+   * For example, routes are advertised from network instances in the current region to the gateway of the current region, or routes from other regions are advertised to the gateway of the current region.
    * 
-   * *   **RegionOut**: Routes are advertised from the gateways in the regions that are connected by the CEN instance.
+   * - **RegionOut**: Outbound. The routing policy is applied to routes that are advertised from the gateway of a region.
    * 
-   * For example, routes are advertised from the gateway deployed in the current region to network instances deployed in the current region, or to gateways deployed in other regions.
+   * For example, routes are advertised from the gateway of the current region to network instances in the current region, or to gateways in other regions.
    * 
    * @example
    * RegionOut

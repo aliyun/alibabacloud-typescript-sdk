@@ -7,9 +7,9 @@ export class DescribeTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a token from your client to ensure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the request as the ClientToken. The RequestId is different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -25,10 +25,11 @@ export class DescribeTransitRouteTableAggregationRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+   * - You do not need to specify this parameter for the first request.
+   * 
+   * - You must specify the token that is obtained from the previous query as the value of **NextToken**.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

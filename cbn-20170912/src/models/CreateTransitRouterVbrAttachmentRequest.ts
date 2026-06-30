@@ -7,9 +7,9 @@ export class CreateTransitRouterVbrAttachmentRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * TagKey
@@ -19,9 +19,9 @@ export class CreateTransitRouterVbrAttachmentRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
    * 
    * @example
    * TagValue
@@ -55,8 +55,8 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to the VBR. Valid values:
    * 
-   * *   **false** (default): no
-   * *   **true**: yes
+   * - **false** (default)
+   * - **true**
    * 
    * @example
    * false
@@ -72,11 +72,9 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The unique, one-use client token that is used to ensure the idempotence of the request. It can contain only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-   * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you leave this parameter empty, the system automatically uses the **request ID** as the **client token**.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -86,8 +84,8 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Default values:
    * 
-   * *   **false** (default): performs a dry run and sends the request.
-   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+   * - **false** (default): executes the request without performing a dry run.
+   * - **true**: performs a dry run without actually creating the VBR connection. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
    * 
    * @example
    * false
@@ -99,7 +97,7 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
    * @remarks
    * The region ID of the VBR.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can obtain the latest region list by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation.
    * 
    * @example
    * cn-hangzhou
@@ -109,16 +107,16 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags.
+   * Tag information.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can specify up to 20 tags.
    */
   tag?: CreateTransitRouterVbrAttachmentRequestTag[];
   /**
    * @remarks
-   * The description of the VBR connection.
+   * Description of the VBR connection.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * testdesc
@@ -128,7 +126,7 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
    * @remarks
    * The name of the VBR connection.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
    * 
    * @example
    * testname
@@ -154,9 +152,9 @@ export class CreateTransitRouterVbrAttachmentRequest extends $dara.Model {
   vbrId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VBR belongs. The default value is the ID of the current Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account to which the VBR belongs. If you leave this parameter empty, the ID of the account calling this operation is used.
    * 
-   * > If the network instance and CEN instance belong to different Alibaba Cloud accounts, this parameter is required.
+   * > For a cross-account connection, this parameter is required.
    * 
    * @example
    * 1250123456123456

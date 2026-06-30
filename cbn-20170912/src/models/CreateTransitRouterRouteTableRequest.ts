@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterRouteTableRequestRouteTableOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable multi-region equal-cost multi-path (ECMP) routing. Valid values:
+   * The multi-region equal-cost multi-path (ECMP) routing feature. Valid values:
    * 
-   * *   **disable**(default) If multi-region ECMP routing is disabled, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetic order. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
-   * *   **enable** If multi-region ECMP routing is enabled, routes that are learned from different regions but have the same prefix and attributes form an ECMP route. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
+   * - **disable** (default): disables the multi-region ECMP routing feature. If you disable the multi-region ECMP routing feature, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. The region ID is sorted in alphabetical order. In this case, the latency and bandwidth consumption of the traffic may change. Make sure that you are aware of the impact before you disable the feature.
+   * 
+   * - **enable**: enables the multi-region ECMP routing feature. If you enable the multi-region ECMP routing feature, routes that are learned from different regions but have the same prefix and attributes are considered ECMP routes. In this case, the latency and bandwidth consumption of the traffic may change. Make sure that you are aware of the impact before you enable the feature.
    * 
    * @example
    * disable
@@ -38,11 +39,11 @@ export class CreateTransitRouterRouteTableRequestRouteTableOptions extends $dara
 export class CreateTransitRouterRouteTableRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with \\`aliyun\\` or \\`acs:\\`. It cannot contain \\`http\\://\\` or \\`https\\://\\`.
    * 
-   * You can specify at most 20 tag keys.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * test
@@ -50,11 +51,11 @@ export class CreateTransitRouterRouteTableRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
    * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
    * 
    * @example
    * tagtest
@@ -88,9 +89,9 @@ export class CreateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a token from your client to ensure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** of each request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -98,10 +99,11 @@ export class CreateTransitRouterRouteTableRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to precheck the request. Check items include permissions and the status of the specified cloud resources. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **false** (default): sends the request. If the request passes the precheck, the custom route table is created.
-   * *   **true**: prechecks the request but does not create the custom route table. If you use this value, the system checks the required parameters and the request syntax. If the request fails to pass the precheck, an error message is returned. If the request passes the check, the system returns the ID of the request.
+   * - **true**: performs a dry run. The system checks the request for potential issues, including required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * 
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a custom route table is created.
    * 
    * @example
    * false
@@ -118,14 +120,14 @@ export class CreateTransitRouterRouteTableRequest extends $dara.Model {
   routeTableOptions?: CreateTransitRouterRouteTableRequestRouteTableOptions;
   /**
    * @remarks
-   * The tags.
+   * The tag.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    */
   tag?: CreateTransitRouterRouteTableRequestTag[];
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router instance.
    * 
    * This parameter is required.
    * 
@@ -137,7 +139,7 @@ export class CreateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The description of the custom route table.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * testdesc
@@ -147,7 +149,7 @@ export class CreateTransitRouterRouteTableRequest extends $dara.Model {
    * @remarks
    * The name of the custom route table.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * testname

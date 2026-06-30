@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenChildInstanceRouteEntryToAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A95A100B-3F3A-56F4-A5DE-19DB7E994807

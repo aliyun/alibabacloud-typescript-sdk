@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGrantRulesToCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The ID of the CEN instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the network instance that you want to query.
+   * The ID of the network instance to query.
    * 
    * @example
    * vpc-rj9gt5nll27onu7****
@@ -23,18 +23,19 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the network instance belongs.
+   * The ID of the Alibaba Cloud account that owns the network instance.
    * 
    * @example
-   * 125012345612****
+   * 1250123456123456
    */
   childInstanceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable IPv6.
+   * Specifies whether IPv6 is enabled.
    * 
-   * 1.  This parameter takes effect only if ProductType is set to VPC.
-   * 2.  true: enables IPv6. false: disables IPv6. If you do not specify a value, network instances are not filtered based on this parameter.
+   * 1. This parameter applies only when **ProductType** is set to **VPC**.
+   * 
+   * 2. Set to **true** to return only VPCs with IPv6 enabled, or **false** to return only those with IPv6 disabled. If you omit this parameter, the response is not filtered by the IPv6 status.
    * 
    * @example
    * true
@@ -42,8 +43,9 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   enabledIpv6?: boolean;
   /**
    * @remarks
-   * *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** in the response indicates the total number of entries returned.
-   * *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
+   * - If you omit this parameter, all entries are returned. The **MaxResults** value in the response then indicates the total number of entries.
+   * 
+   * - If you set this parameter, the response is paginated. The **MaxResults** value specifies the number of entries to return on each page. Valid values: **1** to **100**. The **MaxResults** value in the response indicates the number of entries on the current page. Setting **MaxResults** to **20** is recommended.
    * 
    * @example
    * 20
@@ -51,10 +53,11 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token used to retrieve the next page of results.
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - Omit this parameter for the first request.
+   * 
+   * - Set this parameter to the **NextToken** value from the previous response to retrieve the next page of results.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -66,10 +69,15 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
-   * *   **VPN**
+   * - **VPC**: a virtual private cloud (VPC).
+   * 
+   * - **VBR**: a virtual border router (VBR).
+   * 
+   * - **CCN**: a Cloud Connect Network (CCN) instance.
+   * 
+   * - **VPN**: an IPsec-VPN connection.
+   * 
+   * - **ECR**: an Express Connect router.
    * 
    * This parameter is required.
    * 
@@ -79,9 +87,9 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region ID of the network instance.
+   * The ID of the region where the network instance is located.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [](t2264556.xdita#)operation to query region IDs.
    * 
    * @example
    * cn-hangzhou

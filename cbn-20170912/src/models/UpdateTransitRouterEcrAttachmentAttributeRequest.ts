@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that ensures the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate a token from your client, but you must ensure that it is unique across requests. The `ClientToken` can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,16 +17,20 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run to check for potential issues, including permissions and instance status. Valid values:
    * 
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, a request ID is returned.
+   * - **false** (default): Sends a normal request. The system modifies the ECR attachment attributes if the request passes the check.
+   * 
+   * - **true**: Sends a check request only. The system validates the request but does not modify the ECR attachment attributes. If the check fails, an error is returned. If the check passes, the system returns the request ID.
    * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The payer for the network instance. This operation does not support changing the payer for an ECR attachment.
+   * 
    * @example
    * PayByCenOwner
    */
@@ -37,9 +41,9 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new description of the ECR connection.
+   * The new description of the ECR attachment.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with `http://` or `https://`.
    * 
    * @example
    * desctest
@@ -47,7 +51,7 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The ID of the ECR connection.
+   * The ID of the ECR attachment.
    * 
    * This parameter is required.
    * 
@@ -57,9 +61,9 @@ export class UpdateTransitRouterEcrAttachmentAttributeRequest extends $dara.Mode
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The new name of the ECR connection.
+   * The new name of the ECR attachment.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with `http://` or `https://`.
    * 
    * @example
    * nametest

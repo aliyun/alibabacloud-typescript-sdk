@@ -23,7 +23,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
    * @remarks
    * The type of resource associated with the multicast domain.
    * 
-   * Valid value: **VPC**.
+   * The value is **VPC**.
    * 
    * @example
    * VPC
@@ -31,11 +31,13 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
   resourceType?: string;
   /**
    * @remarks
-   * The association status. Valid values:
+   * The association status.
    * 
-   * *   **Associated**: The resource is associated with the multicast domain.
-   * *   **Associating**: The resource is being associated with the multicast domain.
-   * *   **Dissociating**: The resource is being disassociated from the multicast domain.
+   * - **Associated**: The resource is associated with the multicast domain.
+   * 
+   * - **Associating**: The resource is being associated with the multicast domain.
+   * 
+   * - **Dissociating**: The resource is being dissociated from the multicast domain.
    * 
    * @example
    * Dissociating
@@ -101,7 +103,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
 export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -109,10 +111,11 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $d
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, it indicates that no subsequent query is to be sent.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, it indicates that no next query is to be sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -120,7 +123,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $d
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CD0969B-A605-5D2D-BFF0-699FD182FB7F
@@ -136,7 +139,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $d
   totalCount?: number;
   /**
    * @remarks
-   * The information about the resource associated with the multicast domain.
+   * The list of associations.
    */
   transitRouterMulticastAssociations?: ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRouterMulticastAssociations[];
   static names(): { [key: string]: string } {

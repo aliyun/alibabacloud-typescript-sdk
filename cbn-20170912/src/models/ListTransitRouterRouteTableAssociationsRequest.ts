@@ -13,10 +13,11 @@ export class ListTransitRouterRouteTableAssociationsRequest extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next query.
    * 
-   * *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+   * - You do not need to specify this parameter for the first query.
+   * 
+   * - For a subsequent query, set this parameter to the **NextToken** value returned from the previous query.
    * 
    * @example
    * a415****
@@ -28,11 +29,13 @@ export class ListTransitRouterRouteTableAssociationsRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the associated forwarding correlation. Valid values:
+   * The status of the association.
    * 
-   * *   **Active**: The associated forwarding correlation is available.
-   * *   **Associating**: The associated forwarding correlation is being created.
-   * *   **Dissociating**: The associated forwarding correlation is being deleted.
+   * - **Active**: The association is active.
+   * 
+   * - **Associating**: The association is being created.
+   * 
+   * - **Dissociating**: The association is being deleted.
    * 
    * @example
    * Active
@@ -48,7 +51,7 @@ export class ListTransitRouterRouteTableAssociationsRequest extends $dara.Model 
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop resource.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -56,12 +59,15 @@ export class ListTransitRouterRouteTableAssociationsRequest extends $dara.Model 
   transitRouterAttachmentResourceId?: string;
   /**
    * @remarks
-   * The type of next hop. Valid values:
+   * The type of the next hop resource.
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **TR**: transit router
-   * *   **VPN**: VPN attachment
+   * - **VPC**: virtual private cloud (VPC).
+   * 
+   * - **VBR**: virtual border router (VBR).
+   * 
+   * - **TR**: transit router.
+   * 
+   * - **VPN**: VPN connection.
    * 
    * @example
    * VPC

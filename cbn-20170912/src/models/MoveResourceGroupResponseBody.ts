@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1D169236-7C76-57CF-B6C8-B4CACE0BA1BB

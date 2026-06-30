@@ -65,7 +65,7 @@ export class ListGrantVSwitchesToCenResponseBodyVSwitches extends $dara.Model {
 export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A9288C78-881A-5D30-A8A9-68E05EE0A086
@@ -89,7 +89,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -97,7 +97,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of vSwitches.
+   * A list of vSwitches.
    */
   vSwitches?: ListGrantVSwitchesToCenResponseBodyVSwitches[];
   static names(): { [key: string]: string } {

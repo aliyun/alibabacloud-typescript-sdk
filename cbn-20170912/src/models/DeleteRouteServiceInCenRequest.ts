@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRouteServiceInCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the cloud service is accessed.
+   * The region ID from which the Alibaba Cloud service is accessed.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteRouteServiceInCenRequest extends $dara.Model {
   accessRegionId?: string;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteRouteServiceInCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks of the cloud service.
+   * The IP address or CIDR block of the Alibaba Cloud service.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class DeleteRouteServiceInCenRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The region ID of the cloud service.
+   * The region ID of the Alibaba Cloud service.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DeleteRouteServiceInCenRequest extends $dara.Model {
   hostRegionId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) that is associated with the cloud service.
+   * The ID of the VPC that is associated with the Alibaba Cloud service.
    * 
    * @example
    * vpc-bp1t36rn9l53iwbsf****

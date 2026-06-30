@@ -29,7 +29,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
    * 
    * @example
    * 02fb3da4****
@@ -39,7 +39,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
    * @remarks
    * The description of the cloud service.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * descname

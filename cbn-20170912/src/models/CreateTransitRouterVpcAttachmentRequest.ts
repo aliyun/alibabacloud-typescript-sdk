@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTransitRouterVpcAttachmentRequestOptions extends $dara.Model {
+  /**
+   * @example
+   * enable
+   */
   applianceModeSupport?: string;
+  /**
+   * @example
+   * enable
+   */
   ipv6Support?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,11 +39,9 @@ export class CreateTransitRouterVpcAttachmentRequestOptions extends $dara.Model 
 export class CreateTransitRouterVpcAttachmentRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
-   * 
-   * You can specify at most 20 tag keys.
+   * The tag key cannot be an empty string. The key can be up to 64 characters long and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * tagtest
@@ -43,11 +49,9 @@ export class CreateTransitRouterVpcAttachmentRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
-   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * The tag value can be an empty string or a string up to 128 characters long. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * tagtest
@@ -79,9 +83,7 @@ export class CreateTransitRouterVpcAttachmentRequestTag extends $dara.Model {
 export class CreateTransitRouterVpcAttachmentRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * A vSwitch that is deployed in the zone that supports Enterprise Edition transit routers.
-   * 
-   * You can specify vSwitches for at most 10 zones in each call.
+   * The ID of the vSwitch.
    * 
    * This parameter is required.
    * 
@@ -91,11 +93,9 @@ export class CreateTransitRouterVpcAttachmentRequestZoneMappings extends $dara.M
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone that supports Enterprise Edition transit routers.
+   * The ID of the zone. The zone must be supported by the Enterprise Edition transit router.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
-   * 
-   * You can specify at most 10 zones in each call.
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query available zones.
    * 
    * This parameter is required.
    * 
@@ -129,10 +129,11 @@ export class CreateTransitRouterVpcAttachmentRequestZoneMappings extends $dara.M
 export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to VPCs. Valid values:
+   * Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to the VPC.
    * 
-   * *   **false:** (default)
-   * *   **true**
+   * - **false** (default): Do not automatically advertise routes.
+   * 
+   * - **true**: Automatically advertise routes.
    * 
    * @example
    * true
@@ -140,7 +141,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -148,7 +149,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The billing method. The default value is **POSTPAY**, which specifies the pay-as-you-go billing method.
+   * The billing method. The default value is **POSTPAY** (pay-as-you-go).
    * 
    * @example
    * POSTPAY
@@ -156,11 +157,11 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure request idempotency.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You must generate a value on your client that is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token, which is unique for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -168,10 +169,11 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run to check the validity of the request without creating the resource. The check includes permissions and instance status. Valid values:
    * 
-   * *   **false** (default): performs a dry run and sends the request.
-   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request. The system creates the VPC connection if the request is valid.
+   * 
+   * - **true**: Sends only a check request. The system checks required parameters, request format, and permissions. The VPC connection is not created. If the check fails, an error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false
@@ -182,9 +184,9 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the VPC is deployed.
+   * The ID of the region where the VPC is located.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -194,16 +196,16 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The information about the tags.
+   * The tags to add to the VPC connection.
    * 
-   * You can specify at most 20 tags in each call.
+   * You can add up to 20 tags.
    */
   tag?: CreateTransitRouterVpcAttachmentRequestTag[];
   /**
    * @remarks
    * The description of the VPC connection.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters long, and cannot start with `http://` or `https://`.
    * 
    * @example
    * testname
@@ -213,7 +215,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
    * @remarks
    * The name of the VPC connection.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters long, and cannot start with `http://` or `https://`.
    * 
    * @example
    * testname
@@ -229,12 +231,12 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * Feature configurations of the VPC connection.
+   * The properties of the VPC connection. This parameter is deprecated. We recommend that you use the `Options` parameter instead.
    */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -244,9 +246,9 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs. The default value is the ID of the current Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account that owns the VPC. By default, this is the ID of the current Alibaba Cloud account.
    * 
-   * > If the network instance and CEN instance belong to different Alibaba Cloud accounts, this parameter is required.
+   * > This parameter is required if you want to attach a cross-account network instance.
    * 
    * @example
    * 1250123456123456
@@ -254,9 +256,9 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   vpcOwnerId?: number;
   /**
    * @remarks
-   * A zone that supports Enterprise Edition transit routers.
+   * The zone mappings for the VPC connection. For each mapping, you must specify a vSwitch in a zone that is supported by the Enterprise Edition transit router.
    * 
-   * You can specify at most 10 zones.
+   * You can specify up to 10 zone mappings.
    * 
    * This parameter is required.
    */

@@ -139,7 +139,7 @@ export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries exte
 export class DescribePublishedRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -147,7 +147,7 @@ export class DescribePublishedRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -156,7 +156,7 @@ export class DescribePublishedRouteEntriesResponseBody extends $dara.Model {
   publishedRouteEntries?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FF1A7B2A-677F-4F71-96EA-6002B329F437

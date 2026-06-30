@@ -66,7 +66,7 @@ export class DescribeRouteConflictResponseBodyRouteConflicts extends $dara.Model
 export class DescribeRouteConflictResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class DescribeRouteConflictResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class DescribeRouteConflictResponseBody extends $dara.Model {
   routeConflicts?: DescribeRouteConflictResponseBodyRouteConflicts;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

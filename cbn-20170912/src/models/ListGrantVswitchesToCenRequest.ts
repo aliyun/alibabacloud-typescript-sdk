@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The ID of the CEN instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * Specifies whether to enable IPv6. true: enables IPv6. false: disables IPv6. If you do not specify a value, vSwitches are not filtered based on this attribute.
+   * Specifies whether IPv6 is enabled. Valid values: true and false. If you do not specify this parameter, the query is not filtered by this property.
    * 
    * @example
    * true
@@ -25,7 +25,7 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -41,9 +41,9 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region where the VPC is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -65,12 +65,13 @@ export class ListGrantVSwitchesToCenRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
-   * *   If you specify a zone ID, the system queries the information about the vSwitches in the specified zone.
-   * *   If you do not specify a zone ID, the system queries the information about the vSwitches in all zones.
+   * - If you specify a zone ID, only the vSwitches in that zone are queried.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * - If you do not specify a zone ID, the vSwitches in all zones of the VPC are queried by default.
+   * 
+   * Call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
    * 
    * @example
    * cn-hangzhou-h

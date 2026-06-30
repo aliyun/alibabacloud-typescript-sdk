@@ -47,7 +47,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The zone ID.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * For more information, see [DescribeZones](https://help.aliyun.com/document_detail/36064.html).
    * 
    * @example
    * cn-hangzhou-h
@@ -77,10 +77,11 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates the transit router can automatically advertise routes to the IPsec connection. Valid values:
+   * Indicates whether the transit router automatically advertises routes to the IPsec-VPN connection. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -88,7 +89,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -96,9 +97,9 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   cenId?: string;
   /**
    * @remarks
-   * The billing method of the VPN attachment.
+   * The billing method of the VPN connection.
    * 
-   * Only POSTPAY may be returned, which is the default pay-as-you-go billing method.
+   * The value is set to POSTPAY, which indicates the pay-as-you-go billing method.
    * 
    * @example
    * POSTPAY
@@ -108,7 +109,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The time when the VPN connection was created.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-07-08T08:45Z
@@ -116,10 +117,11 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   creationTime?: string;
   /**
    * @remarks
-   * The entity that pays the fees of the network instance. Valid values:
+   * The party that pays for the network instance. Valid values:
    * 
-   * *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-   * *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+   * - **PayByCenOwner**: The fees for the network instance are paid by the account that owns the CEN instance.
+   * 
+   * - **PayByResourceOwner**: The fees for the network instance are paid by the account that owns the network instance.
    * 
    * @example
    * PayByCenOwner
@@ -127,9 +129,9 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   orderType?: string;
   /**
    * @remarks
-   * The type of resource attached to the transit router.
+   * The resource type of the VPN connection.
    * 
-   * Only **VPN** may be returned, which indicates that an IPsec-VPN connection is attached to the transit router.
+   * The value is set to **VPN**, which indicates that the transit router is connected to an IPsec-VPN connection.
    * 
    * @example
    * VPN
@@ -137,11 +139,13 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   resourceType?: string;
   /**
    * @remarks
-   * The status of the VPN connection. Valid values:
+   * The status of the VPN connection.
    * 
-   * *   **Attached**
-   * *   **Attaching**
-   * *   **Detaching**
+   * - **Attached**: The VPN connection is attached.
+   * 
+   * - **Attaching**: The VPN connection is being attached.
+   * 
+   * - **Detaching**: The VPN connection is being detached.
    * 
    * @example
    * Attached
@@ -154,7 +158,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   tags?: ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
    * @remarks
-   * The description of the IPsec-VPN connection.
+   * The description of the VPN connection.
    * 
    * @example
    * desctest
@@ -162,7 +166,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The ID of the VPN attachment.
+   * The ID of the VPN connection.
    * 
    * @example
    * tr-attach-a6p8voaodog5c0****
@@ -170,7 +174,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The name of the VPN attachment.
+   * The name of the VPN connection.
    * 
    * @example
    * nametest
@@ -202,9 +206,9 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   vpnOwnerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the IPsec-VPN connection belongs.
+   * The ID of the region where the IPsec-VPN connection is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/36063.html).
    * 
    * @example
    * cn-hangzhou
@@ -212,7 +216,7 @@ export class ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments
   vpnRegionId?: string;
   /**
    * @remarks
-   * The zones in which the VPN attachment is deployed.
+   * A list of zones where the VPN connection is deployed.
    */
   zones?: ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachmentsZones[];
   static names(): { [key: string]: string } {
@@ -283,10 +287,11 @@ export class ListTransitRouterVpnAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If **NextToken** is not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, it indicates that no next query is to be sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -294,7 +299,7 @@ export class ListTransitRouterVpnAttachmentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3D5530D2-3BBB-524E-8E98-59AB06A250E4
@@ -302,7 +307,7 @@ export class ListTransitRouterVpnAttachmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -310,7 +315,7 @@ export class ListTransitRouterVpnAttachmentsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the VPN attachment.
+   * A list of VPN connections.
    */
   transitRouterAttachments?: ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachments[];
   static names(): { [key: string]: string } {

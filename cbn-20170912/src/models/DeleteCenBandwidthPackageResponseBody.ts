@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCenBandwidthPackageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C0245BEF-52AC-44A8-A776-EF96FD26A5CA
    */

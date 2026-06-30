@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules extends $dara.Model {
   /**
    * @remarks
-   * The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+   * The address type. Valid values are IPv4, IPv6, or empty.
    * 
    * @example
    * IPv4
@@ -13,7 +13,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
+   * The destination CIDR block of the traffic message. IPv4 and IPv6 addresses are supported.
    * 
    * @example
    * 192.168.120.0/24
@@ -21,14 +21,14 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   dstCidr?: string;
   /**
    * @remarks
-   * The destination port range used to match data packets.
+   * The destination port range to be matched by the traffic classification rule.
    */
   dstPortRange?: number[];
   /**
    * @remarks
-   * The DSCP value used to match data packets.
+   * The DSCP value of the traffic message.
    * 
-   * >  If the value of the **MatchDscp** parameter is -1, data packets are considered a match regardless of the DSCP value.
+   * > If **MatchDscp** returns -1, it indicates that all DSCP values are matched.
    * 
    * @example
    * 6
@@ -36,9 +36,9 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   matchDscp?: number;
   /**
    * @remarks
-   * The protocol that is used to match packets.
+   * The protocol type of the traffic message.
    * 
-   * >  Traffic marking policies support multiple protocols. For more information, see the documentation of CEN.
+   * > A traffic marking policy supports matching multiple protocol types. For more information about the protocol types, see the relevant documentation.
    * 
    * @example
    * HTTP
@@ -46,7 +46,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
+   * The source CIDR block of the traffic message. IPv6 and IPv4 addresses are supported.
    * 
    * @example
    * 192.168.10.0/24
@@ -54,7 +54,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   srcCidr?: string;
   /**
    * @remarks
-   * The source port range used to match data packets.
+   * The source port range to be matched by the traffic classification rule.
    */
   srcPortRange?: number[];
   /**
@@ -83,11 +83,13 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   trafficMatchRuleName?: string;
   /**
    * @remarks
-   * The status of the traffic classification rule. Valid values:
+   * The status of the traffic classification rule.
    * 
-   * *   **Creating**: The rule is being created.
-   * *   **Active**: The rule is available.
-   * *   **Deleting**: The rule is being deleted.
+   * - **Creating**: The rule is being created.
+   * 
+   * - **Active**: The rule is available.
+   * 
+   * - **Deleting**: The rule is being deleted.
    * 
    * @example
    * Creating
@@ -143,7 +145,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
 export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies extends $dara.Model {
   /**
    * @remarks
-   * The Differentiated Service Code Point (DSCP) value of the traffic marking policy.
+   * The Differentiated Services Code Point (DSCP) value of the traffic marking policy.
    * 
    * @example
    * 5
@@ -153,7 +155,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies extend
    * @remarks
    * The priority of the traffic marking policy.
    * 
-   * A lower value indicates a higher priority.
+   * A smaller value indicates a higher priority.
    * 
    * @example
    * 5
@@ -185,12 +187,15 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies extend
   trafficMarkingPolicyName?: string;
   /**
    * @remarks
-   * The status of the traffic marking policy. Valid values:
+   * The status of the traffic marking policy.
    * 
-   * *   **Creating**: The policy is being created.
-   * *   **Active**: The policy is available.
-   * *   **Modifying**: The policy is being modified.
-   * *   **Deleting**: The policy is being deleted.
+   * - **Creating**: The policy is being created.
+   * 
+   * - **Active**: The policy is available.
+   * 
+   * - **Modifying**: The policy is being modified.
+   * 
+   * - **Deleting**: The policy is being deleted.
    * 
    * @example
    * Creating
@@ -198,12 +203,12 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies extend
   trafficMarkingPolicyStatus?: string;
   /**
    * @remarks
-   * The traffic classification rules.
+   * The list of traffic classification rules.
    */
   trafficMatchRules?: ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules[];
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the TransitRouter instance.
    * 
    * @example
    * tr-ccni***
@@ -250,7 +255,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies extend
 export class ListTrafficMarkingPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -258,10 +263,11 @@ export class ListTrafficMarkingPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * The token that is used for the next query.
    * 
-   * *   If **NextToken** was not returned in the previous query, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, no next query is to be sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -269,7 +275,7 @@ export class ListTrafficMarkingPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 699989E4-64A0-5F78-8B93-CDB32D98971F
@@ -285,7 +291,7 @@ export class ListTrafficMarkingPoliciesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the traffic marking policy.
+   * The list of traffic marking policies.
    */
   trafficMarkingPolicies?: ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies[];
   static names(): { [key: string]: string } {

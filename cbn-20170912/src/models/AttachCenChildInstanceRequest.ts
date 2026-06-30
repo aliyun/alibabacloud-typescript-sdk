@@ -49,9 +49,9 @@ export class AttachCenChildInstanceRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: VPC
-   * *   **VBR**: VBR
-   * *   **CCN**: CCN instance
+   * - **VPC**: VPC
+   * - **VBR**: VBR
+   * - **CCN**: CCN instance
    * 
    * This parameter is required.
    * 

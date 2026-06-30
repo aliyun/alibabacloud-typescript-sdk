@@ -21,7 +21,7 @@ export class CreateCenBandwidthPackageResponseBody extends $dara.Model {
   cenBandwidthPackageOrderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4B345CD-2CBA-4881-AF6D-E5D9BAE1CA7B

@@ -166,7 +166,7 @@ export class DescribeCensResponseBody extends $dara.Model {
   cens?: DescribeCensResponseBodyCens;
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number of the returned page.
    * 
    * @example
    * 1

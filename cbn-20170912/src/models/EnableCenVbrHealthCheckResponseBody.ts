@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableCenVbrHealthCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1F59F19C-EFD2-40B1-94D5-65B40CA8E34A

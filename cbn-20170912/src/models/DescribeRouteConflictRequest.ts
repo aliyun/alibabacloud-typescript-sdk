@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouteConflictRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network instance that you want to query.
+   * The ID of the network instance to query.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the network instance is deployed.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the route table that is configured on the network instance.
+   * The ID of the route table of the network instance.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,11 @@ export class DescribeRouteConflictRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VBR**: virtual border router (VBR)
-   * *   **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * This parameter is required.
    * 
@@ -61,7 +63,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1

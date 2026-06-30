@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchEnisRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance to which the VPC is attached.
+   * The ID of the CEN instance to which the VPC is connected.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,13 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 10 to 500.
+   * The maximum number of entries to return on each page. Valid values: 10 to 500.
    * 
    * Default value:
    * 
-   * *   If you do not specify a value, the default value is 20.
-   * *   If this parameter is set to a value greater than 500, the default value is 500.
+   * - If you do not specify this parameter, the default value is 20.
+   * 
+   * - If you specify a value greater than 500, the default value is 500.
    * 
    * @example
    * 20
@@ -28,7 +29,7 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of ENI N. Valid values of N: 1 to 100.
+   * The ID of the ENI.
    */
   networkInterfaceId?: string[];
   /**
@@ -41,7 +42,11 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used for the next query. Valid values:
+   * 
+   * - If this is your first query, you do not need to specify this parameter.
+   * 
+   * - If a next query is to be sent, set the value to the NextToken value that was returned from the last call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -54,14 +59,16 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
    * The primary private IPv4 address of the ENI.
    * 
    * @example
-   * 192.168.XX.XX
+   * ``192.168.**.**``
    */
   primaryIpAddress?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of a vSwitch in the VPC. You can specify only one vSwitch in each call.
+   * The ID of a vSwitch in the VPC.
+   * 
+   * You can query information about the ENIs in only one vSwitch at a time.
    * 
    * This parameter is required.
    * 

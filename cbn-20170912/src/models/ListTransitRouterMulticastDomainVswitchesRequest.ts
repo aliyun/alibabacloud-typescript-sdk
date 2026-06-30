@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterMulticastDomainVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Cloud Enterprise Network instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,20 @@ export class ListTransitRouterMulticastDomainVSwitchesRequest extends $dara.Mode
    */
   cenId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. Minimum value: **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query. Valid values:
+   * 
+   * - You do not need to specify this parameter for the first query or if there is no next query.
+   * - If there is a next query, set the value to the **NextToken** value that is returned from the previous API call.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
@@ -25,9 +36,15 @@ export class ListTransitRouterMulticastDomainVSwitchesRequest extends $dara.Mode
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The list of vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
    * @remarks
+   * The ID of the VPC instance.
+   * 
    * This parameter is required.
    * 
    * @example

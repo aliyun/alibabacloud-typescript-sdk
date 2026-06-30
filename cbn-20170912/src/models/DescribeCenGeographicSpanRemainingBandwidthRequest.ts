@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance to which the bandwidth plan is associated.
+   * The ID of the Cloud Enterprise Network (CEN) instance to which the bandwidth plan is attached.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,15 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $dara.Mo
   cenId?: string;
   /**
    * @remarks
-   * The ID of one of the connected areas of the bandwidth plan. Valid values:
+   * The ID of a connected area of the bandwidth plan. Valid values:
    * 
-   * *   **China**: Chinese mainland
-   * *   **North-America**: North America
-   * *   **Asia-Pacific**: Asia Pacific
-   * *   **Europe**: Europe
+   * - **China**: the Chinese mainland.
+   * 
+   * - **North-America**: North America.
+   * 
+   * - **Asia-Pacific**: Asia Pacific.
+   * 
+   * - **Europe**: Europe.
    * 
    * This parameter is required.
    * 
@@ -30,12 +33,15 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $dara.Mo
   geographicRegionAId?: string;
   /**
    * @remarks
-   * The ID of the other area connected by the bandwidth plan. Valid values:
+   * The ID of the other connected area of the bandwidth plan. Valid values:
    * 
-   * *   **China**: Chinese mainland
-   * *   **North-America**: North America
-   * *   **Asia-Pacific**: Asia Pacific
-   * *   **Europe**: Europe
+   * - **China**: the Chinese mainland.
+   * 
+   * - **North-America**: North America.
+   * 
+   * - **Asia-Pacific**: Asia Pacific.
+   * 
+   * - **Europe**: Europe.
    * 
    * This parameter is required.
    * 
@@ -47,7 +53,7 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $dara.Mo
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -55,7 +61,7 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page. The default value is **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

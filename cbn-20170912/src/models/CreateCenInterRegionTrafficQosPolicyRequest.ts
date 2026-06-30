@@ -11,7 +11,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * 
    * For example, a value of 1 specifies that the queue can consume 1 Mbit/s of the inter-region bandwidth.
    * 
-   * >  The sum of the absolute bandwidth values of all the queues in a QoS policy cannot exceed the total bandwidth of the inter-region connection.
+   * > The sum of the absolute bandwidth values of all the queues in a QoS policy cannot exceed the total bandwidth of the inter-region connection.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * 
    * Each QoS policy supports at most 10 queues. You can specify a description for each queue.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -42,7 +42,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * 
    * Each QoS policy supports at most three queues. You can specify a name for each queue.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest
@@ -56,7 +56,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
    * 
    * For example, a value of **1** specifies that the queue can consume 1% of the inter-region bandwidth.
    * 
-   * >  The sum of the percentage values of all the queues in a QoS policy cannot exceed 100%.
+   * > The sum of the percentage values of all the queues in a QoS policy cannot exceed 100%.
    * 
    * @example
    * 1
@@ -99,8 +99,9 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
    * @remarks
    * The allocation mode of the guaranteed bandwidth. You can specify an absolute bandwidth value or a bandwidth percentage. Valid values:
    * 
-   * *   **byBandwidth**: allocates an absolute bandwidth value for the QoS queue.
-   * *   **byBandwidthPercent** (default): allocates a bandwidth percentage for the OoS queue.
+   * - **byBandwidth**: allocates an absolute bandwidth value for the QoS queue.
+   * 
+   * - **byBandwidthPercent** (default): allocates a bandwidth percentage for the OoS queue.
    * 
    * @example
    * byBandwidthPercent
@@ -121,8 +122,9 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
    * @remarks
    * Specifies whether only to precheck the API request. Valid values:
    * 
-   * *   **true**: prechecks the request but does not create the QoS policy. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false**: sends the API request. If the request passes the precheck, the QoS policy is created. This is the default value.
+   * - **true**: prechecks the request but does not create the QoS policy. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * 
+   * - **false**: sends the API request. If the request passes the precheck, the QoS policy is created. This is the default value.
    * 
    * @example
    * false
@@ -136,7 +138,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
    * @remarks
    * The description of the QoS policy.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -146,7 +148,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
    * @remarks
    * The name of the QoS policy.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest

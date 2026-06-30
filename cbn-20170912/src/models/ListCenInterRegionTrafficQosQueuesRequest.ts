@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter extends $dara.Model {
   /**
    * @remarks
-   * The actual bandwidth is equal to or larger than the specified value.
+   * The actual bandwidth is greater than or equal to the specified value.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
   gte?: number;
   /**
    * @remarks
-   * The actual bandwidth is equal to or smaller than the specified value.
+   * The actual bandwidth is less than or equal to the specified value.
    * 
    * @example
    * 20
@@ -45,12 +45,12 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
 export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter works based on the actual bandwidth. Enter a positive integer. Unit: Mbit/s.
+   * Filters the results by the actual bandwidth. Only positive integers are supported. Unit: Mbit/s.
    */
   effectiveBandwidthFilter?: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -58,10 +58,11 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * A pagination token. It is used in the next request to retrieve a new page of results.
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no more results are returned.
+   * 
+   * - If NextToken is not empty, the value of **NextToken** is used for the next query.
    * 
    * @example
    * 2ca1ed1573cb****
@@ -81,9 +82,9 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosPolicyId?: string;
   /**
    * @remarks
-   * The description of the QoS queue.
+   * The description of the queue in the QoS policy.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * qosQueueDescription
@@ -91,7 +92,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosQueueDescription?: string;
   /**
    * @remarks
-   * The ID of the queue.
+   * The ID of the queue in the QoS policy.
    * 
    * @example
    * qos-queue-siakjb2nn9gz5z****
@@ -99,9 +100,9 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosQueueId?: string;
   /**
    * @remarks
-   * The name of the QoS queue.
+   * The name of the queue in the QoS policy.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * qosQueueName

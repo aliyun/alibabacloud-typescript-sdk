@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowlogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
@@ -13,10 +13,10 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**
+   * - **false**
    * 
    * @example
    * true

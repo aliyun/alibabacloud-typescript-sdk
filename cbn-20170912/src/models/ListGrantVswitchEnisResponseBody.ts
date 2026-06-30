@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Model {
   /**
    * @remarks
-   * The ENI description.
+   * The description of the ENI.
    * 
    * @example
    * created by CBN
@@ -13,7 +13,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The ENI ID.
+   * The ID of the ENI.
    * 
    * @example
    * eni-p0w172vv82kxzb49****
@@ -21,7 +21,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ENI name.
+   * The name of the ENI.
    * 
    * @example
    * my-eni-name
@@ -32,17 +32,18 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
    * The primary private IPv4 address of the ENI.
    * 
    * @example
-   * 192.168.XX.XX
+   * ``192.168.**.**``
    */
   primaryIpAddress?: string;
   /**
    * @remarks
-   * Indicates whether the ENI is created by a transit router. Valid values:
+   * Indicates whether the ENI is created by a transit router.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The ENI is created by a transit router.
    * 
-   * ENIs that are created by transit routers cannot be used as multicast sources or members.
+   * - **false**: The ENI is not created by a transit router.
+   * 
+   * ENIs created by transit routers cannot be used as multicast sources or members.
    * 
    * @example
    * false
@@ -50,7 +51,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   transitRouterFlag?: boolean;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-p0w9s2ig1jnwgrbzl****
@@ -58,7 +59,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-p0w9alkte4w2htrqe****
@@ -100,12 +101,12 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
 export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the ENI.
+   * A list of ENI information.
    */
   grantVSwitchEnis?: ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The maximum number of entries returned.
    * 
    * @example
    * 20
@@ -113,7 +114,7 @@ export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token that is used for the next query.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -121,7 +122,7 @@ export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DBFE1736-2F33-5309-9954-875B11E9519D
@@ -129,9 +130,11 @@ export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
-   * > If MaxResults and NextToken are sued to query results by page, ignore this parameter.
+   * >Notice: 
+   * 
+   * This parameter is invalid if you use MaxResults and NextToken to perform a paged query.
    * 
    * @example
    * 6

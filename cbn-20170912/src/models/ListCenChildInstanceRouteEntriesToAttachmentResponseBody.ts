@@ -13,7 +13,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   cenId?: string;
   /**
    * @remarks
-   * The ID of the route table configured on the network instance.
+   * The ID of the route table of the network instance.
    * 
    * @example
    * vtb-bp1tlaj1c4nxr2t3e****
@@ -29,7 +29,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Indicates whether the route is hosted. If the parameter is empty, the route is not hosted. A value of TR indicates that the route is hosted on a transit router.
+   * The type of the managed routing service. If this parameter is empty, the route is not managed. The value TR indicates that the route is managed by a transit router.
    * 
    * @example
    * TR
@@ -39,9 +39,11 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
    * @remarks
    * The status of the route. Valid values:
    * 
-   * *   **Available**: The route is available.
-   * *   **Pending**: The route is being configured.
-   * *   **Modifying**: the route is being modified.
+   * - **Available**: The route is active.
+   * 
+   * - **Pending**: The route is being configured.
+   * 
+   * - **Modifying**: The route is being modified.
    * 
    * @example
    * Available
@@ -89,10 +91,11 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
 export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token that is used for the next query.
    * 
-   * *   If **NextToken** is not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * - If **NextToken** is empty, no subsequent query is sent.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -100,7 +103,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $d
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The request ID.
    * 
    * @example
    * 530BC816-F575-412A-AAB2-435125D26328
@@ -108,7 +111,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $d
   requestId?: string;
   /**
    * @remarks
-   * The detailed information about the route.
+   * The details of the route.
    */
   routeEntry?: ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry[];
   static names(): { [key: string]: string } {

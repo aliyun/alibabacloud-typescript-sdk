@@ -8,6 +8,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * The maximum absolute bandwidth value that can be allocated to the queue. Unit: Mbit/s.
    * 
    * - The value specifies an absolute bandwidth. For example, a value of 20 specifies that the queue can consume at most 20 Mbit/s of bandwidth.
+   * 
    * - The sum of the bandwidth values specified for all queues that belong to the same inter-region connection cannot exceed the maximum bandwidth of the inter-region connection.
    * 
    * @example
@@ -31,6 +32,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * Specifies whether to perform a dry run. Valid values:
    * 
    * - **true**: performs a dry run. The system checks the required parameters, the request format, and the service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
    * - **false** (default): performs a dry run and sends the request.
    * 
    * @example
@@ -52,7 +54,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The description of the queue.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * desctest
@@ -62,7 +64,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The name of the queue.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * @example
    * nametest
@@ -73,6 +75,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * The maximum percentage of inter-region bandwidth that can be allocated to the queue.
    * 
    * - Unit: percentage. For example, a value of 20 specifies that the queue can consume at most 20% of inter-region bandwidth.
+   * 
    * - The sum of the percentage values specified for all queues that belong to the same inter-region connection cannot exceed 100%.
    * 
    * @example
