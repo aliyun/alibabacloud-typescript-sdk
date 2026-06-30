@@ -1522,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改组织成员角色
+   * Modifies the roles of organization members.
    * 
    * @param request - UpdateOrganizationMemberRequest
    * @param headers - map
@@ -1559,7 +1559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改组织成员角色
+   * Modifies the roles of organization members.
    * 
    * @param request - UpdateOrganizationMemberRequest
    * @returns UpdateOrganizationMemberResponse

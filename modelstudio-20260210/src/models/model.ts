@@ -1,11 +1,13 @@
 export { AddOrganizationMemberResponseBodyData } from './AddOrganizationMemberResponseBody';
 export { BatchRevokeSeatsRequestItems } from './BatchRevokeSeatsRequest';
+export { CreateApiKeyRequestAuthModelAccessScope } from './CreateApiKeyRequest';
 export { CreateApiKeyRequestAuth } from './CreateApiKeyRequest';
 export { CreateApiKeyResponseBodyApiKey } from './CreateApiKeyResponseBody';
 export { CreateTokenPlanInviteLinkResponseBodyData } from './CreateTokenPlanInviteLinkResponseBody';
 export { CreateTokenPlanKeyResponseBodyData } from './CreateTokenPlanKeyResponseBody';
 export { CreateWorkspaceResponseBodyWorkspace } from './CreateWorkspaceResponseBody';
 export { DeleteWorkspaceResponseBodyFailReasons } from './DeleteWorkspaceResponseBody';
+export { GetApiKeyResponseBodyApiKeyAuthModelAccessScope } from './GetApiKeyResponseBody';
 export { GetApiKeyResponseBodyApiKeyAuth } from './GetApiKeyResponseBody';
 export { GetApiKeyResponseBodyApiKey } from './GetApiKeyResponseBody';
 export { GetOrganizationResponseBodyData } from './GetOrganizationResponseBody';
@@ -19,6 +21,7 @@ export { GetTokenPlanAccountDetailResponseBodyDataOrgMemberships } from './GetTo
 export { GetTokenPlanAccountDetailResponseBodyData } from './GetTokenPlanAccountDetailResponseBody';
 export { GetTokenPlanInviteLinkResponseBodyData } from './GetTokenPlanInviteLinkResponseBody';
 export { GetTokenPlanOrgInviteConfigResponseBodyData } from './GetTokenPlanOrgInviteConfigResponseBody';
+export { ListApiKeysResponseBodyApiKeysAuthModelAccessScope } from './ListApiKeysResponseBody';
 export { ListApiKeysResponseBodyApiKeysAuth } from './ListApiKeysResponseBody';
 export { ListApiKeysResponseBodyApiKeys } from './ListApiKeysResponseBody';
 export { ListOrganizationMembersResponseBodyData } from './ListOrganizationMembersResponseBody';
@@ -28,6 +31,7 @@ export { ListSubscriptionSharedPackagesResponseBodyData } from './ListSubscripti
 export { ListWorkspacesResponseBodyWorkspaces } from './ListWorkspacesResponseBody';
 export { ResetApiKeyResponseBodyApiKey } from './ResetApiKeyResponseBody';
 export { RotateTokenPlanKeyResponseBodyData } from './RotateTokenPlanKeyResponseBody';
+export { UpdateApiKeyRequestAuthModelAccessScope } from './UpdateApiKeyRequest';
 export { UpdateApiKeyRequestAuth } from './UpdateApiKeyRequest';
 export { UpdateOrganizationResponseBodyData } from './UpdateOrganizationResponseBody';
 export { AddOrganizationMemberRequest } from './AddOrganizationMemberRequest';

@@ -2,12 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListApiKeysResponseBodyApiKeysAuthModelAccessScope extends $dara.Model {
+  accessibleModels?: string[];
+  allowAllModels?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessibleModels: 'accessibleModels',
+      allowAllModels: 'allowAllModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibleModels: { 'type': 'array', 'itemType': 'string' },
+      allowAllModels: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accessibleModels)) {
+      $dara.Model.validateArray(this.accessibleModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   /**
    * @remarks
    * The IP address whitelist.
    */
   accessIps?: string[];
+  modelAccessScope?: ListApiKeysResponseBodyApiKeysAuthModelAccessScope;
   /**
    * @remarks
    * All: all permissions. Custom: custom permissions.
@@ -19,6 +49,7 @@ export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessIps: 'accessIps',
+      modelAccessScope: 'modelAccessScope',
       type: 'type',
     };
   }
@@ -26,6 +57,7 @@ export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessIps: { 'type': 'array', 'itemType': 'string' },
+      modelAccessScope: ListApiKeysResponseBodyApiKeysAuthModelAccessScope,
       type: 'string',
     };
   }
@@ -33,6 +65,9 @@ export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   validate() {
     if(Array.isArray(this.accessIps)) {
       $dara.Model.validateArray(this.accessIps);
+    }
+    if(this.modelAccessScope && typeof (this.modelAccessScope as any).validate === 'function') {
+      (this.modelAccessScope as any).validate();
     }
     super.validate();
   }

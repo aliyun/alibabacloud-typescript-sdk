@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateApiKeyRequestAuthModelAccessScope extends $dara.Model {
+  accessibleModels?: string[];
+  allowAllModels?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessibleModels: 'accessibleModels',
+      allowAllModels: 'allowAllModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibleModels: { 'type': 'array', 'itemType': 'string' },
+      allowAllModels: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accessibleModels)) {
+      $dara.Model.validateArray(this.accessibleModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApiKeyRequestAuth extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +40,7 @@ export class CreateApiKeyRequestAuth extends $dara.Model {
    * > - When you use custom permissions, if you do not specify the IP address whitelist, the server sets it to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
    */
   accessIps?: string[];
+  modelAccessScope?: CreateApiKeyRequestAuthModelAccessScope;
   /**
    * @remarks
    * Valid values:
@@ -24,6 +54,7 @@ export class CreateApiKeyRequestAuth extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessIps: 'accessIps',
+      modelAccessScope: 'modelAccessScope',
       type: 'type',
     };
   }
@@ -31,6 +62,7 @@ export class CreateApiKeyRequestAuth extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessIps: { 'type': 'array', 'itemType': 'string' },
+      modelAccessScope: CreateApiKeyRequestAuthModelAccessScope,
       type: 'string',
     };
   }
@@ -38,6 +70,9 @@ export class CreateApiKeyRequestAuth extends $dara.Model {
   validate() {
     if(Array.isArray(this.accessIps)) {
       $dara.Model.validateArray(this.accessIps);
+    }
+    if(this.modelAccessScope && typeof (this.modelAccessScope as any).validate === 'function') {
+      (this.modelAccessScope as any).validate();
     }
     super.validate();
   }
