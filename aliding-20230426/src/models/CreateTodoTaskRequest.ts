@@ -104,17 +104,11 @@ export class CreateTodoTaskRequestActionList extends $dara.Model {
 
 export class CreateTodoTaskRequestContentFieldList extends $dara.Model {
   /**
-   * @remarks
-   * fieldKey
-   * 
    * @example
    * fieldKey
    */
   fieldKey?: string;
   /**
-   * @remarks
-   * fieldValue
-   * 
    * @example
    * fieldValue
    */
@@ -278,10 +272,6 @@ export class CreateTodoTaskRequest extends $dara.Model {
    */
   isOnlyShowExecutor?: boolean;
   notifyConfigs?: CreateTodoTaskRequestNotifyConfigs;
-  /**
-   * @example
-   * 12345
-   */
   operatorId?: string;
   participantIds?: string[];
   /**

@@ -30,21 +30,9 @@ export class UpdateConvExtensionRequestTenantContext extends $dara.Model {
 }
 
 export class UpdateConvExtensionRequest extends $dara.Model {
-  /**
-   * @example
-   * https://xxx
-   */
   mobileUrl?: string;
-  /**
-   * @example
-   * https://xxx
-   */
   pcUrl?: string;
   staffIdList?: string[];
-  /**
-   * @example
-   * 546374856
-   */
   systemUid?: string;
   tenantContext?: UpdateConvExtensionRequestTenantContext;
   static names(): { [key: string]: string } {

@@ -3,20 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StatisticsListByTypeReportResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   hasMore?: boolean;
-  /**
-   * @example
-   * 12312131231
-   */
   nextCursor?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

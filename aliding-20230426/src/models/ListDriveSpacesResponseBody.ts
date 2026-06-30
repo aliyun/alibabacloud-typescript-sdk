@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDriveSpacesResponseBodySpaces extends $dara.Model {
-  /**
-   * @example
-   * 2016-02-28T10:47:08Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2016-02-28T10:47:08Z
-   */
   modifyTime?: string;
-  /**
-   * @example
-   * acl
-   */
   permissionMode?: string;
-  /**
-   * @example
-   * 2147483648
-   */
   quota?: number;
-  /**
-   * @example
-   * 123456789
-   */
   spaceId?: string;
   spaceName?: string;
-  /**
-   * @example
-   * org
-   */
   spaceType?: string;
-  /**
-   * @example
-   * 640445953
-   */
   usedQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -75,10 +47,6 @@ export class ListDriveSpacesResponseBodySpaces extends $dara.Model {
 }
 
 export class ListDriveSpacesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * fekaf
-   */
   nextToken?: string;
   /**
    * @example

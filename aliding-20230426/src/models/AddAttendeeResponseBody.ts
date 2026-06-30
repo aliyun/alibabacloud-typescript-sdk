@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddAttendeeResponseBodyContent extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31,34 +27,11 @@ export class AddAttendeeResponseBodyContent extends $dara.Model {
 
 export class AddAttendeeResponseBody extends $dara.Model {
   content?: AddAttendeeResponseBodyContent;
-  /**
-   * @example
-   * 200
-   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
-  /**
-   * @example
-   * error check permissions
-   */
   errorMsg?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * RequestId
-   * 
-   * @example
-   * 9BCC17ED-0187-54A0-BD31-56FDBE865447
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -8,10 +8,6 @@ export class GetGroupLiveListResponseBodyResultGroupLiveList extends $dara.Model
    * nickName
    */
   anchorNickname?: string;
-  /**
-   * @example
-   * Eijxx
-   */
   anchorUnionId?: string;
   /**
    * @example

@@ -33,25 +33,16 @@ export class RespondEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * RHN2REJFc2w4VHNiUUlvcVB0ejFydz09
    */
   eventId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * accepted
    */
   responseStatus?: string;
   tenantContext?: RespondEventRequestTenantContext;

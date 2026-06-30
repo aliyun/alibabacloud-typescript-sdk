@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFieldDefByUuidResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * NORMAL
-   */
   behavior?: string;
   children?: string;
-  /**
-   * @example
-   * TextareaField
-   */
   componentName?: string;
-  /**
-   * @example
-   * textField_laq7xxx
-   */
   fieldId?: string;
-  /**
-   * @example
-   * {}
-   */
   label?: any;
-  /**
-   * @example
-   * {}
-   */
   props?: any;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -74,10 +50,6 @@ export class GetFieldDefByUuidResponseBody extends $dara.Model {
    */
   requestId?: string;
   result?: GetFieldDefByUuidResponseBodyResult[];
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   /**
    * @example

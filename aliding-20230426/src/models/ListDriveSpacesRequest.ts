@@ -33,22 +33,12 @@ export class ListDriveSpacesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   maxResults?: number;
-  /**
-   * @example
-   * fekaf
-   */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * org
    */
   spaceType?: string;
   tenantContext?: ListDriveSpacesRequestTenantContext;

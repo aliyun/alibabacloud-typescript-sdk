@@ -30,10 +30,6 @@ export class GetRelatedWorkspacesRequestTenantContext extends $dara.Model {
 }
 
 export class GetRelatedWorkspacesRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   includeRecent?: boolean;
   tenantContext?: GetRelatedWorkspacesRequestTenantContext;
   static names(): { [key: string]: string } {

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddWorkspaceMembersRequestMembers extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   memberId?: string;
-  /**
-   * @example
-   * USER
-   */
   memberType?: string;
-  /**
-   * @example
-   * EDITOR
-   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {

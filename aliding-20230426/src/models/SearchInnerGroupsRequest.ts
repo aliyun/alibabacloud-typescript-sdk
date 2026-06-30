@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchInnerGroupsRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
   searchKey?: string;
   static names(): { [key: string]: string } {

@@ -6,23 +6,12 @@ export class UpdateAlidingAssistantShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   assistantId?: string;
   description?: string;
   extShrink?: string;
-  /**
-   * @example
-   * fallbackContent
-   */
   fallbackContent?: string;
   featureShrink?: string;
-  /**
-   * @example
-   * @lADPDetfgMsFFUvNAkjNAkg
-   */
   icon?: string;
   instructions?: string;
   name?: string;

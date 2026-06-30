@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFileDownloadInfoShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 798xxxxx
-   */
   dentryId?: string;
   optionShrink?: string;
-  /**
-   * @example
-   * 854xxxx
-   */
   spaceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

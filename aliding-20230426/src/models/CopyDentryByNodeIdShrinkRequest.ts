@@ -6,9 +6,6 @@ export class CopyDentryByNodeIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * P7QG4Yx2Jpx4OolYC1QPg5BaJ9dEq3XD
    */
   dentryUuid?: string;
   /**
@@ -17,20 +14,8 @@ export class CopyDentryByNodeIdShrinkRequest extends $dara.Model {
    */
   name?: string;
   tenantContextShrink?: string;
-  /**
-   * @example
-   * P7QG4Yx2Jpx4OolYC1QPg5BaJ9dEq3XD
-   */
   toNextNodeId?: string;
-  /**
-   * @example
-   * P7QG4Yx2Jpx4OolYC1QPg5BaJ9dEq3XD
-   */
   toParentNodeId?: string;
-  /**
-   * @example
-   * P7QG4Yx2Jpx4OolYC1QPg5BaJ9dEq3XD
-   */
   toPrevNodeId?: string;
   static names(): { [key: string]: string } {
     return {

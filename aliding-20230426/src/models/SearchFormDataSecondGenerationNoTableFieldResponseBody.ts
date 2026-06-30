@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * English
-   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +30,6 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUse
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser extends $dara.Model {
   name?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,10 +59,6 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUse
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * English
-   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +85,6 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginato
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator extends $dara.Model {
   name?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,60 +113,20 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginato
 }
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 2021-05-01 10:10:10
-   */
   createTimeGMT?: string;
-  /**
-   * @example
-   * 012345
-   */
   creatorUserId?: string;
   formData?: { [key: string]: any };
-  /**
-   * @example
-   * FINST-xxxx
-   */
   formInstanceId?: string;
-  /**
-   * @example
-   * FORM-xxxx
-   */
   formUuid?: string;
-  /**
-   * @example
-   * 54114
-   */
   id?: number;
-  /**
-   * @example
-   * {}
-   */
   instanceValue?: string;
-  /**
-   * @example
-   * 2021-05-01 10:10:10
-   */
   modifiedTimeGMT?: string;
   modifier?: string;
   modifyUser?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser;
   originator?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator;
-  /**
-   * @example
-   * 1
-   */
   sequence?: string;
-  /**
-   * @example
-   * 7CE737P1SS
-   */
   serialNumber?: string;
   title?: string;
-  /**
-   * @example
-   * 3
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -244,20 +188,12 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyData extends 
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBody extends $dara.Model {
   data?: SearchFormDataSecondGenerationNoTableFieldResponseBodyData[];
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   /**
    * @example

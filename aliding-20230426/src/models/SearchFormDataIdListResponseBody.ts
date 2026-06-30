@@ -4,20 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchFormDataIdListResponseBody extends $dara.Model {
   data?: string[];
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   /**
    * @example

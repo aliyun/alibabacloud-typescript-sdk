@@ -12,9 +12,6 @@ export class AddMultiDimTableRequestFields extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * text
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -76,9 +73,6 @@ export class AddMultiDimTableRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * r1R7q3QmWew5lo02fxB7nxxxxxxxx
    */
   baseId?: string;
   fields?: AddMultiDimTableRequestFields[];

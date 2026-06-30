@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTemplateListByUserIdResponseBodyTemplateList extends $dara.Model {
   iconUrl?: string;
   name?: string;
-  /**
-   * @example
-   * 11111
-   */
   reportCode?: string;
-  /**
-   * @example
-   * https://scsss/sss
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,15 +35,8 @@ export class GetTemplateListByUserIdResponseBodyTemplateList extends $dara.Model
 }
 
 export class GetTemplateListByUserIdResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 12312131231
-   */
   nextCursor?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

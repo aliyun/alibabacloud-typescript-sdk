@@ -31,20 +31,8 @@ export class CreateDeliveryPlanRequestTenantContext extends $dara.Model {
 
 export class CreateDeliveryPlanRequest extends $dara.Model {
   content?: { [key: string]: any };
-  /**
-   * @example
-   * 1699265024987
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1028
-   */
   resId?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   startTime?: number;
   tenantContext?: CreateDeliveryPlanRequestTenantContext;
   userIdList?: string[];

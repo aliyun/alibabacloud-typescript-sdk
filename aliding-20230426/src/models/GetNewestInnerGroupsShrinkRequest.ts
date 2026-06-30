@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNewestInnerGroupsShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   requestShrink?: string;
   static names(): { [key: string]: string } {
     return {

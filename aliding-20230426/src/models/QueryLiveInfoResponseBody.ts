@@ -3,61 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryLiveInfoResponseBody extends $dara.Model {
-  /**
-   * @example
-   * http://xxx/kk.jpg
-   */
   coverUrl?: string;
-  /**
-   * @example
-   * 59886
-   */
   duration?: number;
-  /**
-   * @example
-   * 1662447951960
-   */
   endTime?: number;
   introduction?: string;
-  /**
-   * @example
-   * 1211-3442-122
-   */
   liveId?: string;
-  /**
-   * @example
-   * http://ssssss
-   */
   livePlayUrl?: string;
   liveStatus?: number;
-  /**
-   * @example
-   * 13414
-   */
   playbackDuration?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 1627353123000
-   */
   startTime?: number;
-  /**
-   * @example
-   * 111
-   */
   subscribeCount?: number;
   title?: string;
-  /**
-   * @example
-   * 10
-   */
   uv?: number;
   static names(): { [key: string]: string } {
     return {

@@ -30,25 +30,9 @@ export class CreateSearchDomeRequestTenantContext extends $dara.Model {
 }
 
 export class CreateSearchDomeRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   content?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1030
-   */
   resId?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   startTime?: number;
   tenantContext?: CreateSearchDomeRequestTenantContext;
   userIdList?: string[];

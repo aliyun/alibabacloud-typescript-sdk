@@ -3,17 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMultiDimTableFieldResponseBody extends $dara.Model {
-  /**
-   * @example
-   * UhfysgH
-   */
   id?: string;
   name?: string;
   property?: { [key: string]: any };
-  /**
-   * @example
-   * text
-   */
   type?: string;
   /**
    * @example

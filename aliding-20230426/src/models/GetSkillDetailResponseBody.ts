@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSkillDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   data?: any;
-  /**
-   * @remarks
-   * RequestId
-   * 
-   * @example
-   * A348BA5D-FFD4-57E4-9450-23A14D72F331
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

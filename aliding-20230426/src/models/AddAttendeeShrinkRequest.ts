@@ -11,17 +11,11 @@ export class AddAttendeeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
    */
   eventId?: string;
   chatNotification?: boolean;

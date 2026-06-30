@@ -4,13 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GrantHonorResponseBody extends $dara.Model {
   failedUserIds?: string[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 45b4d029-ab94-4672-aa0f-bd79590374cb
-   */
   requestId?: string;
   successUserIds?: string[];
   static names(): { [key: string]: string } {

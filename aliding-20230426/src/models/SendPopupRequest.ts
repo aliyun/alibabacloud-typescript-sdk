@@ -31,15 +31,7 @@ export class SendPopupRequestTenantContext extends $dara.Model {
 
 export class SendPopupRequest extends $dara.Model {
   content?: { [key: string]: any };
-  /**
-   * @example
-   * 1693881641000
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1693881641000
-   */
   startTime?: number;
   tenantContext?: SendPopupRequestTenantContext;
   static names(): { [key: string]: string } {

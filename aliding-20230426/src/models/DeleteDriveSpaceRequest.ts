@@ -33,9 +33,6 @@ export class DeleteDriveSpaceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   spaceId?: string;
   tenantContext?: DeleteDriveSpaceRequestTenantContext;

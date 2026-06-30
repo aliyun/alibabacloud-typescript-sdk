@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetScheduleShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endTime?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   startTime?: string;
   tenantContextShrink?: string;
   userIdsShrink?: string;

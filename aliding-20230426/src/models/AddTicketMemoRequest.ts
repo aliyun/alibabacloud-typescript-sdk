@@ -30,15 +30,7 @@ export class AddTicketMemoRequestTenantContext extends $dara.Model {
 }
 
 export class AddTicketMemoRequestTicketMemoAttachments extends $dara.Model {
-  /**
-   * @example
-   * "ticket/image/44xxxx9/43003/e27204b38xxxx1640499.txt
-   */
   fileName?: string;
-  /**
-   * @example
-   * wahaha.txt
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,17 +88,11 @@ export class AddTicketMemoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * eKWh3xxxxiE
    */
   openTeamId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Dq9hP8Sk2v6vQxxxxiE
    */
   openTicketId?: string;
   tenantContext?: AddTicketMemoRequestTenantContext;

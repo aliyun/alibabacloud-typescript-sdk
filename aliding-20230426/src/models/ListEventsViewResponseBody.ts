@@ -229,10 +229,6 @@ export class ListEventsViewResponseBodyEventsMeetingRooms extends $dara.Model {
    * accepted
    */
   responseStatus?: string;
-  /**
-   * @example
-   * c10315a8b4e740a317813ab6fxxxxxx
-   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -729,9 +725,6 @@ export class ListEventsViewResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

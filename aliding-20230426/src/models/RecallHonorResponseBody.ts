@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RecallHonorResponseBodyContent extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31,30 +27,11 @@ export class RecallHonorResponseBodyContent extends $dara.Model {
 
 export class RecallHonorResponseBody extends $dara.Model {
   content?: RecallHonorResponseBodyContent;
-  /**
-   * @example
-   * 040008
-   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

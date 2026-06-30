@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetLiveReplayUrlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * https://xxxxxxxx
-   */
   replayUrl?: string;
   /**
    * @example

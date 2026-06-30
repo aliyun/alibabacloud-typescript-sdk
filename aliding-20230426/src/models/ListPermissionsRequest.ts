@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPermissionsRequestOption extends $dara.Model {
   filterRoleIds?: string[];
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 2
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,9 +65,6 @@ export class ListPermissionsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * KGZLxjv9VGkoG9YwHE5wx7k2V6EDybno
    */
   dentryUuid?: string;
   option?: ListPermissionsRequestOption;

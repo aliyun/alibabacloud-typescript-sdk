@@ -30,15 +30,7 @@ export class GetSheetContentJobIdRequestTenantContext extends $dara.Model {
 }
 
 export class GetSheetContentJobIdRequest extends $dara.Model {
-  /**
-   * @example
-   * MNDoBb60VLYDGNPytQe7Gzp4JlemrZQ3
-   */
   dentryUuid?: string;
-  /**
-   * @example
-   * dingTalksheetToxlsx
-   */
   exportType?: string;
   tenantContext?: GetSheetContentJobIdRequestTenantContext;
   static names(): { [key: string]: string } {

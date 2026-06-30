@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkspacesRequestOption extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {

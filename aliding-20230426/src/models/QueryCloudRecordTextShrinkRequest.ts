@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCloudRecordTextShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   direction?: string;
-  /**
-   * @example
-   * 20000
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 1631172045153000
-   */
   nextToken?: number;
-  /**
-   * @example
-   * 7940
-   */
   startTime?: number;
   tenantContextShrink?: string;
   /**

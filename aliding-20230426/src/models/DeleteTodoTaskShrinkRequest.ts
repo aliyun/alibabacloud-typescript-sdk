@@ -4,17 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTodoTaskShrinkRequest extends $dara.Model {
   tenantContextShrink?: string;
-  /**
-   * @example
-   * 12345
-   */
   operatorId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 63edc8da7e917d6ecdaab11b
    */
   taskId?: string;
   static names(): { [key: string]: string } {

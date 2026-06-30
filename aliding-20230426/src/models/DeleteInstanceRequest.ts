@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteInstanceRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBKTxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * f30233fb-72xxx
-   */
   processInstanceId?: string;
-  /**
-   * @example
-   * hexxxx
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

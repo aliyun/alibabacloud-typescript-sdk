@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateOrgHonorTemplateRequestTenantContext extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,17 +30,11 @@ export class CreateOrgHonorTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * fsdfasdjf132342d
    */
   avatarFrameMediaId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * #FFFBB4
    */
   defaultBgColor?: string;
   /**
@@ -55,9 +45,6 @@ export class CreateOrgHonorTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1273adf23
    */
   medalMediaId?: string;
   /**
@@ -68,17 +55,11 @@ export class CreateOrgHonorTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 363784
    */
   userId?: string;
   static names(): { [key: string]: string } {

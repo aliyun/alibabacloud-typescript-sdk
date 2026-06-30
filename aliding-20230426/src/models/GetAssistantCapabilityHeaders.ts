@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAssistantCapabilityHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * 123456
-   */
   accountId?: string;
   aiLogContextJson?: string;
   static names(): { [key: string]: string } {

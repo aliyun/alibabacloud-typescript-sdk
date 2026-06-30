@@ -6,28 +6,14 @@ export class ListMultiDimTableRecordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 101114
    */
   baseId?: string;
   filterShrink?: string;
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * AAAAAUUg5QSTWwHyeElt8z5z4Qo=
-   */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   sheetIdOrName?: string;
   tenantContextShrink?: string;

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertMultiDimTableRecordResponseBodyValue extends $dara.Model {
-  /**
-   * @example
-   * hfauVBFJIo
-   */
   id?: string;
   static names(): { [key: string]: string } {
     return {

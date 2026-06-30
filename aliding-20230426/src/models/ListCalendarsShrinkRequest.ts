@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCalendarsShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   requestShrink?: string;
   static names(): { [key: string]: string } {
     return {

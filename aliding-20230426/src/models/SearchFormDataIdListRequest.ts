@@ -59,10 +59,6 @@ export class SearchFormDataIdListRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
-  /**
-   * @example
-   * {}
-   */
   searchFieldJson?: string;
   /**
    * @remarks

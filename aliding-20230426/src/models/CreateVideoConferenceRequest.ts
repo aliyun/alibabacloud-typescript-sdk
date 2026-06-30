@@ -8,10 +8,6 @@ export class CreateVideoConferenceRequest extends $dara.Model {
    * This parameter is required.
    */
   confTitle?: string;
-  /**
-   * @example
-   * true
-   */
   inviteCaller?: boolean;
   inviteUserIds?: string[];
   static names(): { [key: string]: string } {

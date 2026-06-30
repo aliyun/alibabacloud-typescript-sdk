@@ -888,7 +888,7 @@ export class CreateMessageRequest extends $dara.Model {
   messages?: CreateMessageRequestMessages[];
   /**
    * @example
-   * assistantId
+   * assistantId2
    */
   originalAssistantId?: string;
   /**

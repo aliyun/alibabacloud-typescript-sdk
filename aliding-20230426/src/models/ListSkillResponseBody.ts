@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   data?: any;
-  /**
-   * @example
-   * 2715B4D3-A3FB-5FC7-AFA0-4471687B1EC6
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

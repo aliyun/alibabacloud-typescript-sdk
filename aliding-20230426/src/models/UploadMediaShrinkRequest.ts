@@ -4,33 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadMediaShrinkRequest extends $dara.Model {
   tenantContextShrink?: string;
-  /**
-   * @example
-   * test.jpg
-   */
   mediaName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * image
    */
   mediaType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234567
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * https://alicdn.com/xxx.jpg
    */
   url?: string;
   static names(): { [key: string]: string } {

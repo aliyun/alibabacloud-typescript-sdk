@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReportDetailResponseBodyContent extends $dara.Model {
   images?: string[];
   key?: string;
-  /**
-   * @example
-   * 0
-   */
   sort?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -50,28 +42,12 @@ export class QueryReportDetailResponseBodyContent extends $dara.Model {
 
 export class QueryReportDetailResponseBody extends $dara.Model {
   content?: QueryReportDetailResponseBodyContent[];
-  /**
-   * @example
-   * 1691980997000
-   */
   createTime?: number;
-  /**
-   * @example
-   * 012345
-   */
   creatorId?: string;
   creatorName?: string;
   deptName?: string;
-  /**
-   * @example
-   * 1691980997000
-   */
   modifiedTime?: number;
   remark?: string;
-  /**
-   * @example
-   * 1231232134
-   */
   reportId?: string;
   /**
    * @example

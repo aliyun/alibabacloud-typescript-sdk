@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillsShrinkRequest extends $dara.Model {
   groupIdsShrink?: string;
   skillIdsShrink?: string;
-  /**
-   * @example
-   * xxx
-   */
   sourceIdOfAssistantId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMultiDimTableRecordsResponseBodyRecordsCreatedBy extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,10 +26,6 @@ export class ListMultiDimTableRecordsResponseBodyRecordsCreatedBy extends $dara.
 }
 
 export class ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,26 +50,10 @@ export class ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy extends $
 
 export class ListMultiDimTableRecordsResponseBodyRecords extends $dara.Model {
   createdBy?: ListMultiDimTableRecordsResponseBodyRecordsCreatedBy;
-  /**
-   * @example
-   * xxx
-   */
   createdTime?: number;
-  /**
-   * @example
-   * title,shortTitle
-   */
   fields?: { [key: string]: any };
-  /**
-   * @example
-   * 123
-   */
   id?: string;
   lastModifiedBy?: ListMultiDimTableRecordsResponseBodyRecordsLastModifiedBy;
-  /**
-   * @example
-   * xxx
-   */
   lastModifiedTime?: number;
   static names(): { [key: string]: string } {
     return {

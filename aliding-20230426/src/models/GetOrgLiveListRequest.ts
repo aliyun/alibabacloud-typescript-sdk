@@ -38,37 +38,19 @@ export class GetOrgLiveListRequest extends $dara.Model {
    * db4d318xxxxx
    */
   corpId?: string;
-  /**
-   * @example
-   * 1720211800000
-   */
   endTime?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * 1719211800000
-   */
   startTime?: number;
   tenantContext?: GetOrgLiveListRequestTenantContext;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -7,25 +7,16 @@ export class RecallHonorShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 21660610
    */
   honorId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 345391052
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 363784
    */
   userId?: string;
   static names(): { [key: string]: string } {

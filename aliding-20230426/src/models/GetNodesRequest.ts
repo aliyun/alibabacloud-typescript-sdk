@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNodesRequestOption extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   withPermissionRole?: boolean;
-  /**
-   * @example
-   * false
-   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {

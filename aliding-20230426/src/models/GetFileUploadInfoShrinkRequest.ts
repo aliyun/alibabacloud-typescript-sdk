@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileUploadInfoShrinkRequest extends $dara.Model {
   optionShrink?: string;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
-  /**
-   * @example
-   * HEADER_SIGNATURE
-   */
   protocol?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

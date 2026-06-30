@@ -14,15 +14,7 @@ export class GetDingtalkProjectionInfoShrinkRequest extends $dara.Model {
    * 1640998800000
    */
   endTs?: number;
-  /**
-   * @example
-   * 21001
-   */
   orgId?: string;
-  /**
-   * @example
-   * 342342
-   */
   pubWorkNo?: string;
   /**
    * @example

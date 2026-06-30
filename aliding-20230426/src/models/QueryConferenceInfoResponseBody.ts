@@ -3,61 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryConferenceInfoResponseBodyConfInfo extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   activeNum?: number;
-  /**
-   * @example
-   * 2
-   */
   attendNum?: number;
-  /**
-   * @example
-   * 1000000
-   */
   confDuration?: number;
-  /**
-   * @example
-   * 607452e01401526ee39609e1
-   */
   conferenceId?: string;
-  /**
-   * @example
-   * 208579
-   */
   creatorId?: string;
   creatorNick?: string;
-  /**
-   * @example
-   * 1663294270000
-   */
   endTime?: number;
-  /**
-   * @example
-   * https://meeting.dingtalk.com/app?roomCode=42726xxx&token=1_7ac9xxx
-   */
   externalLinkUrl?: string;
-  /**
-   * @example
-   * 2
-   */
   invitedNum?: number;
-  /**
-   * @example
-   * 4272xxxxx
-   */
   roomCode?: string;
-  /**
-   * @example
-   * 1663293270000
-   */
   startTime?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -107,13 +63,6 @@ export class QueryConferenceInfoResponseBodyConfInfo extends $dara.Model {
 
 export class QueryConferenceInfoResponseBody extends $dara.Model {
   confInfo?: QueryConferenceInfoResponseBodyConfInfo;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

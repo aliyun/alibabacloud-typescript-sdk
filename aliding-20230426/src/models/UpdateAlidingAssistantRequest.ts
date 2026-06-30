@@ -33,23 +33,12 @@ export class UpdateAlidingAssistantRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   assistantId?: string;
   description?: string;
   ext?: { [key: string]: string };
-  /**
-   * @example
-   * fallbackContent
-   */
   fallbackContent?: string;
   feature?: { [key: string]: string };
-  /**
-   * @example
-   * @lADPDetfgMsFFUvNAkjNAkg
-   */
   icon?: string;
   instructions?: string;
   name?: string;

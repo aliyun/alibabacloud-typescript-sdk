@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTodoTaskResponseBodyContentFieldList extends $dara.Model {
   /**
-   * @remarks
-   * fieldKey
-   * 
    * @example
    * fieldKey
    */
   fieldKey?: string;
   /**
-   * @remarks
-   * fieldValue
-   * 
    * @example
    * fieldValue
    */
@@ -170,9 +164,6 @@ export class CreateTodoTaskResponseBody extends $dara.Model {
    */
   priority?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

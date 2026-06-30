@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartInstanceRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * 18295
-   */
   departmentId?: string;
-  /**
-   * @example
-   * {}
-   */
   formDataJson?: string;
-  /**
-   * @example
-   * FORM-EF6Yxxx
-   */
   formUuid?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * TPROC--EF6Y4xxx
-   */
   processCode?: string;
   processData?: string;
-  /**
-   * @example
-   * hexxyy
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

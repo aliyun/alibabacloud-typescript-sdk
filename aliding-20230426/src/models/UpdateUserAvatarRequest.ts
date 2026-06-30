@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUserAvatarRequest extends $dara.Model {
-  /**
-   * @example
-   * @lADPDfYH3A-xxxx
-   */
   avatarMediaId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,9 +6,6 @@ export class ListPermissionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * KGZLxjv9VGkoG9YwHE5wx7k2V6EDybno
    */
   dentryUuid?: string;
   optionShrink?: string;

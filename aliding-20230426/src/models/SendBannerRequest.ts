@@ -31,15 +31,7 @@ export class SendBannerRequestTenantContext extends $dara.Model {
 
 export class SendBannerRequest extends $dara.Model {
   content?: { [key: string]: any };
-  /**
-   * @example
-   * 1693881641000L
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1693881641000L
-   */
   startTime?: number;
   tenantContext?: SendBannerRequestTenantContext;
   static names(): { [key: string]: string } {

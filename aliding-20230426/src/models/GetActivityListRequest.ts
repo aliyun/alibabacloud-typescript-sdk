@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetActivityListRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * TPROC--X1Gxx
-   */
   processCode?: string;
-  /**
-   * @example
-   * hexxxx
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

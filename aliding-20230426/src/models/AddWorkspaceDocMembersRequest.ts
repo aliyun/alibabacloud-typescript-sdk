@@ -6,25 +6,16 @@ export class AddWorkspaceDocMembersRequestMembers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 012345
    */
   memberId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * USER
    */
   memberType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * EDITOR
    */
   roleType?: string;
   static names(): { [key: string]: string } {
@@ -88,18 +79,12 @@ export class AddWorkspaceDocMembersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   nodeId?: string;
   tenantContext?: AddWorkspaceDocMembersRequestTenantContext;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

@@ -6,17 +6,11 @@ export class DeleteScenegroupMemberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cidvkLfbOyIiSYqjgvAiWwFow==
    */
   openConversationId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123xxx,223xxx
    */
   userIds?: string;
   static names(): { [key: string]: string } {

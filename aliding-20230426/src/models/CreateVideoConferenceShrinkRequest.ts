@@ -8,10 +8,6 @@ export class CreateVideoConferenceShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   confTitle?: string;
-  /**
-   * @example
-   * true
-   */
   inviteCaller?: boolean;
   inviteUserIdsShrink?: string;
   static names(): { [key: string]: string } {

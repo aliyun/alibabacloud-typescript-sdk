@@ -54,7 +54,7 @@ export class GetTodoTaskResponseBody extends $dara.Model {
   createdTime?: number;
   /**
    * @example
-   * 012345
+   * PUoiinWIpxxx
    */
   creatorId?: string;
   /**
@@ -96,7 +96,7 @@ export class GetTodoTaskResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @example
-   * 012345
+   * PUoiinWxxx
    */
   modifierId?: string;
   participantIds?: string[];

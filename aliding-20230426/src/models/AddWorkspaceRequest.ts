@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddWorkspaceRequestOption extends $dara.Model {
   description?: string;
-  /**
-   * @example
-   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
-   */
   teamId?: string;
   static names(): { [key: string]: string } {
     return {

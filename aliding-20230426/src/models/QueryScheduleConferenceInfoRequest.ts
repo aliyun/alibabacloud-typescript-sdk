@@ -30,20 +30,8 @@ export class QueryScheduleConferenceInfoRequestTenantContext extends $dara.Model
 }
 
 export class QueryScheduleConferenceInfoRequest extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 19
-   */
   nextToken?: string;
-  /**
-   * @example
-   * 636cf59f2b032f014ae32902
-   */
   scheduleConferenceId?: string;
   tenantContext?: QueryScheduleConferenceInfoRequestTenantContext;
   static names(): { [key: string]: string } {

@@ -30,31 +30,11 @@ export class ListWorkspacesRequestTenantContext extends $dara.Model {
 }
 
 export class ListWorkspacesRequest extends $dara.Model {
-  /**
-   * @example
-   * 30
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 123123
-   */
   nextToken?: string;
-  /**
-   * @example
-   * VIEW_TIME_DESC
-   */
   orderBy?: string;
-  /**
-   * @example
-   * qweqwe
-   */
   teamId?: string;
   tenantContext?: ListWorkspacesRequestTenantContext;
-  /**
-   * @example
-   * true
-   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {

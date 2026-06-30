@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSearchDomeShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   content?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1030
-   */
   resId?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   startTime?: number;
   tenantContextShrink?: string;
   userIdListShrink?: string;

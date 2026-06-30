@@ -6,9 +6,6 @@ export class AddMultiDimTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * r1R7q3QmWew5lo02fxB7nxxxxxxxx
    */
   baseId?: string;
   fieldsShrink?: string;

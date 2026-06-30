@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CommitFileShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   name?: string;
   optionShrink?: string;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
   tenantContextShrink?: string;
-  /**
-   * @example
-   * upload_key
-   */
   uploadKey?: string;
   static names(): { [key: string]: string } {
     return {

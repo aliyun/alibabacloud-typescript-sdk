@@ -30,10 +30,6 @@ export class CheckAlibabaStaffRequestTenantContext extends $dara.Model {
 }
 
 export class CheckAlibabaStaffRequest extends $dara.Model {
-  /**
-   * @example
-   * 156****9665
-   */
   mobile?: string;
   tenantContext?: CheckAlibabaStaffRequestTenantContext;
   static names(): { [key: string]: string } {

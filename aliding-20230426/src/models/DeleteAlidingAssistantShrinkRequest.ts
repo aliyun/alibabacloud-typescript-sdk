@@ -6,9 +6,6 @@ export class DeleteAlidingAssistantShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   assistantId?: string;
   tenantContextShrink?: string;

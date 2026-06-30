@@ -3,53 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryLiveWatchDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 84600
-   */
   avgWatchTime?: number;
-  /**
-   * @example
-   * 100
-   */
   liveUv?: number;
-  /**
-   * @example
-   * 10000
-   */
   msgCount?: number;
-  /**
-   * @example
-   * 20
-   */
   playbackUv?: number;
-  /**
-   * @example
-   * 30
-   */
   praiseCount?: number;
-  /**
-   * @example
-   * 1000
-   */
   pv?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 1222000
-   */
   totalWatchTime?: number;
-  /**
-   * @example
-   * 10
-   */
   uv?: number;
   static names(): { [key: string]: string } {
     return {

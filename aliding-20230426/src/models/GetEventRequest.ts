@@ -6,23 +6,13 @@ export class GetEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 311525211
    */
   eventId?: string;
-  /**
-   * @example
-   * 100
-   */
   maxAttendees?: number;
   static names(): { [key: string]: string } {
     return {

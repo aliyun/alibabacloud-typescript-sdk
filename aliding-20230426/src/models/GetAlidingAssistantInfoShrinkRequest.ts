@@ -6,9 +6,6 @@ export class GetAlidingAssistantInfoShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   assistantId?: string;
   tenantContextShrink?: string;

@@ -6,17 +6,11 @@ export class GetMultiDimTableSheetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 169899
    */
   baseId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   sheetIdOrName?: string;
   tenantContextShrink?: string;

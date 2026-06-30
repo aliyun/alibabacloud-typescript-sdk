@@ -4,34 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMeetingRoomShrinkRequest extends $dara.Model {
   enableCycleReservation?: boolean;
-  /**
-   * @example
-   * 4644
-   */
   groupId?: number;
-  /**
-   * @example
-   * xxxIsvRoomId
-   */
   isvRoomId?: string;
   reservationAuthorityShrink?: string;
-  /**
-   * @example
-   * 100
-   */
   roomCapacity?: number;
   roomLabelIdsShrink?: string;
   roomLocationShrink?: string;
   roomName?: string;
-  /**
-   * @example
-   * https://static.dingtalk.com/media/lADPxxxxx.jpg
-   */
   roomPicture?: string;
-  /**
-   * @example
-   * 1
-   */
   roomStatus?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MeetingFlashMinutesResponseBodyBasicInfo extends $dara.Model {
-  /**
-   * @example
-   * 500529
-   */
   duration?: number;
-  /**
-   * @example
-   * 1778490089000
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1778490089000
-   */
   startTime?: number;
-  /**
-   * @example
-   * u0VGeOiPUBSVMypV3Hylp7wXXX
-   */
   taskCreator?: string;
-  /**
-   * @example
-   * XXX
-   */
   title?: string;
-  /**
-   * @example
-   * https://shanji.dingtalk.com/app/transcribes/76XXX
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,20 +41,8 @@ export class MeetingFlashMinutesResponseBodyBasicInfo extends $dara.Model {
 }
 
 export class MeetingFlashMinutesResponseBodyTodosDingtalkTodoListExecutorList extends $dara.Model {
-  /**
-   * @example
-   * https://XXX221rNAbjNAbg_440_440.png
-   */
   avatar?: string;
-  /**
-   * @example
-   * XXX
-   */
   nick?: string;
-  /**
-   * @example
-   * u0VGeOiPUBSVMypV3Hylp7wXXX
-   */
   unionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,41 +70,13 @@ export class MeetingFlashMinutesResponseBodyTodosDingtalkTodoListExecutorList ex
 }
 
 export class MeetingFlashMinutesResponseBodyTodosDingtalkTodoList extends $dara.Model {
-  /**
-   * @example
-   * 1778490089000
-   */
   createdTime?: number;
-  /**
-   * @example
-   * u0VGeOiPUBSVMypV3Hylp7wXXX
-   */
   creatorUnionId?: string;
-  /**
-   * @example
-   * deadline
-   */
   deadline?: string;
-  /**
-   * @example
-   * dingtalkTodoId
-   */
   dingtalkTodoId?: string;
   executorList?: MeetingFlashMinutesResponseBodyTodosDingtalkTodoListExecutorList[];
-  /**
-   * @example
-   * false
-   */
   isDone?: boolean;
-  /**
-   * @example
-   * minutesTodoId
-   */
   minutesTodoId?: string;
-  /**
-   * @example
-   * XXX
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,15 +150,7 @@ export class MeetingFlashMinutesResponseBodyTodos extends $dara.Model {
 
 export class MeetingFlashMinutesResponseBody extends $dara.Model {
   basicInfo?: MeetingFlashMinutesResponseBodyBasicInfo;
-  /**
-   * @example
-   * https://shanji.dingtalk.com/app/transcribes/76XXX
-   */
   flashMinutesUrl?: string;
-  /**
-   * @example
-   * XXX
-   */
   fullSummary?: string;
   /**
    * @example

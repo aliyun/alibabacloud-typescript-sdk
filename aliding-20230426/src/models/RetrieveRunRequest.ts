@@ -55,7 +55,7 @@ export class RetrieveRunRequest extends $dara.Model {
   extLoginUser?: RetrieveRunRequestExtLoginUser;
   /**
    * @example
-   * assistantId
+   * assistantId2
    */
   originalAssistantId?: string;
   /**

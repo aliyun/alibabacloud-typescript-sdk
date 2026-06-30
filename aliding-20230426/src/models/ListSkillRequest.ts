@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillRequest extends $dara.Model {
-  /**
-   * @example
-   * qweq-1231-jbarr-9940-asdf
-   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {

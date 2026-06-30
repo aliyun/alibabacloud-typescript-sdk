@@ -125,10 +125,6 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
    * {}
    */
   capabilityAssessment?: GetAssistantCapabilityResponseBodyCapabilityAssessment;
-  /**
-   * @example
-   * requestId
-   */
   requestId?: string;
   thread?: GetAssistantCapabilityResponseBodyThread;
   static names(): { [key: string]: string } {

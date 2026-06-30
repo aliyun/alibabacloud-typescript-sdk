@@ -7,9 +7,6 @@ export class PatchEventShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   cardInstancesShrink?: string;
@@ -18,16 +15,9 @@ export class PatchEventShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * iiiP35sJadba8aBSgjrwPRKgiEiF
    */
   eventId?: string;
   extraShrink?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   locationShrink?: string;
   recurrenceShrink?: string;

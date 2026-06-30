@@ -87,9 +87,6 @@ export class QueryCloudRecordVideoResponseBodyVideoList extends $dara.Model {
 
 export class QueryCloudRecordVideoResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

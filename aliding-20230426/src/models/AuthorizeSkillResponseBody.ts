@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AuthorizeSkillResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   data?: any;
-  /**
-   * @example
-   * A348BA5D-FFD4-57E4-9450-23A14D72F331
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

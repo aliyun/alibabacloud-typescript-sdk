@@ -8,9 +8,6 @@ export class GetNodeByUrlShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
    */
   url?: string;
   static names(): { [key: string]: string } {

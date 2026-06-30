@@ -3,20 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReceiverListReportResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   hasMore?: boolean;
-  /**
-   * @example
-   * 132131312312
-   */
   nextCursor?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

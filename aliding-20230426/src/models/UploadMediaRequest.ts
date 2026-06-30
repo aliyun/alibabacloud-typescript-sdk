@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadMediaRequestTenantContext extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,33 +27,20 @@ export class UploadMediaRequestTenantContext extends $dara.Model {
 
 export class UploadMediaRequest extends $dara.Model {
   tenantContext?: UploadMediaRequestTenantContext;
-  /**
-   * @example
-   * test.jpg
-   */
   mediaName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * image
    */
   mediaType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234567
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * https://alicdn.com/xxx.jpg
    */
   url?: string;
   static names(): { [key: string]: string } {

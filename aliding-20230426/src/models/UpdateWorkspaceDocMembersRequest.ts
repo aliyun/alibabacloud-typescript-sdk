@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateWorkspaceDocMembersRequestMembers extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   memberId?: string;
-  /**
-   * @example
-   * USER
-   */
   memberType?: string;
-  /**
-   * @example
-   * ONLY_VIEWER
-   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,18 +63,12 @@ export class UpdateWorkspaceDocMembersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * node_feb8fea0
    */
   nodeId?: string;
   tenantContext?: UpdateWorkspaceDocMembersRequestTenantContext;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xb8bkxxxxxrXJNaL
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

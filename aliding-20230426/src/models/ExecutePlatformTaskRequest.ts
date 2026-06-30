@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecutePlatformTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * []
-   */
   formDataJson?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * y
-   */
   noExecuteExpressions?: string;
-  /**
-   * @example
-   * Agree
-   */
   outResult?: string;
-  /**
-   * @example
-   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
-   */
   processInstanceId?: string;
   remark?: string;
-  /**
-   * @example
-   * hexxyy
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

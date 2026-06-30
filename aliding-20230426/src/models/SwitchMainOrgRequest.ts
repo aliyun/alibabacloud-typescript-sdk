@@ -30,10 +30,6 @@ export class SwitchMainOrgRequestTenantContext extends $dara.Model {
 }
 
 export class SwitchMainOrgRequest extends $dara.Model {
-  /**
-   * @example
-   * 21001
-   */
   targetOrgId?: number;
   tenantContext?: SwitchMainOrgRequestTenantContext;
   static names(): { [key: string]: string } {

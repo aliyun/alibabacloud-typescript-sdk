@@ -4,10 +4,6 @@ import { DentryAppPropertiesValue } from "./DentryAppPropertiesValue";
 
 
 export class AddFolderResponseBodyDentryProperties extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -42,35 +38,15 @@ export class AddFolderResponseBodyDentry extends $dara.Model {
    * creator_id
    */
   creatorId?: string;
-  /**
-   * @example
-   * txt
-   */
   extension?: string;
-  /**
-   * @example
-   * dentry_id
-   */
   id?: string;
   /**
    * @example
    * 2022-01-01T10:00:00Z
    */
   modifiedTime?: string;
-  /**
-   * @example
-   * modifier_id
-   */
   modifierId?: string;
-  /**
-   * @example
-   * dentry_name
-   */
   name?: string;
-  /**
-   * @example
-   * 163201723391
-   */
   parentId?: string;
   /**
    * @example
@@ -83,15 +59,7 @@ export class AddFolderResponseBodyDentry extends $dara.Model {
    */
   path?: string;
   properties?: AddFolderResponseBodyDentryProperties;
-  /**
-   * @example
-   * 6020771
-   */
   size?: number;
-  /**
-   * @example
-   * Ao01nSzzBxZQ68JW
-   */
   spaceId?: string;
   /**
    * @example
@@ -108,15 +76,7 @@ export class AddFolderResponseBodyDentry extends $dara.Model {
    * FOLDER
    */
   type?: string;
-  /**
-   * @example
-   * 80a7201602b34450a7a97d8d4e255421
-   */
   uuid?: string;
-  /**
-   * @example
-   * 1
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {

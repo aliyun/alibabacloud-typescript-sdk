@@ -30,10 +30,6 @@ export class DocBlocksQueryRequestTenantContext extends $dara.Model {
 }
 
 export class DocBlocksQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * heading
-   */
   blockType?: string;
   /**
    * @remarks

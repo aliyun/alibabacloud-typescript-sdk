@@ -33,9 +33,6 @@ export class GetOrgOrWebOpenDocContentTaskIdRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 20eMKjyp810mMdK4Hz4B5BA6JxAZB1Gv
    */
   dentryUuid?: string;
   generateCp?: boolean;
@@ -44,10 +41,6 @@ export class GetOrgOrWebOpenDocContentTaskIdRequest extends $dara.Model {
    * 0
    */
   scopeType?: number;
-  /**
-   * @example
-   * markdown
-   */
   targetFormat?: string;
   tenantContext?: GetOrgOrWebOpenDocContentTaskIdRequestTenantContext;
   static names(): { [key: string]: string } {

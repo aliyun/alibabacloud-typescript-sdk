@@ -125,15 +125,7 @@ export class GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfo extends $dara
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceHdIconVO extends $dara.Model {
-  /**
-   * @example
-   * https://img.alicdn.com/imgextra/i1/xxxxx.png
-   */
   icon?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,15 +151,7 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpaceHdIconVO extends $dara.
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceIconVO extends $dara.Model {
-  /**
-   * @example
-   * https://img.alicdn.com/imgextra/i1/xxxxx.png
-   */
   icon?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -366,13 +350,6 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpace extends $dara.Model {
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenStatisticalInfo extends $dara.Model {
-  /**
-   * @remarks
-   * WordCount
-   * 
-   * @example
-   * 10
-   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -401,10 +378,6 @@ export class GetSpaceDirectoriesResponseBodyChildrenUpdater extends $dara.Model 
    * hello
    */
   name?: string;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -431,10 +404,6 @@ export class GetSpaceDirectoriesResponseBodyChildrenUpdater extends $dara.Model 
 
 export class GetSpaceDirectoriesResponseBodyChildrenVisitorInfo extends $dara.Model {
   dentryActions?: string[];
-  /**
-   * @example
-   * OWNER
-   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -617,20 +586,9 @@ export class GetSpaceDirectoriesResponseBodyChildren extends $dara.Model {
 
 export class GetSpaceDirectoriesResponseBody extends $dara.Model {
   children?: GetSpaceDirectoriesResponseBodyChildren[];
-  /**
-   * @example
-   * true
-   */
   hasMore?: boolean;
-  /**
-   * @example
-   * 1296
-   */
   nextToken?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

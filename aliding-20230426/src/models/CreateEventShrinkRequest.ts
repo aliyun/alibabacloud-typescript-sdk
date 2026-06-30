@@ -8,10 +8,6 @@ export class CreateEventShrinkRequest extends $dara.Model {
   description?: string;
   endShrink?: string;
   extraShrink?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   locationShrink?: string;
   onlineMeetingInfoShrink?: string;
@@ -31,9 +27,6 @@ export class CreateEventShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**

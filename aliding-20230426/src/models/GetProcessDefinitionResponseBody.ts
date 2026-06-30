@@ -399,10 +399,6 @@ export class GetProcessDefinitionResponseBodyTasks extends $dara.Model {
    * running
    */
   status?: string;
-  /**
-   * @example
-   * 792
-   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {

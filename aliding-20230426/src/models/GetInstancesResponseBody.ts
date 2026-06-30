@@ -222,10 +222,6 @@ export class GetInstancesResponseBodyData extends $dara.Model {
    * 小红发起的请购单
    */
   title?: string;
-  /**
-   * @example
-   * 1.0
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {

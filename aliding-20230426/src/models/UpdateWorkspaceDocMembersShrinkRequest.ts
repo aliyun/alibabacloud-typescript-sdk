@@ -7,18 +7,12 @@ export class UpdateWorkspaceDocMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * node_feb8fea0
    */
   nodeId?: string;
   tenantContextShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xb8bkxxxxxrXJNaL
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

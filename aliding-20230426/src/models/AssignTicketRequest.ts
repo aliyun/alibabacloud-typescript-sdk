@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssignTicketRequestNotify extends $dara.Model {
   groupNoticeReceiverUserIds?: string[];
-  /**
-   * @example
-   * true
-   */
   noticeAllGroupMember?: boolean;
   workNoticeReceiverUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -69,15 +65,7 @@ export class AssignTicketRequestTenantContext extends $dara.Model {
 }
 
 export class AssignTicketRequestTicketMemoAttachments extends $dara.Model {
-  /**
-   * @example
-   * ticket/image/44708069/43003/e27aec4499.txt
-   */
   fileName?: string;
-  /**
-   * @example
-   * wahaha.txt
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,17 +124,11 @@ export class AssignTicketRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * eKWh3xxxxiE
    */
   openTeamId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Dq9hP8Sk2v6vQxxxxiE
    */
   openTicketId?: string;
   processorUserIds?: string[];

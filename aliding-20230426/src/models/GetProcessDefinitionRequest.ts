@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetProcessDefinitionRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * ding123
-   */
   corpId?: string;
-  /**
-   * @example
-   * c-xxafafaf
-   */
   groupId?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * dingtalk
-   */
   nameSpace?: string;
-  /**
-   * @example
-   * o-YDJKIxxx
-   */
   orderNumber?: string;
-  /**
-   * @example
-   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
-   */
   processInstanceId?: string;
-  /**
-   * @example
-   * hexxyy
-   */
   systemToken?: string;
-  /**
-   * @example
-   * hexabc1234
-   */
   systemType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -30,15 +30,7 @@ export class QueryConferenceMembersRequestTenantContext extends $dara.Model {
 }
 
 export class QueryConferenceMembersRequest extends $dara.Model {
-  /**
-   * @example
-   * 300
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 123000000
-   */
   nextToken?: string;
   tenantContext?: QueryConferenceMembersRequestTenantContext;
   /**

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserIdByOrgIdAndStaffIdShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   orgId?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

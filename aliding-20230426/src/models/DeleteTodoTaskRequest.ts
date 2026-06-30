@@ -31,17 +31,10 @@ export class DeleteTodoTaskRequestTenantContext extends $dara.Model {
 
 export class DeleteTodoTaskRequest extends $dara.Model {
   tenantContext?: DeleteTodoTaskRequestTenantContext;
-  /**
-   * @example
-   * 12345
-   */
   operatorId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 63edc8da7e917d6ecdaab11b
    */
   taskId?: string;
   static names(): { [key: string]: string } {

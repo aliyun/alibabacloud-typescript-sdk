@@ -74,9 +74,6 @@ export class UpdateTodoTaskExecutorStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 15002141
    */
   taskId?: string;
   static names(): { [key: string]: string } {

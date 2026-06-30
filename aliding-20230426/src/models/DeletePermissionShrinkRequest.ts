@@ -6,9 +6,6 @@ export class DeletePermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * a9E05BDRVQRkezKGCE3nlwPDJ63zgkYA
    */
   dentryUuid?: string;
   /**

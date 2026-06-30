@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetScencegroupFileDownloadurlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * An https download connection
-   */
   downloadUrl?: string;
   /**
    * @example

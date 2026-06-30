@@ -5,25 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLiveWatchUserListResponseBodyOrgUsesList extends $dara.Model {
   deptName?: string;
   name?: string;
-  /**
-   * @example
-   * 1234
-   */
   userId?: string;
-  /**
-   * @example
-   * 19999
-   */
   watchLiveTime?: number;
-  /**
-   * @example
-   * 131312312
-   */
   watchPlaybackTime?: number;
-  /**
-   * @example
-   * 1323132
-   */
   watchProgressMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,20 +42,8 @@ export class QueryLiveWatchUserListResponseBodyOrgUsesList extends $dara.Model {
 
 export class QueryLiveWatchUserListResponseBodyOutOrgUserList extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * 12312312
-   */
   watchLiveTime?: number;
-  /**
-   * @example
-   * 21313131
-   */
   watchPlaybackTime?: number;
-  /**
-   * @example
-   * 123131
-   */
   watchProgressMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -104,9 +76,6 @@ export class QueryLiveWatchUserListResponseBody extends $dara.Model {
   orgUsesList?: QueryLiveWatchUserListResponseBodyOrgUsesList[];
   outOrgUserList?: QueryLiveWatchUserListResponseBodyOutOrgUserList[];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

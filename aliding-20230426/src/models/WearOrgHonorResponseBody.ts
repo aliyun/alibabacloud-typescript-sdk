@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WearOrgHonorResponseBodyContent extends $dara.Model {
-  /**
-   * @example
-   * null
-   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31,27 +27,11 @@ export class WearOrgHonorResponseBodyContent extends $dara.Model {
 
 export class WearOrgHonorResponseBody extends $dara.Model {
   content?: WearOrgHonorResponseBodyContent;
-  /**
-   * @example
-   * 0
-   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * 32FFC91D-0A9F-585A-B84F-8A54C5187035
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRelatedWorkspacesShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   includeRecent?: boolean;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

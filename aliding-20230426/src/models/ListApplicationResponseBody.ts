@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationResponseBodyData extends $dara.Model {
   /**
    * @example
-   * {\\"ODIN_TOPIC_ID\\":\\"256\\"}
+   * {\"ODIN_TOPIC_ID\":\"256\"}
    */
   appConfig?: string;
   /**

@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendBannerShrinkRequest extends $dara.Model {
   contentShrink?: string;
-  /**
-   * @example
-   * 1693881641000L
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1693881641000L
-   */
   startTime?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

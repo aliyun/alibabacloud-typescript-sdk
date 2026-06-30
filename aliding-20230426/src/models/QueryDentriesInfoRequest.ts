@@ -34,24 +34,14 @@ export class QueryDentriesInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 140901622636
    */
   dentryId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 22443475065
    */
   spaceId?: string;
   tenantContext?: QueryDentriesInfoRequestTenantContext;
-  /**
-   * @example
-   * false
-   */
   withThumbnail?: boolean;
   static names(): { [key: string]: string } {
     return {

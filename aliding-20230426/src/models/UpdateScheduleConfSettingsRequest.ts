@@ -89,36 +89,16 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
 
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $dara.Model {
   cloudRecordOwnerUserId?: string;
-  /**
-   * @example
-   * 1
-   */
   enableChat?: number;
   enableWebAnonymousJoin?: boolean;
-  /**
-   * @example
-   * 1
-   */
   joinBeforeHost?: number;
-  /**
-   * @example
-   * 1
-   */
   lockMediaStatusMicMute?: number;
-  /**
-   * @example
-   * 1
-   */
   lockNick?: number;
   minutesOwnerUserId?: string;
   moziConfExtensionAppSettings?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings[];
   pushAllMeetingRecords?: boolean;
   pushCloudRecordCard?: boolean;
   pushMinutesCard?: boolean;
-  /**
-   * @example
-   * 1
-   */
   waitingRoom?: number;
   static names(): { [key: string]: string } {
     return {
@@ -168,32 +148,12 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
 
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $dara.Model {
   cohostUserIds?: string[];
-  /**
-   * @example
-   * ding********
-   */
   confAllowedCorpId?: string;
-  /**
-   * @example
-   * 012345
-   */
   hostUserId?: string;
-  /**
-   * @example
-   * 1
-   */
   lockRoom?: number;
   moziConfOpenRecordSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting;
   moziConfVirtualExtraSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
-  /**
-   * @example
-   * 1
-   */
   muteOnJoin?: number;
-  /**
-   * @example
-   * 1
-   */
   screenShareForbidden?: number;
   static names(): { [key: string]: string } {
     return {
@@ -268,10 +228,6 @@ export class UpdateScheduleConfSettingsRequestTenantContext extends $dara.Model 
 
 export class UpdateScheduleConfSettingsRequest extends $dara.Model {
   scheduleConfSettingModel?: UpdateScheduleConfSettingsRequestScheduleConfSettingModel;
-  /**
-   * @example
-   * f6fb627e-a7e8-403e-b1f8-26e85450f4a9
-   */
   scheduleConferenceId?: string;
   tenantContext?: UpdateScheduleConfSettingsRequestTenantContext;
   static names(): { [key: string]: string } {

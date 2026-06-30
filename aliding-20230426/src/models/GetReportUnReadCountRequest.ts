@@ -30,10 +30,6 @@ export class GetReportUnReadCountRequestTenantContext extends $dara.Model {
 }
 
 export class GetReportUnReadCountRequest extends $dara.Model {
-  /**
-   * @example
-   * null
-   */
   request?: { [key: string]: any };
   tenantContext?: GetReportUnReadCountRequestTenantContext;
   static names(): { [key: string]: string } {

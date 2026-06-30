@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StopMinutesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   /**
    * @example

@@ -14,9 +14,6 @@ export class AddScenegroupMemberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123xx,224xx
    */
   userIds?: string;
   static names(): { [key: string]: string } {

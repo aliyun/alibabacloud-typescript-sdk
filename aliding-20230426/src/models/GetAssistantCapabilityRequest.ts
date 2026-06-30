@@ -884,13 +884,9 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   messages?: GetAssistantCapabilityRequestMessages[];
   /**
    * @example
-   * originalAssistantId1
+   * assistantId2
    */
   originalAssistantId?: string;
-  /**
-   * @example
-   * cfp
-   */
   protocol?: string;
   /**
    * @example

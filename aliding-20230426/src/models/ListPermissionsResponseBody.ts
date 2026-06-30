@@ -117,15 +117,7 @@ export class ListPermissionsResponseBodyPermissions extends $dara.Model {
 }
 
 export class ListPermissionsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 59886
-   */
   duration?: number;
-  /**
-   * @example
-   * 1
-   */
   nextToken?: string;
   permissions?: ListPermissionsResponseBodyPermissions[];
   /**

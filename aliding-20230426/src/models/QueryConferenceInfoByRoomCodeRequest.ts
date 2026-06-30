@@ -31,25 +31,15 @@ export class QueryConferenceInfoByRoomCodeRequestTenantContext extends $dara.Mod
 
 export class QueryConferenceInfoByRoomCodeRequest extends $dara.Model {
   tenantContext?: QueryConferenceInfoByRoomCodeRequestTenantContext;
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 583 480 813
    */
   roomCode?: string;
   static names(): { [key: string]: string } {

@@ -193,10 +193,6 @@ export class MeetingFlashMinutesTextResponseBodyParagraphList extends $dara.Mode
 
 export class MeetingFlashMinutesTextResponseBody extends $dara.Model {
   hasNext?: boolean;
-  /**
-   * @example
-   * 1778490366045000_62XXX
-   */
   nextToken?: string;
   paragraphList?: MeetingFlashMinutesTextResponseBodyParagraphList[];
   /**

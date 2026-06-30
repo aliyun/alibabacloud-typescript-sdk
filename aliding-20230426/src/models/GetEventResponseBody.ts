@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventResponseBodyAttendees extends $dara.Model {
-  /**
-   * @example
-   * jack
-   */
   displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -81,20 +61,8 @@ export class GetEventResponseBodyCategories extends $dara.Model {
 }
 
 export class GetEventResponseBodyEnd extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,15 +90,7 @@ export class GetEventResponseBodyEnd extends $dara.Model {
 }
 
 export class GetEventResponseBodyExtendedPropertiesSharedProperties extends $dara.Model {
-  /**
-   * @example
-   * dingd*****1231231
-   */
   belongCorpId?: string;
-  /**
-   * @example
-   * zxcvasdfvb123====
-   */
   sourceOpenCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -183,10 +143,6 @@ export class GetEventResponseBodyExtendedProperties extends $dara.Model {
 
 export class GetEventResponseBodyLocation extends $dara.Model {
   displayName?: string;
-  /**
-   * @remarks
-   * --
-   */
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -215,20 +171,8 @@ export class GetEventResponseBodyLocation extends $dara.Model {
 }
 
 export class GetEventResponseBodyMeetingRooms extends $dara.Model {
-  /**
-   * @example
-   * room 1-2-3
-   */
   displayName?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * c10315a8b4e740a317813ab6fxxxxxx
-   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -256,21 +200,9 @@ export class GetEventResponseBodyMeetingRooms extends $dara.Model {
 }
 
 export class GetEventResponseBodyOnlineMeetingInfo extends $dara.Model {
-  /**
-   * @example
-   * 5c4df21d-xxxx-a6db402b9f3a
-   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
-  /**
-   * @example
-   * dingtalk
-   */
   type?: string;
-  /**
-   * @example
-   * dingtalk://dingtalkclient/page/videoxxxxalendar?confId=5c4df21d-xxxx9f3f&calendarId=127xxxx124
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,25 +235,9 @@ export class GetEventResponseBodyOnlineMeetingInfo extends $dara.Model {
 }
 
 export class GetEventResponseBodyOrganizer extends $dara.Model {
-  /**
-   * @example
-   * tony
-   */
   displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -351,10 +267,6 @@ export class GetEventResponseBodyOrganizer extends $dara.Model {
 }
 
 export class GetEventResponseBodyOriginStart extends $dara.Model {
-  /**
-   * @example
-   * 2023-01-01T00:00:00Z
-   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -378,30 +290,10 @@ export class GetEventResponseBodyOriginStart extends $dara.Model {
 }
 
 export class GetEventResponseBodyRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 14
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * monday
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * first
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * daily
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -433,20 +325,8 @@ export class GetEventResponseBodyRecurrencePattern extends $dara.Model {
 }
 
 export class GetEventResponseBodyRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endDate?: string;
-  /**
-   * @example
-   * 5
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * noEnd
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -506,15 +386,7 @@ export class GetEventResponseBodyRecurrence extends $dara.Model {
 }
 
 export class GetEventResponseBodyReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -563,20 +435,8 @@ export class GetEventResponseBodyRichTextDescription extends $dara.Model {
 }
 
 export class GetEventResponseBodyStart extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -606,27 +466,11 @@ export class GetEventResponseBodyStart extends $dara.Model {
 export class GetEventResponseBody extends $dara.Model {
   attendees?: GetEventResponseBodyAttendees[];
   categories?: GetEventResponseBodyCategories[];
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   description?: string;
   end?: GetEventResponseBodyEnd;
   extendedProperties?: GetEventResponseBodyExtendedProperties;
-  /**
-   * @example
-   * iiiP35sJxxxxPRKgiEiF
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: GetEventResponseBodyLocation;
   meetingRooms?: GetEventResponseBodyMeetingRooms[];
@@ -636,34 +480,15 @@ export class GetEventResponseBody extends $dara.Model {
   recurrence?: GetEventResponseBodyRecurrence;
   reminders?: GetEventResponseBodyReminders[];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
-   * requestId
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
   richTextDescription?: GetEventResponseBodyRichTextDescription;
-  /**
-   * @example
-   * cnNTbW1YbxxxxvdlQrQT09
-   */
   seriesMasterId?: string;
   start?: GetEventResponseBodyStart;
-  /**
-   * @example
-   * confirmed
-   */
   status?: string;
-  /**
-   * @example
-   * test event
-   */
   summary?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

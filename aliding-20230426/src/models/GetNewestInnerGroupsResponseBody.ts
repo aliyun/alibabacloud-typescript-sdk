@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNewestInnerGroupsResponseBodyGroupInfos extends $dara.Model {
-  /**
-   * @example
-   * @lADOADma*****QKA
-   */
   icon?: string;
-  /**
-   * @example
-   * 10
-   */
   memberAmount?: string;
-  /**
-   * @example
-   * cid1e******==
-   */
   openConversationId?: string;
   title?: string;
   static names(): { [key: string]: string } {

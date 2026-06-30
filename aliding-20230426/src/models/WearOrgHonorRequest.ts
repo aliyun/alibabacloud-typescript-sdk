@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WearOrgHonorRequestTenantContext extends $dara.Model {
-  /**
-   * @example
-   * 306752103647458
-   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,33 +30,21 @@ export class WearOrgHonorRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 21659595
    */
   honorId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 363784
    */
   userId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * false
    */
   wear?: boolean;
   static names(): { [key: string]: string } {

@@ -3,26 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTicketShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   customFields?: string;
   notifyShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * G3IOe205RLciE
    */
   openTeamId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxxx
    */
   openTemplateBizId?: string;
   /**
@@ -33,9 +23,6 @@ export class CreateTicketShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * SG
    */
   scene?: string;
   sceneContextShrink?: string;
@@ -43,9 +30,6 @@ export class CreateTicketShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Killer Ball Wo Mouichido
    */
   title?: string;
   static names(): { [key: string]: string } {

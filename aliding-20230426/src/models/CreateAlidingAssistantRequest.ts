@@ -30,10 +30,6 @@ export class CreateAlidingAssistantRequestTenantContext extends $dara.Model {
 }
 
 export class CreateAlidingAssistantRequest extends $dara.Model {
-  /**
-   * @example
-   * f5cb37a0fb44441ab7b74c6f4a679dd3
-   */
   appCode?: string;
   /**
    * @remarks
@@ -44,9 +40,6 @@ export class CreateAlidingAssistantRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * @lADPDetfgMsFFUvNAkjNAkg
    */
   icon?: string;
   /**
@@ -63,15 +56,8 @@ export class CreateAlidingAssistantRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 11
    */
   source?: number;
-  /**
-   * @example
-   * chatBot-123
-   */
   sourceIdentityId?: string;
   tenantContext?: CreateAlidingAssistantRequestTenantContext;
   /**

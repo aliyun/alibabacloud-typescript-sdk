@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInnerGroupMembersRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   maxResults?: number;
-  /**
-   * @example
-   * UZr*****
-   */
   nextToken?: string;
-  /**
-   * @example
-   * cidB8Pzg****FIWPv2PMA==
-   */
   openConversationId?: string;
   static names(): { [key: string]: string } {
     return {

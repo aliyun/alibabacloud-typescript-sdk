@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFormListInAppResponseBodyDataTitle extends $dara.Model {
-  /**
-   * @example
-   * form
-   */
   enUS?: string;
   zhCN?: string;
   static names(): { [key: string]: string } {
@@ -33,25 +29,9 @@ export class GetFormListInAppResponseBodyDataTitle extends $dara.Model {
 }
 
 export class GetFormListInAppResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   creator?: string;
-  /**
-   * @example
-   * receipt
-   */
   formType?: string;
-  /**
-   * @example
-   * FORM-BAxxxxx
-   */
   formUuid?: string;
-  /**
-   * @example
-   * 2023-02-22 15:27:07
-   */
   gmtCreate?: string;
   title?: GetFormListInAppResponseBodyDataTitle;
   static names(): { [key: string]: string } {
@@ -87,10 +67,6 @@ export class GetFormListInAppResponseBodyData extends $dara.Model {
 }
 
 export class GetFormListInAppResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   currentPage?: number;
   data?: GetFormListInAppResponseBodyData[];
   /**
@@ -98,15 +74,7 @@ export class GetFormListInAppResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   /**
    * @example

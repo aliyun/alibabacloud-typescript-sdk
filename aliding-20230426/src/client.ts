@@ -6706,6 +6706,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停用群模版（场景群降级为普通群）
+   * 
+   * @param tmpReq - DisableSceneGroupTemplateRequest
+   * @param tmpHeader - DisableSceneGroupTemplateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSceneGroupTemplateResponse
+   */
+  async disableSceneGroupTemplateWithOptions(tmpReq: $_model.DisableSceneGroupTemplateRequest, tmpHeader: $_model.DisableSceneGroupTemplateHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DisableSceneGroupTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.DisableSceneGroupTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.DisableSceneGroupTemplateShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableSceneGroupTemplate",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/disableSceneGroupTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableSceneGroupTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DisableSceneGroupTemplateResponse({}));
+  }
+
+  /**
+   * 停用群模版（场景群降级为普通群）
+   * 
+   * @param request - DisableSceneGroupTemplateRequest
+   * @returns DisableSceneGroupTemplateResponse
+   */
+  async disableSceneGroupTemplate(request: $_model.DisableSceneGroupTemplateRequest): Promise<$_model.DisableSceneGroupTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DisableSceneGroupTemplateHeaders({ });
+    return await this.disableSceneGroupTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 删除块元素
    * 
    * @param tmpReq - DocBlocksDeleteRequest

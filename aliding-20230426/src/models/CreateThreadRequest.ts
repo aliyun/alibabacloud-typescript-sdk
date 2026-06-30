@@ -53,7 +53,7 @@ export class CreateThreadRequest extends $dara.Model {
   extLoginUser?: CreateThreadRequestExtLoginUser;
   /**
    * @example
-   * assistantId
+   * assistantId2
    */
   originalAssistantId?: string;
   /**

@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstancesByIdListRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * inst-123,inst-223
-   */
   processInstanceIds?: string;
-  /**
-   * @example
-   * hexxxx
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

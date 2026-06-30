@@ -8,10 +8,6 @@ export class QueryDentryResponseBodyCreator extends $dara.Model {
    * hello
    */
   name?: string;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,15 +121,7 @@ export class QueryDentryResponseBodyLinkSourceInfo extends $dara.Model {
 }
 
 export class QueryDentryResponseBodySpaceHdIconVO extends $dara.Model {
-  /**
-   * @example
-   * http://
-   */
   icon?: string;
-  /**
-   * @example
-   * type
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,15 +147,7 @@ export class QueryDentryResponseBodySpaceHdIconVO extends $dara.Model {
 }
 
 export class QueryDentryResponseBodySpaceIconVO extends $dara.Model {
-  /**
-   * @example
-   * http://
-   */
   icon?: string;
-  /**
-   * @example
-   * type
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -377,10 +357,6 @@ export class QueryDentryResponseBodySpaceRecentListUpdater extends $dara.Model {
    * hello
    */
   name?: string;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -407,10 +383,6 @@ export class QueryDentryResponseBodySpaceRecentListUpdater extends $dara.Model {
 
 export class QueryDentryResponseBodySpaceRecentListVisitorInfo extends $dara.Model {
   dentryActions?: string[];
-  /**
-   * @example
-   * 1
-   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -733,10 +705,6 @@ export class QueryDentryResponseBodyUpdater extends $dara.Model {
    * hello
    */
   name?: string;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -763,10 +731,6 @@ export class QueryDentryResponseBodyUpdater extends $dara.Model {
 
 export class QueryDentryResponseBodyVisitorInfo extends $dara.Model {
   dentryActions?: string[];
-  /**
-   * @example
-   * 1
-   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -854,9 +818,6 @@ export class QueryDentryResponseBody extends $dara.Model {
    */
   path?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

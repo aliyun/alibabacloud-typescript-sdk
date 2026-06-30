@@ -5,9 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class AddWorkspaceMembersResponseBody extends $dara.Model {
   notInOrgList?: string[];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

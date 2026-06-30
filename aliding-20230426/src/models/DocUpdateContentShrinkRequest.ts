@@ -6,9 +6,6 @@ export class DocUpdateContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * []
    */
   content?: string;
   /**
@@ -19,9 +16,6 @@ export class DocUpdateContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 4j6OJzVEG4jJO3p8
    */
   docKey?: string;
   tenantContextShrink?: string;

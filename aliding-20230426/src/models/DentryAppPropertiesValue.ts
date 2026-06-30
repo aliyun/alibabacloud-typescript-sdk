@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DentryAppPropertiesValue extends $dara.Model {
-  /**
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @example
-   * value
-   */
   value?: string;
-  /**
-   * @example
-   * PUBLIC
-   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {

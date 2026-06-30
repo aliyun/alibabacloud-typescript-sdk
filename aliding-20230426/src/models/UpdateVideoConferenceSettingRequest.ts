@@ -30,35 +30,11 @@ export class UpdateVideoConferenceSettingRequestTenantContext extends $dara.Mode
 }
 
 export class UpdateVideoConferenceSettingRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   allowUnmuteSelf?: boolean;
-  /**
-   * @example
-   * true
-   */
   autoTransferHost?: boolean;
-  /**
-   * @example
-   * true
-   */
   forbiddenShareScreen?: boolean;
-  /**
-   * @example
-   * true
-   */
   lockConference?: boolean;
-  /**
-   * @example
-   * true
-   */
   muteAll?: boolean;
-  /**
-   * @example
-   * true
-   */
   onlyInternalEmployeesJoin?: boolean;
   tenantContext?: UpdateVideoConferenceSettingRequestTenantContext;
   /**

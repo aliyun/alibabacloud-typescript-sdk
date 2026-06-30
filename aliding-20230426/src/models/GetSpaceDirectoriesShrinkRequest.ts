@@ -3,30 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSpaceDirectoriesShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * asdasd
-   */
   dentryId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 30
    */
   maxResults?: number;
-  /**
-   * @example
-   * 123123
-   */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * qweqwe
    */
   spaceId?: string;
   tenantContextShrink?: string;

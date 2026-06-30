@@ -11,9 +11,6 @@ export class UpdateMultiDimTableRecordsRequestRecordIds extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HyDGtSj
    */
   id?: string;
   static names(): { [key: string]: string } {
@@ -73,9 +70,6 @@ export class UpdateMultiDimTableRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * r1R7q3QmWew5lo02fxB7nxxxxxxxx
    */
   baseId?: string;
   /**

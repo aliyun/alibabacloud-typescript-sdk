@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetReportTemplateByNameResponseBodyDefaultReceivedConvs extends $dara.Model {
-  /**
-   * @example
-   * cid12334##2341
-   */
   conversationId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -34,10 +30,6 @@ export class GetReportTemplateByNameResponseBodyDefaultReceivedConvs extends $da
 
 export class GetReportTemplateByNameResponseBodyDefaultReceivers extends $dara.Model {
   userName?: string;
-  /**
-   * @example
-   * 1234
-   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,20 +55,8 @@ export class GetReportTemplateByNameResponseBodyDefaultReceivers extends $dara.M
 }
 
 export class GetReportTemplateByNameResponseBodyFields extends $dara.Model {
-  /**
-   * @example
-   * key1
-   */
   fieldName?: string;
-  /**
-   * @example
-   * 0
-   */
   sort?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -107,25 +87,14 @@ export class GetReportTemplateByNameResponseBody extends $dara.Model {
   defaultReceivedConvs?: GetReportTemplateByNameResponseBodyDefaultReceivedConvs[];
   defaultReceivers?: GetReportTemplateByNameResponseBodyDefaultReceivers[];
   fields?: GetReportTemplateByNameResponseBodyFields[];
-  /**
-   * @example
-   * 11111
-   */
   id?: string;
   name?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
   userName?: string;
-  /**
-   * @example
-   * 1234
-   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {

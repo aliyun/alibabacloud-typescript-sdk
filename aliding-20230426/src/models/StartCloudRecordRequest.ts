@@ -30,15 +30,7 @@ export class StartCloudRecordRequestTenantContext extends $dara.Model {
 }
 
 export class StartCloudRecordRequest extends $dara.Model {
-  /**
-   * @example
-   * speech
-   */
   mode?: string;
-  /**
-   * @example
-   * relative_right
-   */
   smallWindowPosition?: string;
   tenantContext?: StartCloudRecordRequestTenantContext;
   /**

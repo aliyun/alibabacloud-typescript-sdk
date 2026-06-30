@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadMediaResponseBody extends $dara.Model {
-  /**
-   * @example
-   * abcd1234
-   */
   mediaId?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * abcd-1234-wxyz-9876
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

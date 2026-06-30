@@ -55,10 +55,6 @@ export class GetFormDataByIDResponseBodyOriginator extends $dara.Model {
    */
   email?: string;
   name?: GetFormDataByIDResponseBodyOriginatorName;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

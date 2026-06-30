@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitMultipartFileUploadShrinkRequest extends $dara.Model {
   optionShrink?: string;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

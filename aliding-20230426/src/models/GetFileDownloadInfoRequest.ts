@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFileDownloadInfoRequestOption extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   preferIntranet?: boolean;
-  /**
-   * @example
-   * 1
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -64,16 +56,8 @@ export class GetFileDownloadInfoRequestTenantContext extends $dara.Model {
 }
 
 export class GetFileDownloadInfoRequest extends $dara.Model {
-  /**
-   * @example
-   * 798xxxxx
-   */
   dentryId?: string;
   option?: GetFileDownloadInfoRequestOption;
-  /**
-   * @example
-   * 854xxxx
-   */
   spaceId?: string;
   tenantContext?: GetFileDownloadInfoRequestTenantContext;
   static names(): { [key: string]: string } {

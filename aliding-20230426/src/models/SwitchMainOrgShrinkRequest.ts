@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SwitchMainOrgShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 21001
-   */
   targetOrgId?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

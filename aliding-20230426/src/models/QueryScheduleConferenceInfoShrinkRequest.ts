@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryScheduleConferenceInfoShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 19
-   */
   nextToken?: string;
-  /**
-   * @example
-   * 636cf59f2b032f014ae32902
-   */
   scheduleConferenceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

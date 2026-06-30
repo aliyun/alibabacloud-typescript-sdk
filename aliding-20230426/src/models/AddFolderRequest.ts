@@ -6,25 +6,16 @@ export class AddFolderRequestOptionAppProperties extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * test
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * value
    */
   value?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * PUBLIC
    */
   visibility?: string;
   static names(): { [key: string]: string } {
@@ -122,17 +113,11 @@ export class AddFolderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 140822073803
    */
   parentId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xPar2SZ63KodG3aV
    */
   spaceId?: string;
   tenantContext?: AddFolderRequestTenantContext;

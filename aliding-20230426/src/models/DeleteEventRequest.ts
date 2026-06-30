@@ -6,17 +6,11 @@ export class DeleteEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * iiiP35sJadba8aBSgjrwPRKgiEiF
    */
   eventId?: string;
   pushNotification?: boolean;

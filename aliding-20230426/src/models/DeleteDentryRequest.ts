@@ -33,17 +33,11 @@ export class DeleteDentryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * b9XJlZ44W3NeDGyA
    */
   dentryId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * nb9XJx4EPx16QGyA
    */
   spaceId?: string;
   tenantContext?: DeleteDentryRequestTenantContext;

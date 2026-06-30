@@ -33,16 +33,9 @@ export class GetDocContentTakIdRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * qnYMoO1rWxrkmoj2I5L2PYkoJ47Z3je9
    */
   dentryUuid?: string;
   generateCp?: boolean;
-  /**
-   * @example
-   * markdown
-   */
   targetFormat?: string;
   tenantContext?: GetDocContentTakIdRequestTenantContext;
   static names(): { [key: string]: string } {

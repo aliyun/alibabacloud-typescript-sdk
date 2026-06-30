@@ -50,10 +50,6 @@ export class ListNodesResponseBodyNodes extends $dara.Model {
    * adoc
    */
   extension?: string;
-  /**
-   * @example
-   * true
-   */
   hasChildren?: boolean;
   /**
    * @example
@@ -161,9 +157,6 @@ export class ListNodesResponseBody extends $dara.Model {
   nextToken?: string;
   nodes?: ListNodesResponseBodyNodes[];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

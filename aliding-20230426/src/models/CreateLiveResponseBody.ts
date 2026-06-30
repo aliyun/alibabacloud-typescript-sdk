@@ -3,15 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateLiveResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-   */
   liveId?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

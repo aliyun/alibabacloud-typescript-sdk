@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckAlibabaStaffShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 156****9665
-   */
   mobile?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

@@ -8,10 +8,6 @@ export class QueryCloudRecordVideoPlayInfoResponseBody extends $dara.Model {
    * 59886
    */
   duration?: number;
-  /**
-   * @example
-   * 1127942
-   */
   fileSize?: number;
   /**
    * @example
@@ -24,9 +20,6 @@ export class QueryCloudRecordVideoPlayInfoResponseBody extends $dara.Model {
    */
   playUrl?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

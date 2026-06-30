@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFileUploadInfoRequestOptionPreCheckParam extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   name?: string;
-  /**
-   * @example
-   * None
-   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38,20 +30,8 @@ export class GetFileUploadInfoRequestOptionPreCheckParam extends $dara.Model {
 
 export class GetFileUploadInfoRequestOption extends $dara.Model {
   preCheckParam?: GetFileUploadInfoRequestOptionPreCheckParam;
-  /**
-   * @example
-   * true
-   */
   preferIntranet?: boolean;
-  /**
-   * @example
-   * ZHANGJIAKOU
-   */
   preferRegion?: string;
-  /**
-   * @example
-   * DINGTALK
-   */
   storageDriver?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,15 +92,7 @@ export class GetFileUploadInfoRequestTenantContext extends $dara.Model {
 
 export class GetFileUploadInfoRequest extends $dara.Model {
   option?: GetFileUploadInfoRequestOption;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
-  /**
-   * @example
-   * HEADER_SIGNATURE
-   */
   protocol?: string;
   tenantContext?: GetFileUploadInfoRequestTenantContext;
   static names(): { [key: string]: string } {

@@ -6,10 +6,6 @@ export class GetMultipartFileUploadInfosShrinkRequest extends $dara.Model {
   optionShrink?: string;
   partNumbersShrink?: string;
   tenantContextShrink?: string;
-  /**
-   * @example
-   * hwHPAAAAAipHxxxxx
-   */
   uploadKey?: string;
   static names(): { [key: string]: string } {
     return {

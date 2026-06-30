@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DentriesAppPropertiesValue extends $dara.Model {
   name?: string;
   value?: string;
-  /**
-   * @example
-   * PRIVATE
-   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,55 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMeCorpSubmissionRequest extends $dara.Model {
-  /**
-   * @example
-   * [\\"APP_xxx\\",\\"APP_xxx\\"]
-   */
   appTypes?: string;
-  /**
-   * @example
-   * ding123
-   */
   corpId?: string;
-  /**
-   * @example
-   * 2021-05-01
-   */
   createFromTimeGMT?: number;
-  /**
-   * @example
-   * 2021-05-01
-   */
   createToTimeGMT?: number;
-  /**
-   * @example
-   * {}
-   */
   keyword?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * [\\"xx\\",\\"xxx\\"]
-   */
   processCodes?: string;
-  /**
-   * @example
-   * JHASD123HAXXX
-   */
   token?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,15 +6,8 @@ export class GetDocContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dentry_uuid
    */
   dentryUuid?: string;
-  /**
-   * @example
-   * markdown
-   */
   targetFormat?: string;
   tenantContextShrink?: string;
   /**

@@ -30,10 +30,6 @@ export class GetUserIdByOrgIdAndStaffIdRequestTenantContext extends $dara.Model 
 }
 
 export class GetUserIdByOrgIdAndStaffIdRequest extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   orgId?: number;
   tenantContext?: GetUserIdByOrgIdAndStaffIdRequestTenantContext;
   static names(): { [key: string]: string } {

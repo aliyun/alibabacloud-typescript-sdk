@@ -6,25 +6,16 @@ export class UpdateWorkspaceMembersRequestMembers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 012345
    */
   memberId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * USER
    */
   memberType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ONLY_VIEWER
    */
   roleType?: string;
   static names(): { [key: string]: string } {

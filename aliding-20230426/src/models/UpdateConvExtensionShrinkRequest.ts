@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateConvExtensionShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * https://xxx
-   */
   mobileUrl?: string;
-  /**
-   * @example
-   * https://xxx
-   */
   pcUrl?: string;
   staffIdListShrink?: string;
-  /**
-   * @example
-   * 546374856
-   */
   systemUid?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

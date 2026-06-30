@@ -51,10 +51,6 @@ export class GetDingtalkProjectionListRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * 343242
-   */
   projectorWorkNo?: string;
   static names(): { [key: string]: string } {
     return {

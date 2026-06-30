@@ -8,10 +8,6 @@ export class GetDocContentResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * task123abc
-   */
   taskId?: number;
   /**
    * @example

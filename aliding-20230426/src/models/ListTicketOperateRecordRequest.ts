@@ -33,17 +33,11 @@ export class ListTicketOperateRecordRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * eKWh3xxxxiE
    */
   openTeamId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Dq9hP8Sk2v6vQxxxxiE
    */
   openTicketId?: string;
   tenantContext?: ListTicketOperateRecordRequestTenantContext;

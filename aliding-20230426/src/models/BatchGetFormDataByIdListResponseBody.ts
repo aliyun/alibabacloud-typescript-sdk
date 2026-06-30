@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchGetFormDataByIdListResponseBodyResultModifyUserName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * EnglishName
-   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +30,6 @@ export class BatchGetFormDataByIdListResponseBodyResultModifyUserName extends $d
 
 export class BatchGetFormDataByIdListResponseBodyResultModifyUser extends $dara.Model {
   name?: BatchGetFormDataByIdListResponseBodyResultModifyUserName;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,10 +59,6 @@ export class BatchGetFormDataByIdListResponseBodyResultModifyUser extends $dara.
 
 export class BatchGetFormDataByIdListResponseBodyResultOriginatorName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * EnglishName
-   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +85,6 @@ export class BatchGetFormDataByIdListResponseBodyResultOriginatorName extends $d
 
 export class BatchGetFormDataByIdListResponseBodyResultOriginator extends $dara.Model {
   name?: BatchGetFormDataByIdListResponseBodyResultOriginatorName;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,60 +113,20 @@ export class BatchGetFormDataByIdListResponseBodyResultOriginator extends $dara.
 }
 
 export class BatchGetFormDataByIdListResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * 2021-05-01 10:10:10
-   */
   createTimeGMT?: string;
-  /**
-   * @example
-   * 012345
-   */
   creatorUserId?: string;
   formData?: { [key: string]: any };
-  /**
-   * @example
-   * FINST-xxxx
-   */
   formInstanceId?: string;
-  /**
-   * @example
-   * FORM-xxxx
-   */
   formUuid?: string;
-  /**
-   * @example
-   * 21044829126
-   */
   id?: number;
-  /**
-   * @example
-   * {}
-   */
   instanceValue?: string;
-  /**
-   * @example
-   * 2021-05-01 10:10:10
-   */
   modifiedTimeGMT?: string;
   modifier?: string;
   modifyUser?: BatchGetFormDataByIdListResponseBodyResultModifyUser;
   originator?: BatchGetFormDataByIdListResponseBodyResultOriginator;
-  /**
-   * @example
-   * 1
-   */
   sequence?: string;
-  /**
-   * @example
-   * SA65776
-   */
   serialNumber?: string;
   title?: string;
-  /**
-   * @example
-   * 2
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {

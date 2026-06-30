@@ -8,7 +8,7 @@ export class QueryGroupLiveInfoShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Eijxxx
+   * 333d
    */
   anchorUnionId?: string;
   /**
@@ -16,7 +16,7 @@ export class QueryGroupLiveInfoShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 123456
+   * 4d38xxxxx
    */
   liveUuid?: string;
   tenantContextShrink?: string;

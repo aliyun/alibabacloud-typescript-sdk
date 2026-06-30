@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CommentListReportResponseBodyComments extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 1678442466000
-   */
   createTime?: string;
-  /**
-   * @example
-   * 012345
-   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,20 +33,9 @@ export class CommentListReportResponseBodyComments extends $dara.Model {
 
 export class CommentListReportResponseBody extends $dara.Model {
   comments?: CommentListReportResponseBodyComments[];
-  /**
-   * @example
-   * true
-   */
   hasMore?: boolean;
-  /**
-   * @example
-   * 1568442466000
-   */
   nextCursor?: number;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

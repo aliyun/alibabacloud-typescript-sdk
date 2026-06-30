@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RecallHonorHeadersAccountContext extends $dara.Model {
-  /**
-   * @example
-   * 1323845308033417
-   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {

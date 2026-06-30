@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryConferenceMembersShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 300
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 123000000
-   */
   nextToken?: string;
   tenantContextShrink?: string;
   /**

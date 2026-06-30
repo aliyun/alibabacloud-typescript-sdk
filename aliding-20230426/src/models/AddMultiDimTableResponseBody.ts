@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddMultiDimTableResponseBody extends $dara.Model {
-  /**
-   * @example
-   * r1R7q3QmWew5lo02fxB7xxxxxxx
-   */
   id?: string;
   name?: string;
   /**

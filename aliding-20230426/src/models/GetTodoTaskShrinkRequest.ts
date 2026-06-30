@@ -6,9 +6,6 @@ export class GetTodoTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * OPJpwtxxxx
    */
   taskId?: string;
   tenantContextShrink?: string;

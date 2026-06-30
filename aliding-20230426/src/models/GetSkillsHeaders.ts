@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSkillsHeadersAccountContext extends $dara.Model {
-  /**
-   * @remarks
-   * Buc SsoTicket
-   * 
-   * @example
-   * bucxxx
-   */
   ssoTicket?: string;
   /**
    * @remarks

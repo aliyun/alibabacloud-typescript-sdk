@@ -23,10 +23,6 @@ export class GetDingtalkMeetingListResponseBodyData extends $dara.Model {
    * 张三
    */
   creatorNick?: string;
-  /**
-   * @example
-   * 3423423
-   */
   creatorWorkNo?: string;
   /**
    * @example

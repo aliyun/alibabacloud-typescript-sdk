@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUserHonorsResponseBodyHonorsGrantHistory extends $dara.Model {
-  /**
-   * @example
-   * 12312312312312312
-   */
   grantTime?: number;
-  /**
-   * @example
-   * 363784
-   */
   senderUserid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,17 +29,9 @@ export class QueryUserHonorsResponseBodyHonorsGrantHistory extends $dara.Model {
 }
 
 export class QueryUserHonorsResponseBodyHonors extends $dara.Model {
-  /**
-   * @example
-   * null
-   */
   expirationTime?: number;
   grantHistory?: QueryUserHonorsResponseBodyHonorsGrantHistory[];
   honorDesc?: string;
-  /**
-   * @example
-   * 21659398
-   */
   honorId?: string;
   honorName?: string;
   static names(): { [key: string]: string } {
@@ -84,18 +68,7 @@ export class QueryUserHonorsResponseBodyHonors extends $dara.Model {
 
 export class QueryUserHonorsResponseBody extends $dara.Model {
   honors?: QueryUserHonorsResponseBodyHonors[];
-  /**
-   * @example
-   * http-trigger-nodejs10.luoni-old.1431999136518149.cn-hangzhou.fc.devsapp.net
-   */
   nextToken?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

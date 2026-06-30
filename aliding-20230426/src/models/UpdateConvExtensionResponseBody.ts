@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateConvExtensionResponseBody extends $dara.Model {
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   /**
    * @example

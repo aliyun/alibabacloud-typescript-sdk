@@ -12,13 +12,6 @@ export class InvokeSkillResponseBody extends $dara.Model {
    */
   finished?: boolean;
   metadata?: any;
-  /**
-   * @remarks
-   * RequestId
-   * 
-   * @example
-   * 2715B4D3-A3FB-5FC7-AFA0-4471687B1EC6
-   */
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {

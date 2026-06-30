@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartCloudRecordShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * speech
-   */
   mode?: string;
-  /**
-   * @example
-   * relative_right
-   */
   smallWindowPosition?: string;
   tenantContextShrink?: string;
   /**

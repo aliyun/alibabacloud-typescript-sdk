@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDeliveryPlanShrinkRequest extends $dara.Model {
   contentShrink?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1028
-   */
   resId?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   startTime?: number;
   tenantContextShrink?: string;
   userIdListShrink?: string;

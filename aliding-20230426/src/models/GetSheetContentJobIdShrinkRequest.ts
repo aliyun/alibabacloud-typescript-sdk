@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSheetContentJobIdShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * MNDoBb60VLYDGNPytQe7Gzp4JlemrZQ3
-   */
   dentryUuid?: string;
-  /**
-   * @example
-   * dingTalksheetToxlsx
-   */
   exportType?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

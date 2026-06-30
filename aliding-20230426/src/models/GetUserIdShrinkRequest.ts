@@ -4,13 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserIdShrinkRequest extends $dara.Model {
   tenantContextShrink?: string;
-  /**
-   * @remarks
-   * unionId
-   * 
-   * @example
-   * ****iE
-   */
   unionId?: string;
   static names(): { [key: string]: string } {
     return {

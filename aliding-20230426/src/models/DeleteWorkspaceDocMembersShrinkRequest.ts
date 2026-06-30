@@ -11,18 +11,12 @@ export class DeleteWorkspaceDocMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * YRBGv0xxx
    */
   nodeId?: string;
   tenantContextShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * YRBGvyxxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

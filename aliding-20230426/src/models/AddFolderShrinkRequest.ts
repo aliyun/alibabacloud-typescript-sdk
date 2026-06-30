@@ -12,17 +12,11 @@ export class AddFolderShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 140822073803
    */
   parentId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xPar2SZ63KodG3aV
    */
   spaceId?: string;
   tenantContextShrink?: string;

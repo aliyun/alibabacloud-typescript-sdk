@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddAttendeeRequestAttendeesToAdd extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -45,17 +37,11 @@ export class AddAttendeeRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
    */
   eventId?: string;
   chatNotification?: boolean;

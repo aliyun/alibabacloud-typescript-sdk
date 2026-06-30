@@ -44,10 +44,6 @@ export class UpdatePermissionRequestMembers extends $dara.Model {
 }
 
 export class UpdatePermissionRequestOption extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,10 +94,6 @@ export class UpdatePermissionRequestTenantContext extends $dara.Model {
 }
 
 export class UpdatePermissionRequest extends $dara.Model {
-  /**
-   * @example
-   * kDnRL6jAJMLgNkw7tBnw5aY4VyMoPYe1
-   */
   dentryUuid?: string;
   /**
    * @remarks
@@ -109,10 +101,6 @@ export class UpdatePermissionRequest extends $dara.Model {
    */
   members?: UpdatePermissionRequestMembers[];
   option?: UpdatePermissionRequestOption;
-  /**
-   * @example
-   * READER
-   */
   roleId?: string;
   tenantContext?: UpdatePermissionRequestTenantContext;
   static names(): { [key: string]: string } {

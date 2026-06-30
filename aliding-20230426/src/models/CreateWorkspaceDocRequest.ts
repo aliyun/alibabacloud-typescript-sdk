@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceDocRequestTenantContext extends $dara.Model {
   /**
    * @example
-   * 1
+   * xxxxxx
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

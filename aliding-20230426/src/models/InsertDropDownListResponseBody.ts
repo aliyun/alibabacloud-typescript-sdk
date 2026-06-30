@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertDropDownListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * A3:C3
-   */
   a1Notation?: string;
   /**
    * @example

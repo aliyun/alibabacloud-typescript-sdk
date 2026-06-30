@@ -4,33 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRangeResponseBodyBackgroundColors extends $dara.Model {
   /**
-   * @remarks
-   * red
-   * 
    * @example
    * 0
    */
   red?: number;
   /**
-   * @remarks
-   * green
-   * 
    * @example
    * 0
    */
   green?: number;
   /**
-   * @remarks
-   * blue
-   * 
    * @example
    * 0
    */
   blue?: number;
   /**
-   * @remarks
-   * hexString
-   * 
    * @example
    * #000000
    */
@@ -113,9 +101,6 @@ export class GetRangeResponseBody extends $dara.Model {
    */
   hyperlinks?: GetRangeResponseBodyHyperlinks[][];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

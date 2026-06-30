@@ -8,7 +8,7 @@ export class ListEventsHeadersAccountContext extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 208579
+   * 012345
    */
   accountId?: string;
   static names(): { [key: string]: string } {

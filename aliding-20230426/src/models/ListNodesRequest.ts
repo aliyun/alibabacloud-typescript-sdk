@@ -30,29 +30,14 @@ export class ListNodesRequestTenantContext extends $dara.Model {
 }
 
 export class ListNodesRequest extends $dara.Model {
-  /**
-   * @example
-   * 50
-   */
   maxResults?: number;
-  /**
-   * @example
-   * next_token
-   */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
    */
   parentNodeId?: string;
   tenantContext?: ListNodesRequestTenantContext;
-  /**
-   * @example
-   * false
-   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {

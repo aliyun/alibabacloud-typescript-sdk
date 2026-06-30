@@ -112,39 +112,15 @@ export class UpdateMeetingRoomRequestTenantContext extends $dara.Model {
 
 export class UpdateMeetingRoomRequest extends $dara.Model {
   enableCycleReservation?: boolean;
-  /**
-   * @example
-   * 0
-   */
   groupId?: number;
-  /**
-   * @example
-   * xxxIsvRoomId
-   */
   isvRoomId?: string;
   reservationAuthority?: UpdateMeetingRoomRequestReservationAuthority;
-  /**
-   * @example
-   * 100
-   */
   roomCapacity?: number;
-  /**
-   * @example
-   * 0ffbxxxxx
-   */
   roomId?: string;
   roomLabelIds?: number[];
   roomLocation?: UpdateMeetingRoomRequestRoomLocation;
   roomName?: string;
-  /**
-   * @example
-   * https://static.dingtalk.com/media/lADPxxxxx.jpg
-   */
   roomPicture?: string;
-  /**
-   * @example
-   * 1
-   */
   roomStatus?: number;
   tenantContext?: UpdateMeetingRoomRequestTenantContext;
   static names(): { [key: string]: string } {

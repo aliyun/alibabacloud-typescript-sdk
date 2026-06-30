@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMultipartFileUploadInfosRequestOption extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   preferIntranet?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -60,10 +56,6 @@ export class GetMultipartFileUploadInfosRequest extends $dara.Model {
   option?: GetMultipartFileUploadInfosRequestOption;
   partNumbers?: number[];
   tenantContext?: GetMultipartFileUploadInfosRequestTenantContext;
-  /**
-   * @example
-   * hwHPAAAAAipHxxxxx
-   */
   uploadKey?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CommitFileRequestOptionAppProperties extends $dara.Model {
-  /**
-   * @example
-   * property_name
-   */
   name?: string;
-  /**
-   * @example
-   * property_value
-   */
   value?: string;
-  /**
-   * @example
-   * PUBLIC
-   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,25 +33,9 @@ export class CommitFileRequestOptionAppProperties extends $dara.Model {
 
 export class CommitFileRequestOption extends $dara.Model {
   appProperties?: CommitFileRequestOptionAppProperties[];
-  /**
-   * @example
-   * AUTO_RENAME
-   */
   conflictStrategy?: string;
-  /**
-   * @example
-   * false
-   */
   convertToOnlineDoc?: boolean;
-  /**
-   * @example
-   * DOC
-   */
   convertToOnlineDocTargetDocumentType?: string;
-  /**
-   * @example
-   * 512
-   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -125,22 +97,10 @@ export class CommitFileRequestTenantContext extends $dara.Model {
 }
 
 export class CommitFileRequest extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   name?: string;
   option?: CommitFileRequestOption;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
   tenantContext?: CommitFileRequestTenantContext;
-  /**
-   * @example
-   * upload_key
-   */
   uploadKey?: string;
   static names(): { [key: string]: string } {
     return {

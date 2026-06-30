@@ -6,9 +6,6 @@ export class CopyDentryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * b9XJljElJv6RPGyA
    */
   dentryId?: string;
   /**
@@ -19,34 +16,16 @@ export class CopyDentryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 24458420428
    */
   spaceId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * b9XJljElJv6RPG
    */
   targetSpaceId?: string;
   tenantContextShrink?: string;
-  /**
-   * @example
-   * b9XJljElJv6RPGyA2
-   */
   toNextDentryId?: string;
-  /**
-   * @example
-   * b9XJljElJv6RPGyA4
-   */
   toParentDentryId?: string;
-  /**
-   * @example
-   * b9XJljElJv6RPGyA3
-   */
   toPrevDentryId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,17 +6,11 @@ export class DeleteWorkspaceDocMembersRequestMembers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 012345
    */
   memberId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * USER
    */
   memberType?: string;
   static names(): { [key: string]: string } {
@@ -78,18 +72,12 @@ export class DeleteWorkspaceDocMembersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * YRBGv0xxx
    */
   nodeId?: string;
   tenantContext?: DeleteWorkspaceDocMembersRequestTenantContext;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * YRBGvyxxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

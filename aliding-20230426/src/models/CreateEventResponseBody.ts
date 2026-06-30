@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEventResponseBodyAttendees extends $dara.Model {
   displayName?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
-  /**
-   * @example
-   * needsAction
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,20 +35,8 @@ export class CreateEventResponseBodyAttendees extends $dara.Model {
 }
 
 export class CreateEventResponseBodyEnd extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +64,6 @@ export class CreateEventResponseBodyEnd extends $dara.Model {
 }
 
 export class CreateEventResponseBodyLocation extends $dara.Model {
-  /**
-   * @example
-   * room 1-2-3
-   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,21 +87,9 @@ export class CreateEventResponseBodyLocation extends $dara.Model {
 }
 
 export class CreateEventResponseBodyOnlineMeetingInfo extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
-  /**
-   * @example
-   * dingtalk
-   */
   type?: string;
-  /**
-   * @example
-   * http://meeting
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,20 +123,8 @@ export class CreateEventResponseBodyOnlineMeetingInfo extends $dara.Model {
 
 export class CreateEventResponseBodyOrganizer extends $dara.Model {
   displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -206,30 +154,10 @@ export class CreateEventResponseBodyOrganizer extends $dara.Model {
 }
 
 export class CreateEventResponseBodyRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 14
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * sunday
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * first
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * daily
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -261,20 +189,8 @@ export class CreateEventResponseBodyRecurrencePattern extends $dara.Model {
 }
 
 export class CreateEventResponseBodyRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endDate?: string;
-  /**
-   * @example
-   * 5
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * noEnd
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -334,15 +250,7 @@ export class CreateEventResponseBodyRecurrence extends $dara.Model {
 }
 
 export class CreateEventResponseBodyReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,20 +299,8 @@ export class CreateEventResponseBodyRichTextDescription extends $dara.Model {
 }
 
 export class CreateEventResponseBodyStart extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -432,15 +328,7 @@ export class CreateEventResponseBodyStart extends $dara.Model {
 }
 
 export class CreateEventResponseBodyUiConfigs extends $dara.Model {
-  /**
-   * @example
-   * updateEventButton
-   */
   uiName?: string;
-  /**
-   * @example
-   * hide
-   */
   uiStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -467,45 +355,22 @@ export class CreateEventResponseBodyUiConfigs extends $dara.Model {
 
 export class CreateEventResponseBody extends $dara.Model {
   attendees?: CreateEventResponseBodyAttendees[];
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   createTime?: string;
   description?: string;
   encryptedId?: string;
   end?: CreateEventResponseBodyEnd;
-  /**
-   * @example
-   * iiiP35sJadba8aBSgjrwPRKgiEiF
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: CreateEventResponseBodyLocation;
   onlineMeetingInfo?: CreateEventResponseBodyOnlineMeetingInfo;
   organizer?: CreateEventResponseBodyOrganizer;
   recurrence?: CreateEventResponseBodyRecurrence;
   reminders?: CreateEventResponseBodyReminders[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
-   */
   requestId?: string;
   richTextDescription?: CreateEventResponseBodyRichTextDescription;
   start?: CreateEventResponseBodyStart;
   summary?: string;
   uiConfigs?: CreateEventResponseBodyUiConfigs[];
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

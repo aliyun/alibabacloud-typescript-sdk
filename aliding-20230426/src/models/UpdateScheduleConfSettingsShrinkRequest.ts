@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateScheduleConfSettingsShrinkRequest extends $dara.Model {
   scheduleConfSettingModelShrink?: string;
-  /**
-   * @example
-   * f6fb627e-a7e8-403e-b1f8-26e85450f4a9
-   */
   scheduleConferenceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

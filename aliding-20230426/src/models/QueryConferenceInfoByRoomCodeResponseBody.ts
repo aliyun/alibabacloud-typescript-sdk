@@ -3,56 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryConferenceInfoByRoomCodeResponseBodyConferenceList extends $dara.Model {
-  /**
-   * @example
-   * 3
-   */
   bizType?: string;
-  /**
-   * @example
-   * 1000
-   */
   confDuration?: number;
-  /**
-   * @example
-   * 636cf59f2b032f014ae32902
-   */
   conferenceId?: string;
-  /**
-   * @example
-   * 527079
-   */
   creatorId?: string;
   creatorNick?: string;
-  /**
-   * @example
-   * 1668087732000
-   */
   endTime?: number;
-  /**
-   * @example
-   * https//:xxx
-   */
   externalLinkUrl?: string;
-  /**
-   * @example
-   * 123456789
-   */
   roomCode?: string;
-  /**
-   * @example
-   * 2d79cbde-b9d8-4256-9788-78b05834944e
-   */
   scheduleConferenceId?: string;
-  /**
-   * @example
-   * 1668087731000
-   */
   startTime?: number;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -114,20 +74,12 @@ export class QueryConferenceInfoByRoomCodeResponseBody extends $dara.Model {
    * true
    */
   hasMore?: boolean;
-  /**
-   * @example
-   * 1296
-   */
   nextToken?: string;
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   /**
    * @example

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEventRequestAttendees extends $dara.Model {
-  /**
-   * @example
-   * 7845
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -63,20 +55,8 @@ export class CreateEventRequestCardInstances extends $dara.Model {
 }
 
 export class CreateEventRequestEnd extends $dara.Model {
-  /**
-   * @example
-   * "2020-09-21"
-   */
   date?: string;
-  /**
-   * @example
-   * "2021-09-20T10:15:30+08:00"
-   */
   dateTime?: string;
-  /**
-   * @example
-   * "Asia/Shanghai"
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -127,10 +107,6 @@ export class CreateEventRequestLocation extends $dara.Model {
 }
 
 export class CreateEventRequestOnlineMeetingInfo extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -154,30 +130,10 @@ export class CreateEventRequestOnlineMeetingInfo extends $dara.Model {
 }
 
 export class CreateEventRequestRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * "monday"
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * "last"
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * "daily"
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,20 +165,8 @@ export class CreateEventRequestRecurrencePattern extends $dara.Model {
 }
 
 export class CreateEventRequestRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * "2021-12-31T10:15:30+08:00"
-   */
   endDate?: string;
-  /**
-   * @example
-   * 5
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * "endDate"
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,15 +226,7 @@ export class CreateEventRequestRecurrence extends $dara.Model {
 }
 
 export class CreateEventRequestReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -339,15 +275,7 @@ export class CreateEventRequestRichTextDescription extends $dara.Model {
 }
 
 export class CreateEventRequestUiConfigs extends $dara.Model {
-  /**
-   * @example
-   * "updateEventButton"
-   */
   uiName?: string;
-  /**
-   * @example
-   * "hide"
-   */
   uiStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -373,20 +301,8 @@ export class CreateEventRequestUiConfigs extends $dara.Model {
 }
 
 export class CreateEventRequestStart extends $dara.Model {
-  /**
-   * @example
-   * "2021-09-20"
-   */
   date?: string;
-  /**
-   * @example
-   * "2021-09-20T10:15:30+08:00"
-   */
   dateTime?: string;
-  /**
-   * @example
-   * "Asia/Shanghai"
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -419,10 +335,6 @@ export class CreateEventRequest extends $dara.Model {
   description?: string;
   end?: CreateEventRequestEnd;
   extra?: { [key: string]: string };
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: CreateEventRequestLocation;
   onlineMeetingInfo?: CreateEventRequestOnlineMeetingInfo;
@@ -442,9 +354,6 @@ export class CreateEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   /**

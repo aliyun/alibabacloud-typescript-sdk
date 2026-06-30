@@ -31,13 +31,6 @@ export class GetUserIdRequestTenantContext extends $dara.Model {
 
 export class GetUserIdRequest extends $dara.Model {
   tenantContext?: GetUserIdRequestTenantContext;
-  /**
-   * @remarks
-   * unionId
-   * 
-   * @example
-   * ****iE
-   */
   unionId?: string;
   static names(): { [key: string]: string } {
     return {

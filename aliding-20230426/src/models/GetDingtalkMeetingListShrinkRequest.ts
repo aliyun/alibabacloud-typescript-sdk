@@ -39,10 +39,6 @@ export class GetDingtalkMeetingListShrinkRequest extends $dara.Model {
    * 1732867200000
    */
   startTime?: number;
-  /**
-   * @example
-   * 34343
-   */
   workNo?: string;
   static names(): { [key: string]: string } {
     return {

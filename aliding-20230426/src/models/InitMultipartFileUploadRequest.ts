@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitMultipartFileUploadRequestOptionPreCheckParam extends $dara.Model {
-  /**
-   * @example
-   * md5
-   */
   md5?: string;
-  /**
-   * @example
-   * name
-   */
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   parentId?: string;
-  /**
-   * @example
-   * 100
-   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -52,15 +36,7 @@ export class InitMultipartFileUploadRequestOptionPreCheckParam extends $dara.Mod
 
 export class InitMultipartFileUploadRequestOption extends $dara.Model {
   preCheckParam?: InitMultipartFileUploadRequestOptionPreCheckParam;
-  /**
-   * @example
-   * ZHANGJIAKOU
-   */
   preferRegion?: string;
-  /**
-   * @example
-   * DINGTALK
-   */
   storageDriver?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,10 +95,6 @@ export class InitMultipartFileUploadRequestTenantContext extends $dara.Model {
 
 export class InitMultipartFileUploadRequest extends $dara.Model {
   option?: InitMultipartFileUploadRequestOption;
-  /**
-   * @example
-   * dentryUuid
-   */
   parentDentryUuid?: string;
   tenantContext?: InitMultipartFileUploadRequestTenantContext;
   static names(): { [key: string]: string } {

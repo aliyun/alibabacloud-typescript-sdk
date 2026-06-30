@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUserAvatarResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   errcode?: string;
   errmsg?: string;
   /**

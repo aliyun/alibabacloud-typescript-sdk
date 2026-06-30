@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CloseVideoConferenceResponseBody extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
   cause?: string;
-  /**
-   * @example
-   * 200
-   */
   code?: number;
   /**
    * @example

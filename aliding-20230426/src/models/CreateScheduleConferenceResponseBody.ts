@@ -9,9 +9,6 @@ export class CreateScheduleConferenceResponseBody extends $dara.Model {
    */
   phones?: string[];
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 1234567
    */

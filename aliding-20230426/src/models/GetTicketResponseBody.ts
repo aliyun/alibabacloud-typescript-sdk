@@ -105,21 +105,7 @@ export class GetTicketResponseBodyTakers extends $dara.Model {
 }
 
 export class GetTicketResponseBodyTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * OpenTemplateBizId
-   * 
-   * @example
-   * OpenTemplateBizId
-   */
   openTemplateBizId?: string;
-  /**
-   * @remarks
-   * OpenTemplateBizId
-   * 
-   * @example
-   * OpenTemplateBizId
-   */
   openTemplateId?: string;
   templateName?: string;
   static names(): { [key: string]: string } {

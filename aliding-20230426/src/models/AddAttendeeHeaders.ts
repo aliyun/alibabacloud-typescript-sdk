@@ -8,9 +8,6 @@ export class AddAttendeeHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   accountId?: string;
   static names(): { [key: string]: string } {

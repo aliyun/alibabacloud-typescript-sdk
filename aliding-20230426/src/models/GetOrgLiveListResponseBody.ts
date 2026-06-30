@@ -148,7 +148,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $dara.Mo
   anchorUnionIdInAlibaba?: string;
   /**
    * @example
-   * 012345
+   * ersqqdddf
    */
   anchorUserId?: string;
   /**

@@ -33,9 +33,6 @@ export class GetConversaionSpaceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cidB8Pzg****FIWPv2PMA==
    */
   openConversationId?: string;
   tenantContext?: GetConversaionSpaceRequestTenantContext;

@@ -39,10 +39,6 @@ export class SearchFormDataSecondGenerationRequest extends $dara.Model {
    * yyyy-MM-dd
    */
   modifiedToTimeGMT?: string;
-  /**
-   * @example
-   * {}
-   */
   orderConfigJson?: string;
   /**
    * @example
@@ -59,10 +55,6 @@ export class SearchFormDataSecondGenerationRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
-  /**
-   * @example
-   * {}
-   */
   searchCondition?: string;
   /**
    * @remarks

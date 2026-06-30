@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SwitchMainOrgResponseBodyContent extends $dara.Model {
-  /**
-   * @example
-   * null
-   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31,27 +27,11 @@ export class SwitchMainOrgResponseBodyContent extends $dara.Model {
 
 export class SwitchMainOrgResponseBody extends $dara.Model {
   content?: SwitchMainOrgResponseBodyContent;
-  /**
-   * @example
-   * 0
-   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -7,17 +7,11 @@ export class CreateOrgHonorTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * fsdfasdjf132342d
    */
   avatarFrameMediaId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * #FFFBB4
    */
   defaultBgColor?: string;
   /**
@@ -28,9 +22,6 @@ export class CreateOrgHonorTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1273adf23
    */
   medalMediaId?: string;
   /**
@@ -41,17 +32,11 @@ export class CreateOrgHonorTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   orgId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 363784
    */
   userId?: string;
   static names(): { [key: string]: string } {

@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TerminateInstanceRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBxxx
-   */
   appType?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
-   */
   processInstanceId?: string;
-  /**
-   * @example
-   * hexxyy
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryConferenceInfoHeadersAccountContext extends $dara.Model {
-  /**
-   * @example
-   * 208579
-   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {

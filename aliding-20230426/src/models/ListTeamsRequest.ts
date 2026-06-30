@@ -30,15 +30,7 @@ export class ListTeamsRequestTenantContext extends $dara.Model {
 }
 
 export class ListTeamsRequest extends $dara.Model {
-  /**
-   * @example
-   * 30
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 2023-05-15T11:29Z
-   */
   nextToken?: string;
   tenantContext?: ListTeamsRequestTenantContext;
   static names(): { [key: string]: string } {

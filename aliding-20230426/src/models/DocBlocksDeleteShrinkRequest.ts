@@ -8,7 +8,7 @@ export class DocBlocksDeleteShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * mgokkwiovcq5eu02le8
+   * 1
    */
   blockId?: string;
   /**

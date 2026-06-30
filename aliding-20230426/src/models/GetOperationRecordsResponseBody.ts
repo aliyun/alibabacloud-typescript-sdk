@@ -103,10 +103,6 @@ export class GetOperationRecordsResponseBodyResult extends $dara.Model {
    * 同步
    */
   taskExecuteType?: string;
-  /**
-   * @example
-   * 2021-01-01
-   */
   taskHoldTimeGMT?: number;
   /**
    * @example

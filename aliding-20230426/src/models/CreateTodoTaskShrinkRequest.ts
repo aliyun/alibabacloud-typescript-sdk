@@ -29,10 +29,6 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
    */
   isOnlyShowExecutor?: boolean;
   notifyConfigsShrink?: string;
-  /**
-   * @example
-   * 12345
-   */
   operatorId?: string;
   participantIdsShrink?: string;
   /**

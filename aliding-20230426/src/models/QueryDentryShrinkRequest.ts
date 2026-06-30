@@ -6,22 +6,12 @@ export class QueryDentryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   dentryId?: string;
-  /**
-   * @example
-   * true
-   */
   includeSpace?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * space-fxhb96vuddz8htqt
    */
   spaceId?: string;
   tenantContextShrink?: string;

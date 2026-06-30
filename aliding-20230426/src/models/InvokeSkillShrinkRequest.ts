@@ -3,17 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvokeSkillShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   paramsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * a1d033dd-xxxx-49cf-b49b-2068081bb551
    */
   skillId?: string;
   stream?: boolean;

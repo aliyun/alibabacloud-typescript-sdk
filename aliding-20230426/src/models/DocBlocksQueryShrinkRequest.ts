@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocBlocksQueryShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * heading
-   */
   blockType?: string;
   /**
    * @remarks

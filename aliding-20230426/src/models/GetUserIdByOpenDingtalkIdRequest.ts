@@ -36,7 +36,7 @@ export class GetUserIdByOpenDingtalkIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * DTOJdYJ2IQC4HuexhtjsSXXXX
+   * DTOJdYJ2IQC4HuexhtjsS8QiEiE
    */
   openDingtalkId?: string;
   static names(): { [key: string]: string } {

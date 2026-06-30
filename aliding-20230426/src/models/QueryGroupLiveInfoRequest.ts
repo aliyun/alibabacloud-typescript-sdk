@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryGroupLiveInfoRequestTenantContext extends $dara.Model {
   /**
    * @example
-   * 1
+   * xxxxxx
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class QueryGroupLiveInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Eijxxx
+   * 333d
    */
   anchorUnionId?: string;
   /**
@@ -43,7 +43,7 @@ export class QueryGroupLiveInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 123456
+   * 4d38xxxxx
    */
   liveUuid?: string;
   tenantContext?: QueryGroupLiveInfoRequestTenantContext;

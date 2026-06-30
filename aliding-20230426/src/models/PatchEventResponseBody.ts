@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PatchEventResponseBodyAttendees extends $dara.Model {
-  /**
-   * @example
-   * tony
-   */
   displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -110,20 +90,8 @@ export class PatchEventResponseBodyCategories extends $dara.Model {
 }
 
 export class PatchEventResponseBodyEnd extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,10 +119,6 @@ export class PatchEventResponseBodyEnd extends $dara.Model {
 }
 
 export class PatchEventResponseBodyLocation extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   displayName?: string;
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
@@ -213,25 +177,9 @@ export class PatchEventResponseBodyOnlineMeetingInfo extends $dara.Model {
 }
 
 export class PatchEventResponseBodyOrganizer extends $dara.Model {
-  /**
-   * @example
-   * tony
-   */
   displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -261,30 +209,10 @@ export class PatchEventResponseBodyOrganizer extends $dara.Model {
 }
 
 export class PatchEventResponseBodyRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 14
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * sunday
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * first
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * daily
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,20 +244,8 @@ export class PatchEventResponseBodyRecurrencePattern extends $dara.Model {
 }
 
 export class PatchEventResponseBodyRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endDate?: string;
-  /**
-   * @example
-   * 5
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * noEnd
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -389,15 +305,7 @@ export class PatchEventResponseBodyRecurrence extends $dara.Model {
 }
 
 export class PatchEventResponseBodyReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -446,20 +354,8 @@ export class PatchEventResponseBodyRichTextDescription extends $dara.Model {
 }
 
 export class PatchEventResponseBodyStart extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -516,45 +412,22 @@ export class PatchEventResponseBody extends $dara.Model {
   attendees?: PatchEventResponseBodyAttendees[];
   cardInstances?: PatchEventResponseBodyCardInstances[];
   categories?: PatchEventResponseBodyCategories[];
-  /**
-   * @example
-   * 2022-10-25T02:26:14Z
-   */
   createTime?: string;
   description?: string;
   end?: PatchEventResponseBodyEnd;
   freeBusyStatus?: string;
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: PatchEventResponseBodyLocation;
   onlineMeetingInfo?: PatchEventResponseBodyOnlineMeetingInfo;
   organizer?: PatchEventResponseBodyOrganizer;
   recurrence?: PatchEventResponseBodyRecurrence;
   reminders?: PatchEventResponseBodyReminders[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
-   */
   requestId?: string;
   richTextDescription?: PatchEventResponseBodyRichTextDescription;
   start?: PatchEventResponseBodyStart;
   summary?: string;
   uiConfigs?: PatchEventResponseBodyUiConfigs[];
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

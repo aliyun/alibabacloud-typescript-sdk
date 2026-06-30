@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchFormDatasResponseBodyDataModifyUserUserName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * EngilishName
-   */
   nameInEnglish?: string;
-  /**
-   * @example
-   * ZH-CN
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,10 +32,6 @@ export class SearchFormDatasResponseBodyDataModifyUserUserName extends $dara.Mod
 }
 
 export class SearchFormDatasResponseBodyDataModifyUser extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   userName?: SearchFormDatasResponseBodyDataModifyUserUserName;
   static names(): { [key: string]: string } {
@@ -74,15 +62,7 @@ export class SearchFormDatasResponseBodyDataModifyUser extends $dara.Model {
 
 export class SearchFormDatasResponseBodyDataOriginatorUserName extends $dara.Model {
   nameInChinese?: string;
-  /**
-   * @example
-   * EngilishName
-   */
   nameInEnglish?: string;
-  /**
-   * @example
-   * ZH-CN
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -110,10 +90,6 @@ export class SearchFormDatasResponseBodyDataOriginatorUserName extends $dara.Mod
 }
 
 export class SearchFormDatasResponseBodyDataOriginator extends $dara.Model {
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   userName?: SearchFormDatasResponseBodyDataOriginatorUserName;
   static names(): { [key: string]: string } {
@@ -143,69 +119,21 @@ export class SearchFormDatasResponseBodyDataOriginator extends $dara.Model {
 }
 
 export class SearchFormDatasResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 2018-01-24 11:22:01
-   */
   createdTimeGMT?: string;
-  /**
-   * @example
-   * 012345
-   */
   creatorUserId?: string;
-  /**
-   * @example
-   * 1002
-   */
   dataId?: number;
   formData?: { [key: string]: any };
-  /**
-   * @example
-   * FINST-BNKJDRF
-   */
   formInstanceId?: string;
-  /**
-   * @example
-   * FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1
-   */
   formUuid?: string;
-  /**
-   * @example
-   * {}
-   */
   instanceValue?: string;
-  /**
-   * @example
-   * FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1
-   */
   modelUuid?: string;
-  /**
-   * @example
-   * 2018-01-24 11:22:01
-   */
   modifiedTimeGMT?: string;
-  /**
-   * @example
-   * 012345
-   */
   modifierUserId?: string;
   modifyUser?: SearchFormDatasResponseBodyDataModifyUser;
   originator?: SearchFormDatasResponseBodyDataOriginator;
-  /**
-   * @example
-   * 1
-   */
   sequence?: string;
-  /**
-   * @example
-   * 231008101012015353
-   */
   serialNo?: string;
   title?: string;
-  /**
-   * @example
-   * 3
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -268,10 +196,6 @@ export class SearchFormDatasResponseBodyData extends $dara.Model {
 }
 
 export class SearchFormDatasResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   currentPage?: number;
   data?: SearchFormDatasResponseBodyData[];
   /**
@@ -279,10 +203,6 @@ export class SearchFormDatasResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 20
-   */
   totalCount?: number;
   /**
    * @example

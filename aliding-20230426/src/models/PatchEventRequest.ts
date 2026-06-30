@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PatchEventRequestAttendees extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   id?: string;
-  /**
-   * @example
-   * false
-   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -63,20 +55,8 @@ export class PatchEventRequestCardInstances extends $dara.Model {
 }
 
 export class PatchEventRequestEnd extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,10 +84,6 @@ export class PatchEventRequestEnd extends $dara.Model {
 }
 
 export class PatchEventRequestLocation extends $dara.Model {
-  /**
-   * @example
-   * room 1-2-3
-   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,30 +107,10 @@ export class PatchEventRequestLocation extends $dara.Model {
 }
 
 export class PatchEventRequestRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * sunday
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * last
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * daily
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,20 +142,8 @@ export class PatchEventRequestRecurrencePattern extends $dara.Model {
 }
 
 export class PatchEventRequestRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * 2021-12-31T10:15:30+08:00
-   */
   endDate?: string;
-  /**
-   * @example
-   * 1
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * endDate
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -259,15 +203,7 @@ export class PatchEventRequestRecurrence extends $dara.Model {
 }
 
 export class PatchEventRequestReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -293,20 +229,8 @@ export class PatchEventRequestReminders extends $dara.Model {
 }
 
 export class PatchEventRequestStart extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -436,9 +360,6 @@ export class PatchEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * primary
    */
   calendarId?: string;
   cardInstances?: PatchEventRequestCardInstances[];
@@ -447,16 +368,9 @@ export class PatchEventRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * iiiP35sJadba8aBSgjrwPRKgiEiF
    */
   eventId?: string;
   extra?: { [key: string]: string };
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: PatchEventRequestLocation;
   recurrence?: PatchEventRequestRecurrence;

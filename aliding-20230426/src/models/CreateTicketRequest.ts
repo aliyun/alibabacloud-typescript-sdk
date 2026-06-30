@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTicketRequestNotify extends $dara.Model {
   groupNoticeReceiverUserIds?: string[];
-  /**
-   * @example
-   * false
-   */
   noticeAllGroupMember?: boolean;
   workNoticeReceiverUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -42,15 +38,7 @@ export class CreateTicketRequestNotify extends $dara.Model {
 }
 
 export class CreateTicketRequestSceneContextGroupMsgs extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   anchor?: boolean;
-  /**
-   * @example
-   * 1234567
-   */
   openMsgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,16 +65,8 @@ export class CreateTicketRequestSceneContextGroupMsgs extends $dara.Model {
 
 export class CreateTicketRequestSceneContext extends $dara.Model {
   groupMsgs?: CreateTicketRequestSceneContextGroupMsgs[];
-  /**
-   * @example
-   * cidDKVAOW8yVWPEN+WZfwSSAQ==
-   */
   openConversationId?: string;
   relevantorUserIds?: string[];
-  /**
-   * @example
-   * 42674892
-   */
   topicId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,26 +129,16 @@ export class CreateTicketRequestTenantContext extends $dara.Model {
 }
 
 export class CreateTicketRequest extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   customFields?: string;
   notify?: CreateTicketRequestNotify;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * G3IOe205RLciE
    */
   openTeamId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxxx
    */
   openTemplateBizId?: string;
   /**
@@ -179,9 +149,6 @@ export class CreateTicketRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * SG
    */
   scene?: string;
   sceneContext?: CreateTicketRequestSceneContext;
@@ -189,9 +156,6 @@ export class CreateTicketRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Killer Ball Wo Mouichido
    */
   title?: string;
   static names(): { [key: string]: string } {

@@ -3,45 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDingtalkProjectionListResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * IN
-   */
   callStatus?: string;
-  /**
-   * @example
-   * ABCD
-   */
   code?: string;
-  /**
-   * @example
-   * 3424242
-   */
   devUid?: number;
-  /**
-   * @example
-   * 517169
-   */
   duration?: string;
-  /**
-   * @example
-   * 1757729705000
-   */
   endTs?: number;
-  /**
-   * @example
-   * 342456
-   */
   nickCode?: string;
   /**
    * @example
    * 123456789
    */
   orgId?: number;
-  /**
-   * @example
-   * 4234242
-   */
   recvClientId?: string;
   /**
    * @example
@@ -58,20 +30,8 @@ export class GetDingtalkProjectionListResponseBodyData extends $dara.Model {
    * active
    */
   sendClientName?: string;
-  /**
-   * @example
-   * 24324
-   */
   sendClientWorkNo?: string;
-  /**
-   * @example
-   * 1765502676356
-   */
   startTs?: number;
-  /**
-   * @example
-   * 2432424
-   */
   timeStr?: string;
   static names(): { [key: string]: string } {
     return {

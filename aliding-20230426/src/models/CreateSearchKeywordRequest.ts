@@ -30,25 +30,9 @@ export class CreateSearchKeywordRequestTenantContext extends $dara.Model {
 }
 
 export class CreateSearchKeywordRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   content?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1028
-   */
   resId?: string;
-  /**
-   * @example
-   * 1699265024987
-   */
   startTime?: number;
   tenantContext?: CreateSearchKeywordRequestTenantContext;
   userIdList?: string[];

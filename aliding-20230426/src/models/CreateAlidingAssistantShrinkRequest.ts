@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAlidingAssistantShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * f5cb37a0fb44441ab7b74c6f4a679dd3
-   */
   appCode?: string;
   /**
    * @remarks
@@ -17,9 +13,6 @@ export class CreateAlidingAssistantShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * @lADPDetfgMsFFUvNAkjNAkg
    */
   icon?: string;
   /**
@@ -36,15 +29,8 @@ export class CreateAlidingAssistantShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 11
    */
   source?: number;
-  /**
-   * @example
-   * chatBot-123
-   */
   sourceIdentityId?: string;
   tenantContextShrink?: string;
   /**

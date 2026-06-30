@@ -4,17 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkspaceShrinkRequest extends $dara.Model {
   tenantContextShrink?: string;
-  /**
-   * @example
-   * false
-   */
   withPermissionRole?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * MJ0pDSKMV9dO20E4
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

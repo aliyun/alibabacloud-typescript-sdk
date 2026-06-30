@@ -279,10 +279,6 @@ export class GetMeCorpSubmissionResponseBodyData extends $dara.Model {
    * TPROC--X1Gxxx
    */
   processCode?: string;
-  /**
-   * @example
-   * 52330
-   */
   processId?: number;
   /**
    * @example

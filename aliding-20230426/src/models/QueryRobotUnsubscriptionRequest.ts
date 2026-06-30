@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryRobotUnsubscriptionRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageNo?: number;
-  /**
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @example
-   * dingxxxxxxxxxxxxxxxxxx
-   */
   robotCode?: string;
-  /**
-   * @example
-   * wb62cz0x
-   */
   sceneCode?: string;
   static names(): { [key: string]: string } {
     return {

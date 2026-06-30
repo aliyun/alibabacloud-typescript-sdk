@@ -53,7 +53,7 @@ export class CreateRunRequest extends $dara.Model {
   extLoginUser?: CreateRunRequestExtLoginUser;
   /**
    * @example
-   * assistantId
+   * assistantId2
    */
   originalAssistantId?: string;
   /**

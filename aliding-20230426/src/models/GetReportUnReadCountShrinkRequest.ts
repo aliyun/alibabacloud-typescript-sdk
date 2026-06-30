@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetReportUnReadCountShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * null
-   */
   requestShrink?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventsResponseBodyEventsAttendees extends $dara.Model {
-  /**
-   * @example
-   * tony
-   */
   displayName?: string;
-  /**
-   * @example
-   * true
-   */
   isOptional?: boolean;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -74,20 +58,8 @@ export class ListEventsResponseBodyEventsCategories extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsEnd extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,15 +87,7 @@ export class ListEventsResponseBodyEventsEnd extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsExtendedPropertiesSharedProperties extends $dara.Model {
-  /**
-   * @example
-   * ding*********31
-   */
   belongCorpId?: string;
-  /**
-   * @example
-   * zxcv90asdf123===
-   */
   sourceOpenCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,10 +139,6 @@ export class ListEventsResponseBodyEventsExtendedProperties extends $dara.Model 
 }
 
 export class ListEventsResponseBodyEventsLocation extends $dara.Model {
-  /**
-   * @example
-   * room 1-2-3
-   */
   displayName?: string;
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
@@ -209,15 +169,7 @@ export class ListEventsResponseBodyEventsLocation extends $dara.Model {
 
 export class ListEventsResponseBodyEventsMeetingRooms extends $dara.Model {
   displayName?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * c10315a8b4e740a317813ab6fxxxxxx
-   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,21 +197,9 @@ export class ListEventsResponseBodyEventsMeetingRooms extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsOnlineMeetingInfo extends $dara.Model {
-  /**
-   * @example
-   * 5c4df21dxxxx-a6db402b9f3a
-   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
-  /**
-   * @example
-   * dingtalk
-   */
   type?: string;
-  /**
-   * @example
-   * dingtalk://dingtalkclient/page/videoCoxxxxndar?confId=5c4df21dxxxx2b9f3a&calendarId=92xxxx36
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -292,20 +232,8 @@ export class ListEventsResponseBodyEventsOnlineMeetingInfo extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsOrganizer extends $dara.Model {
-  /**
-   * @example
-   * tony
-   */
   displayName?: string;
-  /**
-   * @example
-   * accepted
-   */
   responseStatus?: string;
-  /**
-   * @example
-   * true
-   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -333,10 +261,6 @@ export class ListEventsResponseBodyEventsOrganizer extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsOriginStart extends $dara.Model {
-  /**
-   * @example
-   * 2023-01-01T00:00:00Z
-   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -360,30 +284,10 @@ export class ListEventsResponseBodyEventsOriginStart extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsRecurrencePattern extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   dayOfMonth?: number;
-  /**
-   * @example
-   * sunday
-   */
   daysOfWeek?: string;
-  /**
-   * @example
-   * first
-   */
   index?: string;
-  /**
-   * @example
-   * 1
-   */
   interval?: number;
-  /**
-   * @example
-   * daily
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -415,20 +319,8 @@ export class ListEventsResponseBodyEventsRecurrencePattern extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsRecurrenceRange extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endDate?: string;
-  /**
-   * @example
-   * 5
-   */
   numberOfOccurrences?: number;
-  /**
-   * @example
-   * noEnd
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -488,15 +380,7 @@ export class ListEventsResponseBodyEventsRecurrence extends $dara.Model {
 }
 
 export class ListEventsResponseBodyEventsReminders extends $dara.Model {
-  /**
-   * @example
-   * dingtalk
-   */
   method?: string;
-  /**
-   * @example
-   * 15
-   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -545,20 +429,8 @@ export class ListEventsResponseBodyEventsRichTextDescription extends $dara.Model
 }
 
 export class ListEventsResponseBodyEventsStart extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01
-   */
   date?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   dateTime?: string;
-  /**
-   * @example
-   * Asia/Shanghai
-   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -588,27 +460,11 @@ export class ListEventsResponseBodyEventsStart extends $dara.Model {
 export class ListEventsResponseBodyEvents extends $dara.Model {
   attendees?: ListEventsResponseBodyEventsAttendees[];
   categories?: ListEventsResponseBodyEventsCategories[];
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   createTime?: string;
-  /**
-   * @example
-   * something about this event
-   */
   description?: string;
   end?: ListEventsResponseBodyEventsEnd;
   extendedProperties?: ListEventsResponseBodyEventsExtendedProperties;
-  /**
-   * @example
-   * cnNTbW1YbxxxxdEgvdlQrQT09
-   */
   id?: string;
-  /**
-   * @example
-   * true
-   */
   isAllDay?: boolean;
   location?: ListEventsResponseBodyEventsLocation;
   meetingRooms?: ListEventsResponseBodyEventsMeetingRooms[];
@@ -618,22 +474,10 @@ export class ListEventsResponseBodyEvents extends $dara.Model {
   recurrence?: ListEventsResponseBodyEventsRecurrence;
   reminders?: ListEventsResponseBodyEventsReminders[];
   richTextDescription?: ListEventsResponseBodyEventsRichTextDescription;
-  /**
-   * @example
-   * cnNTbWxxxxaFJZdEgvdlQrQT09
-   */
   seriesMasterId?: string;
   start?: ListEventsResponseBodyEventsStart;
-  /**
-   * @example
-   * confirmed
-   */
   status?: string;
   summary?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -737,23 +581,12 @@ export class ListEventsResponseBodyEvents extends $dara.Model {
 
 export class ListEventsResponseBody extends $dara.Model {
   events?: ListEventsResponseBodyEvents[];
-  /**
-   * @example
-   * cnNTbW1YbxxxxdlQrQT09
-   */
   nextToken?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
-   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * zxcasdfvc000009
-   */
   syncToken?: string;
   vendorRequestId?: string;
   vendorType?: string;

@@ -237,10 +237,6 @@ export class GetInstanceByIdResponseBody extends $dara.Model {
    * dingtalk
    */
   vendorType?: string;
-  /**
-   * @example
-   * 1
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {

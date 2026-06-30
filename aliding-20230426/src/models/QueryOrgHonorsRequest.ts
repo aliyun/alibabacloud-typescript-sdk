@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryOrgHonorsRequestTenantContext extends $dara.Model {
-  /**
-   * @example
-   * 487986704507650
-   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,25 +27,15 @@ export class QueryOrgHonorsRequestTenantContext extends $dara.Model {
 
 export class QueryOrgHonorsRequest extends $dara.Model {
   tenantContext?: QueryOrgHonorsRequestTenantContext;
-  /**
-   * @example
-   * 48
-   */
   maxResults?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 15
    */
   nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   orgId?: number;
   static names(): { [key: string]: string } {

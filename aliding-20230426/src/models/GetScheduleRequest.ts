@@ -30,15 +30,7 @@ export class GetScheduleRequestTenantContext extends $dara.Model {
 }
 
 export class GetScheduleRequest extends $dara.Model {
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   endTime?: string;
-  /**
-   * @example
-   * 2020-01-01T10:15:30+08:00
-   */
   startTime?: string;
   tenantContext?: GetScheduleRequestTenantContext;
   userIds?: string[];

@@ -30,25 +30,9 @@ export class QueryCloudRecordTextRequestTenantContext extends $dara.Model {
 }
 
 export class QueryCloudRecordTextRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   direction?: string;
-  /**
-   * @example
-   * 20000
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 1631172045153000
-   */
   nextToken?: number;
-  /**
-   * @example
-   * 7940
-   */
   startTime?: number;
   tenantContext?: QueryCloudRecordTextRequestTenantContext;
   /**

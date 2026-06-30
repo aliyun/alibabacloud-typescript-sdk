@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendPopupShrinkRequest extends $dara.Model {
   contentShrink?: string;
-  /**
-   * @example
-   * 1693881641000
-   */
   endTime?: number;
-  /**
-   * @example
-   * 1693881641000
-   */
   startTime?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

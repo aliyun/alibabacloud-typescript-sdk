@@ -9,9 +9,6 @@ export class GetCardTemplateResponseBodyCommonVariableList extends $dara.Model {
    */
   description?: string;
   /**
-   * @remarks
-   * Id
-   * 
    * @example
    * lastMessage
    */

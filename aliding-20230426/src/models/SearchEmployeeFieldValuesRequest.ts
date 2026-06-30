@@ -45,7 +45,7 @@ export class SearchEmployeeFieldValuesRequest extends $dara.Model {
   originatorId?: string;
   /**
    * @example
-   * {\\"textField_annandfa\\":\\"1212\\"}
+   * {\"textField_annandfa\":\"1212\"}
    */
   searchFieldJson?: string;
   /**
@@ -55,7 +55,7 @@ export class SearchEmployeeFieldValuesRequest extends $dara.Model {
   systemToken?: string;
   /**
    * @example
-   * [\\"textField_xahdfna\\"]
+   * [\"textField_xahdfna\"]
    */
   targetFieldJson?: string;
   static names(): { [key: string]: string } {

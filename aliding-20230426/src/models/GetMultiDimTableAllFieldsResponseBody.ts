@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMultiDimTableAllFieldsResponseBodyValue extends $dara.Model {
-  /**
-   * @example
-   * stxxxx
-   */
   id?: string;
-  /**
-   * @example
-   * Sheet1
-   */
   name?: string;
-  /**
-   * @example
-   * xxx
-   */
   property?: { [key: string]: any };
-  /**
-   * @example
-   * xxx
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

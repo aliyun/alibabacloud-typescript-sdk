@@ -4,21 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryOrgHonorsResponseBodyOpenHonors extends $dara.Model {
   honorDesc?: string;
-  /**
-   * @example
-   * 21658579
-   */
   honorId?: number;
-  /**
-   * @example
-   * https://xxxx.ali-cdn.com/jfejfi.jpg
-   */
   honorImgUrl?: string;
   honorName?: string;
-  /**
-   * @example
-   * https://xxxx.ali-cdn.com/jfejfi.jpg
-   */
   honorPendantImgUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,19 +38,8 @@ export class QueryOrgHonorsResponseBodyOpenHonors extends $dara.Model {
 }
 
 export class QueryOrgHonorsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 15
-   */
   nextToken?: string;
   openHonors?: QueryOrgHonorsResponseBodyOpenHonors[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

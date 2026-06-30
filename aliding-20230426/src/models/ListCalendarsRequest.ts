@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCalendarsRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   request?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

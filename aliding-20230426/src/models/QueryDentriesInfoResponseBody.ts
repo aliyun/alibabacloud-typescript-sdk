@@ -4,10 +4,6 @@ import { DentryAppPropertiesValue } from "./DentryAppPropertiesValue";
 
 
 export class QueryDentriesInfoResponseBodyDentryProperties extends $dara.Model {
-  /**
-   * @example
-   * True
-   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -31,20 +27,8 @@ export class QueryDentriesInfoResponseBodyDentryProperties extends $dara.Model {
 }
 
 export class QueryDentriesInfoResponseBodyDentryThumbnail extends $dara.Model {
-  /**
-   * @example
-   * 720
-   */
   height?: number;
-  /**
-   * @example
-   * xxx
-   */
   url?: string;
-  /**
-   * @example
-   * 1920
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -73,80 +57,24 @@ export class QueryDentriesInfoResponseBodyDentryThumbnail extends $dara.Model {
 
 export class QueryDentriesInfoResponseBodyDentry extends $dara.Model {
   appProperties?: { [key: string]: DentryAppPropertiesValue[] };
-  /**
-   * @example
-   * 2025-03-26T02:19:35Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * qt8bGiSa7WnHKeRPtMuoiSJwiE
-   */
   creatorId?: string;
-  /**
-   * @example
-   * txt
-   */
   extension?: string;
-  /**
-   * @example
-   * 140901622636
-   */
   id?: string;
   modifiedTime?: string;
-  /**
-   * @example
-   * qt8bGiSa7WnHKeRPtMuoiSJwiE
-   */
   modifierId?: string;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   parentId?: string;
-  /**
-   * @example
-   * PUBLIC_OSS_PARTITION
-   */
   partitionType?: string;
   path?: string;
   properties?: QueryDentriesInfoResponseBodyDentryProperties;
-  /**
-   * @example
-   * 512
-   */
   size?: number;
-  /**
-   * @example
-   * 22443475065
-   */
   spaceId?: string;
-  /**
-   * @example
-   * NORMAL
-   */
   status?: string;
-  /**
-   * @example
-   * DINGTALK
-   */
   storageDriver?: string;
   thumbnail?: QueryDentriesInfoResponseBodyDentryThumbnail;
-  /**
-   * @example
-   * FILE
-   */
   type?: string;
-  /**
-   * @example
-   * 1716258459684
-   */
   uuid?: string;
-  /**
-   * @example
-   * 1
-   */
   version?: number;
   static names(): { [key: string]: string } {
     return {

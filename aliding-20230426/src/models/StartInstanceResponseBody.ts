@@ -8,10 +8,6 @@ export class StartInstanceResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * f30233fb-72e1-xxx-xxx
-   */
   result?: string;
   /**
    * @example

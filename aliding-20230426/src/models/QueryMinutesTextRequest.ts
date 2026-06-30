@@ -34,28 +34,14 @@ export class QueryMinutesTextRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 607452e01401526ee39609e1
    */
   conferenceId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   direction?: string;
-  /**
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @example
-   * 0
-   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEventResponseBodyContent extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31,34 +27,11 @@ export class DeleteEventResponseBodyContent extends $dara.Model {
 
 export class DeleteEventResponseBody extends $dara.Model {
   content?: DeleteEventResponseBodyContent;
-  /**
-   * @example
-   * success
-   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
-  /**
-   * @example
-   * ""
-   */
   errorMsg?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

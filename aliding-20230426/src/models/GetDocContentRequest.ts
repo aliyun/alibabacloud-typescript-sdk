@@ -33,15 +33,8 @@ export class GetDocContentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dentry_uuid
    */
   dentryUuid?: string;
-  /**
-   * @example
-   * markdown
-   */
   targetFormat?: string;
   tenantContext?: GetDocContentRequestTenantContext;
   /**

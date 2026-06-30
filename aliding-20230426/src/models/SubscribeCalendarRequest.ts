@@ -6,9 +6,6 @@ export class SubscribeCalendarRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * MzM5Mxxx
    */
   calendarId?: string;
   static names(): { [key: string]: string } {

@@ -6,25 +6,16 @@ export class GetMultiDimTableRecordShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 101114
    */
   baseId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   recordId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * xxx
    */
   sheetIdOrName?: string;
   tenantContextShrink?: string;

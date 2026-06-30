@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFormComponentDefinitionListResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * FooterYida
-   */
   componentName?: string;
-  /**
-   * @example
-   * formContainer_kksjiuk
-   */
   fieldId?: string;
-  /**
-   * @example
-   * {"en_US":""}
-   */
   label?: string;
-  /**
-   * @example
-   * formContainer_kksjiuk
-   */
   parentId?: string;
   static names(): { [key: string]: string } {
     return {

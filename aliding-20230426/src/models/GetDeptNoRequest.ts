@@ -34,9 +34,6 @@ export class GetDeptNoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 012345
    */
   deptId?: string;
   static names(): { [key: string]: string } {

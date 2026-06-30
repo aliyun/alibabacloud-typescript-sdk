@@ -33,9 +33,6 @@ export class GetMultiDimTableAllSheetsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 144972
    */
   baseId?: string;
   tenantContext?: GetMultiDimTableAllSheetsRequestTenantContext;

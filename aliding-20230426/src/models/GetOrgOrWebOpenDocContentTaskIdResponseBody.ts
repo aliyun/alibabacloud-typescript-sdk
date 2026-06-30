@@ -8,10 +8,6 @@ export class GetOrgOrWebOpenDocContentTaskIdResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 158740210521
-   */
   taskId?: number;
   /**
    * @example

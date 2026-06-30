@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocBlocksDeleteResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   /**
    * @example

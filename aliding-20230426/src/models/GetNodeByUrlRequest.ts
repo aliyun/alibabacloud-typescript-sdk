@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNodeByUrlRequestOption extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   withPermissionRole?: boolean;
-  /**
-   * @example
-   * false
-   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -69,9 +61,6 @@ export class GetNodeByUrlRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
    */
   url?: string;
   static names(): { [key: string]: string } {

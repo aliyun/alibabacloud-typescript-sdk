@@ -91,15 +91,7 @@ export class CopyDentryResponseBodyLinkSourceInfo extends $dara.Model {
 }
 
 export class CopyDentryResponseBodySpaceHdIconVO extends $dara.Model {
-  /**
-   * @example
-   * http://
-   */
   icon?: string;
-  /**
-   * @example
-   * type
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,15 +117,7 @@ export class CopyDentryResponseBodySpaceHdIconVO extends $dara.Model {
 }
 
 export class CopyDentryResponseBodySpaceIconVO extends $dara.Model {
-  /**
-   * @example
-   * http://
-   */
   icon?: string;
-  /**
-   * @example
-   * type
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -343,10 +327,6 @@ export class CopyDentryResponseBodySpaceRecentListUpdater extends $dara.Model {
    * hello
    */
   name?: string;
-  /**
-   * @example
-   * 012345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -373,10 +353,6 @@ export class CopyDentryResponseBodySpaceRecentListUpdater extends $dara.Model {
 
 export class CopyDentryResponseBodySpaceRecentListVisitorInfo extends $dara.Model {
   dentryActions?: string[];
-  /**
-   * @example
-   * 1
-   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -762,10 +738,6 @@ export class CopyDentryResponseBody extends $dara.Model {
    * 12345678
    */
   updatedTime?: number;
-  /**
-   * @example
-   * {\\"UserId\\": \\"353851\\", \\"Name\\": u\\"\\u848b\\u7fbd\\u4e2d\\"}
-   */
   updater?: { [key: string]: any };
   /**
    * @example

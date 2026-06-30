@@ -33,9 +33,6 @@ export class GetTodoTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * OPJpwtxxxx
    */
   taskId?: string;
   tenantContext?: GetTodoTaskRequestTenantContext;

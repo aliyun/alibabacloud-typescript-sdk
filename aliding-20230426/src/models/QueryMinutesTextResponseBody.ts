@@ -188,15 +188,7 @@ export class QueryMinutesTextResponseBodyParagraphList extends $dara.Model {
 }
 
 export class QueryMinutesTextResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   hasMore?: boolean;
-  /**
-   * @example
-   * 0
-   */
   nextToken?: string;
   paragraphList?: QueryMinutesTextResponseBodyParagraphList[];
   /**

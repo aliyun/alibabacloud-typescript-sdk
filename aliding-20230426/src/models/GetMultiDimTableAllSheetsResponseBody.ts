@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMultiDimTableAllSheetsResponseBodyValue extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   id?: string;
-  /**
-   * @example
-   * xxx
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

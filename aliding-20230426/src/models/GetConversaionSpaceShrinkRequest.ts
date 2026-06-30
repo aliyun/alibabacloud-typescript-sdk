@@ -6,9 +6,6 @@ export class GetConversaionSpaceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cidB8Pzg****FIWPv2PMA==
    */
   openConversationId?: string;
   tenantContextShrink?: string;

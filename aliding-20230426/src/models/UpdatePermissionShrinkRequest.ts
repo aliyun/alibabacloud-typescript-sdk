@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePermissionShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * kDnRL6jAJMLgNkw7tBnw5aY4VyMoPYe1
-   */
   dentryUuid?: string;
   /**
    * @remarks
@@ -14,10 +10,6 @@ export class UpdatePermissionShrinkRequest extends $dara.Model {
    */
   membersShrink?: string;
   optionShrink?: string;
-  /**
-   * @example
-   * READER
-   */
   roleId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {

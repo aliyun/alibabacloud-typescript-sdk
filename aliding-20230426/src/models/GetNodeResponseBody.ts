@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNodeResponseBodyNodeStatisticalInfo extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -80,10 +76,6 @@ export class GetNodeResponseBodyNode extends $dara.Model {
    * READER
    */
   permissionRole?: string;
-  /**
-   * @example
-   * 123123
-   */
   size?: number;
   statisticalInfo?: GetNodeResponseBodyNodeStatisticalInfo;
   /**
@@ -156,9 +148,6 @@ export class GetNodeResponseBodyNode extends $dara.Model {
 export class GetNodeResponseBody extends $dara.Model {
   node?: GetNodeResponseBodyNode;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */

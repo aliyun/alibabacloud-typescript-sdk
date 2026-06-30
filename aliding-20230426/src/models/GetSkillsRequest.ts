@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillsRequest extends $dara.Model {
   groupIds?: string[];
   skillIds?: string[];
-  /**
-   * @example
-   * xxx
-   */
   sourceIdOfAssistantId?: string;
   static names(): { [key: string]: string } {
     return {

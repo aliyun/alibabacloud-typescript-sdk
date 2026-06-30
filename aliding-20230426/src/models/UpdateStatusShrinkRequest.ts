@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateStatusShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * APP_PBKT0MFBEBTDO8T7SLVP
-   */
   appType?: string;
   errorLinesShrink?: string;
-  /**
-   * @example
-   * seq-123
-   */
   importSequence?: string;
-  /**
-   * @example
-   * zh_CN
-   */
   language?: string;
-  /**
-   * @example
-   * running
-   */
   status?: string;
-  /**
-   * @example
-   * hexxxx
-   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
