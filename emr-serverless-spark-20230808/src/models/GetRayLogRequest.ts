@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetCacheClusterRequest extends $dara.Model {
+export class GetRayLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The bucket name.
    * 
    * @example
-   * cn-hangzhou
+   * mybucket
    */
-  regionId?: string;
+  bucketName?: string;
+  /**
+   * @remarks
+   * The log file path.
+   * 
+   * @example
+   * /w-xxxxxxx/ray/logs/rj-xxxxxxxxxx_default/xxxx/rj-xxxx_driver.log
+   */
+  path?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'regionId',
+      bucketName: 'bucketName',
+      path: 'path',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      bucketName: 'string',
+      path: 'string',
     };
   }
 

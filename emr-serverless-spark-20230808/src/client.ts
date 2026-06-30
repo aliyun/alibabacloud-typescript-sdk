@@ -11,7 +11,24 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "emr-serverless-spark.us-west-1.aliyuncs.com",
+      'us-east-1': "emr-serverless-spark.us-east-1.aliyuncs.com",
+      'na-south-1': "emr-serverless-spark.na-south-1.aliyuncs.com",
+      'eu-central-1': "emr-serverless-spark.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "emr-serverless-spark.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "emr-serverless-spark.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "emr-serverless-spark.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "emr-serverless-spark.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "emr-serverless-spark.cn-hangzhou.aliyuncs.com",
+      'cn-chengdu': "emr-serverless-spark.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "emr-serverless-spark.cn-beijing.aliyuncs.com",
+      'ap-southeast-5': "emr-serverless-spark.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-1': "emr-serverless-spark.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "emr-serverless-spark.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr-serverless-spark", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1544,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取CacheCluster详情
+   * Retrieves the details of a Cache cluster.
    * 
    * @param request - GetCacheClusterRequest
    * @param headers - map
@@ -1577,7 +1594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取CacheCluster详情
+   * Retrieves the details of a Cache cluster.
    * 
    * @param request - GetCacheClusterRequest
    * @returns GetCacheClusterResponse
@@ -1977,6 +1994,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the log of a Ray job.
+   * 
+   * @param request - GetRayLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRayLogResponse
+   */
+  async getRayLogWithOptions(workspaceId: string, instanceId: string, request: $_model.GetRayLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRayLogResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucketName)) {
+      query["bucketName"] = request.bucketName;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["path"] = request.path;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRayLog",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceId)}/ray/${$dara.URL.percentEncode(instanceId)}/log`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRayLogResponse>(await this.callApi(params, req, runtime), new $_model.GetRayLogResponse({}));
+  }
+
+  /**
+   * Retrieves the log of a Ray job.
+   * 
+   * @param request - GetRayLogRequest
+   * @returns GetRayLogResponse
+   */
+  async getRayLog(workspaceId: string, instanceId: string, request: $_model.GetRayLogRequest): Promise<$_model.GetRayLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRayLogWithOptions(workspaceId, instanceId, request, headers, runtime);
   }
 
   /**
@@ -3115,6 +3181,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRayJobWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Lists Ray logs.
+   * 
+   * @param request - ListRayLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRayLogsResponse
+   */
+  async listRayLogsWithOptions(workspaceId: string, instanceId: string, request: $_model.ListRayLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRayLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucketName)) {
+      query["bucketName"] = request.bucketName;
+    }
+
+    if (!$dara.isNull(request.delimiter)) {
+      query["delimiter"] = request.delimiter;
+    }
+
+    if (!$dara.isNull(request.marker)) {
+      query["marker"] = request.marker;
+    }
+
+    if (!$dara.isNull(request.maxKeys)) {
+      query["maxKeys"] = request.maxKeys;
+    }
+
+    if (!$dara.isNull(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRayLogs",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceId)}/ray/${$dara.URL.percentEncode(instanceId)}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRayLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListRayLogsResponse({}));
+  }
+
+  /**
+   * Lists Ray logs.
+   * 
+   * @param request - ListRayLogsRequest
+   * @returns ListRayLogsResponse
+   */
+  async listRayLogs(workspaceId: string, instanceId: string, request: $_model.ListRayLogsRequest): Promise<$_model.ListRayLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRayLogsWithOptions(workspaceId, instanceId, request, headers, runtime);
   }
 
   /**

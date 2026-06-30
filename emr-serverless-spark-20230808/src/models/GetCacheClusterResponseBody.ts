@@ -4,8 +4,15 @@ import { CacheCluster } from "./CacheCluster";
 
 
 export class GetCacheClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Cache clusters.
+   */
   cacheClusters?: CacheCluster;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
