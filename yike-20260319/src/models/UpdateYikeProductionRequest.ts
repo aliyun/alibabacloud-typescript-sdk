@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateYikeProductionRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class UpdateYikeProductionRequest extends $dara.Model {
    */
   productionId?: string;
   /**
+   * @remarks
+   * The project title.
+   * 
    * @example
    * title
    */

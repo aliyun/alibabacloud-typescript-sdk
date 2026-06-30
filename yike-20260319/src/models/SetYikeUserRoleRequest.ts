@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetYikeUserRoleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The role of the user. Valid values:
+   * - SuperAdmin: super administrator.
+   * - Admin: administrator.
+   * - RegularUser: regular member.
+   * 
    * @example
    * Admin
    */
   roleName?: string;
   /**
+   * @remarks
+   * The ID of the sub-account user.
+   * 
    * @example
    * id
    */

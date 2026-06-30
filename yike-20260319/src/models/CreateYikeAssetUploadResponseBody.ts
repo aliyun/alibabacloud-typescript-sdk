@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateYikeAssetUploadResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The OSS URL of the file, without authentication.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The upload address.
+   * 
    * @example
    * eyJTZWN1cml0a2VuIjoiQ0FJU3p3TjF****
    */
   uploadAddress?: string;
   /**
+   * @remarks
+   * The upload credential.
+   * 
    * @example
    * eyJFbmRwb2ludCI6Imm****
    */

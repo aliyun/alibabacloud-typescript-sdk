@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SetYikeCallbackConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The callback configuration. CallbackEventList supports multiple events, including:
+   * - EventType: the event type. Valid values:
+   *   - UserCreated: The user is created.
+   *   - UserCreditAdded: Credits are added to the user.
+   * - UserData: a JSON object that contains user-defined data.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,8 @@ export class SetYikeCallbackConfigRequest extends $dara.Model {
   callbackConfig?: string;
   /**
    * @remarks
+   * The HTTP callback URL.
+   * 
    * This parameter is required.
    * 
    * @example

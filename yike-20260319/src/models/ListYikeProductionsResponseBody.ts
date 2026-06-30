@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
   /**
+   * @remarks
+   * The authentication method.
+   * 
    * @example
    * Manage
    */
   auth?: string;
   /**
+   * @remarks
+   * The cover URL.
+   * 
    * @example
    * https://tagvvcloud-material-center-prod.oss-cn-hangzhou.aliyuncs.com/sumvideo/utils_image/sumvideo-video-cover.png
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-01-07T02:21:36Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The username of the creator.
+   * 
    * @example
    * aliyun_183*************
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The project description.
+   * 
    * @example
    * Swas_QuerySwasInstanceByRegion
    */
   description?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * pd_463862****
    */
   productionId?: string;
   /**
+   * @remarks
+   * The project title.
+   * 
    * @example
    * Harvest
    */
   title?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-m3r546h1n9kq3mtm
    */
@@ -80,17 +104,30 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
 
 export class ListYikeProductionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token for the next page.
+   * 
    * @example
    * Token
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of projects.
+   */
   productionList?: ListYikeProductionsResponseBodyProductionList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

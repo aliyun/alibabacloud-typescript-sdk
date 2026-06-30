@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeStoryboardJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The screenshot task ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */

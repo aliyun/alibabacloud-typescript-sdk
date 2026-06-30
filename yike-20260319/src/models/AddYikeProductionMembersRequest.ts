@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddYikeProductionMembersRequest extends $dara.Model {
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddYikeProductionMembersRequest extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
+   * The IDs of the RAM users.
+   * 
    * This parameter is required.
    * 
    * @example

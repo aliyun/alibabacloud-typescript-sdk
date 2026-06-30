@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   /**
+   * @remarks
+   * Workspace code
+   * 
    * @example
    * ABCD12
    */
   code?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2026-04-29T10:22:44Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Default project ID
+   * 
    * @example
    * pd_1234***
    */
   defaultProductionId?: string;
   /**
+   * @remarks
+   * Workspace status
+   * 
    * @example
    * Online
    */
   status?: string;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * workspace title
    */
   title?: string;
   /**
+   * @remarks
+   * Number of users in the workspace
+   * 
    * @example
    * 1
    */
   userCount?: string;
   /**
+   * @remarks
+   * Workspace ID.
+   * 
    * @example
    * ws_1243****
    */
@@ -81,10 +102,17 @@ export class ListYikeWorkspacesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of workspaces
+   * 
    * @example
    * 54
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * Workspace list
+   */
   workspaceList?: ListYikeWorkspacesResponseBodyWorkspaceList[];
   static names(): { [key: string]: string } {
     return {

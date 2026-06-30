@@ -12,6 +12,9 @@ export class UpdateYikeProductionMemberAuthResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the permissions were set successfully.
+   * 
    * @example
    * true
    */

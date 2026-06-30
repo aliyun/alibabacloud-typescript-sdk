@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeStoryboardJobResponseBodyJobCredit extends $dara.Model {
   /**
+   * @remarks
+   * The credit consumption for element image generation.
+   * 
    * @example
    * 10.0
    */
   elementImageGeneration?: string;
   /**
+   * @remarks
+   * The total credit consumption.
+   * 
    * @example
    * 200.2
    */
   totalCreditCost?: string;
   /**
+   * @remarks
+   * The credit consumption for video composition.
+   * 
    * @example
    * 10.2
    */
   videoComposition?: string;
   /**
+   * @remarks
+   * The credit consumption for video generation.
+   * 
    * @example
    * 180.0
    */
@@ -52,16 +64,25 @@ export class GetYikeStoryboardJobResponseBodyJobCredit extends $dara.Model {
 
 export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   /**
+   * @remarks
+   * The aspect ratio of the video.
+   * 
    * @example
    * 16:9
    */
   aspectRatio?: string;
   /**
+   * @remarks
+   * The OSS URL of the file.
+   * 
    * @example
    * https://test.oss-cn-shanghai.aliyuncs.com/test.mp4
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The random seed.
+   * 
    * @example
    * {
    *   "AudioEnable": false
@@ -69,41 +90,67 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
    */
   modelParams?: string;
   /**
+   * @remarks
+   * The narration voice ID.
+   * 
    * @example
    * sys_YoungGracefulWoman
    */
   narrationVoiceId?: string;
   /**
+   * @remarks
+   * The resolution of the generated video.
+   * 
    * @example
    * 1K
    */
   resolution?: string;
   /**
+   * @remarks
+   * The shot prompt generation mode.
+   * 
    * @example
    * multi
    */
   shotPromptMode?: string;
   /**
+   * @remarks
+   * The shot splitting mode.
+   * 
    * @example
    * firstPersonNarration
    */
   shotSplitMode?: string;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * Novel
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The style ID.
+   * 
    * @example
    * RealisticPhotography
    */
   styleId?: string;
   /**
+   * @remarks
+   * The task title. Requirements:
+   * - The title cannot exceed 128 bytes in length.
+   * - The title must be UTF-8 encoded.
+   * 
    * @example
    * test-title
    */
   title?: string;
   /**
+   * @remarks
+   * The video model.
+   * 
    * @example
    * wan2.6-r2v-flash
    */
@@ -151,36 +198,57 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
 
 export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   /**
+   * @remarks
+   * The list of abnormal storyboard IDs.
+   * 
    * @example
    * [\\"st_2053348871\\"]
    */
   exceptionStoryboardIds?: string;
   /**
+   * @remarks
+   * The list of failed shots.
+   * 
    * @example
    * [{\\"errorCode\\":\\"NoMediaData\\",\\"storyboardId\\":\\"st_2118280473\\",\\"shotId\\":\\"54\\"}]
    */
   failureShotList?: string;
   /**
+   * @remarks
+   * The downloadable OSS URL.
+   * 
    * @example
    * https://test.oss-cn-shanghai.aliyuncs.com/test.mp4
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The URL of the SRT file.
+   * 
    * @example
    * https://bucket.oss-cn-shanghai.aliyuncs.com/test/110412818/6bf24c75285142f395464d4b9c2bcf07.srt?Expires=1778220836&OSSAccessKeyId=*******&Signature=*******
    */
   srtFileUrl?: string;
   /**
+   * @remarks
+   * The detailed storyboard information for the storyboard generation task.
+   * 
    * @example
    * [{\\"storyboardId\\":\\"st_1541525214\\",\\"title\\":\\"test_1\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"},{\\"storyboardId\\":\\"st_1633435355\\",\\"title\\":\\"test_2\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"}]
    */
   storyboardInfoList?: string;
   /**
+   * @remarks
+   * The list of successful storyboard IDs, separated by commas.
+   * 
    * @example
    * st_2118280473, st_2118280471
    */
   successStoryboardIds?: string;
   /**
+   * @remarks
+   * The list of successful storyboards.
+   * 
    * @example
    * [\\"st_2118280473\\"]
    */
@@ -219,20 +287,47 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
 }
 
 export class GetYikeStoryboardJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The credit consumption.
+   */
   jobCredit?: GetYikeStoryboardJobResponseBodyJobCredit;
   /**
+   * @remarks
+   * The task ID. You can obtain this value from the response of [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html).
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The algorithm job parameters. This is a JSON object whose content varies depending on the algorithm.
+   */
   jobParams?: GetYikeStoryboardJobResponseBodyJobParams;
+  /**
+   * @remarks
+   * The task result.
+   */
   jobResult?: GetYikeStoryboardJobResponseBodyJobResult;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * - **Succeeded**: The task is successful.
+   * 
+   * - **Failed**: The task failed.
+   * 
+   * - **Running**: The task is running.
+   * 
    * @example
    * Succeeded
    */
   jobStatus?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

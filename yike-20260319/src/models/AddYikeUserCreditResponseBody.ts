@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddYikeUserCreditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned when the increase fails. Valid values:
+   * - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: The primary account does not have sufficient credit balance.
+   * 
    * @example
    * NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA
    */
@@ -17,6 +21,9 @@ export class AddYikeUserCreditResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the credits were increased successfully.
+   * 
    * @example
    * true
    */

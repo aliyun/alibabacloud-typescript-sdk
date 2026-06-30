@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PrecheckYikeAIAppJobResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The cause of the parameter check failure.
+   * 
    * @example
    * ImageCheckFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The application parameter name.
+   * 
    * @example
    * LoadImage.1.TargetImage
    */
@@ -38,12 +44,25 @@ export class PrecheckYikeAIAppJobResponseBodyResult extends $dara.Model {
 
 export class PrecheckYikeAIAppJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The parameters that failed the pre-check. This parameter is returned only when the pre-check fails.
+   */
   result?: PrecheckYikeAIAppJobResponseBodyResult[];
   /**
+   * @remarks
+   * The pre-check result. Valid values:
+   * 
+   * - Success: The pre-check is successful.
+   * - Failed: The pre-check failed.
+   * 
    * @example
    * Success
    */

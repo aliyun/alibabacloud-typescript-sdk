@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeVoiceNarratorJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example

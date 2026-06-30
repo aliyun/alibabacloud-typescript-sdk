@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitYikeAIAppJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82df****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */

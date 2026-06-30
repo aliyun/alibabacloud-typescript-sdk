@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateYikeProductionMemberAuthRequest extends $dara.Model {
   /**
    * @remarks
+   * The permission name. Valid values:
+   * 
+   * - Manage: manageable
+   * - Edit: editable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class UpdateYikeProductionMemberAuthRequest extends $dara.Model {
   auth?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +28,12 @@ export class UpdateYikeProductionMemberAuthRequest extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
+   * The RAM user ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 21******
    */
   yikeUserId?: string;
   static names(): { [key: string]: string } {

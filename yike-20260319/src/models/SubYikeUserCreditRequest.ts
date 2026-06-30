@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubYikeUserCreditRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of credits to reclaim. The value must be greater than 0 and cannot exceed the sub-account credit balance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubYikeUserCreditRequest extends $dara.Model {
   credit?: number;
   /**
    * @remarks
+   * The sub-account user ID.
+   * 
    * This parameter is required.
    * 
    * @example

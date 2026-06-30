@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteYikeAssetMediaInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs or input URLs for which errors occurred during retrieval.
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

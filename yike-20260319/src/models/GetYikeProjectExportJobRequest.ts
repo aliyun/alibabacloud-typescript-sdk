@@ -2,34 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddYikeProductionMembersResponseBody extends $dara.Model {
+export class GetYikeProjectExportJobRequest extends $dara.Model {
   /**
    * @remarks
-   * RequestId
+   * The task ID.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   * 68ca759e798b40b4903b255*******
    */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the member is added.
-   * 
-   * @example
-   * true
-   */
-  result?: boolean;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      result: 'Result',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      result: 'boolean',
+      jobId: 'string',
     };
   }
 

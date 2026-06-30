@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListYikeWorkspacesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 20
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateYikeProductionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * pd_12334**
    */

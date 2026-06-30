@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitYikeVoiceNarratorJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * task_abc123def456
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req_create_20260420_001
    */

@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubYikeUserCreditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned when the deduction fails.
+   * - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: the account credit balance is insufficient.
+   * 
    * @example
    * NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA
    */
@@ -17,6 +21,11 @@ export class SubYikeUserCreditResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
