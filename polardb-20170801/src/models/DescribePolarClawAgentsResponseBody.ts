@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarClawAgentsResponseBodyAgentsFiles extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the file is missing.
+   * 
    * @example
    * false
    */
   missing?: boolean;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * SOUL.md
    */
   name?: string;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /home/node/.openclaw/workspace-work/SOUL.md
    */
   path?: string;
   /**
+   * @remarks
+   * The file size, in bytes.
+   * 
    * @example
    * 1024
    */
   size?: number;
   /**
+   * @remarks
+   * The last updated timestamp, in milliseconds.
+   * 
    * @example
    * 1716000000000
    */
@@ -76,7 +91,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
   avatarUrl?: string;
   /**
    * @remarks
-   * The emoji identifier in Unicode encoding format such as U+1F99E, or a direct emoji character.
+   * The emoji identifier in Unicode format such as U+1F99E, or a direct emoji character.
    * 
    * @example
    * U+1F99E
@@ -128,8 +143,15 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
 }
 
 export class DescribePolarClawAgentsResponseBodyAgentsModel extends $dara.Model {
+  /**
+   * @remarks
+   * The fallback model list.
+   */
   fallbacks?: string[];
   /**
+   * @remarks
+   * The primary model.
+   * 
    * @example
    * claude-sonnet-4-5
    */
@@ -162,10 +184,17 @@ export class DescribePolarClawAgentsResponseBodyAgentsModel extends $dara.Model 
 
 export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether this is the default agent.
+   * 
    * @example
    * true
    */
   default?: boolean;
+  /**
+   * @remarks
+   * The agent file list.
+   */
   files?: DescribePolarClawAgentsResponseBodyAgentsFiles[];
   /**
    * @remarks
@@ -180,17 +209,28 @@ export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
    * The identity information.
    */
   identity?: DescribePolarClawAgentsResponseBodyAgentsIdentity;
+  /**
+   * @remarks
+   * The model configuration.
+   */
   model?: DescribePolarClawAgentsResponseBodyAgentsModel;
   /**
    * @remarks
-   * The display name of the agent.
+   * The agent display name.
    * 
    * @example
    * main
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of skills available to the agent.
+   */
   skills?: string[];
   /**
+   * @remarks
+   * The working directory path.
+   * 
    * @example
    * /home/node/.openclaw/workspace-work
    */

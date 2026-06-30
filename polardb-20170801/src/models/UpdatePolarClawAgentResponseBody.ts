@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   /**
    * @remarks
-   * Avatar path or content
+   * The avatar path or content.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * Avatar URL
+   * The avatar URL.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   avatarUrl?: string;
   /**
    * @remarks
-   * Emoji identifier (Unicode format such as U+1F99E, or direct emoji character)
+   * The emoji identifier. The value is in Unicode encoding format such as U+1F99E, or a direct emoji character.
    * 
    * @example
    * U+1F99E
@@ -29,7 +29,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   emoji?: string;
   /**
    * @remarks
-   * Identity name
+   * The identity name.
    * 
    * @example
    * PolarClaw
@@ -37,7 +37,7 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Theme
+   * The theme.
    * 
    * @example
    * soul lobster
@@ -83,12 +83,12 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Identity information
+   * The identity information.
    */
   identity?: UpdatePolarClawAgentResponseBodyAgentIdentity;
   /**
    * @remarks
-   * Agent display name
+   * The display name of the agent.
    * 
    * @example
    * PolarClaw
@@ -96,7 +96,7 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Workspace directory path
+   * The working directory path.
    * 
    * @example
    * /home/node/.openclaw/workspace-work-v2
@@ -135,7 +135,7 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
 export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Updated Agent details
+   * The details of the updated agent.
    */
   agent?: UpdatePolarClawAgentResponseBodyAgent;
   /**
@@ -148,7 +148,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * @example
    * pa-**************
@@ -156,7 +156,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Response status code
+   * The response status code.
    * 
    * @example
    * 200
@@ -164,7 +164,7 @@ export class UpdatePolarClawAgentResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * successful

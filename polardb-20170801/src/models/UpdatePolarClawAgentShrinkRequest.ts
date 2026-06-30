@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID to update
+   * The ID of the agent to update.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * New avatar
+   * The new avatar.
    * 
    * @example
    * test
@@ -33,25 +33,31 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * List of files to update
+   * The list of files to update.
    * 
    * @example
    * [{"FileName":"SOUL.md","FileContent":"You are a helpful assistant."}]
    */
   filesShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to set the agent as the default agent.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * Specifies whether to keep files when switching the workspace.
+   * 
    * @example
    * false
    */
   keepWorkspaceFiles?: boolean;
   /**
    * @remarks
-   * Model override
+   * The model override.
    * 
    * @example
    * claude-sonnet-4-5
@@ -59,7 +65,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * New display name
+   * The new display name of the agent.
    * 
    * @example
    * Work Bot
@@ -67,7 +73,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Whether to restart the gateway after creation, default is true
+   * Specifies whether to restart the gateway after creation. Default value: true.
    * 
    * @example
    * true
@@ -75,7 +81,7 @@ export class UpdatePolarClawAgentShrinkRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * New workspace directory path
+   * The new working directory path.
    * 
    * @example
    * /home/node/.openclaw/workspace-work-v2

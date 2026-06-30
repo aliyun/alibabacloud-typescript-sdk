@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeApikeyAttributeResponseBodyItemsConsumer extends $dara.Model {
   /**
+   * @remarks
+   * The API key.
+   * 
    * @example
    * ***
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * cg-bq6rcdjp02vt
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * c-71qh3pscbd3i
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The consumer tag.
+   * 
    * @example
    * test
    */
   consumerTag?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-07-18T07:32:30Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * pg-2ze5n62ef4s165***
    */
   gwClusterId?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2026-04-10T01:48:25Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The consumer name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The consumer status.
+   * 
    * @example
    * Enabled
    */
@@ -87,66 +114,105 @@ export class DescribeApikeyAttributeResponseBodyItemsConsumer extends $dara.Mode
 
 export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $dara.Model {
   /**
+   * @remarks
+   * The dimension reference ID, which is the ConsumerId.
+   * 
    * @example
    * c-xxxxxx
    */
   dimensionRefId?: string;
   /**
+   * @remarks
+   * The statistics dimension. The value is typically Consumer.
+   * 
    * @example
    * Consumer
    */
   dimensionType?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * pg-bp1ln7w98yrhzz7i2
    */
   gwClusterId?: string;
   /**
+   * @remarks
+   * The number of cache tokens for the current month.
+   * 
    * @example
    * 10
    */
   monthlyCacheToken?: string;
   /**
+   * @remarks
+   * The cost points consumed for the current month.
+   * 
    * @example
    * 10
    */
   monthlyCostPoints?: string;
   /**
+   * @remarks
+   * The number of input tokens for the current month.
+   * 
    * @example
    * 10
    */
   monthlyInputToken?: string;
   /**
+   * @remarks
+   * The number of output tokens for the current month.
+   * 
    * @example
    * 10
    */
   monthlyOutputToken?: string;
   /**
+   * @remarks
+   * The number of tokens for the current month.
+   * 
    * @example
    * 10
    */
   monthlyToken?: string;
   /**
+   * @remarks
+   * The cumulative number of cache tokens.
+   * 
    * @example
    * 10
    */
   totalCacheToken?: string;
   /**
+   * @remarks
+   * The cumulative cost points consumed.
+   * 
    * @example
    * 10
    */
   totalCostPoints?: string;
   /**
+   * @remarks
+   * The cumulative number of input tokens.
+   * 
    * @example
    * 10
    */
   totalInputToken?: string;
   /**
+   * @remarks
+   * The cumulative number of output tokens.
+   * 
    * @example
    * 10
    */
   totalOutputToken?: string;
   /**
+   * @remarks
+   * The cumulative number of tokens.
+   * 
    * @example
    * 10
    */
@@ -197,7 +263,15 @@ export class DescribeApikeyAttributeResponseBodyItemsUsageStatistics extends $da
 }
 
 export class DescribeApikeyAttributeResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The consumer information.
+   */
   consumer?: DescribeApikeyAttributeResponseBodyItemsConsumer;
+  /**
+   * @remarks
+   * The usage statistics for the consumer.
+   */
   usageStatistics?: DescribeApikeyAttributeResponseBodyItemsUsageStatistics[];
   static names(): { [key: string]: string } {
     return {
@@ -229,8 +303,15 @@ export class DescribeApikeyAttributeResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeApikeyAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of consumer objects.
+   */
   items?: DescribeApikeyAttributeResponseBodyItems[];
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * F3322AFE-083E-4D77-A074-421301******
    */

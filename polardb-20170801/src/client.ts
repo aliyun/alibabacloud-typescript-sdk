@@ -4162,7 +4162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add read-only nodes to a PolarDB cluster.
+   * Adds read-only nodes to a PolarDB cluster.
    * 
    * @param request - CreateDBNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4253,7 +4253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add read-only nodes to a PolarDB cluster.
+   * Adds read-only nodes to a PolarDB cluster.
    * 
    * @param request - CreateDBNodesRequest
    * @returns CreateDBNodesResponse
@@ -9412,7 +9412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询该apikey的详细信息
+   * Queries the details of a specified API key.
    * 
    * @param request - DescribeApikeyAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9455,7 +9455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询该apikey的详细信息
+   * Queries the details of a specified API key.
    * 
    * @param request - DescribeApikeyAttributeRequest
    * @returns DescribeApikeyAttributeResponse
@@ -16074,6 +16074,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a PolarClaw Agent file.
+   * 
+   * @param request - DescribePolarClawAgentFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawAgentFileResponse
+   */
+  async describePolarClawAgentFileWithOptions(request: $_model.DescribePolarClawAgentFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawAgentFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawAgentFile",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawAgentFileResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawAgentFileResponse({}));
+  }
+
+  /**
+   * Queries a PolarClaw Agent file.
+   * 
+   * @param request - DescribePolarClawAgentFileRequest
+   * @returns DescribePolarClawAgentFileResponse
+   */
+  async describePolarClawAgentFile(request: $_model.DescribePolarClawAgentFileRequest): Promise<$_model.DescribePolarClawAgentFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawAgentFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the PolarClaw Agent tool catalog.
+   * 
+   * @param request - DescribePolarClawAgentToolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawAgentToolsResponse
+   */
+  async describePolarClawAgentToolsWithOptions(request: $_model.DescribePolarClawAgentToolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawAgentToolsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.includePlugins)) {
+      query["IncludePlugins"] = request.includePlugins;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawAgentTools",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawAgentToolsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawAgentToolsResponse({}));
+  }
+
+  /**
+   * Queries the PolarClaw Agent tool catalog.
+   * 
+   * @param request - DescribePolarClawAgentToolsRequest
+   * @returns DescribePolarClawAgentToolsResponse
+   */
+  async describePolarClawAgentTools(request: $_model.DescribePolarClawAgentToolsRequest): Promise<$_model.DescribePolarClawAgentToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawAgentToolsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all installed plug-ins and their status information under a specified application.
    * 
    * @param tmpReq - DescribePolarClawAgentsRequest
@@ -16351,6 +16451,52 @@ export default class Client extends OpenApi {
   async describePolarClawPlugins(request: $_model.DescribePolarClawPluginsRequest): Promise<$_model.DescribePolarClawPluginsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePolarClawPluginsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a PolarClaw Skill.
+   * 
+   * @param request - DescribePolarClawSkillDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawSkillDetailResponse
+   */
+  async describePolarClawSkillDetailWithOptions(request: $_model.DescribePolarClawSkillDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.slug)) {
+      query["Slug"] = request.slug;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawSkillDetail",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawSkillDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of a PolarClaw Skill.
+   * 
+   * @param request - DescribePolarClawSkillDetailRequest
+   * @returns DescribePolarClawSkillDetailResponse
+   */
+  async describePolarClawSkillDetail(request: $_model.DescribePolarClawSkillDetailRequest): Promise<$_model.DescribePolarClawSkillDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawSkillDetailWithOptions(request, runtime);
   }
 
   /**
@@ -19555,6 +19701,68 @@ export default class Client extends OpenApi {
   async installPolarClawPlugin(request: $_model.InstallPolarClawPluginRequest): Promise<$_model.InstallPolarClawPluginResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.installPolarClawPluginWithOptions(request, runtime);
+  }
+
+  /**
+   * Installs a PolarClaw Skill.
+   * 
+   * @param request - InstallPolarClawSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallPolarClawSkillResponse
+   */
+  async installPolarClawSkillWithOptions(request: $_model.InstallPolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallPolarClawSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.skillVersion)) {
+      query["SkillVersion"] = request.skillVersion;
+    }
+
+    if (!$dara.isNull(request.slug)) {
+      query["Slug"] = request.slug;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallPolarClawSkill",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallPolarClawSkillResponse>(await this.callApi(params, req, runtime), new $_model.InstallPolarClawSkillResponse({}));
+  }
+
+  /**
+   * Installs a PolarClaw Skill.
+   * 
+   * @param request - InstallPolarClawSkillRequest
+   * @returns InstallPolarClawSkillResponse
+   */
+  async installPolarClawSkill(request: $_model.InstallPolarClawSkillRequest): Promise<$_model.InstallPolarClawSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installPolarClawSkillWithOptions(request, runtime);
   }
 
   /**
@@ -23486,7 +23694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the node specifications of a PolarDB cluster.
+   * Changes the node specifications of a PolarDB cluster.
    * 
    * @param request - ModifyDBNodeClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23577,7 +23785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the node specifications of a PolarDB cluster.
+   * Changes the node specifications of a PolarDB cluster.
    * 
    * @param request - ModifyDBNodeClassRequest
    * @returns ModifyDBNodeClassResponse
@@ -26634,6 +26842,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Searches for PolarClaw Skills.
+   * 
+   * @param request - SearchPolarClawSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPolarClawSkillsResponse
+   */
+  async searchPolarClawSkillsWithOptions(request: $_model.SearchPolarClawSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchPolarClawSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchPolarClawSkills",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchPolarClawSkillsResponse>(await this.callApi(params, req, runtime), new $_model.SearchPolarClawSkillsResponse({}));
+  }
+
+  /**
+   * Searches for PolarClaw Skills.
+   * 
+   * @param request - SearchPolarClawSkillsRequest
+   * @returns SearchPolarClawSkillsResponse
+   */
+  async searchPolarClawSkills(request: $_model.SearchPolarClawSkillsRequest): Promise<$_model.SearchPolarClawSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchPolarClawSkillsWithOptions(request, runtime);
+  }
+
+  /**
    * Sets file quota rules for specific directories in a PolarFS instance.
    * 
    * @remarks
@@ -27356,7 +27614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update PolarClaw Agent
+   * Updates a PolarClaw agent.
    * 
    * @param tmpReq - UpdatePolarClawAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27429,7 +27687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update PolarClaw Agent
+   * Updates a PolarClaw agent.
    * 
    * @param request - UpdatePolarClawAgentRequest
    * @returns UpdatePolarClawAgentResponse
@@ -27437,6 +27695,138 @@ export default class Client extends OpenApi {
   async updatePolarClawAgent(request: $_model.UpdatePolarClawAgentRequest): Promise<$_model.UpdatePolarClawAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePolarClawAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the skills of a PolarClaw Agent.
+   * 
+   * @param tmpReq - UpdatePolarClawAgentSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePolarClawAgentSkillsResponse
+   */
+  async updatePolarClawAgentSkillsWithOptions(tmpReq: $_model.UpdatePolarClawAgentSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePolarClawAgentSkillsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePolarClawAgentSkillsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.skills)) {
+      request.skillsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skills, "Skills", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.skillsShrink)) {
+      query["Skills"] = request.skillsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePolarClawAgentSkills",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePolarClawAgentSkillsResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePolarClawAgentSkillsResponse({}));
+  }
+
+  /**
+   * Updates the skills of a PolarClaw Agent.
+   * 
+   * @param request - UpdatePolarClawAgentSkillsRequest
+   * @returns UpdatePolarClawAgentSkillsResponse
+   */
+  async updatePolarClawAgentSkills(request: $_model.UpdatePolarClawAgentSkillsRequest): Promise<$_model.UpdatePolarClawAgentSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePolarClawAgentSkillsWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the tool configuration of a PolarClaw Agent.
+   * 
+   * @param tmpReq - UpdatePolarClawAgentToolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePolarClawAgentToolsResponse
+   */
+  async updatePolarClawAgentToolsWithOptions(tmpReq: $_model.UpdatePolarClawAgentToolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePolarClawAgentToolsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePolarClawAgentToolsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.allow)) {
+      request.allowShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allow, "Allow", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.alsoAllow)) {
+      request.alsoAllowShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alsoAllow, "AlsoAllow", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.deny)) {
+      request.denyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deny, "Deny", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.allowShrink)) {
+      query["Allow"] = request.allowShrink;
+    }
+
+    if (!$dara.isNull(request.alsoAllowShrink)) {
+      query["AlsoAllow"] = request.alsoAllowShrink;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.denyShrink)) {
+      query["Deny"] = request.denyShrink;
+    }
+
+    if (!$dara.isNull(request.profile)) {
+      query["Profile"] = request.profile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePolarClawAgentTools",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePolarClawAgentToolsResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePolarClawAgentToolsResponse({}));
+  }
+
+  /**
+   * Updates the tool configuration of a PolarClaw Agent.
+   * 
+   * @param request - UpdatePolarClawAgentToolsRequest
+   * @returns UpdatePolarClawAgentToolsResponse
+   */
+  async updatePolarClawAgentTools(request: $_model.UpdatePolarClawAgentToolsRequest): Promise<$_model.UpdatePolarClawAgentToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePolarClawAgentToolsWithOptions(request, runtime);
   }
 
   /**
@@ -27553,6 +27943,70 @@ export default class Client extends OpenApi {
   async updatePolarClawCronJob(request: $_model.UpdatePolarClawCronJobRequest): Promise<$_model.UpdatePolarClawCronJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePolarClawCronJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the PolarClaw Skill configuration.
+   * 
+   * @param tmpReq - UpdatePolarClawSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePolarClawSkillResponse
+   */
+  async updatePolarClawSkillWithOptions(tmpReq: $_model.UpdatePolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePolarClawSkillResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePolarClawSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.env)) {
+      request.envShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.env, "Env", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.envShrink)) {
+      query["Env"] = request.envShrink;
+    }
+
+    if (!$dara.isNull(request.skillKey)) {
+      query["SkillKey"] = request.skillKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePolarClawSkill",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePolarClawSkillResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePolarClawSkillResponse({}));
+  }
+
+  /**
+   * Updates the PolarClaw Skill configuration.
+   * 
+   * @param request - UpdatePolarClawSkillRequest
+   * @returns UpdatePolarClawSkillResponse
+   */
+  async updatePolarClawSkill(request: $_model.UpdatePolarClawSkillRequest): Promise<$_model.UpdatePolarClawSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePolarClawSkillWithOptions(request, runtime);
   }
 
   /**

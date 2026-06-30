@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApikeyAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The plaintext API key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,27 @@ export class DescribeApikeyAttributeRequest extends $dara.Model {
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
+   * 
+   * Default value: **30**.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

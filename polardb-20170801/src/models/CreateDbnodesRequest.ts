@@ -5,19 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBNodesRequestDBNode extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the new node. The specifications must be the same as those of the existing nodes in the cluster. For more information, see the following topics:
-   * 
-   * - PolarDB for MySQL: [compute node specifications](https://help.aliyun.com/document_detail/102542.html).
-   * 
-   * - PolarDB for PostgreSQL (Oracle Compatible): [compute node specifications](https://help.aliyun.com/document_detail/207921.html).
-   * 
-   * - PolarDB for PostgreSQL: [compute node specifications](https://help.aliyun.com/document_detail/209380.html).
-   * 
-   * > * You must specify either `DBNode.N.ZoneId` or `DBNode.N.TargetClass`. `N` is an integer that starts from 1. The maximum value of `N` is 16 minus the number of existing nodes.
-   * >
-   * > * For PolarDB for MySQL clusters, you can add multiple read-only nodes in a single request, up to a total of 15 read-only nodes.
-   * >
-   * > * This parameter is required for PolarDB for PostgreSQL (Oracle Compatible) and PolarDB for PostgreSQL clusters, but optional for PolarDB for MySQL clusters.
+   * The specification of the new node. The specification must be the same as that of the existing nodes. For more information, see the following topics:
+   * * PolarDB for MySQL: [Compute node specifications](https://help.aliyun.com/document_detail/102542.html). 
+   * * PolarDB for PostgreSQL (Compatible with Oracle): [Compute node specifications](https://help.aliyun.com/document_detail/207921.html).
+   * * PolarDB for PostgreSQL: [Compute node specifications](https://help.aliyun.com/document_detail/209380.html).
+   * >* You must specify at least one of DBNode.N.ZoneId and DBNode.N.TargetClass. N is an integer that starts from 1. Maximum value of N = 16 - current number of nodes.
+   * >* Only PolarDB for MySQL clusters support adding multiple read-only nodes at a time. You can add up to 15 read-only nodes.
+   * >* This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL clusters. This parameter is optional for PolarDB for MySQL clusters.
    * 
    * @example
    * polar.mysql.x4.medium
@@ -25,13 +19,11 @@ export class CreateDBNodesRequestDBNode extends $dara.Model {
   targetClass?: string;
   /**
    * @remarks
-   * The ID of the zone for the new node. This zone must be the same as the zone of the existing nodes. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query zone IDs.
+   * The zone of the new node. The zone must be the same as that of the existing nodes. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query zone IDs.
    * 
-   * > - You must specify either `DBNode.N.ZoneId` or `DBNode.N.TargetClass`. `N` is an integer that starts from 1. The maximum value of `N` is 16 minus the number of existing nodes.
-   * >
-   * > - For PolarDB for MySQL clusters, you can add multiple read-only nodes in a single request, up to a total of 15 read-only nodes.
-   * >
-   * > - This parameter is required for PolarDB for PostgreSQL (Oracle Compatible) and PolarDB for PostgreSQL clusters, but optional for PolarDB for MySQL clusters.
+   * >* You must specify at least one of DBNode.N.ZoneId and DBNode.N.TargetClass. N is an integer that starts from 1. Maximum value of N = 16 - current number of nodes. 
+   * >* Only PolarDB for MySQL clusters support adding multiple read-only nodes at a time. You can add up to 15 read-only nodes.
+   * >* This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL clusters. This parameter is optional for PolarDB for MySQL clusters.
    * 
    * @example
    * cn-qingdao-c
@@ -63,16 +55,14 @@ export class CreateDBNodesRequestDBNode extends $dara.Model {
 export class CreateDBNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically use a coupon. Valid values:
-   * 
-   * - true (Default): An available coupon is automatically used.
-   * 
-   * - false: A coupon is not automatically used.
+   * Specifies whether to automatically use coupons. Valid values:
+   * * true (default): Use coupons.
+   * * false: Do not use coupons.
    */
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * A unique, client-generated token to ensure the idempotence of the request. This token is case-sensitive and cannot exceed 64 ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and can contain only ASCII characters. The token can be up to 64 characters in length.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
@@ -80,7 +70,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cloud provider of the node.
+   * The cloud service provider to which the node belongs.
    * 
    * @example
    * ENS
@@ -88,7 +78,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   cloudProvider?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -98,7 +88,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Details of the nodes to add.
+   * The information about the new node.
    * 
    * This parameter is required.
    */
@@ -106,12 +96,9 @@ export class CreateDBNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * 
    * - RO
-   * 
    * - STANDBY
-   * 
-   * - DLNode
+   * - DLNode.
    * 
    * @example
    * RO
@@ -119,13 +106,10 @@ export class CreateDBNodesRequest extends $dara.Model {
   DBNodeType?: string;
   /**
    * @remarks
-   * The ID of the cluster endpoint to which you want to add the new nodes. If you want to add the nodes to multiple cluster endpoints, separate the endpoint IDs with a comma (,).
-   * 
-   * > - You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query the details of cluster endpoints, including their IDs.
-   * >
-   * > - You can specify the IDs of the default cluster endpoint and custom cluster endpoints.
-   * >
-   * > - If you leave this parameter empty, the new nodes are automatically added to all cluster endpoints where the **Auto Add New Nodes** feature is enabled (the `AutoAddNewNodes` parameter is set to `Enable`).
+   * The ID of the cluster endpoint to which you want to add the new node. If you want to add the node to multiple endpoints, separate the endpoint IDs with commas (,).
+   * > * You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query the details of cluster endpoints, including endpoint IDs.
+   * >* You can specify the IDs of the default cluster endpoint and custom cluster endpoints.
+   * >* If you leave this parameter empty, the new node is added to all cluster endpoints that have the **Automatically Associate New Nodes** feature enabled (the value of `AutoAddNewNodes` is `Enable`).
    * 
    * @example
    * pe-****************,pe-****************
@@ -135,11 +119,11 @@ export class CreateDBNodesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable In-Memory Column Index (IMCI). Valid values:
    * 
-   * - **ON**: The feature is enabled.
+   * - **ON**: enabled.
    * 
-   * - **OFF** (Default): The feature is disabled.
+   * - **OFF**: disabled. This is the default value.
    * 
-   * > This parameter is not supported for PolarDB for PostgreSQL (Oracle Compatible) and PolarDB for PostgreSQL clusters.
+   * > PolarDB for PostgreSQL (Compatible with Oracle) and PolarDB for PostgreSQL do not support this parameter.
    * 
    * @example
    * ON
@@ -149,11 +133,9 @@ export class CreateDBNodesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The latest time to start the scheduled task. The time is specified in the `YYYY-MM-DDThh:mm:ssZ` format and is in UTC.
-   * 
-   * > - This time must be at least 30 minutes later than the value of `PlannedStartTime`.
-   * >
-   * > - If you specify `PlannedStartTime` but not this parameter, the latest start time defaults to 30 minutes after the `PlannedStartTime`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts no later than `2021-01-14T09:30:00Z`.
+   * The latest time to start running the scheduled task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+   * > * The latest time must be at least 30 minutes later than the start time.
+   * >* If you specify `PlannedStartTime` but leave this parameter empty, the latest time defaults to `start time + 30 minutes`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts no later than `2021-01-14T09:30:00Z`.
    * 
    * @example
    * 2021-01-14T09:30:00Z
@@ -161,11 +143,9 @@ export class CreateDBNodesRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The earliest time to start the scheduled task to add the nodes. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * > - The start time must be within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can set this parameter to a value between `2021-01-14T09:00:00Z` and `2021-01-15T09:00:00Z`.
-   * >
-   * > - If you omit this parameter, the nodes are added immediately.
+   * The earliest time to start running the scheduled task for adding nodes. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+   * > * The start time must be within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a start time within the range of `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+   * >* If you leave this parameter empty, the task for adding nodes is immediately run.
    * 
    * @example
    * 2021-01-14T09:00:00Z
@@ -173,7 +153,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   plannedStartTime?: string;
   /**
    * @remarks
-   * The promotion code. If you omit this parameter, an applicable coupon is used by default.
+   * The coupon code. If you do not specify this parameter, the default coupon is used.
    * 
    * @example
    * 727xxxxxx934
@@ -181,7 +161,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

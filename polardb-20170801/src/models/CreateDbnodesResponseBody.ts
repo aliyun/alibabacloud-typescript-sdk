@@ -31,7 +31,7 @@ export class CreateDBNodesResponseBodyDBNodeIds extends $dara.Model {
 export class CreateDBNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database cluster ID.
+   * The cluster ID.
    * 
    * @example
    * pc-***************
