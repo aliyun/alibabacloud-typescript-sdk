@@ -3,55 +3,114 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
+   * @example
+   * 1568857911493620
+   */
   aliUid?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-01 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-12-31 23:59:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 2024-12-31 23:59:59
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * g-xxxxx
    */
   groupId?: string;
   /**
+   * @remarks
+   * The group resource type.
+   * 
    * @example
    * CoreHour
    */
   groupResourceType?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource is a No-Lx resource.
+   */
   noLx?: boolean;
+  /**
+   * @remarks
+   * The source of the No-Lx resource.
+   * 
+   * @example
+   * 无凌霄来源示例值
+   */
   noLxSource?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * res-xxxxx
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The group resource type.
+   * 
    * @example
    * CoreHour
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2024-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 1000000
+   */
   totalTime?: number;
+  /**
+   * @remarks
+   * The used duration.
+   * 
+   * @example
+   * 40000
+   */
   usedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -101,13 +160,26 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
 }
 
 export class DescribeDeductionStatisticResponseBodyDataDeductions extends $dara.Model {
+  /**
+   * @remarks
+   * The consumption duration in seconds.
+   * 
+   * @example
+   * 7000
+   */
   consumeSecond?: number;
   /**
+   * @remarks
+   * The deduction date.
+   * 
    * @example
    * 2024-01-01
    */
   deductionDate?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * CloudDesktop
    */
@@ -138,13 +210,26 @@ export class DescribeDeductionStatisticResponseBodyDataDeductions extends $dara.
 }
 
 export class DescribeDeductionStatisticResponseBodyDataUsages extends $dara.Model {
+  /**
+   * @remarks
+   * **The consumption duration in seconds.**
+   * 
+   * @example
+   * 6000
+   */
   consumeSecond?: number;
   /**
+   * @remarks
+   * **The time period.**
+   * 
    * @example
    * 2024-01-01
    */
   period?: string;
   /**
+   * @remarks
+   * **The resource type.**
+   * 
    * @example
    * CloudDesktop
    */
@@ -175,8 +260,20 @@ export class DescribeDeductionStatisticResponseBodyDataUsages extends $dara.Mode
 }
 
 export class DescribeDeductionStatisticResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * **The available core-hour packages.**
+   */
   availableCorePackages?: DescribeDeductionStatisticResponseBodyDataAvailableCorePackages[];
+  /**
+   * @remarks
+   * The deduction details.
+   */
   deductions?: DescribeDeductionStatisticResponseBodyDataDeductions[];
+  /**
+   * @remarks
+   * **The usage details.**
+   */
   usages?: DescribeDeductionStatisticResponseBodyDataUsages[];
   static names(): { [key: string]: string } {
     return {
@@ -213,8 +310,15 @@ export class DescribeDeductionStatisticResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDeductionStatisticResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The deduction data.
+   */
   data?: DescribeDeductionStatisticResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A1B2C3D4-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    */

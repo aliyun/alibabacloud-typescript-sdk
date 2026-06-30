@@ -4,28 +4,50 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 734.65
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The module code.
+   * 
    * @example
    * DesktopType
    */
   moduleCode?: string;
+  /**
+   * @remarks
+   * The module name.
+   * 
+   * @example
+   * 企业办公型-8C32G
+   */
   moduleName?: string;
   /**
+   * @remarks
+   * The module value.
+   * 
    * @example
    * eds.enterprise_office.8c32g
    */
   moduleValue?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 10900
    */
   originalPrice?: number;
   savingPlanDiscountPrice?: number;
   /**
+   * @remarks
+   * The trade price, which is the original price minus the discount amount.
+   * 
    * @example
    * 292.2
    */
@@ -65,22 +87,34 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 20.00
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 100.00
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * DurationPackage
    */
   resourceType?: string;
   savingPlanRecommendPrice?: number;
   /**
+   * @remarks
+   * The trade price, which is the original price minus the discount amount.
+   * 
    * @example
    * 80.00
    */
@@ -115,12 +149,23 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
 }
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * A list of pricing module details.
+   */
   moduleDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails[];
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * 1
    */
   orderItem?: number;
+  /**
+   * @remarks
+   * A breakdown of the price.
+   */
   priceDetail?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail;
   static names(): { [key: string]: string } {
     return {
@@ -155,18 +200,41 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The option code.
+   * 
    * @example
    * new
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The promotion description.
+   * 
+   * @example
+   * 促销
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The promotion name.
+   * 
+   * @example
+   * 优惠活动名称
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the promotion is selected.
+   * 
    * @example
    * true
    */
@@ -202,29 +270,60 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
 
 export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency.
+   * 
+   * China site: CNY.
+   * 
+   * International site: USD.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 534.6
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 6800
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * A list of price details.
+   */
   priceDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails[];
+  /**
+   * @remarks
+   * A list of promotions.
+   */
   promotions?: DescribeMultiPriceResponseBodyPriceInfoPricePromotions[];
+  /**
+   * @remarks
+   * A map of instance IDs to their corresponding refund amounts.
+   */
   refundInstanceIdPriceMap?: { [key: string]: number };
   /**
+   * @remarks
+   * The refund amount.
+   * 
    * @example
    * 60.00
    */
   refundPrice?: number;
   /**
+   * @remarks
+   * The trade price, which is the original price minus the discount amount.
+   * 
    * @example
    * 82.6
    */
@@ -275,11 +374,17 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
 
 export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
+   * @remarks
+   * The promotion rule description.
+   * 
    * @example
    * accounts_suspect_users
    */
   description?: string;
   /**
+   * @remarks
+   * The promotion rule ID.
+   * 
    * @example
    * hrzdvc
    */
@@ -308,7 +413,15 @@ export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
 }
 
 export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The price information.
+   */
   price?: DescribeMultiPriceResponseBodyPriceInfoPrice;
+  /**
+   * @remarks
+   * A list of promotion rules.
+   */
   rules?: DescribeMultiPriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {
     return {
@@ -340,8 +453,15 @@ export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
 }
 
 export class DescribeMultiPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed price information.
+   */
   priceInfo?: DescribeMultiPriceResponseBodyPriceInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 833C4D2C-09C7-5CE6-8159-06758B964970
    */

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMultiOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of order IDs.
+   */
   orderIds?: number[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 833C4D2C-09C7-5CE6-8159-06758B964970
    */

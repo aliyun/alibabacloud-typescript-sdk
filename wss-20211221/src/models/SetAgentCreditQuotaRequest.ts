@@ -3,13 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetAgentCreditQuotaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Agent IDs.
+   */
   agentIds?: string[];
   /**
+   * @remarks
+   * The Agent type.
+   * 
    * @example
    * JVSClaw
    */
   agentType?: string;
+  /**
+   * @remarks
+   * The business type.
+   * 
+   * @example
+   * BUSINESS
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The credit quota.
+   * 
+   * @example
+   * 200
+   */
   creditQuota?: number;
   static names(): { [key: string]: string } {
     return {

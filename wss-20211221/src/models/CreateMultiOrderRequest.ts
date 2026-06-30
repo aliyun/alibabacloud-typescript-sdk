@@ -6,11 +6,61 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CreateMultiOrderRequestOrderItemsComponents extends $dara.Model {
   /**
+   * @remarks
+   * The key of the component.
+   * 
    * @example
    * RegionId
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the component.
+   * 
+   * Example and valid values for the keys of a monthly duration package (Enterprise Edition):
+   * 
+   * - RegionId: cn-shanghai
+   * 
+   * - InstanceType: eds.enterprise_office.4c8g
+   * 
+   * - DurationType (in hours): Valid values:
+   * 
+   *   - 120
+   * 
+   *   - 250
+   * 
+   * - OsType: Valid values:
+   * 
+   *   - Windows
+   * 
+   *   - Linux
+   * 
+   * - RootDiskSize (in GiB): 80
+   * 
+   * - RootDiskCategory: Valid values:
+   * 
+   *   - cloud_efficiency (Ultra Disk)
+   * 
+   *   - cloud_auto (ESSD AutoPL Disk)
+   * 
+   *   - `cloud_essd` (Enhanced SSD). This value is supported only by specific instance types.
+   * 
+   * - RootPerformanceLevel: Valid values:
+   * 
+   *   - PL0
+   * 
+   *   - PL1
+   * 
+   *   - PL2
+   * 
+   *   - PL3
+   * 
+   * - DataDiskSize (in GiB): Same as `RootDiskSize`.
+   * 
+   * - DataDiskCategory: Same as `RootDiskCategory`.
+   * 
+   * - DataPerformanceLevel: Same as `RootPerformanceLevel`.
+   * 
    * @example
    * cn-shanghai
    */
@@ -40,41 +90,79 @@ export class CreateMultiOrderRequestOrderItemsComponents extends $dara.Model {
 
 export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   /**
+   * @remarks
+   * The number of resources to purchase.
+   * 
    * @example
    * 1
    */
   amount?: number;
   /**
+   * @remarks
+   * Specifies whether to enable automatic payment.
+   * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal.
+   * 
    * @example
    * false
    */
   autoRenew?: boolean;
   buyChange?: boolean;
+  /**
+   * @remarks
+   * The components that define the resource.
+   */
   components?: CreateMultiOrderRequestOrderItemsComponents[];
   instanceIds?: string[];
   /**
+   * @remarks
+   * The subscription period. Valid values:
+   * 
+   * - If `PeriodUnit` is set to `Year`, the valid values are 1, 2, 3, and 5.
+   * 
+   * - If `PeriodUnit` is set to `Month`, the valid values are 1, 2, 3, and 6.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The time unit of the subscription duration.
+   * 
+   * > This parameter is required for prepaid instances and is case-sensitive.
+   * 
    * @example
    * Year
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * A list of resource IDs.
+   * 
+   * > For a monthly duration package, this parameter specifies the IDs of the cloud desktops. This parameter is required unless the `OrderType` is `create`.
+   */
   resourceIds?: string[];
   /**
    * @remarks
+   * The type of the resource.
+   * 
+   * > This parameter is case-sensitive.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -133,12 +221,23 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
 
 export class CreateMultiOrderRequest extends $dara.Model {
   channelCookie?: string;
+  /**
+   * @remarks
+   * The items in the order.
+   */
   orderItems?: CreateMultiOrderRequestOrderItems[];
   /**
+   * @remarks
+   * The order type.
+   * 
    * @example
    * create
    */
   orderType?: string;
+  /**
+   * @remarks
+   * The extended properties.
+   */
   properties?: { [key: string]: string };
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {

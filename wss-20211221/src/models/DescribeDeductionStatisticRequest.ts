@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeductionStatisticRequestPeriods extends $dara.Model {
   /**
+   * @remarks
+   * The base time.
+   * 
    * @example
    * 2024-01-01
    */
   baseTime?: string;
+  /**
+   * @remarks
+   * The period unit. For valid values, see the `PeriodUnit` enumeration.
+   * 
+   * @example
+   * Year
+   */
   periodUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,14 +43,39 @@ export class DescribeDeductionStatisticRequestPeriods extends $dara.Model {
 }
 
 export class DescribeDeductionStatisticRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end time, specified as a Unix timestamp.
+   * 
+   * @example
+   * 2025-06-06T02:14:00Z
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of instance IDs, specified as a JSON array.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The list of periods, formatted as a JSON array of `PeriodParam` objects.
+   * 
    * **if can be null:**
    * true
    */
   periods?: DescribeDeductionStatisticRequestPeriods[];
+  /**
+   * @remarks
+   * The list of resource types, specified as a JSON array.
+   */
   resourceTypes?: string[];
+  /**
+   * @remarks
+   * The start time, specified as a Unix timestamp.
+   * 
+   * @example
+   * 2026-03-20T16:00:00Z
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
