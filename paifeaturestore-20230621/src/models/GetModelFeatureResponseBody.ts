@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
   /**
    * @remarks
-   * The feature alias.
+   * Feature alias.
    * 
    * @example
    * feature2
@@ -13,7 +13,7 @@ export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The feature view ID.
+   * Feature view ID.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
   featureViewId?: string;
   /**
    * @remarks
-   * The feature view name.
+   * Feature view name.
    * 
    * @example
    * feature_view_1
@@ -29,7 +29,7 @@ export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
   featureViewName?: string;
   /**
    * @remarks
-   * The feature name.
+   * Feature name.
    * 
    * @example
    * feature1
@@ -42,15 +42,21 @@ export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
   prefixName?: string;
   /**
    * @remarks
-   * The feature type. Valid values:
+   * Feature type.
    * 
-   * - INT32
-   * - INT64
-   * - FLOAT
-   * - DOUBLE
-   * - STRING
-   * - BOOLEAN
-   * - TIMESTAMP.
+   * ● INT32
+   * 
+   * ● INT64
+   * 
+   * ● FLOAT
+   * 
+   * ● DOUBLE
+   * 
+   * ● STRING
+   * 
+   * ● BOOLEAN
+   * 
+   * ● TIMESTAMP
    * 
    * @example
    * INT32
@@ -90,11 +96,13 @@ export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
 export class GetModelFeatureResponseBodyRelationsDomains extends $dara.Model {
   /**
    * @remarks
-   * The domain type. Valid values:
+   * Domain type.
    * 
-   * - FeatureEntity: feature entity.
-   * - FeatureView: feature view.
-   * - ModelFeature: model feature.
+   * ● FeatureEntity - Feature entity
+   * 
+   * ● FeatureView - Feature view
+   * 
+   * ● ModelFeature - Model feature
    * 
    * @example
    * FeatureEntity
@@ -102,7 +110,7 @@ export class GetModelFeatureResponseBodyRelationsDomains extends $dara.Model {
   domainType?: string;
   /**
    * @remarks
-   * Domain ID。
+   * Domain ID.
    * 
    * @example
    * 3
@@ -110,7 +118,7 @@ export class GetModelFeatureResponseBodyRelationsDomains extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The domain name.
+   * Domain name.
    * 
    * @example
    * feature_entity_1
@@ -144,7 +152,7 @@ export class GetModelFeatureResponseBodyRelationsDomains extends $dara.Model {
 export class GetModelFeatureResponseBodyRelationsLinks extends $dara.Model {
   /**
    * @remarks
-   * The source ID of the link.
+   * Source ID of the link.
    * 
    * @example
    * model_feature_2
@@ -152,7 +160,7 @@ export class GetModelFeatureResponseBodyRelationsLinks extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The dependency field of the link.
+   * Link dependency field.
    * 
    * @example
    * user_id
@@ -160,7 +168,7 @@ export class GetModelFeatureResponseBodyRelationsLinks extends $dara.Model {
   link?: string;
   /**
    * @remarks
-   * The destination ID of the link.
+   * Target ID of the link.
    * 
    * @example
    * feature_entity_3
@@ -194,12 +202,12 @@ export class GetModelFeatureResponseBodyRelationsLinks extends $dara.Model {
 export class GetModelFeatureResponseBodyRelations extends $dara.Model {
   /**
    * @remarks
-   * The domain list.
+   * Domain list.
    */
   domains?: GetModelFeatureResponseBodyRelationsDomains[];
   /**
    * @remarks
-   * The feature relationship link list.
+   * Feature relation link information list.
    */
   links?: GetModelFeatureResponseBodyRelationsLinks[];
   static names(): { [key: string]: string } {
@@ -234,7 +242,7 @@ export class GetModelFeatureResponseBodyRelations extends $dara.Model {
 export class GetModelFeatureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The script for exporting the training sample table.
+   * Script for exporting the training set table.
    * 
    * @example
    * from feature_store_py.fs_client import FeatureStoreClient\\nfrom feature_store_py.fs_project import FeatureStoreProject\\nfrom feature_store_py.fs_datasource import LabelInput, MaxComputeDataSource, TrainingSetOutput\\nfrom feature_store_py.fs_features import FeatureSelector\\nfrom feature_store_py.fs_config import LabelInputConfig, PartitionConfig, FeatureViewConfig\\nfrom feature_store_py.fs_config import TrainSetOutputConfig, EASDeployConfig\\nimport datetime\\nimport sys\\n\\ncur_day = args[\\"dt\\"]\\nprint(\\"cur_day = \\", cur_day)\\noffset = datetime.timedelta(days=-1)\\npre_day = (datetime.datetime.strptime(cur_day, \\"%Y%m%d\\") + offset).strftime(\\"%Y%m%d\\")\\nprint(\\"pre_day = \\", pre_day)\\n\\n\\naccess_key_id = o.account.access_id\\naccess_key_secret = o.account.secret_access_key\\nfs = FeatureStoreClient(access_key_id=access_key_id, access_key_secret=access_key_secret, region=\\"cn-beijing\\")\\ncur_project_name = \\"p1\\"\\nproject = fs.get_project(cur_project_name)\\n\\nlabel_partitions = PartitionConfig(name = \\"ds\\", value = cur_day)\\nlabel_input_config = LabelInputConfig(partition_config=label_partitions)\\n\\nfeature_view_1_partitions = PartitionConfig(name = \\"ds\\", value = pre_day)\\nfeature_view_1_config = FeatureViewConfig(name = \\"user_fea\\",\\npartition_config=feature_view_1_partitions)\\n\\nfeature_view_2_partitions = PartitionConfig(name = \\"ds\\", value = pre_day)\\nfeature_view_2_config = FeatureViewConfig(name = \\"seq_fea\\",\\npartition_config=feature_view_2_partitions)\\n\\nfeature_view_3_partitions = PartitionConfig(name = \\"ds\\", value = pre_day)\\nfeature_view_3_config = FeatureViewConfig(name = \\"item_fea\\",\\npartition_config=feature_view_3_partitions)\\n\\nfeature_view_config_list = [feature_view_1_config,feature_view_2_config,feature_view_3_config]\\ntrain_set_partitions = PartitionConfig(name = \\"ds\\", value = cur_day)\\ntrain_set_output_config = TrainSetOutputConfig(partition_config=train_set_partitions)\\n\\n\\nmodel_name = \\"rank_v1\\"\\ncur_model = project.get_model(model_name)\\ntask = cur_model.export_train_set(label_input_config, feature_view_config_list, train_set_output_config)\\ntask.wait()\\nprint(\\"task_summary = \\", task.task_summary)\\n
@@ -242,12 +250,12 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   exportTrainingSetTableScript?: string;
   /**
    * @remarks
-   * The feature list.
+   * Feature list.
    */
   features?: GetModelFeatureResponseBodyFeatures[];
   /**
    * @remarks
-   * The creation time.
+   * Creation time.
    * 
    * @example
    * 2023-07-04T14:46:22.227+08:00
@@ -255,7 +263,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time.
+   * Update time.
    * 
    * @example
    * 2023-07-04T14:46:22.227+08:00
@@ -263,7 +271,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The priority level of the label table. Default value: 0. Set to 1 to prioritize the label table. Set to 2 to prioritize the feature view.
+   * Label table priority. The default value is 0. Set to 1 to give priority to the label table, or set to 2 to give priority to the feature view.
    * 
    * @example
    * 0
@@ -271,7 +279,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   labelPriorityLevel?: number;
   /**
    * @remarks
-   * The label table ID.
+   * Label table ID.
    * 
    * @example
    * 3
@@ -279,7 +287,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   labelTableId?: string;
   /**
    * @remarks
-   * The label table name.
+   * Label table name.
    * 
    * @example
    * label_table1
@@ -287,7 +295,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   labelTableName?: string;
   /**
    * @remarks
-   * The model feature name.
+   * Model feature name.
    * 
    * @example
    * model_feature1
@@ -295,7 +303,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the creator.
+   * Alibaba Cloud account ID of the creator.
    * 
    * @example
    * 1231243253****
@@ -303,7 +311,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The project ID.
+   * Project ID.
    * 
    * @example
    * 5
@@ -311,7 +319,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name.
+   * Project name.
    * 
    * @example
    * project1
@@ -319,12 +327,12 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The feature relationships.
+   * Feature relations.
    */
   relations?: GetModelFeatureResponseBodyRelations;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
@@ -332,7 +340,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the exported training set FG table.
+   * Name of the exported training set FG table.
    * 
    * @example
    * table2
@@ -340,7 +348,7 @@ export class GetModelFeatureResponseBody extends $dara.Model {
   trainingSetFGTable?: string;
   /**
    * @remarks
-   * The name of the exported training set table.
+   * Name of the exported training set table.
    * 
    * @example
    * table1

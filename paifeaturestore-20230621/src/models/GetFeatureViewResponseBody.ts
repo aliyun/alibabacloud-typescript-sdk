@@ -115,6 +115,11 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
    */
   attributes?: string[];
   /**
+   * @example
+   * 512
+   */
+  dimension?: number;
+  /**
    * @remarks
    * The field name.
    * 
@@ -144,6 +149,7 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
+      dimension: 'Dimension',
       name: 'Name',
       transform: 'Transform',
       type: 'Type',
@@ -153,6 +159,7 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'array', 'itemType': 'string' },
+      dimension: 'number',
       name: 'string',
       transform: { 'type': 'array', 'itemType': GetFeatureViewResponseBodyFieldsTransform },
       type: 'string',

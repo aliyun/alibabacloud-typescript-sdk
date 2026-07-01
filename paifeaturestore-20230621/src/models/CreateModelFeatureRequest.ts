@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelFeatureRequestFeatures extends $dara.Model {
   /**
    * @remarks
-   * The alias of the feature.
+   * The feature alias.
    * 
    * @example
    * userid
@@ -40,13 +40,19 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
    * @remarks
    * The feature type. Valid values:
    * 
-   * - INT32
-   * - INT64
-   * - FLOAT
-   * - DOUBLE
-   * - STRING
-   * - BOOLEAN
-   * - TIMESTAMP.
+   * ● INT32
+   * 
+   * ● INT64
+   * 
+   * ● FLOAT
+   * 
+   * ● DOUBLE
+   * 
+   * ● STRING
+   * 
+   * ● BOOLEAN
+   * 
+   * ● TIMESTAMP.
    * 
    * This parameter is required.
    * 

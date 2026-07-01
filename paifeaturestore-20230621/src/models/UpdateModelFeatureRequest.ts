@@ -13,7 +13,7 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The feature view ID. You can call the ListFeatureViews operation to query the feature view ID.
+   * The feature view ID. You can call the ListFeatureViews operation to obtain the feature view ID.
    * 
    * This parameter is required.
    * 
@@ -96,7 +96,7 @@ export class UpdateModelFeatureRequest extends $dara.Model {
   labelPriorityLevel?: number;
   /**
    * @remarks
-   * The label table ID. You can call the ListLabelTables operation to query the label table ID.
+   * The label table ID. You can call the ListLabelTables operation to obtain the label table ID.
    * 
    * @example
    * 4

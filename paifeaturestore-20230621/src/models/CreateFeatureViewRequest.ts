@@ -111,6 +111,7 @@ export class CreateFeatureViewRequestFields extends $dara.Model {
    * - `EventTime`: event time.
    */
   attributes?: string[];
+  dimension?: number;
   /**
    * @remarks
    * The name of the field.
@@ -149,6 +150,7 @@ export class CreateFeatureViewRequestFields extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
+      dimension: 'Dimension',
       name: 'Name',
       transform: 'Transform',
       type: 'Type',
@@ -158,6 +160,7 @@ export class CreateFeatureViewRequestFields extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'array', 'itemType': 'string' },
+      dimension: 'number',
       name: 'string',
       transform: { 'type': 'array', 'itemType': CreateFeatureViewRequestFieldsTransform },
       type: 'string',
