@@ -13,11 +13,11 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   defaultVersion?: boolean;
   /**
    * @remarks
-   * Specifies whether to query the configurations of the launch template. Valid values:
+   * Specifies whether to query detailed template configuration information. Valid values:
    * 
-   * - true: queries the basic information and other details of the launch template. The details include the image ID and system disk size.
+   * - true: Queries detailed template configuration information. In addition to basic template information, detailed configuration such as image ID and system disk size is returned.
    * 
-   * - false: queries only the basic information of the launch template. The basic information includes the template ID, template name, and default version.
+   * - false: Queries only basic template information, such as template ID, template name, and default version.
    * 
    * Default value: true.
    * 
@@ -27,9 +27,9 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   detailFlag?: boolean;
   /**
    * @remarks
-   * The ID of the launch template.
+   * The launch template ID.
    * 
-   * You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the template.
    * 
    * @example
    * lt-bp168lnahrdwl39p****
@@ -37,9 +37,9 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * The name of the launch template.
+   * The launch template name.
    * 
-   * You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the template.
    * 
    * @example
    * testLaunchTemplateName
@@ -47,7 +47,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   launchTemplateName?: string;
   /**
    * @remarks
-   * The versions of the launch template.
+   * One or more launch template version numbers.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   launchTemplateVersion?: number[];
   /**
    * @remarks
-   * The maximum version number in the version range to query. This parameter is used together with `MinVersion` to specify a version range to query.
+   * The maximum version number used to filter query results. Used together with `MinVersion` to query version information within the range between the minimum and maximum version numbers.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   maxVersion?: number;
   /**
    * @remarks
-   * The minimum version number in the version range to query. This parameter is used together with `MaxVersion` to specify a version range to query.
+   * The minimum version number used to filter query results. Used together with `MaxVersion` to query version information within the range between the minimum and maximum version numbers.
    * 
    * @example
    * 1
@@ -73,9 +73,9 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the launch template list.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1. 
    * 
    * Default value: 1.
    * 
@@ -85,7 +85,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query. Settings this parameter for paging. 
    * 
    * Default value: 10.
    * 
@@ -97,7 +97,7 @@ export class DescribeLaunchTemplateVersionsRequest extends $dara.Model {
    * @remarks
    * The region ID of the launch template.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

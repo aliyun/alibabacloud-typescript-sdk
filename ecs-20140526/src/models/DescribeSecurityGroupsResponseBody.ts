@@ -148,7 +148,7 @@ export class DescribeSecurityGroupsResponseBodySecurityGroups extends $dara.Mode
 export class DescribeSecurityGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token returned in this call. When you use the MaxResults and NextToken method for paged queries and this return value is empty, no more data is available.
+   * The pagination token returned in this call. If this value is empty when you use MaxResults and NextToken for paging, no more data is available.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -158,7 +158,7 @@ export class DescribeSecurityGroupsResponseBody extends $dara.Model {
    * @remarks
    * The current page number.
    * 
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
+   * > This parameter will be offline. Use NextToken and MaxResults for paging.
    * 
    * @example
    * 1
@@ -168,7 +168,7 @@ export class DescribeSecurityGroupsResponseBody extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
+   * > This parameter will be offline. Use NextToken and MaxResults for paging.
    * 
    * @example
    * 10
@@ -193,7 +193,7 @@ export class DescribeSecurityGroupsResponseBody extends $dara.Model {
   securityGroups?: DescribeSecurityGroupsResponseBodySecurityGroups;
   /**
    * @remarks
-   * The total number of security groups. This parameter value is not returned when you use the `MaxResults` and `NextToken` parameters for queries.
+   * The total number of security groups. This parameter is not returned when you use `MaxResults` and `NextToken` for parameter query.
    * 
    * @example
    * 20

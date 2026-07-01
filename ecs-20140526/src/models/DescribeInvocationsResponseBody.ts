@@ -282,7 +282,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   invocations?: DescribeInvocationsResponseBodyInvocations;
   /**
    * @remarks
-   * Query credential value returned by this call.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -290,7 +290,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number of the query result.
+   * The page number of the query results.
    * 
    * @example
    * 1
@@ -298,7 +298,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -306,7 +306,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -314,7 +314,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of commands.
+   * The total number of commands.
    * 
    * @example
    * 1

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RenewElasticityAssurancesRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The IDs of elasticity assurances.
+   * The list of elasticity assurance service IDs.
    * 
-   * **Limits**: You can renew up to 20 elasticity assurances at a time.
+   * **Limit**: You can renew up to 20 elasticity assurance services at a time.
    * 
-   * You can call the [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) operation to query the elasticity assurances that you purchased.
+   * You can call [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) to query purchased elasticity assurance services.
    */
   id?: string[];
   static names(): { [key: string]: string } {
@@ -41,10 +41,8 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: Automatic payment is enabled.
+   * - false: Automatic payment is not enabled.
    * 
    * Default value: true.
    * 
@@ -54,11 +52,11 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the elasticity assurance. Valid values:
+   * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * - true
+   * - true: Auto-renewal is enabled.
    * 
-   * - false
+   * - false: Auto-renewal is not enabled.
    * 
    * Default value: false.
    * 
@@ -68,13 +66,14 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. Unit: month. Valid values: 1, 2, 3, 6, 12, 24, and 36.
+   * The auto-renewal period. Unit: months. Valid values: 1, 2, 3, 6, 12, 24, and 36.
    * 
-   * - If you set `PeriodUnit` to Month, the default value is 1.
+   * - When `PeriodUnit=Month`, the default value is 1.
    * 
-   * - If you set `PeriodUnit` to Year, the default value is 12.
+   * - When `PeriodUnit=Year`, the default value is 12.
    * 
-   * > This parameter is required if you set `AutoRenew` to `true`.
+   * 
+   * >This parameter is required when `AutoRenew` is set to `true`.
    * 
    * @example
    * 1
@@ -82,9 +81,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
    * 
-   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * `ClientToken` supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -94,11 +93,14 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The renewal duration. The unit of the renewal duration is determined by the `PeriodUnit` value. Valid values:
+   * The renewal period. The unit of the renewal period is determined by the `PeriodUnit` parameter. Valid values:
    * 
-   * - Valid values if you set `PeriodUnit` to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+   * - When `PeriodUnit` is set to `Weekly`: 1, 2, and 3.
    * 
-   * - Valid values if you set `PeriodUnit` to `Year`: 1, 2, and 3.
+   * 
+   * - When `PeriodUnit` is set to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+   * 
+   * - When `PeriodUnit` is set to `Year`: 1, 2, 3, 4, and 5.
    * 
    * Default value: 1.
    * 
@@ -108,11 +110,13 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration. Valid values:
+   * The unit of the renewal period. Valid values:
    * 
-   * - Month
+   * - Weekly: week
    * 
-   * - Year
+   * - Month: month
+   * 
+   * - Year: year
    * 
    * Default value: Year.
    * 
@@ -122,9 +126,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID of the elasticity assurance.
+   * The region ID of the elasticity assurance service.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2680071.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/2680071.html) to query the most recent region list.
    * 
    * @example
    * cn-hangzhou

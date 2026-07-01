@@ -628,7 +628,7 @@ export class DescribeLaunchTemplateVersionsResponseBody extends $dara.Model {
   launchTemplateVersionSets?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -636,7 +636,7 @@ export class DescribeLaunchTemplateVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query. Settings this parameter for paging.
    * 
    * @example
    * 10
@@ -644,7 +644,7 @@ export class DescribeLaunchTemplateVersionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3989ED0C-20A1-4351-A127-2067FF8390AX

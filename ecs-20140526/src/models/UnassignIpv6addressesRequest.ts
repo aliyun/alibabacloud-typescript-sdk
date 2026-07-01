@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassignIpv6AddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * One or more IPv6 addresses to delete. Valid values of N: 1 to 10.
+   * One or more IPv6 addresses to unassign. Valid values of N: 1 to 10.
    * 
    * @example
    * 2001:db8:1234:1a00::***
@@ -18,7 +18,7 @@ export class UnassignIpv6AddressesRequest extends $dara.Model {
   ipv6Prefix?: string[];
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UnassignIpv6AddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the ENI. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

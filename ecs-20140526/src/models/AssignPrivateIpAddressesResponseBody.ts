@@ -58,7 +58,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
   ipv4PrefixSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet;
   /**
    * @remarks
-   * The ENI ID.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-bp125p95hhdhn3ot****
@@ -99,7 +99,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
 export class AssignPrivateIpAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the ENI and the secondary private IP addresses that are assigned to the ENI.
+   * The information about the network interface controller (NIC) to which secondary private IP addresses are allocated.
    */
   assignedPrivateIpAddressesSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet;
   /**

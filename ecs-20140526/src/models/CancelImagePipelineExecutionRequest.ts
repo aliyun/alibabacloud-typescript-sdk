@@ -45,7 +45,7 @@ export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model 
 export class CancelImagePipelineExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building task.
+   * The ID of the build task.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CancelImagePipelineExecutionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

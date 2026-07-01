@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageComponentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image component.
+   * The image component ID.
    * 
    * @example
    * ic-bp67acfmxazb4p****

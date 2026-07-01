@@ -72,7 +72,11 @@ export class DescribeSpotPriceHistoryResponseBodySpotPrices extends $dara.Model 
 export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the spot instance.
+   * The currency unit of the price.
+   * 
+   * China site: CNY.
+   * 
+   * International site: USD.
    * 
    * @example
    * CNY
@@ -80,7 +84,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The network type of the spot instance.
+   * The start row of the next page. Set the `Offset` parameter to this value to query the next page of data.
    * 
    * @example
    * 1000
@@ -88,7 +92,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   nextOffset?: number;
   /**
    * @remarks
-   * The instance type of the spot instance.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

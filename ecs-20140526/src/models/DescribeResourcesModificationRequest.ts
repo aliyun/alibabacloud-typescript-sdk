@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourcesModificationRequest extends $dara.Model {
   /**
    * @remarks
-   * The conditions.
+   * The list of conditions.
    */
   conditions?: string[];
   /**
    * @remarks
-   * The number of vCPUs of the instance type. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The number of vCPU kernels of the target instance type. For valid values, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
-   * This parameter is valid only when the DestinationResource parameter is set to InstanceType.
+   * This parameter takes effect only when DestinationResource is set to InstanceType.
    * 
    * @example
    * 2
@@ -20,13 +20,12 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The resource type that you want to change. Valid values:
+   * The type of the resource to be changed. Valid values: 
+   *          
+   * - InstanceType: instance type.
+   * - SystemDisk: system disk type.
    * 
-   * - InstanceType
-   * 
-   * - SystemDisk
-   * 
-   *   If you set this parameter to SystemDisk, you must specify the InstanceType parameter. In this case, this operation queries the system disk categories supported by the specified instance type.
+   *   If you set this parameter to SystemDisk, you must also specify the InstanceType parameter to indicate the disk type required by the target instance type.
    * 
    * This parameter is required.
    * 
@@ -36,9 +35,9 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   destinationResource?: string;
   /**
    * @remarks
-   * The instance type to which you want to change the instance type of the instance. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
+   * The target instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html). You can also call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the most recent instance type list.
    * 
-   * If you set the DestinationResource parameter to SystemDisk, you must specify the InstanceType parameter. In this case, this operation queries the system disk categories supported by the specified instance type.
+   * If DestinationResource is set to SystemDisk, you must also specify the InstanceType parameter to indicate the disk type required by the target instance type.
    * 
    * @example
    * ecs.g7.large
@@ -46,9 +45,9 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The memory size of the instance type. Unit: GiB. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The memory size of the target instance type. Unit: GiB. For valid values, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
-   * This parameter is valid only when the DestinationResource parameter is set to InstanceType.
+   * This parameter takes effect only when DestinationResource is set to InstanceType.
    * 
    * @example
    * 8.0
@@ -56,23 +55,16 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * Specifies whether cross-cluster instance type upgrades are supported. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Specifies whether cross-cluster instance type changes are supported. Valid values: 
+   *         
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * Default value: false.
    * 
-   * When MigrateAcrossZone is set to true and you upgrade the instance type of an instance based on the returned information, take note of the following items:
-   * 
-   * - Instance that resides in the classic network:
-   * 
-   *   - For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
-   * 
-   *   - For [instance families available for purchase](https://help.aliyun.com/document_detail/25378.html), when the instance type of an instance is changed, the private IP address of the instance changes.
-   * 
-   * - Instance that resides in a virtual private cloud (VPC): For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the disk device names and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
+   * If the MigrateAcrossZone parameter is set to true and you upgrade or downgrade the Elastic Compute Service instance based on the returned information, take note of the following items: 
+   *             
+   * - VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the disk device names and software authorization codes of the server are changed. For Linux instances, basic disks (cloud) are identified as xvda or xvdb. Ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vda or vdb.
    * 
    * @example
    * true
@@ -80,19 +72,16 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   migrateAcrossZone?: boolean;
   /**
    * @remarks
-   * The operation of changing resource configurations.
+   * The type of the Upgrade/Downgrade operation.
    * 
-   * - Valid values for subscription resources:
+   * - Valid values for subscription resources: 
    * 
-   *   - Upgrade: upgrades resources.
+   *     - Upgrade: upgrades resources.
+   *     - Downgrade: downgrades resources.
+   *     - RenewDowngrade: downgrades resources upon renewal.
+   *     - RenewModify: renewal with specification change for expired instances.
    * 
-   *   - Downgrade: downgrades resources.
-   * 
-   *   - RenewDowngrade: renews and downgrades resources.
-   * 
-   *   - RenewModify: renews an expired instance and changes its configurations.
-   * 
-   * - Set the value to Upgrade for pay-as-you-go resources.
+   * - Valid value for pay-as-you-go resources: Upgrade.
    * 
    * Default value: Upgrade.
    * 
@@ -104,7 +93,7 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance for which you want to change the instance type or system disk category. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance whose configuration you want to change. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -114,7 +103,7 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the instance for which you want to change the instance type or system disk category.
+   * The instance ID (InstanceId) of the instance whose instance type or system disk type you want to change.
    * 
    * This parameter is required.
    * 
@@ -126,9 +115,9 @@ export class DescribeResourcesModificationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the destination zone to which you want to migrate the instance.
+   * The ID of the target zone.
    * 
-   * If you want to change the instance type across zones, you must specify this parameter.
+   * Specify this parameter when you want to change the instance type across zones.
    * 
    * @example
    * cn-hangzhou-e

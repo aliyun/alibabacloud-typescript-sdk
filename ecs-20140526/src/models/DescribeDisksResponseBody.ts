@@ -499,7 +499,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging operations.
    * 
    * @example
    * 1
@@ -507,7 +507,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging operations.
    * 
    * @example
    * 1
@@ -524,7 +524,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of entries returned.
-   * > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is invalid.
+   * > When you use MaxResults and NextToken parameters for paging, the returned TotalCount parameter value is invalid.
    * 
    * @example
    * 15

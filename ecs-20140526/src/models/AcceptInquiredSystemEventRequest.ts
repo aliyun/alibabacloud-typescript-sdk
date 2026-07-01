@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AcceptInquiredSystemEventRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not supported for use.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * hide
@@ -13,7 +13,7 @@ export class AcceptInquiredSystemEventRequest extends $dara.Model {
   choice?: string;
   /**
    * @remarks
-   * The ID of the system event.
+   * The system event ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AcceptInquiredSystemEventRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID where the system event is located. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the system event. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

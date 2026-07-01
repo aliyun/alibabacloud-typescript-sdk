@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network interface controller (NIC). You must specify NetworkInterfaceId or NetworkInterfacePermissionId.N to determine the query scope.
+   * The ID of the network interface controller (NIC). You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query scope.
    * 
    * @example
    * eni-bp17pdijfczax****
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The list of network interface controller (NIC) permission IDs. Number of elements in the list: 1 to 100.
+   * The list of NIC permission IDs. Number of elements in the list: 1 to 100.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -23,7 +23,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the network interface controller (NIC) permission list.
+   * The page number of the NIC permission list.
    * 
    * Minimum value: 1
    * 
@@ -47,7 +47,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the network interface controller (NIC) permissions. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region of the network interface controller (NIC) permissions. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class CreateSecurityGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-bp1fg655nh68xyz9****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to add to the security group.
+   * The tag key of the security group.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -15,9 +15,9 @@ export class CreateSecurityGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag to add to the security group.
+   * The tag value of the security group.
    * 
-   * The tag value can be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -49,7 +49,7 @@ export class CreateSecurityGroupRequestTag extends $dara.Model {
 export class CreateSecurityGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -57,9 +57,9 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the security group. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+   * The description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * By default, this parameter is left empty.
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -69,7 +69,7 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the security group. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters that are categorized as letter in Unicode, including Chinese characters and English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * testSecurityGroupName
@@ -99,9 +99,8 @@ export class CreateSecurityGroupRequest extends $dara.Model {
    * @remarks
    * The type of the security group. Valid values:
    * 
-   * - normal: basic security group
-   * 
-   * - enterprise: advanced security group For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
+   * - normal: basic security group.
+   * - enterprise: advanced security group. For more information, see [Overview of advanced security groups](https://help.aliyun.com/document_detail/120621.html).
    * 
    * Default value: normal.
    * 
@@ -119,14 +118,12 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The tags to add to the security group. You can add up to 20 tags.
+   * The tags to bind to the security group. Array length: 0 to 20.
    */
   tag?: CreateSecurityGroupRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC in which you want to create the security group.
-   * 
-   * > The VpcId parameter is required only if you want to create security groups of the VPC type. In regions that support the classic network, you can create security groups of the classic network type without the need to specify the VpcId parameter.
+   * The ID of the VPC to which the security group belongs.
    * 
    * @example
    * vpc-bp1opxu1zkhn00gzv****

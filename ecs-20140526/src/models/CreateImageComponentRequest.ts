@@ -45,7 +45,7 @@ export class CreateImageComponentRequestTag extends $dara.Model {
 export class CreateImageComponentRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -60,7 +60,7 @@ export class CreateImageComponentRequest extends $dara.Model {
    * - Test
    * 
    * Default value: Build.
-   * > Build components can be used only in build templates. Test components can be used only in test templates.
+   * > Build components can be used only in build templates, and test components can be used only in test templates.
    * 
    * @example
    * Build
@@ -68,7 +68,7 @@ export class CreateImageComponentRequest extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * The version number of the component, which is used together with the component name. The format is major.minor.patch, and all values are non-negative integers.
+   * The component version number. This parameter is used together with the component name. The format is major.minor.patch, where all values are non-negative integers.
    * 
    * Default value: (x+1).0.0, where x is the current maximum major version number of the component.
    * 
@@ -78,7 +78,7 @@ export class CreateImageComponentRequest extends $dara.Model {
   componentVersion?: string;
   /**
    * @remarks
-   * The component content, which consists of multiple commands. The content cannot exceed 16 KB. For more information about supported commands and command formats, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+   * The component content. The content consists of multiple commands and cannot exceed 16 KB. For more information about supported commands and command formats, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
    * 
    * @example
    * Tasks:
@@ -98,9 +98,9 @@ export class CreateImageComponentRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The component name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with http:// or https://. The name can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The component name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with http:// or https://. The name can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
    * 
-   * > If you do not specify Name, the ImageComponentId return value is used by default.
+   * > If you do not specify `Name`, the `ImageComponentId` return value is used by default.
    * 
    * @example
    * testComponent
@@ -110,7 +110,7 @@ export class CreateImageComponentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

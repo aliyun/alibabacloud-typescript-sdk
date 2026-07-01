@@ -208,7 +208,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token used to retrieve the next page of results.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -216,7 +216,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter is deprecated. Use the `NextToken` and `MaxResults` parameters for pagination instead.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
    * 
    * @example
    * 1
@@ -224,7 +224,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. Use the `NextToken` and `MaxResults` parameters for pagination instead.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
    * 
    * @example
    * 10
@@ -238,16 +238,12 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the snapshots.
-   */
   snapshots?: DescribeSnapshotsResponseBodySnapshots;
   /**
    * @remarks
    * The total number of snapshots.
    * 
-   * > The `TotalCount` value is invalid if you use the `MaxResults` and `NextToken` parameters for pagination.
+   * > When you use `MaxResults` and `NextToken` parameters for paging, the returned `TotalCount` parameter value is invalid.
    * 
    * @example
    * 1

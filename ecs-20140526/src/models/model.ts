@@ -451,6 +451,7 @@ export { DescribeInstanceRamRoleResponseBodyInstanceRamRoleSetsInstanceRamRoleSe
 export { DescribeInstanceRamRoleResponseBodyInstanceRamRoleSets } from './DescribeInstanceRamRoleResponseBody';
 export { DescribeInstanceStatusResponseBodyInstanceStatusesInstanceStatus } from './DescribeInstanceStatusResponseBody';
 export { DescribeInstanceStatusResponseBodyInstanceStatuses } from './DescribeInstanceStatusResponseBody';
+export { DescribeInstanceTopologyResponseBodyTopologysTopologyNetworkNodes } from './DescribeInstanceTopologyResponseBody';
 export { DescribeInstanceTopologyResponseBodyTopologysTopology } from './DescribeInstanceTopologyResponseBody';
 export { DescribeInstanceTopologyResponseBodyTopologys } from './DescribeInstanceTopologyResponseBody';
 export { DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily } from './DescribeInstanceTypeFamiliesResponseBody';
@@ -1904,6 +1905,9 @@ export { ModifyStorageCapacityUnitAttributeResponse } from './ModifyStorageCapac
 export { ModifyStorageSetAttributeRequest } from './ModifyStorageSetAttributeRequest';
 export { ModifyStorageSetAttributeResponseBody } from './ModifyStorageSetAttributeResponseBody';
 export { ModifyStorageSetAttributeResponse } from './ModifyStorageSetAttributeResponse';
+export { ModifySystemEventAttributeRequest } from './ModifySystemEventAttributeRequest';
+export { ModifySystemEventAttributeResponseBody } from './ModifySystemEventAttributeResponseBody';
+export { ModifySystemEventAttributeResponse } from './ModifySystemEventAttributeResponse';
 export { ModifyUserBusinessBehaviorRequest } from './ModifyUserBusinessBehaviorRequest';
 export { ModifyUserBusinessBehaviorResponseBody } from './ModifyUserBusinessBehaviorResponseBody';
 export { ModifyUserBusinessBehaviorResponse } from './ModifyUserBusinessBehaviorResponse';

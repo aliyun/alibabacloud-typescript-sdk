@@ -53,7 +53,7 @@ export class ModifyPlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type for the O&M window.
+   * The resource type for the O&M window configuration.
    * 
    * @example
    * Tag
@@ -99,7 +99,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
    * 
    * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
    * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minutes, which currently supports only 00.
+   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, which currently supports only 00.
    * 
    * @example
    * Tuesday,03:00
@@ -111,7 +111,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
    * 
    * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
    * - If PeriodUnit is set to Daily, the format is 22:00.
-   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minutes, which currently supports only 00.
+   * - The comma delimiter separates two parts. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, which currently supports only 00.
    * 
    * @example
    * Monday,22:00
@@ -151,7 +151,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges of the recurring O&M window cycle (UTC time zone).
+   * The time ranges of the O&M window recurring cycle (UTC time zone).
    */
   rangeList?: ModifyPlanMaintenanceWindowRequestTimePeriodRangeList[];
   static names(): { [key: string]: string } {

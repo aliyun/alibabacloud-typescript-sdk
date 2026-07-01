@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityGroupRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -21,7 +21,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv4 format IP address range are supported.
+   * The destination IPv4 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv4 format IP address ranges are supported.
    * 
    * Default value: null.
    * 
@@ -45,7 +45,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
    * - China (Hohhot)
    * - China (Qingdao)
    * - US (Virginia)
-   * - Singapore.
+   * - Singapore
    * 
    * @example
    * ALL
@@ -53,9 +53,9 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * Settings for the destination IPv6 CIDR block. CIDR format and IPv6 format IP address range are supported.
+   * Settings for the destination IPv6 CIDR block. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address ranges are supported.
    * 
-   * > Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time.
+   * >Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time.
    * 
    * Default value: null.
    * 
@@ -65,7 +65,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * Settings for the source IPv6 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address range are supported.
+   * Settings for the source IPv6 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address ranges are supported.
    * 
    * > Only VPC-type IP addresses are supported. This parameter and `SourceCidrIp` cannot be specified at the same time.
    * 
@@ -79,7 +79,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
    * @remarks
    * The network interface controller (NIC) type.
    * 
-   * > When you modify a rule by specifying the security group rule ID, this parameter cannot be modified. To change this value, add a new rule and then delete the current rule.
+   * > When you modify a rule by specifying the security group rule ID, this parameter cannot be modified. To make such a change, add a new rule and then delete the current rule.
    * 
    * @example
    * intranet
@@ -91,8 +91,8 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
    * @remarks
    * The access permissions. Valid values: 
    *          
-   * - accept: accepts access.
-   * - drop: deny access and does not return a rejection response.
+   * - accept: Accepts access.
+   * - drop: Denies access and does not return a deny response.
    * 
    * Default value: accept.
    * 
@@ -102,7 +102,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport-layer protocol. Valid values: 
+   * The range of destination ports that correspond to the transport-layer protocol of the security group. Valid values: 
    *          
    * - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
    * - ICMP: -1/-1.
@@ -115,10 +115,13 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   portRange?: string;
   /**
    * @remarks
-   * Settings for the port address book ID.
-   * You can invoke `DescribePortRangeLists` to query available port address book IDs.
-   * - This parameter is ignored if you specify the PortRange parameter.
-   * - Port address books are not supported for security groups with the classic network type. For more information about the limits of security groups and port address books, see [Security group limits](~~25412#SecurityGroupQuota1~~).
+   * The port address book ID.
+   * 
+   * You can call `DescribePortRangeLists` to query available port address book IDs.
+   * 
+   * This parameter is ignored if you specify the PortRange parameter.
+   * 
+   * For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * @example
    * prl-2ze9743****
@@ -136,7 +139,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The region ID of the target security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the security group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -166,7 +169,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   securityGroupRuleId?: string;
   /**
    * @remarks
-   * Settings for the source IPv4 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv4 format IP address range are supported.
+   * Settings for the source IPv4 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv4 format IP address ranges are supported.
    * 
    * Default value: null.
    * 
@@ -187,10 +190,10 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   sourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the source security group when you configure a cross-account security group rule. 
+   * Settings for the Alibaba Cloud account that owns the source security group when you configure a cross-account security group rule for access permissions. 
    *          
-   * - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerID` is set, the rule is configured for access permissions of another security group within your account.
-   * - If the parameter `SourceCidrIp` is specified, the parameter `SourceGroupOwnerAccount` is ignored.
+   * - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is configured, the rule is configured for the access permissions of your other security groups.
+   * - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is invalid.
    * 
    * @example
    * EcsforCloud@Alibaba.com
@@ -198,10 +201,10 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   sourceGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the source security group when you configure a cross-account security group rule. 
+   * Settings for the Alibaba Cloud account ID that owns the source security group when you configure a cross-account security group rule for access permissions. 
    *          
-   * - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is set, the rule is configured for access permissions of another security group within your account.
-   * - If the parameter `SourceCidrIp` is specified, the parameter `SourceGroupOwnerId` is ignored.
+   * - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is configured, the rule is configured for the access permissions of your other security groups.
+   * - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerId` parameter is invalid.
    * 
    * @example
    * 12345678910
@@ -209,7 +212,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
   sourceGroupOwnerId?: number;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport-layer protocol. Valid values: 
+   * The range of source ports that correspond to the transport-layer protocol of the security group. Valid values: 
    *          
    * - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
    * - ICMP: -1/-1.
@@ -224,7 +227,7 @@ export class ModifySecurityGroupRuleRequest extends $dara.Model {
    * @remarks
    * Settings for the ID of the source prefix list for the access permissions. You can invoke [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
    * 
-   * This parameter is ignored if you specify one of the `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId` parameters.
+   * This parameter is ignored if you specify one of `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`.
    * 
    * @example
    * pl-x1j1k5ykzqlixdcy****

@@ -15,9 +15,9 @@ export class AttachNetworkInterfaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The index of the network interface controller (NIC).
+   * The index of the network card specified for the ENI.
    * 
-   * > The value of this parameter varies based on the instance family of the specified instance. If the instance type of the specified instance does not support NICs, leave this parameter empty. If the instance type of the specified instance supports NICs, set this parameter to a valid value. For information about the valid values of this parameter, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * >Valid values of NetworkCardIndex depend on the instance family. If the instance type does not support network cards, you cannot specify this parameter. If the instance type supports network cards, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
    * 
    * @example
    * 0
@@ -25,7 +25,7 @@ export class AttachNetworkInterfaceRequest extends $dara.Model {
   networkCardIndex?: number;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The network interface controller (NIC) ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class AttachNetworkInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -50,8 +50,7 @@ export class AttachNetworkInterfaceRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the trunk ENI.
-   * 
-   * > This parameter is unavailable.
+   * >This parameter is not yet available.
    * 
    * @example
    * eni-f8zapqwj1v1j4ia3****
@@ -59,7 +58,7 @@ export class AttachNetworkInterfaceRequest extends $dara.Model {
   trunkNetworkInstanceId?: string;
   /**
    * @remarks
-   * > This parameter is no longer supported.
+   * >This parameter is deprecated.
    * 
    * @example
    * null

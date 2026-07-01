@@ -7,7 +7,7 @@ export class DescribeSecurityGroupsRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the security group. Valid values of N: 1 to 20.
    * 
-   * When you use a single tag to filter resources, the number of resources with the tag cannot exceed 1000. When you use multiple tags to filter resources, the number of resources bound with all specified tags cannot exceed 1000. If the number of resources exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query.
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query resources.
    * 
    * @example
    * TestKey
@@ -47,10 +47,10 @@ export class DescribeSecurityGroupsRequestTag extends $dara.Model {
 export class DescribeSecurityGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * - true: performs only a dry run. The system checks the request for potential issues, including AccessKey validity, RAM user authorization, and required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-   * - false: performs a dry run and performs the actual request. If the check succeeds, a 2XX HTTP status code is returned and the resource status is queried.
+   * Specifies whether to perform only a dry run. Valid values:
+   *          
+   * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the authorization is verified.
    * 
    * Default value: false.
    * 
@@ -68,7 +68,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   fuzzyQuery?: boolean;
   /**
    * @remarks
-   * Specifies whether to query the capacity information of the security group. When set to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
+   * Specifies whether to query the capacity information of the security group. If you set this parameter to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
    * > This parameter is deprecated.
    * 
    * @example
@@ -77,7 +77,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   isQueryEcsCount?: boolean;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Once this parameter is set, the query uses the combination of `MaxResults` and `NextToken` parameters.
+   * The maximum number of entries per page for paging query. If you set this parameter, the `MaxResults` and `NextToken` paging method is used.
    * 
    * Maximum value: 100.
    * 
@@ -91,8 +91,8 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * The network type of the security group. Valid values:
    * 
-   * - vpc: Virtual Private Cloud (VPC).
-   * - classic: classic network.
+   * - vpc: VPC.
+   * - classic: classic network. The classic network is deprecated. For more information, see [Deprecation notice](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
    * vpc
@@ -100,7 +100,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous call to this operation. You do not need to set this parameter for the first call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous request. You do not need to set this parameter for the first request.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -110,7 +110,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
+   * > This parameter will be offline. Use NextToken and MaxResults for paging.
    * 
    * @example
    * 1
@@ -118,7 +118,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged queries.
+   * > This parameter will be offline. Use NextToken and MaxResults for paging.
    * 
    * @example
    * 10
@@ -126,7 +126,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest region list of Alibaba Cloud.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -136,7 +136,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the security group belongs. When you use this parameter to filter resources, the number of resources cannot exceed 1000. You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query the list of resource groups.
+   * The ID of the resource group to which the security group belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000. You can invoke [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource groups.
    * 
    * > Filtering by the default resource group is not supported.
    * 
@@ -156,7 +156,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The list of security group IDs. A maximum of 100 security group IDs are supported at a time. The IDs are separated by commas (,) in the format of a JSON array.
+   * The IDs of security groups. You can specify up to 100 security group IDs. Separate multiple IDs with commas (,) in a JSON array format.
    * 
    * @example
    * ["sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****",....]
@@ -176,7 +176,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * - normal: basic security group.
    * - enterprise: advanced security group.
    * 
-   * > If you do not specify this parameter, all types of security groups are queried.
+   * > If you do not specify this parameter, security groups of all types are queried.
    * 
    * @example
    * normal
@@ -184,10 +184,10 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   securityGroupType?: string;
   /**
    * @remarks
-   * Specifies whether the security group is managed. Valid values:
+   * Specifies whether managed security group is managed. Valid values:
    * 
-   * - true: The security group is managed.
-   * - false: The security group is not managed.
+   * - true: Managed security group is managed.
+   * - false: Managed security group is not managed.
    * 
    * @example
    * false
@@ -198,12 +198,12 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeSecurityGroupsRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC to which the security group belongs.
+   * The ID of the virtual private cloud (VPC) to which the security group belongs.
    * 
    * @example
    * vpc-bp67acfmxazb4p****

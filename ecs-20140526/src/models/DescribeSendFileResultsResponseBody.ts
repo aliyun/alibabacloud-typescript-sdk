@@ -225,7 +225,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -233,7 +233,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the query result.
    * 
    * @example
    * 1
@@ -257,7 +257,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of file sending tasks queried.
+   * The total number of scripts.
    * 
    * @example
    * 2

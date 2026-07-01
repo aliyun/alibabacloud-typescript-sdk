@@ -112,7 +112,7 @@ export class DescribeAutoProvisioningGroupInstancesResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The number of queried instances in the auto provisioning group.
+   * The total number of instances in the auto provisioning group.
    * 
    * @example
    * 2

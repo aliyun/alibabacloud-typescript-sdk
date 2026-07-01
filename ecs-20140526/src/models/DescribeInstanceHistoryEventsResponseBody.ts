@@ -149,6 +149,11 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
   hostId?: string;
   hostType?: string;
   inactiveDisks?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks;
+  /**
+   * @example
+   * 2026-06-22T00:00:00Z
+   */
+  initialNotBefore?: string;
   metricName?: string;
   metricValue?: string;
   migrationOptions?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeMigrationOptions;
@@ -167,6 +172,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       hostId: 'HostId',
       hostType: 'HostType',
       inactiveDisks: 'InactiveDisks',
+      initialNotBefore: 'InitialNotBefore',
       metricName: 'MetricName',
       metricValue: 'MetricValue',
       migrationOptions: 'MigrationOptions',
@@ -188,6 +194,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       hostId: 'string',
       hostType: 'string',
       inactiveDisks: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks,
+      initialNotBefore: 'string',
       metricName: 'string',
       metricValue: 'string',
       migrationOptions: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeMigrationOptions,
@@ -310,9 +317,8 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   instanceSystemEventSet?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSet;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * > If the NextToken parameter is not returned when you use the MaxResults and NextToken parameters to perform a paged query, no more data is returned.
+   * The query token returned in this invocation.
+   * > When you use MaxResults and NextToken parameters for paging query and no NextToken is returned, no more data is available.
    * 
    * @example
    * f1c9fa9de5752***
@@ -320,13 +326,10 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance event list.
    * 
-   * >
-   * 
-   * - If MaxResults and NextToken are used to query results by page, ignore this parameter.
-   * 
-   * - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+   * > * When you use MaxResults and NextToken parameters for paging query, the returned PageNumber parameter value is meaningless.
+   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
    * 
    * @example
    * 1
@@ -334,13 +337,10 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page as specified in the request.
    * 
-   * >
-   * 
-   * - If MaxResults and NextToken are used to query results by page, ignore this parameter.
-   * 
-   * - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+   * > * When you use MaxResults and NextToken parameters for paging query, the returned PageSize parameter value is meaningless.
+   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
    * 
    * @example
    * 10
@@ -348,7 +348,7 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -356,9 +356,9 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances.
+   * The total number of instance events.
    * 
-   * > If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
+   * > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is meaningless.
    * 
    * @example
    * 2

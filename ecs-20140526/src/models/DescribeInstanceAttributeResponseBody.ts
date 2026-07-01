@@ -53,7 +53,7 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
   allocationId?: string;
   /**
    * @remarks
-   * The maximum public bandwidth of the EIP. Unit: Mbit/s.
+   * The public bandwidth limit of the EIP. Unit: Mbit/s.
    * 
    * @example
    * 8
@@ -61,13 +61,12 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
   bandwidth?: number;
   /**
    * @remarks
-   * The billing method for network usage. Valid values:
+   * The billing method for public bandwidth. Valid values:
    * 
-   * - PayByBandwidth
+   * - PayByBandwidth: pay-by-bandwidth.
+   * - PayByTraffic: pay-by-traffic.
    * 
-   * - PayByTraffic
-   * 
-   * > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -75,7 +74,7 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
   internetChargeType?: string;
   /**
    * @remarks
-   * The ID of the elastic IP address (EIP).
+   * The EIP.
    * 
    * @example
    * ``30.21.**.**``
@@ -139,19 +138,7 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
    * @remarks
    * The bandwidth weight.
    * 
-   * The supported values vary with instance types. You can query the bandwidth weights supported by the current instance type by using the DescribeInstanceTypes.
-   * 
-   * Valid values:
-   * 
-   * - Vpc-L1.
-   * 
-   * - Vpc-L2.
-   * 
-   * - Ebs-L1.
-   * 
-   * - Ebs-L2.
-   * 
-   * - Default.
+   * Different instance types support different values. Call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
    * 
    * @example
    * Vpc-L1
@@ -159,15 +146,14 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
   bandwidthWeighting?: string;
   /**
    * @remarks
-   * Indicates whether the Jumbo frame attribute is enabled for the instance. Valid values:
+   * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
    * 
-   * - true: Enabled.
+   * - true: enabled.
    * 
-   * - false: Not enabled.
+   * - false: not enabled.
    * 
-   * For more information, see [ECS Instance MTU](https://help.aliyun.com/document_detail/200512.html).
-   * 
-   * > This parameter is in invitational preview and is not publicly available yet.
+   * For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * false
@@ -177,11 +163,9 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
    * @remarks
    * Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
-   * > This parameter is in invitational preview and is not publicly available yet.
+   * - true: enabled.
+   * - false: not enabled.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * False
@@ -342,7 +326,7 @@ export class DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress 
 export class DescribeInstanceAttributeResponseBodyVpcAttributes extends $dara.Model {
   /**
    * @remarks
-   * The NAT IP address of the instance. It is used by ECS instances in different VPCs for communication.
+   * The IP address of the cloud service, which is used for network communication between VPC-connected cloud services.
    * 
    * @example
    * ``172.17.**.**``
@@ -351,7 +335,7 @@ export class DescribeInstanceAttributeResponseBodyVpcAttributes extends $dara.Mo
   privateIpAddress?: DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-uf6ixacqz8osrwnqb****
@@ -359,7 +343,7 @@ export class DescribeInstanceAttributeResponseBodyVpcAttributes extends $dara.Mo
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-wz9e4e9pmbcnj6ki6****
@@ -399,8 +383,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the cluster to which the instance belongs.
-   * 
-   * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+   * > This parameter will be deprecated soon. To ensure future compatibility, use other parameters.
    * 
    * @example
    * cls-bp67acfmxazb4p****
@@ -408,7 +391,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of vCPU cores.
    * 
    * @example
    * 8
@@ -416,7 +399,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2017-12-10T04:04Z
@@ -424,11 +407,10 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The performance mode of the burstable instance. Valid values:
+   * The running mode of the burstable instance. Valid values:
    * 
-   * - Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
-   * 
-   * - Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+   * - Standard: standard mode. For more information about instance performance, see [Performance mode](~~59977#section-svb-w9d-dju~~). 
+   * - Unlimited: unlimited mode. For more information about instance performance, see [Performance mode](~~59977#section-svb-w9d-dju~~).
    * 
    * @example
    * Standard
@@ -436,7 +418,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   creditSpecification?: string;
   /**
    * @remarks
-   * Details about the dedicated host. It is an array that consists of the DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName parameters.
+   * The dedicated host attributes, which consist of the dedicated host cluster ID (DedicatedHostClusterId), dedicated host ID (DedicatedHostId), and dedicated host name (DedicatedHostName).
    */
   dedicatedHostAttribute?: DescribeInstanceAttributeResponseBodyDedicatedHostAttribute;
   /**
@@ -449,18 +431,18 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The elastic IP address (EIP) associated with the instance.
+   * The Elastic IP Address (EIP) binding information.
    */
   eipAddress?: DescribeInstanceAttributeResponseBodyEipAddress;
   /**
    * @remarks
-   * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+   * Indicates whether the Jumbo Frame feature is enabled for the ECS instance. Valid values:
    * 
-   * - true
+   * - true: enabled.
    * 
-   * - false
+   * - false: not enabled.
    * 
-   * For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+   * For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
    * 
    * @example
    * false
@@ -470,11 +452,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
-   * > This parameter is in invitational preview and is not publicly available yet.
+   * - true: enabled.
+   * - false: not enabled.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * True
@@ -482,7 +462,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   enableNetworkEncryption?: boolean;
   /**
    * @remarks
-   * The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2017-12-10T04:04Z
@@ -508,10 +488,8 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
    * - PrePaid: subscription.
-   * 
-   * - PostPaid: pay-as-you-go
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -519,7 +497,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance ID
+   * The instance ID.
    * 
    * @example
    * i-uf6f5trc95ug8t33****
@@ -527,7 +505,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * Instance name
    * 
    * @example
    * testInstanceName
@@ -535,11 +513,10 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * - classic: classic network
-   * 
-   * - vpc: VPC
+   * The network type of the instance. Valid values: 
+   *          
+   * - vpc: virtual private cloud (VPC).
+   * - classic: classic network. The classic network is deprecated. For more information, see [Deprecation notice](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
    * vpc
@@ -547,7 +524,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The instance type.
+   * The instance type of the instance.
    * 
    * @example
    * ecs.g5.large
@@ -555,13 +532,12 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The billing method for network usage. Valid values:
+   * The billing method for public bandwidth. Valid values:
    * 
-   * - PayByBandwidth
+   * - PayByBandwidth: pay-by-bandwidth.
+   * - PayByTraffic: pay-by-traffic.
    * 
-   * - PayByTraffic
-   * 
-   * > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -585,11 +561,11 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Indicates whether the ECS instance is I/O optimized. Valid values:
+   * Indicates whether the instance is I/O optimized. Valid values:
    * 
-   * - optimized: The ECS instance is I/O optimized.
+   * - optimized: I/O optimized.
    * 
-   * - none: The ECS instance is not I/O optimized.
+   * - none: not I/O optimized.
    * 
    * @example
    * optimized
@@ -597,7 +573,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The memory size of the instance. Unit: MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 16384
@@ -605,8 +581,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * Details about network options.
-   * 
+   * The network-related attributes.
    * > This parameter is in invitational preview and is not publicly available.
    */
   networkOptions?: DescribeInstanceAttributeResponseBodyNetworkOptions;
@@ -614,7 +589,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   publicIpAddress?: DescribeInstanceAttributeResponseBodyPublicIpAddress;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -639,17 +614,13 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
+   * The instance status. Valid values:
    * 
-   * - Pending: The instance is being created.
-   * 
-   * - Running: The instance is running.
-   * 
-   * - Starting: The instance is being started.
-   * 
-   * - Stopping: The instance is being stopped.
-   * 
-   * - Stopped: The instance is stopped.
+   * - Pending: being created.
+   * - Running: running.
+   * - Starting: being started.
+   * - Stopping: being stopped.
+   * - Stopped: stopped.
    * 
    * @example
    * Running
@@ -657,13 +628,11 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the system implements billing after the instance is stopped. Valid values:
+   * Indicates whether the instance continues to be billed after it is stopped. Valid values:
    * 
-   * - KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
-   * 
-   * - StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
-   * 
-   * - Not-applicable: The instance does not support economical mode.
+   * - KeepCharging: The instance continues to be billed after it is stopped. Inventory resources are reserved for the instance.
+   * - StopCharging: The instance is not billed after it is stopped. After the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on resource availability in the current region.
+   * - Not-applicable: The instance does not support the No Fees for Stopped Instances feature.
    * 
    * @example
    * KeepCharging
@@ -671,9 +640,8 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   stoppedMode?: string;
   /**
    * @remarks
-   * The virtual LAN (VLAN) ID of the instance.
-   * 
-   * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+   * The VLAN ID of the instance.
+   * > This parameter will be deprecated soon. To ensure future compatibility, use other parameters.
    * 
    * @example
    * 10
@@ -681,12 +649,12 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   vlanId?: string;
   /**
    * @remarks
-   * The VPC attributes of the instance.
+   * The VPC attributes.
    */
   vpcAttributes?: DescribeInstanceAttributeResponseBodyVpcAttributes;
   /**
    * @remarks
-   * The ID of the zone in which the instance resides.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-g

@@ -209,7 +209,7 @@ export class DescribeImageComponentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call. For more information about how to use it, refer to the operation description.
+   * The pagination token returned in this call. For more information about how to use this token, refer to the operation description.
    * 
    * @example
    * AAAAAdDWBF2****

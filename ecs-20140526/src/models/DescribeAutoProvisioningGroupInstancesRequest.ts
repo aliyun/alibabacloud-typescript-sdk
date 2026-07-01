@@ -17,9 +17,9 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number for the paging query.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -29,9 +29,9 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in the paging query. You can use this parameter to configure paging settings.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -41,7 +41,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the auto provisioning group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the auto provisioning group resides. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

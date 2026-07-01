@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key for querying resources. The value must be `CreationStartTime`. If you specify `Filter.1.Key` and `Filter.1.Value`, you can query for resources that were created after the specified point in time.
+   * The filter key used to query resources. Set the value to `CreationStartTime`. When you specify both `Filter.1.Key` and `Filter.1.Value`, you can query resources created after the specified point in time.
    * 
    * @example
    * CreationStartTime
@@ -13,7 +13,7 @@ export class DescribeSnapshotsRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value. If you specify this parameter, you must also specify `Filter.1.Key`. The value must be in the `yyyy-MM-ddTHH:mmZ` format and in UTC.
+   * The filter value used to query resources. When you specify this parameter, you must also specify `Filter.1.Key`. Specify the time in the `yyyy-MM-ddTHH:mmZ` format in UTC.
    * 
    * @example
    * 2019-12-13T17:00Z
@@ -45,9 +45,9 @@ export class DescribeSnapshotsRequestFilter extends $dara.Model {
 export class DescribeSnapshotsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the snapshot. Valid values of N: 1 to 20.
    * 
-   * > For better compatibility, use the `Tag.N.Key` parameter.
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
    * 
    * @example
    * TestKey
@@ -55,7 +55,7 @@ export class DescribeSnapshotsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the snapshot. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -89,20 +89,15 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
    * The category of the snapshot. Valid values:
+   * - Standard: standard snapshot.
+   * - Flash: local snapshot. This value is about to be deprecated. Local snapshots have been replaced by the snapshot instant access feature. The metric description is as follows:
+   *   - If you used local snapshots before December 14, 2020, you can use this parameter. The parameter is active.
+   *   - If you did not use local snapshots before December 14, 2020, you cannot use this parameter.
+   * - archive: archive snapshot.
    * 
-   * - `Standard`: A standard snapshot.
    * 
-   * - `Flash`: A local snapshot. This value is deprecated because the local snapshot feature has been replaced by the instant access feature.
    * 
-   *   - If you have used local snapshots before December 14, 2020, you can continue to use this value.
-   * 
-   *   - If you have not used local snapshots before December 14, 2020, you cannot use this value.
-   * 
-   * - `archive`: An archive snapshot.
-   * 
-   * <props="china">
-   * 
-   * For more information, see [December 14: Alibaba Cloud snapshot service upgrade and new billing items notice](https://help.aliyun.com/noticelist/articleid/1060755542.html).
+   * <props="china">For more information, see [Chinese site notice on snapshot service upgrade and new billing items on December 14](https://help.aliyun.com/noticelist/articleid/1060755542.html).
    * 
    * @example
    * Standard
@@ -110,7 +105,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The ID of the disk.
    * 
    * @example
    * d-bp67acfmxazb4p****
@@ -118,11 +113,10 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run.
+   * Specifies whether to perform only a dry run, without performing the actual request.
    * 
-   * - `true`: Performs a dry run but does not query resources. The system checks the request for potential issues, including missing required parameters, invalid parameter values, and insufficient permissions. If the request is invalid, an error is returned. If the request is valid, the `DryRunOperation` error code is returned.
-   * 
-   * - `false` (Default): Sends a normal request. If the request is valid, the system returns a 2xx HTTP status code and the query results.
+   * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * - false (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -130,7 +124,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to return only encrypted snapshots. Default value: false.
+   * Specifies whether to filter encrypted snapshots. Default value: false.
    * 
    * @example
    * false
@@ -138,7 +132,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the instance. When you specify this ID, the operation returns snapshots of cloud disks attached to the instance.
+   * The instance ID. Specify this parameter to query snapshot information of disks attached to the instance.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -146,7 +140,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the KMS key used to encrypt the snapshot.
+   * The ID of the Key Management Service (KMS) key used by the data disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -154,7 +148,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100.
+   * The maximum number of entries per page for paging. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -164,7 +158,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to start the next page of results. You can obtain this token from the response to a previous query.
+   * The pagination token. Obtained from the response of the previous request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -174,7 +168,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paged queries.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
    * 
    * @example
    * 1
@@ -182,7 +176,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paged queries.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
    * 
    * @example
    * 10
@@ -190,7 +184,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the disk. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -200,9 +194,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the snapshot belongs. When you filter by this parameter, the query can return a maximum of 1,000 snapshots.
+   * The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
    * 
-   * > You cannot filter resources that are in the default resource group.
+   * > Filtering by default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -212,7 +206,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A JSON array that contains the IDs of up to 100 snapshots to query.
+   * The IDs of snapshots. The value is a JSON array that consists of up to 100 snapshot IDs. Separate the IDs with commas (,).
    * 
    * @example
    * ["s-bp67acfmxazb4p****", "s-bp67acfmxazb5p****", … "s-bp67acfmxazb6p****"]
@@ -228,7 +222,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotLinkId?: string;
   /**
    * @remarks
-   * The snapshot name.
+   * The name of the snapshot.
    * 
    * @example
    * testSnapshotName
@@ -236,13 +230,11 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The snapshot creation type. Valid values:
-   * 
-   * - `auto`: An automatically created snapshot.
-   * 
-   * - `user`: A manually created snapshot.
-   * 
-   * - `all` (Default): All snapshot creation types.
+   * The type of automatic creation. Valid values: 
+   *          
+   * - auto: automatic snapshot.
+   * - user: manual snapshot.
+   * - all (default): All automatic creation types.
    * 
    * @example
    * all
@@ -250,11 +242,10 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The type of the source disk of the snapshot. Valid values:
-   * 
-   * - `system`: The snapshot was created from a system disk.
-   * 
-   * - `data`: The snapshot was created from a data disk.
+   * The type of the source disk. Valid values: 
+   *      
+   * - system: system disk.
+   * - data: data disk.
    * 
    * > The value is case-insensitive.
    * 
@@ -264,15 +255,12 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The status of the snapshot. Valid values:
-   * 
-   * - `progressing`: The snapshot is being created.
-   * 
-   * - `accomplished`: The snapshot is complete.
-   * 
-   * - `failed`: Snapshot creation failed.
-   * 
-   * - `all` (Default): All snapshot statuses.
+   * The status of the snapshot. Valid values: 
+   *          
+   * - progressing: The snapshot is being created.
+   * - accomplished: The snapshot is created.
+   * - failed: The snapshot failed to be created.
+   * - all (default): All snapshot statuses.
    * 
    * @example
    * all
@@ -280,20 +268,17 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags by which to filter snapshots.
+   * The tags.
    */
   tag?: DescribeSnapshotsRequestTag[];
   /**
    * @remarks
-   * The usage of the snapshot. Valid values:
+   * Specifies whether the snapshot has been used to create images or disks. Valid values: 
    * 
-   * - `image`: The snapshot is used to create a custom image.
-   * 
-   * - `disk`: The snapshot is used to create a cloud disk.
-   * 
-   * - `image_disk`: The snapshot is used to create a custom image and a data disk.
-   * 
-   * - `none`: The snapshot is not used.
+   * - image: The snapshot has been used to create custom images.
+   * - disk: The snapshot has been used to create disks.
+   * - image_disk: The snapshot has been used to create both data disks and custom images.
+   * - none: The snapshot has not been used.
    * 
    * @example
    * none

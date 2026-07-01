@@ -5,21 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
-   * 
-   * - zh-CN: Simplified Chinese
-   * 
-   * - zh_TW: Traditional Chinese
-   * 
-   * - en-US: English
-   * 
-   * - ja: Japanese
-   * 
-   * - fr: French
-   * 
-   * - de: German
-   * 
-   * - ko: Korean
+   * The natural language that is used to filter response results. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
+   *          
+   * - zh-CN: simplified Chinese.
+   * - zh-TW: traditional Chinese.
+   * - en-US: English.
+   * - ja: Japanese.
+   * - fr: French.
+   * - de: German.
+   * - ko: Korean.
    * 
    * Default value: zh-CN.
    * 
@@ -29,11 +23,10 @@ export class DescribeZonesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The billing method of resources. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+   * The billing method supported by resources in the active zone. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
    * 
-   * - Prepaid: subscription
-   * 
-   * - PostPaid: pay-as-you-go
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
    * 
    * Default value: PostPaid.
    * 
@@ -45,7 +38,7 @@ export class DescribeZonesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the zones are located. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -57,13 +50,11 @@ export class DescribeZonesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The bidding policy for the pay-as-you-go instance. You can specify this parameter when you set `InstanceChargeType` to PostPaid. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
-   * 
-   * - NoSpot: The instances are regular pay-as-you-go instances.
-   * 
-   * - SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
-   * 
-   * - SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+   * The bidding policy for pay-as-you-go instances. You can specify this parameter when `InstanceChargeType=PostPaid`. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
+   *          
+   * - NoSpot: regular pay-as-you-go instance.
+   * - SpotWithPriceLimit: spot instance with a maximum price limit.
+   * - SpotAsPriceGo: spot instance priced at the market price with the pay-as-you-go price as the upper limit.
    * 
    * Default value: NoSpot.
    * 
@@ -75,9 +66,8 @@ export class DescribeZonesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to display detailed information.
    * 
-   * - true: displays detailed information.
-   * 
-   * - false: does not display detailed information.
+   * - true: Display detailed information.
+   * - false: Do not display detailed information.
    * 
    * Default value: true.
    * 

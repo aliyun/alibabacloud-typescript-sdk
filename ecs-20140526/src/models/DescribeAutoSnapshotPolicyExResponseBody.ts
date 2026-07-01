@@ -187,7 +187,7 @@ export class DescribeAutoSnapshotPolicyExResponseBody extends $dara.Model {
   autoSnapshotPolicies?: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPolicies;
   /**
    * @remarks
-   * The page number.
+   * The page number of the automatic snapshot policy list.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class DescribeAutoSnapshotPolicyExResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page when automatic snapshot policies are displayed in paging mode.
    * 
    * @example
    * 10
@@ -211,7 +211,7 @@ export class DescribeAutoSnapshotPolicyExResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of automatic snapshot policies
+   * The total number of automatic snapshot policies.
    * 
    * @example
    * 1

@@ -163,11 +163,10 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The access control policy of the security group. Valid values:
-   * 
-   * - Accept: All instances in the security group can communicate with each other.
-   * 
-   * - Drop: All instances in the security group are isolated from each other.
+   * The internal network connectivity policy of the security group. Valid values: 
+   *          
+   * - Accept: service interconnection.
+   * - Drop: internal isolation.
    * 
    * @example
    * Accept
@@ -175,7 +174,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   innerAccessPolicy?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify `MaxResults` and `NextToken` for a paged query, no more results are to be returned.
+   * The paging token returned in this call. When you use `MaxResults` and `NextToken` for paging query, if this value is empty, no more data is available.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -184,7 +183,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   permissions?: DescribeSecurityGroupAttributeResponseBodyPermissions;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -192,7 +191,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -200,7 +199,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-bp1gxw6bznjjvhu3****
@@ -217,7 +216,9 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   snapshotPolicyIds?: DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds;
   /**
    * @remarks
-   * The ID of the VPC. If a VPC ID is returned, the network type of the security group is VPC. If no VPC ID is returned, the network type of the security group is classic network.
+   * The VPC ID. If a VPC ID is returned, the network type of the security group is VPC. Otherwise, the security group belongs to the classic network.
+   * 
+   * > The classic network feature has been offline. For details, see [Retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
    * vpc-bp1opxu1zkhn00gzv****

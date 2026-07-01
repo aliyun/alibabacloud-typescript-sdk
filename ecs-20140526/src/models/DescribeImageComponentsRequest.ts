@@ -57,7 +57,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * The component version number in the format of major.minor.patch. All values are non-negative integers. You can also use the wildcard character (*) to replace one of the values for fuzzy matching.
+   * The component version number in the major.minor.patch format. Each part must be a non-negative integer. You can also use the wildcard character (*) to replace one part for fuzzy matching.
    * >This parameter takes effect only when Name is specified.
    * 
    * @example
@@ -92,7 +92,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set this parameter to the value of NextToken returned by the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -123,7 +123,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
    * >Filtering by the default resource group is not supported.
    * 

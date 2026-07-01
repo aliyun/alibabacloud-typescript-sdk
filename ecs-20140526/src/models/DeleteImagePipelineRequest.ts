@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImagePipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image template.
+   * The image template ID.
    * 
    * This parameter is required.
    * 
