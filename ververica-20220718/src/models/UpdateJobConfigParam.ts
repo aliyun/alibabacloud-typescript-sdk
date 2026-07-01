@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateJobConfigParam extends $dara.Model {
   /**
+   * @remarks
+   * The job parameter configuration.
+   * 
    * @example
    * {"table.exec.parallelism：4"}
    */

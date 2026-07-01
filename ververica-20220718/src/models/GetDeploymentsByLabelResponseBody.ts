@@ -4,28 +4,47 @@ import { Deployment } from "./Deployment";
 
 
 export class GetDeploymentsByLabelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the deployed jobs.
+   */
   data?: Deployment[];
   /**
+   * @remarks
+   * The error code. This parameter is returned only if the request fails.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is returned only if the request fails.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 is returned for a successful request. To determine whether an API call is successful, check the \\`success\\` parameter.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -6,30 +6,49 @@ import { Database } from "./Database";
 export class GetDatabasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If the value of success was true, the list of databases that meet the specified condition was returned. If the value of success was false, a null value was returned.
+   * The list of databases. This parameter is returned only if the request is successful. If the request fails, this parameter is empty.
    */
   data?: Database[];
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error code is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error message is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 is always returned. To determine whether the request was successful, check the value of the \\`success\\` parameter.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

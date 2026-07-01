@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UdfFunction extends $dara.Model {
   /**
+   * @remarks
+   * The class name.
+   * 
    * @example
    * myFunctionTest
    */
   className?: string;
   /**
+   * @remarks
+   * The function name.
+   * 
    * @example
    * myFunction
    */
   functionName?: string;
   /**
+   * @remarks
+   * The UDF artifact name.
+   * 
    * @example
    * udfCollection.jar
    */

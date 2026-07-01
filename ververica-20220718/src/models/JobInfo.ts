@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobInfo extends $dara.Model {
   /**
+   * @remarks
+   * The job instance ID.
+   * 
    * @example
    * 664cc64d-5dea-4ad3-9ee4-8432a874****
    */
   id?: string;
   /**
+   * @remarks
+   * The job details.
+   * 
    * @example
    * {"id:xxx","createTime:v"}
    */

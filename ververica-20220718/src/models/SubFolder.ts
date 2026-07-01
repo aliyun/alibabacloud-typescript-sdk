@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubFolder extends $dara.Model {
   /**
+   * @remarks
+   * The folder ID.
+   * 
    * @example
    * a579aec9-1d5e-3382-9d65-9887ff6cfaff
    */
   folderId?: string;
   /**
+   * @remarks
+   * The folder name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The parent folder ID.
+   * 
    * @example
    * 95c0787c-408f-4e1f-88ba-ef0a84a2c2ee
    */

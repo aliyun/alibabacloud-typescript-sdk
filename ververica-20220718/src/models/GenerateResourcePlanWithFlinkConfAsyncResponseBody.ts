@@ -35,14 +35,16 @@ export class GenerateResourcePlanWithFlinkConfAsyncResponseBodyData extends $dar
 export class GenerateResourcePlanWithFlinkConfAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *   If the value of success was true, the asynchronous generation result was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - If the value of success was true, the asynchronous generation result was returned.
+   * 
+   * - If the value of success was false, a null value was returned.
    */
   data?: GenerateResourcePlanWithFlinkConfAsyncResponseBodyData;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""
@@ -50,8 +52,9 @@ export class GenerateResourcePlanWithFlinkConfAsyncResponseBody extends $dara.Mo
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error message was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""

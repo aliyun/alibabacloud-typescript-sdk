@@ -6,6 +6,8 @@ import { DraftDeployParams } from "./DraftDeployParams";
 export class DeployDeploymentDraftAsyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The job draft and deployment information.
+   * 
    * This parameter is required.
    */
   body?: DraftDeployParams;

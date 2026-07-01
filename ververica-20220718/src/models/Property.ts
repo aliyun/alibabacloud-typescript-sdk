@@ -22,6 +22,9 @@ export class Property extends $dara.Model {
   /**
    * @remarks
    * The description of the parameter.
+   * 
+   * @example
+   * 用户名
    */
   description?: string;
   /**

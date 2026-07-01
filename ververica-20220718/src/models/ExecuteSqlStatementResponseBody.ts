@@ -6,30 +6,49 @@ import { SqlStatementExecuteResult } from "./SqlStatementExecuteResult";
 export class ExecuteSqlStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of executing the SQL statement to query the metadata.
+   * The result of the SQL statement execution for metadata.
    */
   data?: SqlStatementExecuteResult;
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error code is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error message is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The status code. The value is always 200. Use the \\`success\\` parameter to determine whether the request was successful.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

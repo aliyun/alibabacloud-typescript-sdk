@@ -6,7 +6,7 @@ import { JobDiagnosisSymptoms } from "./JobDiagnosisSymptoms";
 export class JobDiagnosis extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic task ID.
+   * The diagnostic ID.
    * 
    * @example
    * ba30cd99-37a5-4a20-8cd9-ed4b*****
@@ -14,12 +14,13 @@ export class JobDiagnosis extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The time when the deployment is diagnosed.
+   * The diagnostic time.
    * 
    * @example
    * 1740389560871
    */
   diagnoseTime?: number;
+  healthScore?: number;
   /**
    * @remarks
    * The namespace.
@@ -30,13 +31,7 @@ export class JobDiagnosis extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The severity level of the risk.
-   * 
-   * Valid values:
-   * 
-   * *   RISK_LEVEL_HIGH
-   * *   RISK_LEVEL_MID
-   * *   RISK_LEVEL_LOW
+   * The risk level.
    * 
    * @example
    * RISK_LEVEL_LOW
@@ -49,7 +44,7 @@ export class JobDiagnosis extends $dara.Model {
   symptoms?: JobDiagnosisSymptoms;
   /**
    * @remarks
-   * The workspace to which the deployment belongs.
+   * The workspace.
    * 
    * @example
    * a14bd5d90a****
@@ -59,6 +54,7 @@ export class JobDiagnosis extends $dara.Model {
     return {
       diagnoseId: 'diagnoseId',
       diagnoseTime: 'diagnoseTime',
+      healthScore: 'healthScore',
       namespace: 'namespace',
       riskLevel: 'riskLevel',
       symptoms: 'symptoms',
@@ -70,6 +66,7 @@ export class JobDiagnosis extends $dara.Model {
     return {
       diagnoseId: 'string',
       diagnoseTime: 'number',
+      healthScore: 'number',
       namespace: 'string',
       riskLevel: 'string',
       symptoms: JobDiagnosisSymptoms,

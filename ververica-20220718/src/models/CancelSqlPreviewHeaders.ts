@@ -7,9 +7,6 @@ export class CancelSqlPreviewHeaders extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
    */
   workspace?: string;
   static names(): { [key: string]: string } {

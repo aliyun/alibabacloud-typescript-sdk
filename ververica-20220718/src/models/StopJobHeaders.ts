@@ -6,7 +6,7 @@ export class StopJobHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 

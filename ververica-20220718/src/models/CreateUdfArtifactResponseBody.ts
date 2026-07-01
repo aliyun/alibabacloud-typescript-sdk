@@ -11,8 +11,9 @@ export class CreateUdfArtifactResponseBody extends $dara.Model {
   data?: CreateUdfArtifactResult;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""
@@ -20,8 +21,9 @@ export class CreateUdfArtifactResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error message was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""

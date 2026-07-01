@@ -5,8 +5,20 @@ import { TableResult } from "./TableResult";
 
 
 export class DqlResult extends $dara.Model {
+  /**
+   * @remarks
+   * The statement index.
+   */
   statementIndex?: number;
+  /**
+   * @remarks
+   * The submit preview results.
+   */
   submitPreviewResult?: SubmitPreviewResult;
+  /**
+   * @remarks
+   * The table results.
+   */
   tableResults?: TableResult[];
   static names(): { [key: string]: string } {
     return {

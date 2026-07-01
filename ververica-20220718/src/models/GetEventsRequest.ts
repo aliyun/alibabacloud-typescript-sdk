@@ -4,17 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deployed job. If you specify this parameter, the operation returns events only for this job.
+   * 
    * @example
    * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
    */
   deploymentId?: string;
   deploymentName?: string;
   /**
+   * @remarks
+   * The page number to retrieve. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */

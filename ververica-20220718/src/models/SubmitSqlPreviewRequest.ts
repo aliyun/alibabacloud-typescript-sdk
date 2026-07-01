@@ -10,7 +10,7 @@ export class SubmitSqlPreviewRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test-session
+   * sessioncluster-test
    */
   sessionClusterName?: string;
   static names(): { [key: string]: string } {

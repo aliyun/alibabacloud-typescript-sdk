@@ -4,8 +4,16 @@ import { RowUpdate } from "./RowUpdate";
 
 
 export class TableResult extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the collect sink operator.
+   */
   collectSinkOperatorId?: string;
   rowUpdates?: RowUpdate[];
+  /**
+   * @remarks
+   * The name of the table.
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {

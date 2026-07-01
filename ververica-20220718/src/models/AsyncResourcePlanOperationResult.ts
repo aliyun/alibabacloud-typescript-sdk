@@ -23,9 +23,11 @@ export class AsyncResourcePlanOperationResult extends $dara.Model {
    * @remarks
    * The status of the ticket that applies for an asynchronous operation. Valid values:
    * 
-   * *   EXECUTING
-   * *   FINISHED
-   * *   FAILED
+   * - EXECUTING
+   * 
+   * - FINISHED
+   * 
+   * - FAILED
    * 
    * @example
    * FINISHED

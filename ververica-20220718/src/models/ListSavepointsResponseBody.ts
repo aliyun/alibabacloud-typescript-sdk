@@ -6,14 +6,16 @@ import { Savepoint } from "./Savepoint";
 export class ListSavepointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *   If the value of success was true, a list of savepoints was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - If the value of success was true, a list of savepoints was returned.
+   * 
+   * - If the value of success was false, a null value was returned.
    */
   data?: Savepoint[];
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""
@@ -21,8 +23,9 @@ export class ListSavepointsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error message was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""

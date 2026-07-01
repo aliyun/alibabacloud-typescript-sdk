@@ -4,6 +4,10 @@ import { DraftValidateParams } from "./DraftValidateParams";
 
 
 export class ValidateDeploymentDraftAsyncRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter object for the job draft.
+   */
   body?: DraftValidateParams;
   static names(): { [key: string]: string } {
     return {

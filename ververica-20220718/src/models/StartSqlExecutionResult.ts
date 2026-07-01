@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartSqlExecutionResult extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the SQL execution is newly created.
+   */
   newlyCreated?: boolean;
+  /**
+   * @remarks
+   * The SQL execution ID.
+   */
   sqlExecutionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the SQL execution is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

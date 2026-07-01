@@ -9,7 +9,7 @@ export class SubmitSqlPreviewHeaders extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * a14bd5d90a****
+   * aaych***uijn
    */
   workspace?: string;
   static names(): { [key: string]: string } {

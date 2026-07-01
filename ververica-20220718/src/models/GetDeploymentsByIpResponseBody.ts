@@ -4,28 +4,47 @@ import { Deployment } from "./Deployment";
 
 
 export class GetDeploymentsByIpResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: Deployment[];
   /**
+   * @remarks
+   * The error code. This parameter is returned only when success is false. If success is true, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is returned only when success is false. If success is true, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 indicates that the request was successful. Use the success parameter to determine whether the business request was successful.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

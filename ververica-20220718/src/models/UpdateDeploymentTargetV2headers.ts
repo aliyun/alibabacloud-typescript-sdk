@@ -6,6 +6,8 @@ export class UpdateDeploymentTargetV2Headers extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

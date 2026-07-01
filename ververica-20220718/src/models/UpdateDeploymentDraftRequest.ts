@@ -6,6 +6,8 @@ import { DeploymentDraft } from "./DeploymentDraft";
 export class UpdateDeploymentDraftRequest extends $dara.Model {
   /**
    * @remarks
+   * The information to update the job draft.
+   * 
    * This parameter is required.
    */
   body?: DeploymentDraft;

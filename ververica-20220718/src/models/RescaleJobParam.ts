@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RescaleJobParam extends $dara.Model {
   /**
+   * @remarks
+   * The parallelism.
+   * 
    * @example
    * 10
    */

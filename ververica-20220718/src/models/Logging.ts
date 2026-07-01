@@ -8,6 +8,9 @@ export class Logging extends $dara.Model {
   /**
    * @remarks
    * Custom log templates.
+   * 
+   * @example
+   * xml格式文本
    */
   log4j2ConfigurationTemplate?: string;
   /**
@@ -24,11 +27,12 @@ export class Logging extends $dara.Model {
    * @remarks
    * The type of the system log template.
    * 
-   * *   default: The default template is used.
-   * *   oss: Logs are delivered to Object Storage Service (OSS).
+   * - default: The default template is used.
+   * 
+   * - oss: Logs are delivered to Object Storage Service (OSS).
    * 
    * @example
-   * oss
+   * default
    */
   loggingProfile?: string;
   static names(): { [key: string]: string } {

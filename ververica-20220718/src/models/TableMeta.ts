@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class TableMeta extends $dara.Model {
   /**
+   * @remarks
+   * The catalog name.
+   * 
    * @example
    * paimon
    */
   catalogName?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * paimon-ods
    */
   databaseName?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * order-table
    */

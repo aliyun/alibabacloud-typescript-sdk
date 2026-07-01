@@ -4,17 +4,23 @@ import { Job } from "./Job";
 
 
 export class StartJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed information about the access denial.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * *   If the value of success was true, the job that you created was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - When \\`success\\` is \\`true\\`, the created instance information is returned.
+   * 
+   * - Returns an empty value if \\`success\\` is false.
    */
   data?: Job;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If success is false, the call returns a business error code.If success is true, the call returns business data. The following table describes the data format.If success is true, the call returns business data. The following table describes the data format.
+   * 
+   * - When success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -22,8 +28,9 @@ export class StartJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If success is false, a business error message is returned.
+   * 
+   * - When \\`success\\` is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -31,7 +38,7 @@ export class StartJobResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The value was fixed to 200.
+   * Fixed value: 200.
    * 
    * @example
    * 200
@@ -39,7 +46,7 @@ export class StartJobResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
@@ -47,7 +54,7 @@ export class StartJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the service request was successful.
    * 
    * @example
    * true

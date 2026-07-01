@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledPlanExecutedHistoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the deployed job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListScheduledPlanExecutedHistoryRequest extends $dara.Model {
    */
   deploymentId?: string;
   /**
+   * @remarks
+   * The execution source.
+   * 
    * @example
    * SCHEDULED_PLAN
    */

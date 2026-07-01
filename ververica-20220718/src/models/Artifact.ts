@@ -7,19 +7,27 @@ import { SqlArtifact } from "./SqlArtifact";
 
 
 export class Artifact extends $dara.Model {
+  /**
+   * @remarks
+   * Required for a data ingestion job.
+   */
   cdcYamlArtifact?: CdcYamlArtifact;
   /**
    * @remarks
-   * The information required for the SQL deployment.
+   * Required for a JAR job.
    */
   jarArtifact?: JarArtifact;
   /**
    * @remarks
-   * The type of the deployment. This parameter is required and cannot be modified after the deployment is created.
+   * Specifies the kind of job. This field is required and cannot be changed after creation.
    * 
-   * *   SQLSCRIPT
-   * *   JAR
-   * *   PYTHON
+   * - SQLSCRIPT: An SQL job.
+   * 
+   * - JAR: A JAR job.
+   * 
+   * - PYTHON: A Python job.
+   * 
+   * - CDCYAML: A CDC data ingestion job.
    * 
    * @example
    * SQLSCRIPT
@@ -27,12 +35,12 @@ export class Artifact extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The information required for the Python deployment.
+   * Required for a Python job.
    */
   pythonArtifact?: PythonArtifact;
   /**
    * @remarks
-   * The information required for the JAR deployment.
+   * Required for an SQL job.
    */
   sqlArtifact?: SqlArtifact;
   static names(): { [key: string]: string } {

@@ -6,6 +6,8 @@ import { DeploymentDraft } from "./DeploymentDraft";
 export class CreateDeploymentDraftRequest extends $dara.Model {
   /**
    * @remarks
+   * The data structure of the job draft.
+   * 
    * This parameter is required.
    */
   body?: DeploymentDraft;

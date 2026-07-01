@@ -6,7 +6,7 @@ export class StartJobHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The workspace ID.
+   * Workspace ID.
    * 
    * This parameter is required.
    * 

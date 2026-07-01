@@ -13,17 +13,17 @@ import { StreamingResourceSetting } from "./StreamingResourceSetting";
 export class Job extends $dara.Model {
   /**
    * @remarks
-   * The content template of the job.
+   * Job instance content template.
    */
   artifact?: Artifact;
   /**
    * @remarks
-   * The resource configuration of the job in batch mode.
+   * Batch mode resource settings.
    */
   batchResourceSetting?: BatchResourceSetting;
   /**
    * @remarks
-   * The time when the job was created.
+   * Creation time.
    * 
    * @example
    * 1714058507
@@ -31,7 +31,7 @@ export class Job extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the account that is used to create the job.
+   * Creator.
    * 
    * @example
    * 27846363877456****
@@ -39,7 +39,7 @@ export class Job extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the account that is used to create the job.
+   * Creator name.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -47,7 +47,7 @@ export class Job extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The deployment ID.
+   * Deployment ID.
    * 
    * @example
    * 354dde66-a3ae-463e-967a-0b4107fd****
@@ -55,7 +55,7 @@ export class Job extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * The name of the deployment.
+   * Deployment name.
    * 
    * @example
    * flinktest
@@ -63,7 +63,7 @@ export class Job extends $dara.Model {
   deploymentName?: string;
   /**
    * @remarks
-   * The end time of the job.
+   * Job instance end time.
    * 
    * @example
    * 1660277235
@@ -71,7 +71,7 @@ export class Job extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The engine version of the deployment.
+   * Job engine version.
    * 
    * @example
    * vvr-4.0.14-flink-1.13
@@ -79,10 +79,11 @@ export class Job extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The execution mode of the job. Valid values:
+   * Job instance execution mode.
    * 
-   * *   STREAM
-   * *   BATCH
+   * - STREAM: Stream mode.
+   * 
+   * - BATCH: Batch mode.
    * 
    * @example
    * BATCH
@@ -90,7 +91,7 @@ export class Job extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The configuration of the job.
+   * Full parameter settings for the job instance.
    * 
    * @example
    * {execution.checkpointing.unaligned: false}
@@ -98,7 +99,7 @@ export class Job extends $dara.Model {
   flinkConf?: { [key: string]: any };
   /**
    * @remarks
-   * The job ID.
+   * Job instance ID.
    * 
    * @example
    * 354dde66-a3ae-463e-967a-0b4107fd****
@@ -106,22 +107,22 @@ export class Job extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The variables.
+   * Job variables.
    */
   localVariables?: LocalVariable[];
   /**
    * @remarks
-   * The logging configuration of the job.
+   * Job instance log configuration.
    */
   logging?: Logging;
   /**
    * @remarks
-   * The resource information of the job.
+   * Job instance resource information.
    */
   metric?: JobMetric;
   /**
    * @remarks
-   * The time when the job was modified.
+   * Modification time.
    * 
    * @example
    * 1714058800
@@ -129,7 +130,7 @@ export class Job extends $dara.Model {
   modifiedAt?: string;
   /**
    * @remarks
-   * The ID of the account that is used to modify the job.
+   * Modifier.
    * 
    * @example
    * 27846363877456****
@@ -137,7 +138,7 @@ export class Job extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The name of the account that is used to modify the job.
+   * Modifier name.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -153,20 +154,20 @@ export class Job extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The startup strategy of the job.
+   * Job instance startup policy.
    */
   restoreStrategy?: DeploymentRestoreStrategy;
   /**
    * @remarks
-   * If the job runs in a session cluster, the value of this parameter is the name of the session cluster. Otherwise, the value of this parameter is null.
+   * If the job instance runs on a Session cluster, this shows the Session cluster name; otherwise, it is null.
    * 
    * @example
-   * preview
+   * null
    */
   sessionClusterName?: string;
   /**
    * @remarks
-   * The start time of the job.
+   * Job instance start time.
    * 
    * @example
    * 1660190835
@@ -174,22 +175,22 @@ export class Job extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the job.
+   * Job instance status.
    */
   status?: JobStatus;
   /**
    * @remarks
-   * The resource configuration of the job in streaming mode.
+   * Stream mode resource settings.
    */
   streamingResourceSetting?: StreamingResourceSetting;
   /**
    * @remarks
-   * The Flink configuration.
+   * User job parameter settings.
    */
   userFlinkConf?: { [key: string]: any };
   /**
    * @remarks
-   * The workspace.
+   * Workspace.
    * 
    * @example
    * edcef******b4f

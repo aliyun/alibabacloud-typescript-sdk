@@ -5,15 +5,25 @@ import { ResourceQuota } from "./ResourceQuota";
 
 export class DeploymentTarget extends $dara.Model {
   /**
+   * @remarks
+   * The name of the perjob deployment target.
+   * 
    * @example
    * deployment target
    */
   name?: string;
   /**
+   * @remarks
+   * The namespace name.
+   * 
    * @example
    * namespace
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The resource quota.
+   */
   quota?: ResourceQuota;
   static names(): { [key: string]: string } {
     return {

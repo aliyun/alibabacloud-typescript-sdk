@@ -6,6 +6,8 @@ export class StartSessionClusterHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

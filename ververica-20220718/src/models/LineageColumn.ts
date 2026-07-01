@@ -46,6 +46,9 @@ export class LineageColumn extends $dara.Model {
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * 订单用户名称
    */
   description?: string;
   /**

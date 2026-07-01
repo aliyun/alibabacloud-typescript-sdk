@@ -4,9 +4,15 @@ import { Resource } from "./Resource";
 
 
 export class CreateDeploymentTargetV2Request extends $dara.Model {
+  /**
+   * @remarks
+   * The resources for the deployment target.
+   */
   body?: Resource;
   /**
    * @remarks
+   * The name of the deployment target.
+   * 
    * This parameter is required.
    * 
    * @example

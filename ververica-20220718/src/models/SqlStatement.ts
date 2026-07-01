@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SqlStatement extends $dara.Model {
+  /**
+   * @remarks
+   * The index of the SQL statement.
+   */
   index?: number;
+  /**
+   * @remarks
+   * The message returned for the SQL statement.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The SQL script content.
+   */
   sqlScript?: string;
+  /**
+   * @remarks
+   * The status of the SQL statement.
+   */
   statusState?: string;
+  /**
+   * @remarks
+   * The type of the SQL statement.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

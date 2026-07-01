@@ -4,6 +4,10 @@ import { SessionCluster } from "./SessionCluster";
 
 
 export class UpdateSessionClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure of the session cluster to be updated.
+   */
   body?: SessionCluster;
   static names(): { [key: string]: string } {
     return {

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class PrimaryKey extends $dara.Model {
   /**
    * @remarks
+   * The primary key column group.
+   * 
    * This parameter is required.
    */
   columns?: string[];
   /**
    * @remarks
+   * The constraint name.
+   * 
    * This parameter is required.
    * 
    * @example

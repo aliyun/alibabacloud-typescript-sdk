@@ -6,30 +6,49 @@ import { Folder } from "./Folder";
 export class GetFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the folder.
+   * Folder data structure.
    */
   data?: Folder;
   /**
+   * @remarks
+   * - If success is false, the business error code is returned.
+   * 
+   * - If success is true, an empty value is returned.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * - If success is false, the business error message is returned.
+   * 
+   * - If success is true, an empty value is returned.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Indicates task success or failure. If the parameter is not empty and not 200, it means failure.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

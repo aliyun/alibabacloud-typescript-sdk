@@ -4,8 +4,20 @@ import { Schema } from "./Schema";
 
 
 export class TableSchema extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the collect sink operator.
+   */
   collectSinkOperatorId?: string;
+  /**
+   * @remarks
+   * The schema of the table.
+   */
   schema?: Schema;
+  /**
+   * @remarks
+   * The name of the table.
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {

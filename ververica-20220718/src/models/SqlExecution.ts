@@ -4,22 +4,64 @@ import { SqlStatement } from "./SqlStatement";
 
 
 export class SqlExecution extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable batch mode.
+   */
   batchMode?: boolean;
+  /**
+   * @remarks
+   * The description of the SQL execution.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The message returned for the SQL execution.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The name of the SQL execution.
+   */
   name?: string;
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * default-namespace
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the session cluster.
+   */
   sessionClusterName?: string;
+  /**
+   * @remarks
+   * The SQL execution ID.
+   */
   sqlExecutionId?: string;
+  /**
+   * @remarks
+   * The SQL file ID.
+   */
   sqlFileId?: string;
+  /**
+   * @remarks
+   * The SQL script content.
+   */
   sqlScript?: string;
+  /**
+   * @remarks
+   * The state of the SQL execution.
+   */
   state?: string;
   statements?: SqlStatement[];
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * edcef******b4f
    */

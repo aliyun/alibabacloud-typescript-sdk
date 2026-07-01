@@ -7,6 +7,9 @@ export class Table extends $dara.Model {
   /**
    * @remarks
    * The comment.
+   * 
+   * @example
+   * 测试订单表
    */
   comment?: string;
   metadata?: { [key: string]: string };
@@ -37,10 +40,6 @@ export class Table extends $dara.Model {
   schema?: Schema;
   /**
    * @remarks
-   * TABLE;
-   *   MATERIALIZED_TABLE;
-   *   VIEW;
-   * 
    * This parameter is required.
    */
   tableType?: string;

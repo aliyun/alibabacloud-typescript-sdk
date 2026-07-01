@@ -4,10 +4,6 @@ import { SubmitPreviewResult } from "./SubmitPreviewResult";
 
 
 export class SubmitSqlPreviewResponseBody extends $dara.Model {
-  /**
-   * @example
-   * "[main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------\\n2024-05-22 11:46:39,871 [main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint"
-   */
   data?: SubmitPreviewResult;
   /**
    * @example
@@ -29,10 +25,6 @@ export class SubmitSqlPreviewResponseBody extends $dara.Model {
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

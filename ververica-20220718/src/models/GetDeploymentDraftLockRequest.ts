@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeploymentDraftLockRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the job draft. You can get this ID by calling the ListDeploymentDrafts operation.
+   * 
    * This parameter is required.
    * 
    * @example

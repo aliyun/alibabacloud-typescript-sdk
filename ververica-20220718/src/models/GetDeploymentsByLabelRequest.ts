@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeploymentsByLabelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to exclude job summary information, such as jobName and status, from the response. If set to true, the response includes only the JobId. This improves performance.
+   * 
    * @example
    * true
    */
   ignoreJobSummary?: boolean;
   /**
+   * @remarks
+   * Specifies whether to exclude resource configuration information, such as parallelism and the number of CUs, from the response. This reduces the size of the returned data.
+   * 
    * @example
    * true
    */
   ignoreResourceSetting?: boolean;
   /**
    * @remarks
+   * The label key used for filtering.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class GetDeploymentsByLabelRequest extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
+   * The label value. You can specify multiple values separated by commas (,) to create an OR condition.
+   * 
    * This parameter is required.
    * 
    * @example

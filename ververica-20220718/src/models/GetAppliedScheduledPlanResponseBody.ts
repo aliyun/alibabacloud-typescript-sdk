@@ -4,28 +4,47 @@ import { ScheduledPlanAppliedInfo } from "./ScheduledPlanAppliedInfo";
 
 
 export class GetAppliedScheduledPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduled plan for the application.
+   */
   data?: ScheduledPlanAppliedInfo;
   /**
+   * @remarks
+   * The error code. This parameter is returned if the request fails. If the request is successful, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is returned if the request fails. If the request is successful, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 is always returned. Use the success parameter to determine whether the request was successful.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

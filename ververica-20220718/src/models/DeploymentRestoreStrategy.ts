@@ -23,10 +23,13 @@ export class DeploymentRestoreStrategy extends $dara.Model {
    * @remarks
    * The type of the start offset. Valid values:
    * 
-   * *   NONE: The deployment is started without states.
-   * *   LATEST_SAVEPOINT: The deployment is started from the latest savepoint.
-   * *   FROM_SAVEPOINT: The deployment is started from the specified savepoint.
-   * *   LATEST_STATE: The deployment is started from the latest state of the deployment.
+   * - NONE: The deployment is started without states.
+   * 
+   * - LATEST_SAVEPOINT: The deployment is started from the latest savepoint.
+   * 
+   * - FROM_SAVEPOINT: The deployment is started from the specified savepoint.
+   * 
+   * - LATEST_STATE: The deployment is started from the latest state of the deployment.
    * 
    * @example
    * LATEST_STATE

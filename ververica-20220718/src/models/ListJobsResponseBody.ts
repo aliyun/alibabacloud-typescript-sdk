@@ -7,14 +7,16 @@ export class ListJobsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * *   If the value of success was true, all jobs that meet the condition were returned.
-   * *   If the value of success was false, a null value was returned.
+   * - An array of job instances for a successful request (when `success` is `true`).
+   * 
+   * - An empty array for a failed request (when `success` is `false`).
    */
   data?: Job[];
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - The error code for a failed request (when `success` is `false`).
+   * 
+   * - An empty string if the request is successful (when `success` is `true`).
    * 
    * @example
    * ""
@@ -22,8 +24,9 @@ export class ListJobsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - The error message for a failed request (when `success` is `false`).
+   * 
+   * - An empty string if the request is successful (when `success` is `true`).
    * 
    * @example
    * ""
@@ -31,7 +34,7 @@ export class ListJobsResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The value was fixed to 200.
+   * A fixed value of 200.
    * 
    * @example
    * 200
@@ -39,7 +42,7 @@ export class ListJobsResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -47,7 +50,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -55,7 +58,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
@@ -71,7 +74,7 @@ export class ListJobsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query.
    * 
    * @example
    * 1

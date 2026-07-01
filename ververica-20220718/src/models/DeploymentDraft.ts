@@ -8,12 +8,12 @@ import { Lock } from "./Lock";
 export class DeploymentDraft extends $dara.Model {
   /**
    * @remarks
-   * The script of the SQL deployment.
+   * The artifact. Supported types include SQLSCRIPT and CDCYAML.
    */
   artifact?: Artifact;
   /**
    * @remarks
-   * The time when the draft was created.
+   * Output only. The creation time, represented as a Unix timestamp.
    * 
    * @example
    * 1723537978
@@ -21,7 +21,7 @@ export class DeploymentDraft extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The ID of the account that is used to create the draft.
+   * Output only. The ID of the creator.
    * 
    * @example
    * 27846363877456****
@@ -29,7 +29,7 @@ export class DeploymentDraft extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the account that is used to create the draft.
+   * Output only. The name of the creator.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -37,7 +37,7 @@ export class DeploymentDraft extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The draft ID.
+   * The deployment draft ID.
    * 
    * @example
    * 00000000-0000-0000-0000-00000012****
@@ -45,7 +45,7 @@ export class DeploymentDraft extends $dara.Model {
   deploymentDraftId?: string;
   /**
    * @remarks
-   * The engine version of the deployment.
+   * The engine version.
    * 
    * @example
    * vvr-6.0.7-flink-1.15
@@ -61,22 +61,22 @@ export class DeploymentDraft extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The labels of the deployment.
+   * Key-value pairs to apply as labels.
    */
   labels?: { [key: string]: any };
   /**
    * @remarks
-   * The variables.
+   * The local variables.
    */
   localVariables?: LocalVariable[];
   /**
    * @remarks
-   * The lock of the draft.
+   * The deployment draft lock.
    */
   lock?: Lock;
   /**
    * @remarks
-   * The time when the draft was modified.
+   * Output only. The modification time, represented as a Unix timestamp.
    * 
    * @example
    * 1723537978
@@ -84,7 +84,7 @@ export class DeploymentDraft extends $dara.Model {
   modifiedAt?: number;
   /**
    * @remarks
-   * The ID of the account that is used to modify the draft.
+   * Output only. The ID of the modifier.
    * 
    * @example
    * 27846363877456****
@@ -92,7 +92,7 @@ export class DeploymentDraft extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The name of the account that is used to modify the draft.
+   * Output only. The name of the modifier.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -100,7 +100,7 @@ export class DeploymentDraft extends $dara.Model {
   modifierName?: string;
   /**
    * @remarks
-   * The name of the draft.
+   * The deployment draft name.
    * 
    * @example
    * test-draft
@@ -108,7 +108,7 @@ export class DeploymentDraft extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace.
    * 
    * @example
    * default-namespace
@@ -116,7 +116,7 @@ export class DeploymentDraft extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the parent folder.
+   * The parent ID.
    * 
    * @example
    * 00000000-0000-0000-0000-00000013****
@@ -124,7 +124,7 @@ export class DeploymentDraft extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The ID of the associated deployment.
+   * The referenced deployment ID.
    * 
    * @example
    * 00000000-0000-0000-0000-0000012312****

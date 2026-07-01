@@ -4,6 +4,10 @@ import { ScheduledPlan } from "./ScheduledPlan";
 
 
 export class CreateScheduledPlanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This data structure represents the scheduled plan to be created.
+   */
   body?: ScheduledPlan;
   static names(): { [key: string]: string } {
     return {

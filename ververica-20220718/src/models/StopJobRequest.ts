@@ -6,7 +6,7 @@ import { StopJobRequestBody } from "./StopJobRequestBody";
 export class StopJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter that is used to stop the job.
+   * The parameters to stop the job instance.
    * 
    * This parameter is required.
    */

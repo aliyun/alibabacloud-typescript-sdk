@@ -8,7 +8,7 @@ export class FetchSqlPreviewResultsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 19426537348647121698828223472
+   * 00000000-0000-0000-0000-00000022****
    */
   queryId?: string;
   /**
@@ -16,7 +16,7 @@ export class FetchSqlPreviewResultsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test-session
+   * session-test
    */
   sessionClusterName?: string;
   /**
@@ -24,7 +24,7 @@ export class FetchSqlPreviewResultsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 5f581795-4c5b-43f1-bdae-d7b0871080a1
+   * 00000000-0000-0000-0000-00000033****
    */
   sessionId?: string;
   static names(): { [key: string]: string } {

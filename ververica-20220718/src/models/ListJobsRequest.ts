@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The deployment ID.
+   * The ID of the deployment.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListJobsRequest extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
+   * The page number to return. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListJobsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Maximum value: 100. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10
@@ -31,13 +31,7 @@ export class ListJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The collation.
-   * 
-   * Valid values:
-   * 
-   * *   gmt_create
-   * *   job_id
-   * *   status
+   * The field to sort the results by.
    * 
    * @example
    * gmt_create

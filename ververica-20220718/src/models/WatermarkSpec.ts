@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class WatermarkSpec extends $dara.Model {
   /**
+   * @remarks
+   * The column of the event time attribute.
+   * 
    * @example
    * time
    */
   column?: string;
   /**
+   * @remarks
+   * The watermark expression.
+   * 
    * @example
    * INTERVAL \\"5\\" SECOND
    */

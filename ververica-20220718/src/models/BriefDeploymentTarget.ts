@@ -16,7 +16,7 @@ export class BriefDeploymentTarget extends $dara.Model {
    * The name of the queue used for the deployment.
    * 
    * @example
-   * vvp-workload
+   * default-queue
    */
   name?: string;
   static names(): { [key: string]: string } {

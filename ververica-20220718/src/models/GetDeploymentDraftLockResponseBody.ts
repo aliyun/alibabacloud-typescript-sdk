@@ -4,28 +4,51 @@ import { Lock } from "./Lock";
 
 
 export class GetDeploymentDraftLockResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the edit lock.
+   */
   data?: Lock;
   /**
+   * @remarks
+   * - An error code is returned if the request fails.
+   * 
+   * - This parameter is empty if the request succeeds.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * - An error message is returned if the request fails.
+   * 
+   * - This parameter is empty if the request succeeds.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value other than 200 indicates that the request failed.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

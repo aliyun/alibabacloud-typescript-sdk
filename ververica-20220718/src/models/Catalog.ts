@@ -6,6 +6,8 @@ export class Catalog extends $dara.Model {
   extensionConf?: { [key: string]: string };
   /**
    * @remarks
+   * The catalog name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class Catalog extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The catalog configuration parameters.
+   * 
    * This parameter is required.
    */
   properties?: { [key: string]: any };

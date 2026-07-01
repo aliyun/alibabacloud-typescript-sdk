@@ -8,9 +8,6 @@ export class FlinkApiProxyRequest extends $dara.Model {
    * The path of the Flink UI.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * /jobs/4df35f8e54554b23bf7dcd38a151****
    */
   flinkApiPath?: string;
   /**
@@ -37,8 +34,9 @@ export class FlinkApiProxyRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   jobs
-   * *   sessionclusters
+   * - jobs
+   * 
+   * - sessionclusters
    * 
    * This parameter is required.
    * 

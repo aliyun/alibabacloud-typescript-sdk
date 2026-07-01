@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CdcYamlArtifact extends $dara.Model {
+  /**
+   * @remarks
+   * Full URL paths to the additional dependencies.
+   */
   additionalDependencies?: string[];
+  /**
+   * @remarks
+   * Code for the data ingestion job.
+   */
   cdcYaml?: string;
   static names(): { [key: string]: string } {
     return {

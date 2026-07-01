@@ -4,9 +4,15 @@ import { ResourceSpec } from "./ResourceSpec";
 
 
 export class CreateDeploymentTargetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure that represents the resources for the deployment target.
+   */
   body?: ResourceSpec;
   /**
    * @remarks
+   * The name of the deployment target.
+   * 
    * This parameter is required.
    * 
    * @example

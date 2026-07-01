@@ -5,7 +5,15 @@ import { UpdateJobConfigParam } from "./UpdateJobConfigParam";
 
 
 export class HotUpdateJobParams extends $dara.Model {
+  /**
+   * @remarks
+   * 资源动态更新。
+   */
   rescaleJobParam?: RescaleJobParam;
+  /**
+   * @remarks
+   * 运行参数动态更新。
+   */
   updateJobConfigParam?: UpdateJobConfigParam;
   static names(): { [key: string]: string } {
     return {

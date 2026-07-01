@@ -4,6 +4,10 @@ import { SessionCluster } from "./SessionCluster";
 
 
 export class CreateSessionClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure of the session cluster to create.
+   */
   body?: SessionCluster;
   static names(): { [key: string]: string } {
     return {

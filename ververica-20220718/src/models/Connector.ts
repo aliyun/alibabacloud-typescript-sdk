@@ -75,7 +75,7 @@ export class Connector extends $dara.Model {
    * Indicates whether the connector can be used as the source.
    * 
    * @example
-   * flase
+   * false
    */
   source?: boolean;
   /**

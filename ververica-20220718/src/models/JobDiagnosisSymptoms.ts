@@ -4,11 +4,35 @@ import { JobDiagnosisSymptom } from "./JobDiagnosisSymptom";
 
 
 export class JobDiagnosisSymptoms extends $dara.Model {
+  /**
+   * @remarks
+   * Job resource diagnosis.
+   */
   autopilot?: JobDiagnosisSymptom;
+  /**
+   * @remarks
+   * Other namespace diagnosis.
+   */
   others?: JobDiagnosisSymptom[];
+  /**
+   * @remarks
+   * Run diagnosis.
+   */
   runtime?: JobDiagnosisSymptom[];
+  /**
+   * @remarks
+   * Startup procedure diagnosis.
+   */
   startup?: JobDiagnosisSymptom[];
+  /**
+   * @remarks
+   * Job status diagnosis.
+   */
   state?: JobDiagnosisSymptom[];
+  /**
+   * @remarks
+   * Underlying abnormal diagnosis.
+   */
   troubleshooting?: JobDiagnosisSymptom[];
   static names(): { [key: string]: string } {
     return {

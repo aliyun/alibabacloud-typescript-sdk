@@ -4,28 +4,50 @@ import { DeploymentTarget } from "./DeploymentTarget";
 
 
 export class UpdateDeploymentTargetV2ResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the deployment target.
+   * 
+   * @example
+   * As shown in the response example.
+   */
   data?: DeploymentTarget;
   /**
+   * @remarks
+   * The error code returned if the request fails. This parameter is empty if the request is successful.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails. This parameter is empty if the request is successful.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code. A value of 200 is always returned. Use the success parameter to determine whether the request was successful.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

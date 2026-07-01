@@ -7,14 +7,16 @@ export class StopJobResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * *   If the value of success was true, the job that you stopped was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - The details of the stopped job instance, returned if the request succeeds.
+   * 
+   * - Empty if the request fails.
    */
   data?: Job;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - The error code that is returned if the request fails.
+   * 
+   * - Empty if the request succeeds.
    * 
    * @example
    * ""
@@ -22,8 +24,9 @@ export class StopJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - The error message that is returned if the request fails.
+   * 
+   * - Empty if the request succeeds.
    * 
    * @example
    * ""
@@ -31,7 +34,7 @@ export class StopJobResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The value was fixed to 200.
+   * The value is fixed at 200.
    * 
    * @example
    * 200
@@ -47,7 +50,7 @@ export class StopJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true

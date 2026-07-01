@@ -8,17 +8,17 @@ export class Variable extends $dara.Model {
    * The description of the variable.
    * 
    * @example
-   * This is a variable description
+   * test
    */
   description?: string;
   /**
    * @remarks
-   * The type of the variable. Valid value: Plain.
+   * The type of the variable. `Clear` indicates plaintext and `Encrypted` indicates ciphertext.
    * 
    * This parameter is required.
    * 
    * @example
-   * Plain
+   * Encrypted
    */
   kind?: string;
   /**
@@ -28,7 +28,7 @@ export class Variable extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * variableName
+   * mysqlPassword
    */
   name?: string;
   /**
@@ -38,7 +38,7 @@ export class Variable extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * variableValue
+   * myPassword
    */
   value?: string;
   static names(): { [key: string]: string } {

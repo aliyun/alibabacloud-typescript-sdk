@@ -7,14 +7,16 @@ export class GetJobResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * *   If the value of success was true, the details of the job was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - The job instance information if `success` is `true`.
+   * 
+   * - An empty object if `success` is `false`.
    */
   data?: Job;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - An error code if `success` is `false`.
+   * 
+   * - An empty string if `success` is `true`.
    * 
    * @example
    * ""
@@ -22,8 +24,9 @@ export class GetJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - An error message if `success` is `false`.
+   * 
+   * - An empty string if `success` is `true`.
    * 
    * @example
    * ""
@@ -31,7 +34,7 @@ export class GetJobResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The value was fixed to 200.
+   * A fixed value of 200.
    * 
    * @example
    * 200

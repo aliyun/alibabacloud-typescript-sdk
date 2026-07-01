@@ -6,7 +6,7 @@ import { JobStartParameters } from "./JobStartParameters";
 export class StartJobWithParamsRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter that is used to start the job.
+   * Parameters to start the job instance.
    */
   body?: JobStartParameters;
   static names(): { [key: string]: string } {

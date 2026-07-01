@@ -12,17 +12,17 @@ import { StreamingResourceSetting } from "./StreamingResourceSetting";
 export class Deployment extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are required for starting a deployment.
+   * The data structure required to start the deployed job.
    */
   artifact?: Artifact;
   /**
    * @remarks
-   * The resource configuration of the batch deployment.
+   * Resource settings for a batch job.
    */
   batchResourceSetting?: BatchResourceSetting;
   /**
    * @remarks
-   * The time at which the deployment was created.
+   * Creation time.
    * 
    * @example
    * 1714058507
@@ -30,7 +30,7 @@ export class Deployment extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the account that is used to create the deployment.
+   * Creator.
    * 
    * @example
    * 27846363877456****
@@ -38,7 +38,7 @@ export class Deployment extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the account that is used to create the deployment.
+   * Name of the creator.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -46,7 +46,7 @@ export class Deployment extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * Specifies whether the deployment is modified after the deployment is started.
+   * Indicates whether the deployed job has been modified after it was started.
    * 
    * @example
    * true
@@ -54,7 +54,7 @@ export class Deployment extends $dara.Model {
   deploymentHasChanged?: boolean;
   /**
    * @remarks
-   * The ID of the deployment.
+   * Deployed job ID.
    * 
    * @example
    * 00000000-0000-0000-0000-0000012312****
@@ -62,12 +62,12 @@ export class Deployment extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * The cluster on which the deployment is deployed.
+   * Deployment target.
    */
   deploymentTarget?: BriefDeploymentTarget;
   /**
    * @remarks
-   * The description of the deployment.
+   * Description.
    * 
    * @example
    * this is a deployment description
@@ -75,7 +75,7 @@ export class Deployment extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The engine version of the deployment.
+   * Engine version.
    * 
    * @example
    * vvr-6.0.0-flink-1.15
@@ -83,10 +83,11 @@ export class Deployment extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The execution mode of the deployment. Valid values:
+   * Execution mode.
    * 
-   * *   STREAMING
-   * *   BATCH
+   * - STREAMING: stream mode.
+   * 
+   * - BATCH: batch mode.
    * 
    * @example
    * STREAMING
@@ -94,7 +95,7 @@ export class Deployment extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The Realtime Compute for Apache Flink configuration.
+   * Flink configuration.
    * 
    * @example
    * {"taskmanager.numberOfTaskSlots":"1"}
@@ -102,23 +103,27 @@ export class Deployment extends $dara.Model {
   flinkConf?: { [key: string]: any };
   /**
    * @remarks
-   * The summary of jobs in the deployment.
+   * A summary of information about the job instances under the deployed job.
    */
   jobSummary?: JobSummary;
+  /**
+   * @remarks
+   * Job labels.
+   */
   labels?: { [key: string]: any };
   /**
    * @remarks
-   * The variables of the deployment.
+   * Job variables.
    */
   localVariables?: LocalVariable[];
   /**
    * @remarks
-   * The logging configuration.
+   * Log configuration.
    */
   logging?: Logging;
   /**
    * @remarks
-   * The time at which the deployment was modified.
+   * Modification time.
    * 
    * @example
    * 1714058843
@@ -126,7 +131,7 @@ export class Deployment extends $dara.Model {
   modifiedAt?: string;
   /**
    * @remarks
-   * The ID of the account that is used to modify the deployment.
+   * Modifier.
    * 
    * @example
    * 27846363877456****
@@ -134,7 +139,7 @@ export class Deployment extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The name of the account that is used to modify the deployment.
+   * Name of the modifier.
    * 
    * @example
    * ****@streamcompute.onaliyun.com
@@ -142,7 +147,7 @@ export class Deployment extends $dara.Model {
   modifierName?: string;
   /**
    * @remarks
-   * The name of the deployment.
+   * Deployed job name.
    * 
    * @example
    * deploymentName
@@ -157,18 +162,21 @@ export class Deployment extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * Associated job draft ID.
+   * 
    * @example
    * 00000000-0000-0000-0000-000000000003
    */
   referencedDeploymentDraftId?: string;
   /**
    * @remarks
-   * The resource configuration of the streaming deployment.
+   * Resource settings for a stream job.
    */
   streamingResourceSetting?: StreamingResourceSetting;
   /**
    * @remarks
-   * The workspace to which the deployment belongs.
+   * Workspace.
    * 
    * @example
    * edcef******b4f

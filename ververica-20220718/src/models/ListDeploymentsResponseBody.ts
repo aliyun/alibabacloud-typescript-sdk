@@ -6,14 +6,16 @@ import { Deployment } from "./Deployment";
 export class ListDeploymentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *   If the value of success was true, the list of all deployments was returned.
-   * *   If the value of success was false, a null value was returned.
+   * - When success is true, returns a list of jobs that meet the query conditions;
+   * 
+   * - When success is false, returns an empty value.
    */
   data?: Deployment[];
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - When success is false, returns a business error code;
+   * 
+   * - When success is true, returns an empty value.
    * 
    * @example
    * ""
@@ -21,8 +23,9 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - When success is false, returns a business error message;
+   * 
+   * - When success is true, returns an empty value.
    * 
    * @example
    * ""
@@ -30,7 +33,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The value was fixed to 200.
+   * Static field with a fixed value of 200.
    * 
    * @example
    * 200
@@ -38,7 +41,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The page number.
+   * Pagination parameter: page index, indicating the requested page number.
    * 
    * @example
    * 1
@@ -46,7 +49,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Pagination parameter: the number of elements on the requested page.
    * 
    * @example
    * 10
@@ -54,7 +57,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
@@ -62,7 +65,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the business request succeeded.
    * 
    * @example
    * true
@@ -70,7 +73,7 @@ export class ListDeploymentsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of elements that meet the query conditions.
    * 
    * @example
    * 1

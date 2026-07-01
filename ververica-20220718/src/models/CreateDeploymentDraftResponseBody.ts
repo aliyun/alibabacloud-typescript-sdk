@@ -4,28 +4,51 @@ import { DeploymentDraft } from "./DeploymentDraft";
 
 
 export class CreateDeploymentDraftResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure of the job draft.
+   */
   data?: DeploymentDraft;
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error code is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * - If \\`success\\` is \\`false\\`, an error message is returned.
+   * 
+   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value other than 200 indicates that the request failed.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

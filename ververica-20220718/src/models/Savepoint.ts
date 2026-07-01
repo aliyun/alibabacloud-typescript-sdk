@@ -23,6 +23,9 @@ export class Savepoint extends $dara.Model {
   /**
    * @remarks
    * The description of the savepoint.
+   * 
+   * @example
+   * 作业快照1
    */
   description?: string;
   /**
@@ -77,9 +80,11 @@ export class Savepoint extends $dara.Model {
    * @remarks
    * The method that is used to create a savepoint.
    * 
-   * *   `USER_REQUEST`: The savepoint is manually created.
-   * *   `STOP_WITH_SAVEPOINT`: The savepoint is created when you cancel the deployment.
-   * *   `RETAINED_CHECKPOINT`: The savepoint is created based on the returned checkpoint.
+   * - `USER_REQUEST`: The savepoint is manually created.
+   * 
+   * - `STOP_WITH_SAVEPOINT`: The savepoint is created when you cancel the deployment.
+   * 
+   * - `RETAINED_CHECKPOINT`: The savepoint is created based on the returned checkpoint.
    * 
    * @example
    * USER_REQUEST

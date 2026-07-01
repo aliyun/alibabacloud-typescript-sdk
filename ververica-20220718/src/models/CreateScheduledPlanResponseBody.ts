@@ -4,28 +4,47 @@ import { ScheduledPlan } from "./ScheduledPlan";
 
 
 export class CreateScheduledPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * This data structure represents the created scheduled plan.
+   */
   data?: ScheduledPlan;
   /**
+   * @remarks
+   * If success is false, this parameter is not empty and indicates the business error code. If success is true, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * If success is false, this parameter is not empty and indicates the business error message. If success is true, this parameter is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The business status code. This is always 200. Use the success parameter to determine if the business request was successful.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the business request was successful.
+   * 
    * @example
    * True
    */

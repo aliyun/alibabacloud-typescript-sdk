@@ -6,6 +6,9 @@ export class Database extends $dara.Model {
   /**
    * @remarks
    * The comment.
+   * 
+   * @example
+   * 测试数据库。
    */
   comment?: string;
   /**

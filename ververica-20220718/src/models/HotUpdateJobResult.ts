@@ -6,18 +6,36 @@ import { BriefResourceSetting } from "./BriefResourceSetting";
 
 
 export class HotUpdateJobResult extends $dara.Model {
+  /**
+   * @remarks
+   * 动态更新参数。
+   */
   hotUpdateParams?: HotUpdateJobParams;
   /**
+   * @remarks
+   * 动态更新id。
+   * 
    * @example
    * 123hashd****
    */
   jobHotUpdateId?: string;
   /**
+   * @remarks
+   * 作业实例id。
+   * 
    * @example
    * 5af678c0-7db0-4650-94c2-d2604f0a****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * 动态更新状态。
+   */
   status?: HotUpdateJobStatus;
+  /**
+   * @remarks
+   * 目标作业资源配置。
+   */
   targetResourceSetting?: BriefResourceSetting;
   static names(): { [key: string]: string } {
     return {

@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelSqlPreviewResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
   errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
   errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
   httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

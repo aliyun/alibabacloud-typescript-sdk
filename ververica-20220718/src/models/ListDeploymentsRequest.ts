@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeploymentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user who creates the deployment.
+   * Creator UID.
    * 
    * @example
    * 183899668*******
@@ -13,12 +13,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The execution mode of the deployment.
-   * 
-   * Valid values:
-   * 
-   * *   BATCH
-   * *   STREAMING
+   * Deployment execution mode.
    * 
    * @example
    * STREAMING
@@ -26,7 +21,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The tag key.
+   * Label name.
    * 
    * @example
    * key
@@ -34,7 +29,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The tag value. Separate multiple values with semicolon (;).
+   * Tag values. Multiple values are separated by semicolons.
    * 
    * @example
    * value1,value2
@@ -42,7 +37,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   labelValueArray?: string;
   /**
    * @remarks
-   * The ID of the user who modifies the deployment.
+   * Modifier UID.
    * 
    * @example
    * 183899668*******
@@ -50,7 +45,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The name of the deployment.
+   * Deployment name.
    * 
    * @example
    * vvp_ds_0522
@@ -58,7 +53,7 @@ export class ListDeploymentsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
+   * Pagination parameter. Page index indicating the requested page number. Minimum value is 1. Default value is 1.
    * 
    * @example
    * 1
@@ -66,24 +61,23 @@ export class ListDeploymentsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * Pagination parameter. Number of elements on the requested page. Maximum value is 100, minimum value is 1, and default value is 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Sorting method. Supports returning data in descending order by creation time or updated time.
+   * 
+   * @example
+   * gmt_create
+   */
   sortName?: string;
   /**
    * @remarks
-   * The latest status of the deployment.
-   * 
-   * Valid values:
-   * 
-   * *   CANCELLED
-   * *   FAILED
-   * *   RUNNING
-   * *   TRANSITIONING
-   * *   FINISHED
+   * The status of the latest job for the deployment.
    * 
    * @example
    * RUNNING

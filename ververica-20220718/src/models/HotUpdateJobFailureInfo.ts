@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class HotUpdateJobFailureInfo extends $dara.Model {
   /**
+   * @remarks
+   * The error level.
+   * 
    * @example
    * LOW
    */
   failureSeverity?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * “”
    */
   message?: string;
   /**
+   * @remarks
+   * The error cause.
+   * 
    * @example
    * “”
    */

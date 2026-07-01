@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDeploymentDraftsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number to return. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. The default value is 10. The maximum value is 100.
+   * 
    * @example
    * 10
    */

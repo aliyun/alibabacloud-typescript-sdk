@@ -25,10 +25,6 @@ export class FetchSqlPreviewResultsResponseBody extends $dara.Model {
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

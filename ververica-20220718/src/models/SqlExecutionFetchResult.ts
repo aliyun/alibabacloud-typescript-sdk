@@ -5,7 +5,15 @@ import { SqlExecution } from "./SqlExecution";
 
 
 export class SqlExecutionFetchResult extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the data query language (DQL) statement.
+   */
   dqlResult?: DqlResult;
+  /**
+   * @remarks
+   * The information about the SQL execution.
+   */
   sqlExecution?: SqlExecution;
   static names(): { [key: string]: string } {
     return {

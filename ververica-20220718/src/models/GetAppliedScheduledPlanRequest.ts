@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppliedScheduledPlanRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the deployed job.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDeploymentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error code was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""
@@ -14,8 +15,9 @@ export class DeleteDeploymentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If the value of success was false, an error message was returned.
+   * 
+   * - If the value of success was true, a null value was returned.
    * 
    * @example
    * ""

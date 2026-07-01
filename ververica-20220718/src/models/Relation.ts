@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class Relation extends $dara.Model {
   /**
+   * @remarks
+   * The destination table information.
+   * 
    * @example
    * TableB
    */
   destination?: string;
   /**
+   * @remarks
+   * The job instance ID.
+   * 
    * @example
    * 664cc64d-5dea-4ad3-9ee4-8432a874****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The source table information.
+   * 
    * @example
    * TableA
    */

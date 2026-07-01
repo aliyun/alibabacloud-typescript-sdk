@@ -4,6 +4,10 @@ import { Resource } from "./Resource";
 
 
 export class UpdateDeploymentTargetV2Request extends $dara.Model {
+  /**
+   * @remarks
+   * The deployment target resource.
+   */
   body?: Resource;
   static names(): { [key: string]: string } {
     return {

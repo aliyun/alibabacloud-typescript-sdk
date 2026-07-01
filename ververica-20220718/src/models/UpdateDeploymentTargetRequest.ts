@@ -4,6 +4,10 @@ import { ResourceSpec } from "./ResourceSpec";
 
 
 export class UpdateDeploymentTargetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource specifications for the updated deployment target.
+   */
   body?: ResourceSpec;
   static names(): { [key: string]: string } {
     return {
