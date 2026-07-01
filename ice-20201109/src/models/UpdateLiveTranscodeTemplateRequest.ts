@@ -31,10 +31,13 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
    * @remarks
    * The audio codec profile. Valid values when the Codec parameter is set to AAC:
    * 
-   * *   aac_low
-   * *   aac_he
-   * *   aac_he_v2
-   * *   aac_ld
+   * - aac_low
+   * 
+   * - aac_he
+   * 
+   * - aac_he_v2
+   * 
+   * - aac_ld
    * 
    * @example
    * aac_low
@@ -92,8 +95,9 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * @remarks
    * The encoding type. Valid values:
    * 
-   * *   H.264
-   * *   H.265
+   * - H.264
+   * 
+   * - H.265
    * 
    * @example
    * H.264
@@ -119,11 +123,13 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * @remarks
    * The height of the output video. Valid values:
    * 
-   * *   Height ≥ 128
-   * *   max (Height,Width) ≤ 2560
-   * *   min（Height,Width）≤ 1440
+   * - Height ≥ 128
    * 
-   * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * - max (Height,Width) ≤ 2560
+   * 
+   * - min(Height,Width)≤ 1440
+   * 
+   * > The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
    * 
    * @example
    * 720
@@ -133,9 +139,11 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * @remarks
    * The video encoding profile. The profile determines how a video is encoded. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values:
    * 
-   * *   1: baseline. This value is suitable for mobile devices.
-   * *   2: main. This value is suitable for standard-definition devices.
-   * *   3: high. This value is suitable for high-definition devices.
+   * - 1: baseline. This value is suitable for mobile devices.
+   * 
+   * - 2: main. This value is suitable for standard-definition devices.
+   * 
+   * - 3: high. This value is suitable for high-definition devices.
    * 
    * @example
    * 2
@@ -145,11 +153,13 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * @remarks
    * The width of the output video. Valid values:
    * 
-   * *   Width ≥ 128
-   * *   max (Height,Width) ≤ 2560
-   * *   min（Height,Width）≤ 1440
+   * - Width ≥ 128
    * 
-   * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * - max (Height,Width) ≤ 2560
+   * 
+   * - min(Height,Width)≤ 1440
+   * 
+   * > The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
    * 
    * @example
    * 1280
@@ -232,6 +242,9 @@ export class UpdateLiveTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Template1130-2
    */
   name?: string;
   /**

@@ -22,6 +22,9 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
    * The name of the category.
+   * 
+   * @example
+   * Category1
    */
   cateName?: string;
   /**
@@ -43,6 +46,9 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
    * The description of the audio or video file.
+   * 
+   * @example
+   * Alibaba Cloud VOD video description
    */
   description?: string;
   /**
@@ -88,17 +94,27 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PrepareFail: The file is abnormal.
-   * *   UploadFail: The video failed to be uploaded.
-   * *   UploadSucc: The video is uploaded.
-   * *   Transcoding: The video is being transcoded.
-   * *   TranscodeFail: The video failed to be transcoded.
-   * *   ProduceFail: The video failed to be produced.
-   * *   Normal: The video is normal.
-   * *   Uploading: The video is being uploaded.
-   * *   Preparing: The file is being generated.
-   * *   Blocked: The video is blocked.
-   * *   checking: The video is being reviewed.
+   * - PrepareFail: The file is abnormal.
+   * 
+   * - UploadFail: The video failed to be uploaded.
+   * 
+   * - UploadSucc: The video is uploaded.
+   * 
+   * - Transcoding: The video is being transcoded.
+   * 
+   * - TranscodeFail: The video failed to be transcoded.
+   * 
+   * - ProduceFail: The video failed to be produced.
+   * 
+   * - Normal: The video is normal.
+   * 
+   * - Uploading: The video is being uploaded.
+   * 
+   * - Preparing: The file is being generated.
+   * 
+   * - Blocked: The video is blocked.
+   * 
+   * - checking: The video is being reviewed.
    * 
    * @example
    * Normal
@@ -115,11 +131,17 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
    * The tags of the audio or video file.
+   * 
+   * @example
+   * Tag 1, Tag 2
    */
   tags?: string;
   /**
    * @remarks
    * The title of the audio or video file.
+   * 
+   * @example
+   * The best music player ever
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -200,8 +222,9 @@ export class GetVideoListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

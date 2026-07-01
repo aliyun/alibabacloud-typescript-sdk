@@ -9,9 +9,11 @@ export class GetDemonstrationForCustomizedVoiceJobRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   **story**
-   * *   **interaction**
-   * *   **navigation**
+   * - **story**
+   * 
+   * - **interaction**
+   * 
+   * - **navigation**
    * 
    * This parameter is required.
    * 

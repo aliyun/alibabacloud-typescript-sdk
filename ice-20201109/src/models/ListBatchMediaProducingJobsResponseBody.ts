@@ -48,6 +48,23 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   /**
    * @remarks
    * The input configurations.
+   * 
+   * @example
+   * {
+   *   "MediaGroupArray": [{
+   *       "MediaArray": [
+   *         "****9d46c886b45481030f6e****",
+   *         "****6c886b4549d481030f6e****" ]
+   *     }, {
+   *       "MediaArray": [
+   *         "****d46c886810b454930f6e****",
+   *         "****4549d886810b46c30f6e****" ]
+   *   }],
+   *   "TitleArray": [
+   *       "Hema Fresh grand opening at Huilongguan"],
+   *   "SpeechTextArray": [
+   *       "A new Hema Fresh store just opened at the nearby mall, today is the first day of business"]
+   * }
    */
   inputConfig?: string;
   /**
@@ -64,8 +81,9 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
    * 
    * Valid values:
    * 
-   * *   Script: script-based editing job that mixes media assets.
-   * *   Smart_Mix: intelligent editing job that mixes media assets.
+   * - Script: script-based editing job that mixes media assets.
+   * 
+   * - Smart_Mix: intelligent editing job that mixes media assets.
    * 
    * @example
    * Script
@@ -100,10 +118,13 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
    * 
    * Valid values:
    * 
-   * *   Finished
-   * *   Init
-   * *   Failed
-   * *   Processing
+   * - Finished
+   * 
+   * - Init
+   * 
+   * - Failed
+   * 
+   * - Processing
    * 
    * @example
    * Finished
@@ -112,6 +133,9 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   /**
    * @remarks
    * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

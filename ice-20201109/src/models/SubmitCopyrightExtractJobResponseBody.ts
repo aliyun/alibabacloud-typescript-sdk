@@ -35,12 +35,12 @@ export class SubmitCopyrightExtractJobResponseBodyData extends $dara.Model {
 export class SubmitCopyrightExtractJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: SubmitCopyrightExtractJobResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * ok
@@ -48,7 +48,7 @@ export class SubmitCopyrightExtractJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

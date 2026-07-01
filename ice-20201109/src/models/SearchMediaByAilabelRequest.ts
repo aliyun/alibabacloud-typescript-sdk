@@ -4,10 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByAILabelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching method can be specified. Filters on different fields are combined with a logical AND relationship.
+   * 
+   * - Exact match, for example: {"intField1":12,"strField1":"abc"}
+   * 
+   * - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
+   * 
+   * - Range match, for example: {"intField1":{"gte":12,"lte":13}}
+   * 
    * @example
-   * {}
+   * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
    */
   customFilters?: string;
+  /**
+   * @remarks
+   * Matching pattern. The default value is fuzzy for Fuzzy Matching. Valid values:
+   * 
+   * - fuzzy: Fuzzy Matching
+   * 
+   * - precise: Precise matching. This pattern applies only to newly added media assets.
+   * 
+   * @example
+   * fuzzy
+   */
   matchingMode?: string;
   /**
    * @remarks
@@ -21,9 +41,11 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * @remarks
    * The type of the media assets. Valid values:
    * 
-   * *   image
-   * *   video
-   * *   audio
+   * - image
+   * 
+   * - video
+   * 
+   * - audio
    * 
    * @example
    * video
@@ -33,15 +55,25 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * @remarks
    * The type of query. Valid values:
    * 
-   * *   PersonName: queries media assets based on character names.
-   * *   Ocr: queries media assets based on subtitles.
-   * *   AiCategory: queries media assets based on AI categories.
-   * *   FullSearch (default): queries all media assets.
+   * - PersonName: queries media assets based on character names.
+   * 
+   * - Ocr: queries media assets based on subtitles.
+   * 
+   * - AiCategory: queries media assets based on AI categories.
+   * 
+   * - FullSearch (default): queries all media assets.
    * 
    * @example
    * Ocr
    */
   multimodalSearchType?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks
@@ -71,8 +103,9 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * @remarks
    * The sorting method of the results. Valid values:
    * 
-   * *   CreationTime:Desc (default): sorts results in reverse chronological order.
-   * *   CreationTime:Asc: sorts results in chronological order.
+   * - CreationTime:Desc (default): sorts results in reverse chronological order.
+   * 
+   * - CreationTime:Asc: sorts results in chronological order.
    * 
    * @example
    * CreationTime:Desc
@@ -82,8 +115,9 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query media asset clips. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -92,11 +126,19 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   /**
    * @remarks
    * The content that you want to query.
+   * 
+   * @example
+   * Kite
    */
   text?: string;
   /**
+   * @remarks
+   * Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
+   * 
+   * - Example range: {"gte":1761205662998,"lte":1771205662998}
+   * 
    * @example
-   * {}
+   * {"gte":1761205662998,"lte":1771205662998}
    */
   utcCreate?: string;
   static names(): { [key: string]: string } {

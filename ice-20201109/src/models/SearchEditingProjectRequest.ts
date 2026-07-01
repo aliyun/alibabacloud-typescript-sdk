@@ -7,17 +7,19 @@ export class SearchEditingProjectRequest extends $dara.Model {
    * @remarks
    * The source of the project.
    * 
-   * \\-OpenAPI
+   * -OpenAPI
    * 
-   * \\-AliyunConsole
+   * -AliyunConsole
    * 
-   * \\-WebSDK
+   * -WebSDK
    * 
    * Valid values:
    * 
-   * *   AliyunConsole: The project is created in the Alibaba Cloud console.
-   * *   WebSDK: The project is created by using the SDK for Web.
-   * *   OpenAPI: The project is created by calling API operations.
+   * - AliyunConsole: The project is created in the Alibaba Cloud console.
+   * 
+   * - WebSDK: The project is created by using the SDK for Web.
+   * 
+   * - OpenAPI: The project is created by calling API operations.
    * 
    * @example
    * WebSDK
@@ -51,8 +53,9 @@ export class SearchEditingProjectRequest extends $dara.Model {
    * @remarks
    * The type of the editing project. Default value: EditingProject. Valid values:
    * 
-   * *   EditingProject: a regular editing project.
-   * *   LiveEditingProject: a live stream editing project.
+   * - EditingProject: a regular editing project.
+   * 
+   * - LiveEditingProject: a live stream editing project.
    * 
    * @example
    * EditingProject
@@ -84,13 +87,13 @@ export class SearchEditingProjectRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * \\-Draft
+   * -Draft
    * 
-   * \\-Producing
+   * -Producing
    * 
-   * \\-Produced
+   * -Produced
    * 
-   * \\-ProduceFailed
+   * -ProduceFailed
    * 
    * @example
    * Producing
@@ -100,15 +103,17 @@ export class SearchEditingProjectRequest extends $dara.Model {
    * @remarks
    * The template type. Valid values:
    * 
-   * \\-Timeline
+   * -Timeline
    * 
-   * \\-VETemplate
+   * -VETemplate
    * 
    * Valid values:
    * 
-   * *   Timeline: regular template.
-   * *   VETemplate: advanced template.
-   * *   None: No template is used.
+   * - Timeline: regular template.
+   * 
+   * - VETemplate: advanced template.
+   * 
+   * - None: No template is used.
    * 
    * @example
    * Timeline

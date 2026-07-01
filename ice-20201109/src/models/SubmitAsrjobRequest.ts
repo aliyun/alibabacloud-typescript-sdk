@@ -5,32 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job description, which can up to 128 bytes in length.
+   * The job description. The maximum length is 128 bytes.
    * 
    * @example
-   * 测试描述
+   * Test description
    */
   description?: string;
   /**
    * @remarks
-   * The speech duration.
+   * The duration of the segment to transcribe.
    * 
    * @example
    * 00:00:10
    */
   duration?: string;
+  /**
+   * @remarks
+   * The configuration for speech-to-text conversion:
+   * 
+   * - HotwordLibraryIdList: A list of custom vocabulary IDs. Only one custom vocabulary ID is currently supported. Future releases will support multiple IDs.
+   * 
+   * @example
+   * {
+   * 	"HotwordLibraryIdList": "******2609a14f54a0636b7e16******"
+   * }
+   */
   editingConfig?: string;
   /**
    * @remarks
-   * The input file. You can specify an Object Storage Service (OSS) URL or the ID of a media asset in the media asset library.
+   * The input configuration. Specify either an OSS URL or a media ID from the media library.
    * 
    * @example
-   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or ****20b48fb04483915d4f2cd8ac****
    */
   inputFile?: string;
   /**
    * @remarks
-   * The start time of the speech to recognize.
+   * The start time of the segment to be transcribed from the media file.
    * 
    * @example
    * 00:00:00
@@ -38,15 +49,15 @@ export class SubmitASRJobRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The job title, which can be up to 128 bytes in length.
+   * The job title. The maximum length is 128 bytes.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format. You can specify your business information, such as the business environment and job information.
+   * User-defined settings in JSON format. Use this to pass business-related data, such as the operating environment or other job details.
    * 
    * @example
    * {

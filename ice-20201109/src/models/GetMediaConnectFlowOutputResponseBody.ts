@@ -19,6 +19,13 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the output is disabled. Valid values: yes or no.
+   * 
+   * @example
+   * no
+   */
   forbid?: string;
   /**
    * @remarks
@@ -34,11 +41,15 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   RTMP-PUSH
-   * *   SRT-Caller
-   * *   RTMP-PULL
-   * *   SRT-Listener
-   * *   Flow
+   * - RTMP-PUSH
+   * 
+   * - SRT-Caller
+   * 
+   * - RTMP-PULL
+   * 
+   * - SRT-Listener
+   * 
+   * - Flow
    * 
    * @example
    * SRT-PULL
@@ -98,10 +109,13 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   0
-   * *   16
-   * *   24
-   * *   32
+   * - 0
+   * 
+   * - 16
+   * 
+   * - 24
+   * 
+   * - 32
    * 
    * @example
    * 32

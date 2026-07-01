@@ -117,7 +117,7 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extend
   mediaURL?: string;
   /**
    * @remarks
-   * If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
+   * If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http\\://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
    * 
    * @example
    * outin-xxxxxx.oss-cn-shanghai.aliyuncs.com

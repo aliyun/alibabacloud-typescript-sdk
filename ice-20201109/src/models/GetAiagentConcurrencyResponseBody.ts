@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAIAgentConcurrencyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of active concurrent calls.
+   * 
    * @example
    * 39
    */
   activeCount?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */

@@ -6,6 +6,9 @@ export class UpdateLiveTranscodeTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Template1130-2
    */
   name?: string;
   /**

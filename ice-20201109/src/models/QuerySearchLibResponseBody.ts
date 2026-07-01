@@ -3,8 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySearchLibResponseBodyIndexInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The readiness status of the index. Valid values:
+   * 
+   * - Initializing: The index is being initialized.
+   * 
+   * - Normal: The index is ready.
+   * 
+   * - Fail: The index failed to be created.
+   * 
+   * @example
+   * Normal
+   */
   indexReadiness?: string;
+  /**
+   * @remarks
+   * The status of the index. Valid values:
+   * 
+   * - Active: The index is active.
+   * 
+   * - Deactive: The index is inactive.
+   * 
+   * @example
+   * Active
+   */
   indexStatus?: string;
+  /**
+   * @remarks
+   * The index type. Valid values:
+   * 
+   * - mm: Large language model (LLM).
+   * 
+   * - face: Face recognition.
+   * 
+   * - aiLabel: Smart tagging.
+   * 
+   * @example
+   * face
+   */
   indexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,21 +71,32 @@ export class QuerySearchLibResponseBodyIndexInfo extends $dara.Model {
 export class QuerySearchLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The index information.
+   */
   indexInfo?: QuerySearchLibResponseBodyIndexInfo[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The search library configuration.
+   * 
+   * @example
+   * {"faceGroupIds":"xxx1,xxx2,xx3"}
+   */
   searchLibConfig?: string;
   /**
    * @remarks
@@ -62,22 +110,17 @@ export class QuerySearchLibResponseBody extends $dara.Model {
    * @remarks
    * The status of the search library.
    * 
-   * Valid values:
-   * 
-   * *   normal
-   * *   deleting
-   * *   deleteFail
-   * 
    * @example
    * normal
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * *   true
-   * *   false
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

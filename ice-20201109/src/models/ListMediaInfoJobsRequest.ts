@@ -16,7 +16,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
    * The job ID.
    * 
    * @example
-   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   * 7b38a5d86f1e47838927b6e7ccb1****
    */
   jobId?: string;
   /**
@@ -24,15 +24,16 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
    * 
    * @example
-   * ab4802364a2e49208c99efab82dfa8e8
+   * ab4802364a2e49208c99efab82df****
    */
   nextPageToken?: string;
   /**
    * @remarks
    * The order that you use to sort the query results. Valid values:
    * 
-   * *   CreateTimeDesc: sorts the query results by creation time in descending order.
-   * *   CreateTimeAsc: sorts the query results by creation time in ascending order.
+   * - CreateTimeDesc: sorts the query results by creation time in descending order.
+   * 
+   * - CreateTimeAsc: sorts the query results by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -58,9 +59,11 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
    * @remarks
    * The state of the job. Valid values:
    * 
-   * *   Init: The job is submitted.
-   * *   Success: The job is successful.
-   * *   Fail: The job failed.
+   * - Init: The job is submitted.
+   * 
+   * - Success: The job is successful.
+   * 
+   * - Fail: The job failed.
    * 
    * @example
    * Success

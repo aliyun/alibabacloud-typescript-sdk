@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAvatarTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The unique identifier for the avatar training job.
    * 
    * This parameter is required.
    * 

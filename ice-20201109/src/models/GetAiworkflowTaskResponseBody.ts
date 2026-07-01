@@ -42,9 +42,11 @@ export class GetAIWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Mod
    * @remarks
    * Workflow template status. Valid values:
    * 
-   * *   Draft
-   * *   Published
-   * *   Editing
+   * - Draft
+   * 
+   * - Published
+   * 
+   * - Editing
    * 
    * @example
    * Draft
@@ -158,11 +160,15 @@ export class GetAIWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   running
-   * *   stopped
-   * *   failed
-   * *   partial-succeeded
-   * *   succeeded
+   * - running
+   * 
+   * - stopped
+   * 
+   * - failed
+   * 
+   * - partial-succeeded
+   * 
+   * - succeeded
    * 
    * @example
    * succeeded

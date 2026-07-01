@@ -7,8 +7,9 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * Specifies whether to append tags. Default value: false. Valid values:
    * 
-   * *   true: updates the MediaTags parameter by appending new tags.
-   * *   false: updates the MediaTags parameter by overwriting existing tags with new tags.
+   * - true: updates the MediaTags parameter by appending new tags.
+   * 
+   * - false: updates the MediaTags parameter by overwriting existing tags with new tags.
    * 
    * @example
    * true
@@ -18,11 +19,15 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The business type. Valid values:
    * 
-   * *   subtitles
-   * *   watermark
-   * *   opening
-   * *   ending
-   * *   general
+   * - subtitles
+   * 
+   * - watermark
+   * 
+   * - opening
+   * 
+   * - ending
+   * 
+   * - general
    * 
    * @example
    * video
@@ -40,8 +45,9 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The category.
    * 
-   * *   The value can be up to 64 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The value can be up to 64 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * defaultCategory
@@ -51,8 +57,9 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The URL of the thumbnail.
    * 
-   * *   The value can be up to 128 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The value can be up to 128 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
@@ -62,8 +69,9 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The content description.
    * 
-   * *   The value can be up to 1,024 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The value can be up to 1,024 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * defaultDescription
@@ -77,7 +85,7 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * 
    * 1\\. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    * 
-   * 2\\. oss://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+   * 2\\. oss\\://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -95,10 +103,13 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The tags.
    * 
-   * *   Up to 16 tags are supported.
-   * *   Separate multiple tags with commas (,).
-   * *   Each tag can be up to 32 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - Up to 16 tags are supported.
+   * 
+   * - Separate multiple tags with commas (,).
+   * 
+   * - Each tag can be up to 32 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * updateTags1,updateTags2
@@ -116,8 +127,9 @@ export class UpdateMediaInfoRequest extends $dara.Model {
    * @remarks
    * The title.
    * 
-   * *   The value can be up to 128 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The value can be up to 128 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * defaultTitle

@@ -174,6 +174,9 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Template 1
    */
   templateName?: string;
   /**

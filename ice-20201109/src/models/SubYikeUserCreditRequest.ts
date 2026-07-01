@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubYikeUserCreditRequest extends $dara.Model {
   /**
    * @remarks
+   * The amount of credit to deduct. The value must be greater than 0 and cannot exceed the credit balance of the sub-account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubYikeUserCreditRequest extends $dara.Model {
   credit?: number;
   /**
    * @remarks
+   * The user ID of the sub-account.
+   * 
    * This parameter is required.
    * 
    * @example

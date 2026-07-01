@@ -9,10 +9,13 @@ export class ListSmartJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Finished: The job is complete.
-   * *   Failed: The job failed.
-   * *   Executing: The job is in progress.
-   * *   Created: The job is created.
+   * - Finished: The job is complete.
+   * 
+   * - Failed: The job failed.
+   * 
+   * - Executing: The job is in progress.
+   * 
+   * - Created: The job is created.
    * 
    * @example
    * Finished
@@ -24,10 +27,13 @@ export class ListSmartJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ASR: automatic speech recognition(job) job.
-   * *   DynamicChart: dynamic chart job.
-   * *   VideoTranslation: video translation job.
-   * *   TextToSpeech: intelligent audio production job.
+   * - ASR: automatic speech recognition(job) job.
+   * 
+   * - DynamicChart: dynamic chart job.
+   * 
+   * - VideoTranslation: video translation job.
+   * 
+   * - TextToSpeech: intelligent audio production job.
    * 
    * @example
    * ASR
@@ -73,8 +79,9 @@ export class ListSmartJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CreationTime:Asc: sorted by creation time in ascending order.
-   * *   CreationTime:Desc: sorted by creation time in descending order.
+   * - CreationTime:Asc: sorted by creation time in ascending order.
+   * 
+   * - CreationTime:Desc: sorted by creation time in descending order.
    * 
    * @example
    * CreationTime:Desc

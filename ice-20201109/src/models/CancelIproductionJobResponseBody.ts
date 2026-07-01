@@ -15,9 +15,11 @@ export class CancelIProductionJobResponseBodyAccessDeniedDetail extends $dara.Mo
    * @remarks
    * The identity. Values:
    * 
-   * *   RAM user: a UID
-   * *   RAM role: RoleName:RoleSessionName
-   * *   Federated user: ProviderType/ProviderName
+   * - RAM user: a UID
+   * 
+   * - RAM role: RoleName:RoleSessionName
+   * 
+   * - Federated user: ProviderType/ProviderName
    * 
    * @example
    * ****4522705967****
@@ -35,9 +37,11 @@ export class CancelIProductionJobResponseBodyAccessDeniedDetail extends $dara.Mo
    * @remarks
    * The type of identity that made the request. Valid values:
    * 
-   * *   SubUser: RAM user
-   * *   AssumedRoleUser: RAM role
-   * *   Federated: SSO federated user
+   * - SubUser: RAM user
+   * 
+   * - AssumedRoleUser: RAM role
+   * 
+   * - Federated: SSO federated user
    * 
    * @example
    * SubUser
@@ -55,8 +59,9 @@ export class CancelIProductionJobResponseBodyAccessDeniedDetail extends $dara.Mo
    * @remarks
    * The type of policy that resulted in the denial. Valid values:
    * 
-   * *   **ImplicitDeny**: The resource holder has not configured a policy for the current user. By default, unauthorized operations are denied.
-   * *   **ExplicitDeny**: The RAM policy configured by the resource holder explicitly denies the current user access to the corresponding resources.
+   * - **ImplicitDeny**: The resource holder has not configured a policy for the current user. By default, unauthorized operations are denied.
+   * 
+   * - **ExplicitDeny**: The RAM policy configured by the resource holder explicitly denies the current user access to the corresponding resources.
    * 
    * @example
    * ImplicitDeny
@@ -66,11 +71,15 @@ export class CancelIProductionJobResponseBodyAccessDeniedDetail extends $dara.Mo
    * @remarks
    * The type of policy that triggered the permission failure.
    * 
-   * *   **ControlPolicy**: control policy
-   * *   **SessionPolicy**: an additional policy attached to a temporary token.
-   * *   **AssumeRolePolicy**: the trust policy of a RAM role.
-   * *   **AccountLevelIdentityBasedPolicy**: an identity-based policy at the account level (custom or system).
-   * *   **ResourceGroupLevelIdentityBasedPolicy**: an identity-based policy scoped to a resource group.
+   * - **ControlPolicy**: control policy
+   * 
+   * - **SessionPolicy**: an additional policy attached to a temporary token.
+   * 
+   * - **AssumeRolePolicy**: the trust policy of a RAM role.
+   * 
+   * - **AccountLevelIdentityBasedPolicy**: an identity-based policy at the account level (custom or system).
+   * 
+   * - **ResourceGroupLevelIdentityBasedPolicy**: an identity-based policy scoped to a resource group.
    * 
    * @example
    * AssumeRolePolicy

@@ -99,15 +99,15 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
    * @remarks
    * The file status.
    * 
-   * \\-Uploading
+   * -Uploading
    * 
-   * \\-Normal
+   * -Normal
    * 
-   * \\-UploadFail
+   * -UploadFail
    * 
-   * \\-Disable
+   * -Disable
    * 
-   * \\-Deleted
+   * -Deleted
    * 
    * @example
    * Normal

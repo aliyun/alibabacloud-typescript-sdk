@@ -71,7 +71,7 @@ export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
    * @remarks
    * The upload URL of the source file.
    * 
-   * >  A maximum of 100 URLs can be returned.
+   * > A maximum of 100 URLs can be returned.
    * 
    * @example
    * http://****.mp4

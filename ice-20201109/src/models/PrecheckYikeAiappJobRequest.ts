@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PrecheckYikeAIAppJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-1000000
    */
   appId?: string;
   /**
+   * @remarks
+   * The application\\"s runtime parameters, serialized as a JSON string.
+   * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"794da8a01b8c71f1b973e6e7c7586301\\"}
    */

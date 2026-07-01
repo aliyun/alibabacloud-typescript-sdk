@@ -22,6 +22,10 @@ export class DescribeMeterImsMpsAiUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The AI type. Valid values:
+   * 
+   * @example
+   * Censor：审核类型
+   * Product：生产类型
    */
   type?: string;
   static names(): { [key: string]: string } {

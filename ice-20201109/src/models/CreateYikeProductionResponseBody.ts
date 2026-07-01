@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateYikeProductionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The production ID.
+   * 
    * @example
    * ProductionId
    */
   productionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */

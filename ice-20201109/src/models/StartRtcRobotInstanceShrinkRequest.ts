@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartRtcRobotInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The authentication token required to join the RTC call. You must generate this token using your RTC AppKey.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +15,23 @@ export class StartRtcRobotInstanceShrinkRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The RTC channel\\"s unique identifier.
+   * 
    * This parameter is required.
    * 
    * @example
    * testId
    */
   channelId?: string;
+  /**
+   * @remarks
+   * Specifies advanced call configurations that override the agent\\"s default configurations. If you omit this parameter, the agent uses its default configurations.
+   */
   configShrink?: string;
   /**
    * @remarks
+   * The AI agent\\"s unique identifier.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,12 +39,17 @@ export class StartRtcRobotInstanceShrinkRequest extends $dara.Model {
    */
   robotId?: string;
   /**
+   * @remarks
+   * User-defined information.
+   * 
    * @example
    * {}
    */
   userData?: string;
   /**
    * @remarks
+   * The AI agent\\"s unique identifier within the channel.
+   * 
    * This parameter is required.
    * 
    * @example

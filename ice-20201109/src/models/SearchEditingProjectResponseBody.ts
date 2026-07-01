@@ -17,11 +17,15 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   BroadCasting:
-   * *   ReservationCanceled
-   * *   LiveFinished
-   * *   LoadingFailed
-   * *   Reserving
+   * - BroadCasting:
+   * 
+   * - ReservationCanceled
+   * 
+   * - LiveFinished
+   * 
+   * - LoadingFailed
+   * 
+   * - Reserving
    * 
    * @example
    * Reserving
@@ -39,17 +43,19 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
    * @remarks
    * The method for editing the online editing project.
    * 
-   * \\-OpenAPI
+   * -OpenAPI
    * 
-   * \\-AliyunConsole
+   * -AliyunConsole
    * 
-   * \\-WebSDK
+   * -WebSDK
    * 
    * Valid values:
    * 
-   * *   AliyunConsole: The project is created in the Alibaba Cloud console.
-   * *   WebSDK: The project is created by using the SDK for Web.
-   * *   OpenAPI: The project is created by calling API operations.
+   * - AliyunConsole: The project is created in the Alibaba Cloud console.
+   * 
+   * - WebSDK: The project is created by using the SDK for Web.
+   * 
+   * - OpenAPI: The project is created by calling API operations.
    * 
    * @example
    * OpenAPI
@@ -125,8 +131,9 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   LiveEditingProject: a live stream editing project.
-   * *   EditingProject: a regular editing project.
+   * - LiveEditingProject: a live stream editing project.
+   * 
+   * - EditingProject: a regular editing project.
    * 
    * @example
    * EditingProject
@@ -136,23 +143,27 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
    * @remarks
    * The status of the online editing project. Valid values:
    * 
-   * \\-Draft
+   * -Draft
    * 
-   * \\-Editing
+   * -Editing
    * 
-   * \\-Producing
+   * -Producing
    * 
-   * \\-Produced
+   * -Produced
    * 
-   * \\-ProduceFailed
+   * -ProduceFailed
    * 
    * Valid values:
    * 
-   * *   Draft
-   * *   Produced
-   * *   Editing
-   * *   Producing
-   * *   ProduceFailed
+   * - Draft
+   * 
+   * - Produced
+   * 
+   * - Editing
+   * 
+   * - Producing
+   * 
+   * - ProduceFailed
    * 
    * @example
    * PRODUCE_FAILED

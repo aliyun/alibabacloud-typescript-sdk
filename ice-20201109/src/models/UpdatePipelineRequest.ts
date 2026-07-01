@@ -35,8 +35,9 @@ export class UpdatePipelineRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Active
-   * *   Paused
+   * - Active
+   * 
+   * - Paused
    * 
    * @example
    * Paused

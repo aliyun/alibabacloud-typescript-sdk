@@ -3,6 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartWorkflowRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip verification of the input path supported by the pipeline. This parameter takes effect only when the pipeline input is an OSS file. We recommend that you do not skip this verification to avoid faults caused by incorrect paths. If this parameter is not specified, verification is performed by default. Valid values:
+   * 
+   * - **true**: Skip verification
+   * 
+   * - **false**: Do not skip verification
+   * 
+   * @example
+   * false
+   */
   skipInputVerification?: boolean;
   /**
    * @remarks
@@ -10,14 +21,21 @@ export class StartWorkflowRequest extends $dara.Model {
    * 
    * @example
    * {
-   *       "Type": "Media",
-   *       "Media": "******30706071edbfe290b488******"
+   *       "Type": "Media",
+   *       "Media": "******30706071edbfe290b488******"
+   * } or
+   * {
+   *       "Type": "OSS",
+   *       "Media": "oss://bucket/path/to/video.mp4"
    * }
    */
   taskInput?: string;
   /**
    * @remarks
    * The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * 
+   * @example
+   * {"NotifyAddress":"https://xx.xx.xxx"} or{"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   /**

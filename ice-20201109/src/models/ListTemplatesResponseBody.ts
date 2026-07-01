@@ -16,7 +16,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * The template configurations.
    * 
    * @example
-   * 参考Timeline模板配置详解
+   * See Timeline template configuration details.
    */
   config?: string;
   /**
@@ -33,9 +33,11 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AliyunConsole
-   * *   WebSDK
-   * *   OpenAPI
+   * - AliyunConsole
+   * 
+   * - WebSDK
+   * 
+   * - OpenAPI
    * 
    * @example
    * OpenAPI
@@ -55,9 +57,11 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AliyunConsole
-   * *   WebSDK
-   * *   OpenAPI
+   * - AliyunConsole
+   * 
+   * - WebSDK
+   * 
+   * - OpenAPI
    * 
    * @example
    * OpenAPI
@@ -76,7 +80,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 视频添加水印模板
+   * Cloud editing template
    */
   name?: string;
   /**
@@ -93,10 +97,13 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PrepareFail
-   * *   Init
-   * *   Normal
-   * *   Preparing
+   * - PrepareFail
+   * 
+   * - Init
+   * 
+   * - Normal
+   * 
+   * - Preparing
    * 
    * @example
    * Normal
@@ -108,12 +115,17 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   UploadFailed: Failed to upload the video.
-   * *   ProcessFailed: Failed to process the advanced template.
-   * *   Available: The template is available.
-   * *   Uploading: The video is being uploaded.
-   * *   Created: The template is created but not ready for use.
-   * *   Processing: The advanced template is being processed.
+   * - UploadFailed: Failed to upload the video.
+   * 
+   * - ProcessFailed: Failed to process the advanced template.
+   * 
+   * - Available: The template is available.
+   * 
+   * - Uploading: The video is being uploaded.
+   * 
+   * - Created: The template is created but not ready for use.
+   * 
+   * - Processing: The advanced template is being processed.
    * 
    * @example
    * Available
@@ -133,8 +145,9 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Timeline: regular template.
-   * *   VETemplate: advanced template.
+   * - Timeline: regular template.
+   * 
+   * - VETemplate: advanced template.
    * 
    * @example
    * Timeline

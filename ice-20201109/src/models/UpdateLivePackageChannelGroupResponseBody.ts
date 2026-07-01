@@ -83,7 +83,7 @@ export class UpdateLivePackageChannelGroupResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * request-1234567890
+   * 5D87B753-0250-5D9D-B248-D40C3271F864
    */
   requestId?: string;
   static names(): { [key: string]: string } {

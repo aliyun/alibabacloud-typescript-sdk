@@ -14,6 +14,24 @@ export class ListMediaMarksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The marks of the media asset, in the JSONArray format.
+   * 
+   * @example
+   * [
+   *  {
+   *  "MarkStartTime": "12.1",
+   *  "MarkEndTime": "12.2",
+   *  "MarkTag": "tag-1",
+   *  "MarkContent": "content-1",
+   *  "MarkStatus": "a"
+   *  },
+   *  {
+   *  "MarkStartTime": "12.3",
+   *  "MarkEndTime": "12.4",
+   *  "MarkTag": "tag-2",
+   *  "MarkContent": "content-2",
+   *  "MarkStatus": "online"
+   *  }
+   * ]
    */
   mediaMarks?: string;
   /**

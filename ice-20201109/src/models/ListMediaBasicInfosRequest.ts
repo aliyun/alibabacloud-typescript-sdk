@@ -3,20 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMediaBasicInfosRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication expiration time, in seconds.
+   * 
+   * - Minimum value: 1.
+   * 
+   * - Maximum value: 86400.
+   * 
+   * - Default value: 3600.
+   * 
+   * @example
+   * 30
+   */
   authTimeout?: number;
   /**
    * @remarks
-   * The business type of the media asset. Valid values:
+   * The business type. Valid values:
    * 
-   * \\- subtitles
+   * - `subtitles`: subtitles
    * 
-   * \\- watermark
+   * - `watermark`: watermark
    * 
-   * \\- opening
+   * - `opening`: opening
    * 
-   * \\- ending
+   * - `ending`: ending
    * 
-   * \\- general
+   * - `general`: General
    * 
    * @example
    * opening
@@ -24,11 +37,11 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The end time of utcCreated.
+   * The end time of the query range, based on the creation time (`utcCreated`).
    * 
-   * \\- The value is the end of the left-open right-closed interval.
+   * - The query returns results created at or before this time (inclusive).
    * 
-   * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+   * - The time must be in UTC and comply with the ISO 8601 standard. The format is `YYYY-MM-DD\\"T\\"HH:mm:ss\\"Z\\"`. For example, `2017-01-11T12:00:00Z` corresponds to 20:00:00 on January 11, 2017 (UTC+8).
    * 
    * @example
    * 2020-12-20T13:00:00Z
@@ -36,7 +49,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to return the basic information of the source file.
+   * Set to `true` to include basic file information in the response.
    * 
    * @example
    * true
@@ -44,7 +57,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   includeFileBasicInfo?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of results to return per page.
    * 
    * Maximum value: 100. Default value: 10.
    * 
@@ -54,7 +67,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media ID.
    * 
    * @example
    * ****019b82e24b37a1c2958dec38****
@@ -62,15 +75,15 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of the media asset. Valid values:
+   * The media type. Valid values:
    * 
-   * \\- image
+   * - `image`: image
    * 
-   * \\- video
+   * - `video`: video
    * 
-   * \\- audio
+   * - `audio`: audio
    * 
-   * \\- text
+   * - `text`: text
    * 
    * @example
    * video
@@ -78,7 +91,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token used to retrieve the next page of results. An empty value indicates that all results have been returned.
    * 
    * @example
    * pSa1SQ0wCe5pzVrQ6mWZEw==
@@ -86,11 +99,11 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The order of sorting by utcCreated. Default value: desc. Valid values:
+   * The sort order for results based on the creation time (`utcCreated`). The default is descending. Valid values:
    * 
-   * \\- desc
+   * - `desc`: Descending order
    * 
-   * \\- asc
+   * - `asc`: Ascending order
    * 
    * @example
    * desc
@@ -98,15 +111,15 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The source of the media asset. Valid values:
+   * The source. Valid values:
    * 
-   * \\- oss: Object Storage Service (OSS).
+   * - `oss`: OSS
    * 
-   * \\- vod: ApsaraVideo VOD.
+   * - `vod`: video on demand
    * 
-   * \\- live: ApsaraVideo Live.
+   * - `live`: live streaming
    * 
-   * \\- general: other sources. This is the default value.
+   * - `general`: Other sources (default).
    * 
    * @example
    * oss
@@ -114,11 +127,11 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start time of utcCreated.
+   * The start time of the query range, based on the creation time (`utcCreated`).
    * 
-   * \\- The value is the beginning of a left-open right-closed interval.
+   * - The query returns results created after this time (exclusive).
    * 
-   * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+   * - The time must be in UTC and comply with the ISO 8601 standard. The format is `YYYY-MM-DD\\"T\\"HH:mm:ss\\"Z\\"`. For example, `2017-01-11T12:00:00Z` corresponds to 20:00:00 on January 11, 2017 (UTC+8).
    * 
    * @example
    * 2020-12-20T12:00:00Z
@@ -126,15 +139,15 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the media asset. Valid values:
+   * The media status. Valid values:
    * 
-   * \\- Init: the initial state, which indicates that the source file is not ready.
+   * - `Init`: The source file is not ready.
    * 
-   * \\- Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+   * - `Preparing`: The source file is being prepared. For example, it is being uploaded or composited.
    * 
-   * \\- PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
+   * - `PrepareFail`: The source file failed to prepare. This may occur, for example, if the system fails to retrieve information about the source file.
    * 
-   * \\- Normal: The source file is ready.
+   * - `Normal`: The source file is ready.
    * 
    * @example
    * Normal

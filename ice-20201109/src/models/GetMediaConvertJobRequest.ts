@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConvertJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the transcoding task.
+   * The ID of the media transcoding job.
    * 
    * @example
    * ****d80e4e4044975745c14b****

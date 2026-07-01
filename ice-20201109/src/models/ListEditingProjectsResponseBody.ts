@@ -52,6 +52,9 @@ export class ListEditingProjectsResponseBodyProjectList extends $dara.Model {
   /**
    * @remarks
    * The description of the online editing project.
+   * 
+   * @example
+   * 工程描述
    */
   description?: string;
   /**
@@ -98,8 +101,9 @@ export class ListEditingProjectsResponseBodyProjectList extends $dara.Model {
    * @remarks
    * The type of the editing project. Valid values:
    * 
-   * *   EditingProject: a regular editing project.
-   * *   LiveEditingProject: a live stream editing project.
+   * - EditingProject: a regular editing project.
+   * 
+   * - LiveEditingProject: a live stream editing project.
    * 
    * @example
    * EditingProject
@@ -127,8 +131,9 @@ export class ListEditingProjectsResponseBodyProjectList extends $dara.Model {
    * @remarks
    * The template type. Valid values:
    * 
-   * *   Timeline: a regular template.
-   * *   VETemplate: an advanced template.
+   * - Timeline: a regular template.
+   * 
+   * - VETemplate: an advanced template.
    * 
    * @example
    * Timeline
@@ -137,6 +142,9 @@ export class ListEditingProjectsResponseBodyProjectList extends $dara.Model {
   /**
    * @remarks
    * The title of the online editing project.
+   * 
+   * @example
+   * Project title
    */
   title?: string;
   static names(): { [key: string]: string } {

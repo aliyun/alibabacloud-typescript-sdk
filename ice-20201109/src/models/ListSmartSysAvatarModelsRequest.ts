@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSmartSysAvatarModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -13,12 +13,16 @@ export class ListSmartSysAvatarModelsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of items to return on each page. The default value is 10. The maximum value is 100.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The SDK version.
+   */
   sdkVersion?: string;
   static names(): { [key: string]: string } {
     return {

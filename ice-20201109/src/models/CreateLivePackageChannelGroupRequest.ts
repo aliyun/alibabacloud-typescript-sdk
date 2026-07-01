@@ -14,6 +14,9 @@ export class CreateLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The channel group description. It can be up to 1,000 characters in length.
+   * 
+   * @example
+   * This is an example description.
    */
   description?: string;
   /**

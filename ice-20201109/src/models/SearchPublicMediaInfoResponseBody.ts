@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData extends $dara.Model {
   /**
+   * @remarks
+   * Metadata JSON string
+   * 
    * @example
    * "{\\"AuditionUrl\\": \\"http://xxx\\", \\"AuditionCount\\": 3...}"
    */
   data?: string;
   /**
+   * @remarks
+   * Type. Valid values:
+   * 
+   * - "ai": AI data processed and normalized from original AI results
+   * 
+   * - "user-defined": User-defined metadata
+   * 
+   * - "system": System-provided
+   * 
    * @example
    * system
    */
@@ -38,31 +50,49 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMe
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo extends $dara.Model {
   /**
+   * @remarks
+   * Media Asset Business Type
+   * 
    * @example
    * general
    */
   businessType?: string;
   /**
+   * @remarks
+   * Categorization
+   * 
    * @example
    * category
    */
   category?: string;
   /**
+   * @remarks
+   * Thumbnail URL
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
    */
   coverURL?: string;
   /**
+   * @remarks
+   * Media Asset Creation Time
+   * 
    * @example
    * 2020-12-26T06:04:49Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Media Asset Deletion Time
+   * 
    * @example
    * 2020-12-29T06:04:49Z
    */
   deletedTime?: string;
   /**
+   * @remarks
+   * Content description
+   * 
    * @example
    * description
    */
@@ -75,38 +105,66 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
    * icepublic-****87b921bb4a55908a72a0537e****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * Label
+   * 
+   * @example
+   * tag1
+   */
   mediaTags?: string;
   /**
+   * @remarks
+   * Media asset media type
+   * 
    * @example
    * audio
    */
   mediaType?: string;
   /**
+   * @remarks
+   * Updated At
+   * 
    * @example
    * 2020-12-26T06:04:50Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * oss
    */
   source?: string;
   /**
+   * @remarks
+   * sprite
+   * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
    */
   spriteImages?: string;
   /**
+   * @remarks
+   * Resource status
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * title
+   * 
    * @example
    * title
    */
   title?: string;
   /**
+   * @remarks
+   * User Data
+   * 
    * @example
    * userDataTest
    */
@@ -161,6 +219,10 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
 }
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Dynamic metadata
+   */
   dynamicMetaData?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData;
   /**
    * @remarks
@@ -168,6 +230,9 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends 
    */
   mediaBasicInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo;
   /**
+   * @remarks
+   * Media asset ID
+   * 
    * @example
    * icepublic-****87b921bb4a55908a72a0537e****
    */
@@ -205,17 +270,30 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends 
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether you have purchased a resource plan that includes this media asset.
+   * 
    * @example
    * true
    */
   authorized?: boolean;
   /**
+   * @remarks
+   * Whether the media asset is collected.
+   * 
    * @example
    * true
    */
   favorite?: boolean;
+  /**
+   * @remarks
+   * Media asset information
+   */
   mediaInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo;
   /**
+   * @remarks
+   * Remaining validity period of the resource plan (Day)
+   * 
    * @example
    * 100
    */
@@ -251,13 +329,23 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $dara.Mod
 }
 
 export class SearchPublicMediaInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Public copyright media asset information
+   */
   publicMediaInfos?: SearchPublicMediaInfoResponseBodyPublicMediaInfos[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * ****3CFB-2767-54FD-B311-BD15A4C1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total amount of Data under the current request conditions.
+   * 
    * @example
    * 100
    */

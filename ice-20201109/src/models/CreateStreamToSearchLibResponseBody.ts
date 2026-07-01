@@ -31,8 +31,9 @@ export class CreateStreamToSearchLibResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: succeeded.
-   * *   false: failed.
+   * - true: succeeded.
+   * 
+   * - false: failed.
    * 
    * @example
    * true

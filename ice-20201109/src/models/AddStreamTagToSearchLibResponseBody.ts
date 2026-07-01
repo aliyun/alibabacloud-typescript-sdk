@@ -31,8 +31,9 @@ export class AddStreamTagToSearchLibResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Default value: true. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

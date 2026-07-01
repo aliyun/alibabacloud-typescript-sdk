@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIAgentDialogueRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dialog that you want to delete.
+   * The ID of the dialogue to delete.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class DeleteAIAgentDialogueRequest extends $dara.Model {
    * f27f9b9be28642a88e18*******
    */
   dialogueId?: string;
+  /**
+   * @remarks
+   * The ID of the node to delete.
+   * 
+   * @example
+   * c22f9b9be2864g46fse73*******
+   */
   nodeId?: string;
   /**
    * @remarks

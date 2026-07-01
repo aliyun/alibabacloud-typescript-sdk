@@ -7,10 +7,14 @@ export class AddCategoryRequest extends $dara.Model {
    * @remarks
    * The category name.
    * 
-   * *   The value can be up to 64 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The value can be up to 64 bytes in length.
+   * 
+   * - The value must be encoded in UTF-8.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Third-level subcategory
    */
   cateName?: string;
   /**
@@ -25,8 +29,9 @@ export class AddCategoryRequest extends $dara.Model {
    * @remarks
    * The type of the category. Valid values:
    * 
-   * *   default: audio, video, and image files. This is the default value.
-   * *   material: short video materials.
+   * - default: audio, video, and image files. This is the default value.
+   * 
+   * - material: short video materials.
    * 
    * @example
    * default

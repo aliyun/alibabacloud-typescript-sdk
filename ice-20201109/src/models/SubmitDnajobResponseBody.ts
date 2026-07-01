@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDNAJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media fingerprint analysis job. We recommend that you save this ID for subsequent calls of other operations.
+   * The ID of the DNA job. Save this ID for subsequent API calls.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2****

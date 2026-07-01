@@ -64,6 +64,9 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   /**
    * @remarks
    * The content of the text.
+   * 
+   * @example
+   * Test content
    */
   content?: string;
   /**
@@ -77,6 +80,9 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   /**
    * @remarks
    * The fine-grained name of the entity.
+   * 
+   * @example
+   * Car
    */
   finegrainName?: string;
   /**
@@ -170,6 +176,9 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
   /**
    * @remarks
    * The category.
+   * 
+   * @example
+   * Vehicle
    */
   category?: string;
   /**
@@ -191,11 +200,17 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
   /**
    * @remarks
    * The name of the entity.
+   * 
+   * @example
+   * Car
    */
   labelName?: string;
   /**
    * @remarks
    * The type of the tag.
+   * 
+   * @example
+   * Object
    */
   labelType?: string;
   /**
@@ -259,6 +274,9 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dar
   /**
    * @remarks
    * The content of the audio.
+   * 
+   * @example
+   * 智能标签测试
    */
   content?: string;
   /**
@@ -326,6 +344,9 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
   /**
    * @remarks
    * The content of the text.
+   * 
+   * @example
+   * Pipi
    */
   content?: string;
   /**
@@ -464,6 +485,9 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
    * The description of the media asset.
+   * 
+   * @example
+   * Alibaba Cloud VOD video description
    */
   description?: string;
   /**
@@ -509,18 +533,29 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PrepareFail
-   * *   UploadFail
-   * *   Init
-   * *   UploadSucc
-   * *   Transcoding
-   * *   TranscodeFail
-   * *   Deleted
-   * *   Normal
-   * *   Uploading
-   * *   Preparing
-   * *   Blocked
-   * *   Checking
+   * - PrepareFail
+   * 
+   * - UploadFail
+   * 
+   * - Init
+   * 
+   * - UploadSucc
+   * 
+   * - Transcoding
+   * 
+   * - TranscodeFail
+   * 
+   * - Deleted
+   * 
+   * - Normal
+   * 
+   * - Uploading
+   * 
+   * - Preparing
+   * 
+   * - Blocked
+   * 
+   * - Checking
    * 
    * @example
    * Normal
@@ -537,11 +572,17 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
    * The tags of the media asset.
+   * 
+   * @example
+   * Tag 1, Tag 2
    */
   tags?: string;
   /**
    * @remarks
    * The title of the media asset.
+   * 
+   * @example
+   * The best music player ever
    */
   title?: string;
   static names(): { [key: string]: string } {

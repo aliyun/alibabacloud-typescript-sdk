@@ -13,8 +13,9 @@ export class ListSourceLocationsRequest extends $dara.Model {
   filterState?: boolean;
   /**
    * @remarks
-   * *   The page number.
-   * *   Default value: 1.
+   * - The page number.
+   * 
+   * - Default value: 1.
    * 
    * @example
    * 1

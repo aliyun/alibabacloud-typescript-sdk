@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The editing configuration. For detailed parameters, see [EditingConfig](~~2863940#9b05519d46e0x~~).
+   * Specifies the editing configuration. For more information, see [EditingConfig Parameter Description](~~2863940#9b05519d46e0x~~).
    * 
    * @example
    * {
@@ -21,7 +21,7 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. For detailed parameters, see [InputConfig](~~2863940#dda38bf6ec2pk~~).
+   * Specifies the input configuration. For more information, see [InputConfig Parameter Description](~~2863940#dda38bf6ec2pk~~).
    * 
    * @example
    * {
@@ -34,7 +34,7 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   inputConfig?: string;
   /**
    * @remarks
-   * The output configuration. For detailed parameters, see [OutputConfig](~~2863940#4111a373d0xbz~~).
+   * Specifies the output configuration. For more information, see [OutputConfig Parameter Description](~~2863940#4111a373d0xbz~~).
    * 
    * @example
    * {
@@ -47,7 +47,10 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
+   * Specifies the user data and callback configuration. For details about the structure, see [UserData Configuration](https://help.aliyun.com/document_detail/357745.html).
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

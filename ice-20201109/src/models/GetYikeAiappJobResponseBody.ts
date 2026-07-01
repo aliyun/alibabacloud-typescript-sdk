@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeAIAppJobResponseBodyResultAudioResult extends $dara.Model {
   /**
+   * @remarks
+   * The media asset ID.
+   * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The OSS URL of the output file.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp3
    */
@@ -38,11 +44,17 @@ export class GetYikeAIAppJobResponseBodyResultAudioResult extends $dara.Model {
 
 export class GetYikeAIAppJobResponseBodyResultImageResult extends $dara.Model {
   /**
+   * @remarks
+   * The media asset ID.
+   * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The OSS URL of the output file.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.png
    */
@@ -72,11 +84,17 @@ export class GetYikeAIAppJobResponseBodyResultImageResult extends $dara.Model {
 
 export class GetYikeAIAppJobResponseBodyResultVideoResult extends $dara.Model {
   /**
+   * @remarks
+   * The media asset ID.
+   * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The OSS URL of the output file.
+   * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
    */
@@ -105,8 +123,20 @@ export class GetYikeAIAppJobResponseBodyResultVideoResult extends $dara.Model {
 }
 
 export class GetYikeAIAppJobResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The audio results.
+   */
   audioResult?: GetYikeAIAppJobResponseBodyResultAudioResult[];
+  /**
+   * @remarks
+   * The image results.
+   */
   imageResult?: GetYikeAIAppJobResponseBodyResultImageResult[];
+  /**
+   * @remarks
+   * The video results.
+   */
   videoResult?: GetYikeAIAppJobResponseBodyResultVideoResult[];
   static names(): { [key: string]: string } {
     return {
@@ -144,47 +174,88 @@ export class GetYikeAIAppJobResponseBodyResult extends $dara.Model {
 
 export class GetYikeAIAppJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The Yike AI App ID.
+   * 
    * @example
    * app-****
    */
   appId?: string;
   /**
+   * @remarks
+   * The input parameters for the Yike AI App, provided as a JSON string.
+   * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
    */
   appParams?: string;
   /**
+   * @remarks
+   * The UTC time when the job finished, in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * 
    * @example
    * 2026-02-06T18:53:18.809+08:00
    */
   executionFinishTime?: string;
   /**
+   * @remarks
+   * The UTC time when the job started, in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
    */
   executionStartTime?: string;
   /**
+   * @remarks
+   * The folder ID.
+   * 
    * @example
    * folder-u3ilwhoc36ux9a****
    */
   folderId?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   productionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The job results.
+   */
   result?: GetYikeAIAppJobResponseBodyResult;
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * - `Created`: The job is created.
+   * 
+   * - `Queuing`: The job is queued for processing.
+   * 
+   * - `Executing`: The job is running.
+   * 
+   * - `Finished`: The job completed successfully.
+   * 
+   * - `Failed`: The job failed.
+   * 
    * @example
    * Created
    */

@@ -13,7 +13,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The media asset ID of the output file.
+   * The ID of the output media asset.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -37,7 +37,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
@@ -45,7 +45,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+   * The ID of the VOD media asset. This parameter is returned only if the output destination is VOD.
    * 
    * @example
    * ****d7578s4h75ci945c14b****

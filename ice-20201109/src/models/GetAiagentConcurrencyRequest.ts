@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIAgentConcurrencyRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example

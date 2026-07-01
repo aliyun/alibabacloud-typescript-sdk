@@ -31,8 +31,9 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
    * @remarks
    * The order that you use to sort the query results. Valid values:
    * 
-   * 1.  CreateTimeAsc: sorts the jobs by creation time in ascending order.
-   * 2.  CreateTimeDesc: sorts the jobs by creation time in descending order.
+   * 1. CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * 
+   * 2. CreateTimeDesc: sorts the jobs by creation time in descending order.
    * 
    * @example
    * CreateTimeDesc
@@ -60,9 +61,11 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Init: The job is submitted.
-   * *   Success: The job is successful.
-   * *   Fail: The job failed.
+   * - Init: The job is submitted.
+   * 
+   * - Success: The job is successful.
+   * 
+   * - Fail: The job failed.
    * 
    * @example
    * Success

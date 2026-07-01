@@ -7,8 +7,9 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
    * 
-   * *   [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
-   * *   [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
+   * - [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
+   * 
+   * - [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
    * 
    * @example
    * {"Media1":"mediaId","Text1":"text"}
@@ -18,11 +19,12 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The template configurations.
    * 
-   * *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
-   * *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+   * - For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+   * 
+   * - For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @example
-   * 参考Timeline模板配置详解
+   * See Timeline template configuration details.
    */
   config?: string;
   /**
@@ -37,9 +39,11 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The source from which the template was created. Valid values:
    * 
-   * *   AliyunConsole
-   * *   OpenAPI
-   * *   WebSDK
+   * - AliyunConsole
+   * 
+   * - OpenAPI
+   * 
+   * - WebSDK
    * 
    * @example
    * OpenAPI
@@ -57,9 +61,11 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The source from which the template was modified. Valid values:
    * 
-   * *   AliyunConsole
-   * *   OpenAPI
-   * *   WebSDK
+   * - AliyunConsole
+   * 
+   * - OpenAPI
+   * 
+   * - WebSDK
    * 
    * @example
    * OpenAPI
@@ -78,7 +84,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 视频添加水印模板
+   * Video watermark template
    */
   name?: string;
   /**
@@ -93,10 +99,13 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The state of the preview media asset. Valid values:
    * 
-   * *   Init: the initial state, which indicates that the source file is not ready.
-   * *   Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
-   * *   PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
-   * *   Normal: The source file is ready.
+   * - Init: the initial state, which indicates that the source file is not ready.
+   * 
+   * - Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+   * 
+   * - PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
+   * 
+   * - Normal: The source file is ready.
    * 
    * @example
    * Normal
@@ -114,12 +123,17 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The template state. Valid values:
    * 
-   * *   Available
-   * *   Created
-   * *   Uploading
-   * *   Processing
-   * *   UploadFailed
-   * *   ProcessFailed
+   * - Available
+   * 
+   * - Created
+   * 
+   * - Uploading
+   * 
+   * - Processing
+   * 
+   * - UploadFailed
+   * 
+   * - ProcessFailed
    * 
    * @example
    * Available
@@ -137,8 +151,9 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * @remarks
    * The template type. Valid values:
    * 
-   * *   Timeline
-   * *   VETemplate
+   * - Timeline
+   * 
+   * - VETemplate
    * 
    * @example
    * Timeline

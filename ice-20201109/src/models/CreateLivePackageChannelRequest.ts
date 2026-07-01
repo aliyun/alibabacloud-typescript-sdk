@@ -24,6 +24,9 @@ export class CreateLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
    * The channel description. It can be up to 1,000 characters in length.
+   * 
+   * @example
+   * This is a test channel.
    */
   description?: string;
   /**

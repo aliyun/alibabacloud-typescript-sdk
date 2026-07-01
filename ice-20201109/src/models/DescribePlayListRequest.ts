@@ -28,8 +28,11 @@ export class DescribePlayListRequest extends $dara.Model {
    * The criteria by which the sorting is performed. Valid values:
    * 
    * - FirstFrameDuration
+   * 
    * - PlayDuration
+   * 
    * - VideoDuration
+   * 
    * - StuckDuration
    * 
    * @example
@@ -41,6 +44,7 @@ export class DescribePlayListRequest extends $dara.Model {
    * The sort order. Valid values:
    * 
    * - DESC: descending order.
+   * 
    * - ASC: ascending order.
    * 
    * @example
@@ -69,7 +73,7 @@ export class DescribePlayListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The playback type. Valid value: 
+   * The playback type. Valid value:
    * 
    * - vod
    * 
@@ -82,7 +86,9 @@ export class DescribePlayListRequest extends $dara.Model {
    * The playback status. Valid values:
    * 
    * - complete
+   * 
    * - playing
+   * 
    * - unusual: A playback error occurs.
    * 
    * @example

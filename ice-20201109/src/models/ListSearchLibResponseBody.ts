@@ -4,16 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSearchLibResponseBodySearchLibInfoListIndexInfo extends $dara.Model {
   /**
+   * @remarks
+   * The readiness status of the index. Valid values:
+   * 
+   * - Initializing: The index is being initialized.
+   * 
+   * - Normal: The index is ready.
+   * 
+   * - Fail: The index failed to be created.
+   * 
    * @example
    * Normal
    */
   indexReadiness?: string;
   /**
+   * @remarks
+   * The index status.
+   * 
+   * Default value: Active. Valid values:
+   * 
+   * - Active: The index is active.
+   * 
+   * - Deactive: The index is inactive.
+   * 
    * @example
    * Active
    */
   indexStatus?: string;
   /**
+   * @remarks
+   * The index type. Valid values:
+   * 
+   * - mm: Large language model (LLM).
+   * 
+   * - face: Face recognition.
+   * 
+   * - aiLabel: Smart tagging.
+   * 
    * @example
    * face
    */
@@ -44,7 +71,18 @@ export class ListSearchLibResponseBodySearchLibInfoListIndexInfo extends $dara.M
 }
 
 export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The index information.
+   */
   indexInfo?: ListSearchLibResponseBodySearchLibInfoListIndexInfo[];
+  /**
+   * @remarks
+   * The search library configuration.
+   * 
+   * @example
+   * {"faceGroupIds":"xxx1,xxx2,xx3"}
+   */
   searchLibConfig?: string;
   /**
    * @remarks
@@ -57,10 +95,6 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
   /**
    * @remarks
    * The status of the search library.
-   * 
-   * *   normal
-   * *   deleting
-   * *   deleteFail
    * 
    * @example
    * normal
@@ -99,7 +133,7 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $dara.Model {
 export class ListSearchLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -115,7 +149,7 @@ export class ListSearchLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Information about search libraries.
+   * Search library information.
    */
   searchLibInfoList?: ListSearchLibResponseBodySearchLibInfoList[];
   /**
@@ -128,7 +162,7 @@ export class ListSearchLibResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 8

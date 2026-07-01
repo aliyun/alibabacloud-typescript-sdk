@@ -39,8 +39,9 @@ export class GetAiRtcAuthCodeListRequest extends $dara.Model {
    * @remarks
    * The status of the authorization code. Valid values:
    * 
-   * *   `1`: Activated
-   * *   `2`: Inactive
+   * - `1`: Activated
+   * 
+   * - `2`: Inactive
    * 
    * @example
    * 1
@@ -50,8 +51,9 @@ export class GetAiRtcAuthCodeListRequest extends $dara.Model {
    * @remarks
    * The type of license. Valid values:
    * 
-   * *   `1`: Audio call
-   * *   `2`: Vision call
+   * - `1`: Audio call
+   * 
+   * - `2`: Vision call
    * 
    * @example
    * 1

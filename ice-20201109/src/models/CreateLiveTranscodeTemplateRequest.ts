@@ -23,8 +23,9 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
    * @remarks
    * The audio codec. Valid values:
    * 
-   * *   AAC
-   * *   MP3
+   * - AAC
+   * 
+   * - MP3
    * 
    * @example
    * AAC
@@ -34,10 +35,13 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
    * @remarks
    * The audio codec profile. Valid values when the Codec parameter is set to AAC:
    * 
-   * *   aac_low
-   * *   aac_he
-   * *   aac_he_v2
-   * *   aac_ld
+   * - aac_low
+   * 
+   * - aac_he
+   * 
+   * - aac_he_v2
+   * 
+   * - aac_ld
    * 
    * @example
    * aaclow
@@ -95,8 +99,9 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * @remarks
    * The encoding type. Valid values:
    * 
-   * *   H.264
-   * *   H.265
+   * - H.264
+   * 
+   * - H.265
    * 
    * @example
    * H.264
@@ -239,10 +244,13 @@ export class CreateLiveTranscodeTemplateRequest extends $dara.Model {
    * @remarks
    * The type of the template. Valid values:
    * 
-   * *   normal
-   * *   narrow-band
-   * *   audio-only
-   * *   origin
+   * - normal
+   * 
+   * - narrow-band
+   * 
+   * - audio-only
+   * 
+   * - origin
    * 
    * This parameter is required.
    * 

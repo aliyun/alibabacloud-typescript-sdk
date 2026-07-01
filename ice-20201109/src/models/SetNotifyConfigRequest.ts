@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent.
+   * The ID of the AI Agent.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SetNotifyConfigRequest extends $dara.Model {
   audioOssPath?: string;
   /**
    * @remarks
-   * The URL for receiving callback notifications. By default, this parameter is left empty.
+   * The callback URL for receiving event notifications. This is not set by default.
    * 
    * @example
    * http://customer.com/callback
@@ -25,7 +25,7 @@ export class SetNotifyConfigRequest extends $dara.Model {
   enableAudioRecording?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable event notifications.
+   * Specifies whether to enable or disable event notifications.
    * 
    * This parameter is required.
    * 
@@ -35,11 +35,13 @@ export class SetNotifyConfigRequest extends $dara.Model {
   enableNotify?: boolean;
   /**
    * @remarks
-   * The event types. If you do not specify this parameter, all event types are selected.
+   * The event types. If you do not specify this parameter, all event types are subscribed to by default. Valid values:
    * 
-   * *   agent_start
-   * *   agent_stop
-   * *   error
+   * - agent_start
+   * 
+   * - agent_stop
+   * 
+   * - error
    * 
    * @example
    * agent_start,agent_stop,error
@@ -47,7 +49,7 @@ export class SetNotifyConfigRequest extends $dara.Model {
   eventTypes?: string;
   /**
    * @remarks
-   * The authentication token for callback. The token is carried in the Authorization header of a callback request. By default, this parameter is left empty.
+   * An authentication token for event callbacks. The service includes this token in the `Authorization` header of each callback request.
    * 
    * @example
    * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx

@@ -15,11 +15,15 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
    * 
-   * *   Reserving
-   * *   ReservationCanceled
-   * *   BroadCasting
-   * *   LoadingFailed
-   * *   LiveFinished
+   * - Reserving
+   * 
+   * - ReservationCanceled
+   * 
+   * - BroadCasting
+   * 
+   * - LoadingFailed
+   * 
+   * - LiveFinished
    * 
    * @example
    * Reserving
@@ -28,6 +32,9 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The template material parameters.
+   * 
+   * @example
+   * See the template user guide.
    */
   clipsParam?: string;
   /**
@@ -178,7 +185,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662).  If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+   * The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}

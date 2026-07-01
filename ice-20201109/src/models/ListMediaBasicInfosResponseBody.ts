@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the file, in Kbit/s.
    * 
    * @example
    * 1912.13
@@ -13,7 +13,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   bitrate?: string;
   /**
    * @remarks
-   * The time when the file was created.
+   * The time the file was created.
    * 
    * @example
    * 2021-01-08T16:52:04Z
@@ -21,7 +21,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   createTime?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration of the file, in seconds.
    * 
    * @example
    * 60.00000
@@ -29,7 +29,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * example.mp4
@@ -37,7 +37,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The size of the file, in bytes.
    * 
    * @example
    * 14340962
@@ -45,7 +45,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
+   * The status of the file.
    * 
    * @example
    * Normal
@@ -53,7 +53,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file.
    * 
    * @example
    * source_file
@@ -61,7 +61,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   fileType?: string;
   /**
    * @remarks
-   * The OSS URL of the file.
+   * The Object Storage Service (OSS) URL of the file.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -77,7 +77,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   formatName?: string;
   /**
    * @remarks
-   * The height.
+   * The height of the video, in pixels.
    * 
    * @example
    * 720
@@ -85,7 +85,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   height?: string;
   /**
    * @remarks
-   * The time when the file was last modified.
+   * The time the file was last modified.
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -93,7 +93,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   modifiedTime?: string;
   /**
    * @remarks
-   * The region in which the file resides.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -101,7 +101,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
   region?: string;
   /**
    * @remarks
-   * The width.
+   * The width of the video, in pixels.
    * 
    * @example
    * 1280
@@ -155,7 +155,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo 
 export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic information of the file, including the duration and size.
+   * Basic information about the file, such as its duration and size.
    */
   fileBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $dara
 export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The service to which the media asset belongs.
+   * The associated business.
    * 
    * @example
    * ICE
@@ -193,7 +193,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   biz?: string;
   /**
    * @remarks
-   * The business type of the media asset.
+   * The business type.
    * 
    * @example
    * opening
@@ -210,11 +210,14 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   /**
    * @remarks
    * The category of the media asset.
+   * 
+   * @example
+   * video
    */
   category?: string;
   /**
    * @remarks
-   * The thumbnail URL of the media asset.
+   * The cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -222,7 +225,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The time the media asset was created.
    * 
    * @example
    * 2021-01-08T16:52:04Z
@@ -230,7 +233,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The time the media asset was deleted.
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -239,11 +242,14 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   /**
    * @remarks
    * The description of the media asset.
+   * 
+   * @example
+   * A short description of the media
    */
   description?: string;
   /**
    * @remarks
-   * The URL of the media asset in another service.
+   * The source URL of the media asset.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -251,7 +257,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   inputURL?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****019b82e24b37a1c2958dec38****
@@ -259,7 +265,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   mediaId?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * Tags associated with the media asset.
    * 
    * @example
    * tags,tags2
@@ -267,7 +273,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset.
+   * The media type.
    * 
    * @example
    * video
@@ -275,7 +281,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The time the media asset was last modified.
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -283,7 +289,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   modifiedTime?: string;
   /**
    * @remarks
-   * The custom ID of the media asset. The ID is a string that contains 6 to 64 characters. Only letters, digits, hyphens (-), and underscores (_) are supported. The ID is unique among users.
+   * A user-defined ID that must be unique within your account. The ID must be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * 123-123
@@ -291,7 +297,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   referenceId?: string;
   /**
    * @remarks
-   * The snapshots of the media asset.
+   * Information about the snapshots.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
@@ -307,7 +313,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   source?: string;
   /**
    * @remarks
-   * The sprite.
+   * Information about the image sprites.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
@@ -324,11 +330,14 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
   /**
    * @remarks
    * The title of the media asset.
+   * 
+   * @example
+   * My video title
    */
   title?: string;
   /**
    * @remarks
-   * The transcoding status of the media asset.
+   * The transcoding status.
    * 
    * @example
    * Init
@@ -416,17 +425,17 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $da
 export class ListMediaBasicInfosResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * FileInfos
+   * A list of file information objects.
    */
   fileInfoList?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * BasicInfo
+   * The basic information about the media asset.
    */
   mediaBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****019b82e24b37a1c2958dec38****
@@ -466,7 +475,7 @@ export class ListMediaBasicInfosResponseBodyMediaInfos extends $dara.Model {
 export class ListMediaBasicInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned in the query.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 2
@@ -474,12 +483,12 @@ export class ListMediaBasicInfosResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The media assets that meet the specified conditions.
+   * The list of matching media assets.
    */
   mediaInfos?: ListMediaBasicInfosResponseBodyMediaInfos[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token for retrieving the next page of results. If this parameter is not returned, all results have been retrieved.
    * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
@@ -495,7 +504,7 @@ export class ListMediaBasicInfosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of matching entries.
    * 
    * @example
    * 4

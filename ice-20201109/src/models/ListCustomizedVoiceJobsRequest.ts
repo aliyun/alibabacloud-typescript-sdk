@@ -23,8 +23,9 @@ export class ListCustomizedVoiceJobsRequest extends $dara.Model {
    * @remarks
    * The type of the human voice cloning job. Valid values:
    * 
-   * *   Basic
-   * *   Standard
+   * - Basic
+   * 
+   * - Standard
    * 
    * > : If you do not specify this parameter, the default value Basic is used.
    * 

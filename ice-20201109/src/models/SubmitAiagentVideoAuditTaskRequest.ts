@@ -62,6 +62,9 @@ export class SubmitAIAgentVideoAuditTaskRequestCapturePolicies extends $dara.Mod
   /**
    * @remarks
    * The text prompt to send to the MLLM along with the captured frames.
+   * 
+   * @example
+   * 请分析视频中的场景
    */
   prompt?: string;
   /**
@@ -107,14 +110,14 @@ export class SubmitAIAgentVideoAuditTaskRequestInput extends $dara.Model {
    * http(s)://{BucketName}.{Endpoint}/{ObjectName}
    * 
    * @example
-   * http://my-bucket.cn-shanghai.aliyuncs.com/object-id.mp4
+   * http://my-bucket.oss-cn-shanghai.aliyuncs.com/object-id.mp4
    */
   media?: string;
   /**
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * *   OSS: an OSS object.
+   * - OSS: an OSS object.
    * 
    * @example
    * OSS
@@ -187,6 +190,9 @@ export class SubmitAIAgentVideoAuditTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined data.
+   * 
+   * @example
+   * {"Custom":"hello"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

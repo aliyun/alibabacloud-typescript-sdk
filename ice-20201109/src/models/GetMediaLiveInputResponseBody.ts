@@ -43,9 +43,37 @@ export class GetMediaLiveInputResponseBodyInputInputInfos extends $dara.Model {
    * rtmp://domain/app/stream
    */
   sourceUrl?: string;
+  /**
+   * @remarks
+   * Latency of the SRT stream, in ms.
+   * 
+   * @example
+   * 1000
+   */
   srtLatency?: number;
+  /**
+   * @remarks
+   * Maximum bitrate of the SRT stream, in bps.
+   * 
+   * @example
+   * 3000000
+   */
   srtMaxBitrate?: number;
+  /**
+   * @remarks
+   * SRT encryption configuration: the password for the SRT stream.
+   * 
+   * @example
+   * srtencryption
+   */
   srtPassphrase?: string;
+  /**
+   * @remarks
+   * SRT encryption configuration: key length for the SRT stream.
+   * 
+   * @example
+   * 16
+   */
   srtPbKeyLen?: number;
   /**
    * @remarks

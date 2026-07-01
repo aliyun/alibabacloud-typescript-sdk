@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveRecordTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the template.
+   * The name of the Live Record Template.
    * 
    * This parameter is required.
    */

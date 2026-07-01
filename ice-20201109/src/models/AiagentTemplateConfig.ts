@@ -3,8 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AIAgentTemplateConfigAvatarChat3DLlmHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The text content of the message.
+   * 
+   * @example
+   * 你好
+   */
   content?: string;
   /**
+   * @remarks
+   * The role of the conversation participant. Valid values:
+   * 
+   * - `user`: The user.
+   * 
+   * - `assistant`: The AI assistant.
+   * 
+   * - `system`: The system.
+   * 
+   * - `function`: A function call.
+   * 
+   * - `plugin`: A plugin.
+   * 
+   * - `tool`: A tool.
+   * 
    * @example
    * user
    */
@@ -33,11 +55,32 @@ export class AIAgentTemplateConfigAvatarChat3DLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
+  /**
+   * @remarks
+   * A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
+   */
   asrHotWords?: string[];
+  /**
+   * @remarks
+   * The language ID for Automatic Speech Recognition (ASR). Possible values:
+   * 
+   * - `zh_mandarin`: Chinese
+   * 
+   * - `en`: English
+   * 
+   * - `zh_en`: Chinese-English
+   * 
+   * - `es`: Spanish
+   * 
+   * - `jp`: Japanese
+   * 
+   * @example
+   * zh_mandarin
+   */
   asrLanguageId?: string;
   /**
    * @remarks
-   * The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+   * The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
    * 
    * @example
    * 400
@@ -45,7 +88,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   asrMaxSilence?: number;
   /**
    * @remarks
-   * The ID of the avatar.
+   * The ID of the avatar model.
    * 
    * @example
    * 1231
@@ -53,7 +96,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   avatarId?: string;
   /**
    * @remarks
-   * The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+   * Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
    * 
    * @example
    * {}
@@ -61,13 +104,16 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   bailianAppParams?: string;
   charBreak?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
+   * 
    * @example
    * true
    */
   enableIntelligentSegment?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the intercom mode. Default value: false.
+   * Specifies whether to enable Push-to-Talk mode. Default: `false`.
    * 
    * @example
    * false
@@ -75,7 +121,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   enablePushToTalk?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+   * Specifies whether to enable voice interruption. Default: `true`.
    * 
    * @example
    * true
@@ -83,35 +129,59 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+   * Specifies whether to enable graceful shutdown. Default: `false`.
    * 
-   * *   Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+   * - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
    * 
    * @example
-   * true
+   * false
    */
   gracefulShutdown?: boolean;
   /**
    * @remarks
-   * The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The greetings can be up to 128 characters in length.
+   * The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
+   * 
+   * @example
+   * 早上好，我的朋友！
    */
   greeting?: string;
+  /**
+   * @remarks
+   * A list of specific words or phrases that trigger a conversation interruption.
+   */
   interruptWords?: string[];
+  /**
+   * @remarks
+   * The LLM/MLLM conversation history.
+   */
   llmHistory?: AIAgentTemplateConfigAvatarChat3DLlmHistory[];
   /**
+   * @remarks
+   * The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
+   * 
    * @example
    * 10
    */
   llmHistoryLimit?: number;
+  /**
+   * @remarks
+   * The system prompt for the LLM, applied when the call starts.
+   * 
+   * @example
+   * 你是一位友好且乐于助人的助手，专注于为用户提供准确的信息和建议。
+   */
   llmSystemPrompt?: string;
   /**
+   * @remarks
+   * The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
+   * 
    * @example
    * 600
    */
   maxIdleTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable voiceprint recognition. Default value: false.
+   * Specifies whether to use voiceprint recognition. Default: `false`.
    * 
    * @example
    * false
@@ -119,7 +189,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   useVoiceprint?: boolean;
   /**
    * @remarks
-   * The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+   * The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
    * 
    * @example
    * 5
@@ -127,25 +197,42 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   userOfflineTimeout?: number;
   /**
    * @remarks
-   * The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+   * The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
    * 
    * @example
    * 60
    */
   userOnlineTimeout?: number;
+  /**
+   * @remarks
+   * The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+   * 
+   * - `0`: Disables VAD.
+   * 
+   * - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+   * 
+   * - `11`: Offers lower audio distortion and stronger resistance to interference.
+   * 
+   * @example
+   * 0
+   */
   vadLevel?: number;
   /**
    * @remarks
-   * The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+   * The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
    * 
    * @example
    * zhixiaoxia
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * A list of available voices.
+   */
   voiceIdList?: string[];
   /**
    * @remarks
-   * The unique ID of the voiceprint. This parameter is empty by default.
+   * The unique ID for voiceprint recognition. Default: not specified.
    * 
    * @example
    * uniqueId
@@ -153,21 +240,34 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   voiceprintId?: string;
   /**
    * @remarks
-   * The speech volume of the intelligent agent.
+   * The speaking volume of the agent.
    * 
-   * *   If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
-   * *   To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+   * - If omitted, the system uses adaptive volume mode.
    * 
-   * 1.  If Volume is set to 0, the output volume is 0.
-   * 2.  If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
-   * 3.  If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+   * - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
+   * 
+   * 1. If `volume` is `0`, the output is silent.
+   * 
+   * 2. If `volume` is `100`, the output volume is the original volume.
+   * 
+   * 3. If `volume` is `200`, the output volume is twice the original volume.
    * 
    * @example
    * 100
    */
   volume?: number;
+  /**
+   * @remarks
+   * An initial user query that the agent addresses immediately when the call starts.
+   * 
+   * @example
+   * 今天天气怎么样？
+   */
   wakeUpQuery?: string;
   /**
+   * @remarks
+   * Workflow override parameters. Default: empty.
+   * 
    * @example
    * {}
    */
@@ -256,8 +356,30 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVisionChatLlmHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The text content of the message.
+   * 
+   * @example
+   * 你好
+   */
   content?: string;
   /**
+   * @remarks
+   * The role of the conversation participant. Valid values:
+   * 
+   * - `user`: The user.
+   * 
+   * - `assistant`: The AI assistant.
+   * 
+   * - `system`: The system.
+   * 
+   * - `function`: A function call.
+   * 
+   * - `plugin`: A plugin.
+   * 
+   * - `tool`: A tool.
+   * 
    * @example
    * user
    */
@@ -286,11 +408,32 @@ export class AIAgentTemplateConfigVisionChatLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVisionChat extends $dara.Model {
+  /**
+   * @remarks
+   * A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
+   */
   asrHotWords?: string[];
+  /**
+   * @remarks
+   * The language ID for Automatic Speech Recognition (ASR). Possible values:
+   * 
+   * - `zh_mandarin`: Chinese
+   * 
+   * - `en`: English
+   * 
+   * - `zh_en`: Chinese-English
+   * 
+   * - `es`: Spanish
+   * 
+   * - `jp`: Japanese
+   * 
+   * @example
+   * zh_mandarin
+   */
   asrLanguageId?: string;
   /**
    * @remarks
-   * The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+   * The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
    * 
    * @example
    * 400
@@ -298,7 +441,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   asrMaxSilence?: number;
   /**
    * @remarks
-   * The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+   * Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
    * 
    * @example
    * {}
@@ -307,7 +450,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   charBreak?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable intelligent sentence segmentation. This feature intelligently combines the segments of a speech into a single sentence if brief pauses occur when users are speaking. Default value: true.
+   * Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
    * 
    * @example
    * true
@@ -315,7 +458,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   enableIntelligentSegment?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the intercom mode. Default value: false.
+   * Specifies whether to enable Push-to-Talk mode. Default: `false`.
    * 
    * @example
    * false
@@ -323,7 +466,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   enablePushToTalk?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+   * Specifies whether to enable voice interruption. Default: `true`.
    * 
    * @example
    * true
@@ -331,9 +474,9 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+   * Specifies whether to enable graceful shutdown. Default: `false`.
    * 
-   * Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+   * - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
    * 
    * @example
    * false
@@ -341,28 +484,49 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   gracefulShutdown?: boolean;
   /**
    * @remarks
-   * The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The value can be up to 128 characters in length.
+   * The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
    * 
    * @example
-   * Good morning, my friend!
+   * 早上好，我的朋友！
    */
   greeting?: string;
+  /**
+   * @remarks
+   * A list of specific words or phrases that trigger a conversation interruption.
+   */
   interruptWords?: string[];
+  /**
+   * @remarks
+   * The LLM/MLLM conversation history.
+   */
   llmHistory?: AIAgentTemplateConfigVisionChatLlmHistory[];
   /**
+   * @remarks
+   * The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
+   * 
    * @example
    * 10
    */
   llmHistoryLimit?: number;
+  /**
+   * @remarks
+   * The system prompt for the LLM, applied when the call starts.
+   * 
+   * @example
+   * 你是一位友好且乐于助人的助手，专注于为用户提供准确的信息和建议。
+   */
   llmSystemPrompt?: string;
   /**
+   * @remarks
+   * The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
+   * 
    * @example
    * 600
    */
   maxIdleTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable voiceprint recognition. Default value: false.
+   * Specifies whether to use voiceprint recognition. Default: `false`.
    * 
    * @example
    * false
@@ -370,7 +534,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   useVoiceprint?: boolean;
   /**
    * @remarks
-   * The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+   * The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
    * 
    * @example
    * 5
@@ -378,25 +542,42 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   userOfflineTimeout?: number;
   /**
    * @remarks
-   * The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+   * The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
    * 
    * @example
    * 60
    */
   userOnlineTimeout?: number;
+  /**
+   * @remarks
+   * The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+   * 
+   * - `0`: Disables VAD.
+   * 
+   * - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+   * 
+   * - `11`: Offers lower audio distortion and stronger resistance to interference.
+   * 
+   * @example
+   * 0
+   */
   vadLevel?: number;
   /**
    * @remarks
-   * The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+   * The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
    * 
    * @example
    * zhixiaoxia
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * A list of available voices.
+   */
   voiceIdList?: string[];
   /**
    * @remarks
-   * The unique ID of the voiceprint. This parameter is empty by default.
+   * The unique ID for voiceprint recognition. Default: not specified.
    * 
    * @example
    * uniqueId
@@ -404,24 +585,34 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   voiceprintId?: string;
   /**
    * @remarks
-   * The speech volume of the intelligent agent.
+   * The speaking volume of the agent.
    * 
-   * If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
+   * - If omitted, the system uses adaptive volume mode.
    * 
-   * To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+   * - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
    * 
-   * If Volume is set to 0, the output volume is 0.
+   * 1. If `volume` is `0`, the output is silent.
    * 
-   * If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
+   * 2. If `volume` is `100`, the output volume is the original volume.
    * 
-   * If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+   * 3. If `volume` is `200`, the output volume is twice the original volume.
    * 
    * @example
    * 100
    */
   volume?: number;
+  /**
+   * @remarks
+   * An initial user query that the agent addresses immediately when the call starts.
+   * 
+   * @example
+   * 今天天气怎么样？
+   */
   wakeUpQuery?: string;
   /**
+   * @remarks
+   * Workflow override parameters. Default: empty.
+   * 
    * @example
    * {}
    */
@@ -508,8 +699,30 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVoiceChatLlmHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The text content of the message.
+   * 
+   * @example
+   * 你好
+   */
   content?: string;
   /**
+   * @remarks
+   * The role of the conversation participant. Valid values:
+   * 
+   * - `user`: The user.
+   * 
+   * - `assistant`: The AI assistant.
+   * 
+   * - `system`: The system.
+   * 
+   * - `function`: A function call.
+   * 
+   * - `plugin`: A plugin.
+   * 
+   * - `tool`: A tool.
+   * 
    * @example
    * user
    */
@@ -538,29 +751,57 @@ export class AIAgentTemplateConfigVoiceChatLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
+  /**
+   * @remarks
+   * A list of hot words to improve ASR accuracy. A maximum of 128 words is supported.
+   */
   asrHotWords?: string[];
+  /**
+   * @remarks
+   * The language ID for Automatic Speech Recognition (ASR).
+   * Possible values:
+   * 
+   * - `zh_mandarin`: Chinese
+   * 
+   * - `en`: English
+   * 
+   * - `zh_en`: Chinese-English
+   * 
+   * - `es`: Spanish
+   * 
+   * - `jp`: Japanese
+   * 
+   * @example
+   * zh_mandarin
+   */
   asrLanguageId?: string;
   /**
    * @remarks
-   * The threshold used to determine the end of a sentence. If the duration of silence exceeds this threshold, the system determines that a sentence ends. Unit: milliseconds. Default value: 400. Valid values: 200 to 1200.
+   * The maximum duration of silence in milliseconds before a sentence break is detected. Range: 200 to 1,200. Default: 400.
    * 
    * @example
    * 400
    */
   asrMaxSilence?: number;
   /**
+   * @remarks
+   * The URL of the agent\\"s avatar for voice chat. Default: none.
+   * 
    * @example
    * http://example.com/a.jpg
    */
   avatarUrl?: string;
   /**
+   * @remarks
+   * The type of the agent\\"s avatar URL. Default: none.
+   * 
    * @example
    * USER
    */
   avatarUrlType?: string;
   /**
    * @remarks
-   * The parameters of the application center of Alibaba Cloud Model Studio. For more information about the parameter format, see [Parameters of the application center of Alibaba Cloud Model Studio](https://help.aliyun.com/document_detail/2858132.html).
+   * Parameters for Alibaba Cloud Bailian. For details, see [Bailian App Params](https://help.aliyun.com/document_detail/2858132.html).
    * 
    * @example
    * {}
@@ -568,13 +809,16 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   bailianAppParams?: string;
   charBreak?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable intelligent segmentation. If enabled, this feature intelligently merges pauses in a user\\"s speech into a single, complete sentence. Default: `true`.
+   * 
    * @example
    * true
    */
   enableIntelligentSegment?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the intercom mode. Default value: false.
+   * Specifies whether to enable Push-to-Talk mode. Default: `false`.
    * 
    * @example
    * false
@@ -582,7 +826,7 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   enablePushToTalk?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent can be interrupted by voice. Default value: true.
+   * Specifies whether to enable voice interruption. Default: `true`.
    * 
    * @example
    * true
@@ -590,35 +834,59 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * Specifies whether the intelligent agent supports graceful shutdown. Default value: false.
+   * Specifies whether to enable graceful shutdown. Default: `false`.
    * 
-   * *   Graceful shutdown: When the intelligent agent is stopped, it completes its current sentence before stopping. However, the intelligent agent can speak for 10 seconds at most.
+   * - If enabled, the agent finishes its current speech (up to 10 seconds) before stopping.
    * 
    * @example
-   * true
+   * false
    */
   gracefulShutdown?: boolean;
   /**
    * @remarks
-   * The greetings spoken by the intelligent agent when it joins the meeting. If you do not specify this parameter, the system uses the default greetings specified in the template of the intelligent agent. The value can be up to 128 characters in length.
+   * The greeting message delivered when a user joins the session. If this parameter is omitted, the greeting configured in the agent template is used. Maximum length: 128 characters.
+   * 
+   * @example
+   * 早上好，我的朋友
    */
   greeting?: string;
+  /**
+   * @remarks
+   * A list of specific words or phrases that trigger a conversation interruption.
+   */
   interruptWords?: string[];
+  /**
+   * @remarks
+   * The LLM/MLLM conversation history.
+   */
   llmHistory?: AIAgentTemplateConfigVoiceChatLlmHistory[];
   /**
+   * @remarks
+   * The maximum number of conversation turns to retain in the LLM/MLLM history. Default: 10.
+   * 
    * @example
    * 10
    */
   llmHistoryLimit?: number;
+  /**
+   * @remarks
+   * The system prompt for the LLM, applied when the call starts.
+   * 
+   * @example
+   * 你是一位友好且乐于助人的助手，专注于为用户提供准确的信息和建议。
+   */
   llmSystemPrompt?: string;
   /**
+   * @remarks
+   * The maximum idle time in seconds with no interaction before the agent goes offline. Default: 600.
+   * 
    * @example
    * 600
    */
   maxIdleTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable voiceprint recognition. Default value: false.
+   * Specifies whether to use voiceprint recognition. Default: `false`.
    * 
    * @example
    * false
@@ -626,7 +894,7 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   useVoiceprint?: boolean;
   /**
    * @remarks
-   * The timeout period after the user leaves the meeting. Unit: seconds. Default value: 5.
+   * The time in seconds that the agent waits after a user leaves before closing the task. Default: 5.
    * 
    * @example
    * 5
@@ -634,25 +902,42 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   userOfflineTimeout?: number;
   /**
    * @remarks
-   * The timeout period before the user joins the meeting. Unit: seconds. Default value: 60.
+   * The time in seconds that the agent waits for a user to join before closing the task. Default: 60.
    * 
    * @example
    * 60
    */
   userOnlineTimeout?: number;
+  /**
+   * @remarks
+   * The interruption sensitivity threshold. A higher value makes it more difficult to interrupt the agent. Range: 0 to 11. Default: 11.
+   * 
+   * - `0`: Disables Voice Activity Detection (VAD).
+   * 
+   * - `1` to `10`: A higher value makes it more difficult to interrupt the agent.
+   * 
+   * - `11`: Offers lower audio distortion and stronger resistance to interference.
+   * 
+   * @example
+   * 11
+   */
   vadLevel?: number;
   /**
    * @remarks
-   * The voice ID of the intelligent agent. The modification takes effect in the next sentence. If you do not specify this parameter, the system uses the default voice ID specified in the template of the intelligent agent. This parameter takes effect only for the preset TTS model. The ID can be up to 64 characters in length. For more information about the available voices, visit [https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example](url).
+   * The ID of the Text-to-Speech (TTS) voice. Changes take effect on the next utterance. If omitted, the default voice from the agent template is used. This parameter applies only to preset TTS voices. Maximum length: 64 characters. For available values, see [Intelligent voice effect samples](https://help.aliyun.com/document_detail/449563.html).
    * 
    * @example
    * zhixiaoxia
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * A list of available voices.
+   */
   voiceIdList?: string[];
   /**
    * @remarks
-   * The unique ID of the voiceprint. This parameter is empty by default.
+   * The unique ID for voiceprint recognition. Default: not specified.
    * 
    * @example
    * uniqueId
@@ -660,21 +945,34 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   voiceprintId?: string;
   /**
    * @remarks
-   * The speech volume of the intelligent agent.
+   * The speaking volume of the agent.
    * 
-   * *   If this parameter is not specified, the adaptive volume mode recommended by Alibaba Cloud is used by default.
-   * *   To specify this parameter, enter a value between 0 and 400. The output volume is calculated by using the following formula: Output volume = Voice output volume specified in the workflow × Volume/100. Example:
+   * - If omitted, the system uses adaptive volume mode.
    * 
-   * 1.  If Volume is set to 0, the output volume is 0.
-   * 2.  If Volume is set to 100, the output volume is the voice output volume specified in the workflow.
-   * 3.  If Volume is set to 200, the output volume is twice the voice output volume specified in the workflow.
+   * - If specified, the valid range is 0 to 400. The output volume is calculated as: `Output Volume in Workflow` \\* (`volume`/100). For example:
+   * 
+   * 1. If `volume` is `0`, the output is silent.
+   * 
+   * 2. If `volume` is `100`, the output volume is the original volume.
+   * 
+   * 3. If `volume` is `200`, the output volume is twice the original volume.
    * 
    * @example
    * 100
    */
   volume?: number;
+  /**
+   * @remarks
+   * An initial user query that the agent addresses immediately when the call starts.
+   * 
+   * @example
+   * 今天天气怎么样？
+   */
   wakeUpQuery?: string;
   /**
+   * @remarks
+   * Workflow override parameters. Default: empty.
+   * 
    * @example
    * {}
    */
@@ -767,17 +1065,17 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
 export class AIAgentTemplateConfig extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the 3D avatar.
+   * 3D avatar parameters.
    */
   avatarChat3D?: AIAgentTemplateConfigAvatarChat3D;
   /**
    * @remarks
-   * The parameters of the visual intelligent agent.
+   * Vision agent parameters.
    */
   visionChat?: AIAgentTemplateConfigVisionChat;
   /**
    * @remarks
-   * The voice call parameters.
+   * Voice chat parameters.
    */
   voiceChat?: AIAgentTemplateConfigVoiceChat;
   static names(): { [key: string]: string } {

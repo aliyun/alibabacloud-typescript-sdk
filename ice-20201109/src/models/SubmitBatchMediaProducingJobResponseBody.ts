@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitBatchMediaProducingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the quick video production job.
+   * The ID of the batch job for one-click smart video creation.
    * 
    * @example
    * ****d80e4e4044975745c14b****

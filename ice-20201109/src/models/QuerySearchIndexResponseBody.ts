@@ -15,8 +15,9 @@ export class QuerySearchIndexResponseBody extends $dara.Model {
    * @remarks
    * The state of the index. Valid values:
    * 
-   * *   active: the index is enabled.
-   * *   Deactive: the index is not enabled.
+   * - active: the index is enabled.
+   * 
+   * - Deactive: the index is not enabled.
    * 
    * @example
    * Active
@@ -26,9 +27,11 @@ export class QuerySearchIndexResponseBody extends $dara.Model {
    * @remarks
    * The category of the index. Valid values:
    * 
-   * *   mm: large visual model.
-   * *   face: face recognition.
-   * *   aiLabel: smart tagging.
+   * - mm: large visual model.
+   * 
+   * - face: face recognition.
+   * 
+   * - aiLabel: smart tagging.
    * 
    * @example
    * mm
@@ -62,8 +65,9 @@ export class QuerySearchIndexResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

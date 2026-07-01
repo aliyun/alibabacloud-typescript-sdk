@@ -31,13 +31,15 @@ export class ListSnapshotJobsRequest extends $dara.Model {
    * @remarks
    * The order that you use to sort the query results.
    * 
-   * 1.  CreateTimeDesc
-   * 2.  CreateTimeAsc
+   * 1. CreateTimeDesc
+   * 
+   * 2. CreateTimeAsc
    * 
    * Valid values:
    * 
-   * *   CreateTimeDesc: sorts the jobs by creation time in descending order
-   * *   CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * - CreateTimeDesc: sorts the jobs by creation time in descending order
+   * 
+   * - CreateTimeAsc: sorts the jobs by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -65,9 +67,11 @@ export class ListSnapshotJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Init: The job is submitted.
-   * *   Success: The job is successful.
-   * *   Fail: The job failed.
+   * - Init: The job is submitted.
+   * 
+   * - Success: The job is successful.
+   * 
+   * - Fail: The job failed.
    * 
    * @example
    * Success

@@ -120,8 +120,9 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   system
-   * *   custom
+   * - system
+   * 
+   * - custom
    * 
    * @example
    * custom

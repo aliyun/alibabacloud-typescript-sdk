@@ -111,6 +111,13 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
    * 69.06635
    */
   endTime?: number;
+  /**
+   * @remarks
+   * Expression.
+   * 
+   * @example
+   * 平静
+   */
   expression?: string;
   /**
    * @remarks
@@ -175,6 +182,9 @@ export class SearchMediaClipByFaceResponseBodyMediaClipList extends $dara.Model 
   /**
    * @remarks
    * The name of the entity.
+   * 
+   * @example
+   * John Doe
    */
   labelName?: string;
   /**

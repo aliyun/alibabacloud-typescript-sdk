@@ -6,6 +6,9 @@ export class GetLiveEditingIndexFileResponseBody extends $dara.Model {
   /**
    * @remarks
    * The URL of the index file.
+   * 
+   * @example
+   * https://bucket.oss-cn-shanghai.aliyuncs.com/test/live1.m3u8?<鉴权>&x-oss-process=hls/sign
    */
   indexFile?: string;
   /**

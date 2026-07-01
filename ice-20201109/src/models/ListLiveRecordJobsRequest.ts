@@ -43,8 +43,9 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   asc: sorts the query results in ascending order.
-   * *   desc: sorts the query results in descending order.
+   * - asc: sorts the query results in ascending order.
+   * 
+   * - desc: sorts the query results in descending order.
    * 
    * @example
    * desc
@@ -66,9 +67,11 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   paused: The job is paused.
-   * *   initial: The job is not started.
-   * *   started: The job is in progress.
+   * - paused: The job is paused.
+   * 
+   * - initial: The job is not started.
+   * 
+   * - started: The job is in progress.
    * 
    * @example
    * started

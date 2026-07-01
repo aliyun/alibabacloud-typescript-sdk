@@ -5,18 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * *   The client token.
+   * A client-generated token that ensures the idempotence of the request.
+   * 
+   * @example
+   * Test ClientToken
    */
   clientToken?: string;
   /**
    * @remarks
-   * *   The job description.
+   * The job description.
+   * 
+   * @example
+   * Test description
    */
   description?: string;
   /**
    * @remarks
-   * *   The configuration parameters of the video translation job.
-   * *   The value must be in the JSON format.
+   * Configuration parameters for the video translation job, specified as a JSON string.
    * 
    * @example
    * {"SourceLanguage":"zh","TargetLanguage":"en","DetextArea":"Auto"}
@@ -24,37 +29,56 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * *   The input parameters of the video translation job.
-   * *   A video translation job takes a video or subtitle file as the input.
-   * *   The value must be in the JSON format.
+   * The input parameters for the video translation job.
+   * 
+   * - The input can be a video or a subtitle file.
+   * 
+   * - The value must be a JSON string.
    * 
    * @example
-   * {"Type":"Video","Media":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4"}
+   * {"Type":"Video","Video":"1628ae20c36******8f6f7c77a6302"}
    */
   inputConfig?: string;
   /**
    * @remarks
-   * *   The output parameters of the video translation job.
-   * *   A video translation job can generate a video or subtitle file as the output.
+   * Output parameters for the video translation job. The output can be a video or a subtitle file.
    * 
    * @example
    * {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
    */
   outputConfig?: string;
   signature?: string;
+  /**
+   * @remarks
+   * The system automatically populates this parameter. You do not need to set it.
+   * 
+   * @example
+   * Auto-complete, no need to write
+   */
   signatureMehtod?: string;
   signatureNonce?: string;
+  /**
+   * @remarks
+   * The system automatically populates this parameter. You do not need to set it.
+   * 
+   * @example
+   * Auto-complete, no need to write
+   */
   signatureType?: string;
   signatureVersion?: string;
   /**
    * @remarks
-   * *   The job title.
+   * The job title.
+   * 
+   * @example
+   * Test title
    */
   title?: string;
   /**
    * @remarks
-   * *   The user-defined data.
-   * *   The data must be in the JSON format, and can be up to 512 characters in length.
+   * User data for the job, provided as a JSON string. The string can be up to 512 bytes long.
+   * 
+   * - Use this parameter to [configure a custom callback URL](https://help.aliyun.com/document_detail/451631.html).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}

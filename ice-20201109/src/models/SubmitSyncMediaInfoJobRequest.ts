@@ -7,11 +7,11 @@ export class SubmitSyncMediaInfoJobRequestInput extends $dara.Model {
    * @remarks
    * The media object.
    * 
-   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * - If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
+   * > Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
-   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If Type is set to Media, set this parameter to the ID of a media asset.
    * 
    * This parameter is required.
    * 
@@ -23,8 +23,9 @@ export class SubmitSyncMediaInfoJobRequestInput extends $dara.Model {
    * @remarks
    * The type of the media object.
    * 
-   * *   OSS: an Object Storage Service (OSS) object.
-   * *   Media: a media asset.
+   * - OSS: an Object Storage Service (OSS) object.
+   * 
+   * - Media: a media asset.
    * 
    * This parameter is required.
    * 

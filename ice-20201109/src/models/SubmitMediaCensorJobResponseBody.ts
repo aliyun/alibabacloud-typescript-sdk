@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaCensorJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the content moderation job. We recommend that you save this ID for subsequent calls of other operations.
+   * The ID of the video censor job. We recommend saving this ID for subsequent API calls.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2****

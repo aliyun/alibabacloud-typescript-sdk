@@ -13,6 +13,13 @@ export class DeleteMediaConnectFlowInputRequest extends $dara.Model {
    * 0381f478-7d53-4076-9d5f-27680a6f73e7
    */
   flowId?: string;
+  /**
+   * @remarks
+   * Input name. Required when primary/standby input is enabled for the instance.
+   * 
+   * @example
+   * input
+   */
   inputName?: string;
   static names(): { [key: string]: string } {
     return {

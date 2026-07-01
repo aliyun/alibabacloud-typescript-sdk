@@ -7,8 +7,9 @@ export class QueryMediaCensorJobListRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query.
    * 
-   * *   Specify the time in the ISO 8601 standard. The time must be in UTC.
-   * *   Format: yyyy-MM-ddTHH:mm:ssZ.
+   * - Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * 
+   * - Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-02-14T02:16:07Z
@@ -26,8 +27,9 @@ export class QueryMediaCensorJobListRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Default value: **30**.
-   * *   Valid values: **1 to 300**.
+   * - Default value: **30**.
+   * 
+   * - Valid values: **1 to 300**.
    * 
    * @example
    * 20
@@ -38,7 +40,7 @@ export class QueryMediaCensorJobListRequest extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
    * 
    * @example
-   * 79aff3eee82242e092899db5f669
+   * 79aff3eee82242e092899db5****
    */
   nextPageToken?: string;
   ownerAccount?: string;
@@ -57,8 +59,9 @@ export class QueryMediaCensorJobListRequest extends $dara.Model {
    * @remarks
    * The beginning of the time range to query.
    * 
-   * *   Specify the time in the ISO 8601 standard. The time must be in UTC.
-   * *   Format: yyyy-MM-ddTHH:mm:ssZ.
+   * - Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * 
+   * - Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2021-12-22T03:48:05Z
@@ -68,11 +71,15 @@ export class QueryMediaCensorJobListRequest extends $dara.Model {
    * @remarks
    * The state of the jobs that you want to query. Valid values:
    * 
-   * *   **All**: all jobs.
-   * *   **Queuing**: the jobs that are waiting in the queue.
-   * *   **Analysing**: the jobs that are in progress.
-   * *   **Fail**: failed jobs.
-   * *   **Success**: successful jobs.
+   * - **All**: all jobs.
+   * 
+   * - **Queuing**: the jobs that are waiting in the queue.
+   * 
+   * - **Analysing**: the jobs that are in progress.
+   * 
+   * - **Fail**: failed jobs.
+   * 
+   * - **Success**: successful jobs.
    * 
    * @example
    * All

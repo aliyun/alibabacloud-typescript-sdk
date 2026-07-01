@@ -15,8 +15,9 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
    * @remarks
    * The gender. Valid values:
    * 
-   * *   female
-   * *   male
+   * - female
+   * 
+   * - male
    * 
    * @example
    * male
@@ -26,9 +27,11 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
    * @remarks
    * The scenario. Valid values:
    * 
-   * *   story
-   * *   interaction
-   * *   navigation
+   * - story
+   * 
+   * - interaction
+   * 
+   * - navigation
    * 
    * @example
    * story
@@ -36,10 +39,11 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   scenario?: string;
   /**
    * @remarks
-   * *   The voice type. Valid values:
+   * - The voice type. Valid values:
    * 
-   *     *   Basic
-   *     *   Standard
+   *   - Basic
+   * 
+   *   - Standard
    * 
    * @example
    * Standard
@@ -48,6 +52,9 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   /**
    * @remarks
    * The voice description.
+   * 
+   * @example
+   * 这是一个个性化人声小专
    */
   voiceDesc?: string;
   /**
@@ -61,6 +68,9 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   /**
    * @remarks
    * The voice name.
+   * 
+   * @example
+   * 小专
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -154,8 +164,9 @@ export class ListCustomizedVoicesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

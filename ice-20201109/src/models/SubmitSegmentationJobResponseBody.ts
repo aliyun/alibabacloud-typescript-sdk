@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSegmentationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the segmentation job.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -13,7 +13,7 @@ export class SubmitSegmentationJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

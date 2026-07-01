@@ -5,17 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDNADBRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the media fingerprint library.
+   * The description of the DNA database.
+   * 
+   * @example
+   * 这是一个视频DNA库。
    */
   description?: string;
   /**
    * @remarks
-   * The model of the media fingerprint library. Valid values:
+   * The DNA database model. Valid values:
    * 
-   * *   **Video**
-   * *   **Audio**
-   * *   **Image**
-   * *   **Text** (supported only in the China (Shanghai) region)
+   * - **Video**: For video content.
+   * 
+   * - **Audio**: For audio content.
+   * 
+   * - **Image**: For image content. (Deprecated)
+   * 
+   * - **Text**: For text content. Supported only in the China (Shanghai) region. (Deprecated)
    * 
    * @example
    * Video
@@ -23,7 +29,7 @@ export class CreateDNADBRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The name of the media fingerprint library.
+   * The name of the DNA database.
    * 
    * This parameter is required.
    * 

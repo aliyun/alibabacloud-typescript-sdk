@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateYikeUserResponseBodyUserInfo extends $dara.Model {
   /**
+   * @remarks
+   * The user\\"s nickname.
+   * 
    * @example
    * nick
    */
   nickname?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * id
    */
   userId?: string;
   /**
+   * @remarks
+   * The user name.
+   * 
    * @example
    * name
    */
   userName?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * spaceId
    */
@@ -52,10 +64,17 @@ export class CreateYikeUserResponseBodyUserInfo extends $dara.Model {
 
 export class CreateYikeUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The user information.
+   */
   userInfo?: CreateYikeUserResponseBodyUserInfo;
   static names(): { [key: string]: string } {
     return {

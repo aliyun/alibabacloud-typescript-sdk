@@ -14,6 +14,9 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
    * The category name.
+   * 
+   * @example
+   * First-level category
    */
   cateName?: string;
   /**
@@ -36,8 +39,9 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
    * @remarks
    * The type of the category. Valid values:
    * 
-   * *   **default**: audio, video, and image files. This is the default value.
-   * *   **material**: short video materials.
+   * - **default**: audio, video, and image files. This is the default value.
+   * 
+   * - **material**: short video materials.
    * 
    * @example
    * default

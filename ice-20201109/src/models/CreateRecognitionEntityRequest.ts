@@ -7,11 +7,15 @@ export class CreateRecognitionEntityRequest extends $dara.Model {
    * @remarks
    * The type of recognition algorithm. Valid values:
    * 
-   * *   landmark
-   * *   object
-   * *   logo
-   * *   face
-   * *   label
+   * - landmark
+   * 
+   * - object
+   * 
+   * - logo
+   * 
+   * - face
+   * 
+   * - label
    * 
    * This parameter is required.
    * 
@@ -22,6 +26,9 @@ export class CreateRecognitionEntityRequest extends $dara.Model {
   /**
    * @remarks
    * The extra information about the custom entity, provided as a JSON string. Max length: 256 bytes.
+   * 
+   * @example
+   * {"description": "Book classification"}
    */
   entityInfo?: string;
   /**
@@ -29,6 +36,9 @@ export class CreateRecognitionEntityRequest extends $dara.Model {
    * The name of the custom entity. Max length: 64 bytes.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Custom library entity name
    */
   entityName?: string;
   /**

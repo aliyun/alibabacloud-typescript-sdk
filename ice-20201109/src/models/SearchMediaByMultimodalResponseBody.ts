@@ -16,7 +16,7 @@ export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $dara.
    * The score.
    * 
    * @example
-   * 1.2
+   * 0.99
    */
   score?: number;
   /**

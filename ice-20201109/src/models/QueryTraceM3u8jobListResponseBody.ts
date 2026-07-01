@@ -15,8 +15,9 @@ export class QueryTraceM3u8JobListResponseBodyDataOutput extends $dara.Model {
    * @remarks
    * The type of the output file. Valid values:
    * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
+   * - OSS: an OSS object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS

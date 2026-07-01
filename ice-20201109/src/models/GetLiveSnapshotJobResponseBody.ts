@@ -120,6 +120,9 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the job.
+   * 
+   * @example
+   * Screenshot task 1
    */
   jobName?: string;
   /**
@@ -165,9 +168,11 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   init: The job is not started.
-   * *   paused: The job is paused.
-   * *   started: The job is in progress.
+   * - init: The job is not started.
+   * 
+   * - paused: The job is paused.
+   * 
+   * - started: The job is in progress.
    * 
    * @example
    * started
@@ -189,6 +194,9 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the template.
+   * 
+   * @example
+   * Template 1
    */
   templateName?: string;
   /**

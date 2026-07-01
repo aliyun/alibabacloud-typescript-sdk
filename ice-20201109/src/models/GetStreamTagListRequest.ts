@@ -63,8 +63,9 @@ export class GetStreamTagListRequest extends $dara.Model {
    * @remarks
    * The sorting order for the results. Valid values:
    * 
-   * *   StartTime:Desc (default): Sort by creation time in descending order.
-   * *   StartTime:Asc: Sort by creation time in ascending order.
+   * - StartTime:Desc (default): Sort by creation time in descending order.
+   * 
+   * - StartTime:Asc: Sort by creation time in ascending order.
    * 
    * @example
    * StartTime:Asc

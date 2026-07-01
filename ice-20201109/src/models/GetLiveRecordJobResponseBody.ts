@@ -25,8 +25,9 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $dara.Mod
    * 
    * Valid values:
    * 
-   * *   vod
-   * *   oss
+   * - vod
+   * 
+   * - oss
    * 
    * @example
    * oss
@@ -119,6 +120,9 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
   /**
    * @remarks
    * The name of the recording job.
+   * 
+   * @example
+   * Live event recording task 1
    */
   name?: string;
   /**
@@ -140,9 +144,11 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   paused: The job is paused.
-   * *   initial: The job is not started.
-   * *   started: The job is in progress.
+   * - paused: The job is paused.
+   * 
+   * - initial: The job is not started.
+   * 
+   * - started: The job is in progress.
    * 
    * @example
    * paused

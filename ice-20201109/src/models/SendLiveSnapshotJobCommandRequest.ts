@@ -9,9 +9,11 @@ export class SendLiveSnapshotJobCommandRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   stop
-   * *   restart
-   * *   start
+   * - stop
+   * 
+   * - restart
+   * 
+   * - start
    * 
    * This parameter is required.
    * 

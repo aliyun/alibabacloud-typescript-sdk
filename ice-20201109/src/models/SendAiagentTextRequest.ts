@@ -7,7 +7,7 @@ export class SendAIAgentTextRequest extends $dara.Model {
    * @remarks
    * The ID of the AI agent instance.
    * 
-   * > InstanceId is a unique identifier that is returned when the AI agent is started. To start an AI agent, call [StartAIAgentInstance ](https://help.aliyun.com/document_detail/2846201.html) or [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+   * > InstanceId is a unique identifier that is returned when the AI agent is started. To start an AI agent, call [StartAIAgentInstance ](https://help.aliyun.com/document_detail/2846201.html)or [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class SendAIAgentTextRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Hello
+   * Hello.
    */
   text?: string;
   static names(): { [key: string]: string } {

@@ -14,6 +14,11 @@ export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
   /**
    * @remarks
    * The alert type.
+   * 
+   * @example
+   * Scheduling Error: An error occurred when building the schedule.
+   * PlayBack Warning: Address pull exception when adding source.
+   * info: Information.
    */
   category?: string;
   /**

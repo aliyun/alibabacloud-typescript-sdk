@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * The time when the flow was created.
+   * The creation time of the MediaConnect Flow instance.
    * 
    * @example
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether Input Failover is enabled for the flow. Valid values: `yes` and `no`.
+   * 
+   * @example
+   * yes
+   */
   flowFailover?: string;
   /**
    * @remarks
-   * The flow ID.
+   * The ID of the MediaConnect Flow instance.
    * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
@@ -22,7 +29,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The flow name.
+   * The name of the MediaConnect Flow instance.
    * 
    * @example
    * AliTestFlow
@@ -31,7 +38,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowRegion?: string;
   /**
    * @remarks
-   * The state of the flow.
+   * The status of the MediaConnect Flow instance.
    * 
    * @example
    * online
@@ -39,7 +46,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowStatus?: string;
   /**
    * @remarks
-   * The time when the flow is started.
+   * The start time of the MediaConnect Flow instance.
    * 
    * @example
    * 2024-07-18T01:39:24Z
@@ -86,7 +93,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   content?: GetMediaConnectFlowResponseBodyContent;
   /**
    * @remarks
-   * The call description.
+   * The description of the API call.
    * 
    * @example
    * OK
@@ -94,7 +101,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID
    * 
    * @example
    * FB503AEF-118E-1516-89E2-7B227EA1AC20
@@ -102,7 +109,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned code. A value of 0 indicates the call is successful.
+   * The return code. A value of 0 indicates success.
    * 
    * @example
    * 0

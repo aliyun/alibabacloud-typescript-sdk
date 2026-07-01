@@ -16,7 +16,9 @@ export class SendMessageChatTextRequest extends $dara.Model {
   /**
    * @remarks
    * The mode of message sending. Valid values:
+   * 
    * - online
+   * 
    * - offline
    * 
    * Default value: offline.
@@ -60,7 +62,7 @@ export class SendMessageChatTextRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Hello
+   * Hello.
    */
   text?: string;
   /**
@@ -68,6 +70,7 @@ export class SendMessageChatTextRequest extends $dara.Model {
    * The type of the message. Valid values:
    * 
    * - announcement: notification.
+   * 
    * - custom: custom message.
    * 
    * This parameter is required.

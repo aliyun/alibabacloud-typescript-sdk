@@ -26,7 +26,7 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
    * The name of the hotword library.
    * 
    * @example
-   * 热词库使用名称
+   * Hotword library name
    */
   name?: string;
   /**
@@ -73,9 +73,11 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
    * @remarks
    * The usage scenario of the hotword library. Valid values:
    * 
-   * *   ASR: Automatic Speech Recognition
-   * *   StructuredMediaAssets: structured media analysis
-   * *   VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
+   * - ASR: Automatic Speech Recognition
+   * 
+   * - StructuredMediaAssets: structured media analysis
+   * 
+   * - VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
    * 
    * @example
    * ASR

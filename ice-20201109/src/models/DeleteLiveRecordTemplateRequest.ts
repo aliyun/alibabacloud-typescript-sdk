@@ -10,7 +10,7 @@ export class DeleteLiveRecordTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b7****
    */
   templateId?: string;
   static names(): { [key: string]: string } {

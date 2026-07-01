@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYikeAssetUploadRequest extends $dara.Model {
   /**
    * @remarks
+   * File extension.
+   * 
    * This parameter is required.
    * 
    * @example

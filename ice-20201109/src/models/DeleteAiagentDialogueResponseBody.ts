@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIAgentDialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7B117AF5-2A1******

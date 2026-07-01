@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRtcRobotInstanceResponseBodyConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow voice interruption.
+   * 
    * @example
    * true
    */
   enableVoiceInterrupt?: boolean;
+  /**
+   * @remarks
+   * The welcome message.
+   * 
+   * @example
+   * Hello
+   */
   greeting?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * zhixiaoxia
    */
@@ -41,35 +54,58 @@ export class DescribeRtcRobotInstanceResponseBodyConfig extends $dara.Model {
 
 export class DescribeRtcRobotInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The authentication token for the RTC Channel.
+   * 
    * @example
    * **********
    */
   authToken?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * testId
    */
   channelId?: string;
+  /**
+   * @remarks
+   * The advanced configurations of the AI agent.
+   */
   config?: DescribeRtcRobotInstanceResponseBodyConfig;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 20B3A1B6-4BD2-5DE6-BCBC-098C9B4F4E91
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * - `Executing`: The instance is running.
+   * 
+   * - `Finished`: The instance has stopped.
+   * 
    * @example
    * Executing
    */
   status?: string;
   /**
+   * @remarks
+   * The custom user data.
+   * 
    * @example
    * {}
    */
   userData?: string;
   /**
+   * @remarks
+   * The ID of the AI agent in the channel.
+   * 
    * @example
    * my-robot
    */

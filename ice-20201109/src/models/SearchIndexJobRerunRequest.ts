@@ -13,6 +13,13 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
    */
   mediaIds?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks
@@ -26,12 +33,14 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
    * @remarks
    * The type of the job. Separate multiple types with commas (,).
    * 
-   * *   aiLabel: smart tagging.
-   * *   face: face recognition.
-   * *   mm: large visual model.
+   * - aiLabel: smart tagging.
+   * 
+   * - face: face recognition.
+   * 
+   * - mm: large visual model.
    * 
    * @example
-   * AiLabel,Face,Mm
+   * aiLabel,face,mm
    */
   task?: string;
   static names(): { [key: string]: string } {

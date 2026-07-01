@@ -22,10 +22,13 @@ export class CreateLiveTranscodeTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the template. Valid values:
    * 
-   * *   normal
-   * *   narrow-band
-   * *   audio-only
-   * *   origin
+   * - normal
+   * 
+   * - narrow-band
+   * 
+   * - audio-only
+   * 
+   * - origin
    * 
    * This parameter is required.
    * 

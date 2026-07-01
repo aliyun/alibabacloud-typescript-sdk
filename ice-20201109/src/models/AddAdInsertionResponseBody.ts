@@ -45,7 +45,7 @@ export class AddAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class AddAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * DASH清单播放端点前缀
+   * DASH manifest playback endpoint prefix
    */
   dashPrefix?: string;
   /**

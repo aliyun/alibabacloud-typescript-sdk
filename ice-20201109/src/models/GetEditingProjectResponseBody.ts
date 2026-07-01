@@ -32,6 +32,9 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   * 
+   * @example
+   * See the template user guide.
    */
   clipsParam?: string;
   /**
@@ -39,7 +42,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
    * The thumbnail URL of the online editing project.
    * 
    * @example
-   * oss://example-bucket/example.jpg
+   * http://aaa.bbb/your-cover.jpg
    */
   coverURL?: string;
   /**
@@ -71,6 +74,9 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The description of the online editing project.
+   * 
+   * @example
+   * Example description
    */
   description?: string;
   /**
@@ -202,6 +208,9 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The title of the online editing project.
+   * 
+   * @example
+   * Sample title
    */
   title?: string;
   static names(): { [key: string]: string } {

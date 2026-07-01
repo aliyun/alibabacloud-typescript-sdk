@@ -5,28 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.Model {
   /**
    * @remarks
-   * The speaker description.
+   * The description of the voice.
+   * 
+   * @example
+   * 甜美女声
    */
   desc?: string;
   /**
    * @remarks
-   * The speaker name.
+   * The name of the voice.
+   * 
+   * @example
+   * Zhi Tian
    */
   name?: string;
   /**
    * @remarks
-   * The remarks of the speaker.
+   * Notes for the voice.
+   * 
+   * @example
+   * 中文及中英文混合场景
    */
   remark?: string;
+  /**
+   * @remarks
+   * The sample rates supported by the voice.
+   * 
+   * @example
+   * 48000
+   */
   supportSampleRate?: string;
   /**
    * @remarks
-   * The tag of the speaker type.
+   * The tag for the voice category.
+   * 
+   * @example
+   * General scenario
    */
   tag?: string;
   /**
    * @remarks
-   * The speaker ID.
+   * The voice ID.
    * 
    * @example
    * zhitian
@@ -35,14 +54,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
   voiceSource?: string;
   /**
    * @remarks
-   * The speaker type.
-   * 
-   * Valid values:
-   * 
-   * *   Male
-   * *   Female
-   * *   Boy
-   * *   Girl
+   * The voice type.
    * 
    * @example
    * Female
@@ -50,10 +62,10 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
   voiceType?: string;
   /**
    * @remarks
-   * The URL of the sample audio file.
+   * The URL of the sample audio.
    * 
    * @example
-   * https://***.com/zhiqing.mp3
+   * https://***.com/zhitian.mp3
    */
   voiceUrl?: string;
   static names(): { [key: string]: string } {
@@ -96,12 +108,15 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
 export class ListSmartVoiceGroupsResponseBodyVoiceGroups extends $dara.Model {
   /**
    * @remarks
-   * The name of the speaker group.
+   * The name of the voice group.
+   * 
+   * @example
+   * Ultra HD
    */
   type?: string;
   /**
    * @remarks
-   * The speakers.
+   * The voice list.
    */
   voiceList?: ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList[];
   static names(): { [key: string]: string } {
@@ -141,7 +156,7 @@ export class ListSmartVoiceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried speaker groups.
+   * An array of voice groups.
    */
   voiceGroups?: ListSmartVoiceGroupsResponseBodyVoiceGroups[];
   static names(): { [key: string]: string } {

@@ -4,16 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubYikeUserCreditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the operation fails. A possible value is:
+   * 
+   * - `NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA`: The sub-account\\"s credit balance is insufficient.
+   * 
    * @example
    * NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
+   * - `true`: The operation succeeded.
+   * 
+   * - `false`: The operation failed.
+   * 
    * @example
    * true
    */

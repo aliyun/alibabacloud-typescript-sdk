@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddFavoritePublicMediaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Media Asset IDs that were not added to your Favorites. This happens if a Media Asset does not exist or is already in your Favorites.
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * The Request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

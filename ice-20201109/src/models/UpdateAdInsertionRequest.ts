@@ -9,8 +9,9 @@ export class UpdateAdInsertionRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   OFF: Disable.
-   * *   ON: Enable.
+   * - OFF: Disable.
+   * 
+   * - ON: Enable.
    * 
    * @example
    * ON

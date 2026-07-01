@@ -29,6 +29,13 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
    * rtmp://pull.test.alivecdn.com/live/alitest
    */
   inputFromUrl?: string;
+  /**
+   * @remarks
+   * Input name. This parameter is required only when primary/standby input is enabled for the instance.
+   * 
+   * @example
+   * input1
+   */
   inputName?: string;
   /**
    * @remarks

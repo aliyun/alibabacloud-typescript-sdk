@@ -15,9 +15,11 @@ export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.
    * @remarks
    * The asset status. Valid values:
    * 
-   * *   Queuing: The asset is waiting for packaging.
-   * *   Playable: The asset is packaged and playable.
-   * *   Failed: The asset fails to be packaged.
+   * - Queuing: The asset is waiting for packaging.
+   * 
+   * - Playable: The asset is packaged and playable.
+   * 
+   * - Failed: The asset fails to be packaged.
    * 
    * @example
    * Playable

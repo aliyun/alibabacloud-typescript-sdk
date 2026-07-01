@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaInfoJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input of the job.
+   * The input for the job.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * job-name
    */
   inputShrink?: string;
   /**
@@ -20,12 +23,15 @@ export class SubmitMediaInfoJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The scheduling parameters.
+   * The scheduling settings.
+   * 
+   * @example
+   * user-data
    */
   scheduleConfigShrink?: string;
   /**
    * @remarks
-   * The user data.
+   * The custom user data.
    * 
    * @example
    * user-data

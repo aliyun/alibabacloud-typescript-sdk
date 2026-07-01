@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media fingerprint library. We recommend that you save this ID for subsequent calls of other operations.
+   * The DNA database ID. Save this ID for use in subsequent API calls.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
@@ -13,12 +13,15 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   DBId?: string;
   /**
    * @remarks
-   * The description of the media fingerprint library.
+   * The description of the DNA database.
+   * 
+   * @example
+   * 这是一个视频DNA库。
    */
   description?: string;
   /**
    * @remarks
-   * The model of the media fingerprint library.
+   * The DNA database model.
    * 
    * @example
    * Video
@@ -26,7 +29,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The name of the media fingerprint library.
+   * The name of the DNA database.
    * 
    * @example
    * example name
@@ -34,7 +37,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The state of the media fingerprint library. After a media fingerprint library is created, it enters the offline state. After the media fingerprint library is processed at the backend, it enters the active state.
+   * After you create the database, its status is `offline` by default. The status automatically changes to `active` after the backend completes processing.
    * 
    * @example
    * offline
@@ -72,7 +75,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
 export class CreateDNADBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the media fingerprint library.
+   * The details of the DNA database.
    */
   DBInfo?: CreateDNADBResponseBodyDBInfo;
   /**

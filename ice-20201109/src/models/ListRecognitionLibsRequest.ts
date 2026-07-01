@@ -7,11 +7,15 @@ export class ListRecognitionLibsRequest extends $dara.Model {
    * @remarks
    * The type of recognition algorithm. Valid values:
    * 
-   * *   landmark
-   * *   object
-   * *   logo
-   * *   face
-   * *   label
+   * - landmark
+   * 
+   * - object
+   * 
+   * - logo
+   * 
+   * - face
+   * 
+   * - label
    * 
    * This parameter is required.
    * 
@@ -19,6 +23,13 @@ export class ListRecognitionLibsRequest extends $dara.Model {
    * landmark
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * Library ID. If provided, the query returns only this specific library. A list of IDs separated by commas (",") is also supported.
+   * 
+   * @example
+   * lib1,lib2,lib3
+   */
   libId?: string;
   ownerAccount?: string;
   ownerId?: number;

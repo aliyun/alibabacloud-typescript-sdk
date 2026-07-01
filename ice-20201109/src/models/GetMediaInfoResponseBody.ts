@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults extends $dara.Model {
   /**
    * @remarks
-   * The result data. The value is a JSON string. For information about the data structures of different data types<props="china">, see [Description of the Results parameter](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-querysmarttagjob?spm=a2c4g.11186623.0.0.521d48b7KfapOL#api-detail-40).
+   * The detailed analysis result is a JSON string. For the data structure of each Type, see [Result parameter description](~~478787#api-detail-40~~).
    * 
    * @example
    * {"autoChapters": [...]}
@@ -13,9 +13,17 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResu
   data?: string;
   /**
    * @remarks
-   * The tagging type. Valid values:
+   * The tag identification type. Valid values:
    * 
-   * *   NLP: natural language processing (NLP)-based tagging
+   * - NLP: The result from Natural Language Processing (NLP).
+   * 
+   * - TextLabel: A text tag.
+   * 
+   * - VideoLabel: A video tag.
+   * 
+   * - ASR: The raw result from Automatic Speech Recognition (ASR).
+   * 
+   * - OCR: The raw result from Optical Character Recognition (OCR).
    * 
    * @example
    * NLP
@@ -47,7 +55,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResu
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI task.
+   * The AI job ID.
    * 
    * @example
    * ****483915d4f2cd8ac20b48fb04****
@@ -55,7 +63,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob ext
   aiJobId?: string;
   /**
    * @remarks
-   * The URL of the tagging result.
+   * The tag result URL.
    * 
    * @example
    * http://xx.oss-cn-shanghai.aliyuncs.com/result2.txt
@@ -63,16 +71,18 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob ext
   resultUrl?: string;
   /**
    * @remarks
-   * The recognized tags.
+   * A list of tag recognition results.
    */
   results?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults[];
   /**
    * @remarks
-   * The analysis status. Valid values:
+   * The AI analysis status:
    * 
-   * *   Analyzing
-   * *   AnalyzeSuccess
-   * *   AnalyzeFailed
+   * - **Analyzing**: The analysis is in progress.
+   * 
+   * - **AnalyzeSuccess**: The analysis is successful.
+   * 
+   * - **AnalyzeFailed**: The analysis failed.
    * 
    * @example
    * Analyzing
@@ -113,18 +123,27 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $dara.Model {
    * @remarks
    * The AI category. Valid values:
    * 
-   * *   Life
-   * *   Good-looking
-   * *   Cute pets
-   * *   News
-   * *   Ads
-   * *   Environmental resources
-   * *   Automobile
+   * - Lifestyle
+   * 
+   * - Appearance
+   * 
+   * - Pets
+   * 
+   * - News
+   * 
+   * - Advertisement
+   * 
+   * - Environment
+   * 
+   * - Automobile
+   * 
+   * @example
+   * 生活
    */
   aiCategory?: string;
   /**
    * @remarks
-   * The ID of the AI task.
+   * The AI job ID.
    * 
    * @example
    * ****483915d4f2cd8ac20b48fb04****
@@ -132,7 +151,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $dara.Model {
   aiJobId?: string;
   /**
    * @remarks
-   * The analysis result.
+   * The raw AI analysis result.
    * 
    * @example
    * https://sample-bucket.cn-shanghai.aliyuncs.com/result.json
@@ -140,9 +159,9 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The storage type. This parameter indicates the library in which the analysis data is stored. Valid values:
+   * The save type. Specifies whether to save the results to the search index after the AI analysis is complete. Valid values:
    * 
-   * *   TEXT: the text library.
+   * - TEXT: The text index.
    * 
    * @example
    * TEXT
@@ -150,22 +169,30 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $dara.Model {
   saveType?: string;
   /**
    * @remarks
-   * The information about the tagging job.
+   * The tag job.
    */
   standardSmartTagJob?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob;
   /**
    * @remarks
-   * The analysis status. Valid values:
+   * The status of the AI analysis:
    * 
-   * *   Analyzing
-   * *   AnalyzeSuccess
-   * *   AnalyzeFailed
-   * *   Saving
-   * *   SaveSuccess
-   * *   SaveFailed
-   * *   Deleting
-   * *   DeleteSuccess
-   * *   DeleteFailed
+   * - Analyzing: The analysis is in progress.
+   * 
+   * - AnalyzeSuccess: The analysis is successful.
+   * 
+   * - AnalyzeFailed: The analysis failed.
+   * 
+   * - Saving: The data is being saved.
+   * 
+   * - SaveSuccess: The data is saved.
+   * 
+   * - SaveFailed: The data failed to save.
+   * 
+   * - Deleting: The data is being deleted.
+   * 
+   * - DeleteSuccess: The data is deleted.
+   * 
+   * - DeleteFailed: The data failed to delete.
    * 
    * @example
    * Analyzing
@@ -208,7 +235,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $dara.Model {
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate, in kbit/s.
    * 
    * @example
    * 127.794
@@ -216,7 +243,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   bitrate?: string;
   /**
    * @remarks
-   * The output layout of sound channels.
+   * The channel layout.
    * 
    * @example
    * stereo
@@ -224,7 +251,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   channelLayout?: string;
   /**
    * @remarks
-   * The number of sound channels.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -272,7 +299,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration, in seconds.
    * 
    * @example
    * 16.200998
@@ -288,7 +315,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   fps?: string;
   /**
    * @remarks
-   * The sequence number of the audio track.
+   * The index of the audio stream.
    * 
    * @example
    * 1
@@ -304,7 +331,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   lang?: string;
   /**
    * @remarks
-   * The number of frames.
+   * The total number of audio frames.
    * 
    * @example
    * 10
@@ -312,7 +339,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   numFrames?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The encoding profile.
    * 
    * @example
    * High
@@ -320,7 +347,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   profile?: string;
   /**
    * @remarks
-   * The sampling format.
+   * The sample format.
    * 
    * @example
    * fltp
@@ -328,7 +355,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   sampleFmt?: string;
   /**
    * @remarks
-   * The sampling rate.
+   * The sample rate, in Hz.
    * 
    * @example
    * 44100
@@ -336,7 +363,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   sampleRate?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in seconds.
    * 
    * @example
    * 0.000000
@@ -408,7 +435,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The file bitrate in kbit/s.
    * 
    * @example
    * 1132.68
@@ -416,7 +443,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   bitrate?: string;
   /**
    * @remarks
-   * The time when the file was created.
+   * The time when the file was created. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -424,7 +451,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   createTime?: string;
   /**
    * @remarks
-   * The duration.
+   * The file duration in seconds.
    * 
    * @example
    * 216.206667
@@ -432,7 +459,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * example.mp4
@@ -440,7 +467,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The file size in bytes.
    * 
    * @example
    * 30611502
@@ -448,7 +475,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
+   * The status of the file.
    * 
    * @example
    * Normal
@@ -456,7 +483,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file.
    * 
    * @example
    * source_file
@@ -464,7 +491,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   fileType?: string;
   /**
    * @remarks
-   * The OSS URL of the file.
+   * The file\\"s OSS URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -480,7 +507,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   formatName?: string;
   /**
    * @remarks
-   * The height.
+   * The video height in pixels.
    * 
    * @example
    * 540
@@ -488,7 +515,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   height?: string;
   /**
    * @remarks
-   * The time when the file was last modified.
+   * The time when the file was last modified. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -496,7 +523,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   modifiedTime?: string;
   /**
    * @remarks
-   * The region in which the file is stored.
+   * The Region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -504,7 +531,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
   region?: string;
   /**
    * @remarks
-   * The width.
+   * The video width in pixels.
    * 
    * @example
    * 960
@@ -606,7 +633,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
   duration?: string;
   /**
    * @remarks
-   * The sequence number of the subtitle track.
+   * The index of the subtitle stream.
    * 
    * @example
    * 1
@@ -622,7 +649,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
   lang?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in seconds.
    * 
    * @example
    * 0
@@ -678,7 +705,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The average video frame rate.
+   * The average frame rate.
    * 
    * @example
    * 24.0
@@ -686,7 +713,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   avgFPS?: string;
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate, in kbit/s.
    * 
    * @example
    * 1001.594
@@ -742,7 +769,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   dar?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration, in seconds.
    * 
    * @example
    * 216.206706
@@ -758,7 +785,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   fps?: string;
   /**
    * @remarks
-   * Indicates whether the video track contains bidirectional frames (B-frames).
+   * Specifies whether B-frames exist.
    * 
    * @example
    * 2
@@ -766,7 +793,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   hasBFrames?: string;
   /**
    * @remarks
-   * The height.
+   * The video height in pixels.
    * 
    * @example
    * 540
@@ -774,7 +801,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   height?: string;
   /**
    * @remarks
-   * The sequence number of the video track.
+   * The index of the video stream.
    * 
    * @example
    * 0
@@ -790,7 +817,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   lang?: string;
   /**
    * @remarks
-   * The codec level.
+   * The encoding level.
    * 
    * @example
    * 30
@@ -798,7 +825,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   level?: string;
   /**
    * @remarks
-   * The total number of frames.
+   * The total number of video frames.
    * 
    * @example
    * 5184
@@ -806,7 +833,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   nbFrames?: string;
   /**
    * @remarks
-   * The number of frames.
+   * The total number of frames.
    * 
    * @example
    * 5184
@@ -822,7 +849,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   pixFmt?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The encoding profile.
    * 
    * @example
    * High
@@ -830,7 +857,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   profile?: string;
   /**
    * @remarks
-   * The rotation angle.
+   * The rotation angle of the video.
    * 
    * @example
    * 0
@@ -846,7 +873,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   sar?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in seconds.
    * 
    * @example
    * 0.081706
@@ -862,7 +889,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
   timebase?: string;
   /**
    * @remarks
-   * The width.
+   * The video width in pixels.
    * 
    * @example
    * 960
@@ -938,22 +965,22 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
 export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The information about the audio tracks. A media asset may have multiple audio tracks.
+   * A list of audio stream information. A media asset may contain multiple audio streams.
    */
   audioStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
   /**
    * @remarks
-   * The basic information about the file, including the duration and size.
+   * The basic information about the file, such as the duration and size.
    */
   fileBasicInfo?: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * The information about the subtitle tracks. A media asset may have multiple subtitle tracks.
+   * A list of subtitle stream information. A media asset may contain multiple subtitle streams.
    */
   subtitleStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The information about the video tracks. A media asset may have multiple video tracks.
+   * A list of video stream information. A media asset may contain multiple video streams.
    */
   videoStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -998,7 +1025,7 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $dara.Model {
 export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The service to which the media asset belongs.
+   * The business associated with the media asset.
    * 
    * @example
    * ICE
@@ -1006,7 +1033,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   biz?: string;
   /**
    * @remarks
-   * The business type.
+   * The business type of the media asset.
    * 
    * @example
    * general
@@ -1022,7 +1049,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   cateId?: number;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
    * cateName
@@ -1030,12 +1057,15 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   cateName?: string;
   /**
    * @remarks
-   * The category.
+   * The category of the media asset.
+   * 
+   * @example
+   * Category
    */
   category?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The cover image URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -1043,7 +1073,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The time when the media asset was created. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -1051,7 +1081,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The time when the media asset was deleted. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
    * 
    * @example
    * 2020-12-26T04:11:15Z
@@ -1059,12 +1089,15 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   deletedTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description of the media asset.
+   * 
+   * @example
+   * Description
    */
   description?: string;
   /**
    * @remarks
-   * The input URL of the media asset in another service.
+   * The media asset URL.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -1072,7 +1105,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   inputURL?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -1080,12 +1113,15 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   mediaId?: string;
   /**
    * @remarks
-   * The tags.
+   * A comma-separated list of tags for the media asset.
+   * 
+   * @example
+   * tag1
    */
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset.
+   * The media asset type.
    * 
    * @example
    * video
@@ -1093,7 +1129,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The time when the media asset was last modified. The time is in UTC and follows the `YYYY-MM-DDTHH:MM:SSZ` format.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -1101,7 +1137,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   modifiedTime?: string;
   /**
    * @remarks
-   * The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). The ID is unique among users.
+   * A custom, user-unique ID. It must be 6 to 64 characters long and can only contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * 123-1234
@@ -1109,7 +1145,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   referenceId?: string;
   /**
    * @remarks
-   * The snapshots.
+   * A list of snapshot URLs.
    * 
    * @example
    * [
@@ -1121,7 +1157,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   snapshots?: string;
   /**
    * @remarks
-   * The source.
+   * The source of the media asset.
    * 
    * @example
    * oss
@@ -1129,7 +1165,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   source?: string;
   /**
    * @remarks
-   * The sprite.
+   * The details of the generated sprite images.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
@@ -1137,7 +1173,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   spriteImages?: string;
   /**
    * @remarks
-   * The resource status.
+   * The status of the media asset.
    * 
    * @example
    * Normal
@@ -1145,7 +1181,10 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The title.
+   * The title of the media asset.
+   * 
+   * @example
+   * Title
    */
   title?: string;
   /**
@@ -1158,7 +1197,7 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
   uploadSource?: string;
   /**
    * @remarks
-   * The user data.
+   * Custom user data.
    * 
    * @example
    * userDataTest
@@ -1230,22 +1269,22 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model
 export class GetMediaInfoResponseBodyMediaInfo extends $dara.Model {
   /**
    * @remarks
-   * The original AI analysis data.
+   * The raw data from the AI analysis.
    */
   aiRoughData?: GetMediaInfoResponseBodyMediaInfoAiRoughData;
   /**
    * @remarks
-   * The file information.
+   * A list of file information objects.
    */
   fileInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoList[];
   /**
    * @remarks
-   * The basic information about the media asset.
+   * Basic information about the media asset.
    */
   mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -1290,7 +1329,7 @@ export class GetMediaInfoResponseBodyMediaInfo extends $dara.Model {
 export class GetMediaInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the media asset.
+   * Information about the media asset.
    */
   mediaInfo?: GetMediaInfoResponseBodyMediaInfo;
   /**

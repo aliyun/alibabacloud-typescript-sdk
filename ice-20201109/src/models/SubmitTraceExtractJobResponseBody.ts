@@ -40,7 +40,7 @@ export class SubmitTraceExtractJobResponseBody extends $dara.Model {
   data?: SubmitTraceExtractJobResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * ok
@@ -48,7 +48,7 @@ export class SubmitTraceExtractJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

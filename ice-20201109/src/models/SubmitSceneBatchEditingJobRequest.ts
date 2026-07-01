@@ -30,6 +30,9 @@ export class SubmitSceneBatchEditingJobRequest extends $dara.Model {
   /**
    * @remarks
    * Custom user data, including callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

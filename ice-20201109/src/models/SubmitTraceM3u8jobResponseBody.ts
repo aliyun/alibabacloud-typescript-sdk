@@ -35,7 +35,7 @@ export class SubmitTraceM3u8JobResponseBodyData extends $dara.Model {
 export class SubmitTraceM3u8JobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: SubmitTraceM3u8JobResponseBodyData;
   /**
@@ -48,7 +48,7 @@ export class SubmitTraceM3u8JobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

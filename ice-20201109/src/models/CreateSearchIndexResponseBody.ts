@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSearchIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded. Valid values:
+   * 
+   * - true: Invocation succeeded
+   * 
+   * - false: Failed to invoke
+   * 
    * @example
    * true
    */

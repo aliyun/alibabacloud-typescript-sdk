@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTranscodeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * Job ID
    * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8

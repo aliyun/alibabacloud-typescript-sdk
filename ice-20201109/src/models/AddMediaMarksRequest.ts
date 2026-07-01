@@ -18,6 +18,23 @@ export class AddMediaMarksRequest extends $dara.Model {
    * The mark information. The value must be a JSONArray.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * [
+   *  {
+   *  "MarkStartTime": "12.1",
+   *  "MarkEndTime": "12.2",
+   *  "MarkTag": "tag-1",
+   *  "MarkContent": "content-1",
+   *  "MarkStatus": "a"
+   *  },{
+   *  "MarkStartTime": "12.3",
+   *  "MarkEndTime": "12.4",
+   *  "MarkTag": "tag-2",
+   *  "MarkContent": "content-2",
+   *  "MarkStatus": "online"
+   *  }
+   * ]
    */
   mediaMarks?: string;
   static names(): { [key: string]: string } {

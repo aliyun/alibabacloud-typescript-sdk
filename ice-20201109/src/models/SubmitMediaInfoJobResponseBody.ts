@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $dara.Model {
   /**
    * @remarks
-   * The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * The value of the media object. This value depends on the `Type` parameter.
+   * 
+   * - If `Type` is `OSS`, this parameter is the URL of the media file. Both the `oss://` and HTTPS protocols are supported.
+   * 
+   * - If `Type` is `Media`, this parameter is the media ID.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -13,7 +17,11 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $dara.Model
   media?: string;
   /**
    * @remarks
-   * The type of the media object. Valid values: OSS and Media. A value of OSS indicates an OSS object. A value of Media indicates a media asset.
+   * The type of input media. Valid values:
+   * 
+   * - `OSS`: An Object Storage Service (OSS) file.
+   * 
+   * - `Media`: A media ID.
    * 
    * @example
    * OSS
@@ -45,7 +53,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $dara.Model
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the stream.
    * 
    * @example
    * 0.f
@@ -53,7 +61,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   bitrate?: string;
   /**
    * @remarks
-   * The sound channel layout.
+   * The channel layout.
    * 
    * @example
    * stereo
@@ -61,7 +69,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   channelLayout?: string;
   /**
    * @remarks
-   * The number of sound channels.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -69,7 +77,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   channels?: string;
   /**
    * @remarks
-   * The name of the encoding format.
+   * The full name of the codec.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -77,7 +85,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   codecLongName?: string;
   /**
    * @remarks
-   * The encoding format.
+   * The stream\\"s codec.
    * 
    * @example
    * aac
@@ -85,7 +93,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   codecName?: string;
   /**
    * @remarks
-   * The encoder tag.
+   * The codec tag.
    * 
    * @example
    * 0x000f
@@ -93,7 +101,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   codecTag?: string;
   /**
    * @remarks
-   * The name of the encoder tag.
+   * The codec tag string.
    * 
    * @example
    * [15][0][0][0]
@@ -101,7 +109,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   codecTagString?: string;
   /**
    * @remarks
-   * The time base of the encoder.
+   * The time base of the codec.
    * 
    * @example
    * 1/44100
@@ -109,7 +117,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration of the stream. Unit: seconds.
+   * The duration of the stream, in seconds.
    * 
    * @example
    * 403.039989
@@ -117,7 +125,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   duration?: string;
   /**
    * @remarks
-   * The sequence number of the stream.
+   * The stream index.
    * 
    * @example
    * 1
@@ -125,7 +133,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   index?: string;
   /**
    * @remarks
-   * The language of the stream.
+   * The stream\\"s language.
    * 
    * @example
    * us
@@ -141,7 +149,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   sampleFmt?: string;
   /**
    * @remarks
-   * The sampling rate. Unit: Hz.
+   * The sample rate, in Hz.
    * 
    * @example
    * 44100
@@ -149,7 +157,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   sampleRate?: string;
   /**
    * @remarks
-   * The start time of the stream.
+   * The start time of the stream, in seconds.
    * 
    * @example
    * 1.473556
@@ -157,7 +165,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The stream\\"s time base.
    * 
    * @example
    * 1/90000
@@ -215,7 +223,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The video bitrate.
+   * The video bitrate, in Kbit/s.
    * 
    * @example
    * 888.563
@@ -223,7 +231,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   bitrate?: string;
   /**
    * @remarks
-   * The duration of the video.
+   * The duration of the video, in seconds.
    * 
    * @example
    * 403.039999
@@ -239,7 +247,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   fileName?: string;
   /**
    * @remarks
-   * The file size.
+   * The file size, in bytes.
    * 
    * @example
    * 31737
@@ -247,7 +255,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   fileSize?: string;
   /**
    * @remarks
-   * The state of the file.
+   * The file status.
    * 
    * @example
    * Normal
@@ -279,7 +287,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   formatName?: string;
   /**
    * @remarks
-   * The height of the output video.
+   * The height of the video, in pixels.
    * 
    * @example
    * 478
@@ -287,7 +295,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   height?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media ID.
    * 
    * @example
    * 2b36bd19c13f4145b094c0cad80dbce5
@@ -295,7 +303,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   mediaId?: string;
   /**
    * @remarks
-   * The region in which the file resides.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -303,7 +311,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
   region?: string;
   /**
    * @remarks
-   * The width of the output video.
+   * The width of the video, in pixels.
    * 
    * @example
    * 848
@@ -363,7 +371,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   avgFps?: string;
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the stream, in Kbit/s.
    * 
    * @example
    * 888.563
@@ -371,7 +379,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   bitRate?: string;
   /**
    * @remarks
-   * The name of the encoding format.
+   * The full name of the codec.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -379,7 +387,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   codecLongName?: string;
   /**
    * @remarks
-   * The encoding format.
+   * The stream\\"s codec.
    * 
    * @example
    * h264
@@ -387,7 +395,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   codecName?: string;
   /**
    * @remarks
-   * The tag of the encoding format.
+   * The codec tag.
    * 
    * @example
    * 0x001b
@@ -395,7 +403,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   codecTag?: string;
   /**
    * @remarks
-   * The tag string of the encoding format.
+   * The codec tag string.
    * 
    * @example
    * [27][0][0][0]
@@ -403,7 +411,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   codecTagString?: string;
   /**
    * @remarks
-   * The time base of the encoder.
+   * The time base of the codec.
    * 
    * @example
    * 1/50
@@ -411,7 +419,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio.
+   * The display aspect ratio (DAR).
    * 
    * @example
    * 16:9
@@ -419,7 +427,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   dar?: string;
   /**
    * @remarks
-   * The duration of the file.
+   * The duration of the stream, in seconds.
    * 
    * @example
    * 403.039989
@@ -435,11 +443,13 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   fps?: string;
   /**
    * @remarks
-   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * Indicates whether the stream contains B-frames. Valid values:
    * 
-   * *   0: The stream contains no B-frames.
-   * *   1: The stream contains one B-frame.
-   * *   2: The stream contains multiple consecutive B-frames.
+   * - `0`: The stream does not contain B-frames.
+   * 
+   * - `1`: The stream contains one B-frame.
+   * 
+   * - `2`: The stream contains two or more consecutive B-frames.
    * 
    * @example
    * 2
@@ -447,7 +457,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the output video.
+   * The height of the video, in pixels.
    * 
    * @example
    * 478
@@ -455,7 +465,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   height?: string;
   /**
    * @remarks
-   * The sequence number of the stream.
+   * The stream index.
    * 
    * @example
    * 0
@@ -463,7 +473,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   index?: string;
   /**
    * @remarks
-   * The language of the stream.
+   * The stream\\"s language.
    * 
    * @example
    * zh
@@ -495,7 +505,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   pixFmt?: string;
   /**
    * @remarks
-   * The encoder profile.
+   * The codec profile.
    * 
    * @example
    * High
@@ -503,7 +513,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   profile?: string;
   /**
    * @remarks
-   * The rotation angle of the video image.
+   * The rotation angle of the video, in degrees.
    * 
    * @example
    * 0
@@ -511,7 +521,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   rotate?: string;
   /**
    * @remarks
-   * The aspect ratio of the area from which the sampling points are collected.
+   * The sample aspect ratio (SAR).
    * 
    * @example
    * 478:477
@@ -519,7 +529,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   sar?: string;
   /**
    * @remarks
-   * The start time of the stream.
+   * The start time of the stream, in seconds.
    * 
    * @example
    * 1.473556
@@ -527,7 +537,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The stream\\"s time base.
    * 
    * @example
    * 1/90000
@@ -535,7 +545,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
   timeBase?: string;
   /**
    * @remarks
-   * The width of the output video.
+   * The width of the video, in pixels.
    * 
    * @example
    * 848
@@ -609,17 +619,17 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $dara.Model {
   /**
    * @remarks
-   * The information about the audio stream.
+   * A list of audio stream details.
    */
   audioStreamInfoList?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList[];
   /**
    * @remarks
-   * The basic file information.
+   * Basic information about the file.
    */
   fileBasicInfo?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo;
   /**
    * @remarks
-   * The information about the video stream.
+   * A list of video stream details.
    */
   videoStreamInfoList?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -659,7 +669,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * The pipeline ID.
    * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
@@ -667,7 +677,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $d
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * The job priority. Higher values indicate higher priority. Valid values range from 1 to 10.
    * 
    * @example
    * 5
@@ -699,7 +709,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $d
 export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether asynchronous processing was performed.
+   * Indicates whether to process the job asynchronously.
    * 
    * @example
    * true
@@ -707,7 +717,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the job was completed.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -715,7 +725,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The job input.
    */
   input?: SubmitMediaInfoJobResponseBodyMediaInfoJobInput;
   /**
@@ -728,7 +738,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The details of the media information.
+   * Details of the media information.
    */
   mediaInfoProperty?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
   /**
@@ -749,12 +759,18 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduling information.
+   * The scheduling configuration.
    */
   scheduleConfig?: SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
   /**
    * @remarks
-   * The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+   * The job status. Valid values:
+   * 
+   * - `Init`: Submitted.
+   * 
+   * - `Success`: Successful.
+   * 
+   * - `Fail`: Failed.
    * 
    * @example
    * Init
@@ -762,7 +778,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The job submission information.
+   * The job submission details.
    * 
    * @example
    * {}
@@ -778,7 +794,13 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The source of the job. Valid values: API, WorkFlow, and Console.
+   * The source of the job. Valid values:
+   * 
+   * - `API`: The job was submitted by calling an API operation.
+   * 
+   * - `WorkFlow`: The job was triggered by a workflow.
+   * 
+   * - `Console`: The job was submitted in the console.
    * 
    * @example
    * API
@@ -852,7 +874,7 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
 export class SubmitMediaInfoJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * MediaInfoJobDTO
+   * The media information job.
    */
   mediaInfoJob?: SubmitMediaInfoJobResponseBodyMediaInfoJob;
   /**

@@ -8,7 +8,7 @@ import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * IM的智能体Id。
+   * The IM agent ID.
    * 
    * @example
    * ******005e4f309379701645f4****
@@ -16,7 +16,7 @@ export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
   IMAIAgentId?: string;
   /**
    * @remarks
-   * 接收用户Id。
+   * The receiver user ID.
    * 
    * @example
    * 4167626d312034b2b1c3b7f2f3e41884
@@ -48,7 +48,7 @@ export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
 export class StartAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
+   * The agent ID configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
    * 
    * This parameter is required.
    * 
@@ -56,27 +56,46 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  /**
+   * @remarks
+   * The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+   * 
+   * > This field is compatible with TemplateConfig. Fields in AgentConfig take precedence. If TemplateConfig contains fields not defined in AgentConfig, those fields are used. Use AgentConfig instead of TemplateConfig.
+   */
   agentConfig?: AIAgentConfig;
   /**
    * @remarks
-   * 同步聊天记录配置。
+   * The chat history synchronization configuration.
    */
   chatSyncConfig?: StartAIAgentInstanceRequestChatSyncConfig;
   /**
    * @remarks
+   * The configuration required for the agent at runtime.
+   * 
    * This parameter is required.
    */
   runtimeConfig?: AIAgentRuntimeConfig;
   /**
+   * @remarks
+   * A unique identifier for the chat session. This parameter is optional.
+   * 
    * @example
    * f213fbc005e4f309379701645f4****
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+   * 
+   * > The agent template configuration. This field is deprecated. See the AgentConfig field.
+   * 
    * @deprecated
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
+   * @remarks
+   * User-defined data.
+   * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
    */

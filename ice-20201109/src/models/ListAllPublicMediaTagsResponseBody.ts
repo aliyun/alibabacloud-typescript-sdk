@@ -6,6 +6,9 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $dara
   /**
    * @remarks
    * The option name in Chinese.
+   * 
+   * @example
+   * 愤怒
    */
   optionChineseName?: string;
   /**
@@ -69,6 +72,9 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $dara.Model 
   /**
    * @remarks
    * The name of the material tag in English.
+   * 
+   * @example
+   * Animated image
    */
   mediaTagNameEnglish?: string;
   /**

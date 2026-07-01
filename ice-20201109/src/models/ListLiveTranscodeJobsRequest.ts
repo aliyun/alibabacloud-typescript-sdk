@@ -31,8 +31,9 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
    * @remarks
    * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
    * 
-   * *   asc
-   * *   desc
+   * - asc
+   * 
+   * - desc
    * 
    * @example
    * asc
@@ -42,8 +43,9 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
    * @remarks
    * The start mode of the transcoding job.
    * 
-   * *   0: The transcoding job immediately starts.
-   * *   1: The transcoding job starts at the scheduled time.
+   * - 0: The transcoding job immediately starts.
+   * 
+   * - 1: The transcoding job starts at the scheduled time.
    * 
    * @example
    * 0
@@ -63,10 +65,13 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
    * @remarks
    * The type of the template used by the transcoding job.
    * 
-   * *   normal
-   * *   narrow-band
-   * *   audio-only
-   * *   origin
+   * - normal
+   * 
+   * - narrow-band
+   * 
+   * - audio-only
+   * 
+   * - origin
    * 
    * @example
    * normal

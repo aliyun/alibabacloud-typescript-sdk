@@ -49,9 +49,11 @@ export class GetPipelineResponseBodyPipeline extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Standard: standard MPS queue.
-   * *   Boost: MPS queue with transcoding speed boosted.
-   * *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * - Standard: standard MPS queue.
+   * 
+   * - Boost: MPS queue with transcoding speed boosted.
+   * 
+   * - NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
    * 
    * @example
    * Standard
@@ -63,8 +65,9 @@ export class GetPipelineResponseBodyPipeline extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Active
-   * *   Paused
+   * - Active
+   * 
+   * - Paused
    * 
    * @example
    * Active

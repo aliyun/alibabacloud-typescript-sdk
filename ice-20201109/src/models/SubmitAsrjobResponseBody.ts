@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the intelligent job.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -21,12 +21,15 @@ export class SubmitASRJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job state. Valid values:
+   * The job status. Valid values:
    * 
-   * *   Created
-   * *   Executing
-   * *   Finished
-   * *   Failed
+   * - Created
+   * 
+   * - Executing
+   * 
+   * - Finished
+   * 
+   * - Failed
    * 
    * @example
    * Finished

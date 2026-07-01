@@ -15,8 +15,9 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput extends $dara.M
    * @remarks
    * The type of the media object. Valid values:
    * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
+   * - OSS: an OSS object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -252,7 +253,7 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFile
    * @remarks
    * The state of the file. Valid values:
    * 
-   * *   Normal
+   * - Normal
    * 
    * @example
    * Normal
@@ -442,9 +443,11 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVide
    * @remarks
    * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
    * 
-   * *   0: The stream contains no B-frames.
-   * *   1: The stream contains one B-frame.
-   * *   2: The stream contains multiple consecutive B-frames.
+   * - 0: The stream contains no B-frames.
+   * 
+   * - 1: The stream contains one B-frame.
+   * 
+   * - 2: The stream contains multiple consecutive B-frames.
    * 
    * @example
    * 2

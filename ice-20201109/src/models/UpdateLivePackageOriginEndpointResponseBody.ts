@@ -31,6 +31,9 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   /**
    * @remarks
    * The endpoint description.
+   * 
+   * @example
+   * This is an origin endpoint.
    */
   description?: string;
   /**
@@ -81,6 +84,10 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
    * 2023-04-01T12:00:00Z
    */
   lastModified?: string;
+  /**
+   * @remarks
+   * Live packaging configuration
+   */
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
@@ -167,7 +174,7 @@ export class UpdateLivePackageOriginEndpointResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * b1f8d6c4-a123-4cd5-9e88-d0819e3bfa70
+   * 5D87B753-0250-5D9D-B248-D40C3271F864
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -4,8 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByFaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching mode can be specified. Filters across different fields are combined with a logical AND relationship.
+   * 
+   * - Exact match, for example: {"intField1":12,"strField1":"abc"}
+   * 
+   * - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
+   * 
+   * - Range match, for example: {"intField1":{"gte":12,"lte":13}}
+   * 
    * @example
-   * {}
+   * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
    */
   customFilters?: string;
   /**
@@ -30,13 +39,21 @@ export class SearchMediaByFaceRequest extends $dara.Model {
    * @remarks
    * The type of the media asset. Valid values:
    * 
-   * *   image
-   * *   video
+   * - image
+   * 
+   * - video
    * 
    * @example
    * video
    */
   mediaType?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks
@@ -73,8 +90,13 @@ export class SearchMediaByFaceRequest extends $dara.Model {
    */
   searchLibName?: string;
   /**
+   * @remarks
+   * Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
+   * 
+   * - Example range: {"gte":1761205662998,"lte":1771205662998}
+   * 
    * @example
-   * {}
+   * {"gte":1761205662998,"lte":1771205662998}
    */
   utcCreate?: string;
   static names(): { [key: string]: string } {

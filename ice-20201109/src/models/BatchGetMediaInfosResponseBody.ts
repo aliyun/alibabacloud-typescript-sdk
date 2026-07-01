@@ -3,23 +3,95 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The channel layout.
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of audio channels.
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The codec tag.
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The codec tag string.
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The time base of the codec.
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration.
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The index of the stream.
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The profile.
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The sample format.
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sample rate.
+   */
   sampleRate?: string;
+  /**
+   * @remarks
+   * The start time.
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,7 +175,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 30611502
@@ -127,7 +199,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
   fileType?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the file.
+   * The OSS URL of the file.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -151,7 +223,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
   height?: string;
   /**
    * @remarks
-   * The region in which the file resides.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -207,15 +279,55 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The full name of the codec.
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The codec tag.
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The codec tag string.
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The time base of the codec.
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration.
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The index of the stream.
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The start time.
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -257,29 +369,125 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamI
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The average frame rate.
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate.
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The codec tag.
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The codec tag string.
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The time base of the codec.
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR).
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration.
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether B-frames exist.
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   */
   height?: string;
+  /**
+   * @remarks
+   * The index of the stream.
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The level.
+   */
   level?: string;
+  /**
+   * @remarks
+   * This parameter is an alias for `NumFrames`.
+   */
   nbFrames?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format.
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The profile.
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The rotation angle.
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -349,13 +557,25 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfo
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The audio streams.
+   */
   audioStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList[];
   /**
    * @remarks
-   * The basic information of the file, including the duration and size.
+   * The basic information about the file, such as the duration and file size.
    */
   fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  /**
+   * @remarks
+   * The subtitle streams.
+   */
   subtitleStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList[];
+  /**
+   * @remarks
+   * The video streams.
+   */
   videoStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -397,6 +617,13 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The business associated with the media asset.
+   * 
+   * @example
+   * ICE
+   */
   biz?: string;
   /**
    * @remarks
@@ -408,12 +635,15 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   businessType?: string;
   /**
    * @remarks
-   * The category of the media asset.
+   * The category.
+   * 
+   * @example
+   * category1
    */
   category?: string;
   /**
    * @remarks
-   * The thumbnail URL of the media asset.
+   * The cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -421,7 +651,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The time the media asset was created.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -429,7 +659,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The time the media asset was deleted.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -437,12 +667,15 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   deletedTime?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * The description.
+   * 
+   * @example
+   * description
    */
   description?: string;
   /**
    * @remarks
-   * The URL of the media asset in another service.
+   * The URL of the media asset in its source system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -450,7 +683,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   inputURL?: string;
   /**
    * @remarks
-   * MediaId
+   * The media ID.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
@@ -458,20 +691,23 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   mediaId?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * The tags.
+   * 
+   * @example
+   * tag1, tag2
    */
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset. Valid values:
+   * The media type. Valid values:
    * 
-   * \\- image
+   * - `Image`
    * 
-   * \\- video
+   * - `Video`
    * 
-   * \\- audio
+   * - `Audio`
    * 
-   * \\- text
+   * - `Text`
    * 
    * @example
    * video
@@ -479,7 +715,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The time the media asset was last modified.
    * 
    * @example
    * 2020-12-26T04:11:12Z
@@ -487,19 +723,23 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   modifiedTime?: string;
   /**
    * @remarks
-   * The snapshots of the media asset.
+   * The snapshots.
    * 
    * @example
-   * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
+   * [
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00001.png?Expires=&OSSAccessKeyId=&Signature=&security-token=",
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00002.jpg?Expires=&OSSAccessKeyId=&Signature=&security-token=",
+   *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00003.jpg?Expires=&OSSAccessKeyId=&Signature=&security-token="
+   * ]
    */
   snapshots?: string;
   /**
    * @remarks
-   * The source of the media asset. Valid values:
+   * The source. Valid values:
    * 
-   * \\- oss
+   * - `OSS`
    * 
-   * \\- vod
+   * - `VOD`
    * 
    * @example
    * oss
@@ -507,7 +747,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   source?: string;
   /**
    * @remarks
-   * The sprite.
+   * The sprite images.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
@@ -523,12 +763,15 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   status?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * The title.
+   * 
+   * @example
+   * title
    */
   title?: string;
   /**
    * @remarks
-   * The transcoding status of the media asset.
+   * The transcoding status.
    * 
    * @example
    * Init
@@ -600,6 +843,13 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the dynamic metadata.
+   * 
+   * @example
+   * system
+   */
   data?: string;
   static names(): { [key: string]: string } {
     return {
@@ -623,6 +873,16 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMeta
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The type of dynamic metadata. Valid values:
+   * 
+   * - `"ai"`: Standardized data derived from raw AI results.
+   * 
+   * - `"user-defined"`: The user-defined metadata.
+   * 
+   * - `"system"`: The system-generated data.
+   */
   dynamicMetaData?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData;
   static names(): { [key: string]: string } {
     return {
@@ -651,18 +911,22 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo extends $d
 export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * FileInfos
+   * A list of basic file information.
    */
   fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * The basic information of the media asset.
+   * The basic information about the media asset.
    */
   mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @remarks
+   * The dynamic information about the media asset.
+   */
   mediaDynamicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media ID.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
@@ -705,10 +969,14 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
 }
 
 export class BatchGetMediaInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of media IDs for which information could not be retrieved.
+   */
   ignoredList?: string[];
   /**
    * @remarks
-   * The queried media assets.
+   * A list of media assets.
    */
   mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
   /**

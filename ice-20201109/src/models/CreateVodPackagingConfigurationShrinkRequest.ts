@@ -36,9 +36,11 @@ export class CreateVodPackagingConfigurationShrinkRequest extends $dara.Model {
    * @remarks
    * The package type.
    * 
-   * *   HLS: packages content into TS segments for delivery over the HLS protocol.
-   * *   HLS_CMAF: packages content into CMAF segments for delivery over the HLS protocol.
-   * *   DASH: packages content for delivery over the DASH protocol.
+   * - HLS: packages content into TS segments for delivery over the HLS protocol.
+   * 
+   * - HLS_CMAF: packages content into CMAF segments for delivery over the HLS protocol.
+   * 
+   * - DASH: packages content for delivery over the DASH protocol.
    * 
    * @example
    * HLS

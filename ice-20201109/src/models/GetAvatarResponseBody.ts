@@ -6,6 +6,9 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   /**
    * @remarks
    * The description of the digital human.
+   * 
+   * @example
+   * This is a digital human used for a specific scenario.
    */
   avatarDescription?: string;
   /**
@@ -19,6 +22,9 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   /**
    * @remarks
    * The name of the digital human.
+   * 
+   * @example
+   * Decimal
    */
   avatarName?: string;
   /**
@@ -154,8 +160,9 @@ export class GetAvatarResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

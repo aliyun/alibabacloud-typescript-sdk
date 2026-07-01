@@ -15,8 +15,9 @@ export class QueryTraceAbJobListResponseBodyDataInput extends $dara.Model {
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * 1.  OSS: an Object Storage Service (OSS) object.
-   * 2.  Media: a media asset.
+   * 1. OSS: an Object Storage Service (OSS) object.
+   * 
+   * 2. Media: a media asset.
    * 
    * @example
    * OSS
@@ -58,8 +59,9 @@ export class QueryTraceAbJobListResponseBodyDataOutput extends $dara.Model {
    * @remarks
    * The type of the output file. Valid values:
    * 
-   * 1.  OSS: an OSS object.
-   * 2.  Media: a media asset.
+   * 1. OSS: an OSS object.
+   * 
+   * 2. Media: a media asset.
    * 
    * @example
    * OSS

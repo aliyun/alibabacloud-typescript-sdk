@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeAssetMediaInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The media asset ID.
+   * 
    * This parameter is required.
    * 
    * @example

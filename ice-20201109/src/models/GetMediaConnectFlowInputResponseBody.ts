@@ -3,19 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address whitelist for the backup input.
+   */
   backupCidrs?: string;
+  /**
+   * @remarks
+   * The time when the backup input was created.
+   */
   backupCreateTime?: string;
   backupInnerInputUrl?: string;
+  /**
+   * @remarks
+   * The name of the backup input.
+   */
   backupInputName?: string;
+  /**
+   * @remarks
+   * The status of the backup input. It indicates whether the backup stream is being pushed.
+   */
   backupInputStatus?: string;
+  /**
+   * @remarks
+   * The URL of the backup input.
+   */
   backupInputUrl?: string;
+  /**
+   * @remarks
+   * The bitrate of the backup input.
+   */
   backupMaxBitrate?: number;
+  /**
+   * @remarks
+   * The SRT latency for the backup input.
+   */
   backupSrtLatency?: number;
+  /**
+   * @remarks
+   * The SRT encryption key for the backup input.
+   */
   backupSrtPassphrase?: string;
+  /**
+   * @remarks
+   * The SRT encryption key length for the backup input.
+   */
   backupSrtPbkeyLen?: number;
   /**
    * @remarks
-   * The IP address whitelist in CIDR format. CIDR blocks are separated with commas (,).
+   * The IP address whitelist in CIDR format. Separate multiple IP address segments with commas.
    * 
    * @example
    * 10.211.0.0/17
@@ -23,7 +59,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * The time when the flow was created.
+   * The time when the input was created.
    * 
    * @example
    * 2024-07-18T01:29:24Z
@@ -32,7 +68,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   innerInputUrl?: string;
   /**
    * @remarks
-   * The source name.
+   * The input name.
    * 
    * @example
    * AliTestInput
@@ -40,24 +76,20 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputName?: string;
   /**
    * @remarks
-   * The source type.
-   * 
-   * Valid values:
-   * 
-   * *   RTMP-PUSH
-   * *   SRT-Caller
-   * *   RTMP-PULL
-   * *   SRT-Listener
-   * *   Flow
+   * The input type.
    * 
    * @example
    * RTMP-PUSH
    */
   inputProtocol?: string;
+  /**
+   * @remarks
+   * The input status. It indicates whether the primary stream is being pushed.
+   */
   inputStatus?: string;
   /**
    * @remarks
-   * The source URL.
+   * The input URL.
    * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
@@ -65,7 +97,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputUrl?: string;
   /**
    * @remarks
-   * The maximum bitrate. Unit: bit/s.
+   * The input bitrate, in bps.
    * 
    * @example
    * 2000000
@@ -73,7 +105,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * The ID of the source flow. This parameter is returned when the source type is Flow.
+   * The ID of the peer Flow instance. This parameter is required only if the output type is Flow.
    * 
    * @example
    * 05c3adf4-aa0e-421d-a991-48ceae3e642e
@@ -81,7 +113,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * The output of the source flow. This parameter is returned when the source type is Flow.
+   * The output name of the peer Flow. This parameter is required only when the input type is Flow.
    * 
    * @example
    * AliTestOutput
@@ -89,7 +121,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   pairOutputName?: string;
   /**
    * @remarks
-   * The latency for the SRT stream. Unit: milliseconds. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+   * The SRT latency in milliseconds (ms). This parameter is required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -97,7 +129,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * The SRT key. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+   * The SRT encryption key. This parameter is required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * FICUBPX4Q77DYHRF
@@ -105,14 +137,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * The encryption key length. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
-   * 
-   * Valid values:
-   * 
-   * *   0
-   * *   16
-   * *   24
-   * *   32
+   * The SRT encryption key length. This parameter is required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32
@@ -191,7 +216,7 @@ export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   content?: GetMediaConnectFlowInputResponseBodyContent;
   /**
    * @remarks
-   * The call description.
+   * The description of the API call.
    * 
    * @example
    * OK
@@ -199,7 +224,7 @@ export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D4C231DF-103A-55FF-8D09-E699552457DE
@@ -207,7 +232,7 @@ export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned error code. A value of 0 indicates the call is successful.
+   * The error code returned. A value of 0 indicates success.
    * 
    * @example
    * 0

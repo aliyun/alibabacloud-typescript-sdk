@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeUserCreditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total allocated credit.
+   * 
    * @example
    * 400
    */
   creditTotal?: string;
   /**
+   * @remarks
+   * The remaining credit.
+   * 
    * @example
    * 100
    */
   creditUsage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */

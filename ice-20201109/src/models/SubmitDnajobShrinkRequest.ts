@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDNAJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the media fingerprint analysis job. The value is a JSON object. If you specify this parameter, the template parameters are overwritten.
+   * The DNA configuration in JSON format. If specified, these settings override the corresponding template parameters.
    * 
    * @example
-   * {"SaveType": "save","MediaType"":"video"}
+   * {"SaveType": "save","MediaType":"video"}
    */
   config?: string;
   /**
    * @remarks
-   * The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+   * The DNA library ID. To create a DNA library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   DBId?: string;
   /**
    * @remarks
-   * The input file for media fingerprint analysis.
+   * The input DNA file.
    * 
    * This parameter is required.
    */
@@ -32,7 +32,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the media fingerprint analysis job is submitted.
+   * The pipeline ID.
    * 
    * @example
    * 5246b8d12a62433ab77845074039****
@@ -40,7 +40,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The primary key of the video. You must make sure that each primary key is unique.
+   * The unique primary key for the video. You are responsible for ensuring its uniqueness.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The user-defined data. The data can be up to 128 bytes in length.
+   * The user-defined data. The maximum length is 128 bytes.
    * 
    * @example
    * userData

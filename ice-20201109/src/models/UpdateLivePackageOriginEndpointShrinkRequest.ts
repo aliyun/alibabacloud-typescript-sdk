@@ -24,6 +24,9 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The endpoint description.
+   * 
+   * @example
+   * This is an origin endpoint.
    */
   description?: string;
   /**
@@ -62,6 +65,10 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
    * 192.168.1.0/24,10.0.0.1
    */
   ipWhitelist?: string;
+  /**
+   * @remarks
+   * Live stream encapsulation configuration
+   */
   livePackagingConfigShrink?: string;
   /**
    * @remarks

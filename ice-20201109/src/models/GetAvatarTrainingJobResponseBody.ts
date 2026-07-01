@@ -6,6 +6,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   /**
    * @remarks
    * The description of the digital human.
+   * 
+   * @example
+   * This is a digital human used for a specific scenario.
    */
   avatarDescription?: string;
   /**
@@ -19,6 +22,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   /**
    * @remarks
    * The name of the digital human.
+   * 
+   * @example
+   * Decimal
    */
   avatarName?: string;
   /**
@@ -31,8 +37,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   avatarType?: string;
   /**
    * @remarks
-   * *   The time when the first training was initiated.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the first training was initiated.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -48,8 +55,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   jobId?: string;
   /**
    * @remarks
-   * *   The time when the last training was initiated.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the last training was initiated.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -58,6 +66,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   /**
    * @remarks
    * The status description.
+   * 
+   * @example
+   * Training succeeded
    */
   message?: string;
   /**
@@ -70,8 +81,9 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   portrait?: string;
   /**
    * @remarks
-   * *   The state of the digital human training job.
-   * *   Valid values: Init, Queuing, Training, Success, and Fail.
+   * - The state of the digital human training job.
+   * 
+   * - Valid values: Init, Queuing, Training, Success, and Fail.
    * 
    * @example
    * Success

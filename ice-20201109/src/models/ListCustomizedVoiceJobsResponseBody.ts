@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $dara.Model {
   /**
    * @remarks
-   * *   The time when the job was created.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the job was created.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-04-01T06:23:59Z
@@ -16,8 +17,9 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
    * @remarks
    * The gender. Valid values:
    * 
-   * *   female
-   * *   male
+   * - female
+   * 
+   * - male
    * 
    * @example
    * female
@@ -42,15 +44,20 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * Training succeeded
    */
   message?: string;
   /**
    * @remarks
    * The scenario. Valid values:
    * 
-   * *   story
-   * *   interaction
-   * *   navigation
+   * - story
+   * 
+   * - interaction
+   * 
+   * - navigation
    * 
    * @example
    * story
@@ -60,12 +67,17 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
    * @remarks
    * The job state. Valid values:
    * 
-   * *   Initialization
-   * *   AudioDetecting
-   * *   PreTraining
-   * *   Training
-   * *   Success
-   * *   Fail
+   * - Initialization
+   * 
+   * - AudioDetecting
+   * 
+   * - PreTraining
+   * 
+   * - Training
+   * 
+   * - Success
+   * 
+   * - Fail
    * 
    * @example
    * Success
@@ -73,10 +85,11 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   status?: string;
   /**
    * @remarks
-   * *   The voice type. Valid values:
+   * - The voice type. Valid values:
    * 
-   *     *   Basic
-   *     *   Standard
+   *   - Basic
+   * 
+   *   - Standard
    * 
    * @example
    * Standard
@@ -86,7 +99,10 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
    * @remarks
    * The voice description.
    * 
-   * *   The description can be up to 256 characters in length.
+   * - The description can be up to 256 characters in length.
+   * 
+   * @example
+   * 这是这个声音的描述
    */
   voiceDesc?: string;
   /**
@@ -101,7 +117,10 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
    * @remarks
    * The voice name.
    * 
-   * *   The name can be up to 32 characters in length.
+   * - The name can be up to 32 characters in length.
+   * 
+   * @example
+   * 小专
    */
   voiceName?: string;
   static names(): { [key: string]: string } {

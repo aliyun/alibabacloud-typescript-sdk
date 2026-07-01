@@ -31,6 +31,9 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   /**
    * @remarks
    * The endpoint description.
+   * 
+   * @example
+   * This is an origin endpoint.
    */
   description?: string;
   /**
@@ -81,6 +84,10 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
    * 2023-04-01T12:00:00Z
    */
   lastModified?: string;
+  /**
+   * @remarks
+   * Live packaging configuration
+   */
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks

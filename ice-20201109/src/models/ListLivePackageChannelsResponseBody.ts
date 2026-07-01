@@ -82,6 +82,9 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   /**
    * @remarks
    * The channel description.
+   * 
+   * @example
+   * Test channel
    */
   description?: string;
   /**
@@ -194,6 +197,9 @@ export class ListLivePackageChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**

@@ -21,6 +21,13 @@ export class DeleteMediaFromSearchLibRequest extends $dara.Model {
    * {}
    */
   msgBody?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks

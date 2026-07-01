@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList extends $dara.Model {
+  /**
+   * @remarks
+   * The format of the attachment, such as mp3, wav, or pdf.
+   * 
+   * @example
+   * mp3
+   */
   format?: string;
+  /**
+   * @remarks
+   * The unique identifier of the attachment.
+   * 
+   * @example
+   * 7B117AF5-***************
+   */
   id?: string;
+  /**
+   * @remarks
+   * The file name of the attachment.
+   * 
+   * @example
+   * MusicDemix
+   */
   name?: string;
+  /**
+   * @remarks
+   * The attachment type, represented by a numeric value. The meaning of this value is defined by your business logic.
+   * 
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @remarks
+   * The URL of the attachment.
+   * 
+   * @example
+   * https://media.w3.org/2010/05/sintel/trailer.mp3
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,23 +73,42 @@ export class ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList extends $
 }
 
 export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
+  /**
+   * @remarks
+   * A list of file attachments referenced in the dialogue.
+   */
   attachedFileList?: ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList[];
   /**
    * @remarks
-   * The unique ID of the dialog.
+   * The unique ID of the dialogue.
    * 
    * @example
    * 19de81b3b3d94abda22****
    */
   dialogueId?: string;
+  /**
+   * @remarks
+   * A JSON-formatted string for extended information. Use this field to store custom data, such as sentiment labels or intent recognition results.
+   * 
+   * @example
+   * {\\"addTransferLock\\":true}
+   */
   extend?: string;
+  /**
+   * @remarks
+   * The ID of the workflow node that generated the dialogue entry, which you can use for tracing.
+   * 
+   * @example
+   * e01-cn-to345ikn62o
+   */
   nodeId?: string;
   /**
    * @remarks
-   * The speaker. Valid values: 
+   * The producer of this message.
    * 
-   * - user
-   * - agent
+   * - user: A message from the user.
+   * 
+   * - agent: A message from the agent.
    * 
    * @example
    * user
@@ -62,15 +116,15 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   producer?: string;
   /**
    * @remarks
-   * The reasoning trace.
+   * The agent\\"s reasoning text, which can reveal its thought process.
    * 
    * @example
-   * I\\"m thinking
+   * 我在思考
    */
   reasoningText?: string;
   /**
    * @remarks
-   * The ID of the conversational turn.
+   * The ID of the dialogue round.
    * 
    * @example
    * f27f9b9be28642a88e18****
@@ -78,11 +132,11 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   roundId?: string;
   /**
    * @remarks
-   * The source of the message. Valid values:
+   * The source channel of the message. Valid values:
    * 
-   * chat: messaging conversations.
+   * chat: The message is from a text chat.
    * 
-   * call: voice calls.
+   * call: The message is from a voice call.
    * 
    * @example
    * chat
@@ -90,7 +144,7 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The specific content.
+   * The text content of the dialogue entry.
    * 
    * @example
    * Hello
@@ -98,7 +152,7 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * The UNIX timestamp, measured in milliseconds, which indicates the time when the message was generated.
+   * The Unix timestamp (in milliseconds) when the dialogue entry was created.
    * 
    * @example
    * 1734511087000
@@ -106,19 +160,23 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * The message type. Valid values:
+   * The type of the message. Valid values include:
    * 
-   * Voice calls:
+   * For a call:
    * 
-   * 1.  greeting: the welcome message.
-   * 2.  normal: the voice response.
-   * 3.  speech: the proactive message.
+   * 1. greeting: A welcome message.
    * 
-   * Messaging conversations:
+   * 2. normal: A standard voice response.
    * 
-   * 1.  normal: the text reply.
-   * 2.  announcement: the proactive text message.
-   * 3.  custom: the custom message.
+   * 3. speech: A proactive voice broadcast.
+   * 
+   * For a chat:
+   * 
+   * 1. normal: A standard text response.
+   * 
+   * 2. announcement: A proactive text push.
+   * 
+   * 3. custom: A custom message.
    * 
    * @example
    * announcement
@@ -171,7 +229,7 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
 export class ListAIAgentDialoguesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dialog records.
+   * A list of dialogues.
    */
   dialogues?: ListAIAgentDialoguesResponseBodyDialogues[];
   /**

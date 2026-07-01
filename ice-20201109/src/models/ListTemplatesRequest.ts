@@ -9,9 +9,11 @@ export class ListTemplatesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AliyunConsole
-   * *   WebSDK
-   * *   OpenAPI
+   * - AliyunConsole
+   * 
+   * - WebSDK
+   * 
+   * - OpenAPI
    * 
    * @example
    * OpenAPI
@@ -26,19 +28,13 @@ export class ListTemplatesRequest extends $dara.Model {
    */
   keyword?: string;
   /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
-   * @remarks
-   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
-   * 
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
   /**
@@ -47,8 +43,9 @@ export class ListTemplatesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CreationTime:Asc: sorted by creation time in ascending order.
-   * *   CreationTime:Desc: sorted by creation time in descending order.
+   * - CreationTime:Asc: sorted by creation time in ascending order.
+   * 
+   * - CreationTime:Desc: sorted by creation time in descending order.
    * 
    * @example
    * CreationTime:Desc
@@ -60,12 +57,17 @@ export class ListTemplatesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   UploadFailed: Failed to upload the video.
-   * *   ProcessFailed: Failed to process the advanced template.
-   * *   Available: The template is available.
-   * *   Uploading: The video is being uploaded.
-   * *   Created: The template is created but not ready for use.
-   * *   Processing: The advanced template is being processed.
+   * - UploadFailed: Failed to upload the video.
+   * 
+   * - ProcessFailed: Failed to process the advanced template.
+   * 
+   * - Available: The template is available.
+   * 
+   * - Uploading: The video is being uploaded.
+   * 
+   * - Created: The template is created but not ready for use.
+   * 
+   * - Processing: The advanced template is being processed.
    * 
    * @example
    * Available
@@ -77,8 +79,9 @@ export class ListTemplatesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Timeline
-   * *   VETemplate
+   * - Timeline
+   * 
+   * - VETemplate
    * 
    * @example
    * Timeline

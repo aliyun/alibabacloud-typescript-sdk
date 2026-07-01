@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendAIAgentSpeechResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */

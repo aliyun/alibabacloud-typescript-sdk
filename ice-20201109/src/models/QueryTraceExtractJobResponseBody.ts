@@ -6,6 +6,9 @@ export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The trace watermark information.
+   * 
+   * @example
+   * 测试溯源水印
    */
   trace?: string;
   static names(): { [key: string]: string } {

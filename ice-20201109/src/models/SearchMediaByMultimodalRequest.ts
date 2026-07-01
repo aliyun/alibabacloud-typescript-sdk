@@ -4,8 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByMultimodalRequest extends $dara.Model {
   /**
+   * @remarks
+   * Custom filters. A JSON string. Supported backing fields include integer field intField1 and string fields strField1 and strField2. Only one matching condition can be applied per field, and filters across different fields are combined with a logical AND relationship.
+   * 
+   * - Exact match example: {"intField1":12,"strField1":"abc"}
+   * 
+   * - Multi-value match example: {"intField1":[12,13],"strField1":["abc","cd"]}
+   * 
+   * - Range match example: {"intField1":{"gte":12,"lte":13}}
+   * 
    * @example
-   * {}
+   * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
    */
   customFilters?: string;
   /**
@@ -14,13 +23,21 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   image
-   * *   video (default)
+   * - image
+   * 
+   * - video (default)
    * 
    * @example
    * video
    */
   mediaType?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks
@@ -49,11 +66,19 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   /**
    * @remarks
    * The content that you want to query. You can describe the content in natural language.
+   * 
+   * @example
+   * Two pandas are fighting.
    */
   text?: string;
   /**
+   * @remarks
+   * Creation time, in milliseconds UNIX timestamp. gte indicates greater than or equal to, and lte indicates less than or equal to.
+   * 
+   * - Range example: {"gte":1761205662998,"lte":1771205662998}
+   * 
    * @example
-   * {}
+   * {"gte":1761205662998,"lte":1771205662998}
    */
   utcCreate?: string;
   static names(): { [key: string]: string } {

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDynamicImageJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input of the job.
+   * The job input.
    * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * SampleJob
@@ -20,14 +20,14 @@ export class SubmitDynamicImageJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The job output.
    * 
    * This parameter is required.
    */
   outputShrink?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    */
   scheduleConfigShrink?: string;
   /**

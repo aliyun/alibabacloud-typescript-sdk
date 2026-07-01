@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.Model {
   /**
    * @remarks
-   * The application name of the live stream.
+   * Name of the live streaming application.
    * 
    * @example
    * testrecord
@@ -13,7 +13,7 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.M
   appName?: string;
   /**
    * @remarks
-   * The domain name of the live stream.
+   * Streaming domain name for live streaming.
    * 
    * @example
    * test.alivecdn.com
@@ -21,7 +21,7 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.M
   domainName?: string;
   /**
    * @remarks
-   * The URL of the live stream.
+   * Streaming URL for the live stream.
    * 
    * @example
    * rtmp://test.alivecdn.com/testrecord/teststream
@@ -29,7 +29,7 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.M
   liveUrl?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * Name of the live stream.
    * 
    * @example
    * testrecord
@@ -65,7 +65,7 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.M
 export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * Bitrate of the file.
    * 
    * @example
    * 1132.68
@@ -73,7 +73,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   bitrate?: string;
   /**
    * @remarks
-   * The duration.
+   * Duration of the file.
    * 
    * @example
    * 216.206667
@@ -81,7 +81,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * Name of the file.
    * 
    * @example
    * example.mp4
@@ -89,7 +89,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * Size of the file, in bytes.
    * 
    * @example
    * 30611502
@@ -97,7 +97,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
+   * Status of the file.
    * 
    * @example
    * Normal
@@ -105,7 +105,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * Type of the file.
    * 
    * @example
    * source_file
@@ -113,7 +113,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileType?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the file.
+   * OSS URL of the file.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -121,7 +121,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileUrl?: string;
   /**
    * @remarks
-   * The container format.
+   * Container format.
    * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
@@ -129,7 +129,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   formatName?: string;
   /**
    * @remarks
-   * The height.
+   * Height of the video.
    * 
    * @example
    * 540
@@ -137,7 +137,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   height?: string;
   /**
    * @remarks
-   * The region in which the file resides.
+   * Region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -145,7 +145,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   region?: string;
   /**
    * @remarks
-   * The width.
+   * Width of the video.
    * 
    * @example
    * 960
@@ -195,7 +195,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
 export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic information of the file, such as the duration and size.
+   * Basic file information, such as duration and size.
    */
   fileBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -225,7 +225,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extend
 export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The business type of the media asset.
+   * Business type of the media asset.
    * 
    * @example
    * general
@@ -233,7 +233,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   businessType?: string;
   /**
    * @remarks
-   * The category of the media asset.
+   * Category of the media asset.
    * 
    * @example
    * video
@@ -241,7 +241,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   category?: string;
   /**
    * @remarks
-   * The thumbnail URL of the media asset.
+   * URL of the thumbnail image.
    * 
    * @example
    * http://sample-bucket.oss-cn-shanghai.aliyuncs.com/sample-corver.jpg?Expires=1628670610&OSSAccessKeyId=AK&Signature=signature
@@ -249,7 +249,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * Time when the media asset was created.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -257,7 +257,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * Time when the media asset was deleted.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -265,7 +265,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   deletedTime?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * Description of the media asset.
    * 
    * @example
    * sample_description
@@ -273,7 +273,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   description?: string;
   /**
    * @remarks
-   * The URL of the media asset in another service.
+   * URL of the media asset in the source system.
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
@@ -281,7 +281,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   inputURL?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * ID of the media asset.
    * 
    * @example
    * *****64623a94eca8516569c8f*****
@@ -289,12 +289,15 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   mediaId?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * Tags associated with the media asset.
+   * 
+   * @example
+   * tag1
    */
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset.
+   * Media type of the asset.
    * 
    * @example
    * video
@@ -302,7 +305,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * Time when the media asset was last modified.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -310,7 +313,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   modifiedTime?: string;
   /**
    * @remarks
-   * The snapshots of the media asset.
+   * Thumbnail images.
    * 
    * @example
    * null
@@ -318,7 +321,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   snapshots?: string;
   /**
    * @remarks
-   * The source of the media asset.
+   * Source of the media asset.
    * 
    * @example
    * oss
@@ -326,7 +329,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   source?: string;
   /**
    * @remarks
-   * The sprite of the media asset
+   * Sprite image.
    * 
    * @example
    * null
@@ -334,7 +337,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   spriteImages?: string;
   /**
    * @remarks
-   * The status of the media asset.
+   * Status of the resource.
    * 
    * @example
    * Normal
@@ -342,7 +345,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   status?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * Title of the media asset.
    * 
    * @example
    * file.mp4
@@ -350,14 +353,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   title?: string;
   /**
    * @remarks
-   * The transcoding status of the media asset.
-   * 
-   * Valid values:
-   * 
-   * *   TranscodeSuccess: transcoding completed.
-   * *   TranscodeFailed: transcoding failed.
-   * *   Init: initializing.
-   * *   Transcoding: transcoding in progress.
+   * Status of the transcoding task.
    * 
    * @example
    * Init
@@ -365,7 +361,7 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   transcodeStatus?: string;
   /**
    * @remarks
-   * The user data.
+   * User-defined data.
    * 
    * @example
    * userData
@@ -429,17 +425,17 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
 export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * The information about the file.
+   * File information.
    */
   fileInfoList?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * The basic information of the media asset.
+   * Basic information about the media asset.
    */
   mediaBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
   /**
    * @remarks
-   * The ID of the media asset.
+   * ID of the media asset.
    * 
    * @example
    * *****64623a94eca8516569c8fe*****
@@ -479,17 +475,17 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $dara.Mode
 export class GetEditingProjectMaterialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The materials associated with the live stream.
+   * Media assets associated with live streams.
    */
   liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
   /**
    * @remarks
-   * The media assets that meet the specified conditions.
+   * Collection of matching media assets.
    */
   mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
   /**
    * @remarks
-   * The project ID.
+   * ID of the project.
    * 
    * @example
    * *****67ae06542b9b93e0d1c387*****
@@ -497,7 +493,7 @@ export class GetEditingProjectMaterialsResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
+   * Media assets associated with the editing project. After a live stream ends, it is linked to a standard editing project.
    * 
    * @example
    * *****9b145c5cafc2e057304fcd*****
@@ -505,7 +501,7 @@ export class GetEditingProjectMaterialsResponseBody extends $dara.Model {
   projectMaterials?: string[];
   /**
    * @remarks
-   * The request ID.
+   * ID of the request.
    * 
    * @example
    * ******89-C21D-4B78-AE24-3788B8******

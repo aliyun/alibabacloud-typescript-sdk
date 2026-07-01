@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMediaConnectFlowInputRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist in CIDR format. Separate multiple CIDR blocks with commas (,).
+   * IP address whitelist in CIDR notation. Separate multiple CIDR blocks with commas.
    * 
    * @example
    * 19.168.1.1/32,18.168.1.1/16
@@ -13,7 +13,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * The flow ID.
+   * Flow instance ID
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The source URL. This parameter is required when the source type is RTMP-PULL or SRT-Listener.
+   * Input URL. Required only when the input type is RTMP-PULL or SRT-Listener.
    * 
    * @example
    * rtmp://pull.test.alivecdn.com/live/alitest
@@ -31,7 +31,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputFromUrl?: string;
   /**
    * @remarks
-   * The source name.
+   * Input name
    * 
    * This parameter is required.
    * 
@@ -41,15 +41,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputName?: string;
   /**
    * @remarks
-   * The source type.
-   * 
-   * Valid values:
-   * 
-   * *   RTMP-PUSH
-   * *   SRT-Caller
-   * *   RTMP-PULL
-   * *   SRT-Listener
-   * *   Flow
+   * Input type
    * 
    * This parameter is required.
    * 
@@ -59,7 +51,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputProtocol?: string;
   /**
    * @remarks
-   * The maximum bitrate. Unit: bit/s.
+   * Maximum bitrate in bits per second (bps)
    * 
    * @example
    * 2000000
@@ -67,7 +59,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * The ID of the source flow. This parameter is required when the source type is Flow.
+   * Upstream Flow ID. Required only when the input type is Flow.
    * 
    * @example
    * 805fbdd0-575e-4146-b35d-ec7f63937b20
@@ -75,7 +67,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * The output of the source flow. This parameter is required when the source type is Flow.
+   * Upstream Flow output name. Required only when the input type is Flow.
    * 
    * @example
    * AliTestOutput
@@ -83,7 +75,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   pairOutputName?: string;
   /**
    * @remarks
-   * The latency for the SRT stream. This parameter is required the source type is SRT-Listener or SRT-Caller.
+   * SRT latency in milliseconds. Required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -91,7 +83,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * The SRT key. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+   * SRT encryption key. Required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * BETTERG08S01
@@ -99,14 +91,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * The encryption key length. This parameter is required when the source type is SRT-Listener or SRT-Caller.
-   * 
-   * Valid values:
-   * 
-   * *   0
-   * *   16
-   * *   24
-   * *   32
+   * SRT encryption key length in bytes. Required only when the input type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32

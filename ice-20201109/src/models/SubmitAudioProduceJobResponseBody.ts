@@ -13,7 +13,7 @@ export class SubmitAudioProduceJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media ID.
    * 
    * @example
    * ****2bcbfcfa30fccb36f72dca22****
@@ -29,12 +29,15 @@ export class SubmitAudioProduceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job state. Valid values:
+   * The job status.
    * 
-   * *   Created
-   * *   Executing
-   * *   Finished
-   * *   Failed
+   * - Created
+   * 
+   * - Executing
+   * 
+   * - Finished
+   * 
+   * - Failed
    * 
    * @example
    * Created

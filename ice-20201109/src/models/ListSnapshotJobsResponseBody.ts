@@ -15,8 +15,9 @@ export class ListSnapshotJobsResponseBodyJobsInput extends $dara.Model {
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * 1.  OSS: an Object Storage Service (OSS) object.
-   * 2.  Media: a media asset.
+   * 1. OSS: an Object Storage Service (OSS) object.
+   * 
+   * 2. Media: a media asset.
    * 
    * @example
    * OSS
@@ -50,8 +51,9 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $dara.Model {
    * @remarks
    * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
    * 
-   * 1.  OSS://bucket/object
-   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 1. OSS://bucket/object
+   * 
+   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
    * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
    * 
@@ -63,8 +65,9 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $dara.Model {
    * @remarks
    * The type of the output file. Valid values:
    * 
-   * 1.  OSS: an OSS object.
-   * 2.  Media: a media asset.
+   * 1. OSS: an OSS object.
+   * 
+   * 2. Media: a media asset.
    * 
    * @example
    * OSS
@@ -172,9 +175,11 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
    * @remarks
    * The state of the job.
    * 
-   * *   **Success**: The job is successful.
-   * *   **Fail**: The job failed.
-   * *   **Init**: The job is submitted.
+   * - **Success**: The job is successful.
+   * 
+   * - **Fail**: The job failed.
+   * 
+   * - **Init**: The job is submitted.
    * 
    * @example
    * Success
@@ -202,9 +207,11 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Console
-   * *   Workflow
-   * *   API
+   * - Console
+   * 
+   * - Workflow
+   * 
+   * - API
    * 
    * @example
    * API
@@ -216,9 +223,11 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   WebVtt
-   * *   Sprite
-   * *   Normal
+   * - WebVtt
+   * 
+   * - Sprite
+   * 
+   * - Normal
    * 
    * @example
    * Sprite

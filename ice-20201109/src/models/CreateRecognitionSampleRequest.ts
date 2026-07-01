@@ -7,11 +7,15 @@ export class CreateRecognitionSampleRequest extends $dara.Model {
    * @remarks
    * The type of recognition this sample is for.
    * 
-   * *   landmark
-   * *   object
-   * *   logo
-   * *   face
-   * *   label
+   * - landmark
+   * 
+   * - object
+   * 
+   * - logo
+   * 
+   * - face
+   * 
+   * - label
    * 
    * This parameter is required.
    * 
@@ -40,6 +44,9 @@ export class CreateRecognitionSampleRequest extends $dara.Model {
   /**
    * @remarks
    * The custom text label.
+   * 
+   * @example
+   * Complete front view
    */
   labelPrompt?: string;
   /**

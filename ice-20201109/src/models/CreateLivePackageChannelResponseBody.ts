@@ -82,6 +82,9 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   /**
    * @remarks
    * The channel description.
+   * 
+   * @example
+   * This is a test channel.
    */
   description?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetNotifyConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 771A1414-27BF-53E6-AB73-EFCB*****ACF

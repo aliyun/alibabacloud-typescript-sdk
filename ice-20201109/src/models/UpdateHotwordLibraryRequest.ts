@@ -9,7 +9,7 @@ export class UpdateHotwordLibraryRequest extends $dara.Model {
    * The description of the hotword library. It can be up to 200 characters in length.
    * 
    * @example
-   * 存放名人的词库
+   * Lexicon containing celebrity names
    */
   description?: string;
   /**
@@ -25,6 +25,9 @@ export class UpdateHotwordLibraryRequest extends $dara.Model {
   /**
    * @remarks
    * The hotword list. You can add up to 300 hotword entries to a single library.
+   * 
+   * @example
+   * Lexicon containing celebrity names
    */
   hotwords?: Hotword[];
   /**

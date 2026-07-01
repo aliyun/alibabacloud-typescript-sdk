@@ -278,6 +278,9 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo exten
   /**
    * @remarks
    * The title of the media asset.
+   * 
+   * @example
+   * My video title
    */
   title?: string;
   /**

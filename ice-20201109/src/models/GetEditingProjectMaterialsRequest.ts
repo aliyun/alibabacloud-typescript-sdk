@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the online editing project.
+   * ID of the online editing project.
    * 
    * This parameter is required.
    * 

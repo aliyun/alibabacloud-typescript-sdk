@@ -14,6 +14,9 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   /**
    * @remarks
    * The channel group description.
+   * 
+   * @example
+   * 这是频道组的描述信息。
    */
   description?: string;
   /**

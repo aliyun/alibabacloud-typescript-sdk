@@ -7,30 +7,59 @@ import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 
 
 export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the AI agent.
+   */
   agentConfig?: AIAgentConfig;
+  /**
+   * @remarks
+   * Information about the call.
+   */
   callInfo?: AIAgentCallInfo;
   /**
    * @remarks
-   * The URL of the call log file.
+   * The URL of the call log.
    * 
    * @example
    * https://example.com/call_logs/12345
    */
   callLogUrl?: string;
+  /**
+   * @remarks
+   * The creation time (UTC).
+   * 
+   * @example
+   * 2025-07-18T06:39:08.000+00:00
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The modification time (UTC).
+   * 
+   * @example
+   * 2025-07-18T06:40:12.000+00:00
+   */
   gmtModified?: string;
   /**
    * @remarks
-   * The runtime configurations of the AI agent.
+   * The runtime configuration of the AI agent.
    * 
    * @example
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
    */
   runtimeConfig?: AIAgentRuntimeConfig;
+  /**
+   * @remarks
+   * The session ID for the conversation. This parameter is empty by default.
+   * 
+   * @example
+   * 955535**************
+   */
   sessionId?: string;
   /**
    * @remarks
-   * The state of the AI agent. Valid values: Finished and Executing.
+   * The status of the AI agent instance, such as `Finished` or `Executing`.
    * 
    * @example
    * Finished
@@ -38,7 +67,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template configurations of the AI agent.
+   * The AI agent template configuration.
    * 
    * @example
    * {"VoiceChat": {"AppId": "your_voice_chat_app_id"}}
@@ -48,7 +77,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @remarks
-   * The custom information.
+   * The user data.
    * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
@@ -108,7 +137,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
 export class DescribeAIAgentInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AI agent.
+   * Information about the AI agent instance.
    */
   instance?: DescribeAIAgentInstanceResponseBodyInstance;
   /**

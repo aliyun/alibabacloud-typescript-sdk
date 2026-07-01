@@ -27,9 +27,39 @@ export class CreateMediaLiveInputRequestInputSettings extends $dara.Model {
    * rtmp://domain/app/stream
    */
   sourceUrl?: string;
+  /**
+   * @remarks
+   * The latency of the SRT stream, in milliseconds (ms). Valid values: [100, 10000]. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
+   * 
+   * @example
+   * 1000
+   */
   srtLatency?: number;
+  /**
+   * @remarks
+   * The maximum bitrate of the SRT stream, in bits per second (bps). Valid values: [100, 100000000]. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
+   * 
+   * @example
+   * 3000000
+   */
   srtMaxBitrate?: number;
+  /**
+   * @remarks
+   * The SRT encryption configuration. The password for the SRT stream consists of 10 to 79 visible ASCII characters. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
+   * 
+   * If the encryption configuration is not empty, all SRT clients must use the correct password to publish or playback; otherwise, the SRT connection will be denied.
+   * 
+   * @example
+   * srtencryption
+   */
   srtPassphrase?: string;
+  /**
+   * @remarks
+   * The SRT encryption configuration. The key length for the SRT stream. Valid values: 0, 16, 24, 32. This parameter is optional when Type is SRT_PUSH or SRT_PULL.
+   * 
+   * @example
+   * 16
+   */
   srtPbKeyLen?: number;
   /**
    * @remarks

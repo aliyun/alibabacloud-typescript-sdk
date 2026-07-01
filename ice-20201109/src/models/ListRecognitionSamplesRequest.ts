@@ -7,10 +7,13 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
    * @remarks
    * The type of recognition algorithm. Valid values:
    * 
-   * *   landmark
-   * *   object
-   * *   logo
-   * *   face
+   * - landmark
+   * 
+   * - object
+   * 
+   * - logo
+   * 
+   * - face
    * 
    * This parameter is required.
    * 
@@ -20,23 +23,30 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The ID of the entity.
+   * The entity ID. If you set this parameter to ANY, the system queries by EntityName.
    * 
    * This parameter is required.
    * 
    * @example
-   * e6b985c05174412dbc77c92496b7373b
+   * **************544cb84754************
    */
   entityId?: string;
+  /**
+   * @remarks
+   * The entity name.
+   * 
+   * @example
+   * custom_person
+   */
   entityName?: string;
   /**
    * @remarks
-   * The ID of the recognition library.
+   * The library ID. If you specify this parameter, the system performs an exact match. You can specify multiple library IDs. Separate them with commas (,).
    * 
    * This parameter is required.
    * 
    * @example
-   * xxxxxxxxxxx
+   * lib1,lib2,lib3
    */
   libId?: string;
   ownerAccount?: string;

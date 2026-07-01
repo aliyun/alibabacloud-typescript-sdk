@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelFavoritePublicMediaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of IDs for which removing from favorites failed.
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

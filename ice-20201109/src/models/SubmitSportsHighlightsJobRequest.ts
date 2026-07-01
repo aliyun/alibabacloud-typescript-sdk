@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client-generated token to ensure request idempotency.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -13,12 +13,33 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The input configurations.
+   * The input configuration. For more information, see [input configuration parameters](~~2843158#5cbc796a9cuu8~~).
+   * 
+   * @example
+   * {
+   *   "SportsCategory": "basketball",
+   *   "InputMedia": "http://test-bucket.oss-cn-******.basketball-0707.mp4",
+   *   "FaceRegister": [
+   *     {
+   *       "FaceUrls": ["http://testcdn.com/front.jpg", "http://testcdn.com/side.jpg"],
+   *       "Name": "James"
+   *     }
+   *   ],
+   *   "SlowMotionLogoRegister": {
+   *       "SlowMotionLogoUrls": ["http://testcdn.com/logo1.jpg", "http://testcdn.com/logo2.jpg"]
+   *   },
+   *   "TransferNameRegister": [
+   *     {
+   *       "OriginalName": "IND",
+   *       "TransferName": "印第安纳步行者"
+   *     }
+   *   ]
+   * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The output configurations.
+   * The output configuration. For more information, see [output configuration parameters](~~2843158#b7dad99fe5q0r~~).
    * 
    * @example
    * {
@@ -31,7 +52,10 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The user data, containing business and callback configurations. For more information about the structure, see [user data configuration](https://help.aliyun.com/document_detail/357745.html).
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

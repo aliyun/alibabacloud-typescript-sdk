@@ -37,11 +37,15 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   RTMP-PUSH
-   * *   SRT-Caller
-   * *   RTMP-PULL
-   * *   SRT-Listener
-   * *   Flow
+   * - RTMP-PUSH
+   * 
+   * - SRT-Caller
+   * 
+   * - RTMP-PULL
+   * 
+   * - SRT-Listener
+   * 
+   * - Flow
    * 
    * This parameter is required.
    * 

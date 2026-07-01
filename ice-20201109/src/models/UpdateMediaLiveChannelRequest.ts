@@ -86,11 +86,15 @@ export class UpdateMediaLiveChannelRequestAudioSettings extends $dara.Model {
    * @remarks
    * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
    * 
-   * *   Unicode letters
-   * *   Digits (0-9)
-   * *   Underscore (_)
-   * *   Hyphen (-)
-   * *   Space (a space cannot be at the beginning or end)
+   * - Unicode letters
+   * 
+   * - Digits (0-9)
+   * 
+   * - Underscore (_)
+   * 
+   * - Hyphen (-)
+   * 
+   * - Space (a space cannot be at the beginning or end)
    * 
    * @example
    * English
@@ -318,11 +322,15 @@ export class UpdateMediaLiveChannelRequestInputAttachments extends $dara.Model {
    * @remarks
    * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
    * 
-   * *   Unicode letters
-   * *   Digits (0-9)
-   * *   Underscore (_)
-   * *   Hyphen (-)
-   * *   Space (a space cannot be at the beginning or end)
+   * - Unicode letters
+   * 
+   * - Digits (0-9)
+   * 
+   * - Underscore (_)
+   * 
+   * - Hyphen (-)
+   * 
+   * - Space (a space cannot be at the beginning or end)
    * 
    * @example
    * English
@@ -455,9 +463,11 @@ export class UpdateMediaLiveChannelRequestOutputGroupsOutputs extends $dara.Mode
    * @remarks
    * The media type of the output. Valid values:
    * 
-   * *   0: Audio and Video
-   * *   1: Audio If you set the value to 1, you cannot reference VideoSettings.
-   * *   2: Video. If you set the value to 2, you cannot reference AudioSettings.
+   * - 0: Audio and Video
+   * 
+   * - 1: Audio If you set the value to 1, you cannot reference VideoSettings.
+   * 
+   * - 2: Video. If you set the value to 2, you cannot reference AudioSettings.
    * 
    * @example
    * 0
@@ -849,8 +859,9 @@ export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
-   * *   For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
+   * - For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
+   * 
+   * - For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
    * 
    * @example
    * 720
@@ -883,8 +894,9 @@ export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
    * @remarks
    * The video transcoding method. Valid values:
    * 
-   * *   NORMAL: regular transcoding
-   * *   NBHD: Narrowband HD™ transcoding
+   * - NORMAL: regular transcoding
+   * 
+   * - NBHD: Narrowband HD™ transcoding
    * 
    * If not specified, regular transcoding is used by default.
    * 
@@ -898,8 +910,9 @@ export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
-   * *   For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
+   * - For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
+   * 
+   * - For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
    * 
    * @example
    * 1280

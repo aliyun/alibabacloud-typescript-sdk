@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AIAgent.
+   * 
    * This parameter is required.
    * 
    * @example

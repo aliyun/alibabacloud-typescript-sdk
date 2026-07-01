@@ -207,8 +207,9 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $dara.M
    * @remarks
    * The category of the template. Valid values:
    * 
-   * *   system
-   * *   customized
+   * - system
+   * 
+   * - customized
    * 
    * @example
    * customized

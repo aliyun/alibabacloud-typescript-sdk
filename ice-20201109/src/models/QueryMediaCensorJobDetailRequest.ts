@@ -17,8 +17,9 @@ export class QueryMediaCensorJobDetailRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Default value: **30**.
-   * *   Valid values: **1 to 300**.
+   * - Default value: **30**.
+   * 
+   * - Valid values: **1 to 300**.
    * 
    * @example
    * 30

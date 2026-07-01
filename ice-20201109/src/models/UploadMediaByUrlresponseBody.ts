@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the upload job.
+   * The upload job ID.
    * 
    * @example
    * 20ce1e05dba64576b96e9683879f0***
@@ -13,7 +13,7 @@ export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media ID.
    * 
    * @example
    * f476988629f54a7b8a4ba90d1a6c7***
@@ -21,7 +21,7 @@ export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The URL of the source file that is uploaded in the upload job.
+   * The source URL corresponding to the upload job.
    * 
    * @example
    * http://example****.mp4
@@ -63,7 +63,7 @@ export class UploadMediaByURLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about upload jobs.
+   * An array of upload jobs.
    */
   uploadJobs?: UploadMediaByURLResponseBodyUploadJobs[];
   static names(): { [key: string]: string } {

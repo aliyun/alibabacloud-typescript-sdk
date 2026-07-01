@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartAIAgentOutboundCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The call instance ID.
+   * 
    * @example
    * *********296014bb58670940*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ***********-4417-BDB2************
    */

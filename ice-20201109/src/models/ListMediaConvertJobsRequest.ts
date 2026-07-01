@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaConvertJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
    * 
    * @example
    * 2022-07-15T00:00:00Z
@@ -13,7 +13,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * Filters the results by job ID.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2****
@@ -21,7 +21,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The token for the next page of results. Leave this empty for the first request. To retrieve the next page, pass the `NextPageToken` value from the previous response.
    * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
@@ -29,7 +29,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The sorting order. Valid values: CreateTimeDesc: sorts by create time in descending order. CreateTimeAsc: sorts by create time in ascending order.
+   * The sort order for the results. Valid values: `CreateTimeDesc` (descending by creation time) and `CreateTimeAsc` (ascending by creation time).
    * 
    * @example
    * CreateTimeDesc
@@ -37,7 +37,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 0 to 100. Default value: 20.
+   * The page size. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
    * 
    * @example
    * 2022-07-01T00:00:00Z
@@ -53,12 +53,15 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the job. Valid values:
    * 
-   * *   Inited: submitted
-   * *   Running
-   * *   Complete
-   * *   Error
+   * - `Inited`: The job has been submitted.
+   * 
+   * - `Running`: The job is running.
+   * 
+   * - `Complete`: The job is complete.
+   * 
+   * - `Error`: The job failed due to an error.
    * 
    * @example
    * Success

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user name of the sub-account.
+   * 
    * @example
    * test.xxx@xxx.yikeai
    */

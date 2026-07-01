@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartAIAgentInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the agent instance.
+   * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */

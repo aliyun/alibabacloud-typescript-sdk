@@ -16,6 +16,9 @@ export class TranspositionResult extends $dara.Model {
    * @remarks
    * *   The translated text corresponding to the matched hotwords. Maximum length: 100 characters.
    * *   This field is only used in translation-related scenarios.
+   * 
+   * @example
+   * 你好
    */
   translatedText?: string;
   static names(): { [key: string]: string } {

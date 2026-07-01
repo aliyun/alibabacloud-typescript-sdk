@@ -25,8 +25,9 @@ export class ListBatchMediaProducingJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Script: script-based editing job that mixes media assets.
-   * *   Smart_Mix: intelligent editing job that mixes media assets.
+   * - Script: script-based editing job that mixes media assets.
+   * 
+   * - Smart_Mix: intelligent editing job that mixes media assets.
    * 
    * @example
    * Script
@@ -52,8 +53,9 @@ export class ListBatchMediaProducingJobsRequest extends $dara.Model {
    * @remarks
    * The sorting parameter. Valid values:
    * 
-   * *   desc (default): sorted by creation time in descending order.
-   * *   asc: sorted by creation time in ascending order.
+   * - desc (default): sorted by creation time in descending order.
+   * 
+   * - asc: sorted by creation time in ascending order.
    * 
    * <!---->
    * 
@@ -75,10 +77,13 @@ export class ListBatchMediaProducingJobsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Finished
-   * *   Init
-   * *   Failed
-   * *   Processing
+   * - Finished
+   * 
+   * - Init
+   * 
+   * - Failed
+   * 
+   * - Processing
    * 
    * @example
    * Finished

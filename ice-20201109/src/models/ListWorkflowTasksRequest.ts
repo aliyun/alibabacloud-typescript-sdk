@@ -14,6 +14,11 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   /**
    * @remarks
    * A keyword for fuzzy matching against the TaskInput, such as a file name or Media ID. Max length: 32 characters.
+   * 
+   * @example
+   * ******7aa4cc4459ada8ef35f7******
+   * or
+   * **TestVideo***.flv
    */
   keyText?: string;
   /**

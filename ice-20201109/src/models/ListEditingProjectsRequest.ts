@@ -55,8 +55,9 @@ export class ListEditingProjectsRequest extends $dara.Model {
    * @remarks
    * The type of the editing project. Valid values:
    * 
-   * *   EditingProject: a regular editing project.
-   * *   LiveEditingProject: a live stream editing project.
+   * - EditingProject: a regular editing project.
+   * 
+   * - LiveEditingProject: a live stream editing project.
    * 
    * @example
    * EditingProject
@@ -66,8 +67,9 @@ export class ListEditingProjectsRequest extends $dara.Model {
    * @remarks
    * The order of sorting of the results. Valid values:
    * 
-   * *   CreationTime:Desc (default): sorts the results in reverse chronological order.
-   * *   CreationTime:Asc: sorts the results in chronological order.
+   * - CreationTime:Desc (default): sorts the results in reverse chronological order.
+   * 
+   * - CreationTime:Asc: sorts the results in chronological order.
    * 
    * @example
    * CreationTime:Desc
@@ -93,14 +95,17 @@ export class ListEditingProjectsRequest extends $dara.Model {
    * @remarks
    * The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline.
    * 
-   * *
-   * *
+   * -
+   * 
+   * -
    * 
    * Valid values:
    * 
-   * *   Timeline: a regular template.
-   * *   VETemplate: an advanced template.
-   * *   None: general editing.
+   * - Timeline: a regular template.
+   * 
+   * - VETemplate: an advanced template.
+   * 
+   * - None: general editing.
    * 
    * @example
    * None

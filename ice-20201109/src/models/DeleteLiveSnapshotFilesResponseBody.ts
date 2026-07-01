@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $dara.Model {
   /**
    * @remarks
-   * The time when the file was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The creation timestamp of the file.
    * 
    * @example
    * 1660638613798
@@ -13,12 +13,7 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $da
   createTimestamp?: number;
   /**
    * @remarks
-   * The result of deletion. A value of OK indicates that the file is deleted. Other values indicate that the file failed to be deleted.
-   * 
-   * Valid values:
-   * 
-   * *   OK: The file was deleted.
-   * *   NotFound: The file was not found.
+   * The deletion result. A value of `OK` indicates the operation succeeded. Other values indicate that it failed.
    * 
    * @example
    * OK
@@ -50,12 +45,12 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $da
 export class DeleteLiveSnapshotFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of deleted files.
+   * An array of deletion results.
    */
   deleteFileResultList?: DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

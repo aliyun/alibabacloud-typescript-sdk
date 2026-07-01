@@ -39,8 +39,9 @@ export class ListVodPackagingAssetsRequest extends $dara.Model {
    * @remarks
    * The sorting order of the assets based on the time when they were ingested. Valid values:
    * 
-   * *   desc (default): descending order.
-   * *   asc: ascending order.
+   * - desc (default): descending order.
+   * 
+   * - asc: ascending order.
    * 
    * @example
    * desc

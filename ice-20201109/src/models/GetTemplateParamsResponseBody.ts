@@ -6,6 +6,9 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   /**
    * @remarks
    * The original subtitle content.
+   * 
+   * @example
+   * Subtitle test
    */
   content?: string;
   /**
@@ -13,6 +16,13 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * The thumbnail URL of the original material.
    */
   coverUrl?: string;
+  /**
+   * @remarks
+   * The height of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 300
+   */
   height?: number;
   /**
    * @remarks
@@ -27,7 +37,21 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * The URL of the original material.
    */
   mediaUrl?: string;
+  /**
+   * @remarks
+   * In-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 5.5
+   */
   timelineIn?: number;
+  /**
+   * @remarks
+   * Out-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 8.5
+   */
   timelineOut?: number;
   /**
    * @remarks
@@ -35,16 +59,39 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Video
-   * *   Text
-   * *   Image
+   * - Video
+   * 
+   * - Text
+   * 
+   * - Image
    * 
    * @example
    * Image
    */
   type?: string;
+  /**
+   * @remarks
+   * The width of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 300
+   */
   width?: number;
+  /**
+   * @remarks
+   * The horizontal distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 100
+   */
   x?: number;
+  /**
+   * @remarks
+   * The vertical distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * 
+   * @example
+   * 100
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,15 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
   asrMaxSilence?: number;
   /**
+   * @remarks
+   * Specifies whether to allow voice interrupt.
+   * 
    * @example
    * true
    */
   enableVoiceInterrupt?: boolean;
+  /**
+   * @remarks
+   * The greeting the AI agent speaks when a user joins the call.
+   * 
+   * @example
+   * 你好，有什么可以帮助的吗？
+   */
   greeting?: string;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
   /**
+   * @remarks
+   * The voice\\"s unique identifier.
+   * 
    * @example
    * zhixiaoxia
    */
@@ -60,6 +73,8 @@ export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
 export class StartRtcRobotInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The authentication token required to join the RTC call. You must generate this token using your RTC AppKey.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,15 +83,23 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The RTC channel\\"s unique identifier.
+   * 
    * This parameter is required.
    * 
    * @example
    * testId
    */
   channelId?: string;
+  /**
+   * @remarks
+   * Specifies advanced call configurations that override the agent\\"s default configurations. If you omit this parameter, the agent uses its default configurations.
+   */
   config?: StartRtcRobotInstanceRequestConfig;
   /**
    * @remarks
+   * The AI agent\\"s unique identifier.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,12 +107,17 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
    */
   robotId?: string;
   /**
+   * @remarks
+   * User-defined information.
+   * 
    * @example
    * {}
    */
   userData?: string;
   /**
    * @remarks
+   * The AI agent\\"s unique identifier within the channel.
+   * 
    * This parameter is required.
    * 
    * @example

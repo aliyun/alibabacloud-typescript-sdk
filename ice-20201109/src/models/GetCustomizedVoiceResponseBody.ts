@@ -15,8 +15,9 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
    * @remarks
    * The gender. Valid values:
    * 
-   * *   female
-   * *   male
+   * - female
+   * 
+   * - male
    * 
    * @example
    * female
@@ -28,9 +29,11 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
    * 
    * Valid values:
    * 
-   * *   **story**
-   * *   **interaction**
-   * *   **navigation**
+   * - **story**
+   * 
+   * - **interaction**
+   * 
+   * - **navigation**
    * 
    * @example
    * interaction
@@ -39,6 +42,9 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
   /**
    * @remarks
    * The voice description.
+   * 
+   * @example
+   * 这是一个个性化人声
    */
   voiceDesc?: string;
   /**
@@ -52,6 +58,9 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
   /**
    * @remarks
    * The voice name.
+   * 
+   * @example
+   * Basic
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -133,8 +142,9 @@ export class GetCustomizedVoiceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddFavoritePublicMediaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The IDs of the Media Assets.
+   * 
+   * - Separate multiple IDs with commas.
+   * 
    * @example
    * icepublic-****7213c6050cbc66750b469701****,icepublic-****0b4697017213c6050cbc6675****
    */

@@ -46,6 +46,9 @@ export class SubmitAIAgentVideoAuditTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined data.
+   * 
+   * @example
+   * {"Custom":"hello"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

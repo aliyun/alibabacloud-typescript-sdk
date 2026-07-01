@@ -15,8 +15,9 @@ export class DeleteSourceLocationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid value:
    * 
-   * *   true: The request succeeded.
-   * *   false: The request failed.
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

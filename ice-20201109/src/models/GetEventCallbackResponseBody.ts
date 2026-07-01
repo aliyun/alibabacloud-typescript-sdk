@@ -15,8 +15,9 @@ export class GetEventCallbackResponseBody extends $dara.Model {
    * @remarks
    * Specifies whether callback authentication is enabled. This parameter is returned only for **HTTP** callbacks. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**
+   * 
+   * - **off**
    * 
    * @example
    * on
@@ -34,8 +35,9 @@ export class GetEventCallbackResponseBody extends $dara.Model {
    * @remarks
    * The callback method. Valid values:
    * 
-   * *   **HTTP**
-   * *   **MNS**
+   * - **HTTP**
+   * 
+   * - **MNS**
    * 
    * @example
    * HTTP

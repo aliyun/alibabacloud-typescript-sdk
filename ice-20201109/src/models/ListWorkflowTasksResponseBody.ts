@@ -15,8 +15,9 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
    * @remarks
    * The source of the media file. Valid values:
    * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
+   * - OSS: an OSS object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -118,11 +119,15 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
    * 
    * **Valid values**:
    * 
-   * *   Init: Initializing
-   * *   Failed
-   * *   Canceled
-   * *   Processing
-   * *   Succeed
+   * - Init: Initializing
+   * 
+   * - Failed
+   * 
+   * - Canceled
+   * 
+   * - Processing
+   * 
+   * - Succeed
    * 
    * @example
    * Succeed

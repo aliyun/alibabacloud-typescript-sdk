@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the template was created. The time format is UTC.
    * 
    * @example
    * 2022-07-20T02:48:58Z
@@ -13,7 +13,7 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -21,12 +21,15 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
   templateId?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
+   * 
+   * @example
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The interval between two adjacent snapshots. Unit: seconds.
+   * The snapshot interval in seconds.
    * 
    * @example
    * 10
@@ -35,11 +38,6 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
   /**
    * @remarks
    * The type of the template.
-   * 
-   * Valid values:
-   * 
-   * *   system
-   * *   custom
    * 
    * @example
    * custom
@@ -77,7 +75,7 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
 export class ListLiveSnapshotTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -93,7 +91,7 @@ export class ListLiveSnapshotTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -101,7 +99,7 @@ export class ListLiveSnapshotTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sorting order of the results by creation time.
+   * The sort order.
    * 
    * @example
    * desc
@@ -109,12 +107,12 @@ export class ListLiveSnapshotTemplatesResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The list of the templates.
+   * The list of templates.
    */
   templateList?: ListLiveSnapshotTemplatesResponseBodyTemplateList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

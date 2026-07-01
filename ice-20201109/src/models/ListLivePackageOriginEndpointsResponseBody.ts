@@ -30,6 +30,9 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   /**
    * @remarks
    * The endpoint description.
+   * 
+   * @example
+   * This is an origin endpoint.
    */
   description?: string;
   /**

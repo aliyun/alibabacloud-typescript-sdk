@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human. The ID is required to submit a separate digital human rendering job or use the digital human image in an intelligent timeline.
+   * The digital avatar ID. Use this ID when you submit a rendering job or use the digital avatar in an intelligent timeline.
    * 
    * @example
    * yunqiao
@@ -13,7 +13,10 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   avatarId?: string;
   /**
    * @remarks
-   * The name of the digital human.
+   * The digital avatar name.
+   * 
+   * @example
+   * Yun Qiao
    */
   avatarName?: string;
   /**
@@ -26,7 +29,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   bitrate?: number;
   /**
    * @remarks
-   * The sample thumbnail URL of the digital human.
+   * The URL of the sample cover for the digital avatar.
    * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/coverDemo/yunqiao.mp4
@@ -50,7 +53,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   outputMask?: boolean;
   /**
    * @remarks
-   * The sample video URL of the digital human.
+   * The URL of the sample video for the digital avatar.
    * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/videoDemo/yunqiao.mp4
@@ -110,12 +113,12 @@ export class ListSmartSysAvatarModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried digital humans.
+   * A list of system digital avatars.
    */
   smartSysAvatarModelList?: ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList[];
   /**
    * @remarks
-   * The total number of system digital human images returned.
+   * The total number of system digital avatars.
    * 
    * @example
    * 4

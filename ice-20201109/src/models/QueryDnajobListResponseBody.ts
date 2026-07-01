@@ -7,7 +7,7 @@ export class QueryDNAJobListResponseBodyJobListInput extends $dara.Model {
    * @remarks
    * The input file. The file can be an OSS object or a media asset. The path of an OSS object can be in one of the following formats:
    * 
-   * 1\\. oss://bucket/object
+   * 1\\. oss\\://bucket/object
    * 
    * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
@@ -21,8 +21,9 @@ export class QueryDNAJobListResponseBodyJobListInput extends $dara.Model {
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * 1.  OSS: Object Storage Service (OSS) object.
-   * 2.  Media: media asset.
+   * 1. OSS: Object Storage Service (OSS) object.
+   * 
+   * 2. Media: media asset.
    * 
    * @example
    * Media
@@ -133,10 +134,13 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
    * @remarks
    * The job state. Valid values:
    * 
-   * *   **Queuing**: The job is waiting in the queue.
-   * *   **Analysing**: The job is in progress.
-   * *   **Success**: The job is successful.
-   * *   **Fail**: The job failed.
+   * - **Queuing**: The job is waiting in the queue.
+   * 
+   * - **Analysing**: The job is in progress.
+   * 
+   * - **Success**: The job is successful.
+   * 
+   * - **Fail**: The job failed.
    * 
    * @example
    * Queuing

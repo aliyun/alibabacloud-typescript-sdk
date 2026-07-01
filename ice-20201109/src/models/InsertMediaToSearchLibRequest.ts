@@ -3,6 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertMediaToSearchLibRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Image set information. Supports only the IPCamera scenario, and MediaType must be video.
+   * 
+   * @example
+   * {
+   *     "images": [
+   *         "oss://[example-bucket-]/[object_path-]xxx1.jpg",
+   *         "oss://[example-bucket-]/[object_path-]xxx2.jpg",
+   *         "oss://[example-bucket-]/[object_path-]xxx3.jpg",
+   *         "oss://[example-bucket-]/[object_path-]xxx4.jpg"
+   *     ]
+   * }
+   */
   imagesInput?: string;
   /**
    * @remarks
@@ -10,14 +24,14 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
    * 
    * Note: Make sure that you specify a correct file name and the bucket in which the file resides is in the same region where this operation is called. Otherwise, the file cannot be found or the operation may fail.
    * 
-   * Specify an Object Storage Service (OSS) URL in the following format: oss://[Bucket name]/[File path]. For example, you can specify oss://[example-bucket-****]/[object_path-****].
+   * Specify an Object Storage Service (OSS) URL in the following format: oss\\://[Bucket name]/[File path]. For example, you can specify oss\\://[example-bucket-****]/[object_path-****].
    * 
-   * Specify an HTTP URL in the following format: public endpoint. For example, you can specify http://example-test-\\*\\*\\*\\*.mp4.
+   * Specify an HTTP URL in the following format: public endpoint. For example, you can specify http\\://example-test-\\*\\*\\*\\*.mp4.
    * 
    * This parameter is required.
    * 
    * @example
-   * http://example-test-****.mp4
+   * oss://[example-bucket-]/[object_path-]
    */
   input?: string;
   /**
@@ -32,9 +46,11 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
    * @remarks
    * The type of the media asset. Valid values:
    * 
-   * *   video (default)
-   * *   image
-   * *   audio
+   * - video (default)
+   * 
+   * - image
+   * 
+   * - audio
    * 
    * @example
    * video
@@ -45,9 +61,16 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
    * The message body.
    * 
    * @example
-   * {}
+   * {"title":"test","customFields":{"intField1":12,"strField1":"abc"}}
    */
   msgBody?: string;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks

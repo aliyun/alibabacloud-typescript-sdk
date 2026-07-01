@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentVoiceprintsResponseBodyVoiceprints extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the voiceprint.
+   * The time the voiceprint was created. The time is in UTC and formatted according to the ISO 8601 standard.
    * 
    * @example
    * 2025-07-28T10:03:58.000+00:00
@@ -13,7 +13,7 @@ export class ListAIAgentVoiceprintsResponseBodyVoiceprints extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time of the voiceprint.
+   * The time the voiceprint was last modified. The time is in UTC and formatted according to the ISO 8601 standard.
    * 
    * @example
    * 2025-07-28T10:03:58.000+00:00
@@ -21,7 +21,7 @@ export class ListAIAgentVoiceprintsResponseBodyVoiceprints extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The unique identifier for the voiceprint.
+   * The unique voiceprint ID.
    * 
    * @example
    * vp_1699123456_8527
@@ -63,7 +63,7 @@ export class ListAIAgentVoiceprintsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of voiceprints that match the query criteria.
+   * The total number of matching voiceprints.
    * 
    * @example
    * 2
@@ -71,7 +71,7 @@ export class ListAIAgentVoiceprintsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The voiceprints.
+   * A list of voiceprint objects.
    */
   voiceprints?: ListAIAgentVoiceprintsResponseBodyVoiceprints[];
   static names(): { [key: string]: string } {

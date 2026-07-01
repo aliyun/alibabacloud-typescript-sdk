@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint extends $dara.Model {
+  /**
+   * @remarks
+   * The bitrate control type.
+   */
   bitrateControlType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +30,10 @@ export class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTem
 }
 
 export class GetCustomTemplateResponseBodyCustomTemplateFrontendHint extends $dara.Model {
+  /**
+   * @remarks
+   * Hint for transcoding templates.
+   */
   transcodeTemplateHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint;
   static names(): { [key: string]: string } {
     return {
@@ -60,10 +68,14 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
    * 2022-01-01T10:00:00Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Reserved for frontend display.
+   */
   frontendHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHint;
   /**
    * @remarks
-   * Indicates whether the template is the default template.
+   * Indicates whether the template is a default template.
    * 
    * @example
    * true
@@ -79,7 +91,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The template state.
+   * The status of the template.
    * 
    * @example
    * Normal
@@ -87,7 +99,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The subtype ID of the template.
+   * The ID of the template subtype.
    * 
    * @example
    * 1
@@ -95,7 +107,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   subtype?: number;
   /**
    * @remarks
-   * The subtype name of the template.
+   * The name of the template subtype.
    * 
    * @example
    * Normal
@@ -103,7 +115,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   subtypeName?: string;
   /**
    * @remarks
-   * The template parameters.
+   * The template configuration, in a JSON string.
    * 
    * @example
    * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
@@ -122,12 +134,12 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 测试转码模板
+   * Test screenshot template
    */
   templateName?: string;
   /**
    * @remarks
-   * The type ID of the template.
+   * The ID of the template type.
    * 
    * @example
    * 2
@@ -135,7 +147,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The type name of the template.
+   * The name of the template type.
    * 
    * @example
    * SnapshotTemplate
@@ -190,7 +202,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
 export class GetCustomTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The template information.
+   * The template details.
    */
   customTemplate?: GetCustomTemplateResponseBodyCustomTemplate;
   /**

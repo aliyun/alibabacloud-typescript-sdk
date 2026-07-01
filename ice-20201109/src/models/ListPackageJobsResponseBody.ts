@@ -7,8 +7,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput ext
    * @remarks
    * The media object.
    * 
-   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * 
+   * - If Type is set to Media, set this parameter to the ID of a media asset.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -18,8 +19,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput ext
    * @remarks
    * The type of the media object. Valid values:
    * 
-   * *   OSS: an Object Storage Service (OSS) object.
-   * *   Media: a media asset.
+   * - OSS: an Object Storage Service (OSS) object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -83,8 +85,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
    * @remarks
    * The media object.
    * 
-   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * 
+   * - If Type is set to Media, set this parameter to the ID of a media asset.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -94,8 +97,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
    * @remarks
    * The type of the media object. Valid values:
    * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
+   * - OSS: an OSS object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -159,7 +163,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
    * The job ID.
    * 
    * @example
-   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   * 7b38a5d86f1e47838927b6e7ccb1****
    */
   jobId?: string;
   /**
@@ -196,7 +200,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
    * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
    * 
    * @example
-   * 5b40833e4c3e4d4e95a866abb9a42510
+   * 5b40833e4c3e4d4e95a866abb9a4****
    */
   pipelineId?: string;
   /**
@@ -227,9 +231,11 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
    * @remarks
    * The source of the job. Valid values:
    * 
-   * *   API
-   * *   WorkFlow
-   * *   Console
+   * - API
+   * 
+   * - WorkFlow
+   * 
+   * - Console
    * 
    * @example
    * API
@@ -304,7 +310,7 @@ export class ListPackageJobsResponseBodyPackageJobList extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
    * 
    * @example
-   * 019daf5780f74831b0e1a767c9f1c178
+   * 019daf5780f74831b0e1a767c9f1****
    */
   nextPageToken?: string;
   /**

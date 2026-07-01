@@ -7,11 +7,15 @@ export class CreateRecognitionLibRequest extends $dara.Model {
    * @remarks
    * The type of recognition algorithm. Valid values:
    * 
-   * *   landmark
-   * *   object
-   * *   logo
-   * *   face
-   * *   label
+   * - landmark
+   * 
+   * - object
+   * 
+   * - logo
+   * 
+   * - face
+   * 
+   * - label
    * 
    * This parameter is required.
    * 
@@ -22,6 +26,9 @@ export class CreateRecognitionLibRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the recognition library. Max length: 128 bytes.
+   * 
+   * @example
+   * For storing product recognition samples
    */
   libDescription?: string;
   /**
@@ -29,6 +36,9 @@ export class CreateRecognitionLibRequest extends $dara.Model {
    * The name of the recognition library. Max length: 64 bytes.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Landmark test library
    */
   libName?: string;
   ownerAccount?: string;

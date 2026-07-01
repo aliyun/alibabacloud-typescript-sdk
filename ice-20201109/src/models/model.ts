@@ -294,6 +294,7 @@ export { GetPackageJobResponseBodyPackageJob } from './GetPackageJobResponseBody
 export { GetPipelineResponseBodyPipeline } from './GetPipelineResponseBody';
 export { GetPlayInfoResponseBodyMediaBase } from './GetPlayInfoResponseBody';
 export { GetPlayInfoResponseBodyPlayInfoList } from './GetPlayInfoResponseBody';
+export { GetProjectExportJobResponseBodyProjectExportJobExportResultSrtList } from './GetProjectExportJobResponseBody';
 export { GetProjectExportJobResponseBodyProjectExportJobExportResult } from './GetProjectExportJobResponseBody';
 export { GetProjectExportJobResponseBodyProjectExportJob } from './GetProjectExportJobResponseBody';
 export { GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData } from './GetPublicMediaInfoResponseBody';

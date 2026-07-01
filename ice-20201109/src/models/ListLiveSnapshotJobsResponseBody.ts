@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $dara.Model {
   /**
    * @remarks
-   * The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+   * The name of the OSS Bucket.
    * 
    * @example
    * testbucket
@@ -13,7 +13,7 @@ export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $dara
   bucket?: string;
   /**
    * @remarks
-   * The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+   * The domain name of the OSS endpoint.
    * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
@@ -21,7 +21,7 @@ export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $dara
   endpoint?: string;
   /**
    * @remarks
-   * The storage type. The value can only be oss.
+   * The storage type. Only Object Storage Service (OSS) is supported.
    * 
    * @example
    * oss
@@ -55,7 +55,7 @@ export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $dara
 export class ListLiveSnapshotJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time of the job.
    * 
    * @example
    * 2022-07-20T02:48:58Z
@@ -71,23 +71,20 @@ export class ListLiveSnapshotJobsResponseBodyJobList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
+   * 
+   * @example
+   * Screenshot task1
    */
   jobName?: string;
   /**
    * @remarks
-   * The output information.
+   * Details of the snapshot output.
    */
   snapshotOutput?: ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * *   init: The job is not started.
-   * *   paused: The job is paused.
-   * *   started: The job is in progress.
+   * The job status.
    * 
    * @example
    * started
@@ -104,11 +101,14 @@ export class ListLiveSnapshotJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The interval between two adjacent snapshots. Unit: seconds.
+   * The interval between snapshots, in seconds.
    * 
    * @example
    * 5
@@ -168,7 +168,7 @@ export class ListLiveSnapshotJobsResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of jobs to return per page.
    * 
    * @example
    * 10
@@ -184,7 +184,7 @@ export class ListLiveSnapshotJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sorting order of the jobs by creation time.
+   * The sort order for the job list. For example, "desc" indicates descending order.
    * 
    * @example
    * desc
@@ -192,7 +192,7 @@ export class ListLiveSnapshotJobsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of jobs found.
    * 
    * @example
    * 100

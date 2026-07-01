@@ -20,6 +20,9 @@ export class CreateEditingProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   * 
+   * @example
+   * See the template user guide.
    */
   clipsParam?: string;
   /**
@@ -35,7 +38,7 @@ export class CreateEditingProjectRequest extends $dara.Model {
    * The description of the online editing project.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -66,8 +69,9 @@ export class CreateEditingProjectRequest extends $dara.Model {
    * @remarks
    * The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline. Valid values:
    * 
-   * *   Timeline: a regular template.
-   * *   VETemplate: an advanced template.
+   * - Timeline: a regular template.
+   * 
+   * - VETemplate: an advanced template.
    * 
    * @example
    * Timeline

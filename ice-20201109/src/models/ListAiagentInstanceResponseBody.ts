@@ -6,10 +6,14 @@ import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 
 
 export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Template configuration used by the agent instance.
+   */
   agentConfig?: AIAgentConfig;
   /**
    * @remarks
-   * The URL of the call log file for the AI agent. The structure of the file is CallLog in the JSON format.
+   * URL of the call log file. The file contains a JSON-formatted CallLog structure.
    * 
    * @example
    * https://example.com/call_logs/12345.json
@@ -17,7 +21,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   callLogUrl?: string;
   /**
    * @remarks
-   * The runtime configurations of the AI agent.
+   * Runtime configuration required by the agent.
    * 
    * @example
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
@@ -25,10 +29,13 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   runtimeConfig?: AIAgentRuntimeConfig;
   /**
    * @remarks
-   * The state of the instance. Valid values:
+   * Instance status:
    * 
-   * *   Executing
-   * *   Finished
+   * - Created: The call started but no connection was established between both ends.
+   * 
+   * - Executing: The call is in progress and a connection is established between both ends.
+   * 
+   * - Finished: The call ended.
    * 
    * @example
    * Finished
@@ -36,7 +43,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template configurations of the AI agent.
+   * Template configuration used by the agent instance.
    * 
    * @example
    * {"VoiceChat": {"VoiceId": "zhixiaoxia"}}
@@ -46,7 +53,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @remarks
-   * The custom information.
+   * User-defined information.
    * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
@@ -95,12 +102,12 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
 export class ListAIAgentInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the AI agents.
+   * List of agent instance objects.
    */
   instances?: ListAIAgentInstanceResponseBodyInstances[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0

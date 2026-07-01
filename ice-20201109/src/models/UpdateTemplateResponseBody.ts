@@ -8,7 +8,7 @@ export class UpdateTemplateResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * ******11-DB8D-4A9A-875B-275798******
+   * F8D475A5-F2EC-5755-ABD8-22D5561C****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

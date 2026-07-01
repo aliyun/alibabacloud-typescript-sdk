@@ -17,8 +17,9 @@ export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
    * @remarks
    * The flow state. Valid values:
    * 
-   * *   online: starts the flow.
-   * *   offline: stops the flow.
+   * - online: starts the flow.
+   * 
+   * - offline: stops the flow.
    * 
    * This parameter is required.
    * 

@@ -143,8 +143,9 @@ export class SubmitLiveTranscodeJobRequest extends $dara.Model {
    * @remarks
    * The start mode of the transcoding job.
    * 
-   * *   0: The transcoding job immediately starts.
-   * *   1: The transcoding job starts at the scheduled time.
+   * - 0: The transcoding job immediately starts.
+   * 
+   * - 1: The transcoding job starts at the scheduled time.
    * 
    * This parameter is required.
    * 

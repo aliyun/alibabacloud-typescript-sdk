@@ -73,7 +73,7 @@ export class SubmitLiveSnapshotJobRequestStreamInput extends $dara.Model {
    * @remarks
    * The URL of the input stream.
    * 
-   * *   It cannot exceed 255 characters in length.
+   * - It cannot exceed 255 characters in length.
    * 
    * This parameter is required.
    * 
@@ -109,8 +109,9 @@ export class SubmitLiveSnapshotJobRequest extends $dara.Model {
    * @remarks
    * The snapshot callback URL.
    * 
-   * *   It cannot exceed 255 characters in length.
-   * *   Both HTTP and HTTPS URLs are supported.
+   * - It cannot exceed 255 characters in length.
+   * 
+   * - Both HTTP and HTTPS URLs are supported.
    * 
    * @example
    * http://www.aliyun.com/snapshot/callback
@@ -120,9 +121,12 @@ export class SubmitLiveSnapshotJobRequest extends $dara.Model {
    * @remarks
    * The name of the job.
    * 
-   * *   It cannot exceed 128 characters in length.
+   * - It cannot exceed 128 characters in length.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Screenshot task1
    */
   jobName?: string;
   /**

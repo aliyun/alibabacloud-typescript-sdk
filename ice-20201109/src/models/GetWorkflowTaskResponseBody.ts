@@ -22,6 +22,9 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
   /**
    * @remarks
    * The workflow name.
+   * 
+   * @example
+   * Super-resolution transcoding workflow
    */
   name?: string;
   /**
@@ -30,8 +33,9 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   Active
-   * *   Inactive
+   * - Active
+   * 
+   * - Inactive
    * 
    * @example
    * Active
@@ -43,9 +47,11 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   Customize: custom workflow.
-   * *   System: system workflow.
-   * *   Common: user-created workflow.
+   * - Customize: custom workflow.
+   * 
+   * - System: system workflow.
+   * 
+   * - Common: user-created workflow.
    * 
    * @example
    * Common
@@ -94,6 +100,9 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   /**
    * @remarks
    * The results for all nodes of the workflow task.
+   * 
+   * @example
+   * Json格式，内容根据工作流配置有变化。
    */
   activityResults?: string;
   /**
@@ -118,11 +127,15 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Init: The task is being initialized.
-   * *   Failed: The task failed.
-   * *   Canceled: The task is canceled.
-   * *   Processing: The task is in progress.
-   * *   Succeed: The task is successful.
+   * - Init: The task is being initialized.
+   * 
+   * - Failed: The task failed.
+   * 
+   * - Canceled: The task is canceled.
+   * 
+   * - Processing: The task is in progress.
+   * 
+   * - Succeed: The task is successful.
    * 
    * @example
    * Succeed

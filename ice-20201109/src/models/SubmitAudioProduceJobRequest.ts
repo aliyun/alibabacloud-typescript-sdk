@@ -5,27 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAudioProduceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job description.
+   * The description of the job.
    * 
-   * *   The job description can be up to 1,024 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - Cannot exceed 1,024 bytes.
+   * 
+   * - Must be UTF-8 encoded.
    * 
    * @example
-   * 任务描述  长度不超过1024字节  UTF8编码
+   * Task description, max 1024 bytes, UTF-8 encoded
    */
   description?: string;
   /**
    * @remarks
-   * The audio editing configurations.
+   * The audio production configuration:
    * 
-   * *   voice: the [voice type](https://help.aliyun.com/document_detail/449563.html).
-   * *   customizedVoice: the ID of the personalized human voice.
-   * *   format: the format of the output file. Valid values: PCM, WAV, and MP3.
-   * *   volume: the volume. Default value: 50. Valid values: 0 to 100.
-   * *   speech_rate: the speech tempo. Default value: 0. Value range: -500 to 500.
-   * *   pitch_rate: the intonation. Default value: 0. Value range: -500 to 500.
+   * - `voice`: The [voice type](https://help.aliyun.com/document_detail/449563.html).
    * 
-   * >  If you specify both voice and customizedVoice, customizedVoice takes precedence over voice.
+   * - `customizedVoice`: The ID of the custom voice for voice cloning.
+   * 
+   * - `format`: The output file format. Supported formats: `PCM`, `WAV`, and `MP3`.
+   * 
+   * - `volume`: The volume. The value ranges from 0 to 100. Default: 50.
+   * 
+   * - `speech_rate`: The speech rate. The value ranges from -500 to 500. Default: 0.
+   * 
+   *   - Values of -500, 0, and 500 correspond to 0.5x, 1.0x, and 2.0x speed, respectively.
+   * 
+   *   - Calculation method:
+   * 
+   *     - For a 0.8x speed multiplier: (1 - 1/0.8) / 0.002 = -125.
+   * 
+   *     - For a 1.2x speed multiplier: (1 - 1/1.2) / 0.001 = 166.
+   * 
+   *     - For speed multipliers less than 1, use a factor of 0.002.
+   * 
+   *     - For speed multipliers greater than 1, use a factor of 0.001.
+   * 
+   * - `pitch_rate`: The pitch rate. The value ranges from -500 to 500. Default: 0.
+   * 
+   * 
+   *   >Notice: 
+   * 
+   *   If you provide both `voice` and `customizedVoice`, `customizedVoice` takes precedence.
    * 
    * This parameter is required.
    * 
@@ -35,27 +56,31 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The text content. A maximum of 2,000 characters are supported. The [Speech Synthesis Markup Language (SSML)](https://help.aliyun.com/document_detail/2672807.html) is supported.
+   * The text to synthesize. The maximum length is 10,000 characters. Supports [SSML](https://help.aliyun.com/document_detail/2672807.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试文本
+   * Audio production task
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The output audio configurations.
+   * The audio output configuration.
    * 
    * This parameter is required.
    * 
    * @example
-   * {"bucket":"bucket","object":"objeck"}
+   * For example, to store the output audio at http://my_bucket.oss-cn-shanghai.aliyuncs.com/target_audio.mp3, configure this parameter as:
+   * {
+   *       "bucket": "my_bucket",
+   *       "object": "target_audio"
+   * }
    */
   outputConfig?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite the existing Object Storage Service (OSS) object.
+   * Specifies whether to overwrite an existing OSS file.
    * 
    * @example
    * true
@@ -63,21 +88,22 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The job title. If you do not specify this parameter, the system generates a title based on the current date.
+   * The title of the job. If you do not provide a title, the system automatically generates one based on the current date.
    * 
-   * *   The job title can be up to 128 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - Cannot exceed 128 bytes.
+   * 
+   * - Must be UTF-8 encoded.
    * 
    * @example
-   * 任务标题。若不提供，根据日期自动生成默认title  长度不超过128字节  UTF8编码
+   * China Regional Daily News
    */
   title?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * Custom settings in JSON format. The maximum length is 512 bytes. This parameter supports [custom callback address configuration](https://help.aliyun.com/document_detail/451631.html).
    * 
    * @example
-   * {"user":"data"}
+   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

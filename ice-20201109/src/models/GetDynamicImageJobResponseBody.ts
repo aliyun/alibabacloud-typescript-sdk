@@ -57,8 +57,9 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $dara.Mo
    * @remarks
    * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
    * 
-   * 1.  OSS://bucket/object
-   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 1. OSS://bucket/object
+   * 
+   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
    * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
    * 
@@ -75,8 +76,9 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $dara.Mo
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * 1.  OSS: an Object Storage Service (OSS) object.
-   * 2.  Media: a media asset.
+   * 1. OSS: an Object Storage Service (OSS) object.
+   * 
+   * 2. Media: a media asset.
    * 
    * @example
    * OSS
@@ -165,8 +167,9 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $dara.M
    * @remarks
    * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
    * 
-   * 1.  OSS://bucket/object
-   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 1. OSS://bucket/object
+   * 
+   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -302,9 +305,11 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Init: The job is submitted.
-   * *   Success: The job is successful.
-   * *   Fail: The job failed.
+   * - Init: The job is submitted.
+   * 
+   * - Success: The job is successful.
+   * 
+   * - Fail: The job failed.
    * 
    * @example
    * Success
@@ -340,9 +345,11 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Console
-   * *   Workflow
-   * *   API
+   * - Console
+   * 
+   * - Workflow
+   * 
+   * - API
    * 
    * @example
    * API

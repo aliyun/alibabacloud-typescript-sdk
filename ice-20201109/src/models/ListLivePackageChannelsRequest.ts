@@ -43,8 +43,9 @@ export class ListLivePackageChannelsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   asc
-   * *   desc
+   * - asc
+   * 
+   * - desc
    * 
    * @example
    * desc

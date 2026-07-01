@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveRecordTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
@@ -13,7 +13,7 @@ export class CreateLiveRecordTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the Live Record Template.
    * 
    * @example
    * ****96e8864746a0b6f3****

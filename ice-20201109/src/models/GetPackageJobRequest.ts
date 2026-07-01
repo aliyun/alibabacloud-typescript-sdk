@@ -10,7 +10,7 @@ export class GetPackageJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ab4802364a2e49208c99efab82dfa8e8
+   * ab4802364a2e49208c99efab82df****
    */
   jobId?: string;
   static names(): { [key: string]: string } {

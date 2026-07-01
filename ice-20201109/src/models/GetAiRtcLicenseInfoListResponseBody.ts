@@ -6,7 +6,7 @@ import { AiRtcLicenseInfoDTO } from "./AiRtcLicenseInfoDto";
 export class GetAiRtcLicenseInfoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Success
@@ -22,7 +22,7 @@ export class GetAiRtcLicenseInfoListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * An array of AiRtcLicenseInfoDTO objects, each representing a license batch.
+   * The list of license batch details.
    */
   licenseInfoList?: AiRtcLicenseInfoDTO[];
   /**
@@ -43,7 +43,7 @@ export class GetAiRtcLicenseInfoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -51,7 +51,7 @@ export class GetAiRtcLicenseInfoListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent.
+   * Agent ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter does not have a default value.
+   * End time of the query in ISO 8601 format. No default value.
    * 
    * @example
    * 2023-01-02T00:00:00Z
@@ -23,7 +23,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Valid values: 1 to 100.
+   * Page number. Default is 1. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 0 to 100.
+   * Number of results per page. Default is 10. Valid values: 0 to 100.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter does not have a default value.
+   * Start time of the query in ISO 8601 format. No default value.
    * 
    * @example
    * 2023-01-01T00:00:00Z

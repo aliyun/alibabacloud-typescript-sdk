@@ -5,14 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * *   The description of the digital human.
-   * *   The description can be up to 1,000 characters in length.
+   * - The description of the digital human.
+   * 
+   * - The description can be up to 1,000 characters in length.
+   * 
+   * @example
+   * This is a digital human used for a specific scenario.
    */
   avatarDescription?: string;
   /**
    * @remarks
-   * *   The name of the digital human.
-   * *   The name can be up to seven characters in length.
+   * - The name of the digital human.
+   * 
+   * - The name can be up to seven characters in length.
+   * 
+   * @example
+   * Decimal
    */
   avatarName?: string;
   /**
@@ -27,8 +35,9 @@ export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * *   The media asset ID of the portrait image.
-   * *   The value must be 32 characters in length.
+   * - The media asset ID of the portrait image.
+   * 
+   * - The value must be 32 characters in length.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -36,11 +45,15 @@ export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   portrait?: string;
   /**
    * @remarks
-   * *   The thumbnail URL.
-   * *   After the digital human is trained, the thumbnail is uploaded to this URL.
-   * *   The URL must be a valid public Object Storage Service (OSS) URL.
-   * *   The URL can be up to 512 characters in length.
-   * *   The URL cannot be updated after the digital human is trained.
+   * - The thumbnail URL.
+   * 
+   * - After the digital human is trained, the thumbnail is uploaded to this URL.
+   * 
+   * - The URL must be a valid public Object Storage Service (OSS) URL.
+   * 
+   * - The URL can be up to 512 characters in length.
+   * 
+   * - The URL cannot be updated after the digital human is trained.
    * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
@@ -48,13 +61,13 @@ export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   thumbnail?: string;
   /**
    * @remarks
-   * *   Indicates whether the input video supports alpha channels.
+   * - Indicates whether the input video supports alpha channels.
    * 
-   * *   You can modify this parameter only if the job is in the Init or Fail state.
+   * - You can modify this parameter only if the job is in the Init or Fail state.
    * 
-   *     **
+   *   \\*\\*
    * 
-   *     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+   *   **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
    * 
    * @example
    * True
@@ -62,11 +75,15 @@ export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   transparent?: boolean;
   /**
    * @remarks
-   * *   The ID of the video used for training.
-   * *   The value must be 32 characters in length.
-   * *   Supported formats: MP4, MOV, and WebM.
-   * *   The duration of the video must be 5 to 15 minutes.
-   * *   The resolution of the video must be 1920×1080 or 1080×1920.
+   * - The ID of the video used for training.
+   * 
+   * - The value must be 32 characters in length.
+   * 
+   * - Supported formats: MP4, MOV, and WebM.
+   * 
+   * - The duration of the video must be 5 to 15 minutes.
+   * 
+   * - The resolution of the video must be 1920×1080 or 1080×1920.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****

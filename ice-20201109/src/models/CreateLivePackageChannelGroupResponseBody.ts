@@ -14,6 +14,9 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   /**
    * @remarks
    * The channel group description.
+   * 
+   * @example
+   * This is an example description.
    */
   description?: string;
   /**

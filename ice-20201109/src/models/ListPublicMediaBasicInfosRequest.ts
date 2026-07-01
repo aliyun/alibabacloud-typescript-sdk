@@ -7,9 +7,11 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
    * @remarks
    * The business type of the media asset. Valid values:
    * 
-   * *   sticker
-   * *   bgm
-   * *   bgi
+   * - sticker
+   * 
+   * - bgm
+   * 
+   * - bgi
    * 
    * @example
    * sticker
@@ -37,34 +39,48 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
    * @remarks
    * The media tag. All media assets that contain the specified media tag are returned. Valid values:
    * 
-   * *   Sticker tags:
+   * - Sticker tags:
    * 
-   *     *   sticker-atmosphere
-   *     *   sticker-bubble
-   *     *   sticker-cute
-   *     *   sticker-daily
-   *     *   sticker-expression
-   *     *   sticker-gif
+   *   - sticker-atmosphere
    * 
-   * *   Background music (BGM) tags:
+   *   - sticker-bubble
    * 
-   *     *   bgm-romantic
-   *     *   bgm-cuisine
-   *     *   bgm-chinese-style
-   *     *   bgm-upbeat
-   *     *   bgm-dynamic
-   *     *   bgm-relaxing
-   *     *   bgm-quirky
-   *     *   bgm-beauty
+   *   - sticker-cute
    * 
-   * *   Background image (BGI) tags:
+   *   - sticker-daily
    * 
-   *     *   bgi-grad
-   *     *   bgi-solid
-   *     *   bgi-pic
+   *   - sticker-expression
+   * 
+   *   - sticker-gif
+   * 
+   * - Background music (BGM) tags:
+   * 
+   *   - bgm-romantic
+   * 
+   *   - bgm-cuisine
+   * 
+   *   - bgm-chinese-style
+   * 
+   *   - bgm-upbeat
+   * 
+   *   - bgm-dynamic
+   * 
+   *   - bgm-relaxing
+   * 
+   *   - bgm-quirky
+   * 
+   *   - bgm-beauty
+   * 
+   * - Background image (BGI) tags:
+   * 
+   *   - bgi-grad
+   * 
+   *   - bgi-solid
+   * 
+   *   - bgi-pic
    * 
    * @example
-   * ticker-atmosphere
+   * sticker-atmosphere
    */
   mediaTagId?: string;
   /**

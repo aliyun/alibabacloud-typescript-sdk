@@ -8,7 +8,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * The template configurations.
    * 
    * @example
-   * 参见Timeline模板Config文档
+   * 参见Config文档
    */
   config?: string;
   /**
@@ -25,9 +25,11 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AliyunConsole
-   * *   WebSDK
-   * *   OpenAPI
+   * - AliyunConsole
+   * 
+   * - WebSDK
+   * 
+   * - OpenAPI
    * 
    * @example
    * OpenAPI
@@ -39,9 +41,11 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AliyunConsole
-   * *   WebSDK
-   * *   OpenAPI
+   * - AliyunConsole
+   * 
+   * - WebSDK
+   * 
+   * - OpenAPI
    * 
    * @example
    * OpenAPI
@@ -52,7 +56,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 视频添加水印模板
+   * Template name
    */
   name?: string;
   /**
@@ -69,12 +73,17 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   UploadFailed: Failed to upload the video.
-   * *   ProcessFailed: Failed to process the advanced template.
-   * *   Available: The template is available.
-   * *   Uploading: The video is being uploaded.
-   * *   Created: The template is created but not ready for use.
-   * *   Processing: The advanced template is being processed.
+   * - UploadFailed: Failed to upload the video.
+   * 
+   * - ProcessFailed: Failed to process the advanced template.
+   * 
+   * - Available: The template is available.
+   * 
+   * - Uploading: The video is being uploaded.
+   * 
+   * - Created: The template is created but not ready for use.
+   * 
+   * - Processing: The advanced template is being processed.
    * 
    * @example
    * Available
@@ -94,8 +103,9 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Timeline: regular template.
-   * *   VETemplate: advanced template.
+   * - Timeline: regular template.
+   * 
+   * - VETemplate: advanced template.
    * 
    * @example
    * Timeline

@@ -57,8 +57,9 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Active
-   * *   Paused
+   * - Active
+   * 
+   * - Paused
    * 
    * @example
    * Active

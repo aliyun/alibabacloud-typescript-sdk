@@ -8,7 +8,7 @@ export class CreateHotwordLibraryShrinkRequest extends $dara.Model {
    * The description of the hotword library. It can be up to 200 characters in length.
    * 
    * @example
-   * 存放名人的词库
+   * Lexicon containing celebrity names
    */
   description?: string;
   /**

@@ -21,12 +21,13 @@ export class ListCustomizedVoicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * *   The voice type. Valid values:
+   * - The voice type. Valid values:
    * 
-   *     *   Basic
-   *     *   Standard
+   *   - Basic
    * 
-   * *   If you do not specify this parameter, the default value Basic is used.
+   *   - Standard
+   * 
+   * - If you do not specify this parameter, the default value Basic is used.
    * 
    * @example
    * Standard

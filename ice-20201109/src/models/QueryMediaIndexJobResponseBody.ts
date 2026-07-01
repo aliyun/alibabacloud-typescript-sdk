@@ -23,9 +23,11 @@ export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $dara.Model 
    * @remarks
    * The index type. Valid values:
    * 
-   * *   mm: large visual model.
-   * *   face: face recognition.
-   * *   aiLabel: smart tagging.
+   * - mm: large visual model.
+   * 
+   * - face: face recognition.
+   * 
+   * - aiLabel: smart tagging.
    * 
    * @example
    * mm
@@ -35,9 +37,11 @@ export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $dara.Model 
    * @remarks
    * The job status. Valid values:
    * 
-   * *   Running
-   * *   Success
-   * *   Fail
+   * - Running
+   * 
+   * - Success
+   * 
+   * - Fail
    * 
    * @example
    * Success
@@ -96,8 +100,9 @@ export class QueryMediaIndexJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

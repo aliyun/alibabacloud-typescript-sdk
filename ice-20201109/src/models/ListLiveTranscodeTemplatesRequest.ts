@@ -7,8 +7,9 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
    * @remarks
    * The category of the template. Valid values:
    * 
-   * *   system
-   * *   customized
+   * - system
+   * 
+   * - customized
    * 
    * @example
    * customized
@@ -42,8 +43,9 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
    * @remarks
    * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
    * 
-   * *   asc
-   * *   desc
+   * - asc
+   * 
+   * - desc
    * 
    * @example
    * asc
@@ -53,10 +55,13 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
    * @remarks
    * The type of the template. Valid values:
    * 
-   * *   normal
-   * *   narrow-band
-   * *   audio-only
-   * *   origin
+   * - normal
+   * 
+   * - narrow-band
+   * 
+   * - audio-only
+   * 
+   * - origin
    * 
    * @example
    * normal
@@ -66,8 +71,9 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
    * @remarks
    * The video codec. Valid values:
    * 
-   * *   H.264
-   * *   H.265
+   * - H.264
+   * 
+   * - H.265
    * 
    * @example
    * H.264

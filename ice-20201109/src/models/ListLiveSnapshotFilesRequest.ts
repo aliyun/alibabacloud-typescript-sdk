@@ -7,7 +7,7 @@ export class ListLiveSnapshotFilesRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * *   The maximum time range that can be specified is one day.
+   * - The maximum time range that can be specified is one day.
    * 
    * This parameter is required.
    * 
@@ -39,8 +39,9 @@ export class ListLiveSnapshotFilesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   asc: sorts the query results by creation time in ascending order.
-   * *   desc: sorts the query results by creation time in descending order.
+   * - asc: sorts the query results by creation time in ascending order.
+   * 
+   * - desc: sorts the query results by creation time in descending order.
    * 
    * @example
    * desc

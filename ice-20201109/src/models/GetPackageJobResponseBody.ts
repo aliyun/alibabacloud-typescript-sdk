@@ -7,8 +7,9 @@ export class GetPackageJobResponseBodyPackageJobInputsInput extends $dara.Model 
    * @remarks
    * The media object.
    * 
-   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-   * *   If Type is set to Media, the ID of a media asset is returned.
+   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * 
+   * - If Type is set to Media, the ID of a media asset is returned.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -18,8 +19,9 @@ export class GetPackageJobResponseBodyPackageJobInputsInput extends $dara.Model 
    * @remarks
    * The type of the media object. Valid values:
    * 
-   * *   OSS: an Object Storage Service (OSS) object.
-   * *   Media: a media asset.
+   * - OSS: an Object Storage Service (OSS) object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -83,8 +85,9 @@ export class GetPackageJobResponseBodyPackageJobOutput extends $dara.Model {
    * @remarks
    * The media object.
    * 
-   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-   * *   If Type is set to Media, the ID of a media asset is returned.
+   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * 
+   * - If Type is set to Media, the ID of a media asset is returned.
    * 
    * @example
    * oss://bucket/path/to/video.m3u8
@@ -94,8 +97,9 @@ export class GetPackageJobResponseBodyPackageJobOutput extends $dara.Model {
    * @remarks
    * The type of the media object. Valid values:
    * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
+   * - OSS: an OSS object.
+   * 
+   * - Media: a media asset.
    * 
    * @example
    * OSS
@@ -159,7 +163,7 @@ export class GetPackageJobResponseBodyPackageJob extends $dara.Model {
    * The job ID.
    * 
    * @example
-   * ab4802364a2e49208c99efab82dfa8e8
+   * ab4802364a2e49208c99efab82df****
    */
   jobId?: string;
   /**
@@ -204,7 +208,7 @@ export class GetPackageJobResponseBodyPackageJob extends $dara.Model {
    * The ID of the MPS queue to which the job was submitted.
    * 
    * @example
-   * 36f3fee40aa047c0b067d0fb85edc12b
+   * 36f3fee40aa047c0b067d0fb85ed****
    */
   pipelineId?: string;
   /**
@@ -235,9 +239,11 @@ export class GetPackageJobResponseBodyPackageJob extends $dara.Model {
    * @remarks
    * The source of the job. Valid values:
    * 
-   * *   API
-   * *   WorkFlow
-   * *   Console
+   * - API
+   * 
+   * - WorkFlow
+   * 
+   * - Console
    * 
    * @example
    * API

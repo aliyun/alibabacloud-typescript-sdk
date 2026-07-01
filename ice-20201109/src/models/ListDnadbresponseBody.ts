@@ -14,16 +14,22 @@ export class ListDNADBResponseBodyDBList extends $dara.Model {
   /**
    * @remarks
    * The description of the media fingerprint library.
+   * 
+   * @example
+   * This is a video DNA library.
    */
   description?: string;
   /**
    * @remarks
    * The model of the media fingerprint library. Valid values:
    * 
-   * *   **Video**
-   * *   **Audio**
-   * *   **Image**
-   * *   **Text** (supported only in the China (Shanghai) region)
+   * - **Video**
+   * 
+   * - **Audio**
+   * 
+   * - **Image**
+   * 
+   * - **Text** (supported only in the China (Shanghai) region)
    * 
    * @example
    * Video
@@ -39,11 +45,13 @@ export class ListDNADBResponseBodyDBList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The state of the media fingerprint library. Default value: **offline**. ****Valid values:
+   * The state of the media fingerprint library. Default value: **offline**. \\*\\*\\*\\*Valid values:
    * 
-   * *   **offline**: The media fingerprint library is offline.
-   * *   **active**: The media fingerprint library is online.
-   * *   **deleted**: The media fingerprint library is deleted.
+   * - **offline**: The media fingerprint library is offline.
+   * 
+   * - **active**: The media fingerprint library is online.
+   * 
+   * - **deleted**: The media fingerprint library is deleted.
    * 
    * @example
    * active

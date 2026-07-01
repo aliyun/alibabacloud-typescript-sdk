@@ -15,8 +15,9 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * @remarks
    * The gender. Valid values:
    * 
-   * *   female
-   * *   male
+   * - female
+   * 
+   * - male
    * 
    * @example
    * female
@@ -33,15 +34,20 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   /**
    * @remarks
    * The status description.
+   * 
+   * @example
+   * Training failed
    */
   message?: string;
   /**
    * @remarks
    * The scenario. Valid values:
    * 
-   * *   story
-   * *   interaction
-   * *   navigation
+   * - story
+   * 
+   * - interaction
+   * 
+   * - navigation
    * 
    * @example
    * story
@@ -51,12 +57,17 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * @remarks
    * The job state. Valid values:
    * 
-   * *   Initialization
-   * *   AudioDetecting
-   * *   PreTraining
-   * *   Training
-   * *   Success
-   * *   Fail
+   * - Initialization
+   * 
+   * - AudioDetecting
+   * 
+   * - PreTraining
+   * 
+   * - Training
+   * 
+   * - Success
+   * 
+   * - Fail
    * 
    * @example
    * Fail
@@ -66,8 +77,9 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * @remarks
    * The type of the human voice cloning job. Valid values:
    * 
-   * *   Basic
-   * *   Standard
+   * - Basic
+   * 
+   * - Standard
    * 
    * @example
    * Standard
@@ -78,7 +90,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * The voice description.
    * 
    * @example
-   * This is an exclusive voice
+   * 这是一个专属人声
    */
   voiceDesc?: string;
   /**
@@ -94,7 +106,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * The voice name.
    * 
    * @example
-   * Xiaozhuan
+   * Basic
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -184,8 +196,9 @@ export class GetCustomizedVoiceJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

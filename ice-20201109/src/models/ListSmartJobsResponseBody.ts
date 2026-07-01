@@ -16,7 +16,7 @@ export class ListSmartJobsResponseBodySmartJobListInputConfig extends $dara.Mode
    * The keyword information.
    * 
    * @example
-   * 测试关键词
+   * Test keyword
    */
   keyword?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +96,7 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * The job description.
    * 
    * @example
-   * 测试描述
+   * Test description
    */
   description?: string;
   /**
@@ -126,10 +126,13 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Finished: The job is complete.
-   * *   Failed: The job failed.
-   * *   Executing: The job is in progress.
-   * *   Created: The job is created.
+   * - Finished: The job is complete.
+   * 
+   * - Failed: The job failed.
+   * 
+   * - Executing: The job is in progress.
+   * 
+   * - Created: The job is created.
    * 
    * @example
    * Finished
@@ -141,9 +144,11 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ASR: ASR job.
-   * *   DynamicChart: dynamic chart job.
-   * *   TextToSpeech: intelligent audio production job.
+   * - ASR: ASR job.
+   * 
+   * - DynamicChart: dynamic chart job.
+   * 
+   * - TextToSpeech: intelligent audio production job.
    * 
    * @example
    * ASR
@@ -167,7 +172,7 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * The job title.
    * 
    * @example
-   * 测试标题
+   * Test title
    */
   title?: string;
   /**

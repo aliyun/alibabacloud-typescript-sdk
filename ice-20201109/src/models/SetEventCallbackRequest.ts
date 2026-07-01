@@ -15,8 +15,9 @@ export class SetEventCallbackRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable callback authentication. This parameter takes effect only if you set CallbackType to **HTTP**. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**
+   * 
+   * - **off**
    * 
    * @example
    * on
@@ -34,8 +35,9 @@ export class SetEventCallbackRequest extends $dara.Model {
    * @remarks
    * The callback method. Valid values:
    * 
-   * *   **HTTP**
-   * *   **MNS**
+   * - **HTTP**
+   * 
+   * - **MNS**
    * 
    * @example
    * HTTP

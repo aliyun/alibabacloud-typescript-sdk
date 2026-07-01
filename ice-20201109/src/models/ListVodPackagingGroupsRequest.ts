@@ -31,8 +31,9 @@ export class ListVodPackagingGroupsRequest extends $dara.Model {
    * @remarks
    * The sorting order of the packaging groups based on the time when they were created. Valid values:
    * 
-   * *   desc (default): descending order.
-   * *   asc: ascending order.
+   * - desc (default): descending order.
+   * 
+   * - asc: ascending order.
    * 
    * @example
    * desc

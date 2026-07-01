@@ -41,8 +41,9 @@ export class ListProgramsRequest extends $dara.Model {
    * @remarks
    * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
    * 
-   * *   asc: ascending order.
-   * *   desc: descending order.
+   * - asc: ascending order.
+   * 
+   * - desc: descending order.
    * 
    * @example
    * desc

@@ -25,8 +25,9 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $d
    * 
    * Valid values:
    * 
-   * *   vod
-   * *   oss
+   * - vod
+   * 
+   * - oss
    * 
    * @example
    * oss
@@ -119,6 +120,9 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $dara.Model {
   /**
    * @remarks
    * The name of the recording job.
+   * 
+   * @example
+   * Live event recording task 1
    */
   name?: string;
   /**

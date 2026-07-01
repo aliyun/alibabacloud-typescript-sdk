@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the video translation job.
+   * The video translation job ID.
    * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
@@ -52,8 +52,9 @@ export class SubmitVideoTranslationJobResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

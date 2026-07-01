@@ -38,7 +38,7 @@ export class GetHotwordLibraryResponseBody extends $dara.Model {
    * The name of the hotword library.
    * 
    * @example
-   * 热词库名称
+   * Hotword library name
    */
   name?: string;
   /**

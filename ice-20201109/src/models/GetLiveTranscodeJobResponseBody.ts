@@ -154,9 +154,11 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
    * @remarks
    * The state of the job.
    * 
-   * *   0: The job is not started.
-   * *   1: The job is in progress.
-   * *   2: The job is stopped.
+   * - 0: The job is not started.
+   * 
+   * - 1: The job is in progress.
+   * 
+   * - 2: The job is stopped.
    * 
    * @example
    * 1

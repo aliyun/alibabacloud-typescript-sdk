@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * *   The template configurations. The Config object of a regular template is encapsulated based on the Timeline object of an online editing project. The Config object of a custom template provides more flexible features. If you have special requirements, we recommend that you understand the structure of a Config object and configure a custom template. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
-   * *   For more information about Config object examples, see [Basic template configurations](https://help.aliyun.com/document_detail/451634.html).
+   * - The template configurations. The Config object of a regular template is encapsulated based on the Timeline object of an online editing project. The Config object of a custom template provides more flexible features. If you have special requirements, we recommend that you understand the structure of a Config object and configure a custom template. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+   * 
+   * - For more information about Config object examples, see [Basic template configurations](https://help.aliyun.com/document_detail/451634.html).
    * 
    * @example
    * 参见Timeline模板Config文档
@@ -25,7 +26,7 @@ export class AddTemplateRequest extends $dara.Model {
    * The name of the custom template.
    * 
    * @example
-   * 视频添加水印模板
+   * Template name
    */
   name?: string;
   /**
@@ -48,9 +49,11 @@ export class AddTemplateRequest extends $dara.Model {
    * @remarks
    * The source from which the template is created. Valid values:
    * 
-   * *   OpenAPI
-   * *   AliyunConsole
-   * *   WebSDK
+   * - OpenAPI
+   * 
+   * - AliyunConsole
+   * 
+   * - WebSDK
    * 
    * <!---->
    * 
@@ -62,12 +65,17 @@ export class AddTemplateRequest extends $dara.Model {
    * @remarks
    * The template state. Valid values:
    * 
-   * *   Available: The template is available.
-   * *   Created: The template is created but not ready for use.
-   * *   Uploading: The video is being uploaded.
-   * *   Processing: The advanced template is being processed.
-   * *   UploadFailed: Failed to upload the video.
-   * *   ProcessFailed: Failed to process the advanced template.
+   * - Available: The template is available.
+   * 
+   * - Created: The template is created but not ready for use.
+   * 
+   * - Uploading: The video is being uploaded.
+   * 
+   * - Processing: The advanced template is being processed.
+   * 
+   * - UploadFailed: Failed to upload the video.
+   * 
+   * - ProcessFailed: Failed to process the advanced template.
    * 
    * <!---->
    * 
@@ -79,8 +87,9 @@ export class AddTemplateRequest extends $dara.Model {
    * @remarks
    * The template type. Valid values:
    * 
-   * *   Timeline: a regular template created based on the timeline of a video editing project, in which multiple materials are arranged in sequence across multiple layers. It can be used to convert text and images into videos, create photo albums, add opening and closing parts, and apply the default watermark.
-   * *   VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
+   * - Timeline: a regular template created based on the timeline of a video editing project, in which multiple materials are arranged in sequence across multiple layers. It can be used to convert text and images into videos, create photo albums, add opening and closing parts, and apply the default watermark.
+   * 
+   * - VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
    * 
    * <!---->
    * 

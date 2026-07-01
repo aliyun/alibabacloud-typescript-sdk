@@ -6,6 +6,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   /**
    * @remarks
    * The description of the digital human.
+   * 
+   * @example
+   * This is a digital human used for a specific scenario.
    */
   avatarDescription?: string;
   /**
@@ -19,6 +22,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   /**
    * @remarks
    * The name of the digital human.
+   * 
+   * @example
+   * Decimal
    */
   avatarName?: string;
   /**
@@ -31,8 +37,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   avatarType?: string;
   /**
    * @remarks
-   * *   The time when the job was created.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the job was created.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -40,8 +47,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   createTime?: string;
   /**
    * @remarks
-   * *   The time when the first training was initiated.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the first training was initiated.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -57,8 +65,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   jobId?: string;
   /**
    * @remarks
-   * *   The time when the last training was initiated.
-   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * - The time when the last training was initiated.
+   * 
+   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -67,6 +76,9 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   /**
    * @remarks
    * The status description.
+   * 
+   * @example
+   * Training succeeded
    */
   message?: string;
   /**
@@ -82,7 +94,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
    * The state of the digital human training job.
    * 
    * @example
-   * Normal
+   * Success
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -184,8 +196,9 @@ export class ListAvatarTrainingJobsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

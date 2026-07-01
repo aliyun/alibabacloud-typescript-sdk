@@ -54,6 +54,9 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Template 1
    */
   templateName?: string;
   /**
@@ -70,8 +73,9 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   system
-   * *   custom
+   * - system
+   * 
+   * - custom
    * 
    * @example
    * custom

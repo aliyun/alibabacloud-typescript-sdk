@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryVideoCognitionJobResponseBodyInput extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the input file.
+   */
   media?: string;
+  /**
+   * @remarks
+   * The type of the input file. Valid value: OSS.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,20 +89,31 @@ export class QueryVideoCognitionJobResponseBodyResults extends $dara.Model {
 }
 
 export class QueryVideoCognitionJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The input file.
+   */
   input?: QueryVideoCognitionJobResponseBodyInput;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The job status. Valid values:
    * 
-   * *   **Success**
-   * *   **Fail**
-   * *   **Processing**
-   * *   **Submitted**
+   * - **Success**: The job succeeded.
+   * 
+   * - **Fail**: The job failed.
+   * 
+   * - **Processing**: The job is in progress.
+   * 
+   * - **Submitted**: The job has been submitted and is awaiting processing.
    * 
    * @example
    * Success
    */
   jobStatus?: string;
+  /**
+   * @remarks
+   * The request parameters.
+   */
   params?: string;
   /**
    * @remarks
@@ -105,10 +124,14 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
    */
   requestId?: string;
   results?: QueryVideoCognitionJobResponseBodyResults;
+  /**
+   * @remarks
+   * The template ID.
+   */
   templateId?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The user data.
    * 
    * @example
    * {"userId":"123432412831"}

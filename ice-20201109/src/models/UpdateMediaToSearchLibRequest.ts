@@ -23,6 +23,13 @@ export class UpdateMediaToSearchLibRequest extends $dara.Model {
    * {}
    */
   msgBody?: string;
+  /**
+   * @remarks
+   * The namespace.
+   * 
+   * @example
+   * name-1
+   */
   namespace?: string;
   /**
    * @remarks

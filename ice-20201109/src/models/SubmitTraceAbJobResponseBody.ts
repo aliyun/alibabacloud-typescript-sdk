@@ -13,7 +13,7 @@ export class SubmitTraceAbJobResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The media ID.
+   * The ID of the media asset created for tracing.
    * 
    * @example
    * bf53333264f4d80648792021e****
@@ -45,12 +45,12 @@ export class SubmitTraceAbJobResponseBodyData extends $dara.Model {
 export class SubmitTraceAbJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * Contains the IDs for the submitted job and the output media asset.
    */
   data?: SubmitTraceAbJobResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message. A value of `ok` indicates a successful request.
    * 
    * @example
    * ok
@@ -58,7 +58,7 @@ export class SubmitTraceAbJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier for the request. If you encounter an issue, provide this ID for technical support.
    * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******
@@ -66,7 +66,7 @@ export class SubmitTraceAbJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code. A value of `200` indicates success.
    * 
    * @example
    * 200

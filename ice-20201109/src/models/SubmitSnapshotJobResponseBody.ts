@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSnapshotJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the submitted job.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class SubmitSnapshotJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * A unique identifier for the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

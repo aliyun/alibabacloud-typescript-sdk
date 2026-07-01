@@ -14,6 +14,9 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
   /**
    * @remarks
    * The description of the hotword library. It can be up to 200 characters in length.
+   * 
+   * @example
+   * Lexicon containing celebrity names
    */
   description?: string;
   /**
@@ -44,9 +47,11 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
    * @remarks
    * The usage scenario of the hotword library. Valid values:
    * 
-   * *   ASR: Automatic Speech Recognition
-   * *   StructuredMediaAssets: structured media analysis
-   * *   VideoTranslation: Video translation This field cannot be modified after the hotword library is created.
+   * - ASR: Automatic Speech Recognition
+   * 
+   * - StructuredMediaAssets: structured media analysis
+   * 
+   * - VideoTranslation: Video translation This field cannot be modified after the hotword library is created.
    * 
    * @example
    * ASR

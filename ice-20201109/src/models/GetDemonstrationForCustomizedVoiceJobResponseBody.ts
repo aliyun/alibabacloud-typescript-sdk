@@ -15,11 +15,11 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
    * @remarks
    * The URL of the sample audio.
    * 
-   * *   The value is an Object Storage Service (OSS) URL.
+   * - The value is an Object Storage Service (OSS) URL.
    * 
-   *     **
+   *   \\*\\*
    * 
-   *     **Note**: The URL expires in 12 hours.
+   *   **Note**: The URL expires in 12 hours.
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
@@ -28,6 +28,9 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
   /**
    * @remarks
    * The text content to be read.
+   * 
+   * @example
+   * No, he thought for a moment, I cannot say this to the king, that would be lying.
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -103,8 +106,9 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $dara.Mod
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

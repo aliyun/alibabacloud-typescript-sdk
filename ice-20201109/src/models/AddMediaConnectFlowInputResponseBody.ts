@@ -6,7 +6,7 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   innerInputUrl?: string;
   /**
    * @remarks
-   * The source URL.
+   * Input URL
    * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
@@ -38,12 +38,12 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response body.
+   * Response body
    */
   content?: AddMediaConnectFlowInputResponseBodyContent;
   /**
    * @remarks
-   * The call description.
+   * API call description
    * 
    * @example
    * OK
@@ -51,7 +51,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID
    * 
    * @example
    * 11357BE8-4C54-58EA-890A-5AB646EDE4B2
@@ -59,7 +59,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned error code. A value of 0 indicates the call is successful.
+   * Error code. A value of 0 indicates success.
    * 
    * @example
    * 0

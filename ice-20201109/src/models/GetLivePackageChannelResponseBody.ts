@@ -82,6 +82,9 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   /**
    * @remarks
    * The channel description.
+   * 
+   * @example
+   * Test channel
    */
   description?: string;
   /**
