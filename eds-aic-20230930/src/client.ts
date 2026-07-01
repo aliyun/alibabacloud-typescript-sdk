@@ -2558,6 +2558,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries all change records of credits.
+   * 
+   * @param request - DescribeCreditDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCreditDetailResponse
+   */
+  async describeCreditDetailWithOptions(request: $_model.DescribeCreditDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCreditDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.packageIds)) {
+      query["PackageIds"] = request.packageIds;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCreditDetail",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCreditDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCreditDetailResponse({}));
+  }
+
+  /**
+   * Queries all change records of credits.
+   * 
+   * @param request - DescribeCreditDetailRequest
+   * @returns DescribeCreditDetailResponse
+   */
+  async describeCreditDetail(request: $_model.DescribeCreditDetailRequest): Promise<$_model.DescribeCreditDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCreditDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of one or more credit packages.
    * 
    * @param request - DescribeCreditPackageRequest

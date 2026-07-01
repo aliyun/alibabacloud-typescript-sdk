@@ -54,6 +54,8 @@ export { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from './Desc
 export { DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelTags } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModel } from './DescribeCloudPhoneNodesResponseBody';
+export { DescribeCreditDetailResponseBodyDataDetails } from './DescribeCreditDetailResponseBody';
+export { DescribeCreditDetailResponseBodyData } from './DescribeCreditDetailResponseBody';
 export { DescribeCreditPackageResponseBodyCreditsPackageInfos } from './DescribeCreditPackageResponseBody';
 export { DescribeDisplayConfigResponseBodyDisplayConfigModel } from './DescribeDisplayConfigResponseBody';
 export { DescribeImageListRequestImageBizTags } from './DescribeImageListRequest';
@@ -234,6 +236,9 @@ export { DescribeBucketsResponse } from './DescribeBucketsResponse';
 export { DescribeCloudPhoneNodesRequest } from './DescribeCloudPhoneNodesRequest';
 export { DescribeCloudPhoneNodesResponseBody } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponse } from './DescribeCloudPhoneNodesResponse';
+export { DescribeCreditDetailRequest } from './DescribeCreditDetailRequest';
+export { DescribeCreditDetailResponseBody } from './DescribeCreditDetailResponseBody';
+export { DescribeCreditDetailResponse } from './DescribeCreditDetailResponse';
 export { DescribeCreditPackageRequest } from './DescribeCreditPackageRequest';
 export { DescribeCreditPackageResponseBody } from './DescribeCreditPackageResponseBody';
 export { DescribeCreditPackageResponse } from './DescribeCreditPackageResponse';
