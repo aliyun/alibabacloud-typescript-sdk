@@ -9,35 +9,24 @@ import { PolarFsConfig } from "./PolarFsConfig";
 export class UpdateSessionInput extends $dara.Model {
   /**
    * @remarks
-   * Defaults to `false`. If set to `false`, you can reuse a `SessionID` to start a new session on a new instance after the original session expires. If set to `true`, you cannot reuse a `SessionID` after its session expires.
+   * Specifies whether to disable session ID reuse after the session expires. Valid values:
+   * - False: After the session associated with a SessionID expires, you can use the same SessionID to initiate requests. The system treats this as a new session and binds it to a new instance.
+   * - True: After the session associated with a SessionID expires, the SessionID cannot be reused.
+   * Default value: False.
    * 
    * @example
    * false
    */
   disableSessionIdReuse?: boolean;
-  /**
-   * @remarks
-   * The JuiceFS configuration.
-   */
+  enableAutoPause?: boolean;
+  enableAutoResume?: boolean;
   juiceFsConfig?: JuiceFsConfig;
-  /**
-   * @remarks
-   * The NAS configuration.
-   */
   nasConfig?: NASConfig;
-  /**
-   * @remarks
-   * The OSS mount configuration.
-   */
   ossMountConfig?: OSSMountConfig;
-  /**
-   * @remarks
-   * The PolarFS configuration.
-   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The session idle timeout, in seconds.
+   * The session idle timeout period.
    * 
    * @example
    * 1800
@@ -45,7 +34,7 @@ export class UpdateSessionInput extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The session duration, in seconds.
+   * The session lifetime.
    * 
    * @example
    * 21600
@@ -54,6 +43,8 @@ export class UpdateSessionInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       disableSessionIdReuse: 'disableSessionIdReuse',
+      enableAutoPause: 'enableAutoPause',
+      enableAutoResume: 'enableAutoResume',
       juiceFsConfig: 'juiceFsConfig',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
@@ -66,6 +57,8 @@ export class UpdateSessionInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       disableSessionIdReuse: 'boolean',
+      enableAutoPause: 'boolean',
+      enableAutoResume: 'boolean',
       juiceFsConfig: JuiceFsConfig,
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,

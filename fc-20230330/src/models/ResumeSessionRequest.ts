@@ -6,7 +6,7 @@ export class ResumeSessionRequest extends $dara.Model {
   fileSystemOnly?: boolean;
   /**
    * @remarks
-   * Alias or version of the function associated with the session ID
+   * The function alias or version associated with the session ID to resume.
    * 
    * @example
    * aliasName1

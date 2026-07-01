@@ -9,7 +9,7 @@ import { PolarFsConfig } from "./PolarFsConfig";
 export class Session extends $dara.Model {
   /**
    * @remarks
-   * The ID of the function instance associated with the session.
+   * The instance ID of the function instance associated with the session.
    * 
    * @example
    * c-68999e02-16a1955c-d2a03d1ccs
@@ -25,24 +25,22 @@ export class Session extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Specifies whether an expired session ID can be reused. If `true`, an expired session ID cannot be reused. If `false` (the default), sending a request with an expired session ID creates a new session bound to a new instance.
+   * Specifies whether to disable session ID reuse. Default value: False, which indicates that after the session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
    * 
    * @example
    * false
    */
   disableSessionIdReuse?: boolean;
+  enableAutoPause?: boolean;
+  enableAutoResume?: boolean;
   /**
    * @remarks
-   * The name of the function associated with the session.
+   * The name of the function to which the session belongs.
    * 
    * @example
    * functionName1
    */
   functionName?: string;
-  /**
-   * @remarks
-   * The JuiceFS mount configuration, enabling the associated function instance to access specified JuiceFS resources.
-   */
   juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
@@ -54,22 +52,14 @@ export class Session extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The NAS configuration, enabling the associated function instance to access specified NAS resources.
+   * The NAS configuration. After configuration, the instance associated with the session can access the specified NAS resource.
    */
   nasConfig?: NASConfig;
-  /**
-   * @remarks
-   * The OSS mount configuration, enabling the associated function instance to access specified OSS resources.
-   */
   ossMountConfig?: OSSMountConfig;
-  /**
-   * @remarks
-   * The PolarFS mount configuration, enabling the associated function instance to access specified PolarFS resources.
-   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The qualifier, which specifies a function version or alias. Defaults to `LATEST` if unspecified.
+   * The qualifier passed in when the customer created the session. If not specified, the default value is LATEST.
    * 
    * @example
    * AliasName1
@@ -77,7 +67,7 @@ export class Session extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * The type of session affinity.
+   * The session affinity type.
    * 
    * @example
    * HEADER_FIELD
@@ -85,7 +75,7 @@ export class Session extends $dara.Model {
   sessionAffinityType?: string;
   /**
    * @remarks
-   * The unique identifier for the function session.
+   * The unique identifier of the function session.
    * 
    * @example
    * 81f70ae156904eb9b7d43e12f511fe58
@@ -93,7 +83,7 @@ export class Session extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The maximum duration, in seconds, that the session can be idle before it expires.
+   * The idle timeout period of the session.
    * 
    * @example
    * 1800
@@ -101,7 +91,9 @@ export class Session extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The status of the session. `Active` indicates the session is valid, and `Expired` indicates it is no longer valid.
+   * The session status. Valid values:
+   * - Active: The session is valid.
+   * - Expired: The session has expired.
    * 
    * @example
    * Active
@@ -109,7 +101,7 @@ export class Session extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The maximum lifespan of the session, in seconds.
+   * The maximum lifetime of the session.
    * 
    * @example
    * 21600
@@ -120,6 +112,8 @@ export class Session extends $dara.Model {
       containerId: 'containerId',
       createdTime: 'createdTime',
       disableSessionIdReuse: 'disableSessionIdReuse',
+      enableAutoPause: 'enableAutoPause',
+      enableAutoResume: 'enableAutoResume',
       functionName: 'functionName',
       juiceFsConfig: 'juiceFsConfig',
       lastModifiedTime: 'lastModifiedTime',
@@ -140,6 +134,8 @@ export class Session extends $dara.Model {
       containerId: 'string',
       createdTime: 'string',
       disableSessionIdReuse: 'boolean',
+      enableAutoPause: 'boolean',
+      enableAutoResume: 'boolean',
       functionName: 'string',
       juiceFsConfig: JuiceFsConfig,
       lastModifiedTime: 'string',

@@ -11,7 +11,7 @@ export class UpdateSessionRequest extends $dara.Model {
   body?: UpdateSessionInput;
   /**
    * @remarks
-   * The function alias or version associated with the session to be updated.
+   * The function alias or version associated with the session ID to update.
    * 
    * @example
    * aliasName1

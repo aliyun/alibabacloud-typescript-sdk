@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The function alias or version associated with the queried session ID.
+   * The function alias or version associated with the session ID to query.
    * 
    * @example
    * aliasName1

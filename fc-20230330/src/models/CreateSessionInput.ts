@@ -9,31 +9,33 @@ import { PolarFsConfig } from "./PolarFsConfig";
 export class CreateSessionInput extends $dara.Model {
   /**
    * @remarks
-   * A value of false (the default) allows an expired session ID to be reused for a new session, which the system then binds to a new instance. If set to true, an expired session ID cannot be reused.
+   * Specifies whether to disable session ID reuse. Default value: False, which indicates that after a session with a specific SessionID expires, you can send requests with the same SessionID, and the system treats it as a new session bound to a new instance. If this parameter is set to True, the SessionID cannot be reused after the session expires.
    * 
    * @example
    * false
    */
   disableSessionIdReuse?: boolean;
+  enableAutoPause?: boolean;
+  enableAutoResume?: boolean;
   juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
-   * Allows instances in the session to access specified NAS resources.
+   * The NAS configuration. After this parameter is configured, instances associated with the session can access the specified NAS resources.
    */
   nasConfig?: NASConfig;
   /**
    * @remarks
-   * Allows instances in the session to access specified OSS resources.
+   * The OSS configuration. After this parameter is configured, instances associated with the session can access the specified OSS resources.
    */
   ossMountConfig?: OSSMountConfig;
   /**
    * @remarks
-   * Allows instances in the session to access specified PolarFS resources.
+   * The PolarFs configuration. After this parameter is configured, instances associated with the session can access the specified PolarFs resources.
    */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * A customizable session ID. If you do not specify a value, the server generates one. This parameter applies only to the HEADER_FIELD affinity mode. The value must be 0 to 64 characters long. The first character must be a character in **a-zA-Z0-9_**. Subsequent characters can be any character in **a-zA-Z0-9_-**.
+   * The custom session ID. If this parameter is not specified, the server generates a session ID. If specified, the value is used as the session ID. This parameter applies only to the HEADER_FIELD affinity mode. Format: the length is limited to [0,64]. The first character must be from **a-zA-Z0-9_**, and subsequent characters can be from **a-zA-Z0-9_-**.
    * 
    * @example
    * custom-test-session-id
@@ -41,7 +43,7 @@ export class CreateSessionInput extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session idle timeout in seconds.
+   * The session idle timeout period.
    * 
    * @example
    * 1800
@@ -49,7 +51,7 @@ export class CreateSessionInput extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The session lifetime in seconds.
+   * The session lifetime.
    * 
    * @example
    * 21600
@@ -58,6 +60,8 @@ export class CreateSessionInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       disableSessionIdReuse: 'disableSessionIdReuse',
+      enableAutoPause: 'enableAutoPause',
+      enableAutoResume: 'enableAutoResume',
       juiceFsConfig: 'juiceFsConfig',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
@@ -71,6 +75,8 @@ export class CreateSessionInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       disableSessionIdReuse: 'boolean',
+      enableAutoPause: 'boolean',
+      enableAutoResume: 'boolean',
       juiceFsConfig: JuiceFsConfig,
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,

@@ -4,8 +4,26 @@ import { PolarFsMountConfig } from "./PolarFsMountConfig";
 
 
 export class PolarFsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * @example
+   * 0
+   */
   groupId?: number;
+  /**
+   * @remarks
+   * The mount points.
+   */
   mountPoints?: PolarFsMountConfig[];
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 0
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
