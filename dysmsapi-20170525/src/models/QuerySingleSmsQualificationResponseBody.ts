@@ -4,19 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics extends $dara.Model {
   /**
+   * @remarks
+   * The file path parameter of the business license.
+   * 
    * @example
    * 123456/111.png
    */
   licensePic?: string;
   /**
    * @remarks
-   * 文件的完整路径
+   * The full URL of the business license file.
    * 
    * @example
    * https://******.aliyuncs.com/******
    */
   picUrl?: string;
   /**
+   * @remarks
+   * The type of business license. Valid values:
+   * 
+   * - socialCreditLicense: Unified social credit code certificate.
+   * - businessLicense: Business license.
+   * - signLegalLicense: Legal person certificate of a public institution.
+   * - otherLicense: Other types of license certificates.
+   * 
    * @example
    * businessLicense
    */
@@ -48,13 +59,16 @@ export class QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics exte
 
 export class QuerySingleSmsQualificationResponseBodyDataOtherFiles extends $dara.Model {
   /**
+   * @remarks
+   * The file path parameter of the additional materials.
+   * 
    * @example
    * 123456/111.png
    */
   licensePic?: string;
   /**
    * @remarks
-   * 文件的完整路径
+   * The full URL of the additional materials file.
    * 
    * @example
    * https://******.aliyuncs.com/******
@@ -86,7 +100,7 @@ export class QuerySingleSmsQualificationResponseBodyDataOtherFiles extends $dara
 export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 经办人身份证有效期
+   * The validity period of the administrator\\"s certificate. Format: YYYY-MM-DD~YYYY-MM-DD.
    * 
    * @example
    * 2023-01-01~2033-01-01
@@ -94,7 +108,7 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminIDCardExpDate?: string;
   /**
    * @remarks
-   * 经办人身份证国徽面，产品需求，要求身份证可以分正反面上传
+   * The full URL of the photo of the front side of the administrator\\"s certificate (national emblem side of the ID card).
    * 
    * @example
    * https://******.aliyuncs.com/******
@@ -102,7 +116,7 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminIDCardFrontFace?: string;
   /**
    * @remarks
-   * 经办人身份证号码
+   * The certificate number of the administrator.
    * 
    * @example
    * 511391********5123
@@ -110,7 +124,7 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminIDCardNo?: string;
   /**
    * @remarks
-   * 经办人身份证图片地址，正反面合一
+   * The full URL of the photo of the back side of the administrator\\"s certificate (portrait side of the ID card).
    * 
    * @example
    * https://******.aliyuncs.com/******
@@ -118,7 +132,14 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminIDCardPic?: string;
   /**
    * @remarks
-   * 管理员身份证类型
+   * The type of the administrator\\"s certificate. Valid values:
+   * 
+   * - identityCard: ID card.
+   * - passport: Passport.
+   * - homeReturnPermit: Home return permit for Hong Kong and Macao residents.
+   * - TaiwanCompatriotPermit: Mainland travel permit for Taiwan residents.
+   * - residencePermit: Residence permit for residents of Hong Kong, Macao, and Taiwan.
+   * - other: Other.
    * 
    * @example
    * identityCard
@@ -126,15 +147,15 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminIDCardType?: string;
   /**
    * @remarks
-   * 经办人姓名
+   * The name of the administrator.
    * 
    * @example
-   * 示例值示例值
+   * 李华
    */
   adminName?: string;
   /**
    * @remarks
-   * 经办人手机号码
+   * The mobile phone number of the administrator.
    * 
    * @example
    * 137*******
@@ -142,12 +163,12 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   adminPhoneNo?: string;
   /**
    * @remarks
-   * 证件信息
+   * The business license information of the enterprise.
    */
   businessLicensePics?: QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics[];
   /**
    * @remarks
-   * 行业类型，在当前模式下是可以用产品线code来区分
+   * The industry type.
    * 
    * @example
    * dysms
@@ -155,28 +176,34 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * 公司名称
+   * The name of the enterprise.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云云通信有限公司
    */
   companyName?: string;
   /**
    * @remarks
-   * 企业类型, COMPANY:公司，政府或者事业单位:NON_PROFIT_ORGANIZATION
+   * The type of enterprise. Valid values:
+   * 
+   * - COMPANY: Enterprise.
+   * - NON_PROFIT_ORGANIZATION: Government agency or public institution.
    * 
    * @example
    * COMPANY
    */
   companyType?: string;
   /**
+   * @remarks
+   * The validity period of the business license. Format: YYYY-MM-DD~YYYY-MM-DD.
+   * 
    * @example
    * 2023-01-01~2033-01-01
    */
   effTimeStr?: string;
   /**
    * @remarks
-   * 法人身份证号码
+   * The certificate number of the legal representative.
    * 
    * @example
    * 511391********5123
@@ -184,7 +211,14 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   legalPersonIDCardNo?: string;
   /**
    * @remarks
-   * 法人身份证类型
+   * The type of the legal representative\\"s certificate. Valid values:
+   * 
+   * - identityCard: ID card.
+   * - passport: Passport.
+   * - homeReturnPermit: Home return permit for Hong Kong and Macao residents.
+   * - TaiwanCompatriotPermit: Mainland travel permit for Taiwan residents.
+   * - residencePermit: Residence permit for residents of Hong Kong, Macao, and Taiwan.
+   * - other: Other.
    * 
    * @example
    * identityCard
@@ -192,7 +226,7 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   legalPersonIDCardType?: string;
   /**
    * @remarks
-   * 法人身份证有效期
+   * The validity period of the legal representative\\"s certificate. Format: YYYY-MM-DD~YYYY-MM-DD.
    * 
    * @example
    * 2023-01-01~2033-01-01
@@ -200,15 +234,15 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   legalPersonIdCardEffTime?: string;
   /**
    * @remarks
-   * 法人姓名
+   * The name of the legal representative.
    * 
    * @example
-   * 示例值
+   * 李华
    */
   legalPersonName?: string;
   /**
    * @remarks
-   * 社会统一信用代码
+   * The unified social credit code.
    * 
    * @example
    * 910X********0012
@@ -216,33 +250,44 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   organizationCode?: string;
   /**
    * @remarks
-   * 更多资料
+   * Additional materials.
    */
   otherFiles?: QuerySingleSmsQualificationResponseBodyDataOtherFiles[];
   /**
+   * @remarks
+   * The qualification ID.
+   * 
    * @example
    * 10000****
    */
   qualificationGroupId?: number;
   /**
    * @remarks
-   * 资质名称
+   * The qualification name.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云云通信有限公司资质李华
    */
   qualificationName?: string;
   /**
    * @remarks
-   * 备注
+   * The remarks.
    * 
    * @example
-   * 示例值示例值
+   * 无
    */
   remark?: string;
   /**
    * @remarks
-   * 当前审核状态
+   * The review status. Valid values:
+   * 
+   * - INT: Under review.
+   * - FAILED: Review failed.
+   * - PASSED: Review passed.
+   * - NOT_FINISH: Materials to be supplemented.
+   * - CANCELED: Cancelled.
+   * 
+   * > This API does not return review remarks. To query review remarks (`AuditRemark`), use [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~).
    * 
    * @example
    * PASSED
@@ -250,20 +295,29 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * 是否自用
+   * The purpose of the qualification application. Valid values:
+   * 
+   * - **true**: For self-use.
+   * - **false**: For other use.
    * 
    * @example
    * false
    */
   useBySelf?: boolean;
   /**
+   * @remarks
+   * Qualification authorization. Indicates whether to allow this qualification to be shared with other cloud communication products (such as Domestic Voice and Domestic Number Privacy Protection). The qualification can be shared and reused only when you apply for a **self-use qualification** and the qualification information **matches the enterprise information authenticated under the current Alibaba Cloud account**. Other cases are invalid. Valid values:
+   * 
+   * - true: Agree. Your qualification information can be invoked in the "qualification authentication step" of other cloud communication products, eliminating duplicate authentication steps.
+   * - false: Disagree.
+   * 
    * @example
    * false
    */
   whetherShare?: boolean;
   /**
    * @remarks
-   * 乾坤袋工单ID
+   * The review ticket ID.
    * 
    * @example
    * 2001****
@@ -345,24 +399,53 @@ export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
 }
 
 export class QuerySingleSmsQualificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only when the RAM check fails.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the request.
+   * 
+   * - The value OK indicates that the request was successful.
+   * - For other error codes, see the error code list in this chapter or the product [error code list](https://help.aliyun.com/document_detail/101346.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of a single qualification.
+   */
   data?: QuerySingleSmsQualificationResponseBodyData;
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of this API call request, which is the unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
+   * 
    * @example
    * 25D5AFDE-8EBC-132E-8909-1FDC071DA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

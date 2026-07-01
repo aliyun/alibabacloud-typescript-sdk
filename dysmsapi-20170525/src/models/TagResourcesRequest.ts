@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The array of tag keys. Valid values of N: 1 to 20.
+   * The tag key.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The array of tag values. Valid values of N: 1 to 20.
+   * The tag value.
    * 
    * @example
    * TestValue
@@ -46,7 +46,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the cloud service. Set the value to **dysms**.
+   * The product name. Default value: **dysms**.
    * 
    * @example
    * dysms
@@ -54,7 +54,7 @@ export class TagResourcesRequest extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The region ID. Set the value to **cn-hangzhou**.
+   * The region ID. Default value: **cn-hangzhou**. For more region IDs, see [Endpoints](https://help.aliyun.com/document_detail/419270.html).
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * The SMS template codes. The number of codes cannot exceed 20.
    * 
    * @example
    * SMS_23423423
@@ -74,7 +74,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **TEMPLATE**.
+   * The resource type. Default value: **TEMPLATE**.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag.
+   * The tags. You can add up to 20 tags at a time.
    * 
    * This parameter is required.
    */

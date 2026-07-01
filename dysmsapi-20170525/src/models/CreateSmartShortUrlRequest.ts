@@ -14,7 +14,7 @@ export class CreateSmartShortUrlRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 15900195***
+   * 示例值示例值
    */
   phoneNumbers?: string;
   resourceOwnerAccount?: string;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddShortUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the short URL. Unit: days. The maximum validity period is 90 days.
+   * The validity period of the short URL, in days. The maximum value is 90.
    * 
    * This parameter is required.
    * 
@@ -18,17 +18,21 @@ export class AddShortUrlRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The service name of the short URL. The name cannot exceed 13 characters in length.
+   * The name of the short URL. Maximum length: 13 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * The Alibaba Cloud Short Link service.
+   * 阿里短链测试
    */
   shortUrlName?: string;
   /**
    * @remarks
-   * The source URL. The URL cannot exceed 1,000 characters in length.
+   * The URL that you want to shorten. Maximum length: 1,000 characters.
+   * 
+   * >Notice: 
+   * 
+   * Short Message Service does not currently support this API operation.
    * 
    * This parameter is required.
    * 

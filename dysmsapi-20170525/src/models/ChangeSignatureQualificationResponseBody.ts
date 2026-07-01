@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeSignatureQualificationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * This field is not used. You can ignore it.
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The status code of the request.
+   * 
    * @example
-   * 示例值
+   * OK
    */
   errCode?: string;
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   errMessage?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -50,24 +63,55 @@ export class ChangeSignatureQualificationResponseBodyData extends $dara.Model {
 }
 
 export class ChangeSignatureQualificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the access denial. This field is returned only if RAM authentication fails.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the request.
+   * 
+   * - A value of `OK` indicates that the request was successful.
+   * 
+   * - For other error codes, see the error code list in this topic or the [API Error Codes](https://help.aliyun.com/document_detail/101346.html) topic.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data structure.
+   */
   data?: ChangeSignatureQualificationResponseBodyData;
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. Alibaba Cloud generates this unique identifier to help you troubleshoot issues.
+   * 
    * @example
    * 0A974B78-02BF-4C79-ADF3-90CFBA1B55B1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

@@ -8,9 +8,12 @@ export class DeleteSmsTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The code of the message template.
+   * The SMS template code. You can delete SMS templates that are recalled, rejected, or approved. You cannot delete SMS templates that are being reviewed.
    * 
-   * You can log on to the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) and obtain the message template code on the **Message Templates** tab. You can also obtain the message template code by calling the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation.
+   * - You can call the [QuerySmsTemplateList](https://help.aliyun.com/document_detail/419288.html) operation to obtain the SMS template code.
+   * 
+   * - You can also obtain the SMS template code on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page of the Short Message Service (SMS) console.
+   * >Notice: Deleted SMS templates cannot be recovered and cannot be used to send messages. Proceed with caution..
    * 
    * This parameter is required.
    * 

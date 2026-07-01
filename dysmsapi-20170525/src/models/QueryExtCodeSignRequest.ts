@@ -8,18 +8,18 @@ export class QueryExtCodeSignRequest extends $dara.Model {
    * 扩展码A3
    * 
    * @example
-   * 01
+   * 示例值
    */
   extCode?: string;
   ownerId?: number;
   /**
    * @example
-   * 1
+   * 29
    */
   pageNo?: number;
   /**
    * @example
-   * 20
+   * 11
    */
   pageSize?: number;
   resourceOwnerAccount?: string;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidPhoneCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * 验证码
+   * The verification code.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ValidPhoneCodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 手机号
+   * The phone number.
    * 
    * This parameter is required.
    * 

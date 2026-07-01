@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
   /**
    * @remarks
-   * The number of messages without a delivery receipt.
+   * The number of messages with no delivery receipts.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
   noRespondedCount?: number;
   /**
    * @remarks
-   * The number of messages with a delivery receipt that indicates a failure.
+   * The number of messages with failed delivery receipts.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
   respondedFailCount?: number;
   /**
    * @remarks
-   * The number of messages with a delivery receipt that indicates a success.
+   * The number of messages with successful delivery receipts.
    * 
    * @example
    * 17
@@ -29,7 +29,7 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
   respondedSuccessCount?: number;
   /**
    * @remarks
-   * The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
+   * The date the messages were sent. Format: yyyyMMdd.
    * 
    * @example
    * 20201010
@@ -37,7 +37,7 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
   sendDate?: string;
   /**
    * @remarks
-   * The number of delivered messages.
+   * The number of successfully sent messages (billable message count).
    * 
    * @example
    * 20
@@ -75,7 +75,7 @@ export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
 export class QuerySendStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the data returned.
+   * A list of delivery statistics.
    */
   targetList?: QuerySendStatisticsResponseBodyDataTargetList[];
   /**
@@ -115,10 +115,11 @@ export class QuerySendStatisticsResponseBodyData extends $dara.Model {
 export class QuerySendStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The response code. Valid values:
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - OK: The request was successful.
+   * 
+   * - For other values, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -131,7 +132,7 @@ export class QuerySendStatisticsResponseBody extends $dara.Model {
   data?: QuerySendStatisticsResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -142,7 +143,7 @@ export class QuerySendStatisticsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 819BE656-D2E0-4858-8B21-B2E47708****
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
    */
   requestId?: string;
   static names(): { [key: string]: string } {

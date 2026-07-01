@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SmsConversionIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
+   * The status code. A return value of OK indicates that the request was successful. For other error codes, see [Error Code List](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class SmsConversionIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK

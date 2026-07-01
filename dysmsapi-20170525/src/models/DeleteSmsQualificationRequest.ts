@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmsQualificationRequest extends $dara.Model {
   /**
    * @remarks
-   * 工单ID
+   * The review ticket ID. You can obtain the qualification and its corresponding review ticket ID under the current account by calling the [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~) operation, or on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page of Domestic Messages in the console.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DeleteSmsQualificationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 资质组ID
+   * The qualification ID, which is the ID returned when you [apply for a qualification](~~SubmitSmsQualification~~). You can obtain the qualification ID under the current account by calling the [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~) operation, or on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page of Domestic Messages in the console.
    * 
    * This parameter is required.
    * 

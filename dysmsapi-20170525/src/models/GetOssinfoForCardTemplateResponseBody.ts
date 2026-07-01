@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetOSSInfoForCardTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * 签名使用的AccessKey ID。
    * 
    * @example
-   * LTAIxetqt1Dg****
+   * LTAI************
    */
   accessKeyId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * 阿里云账号ID。
    * 
    * @example
-   * 599333677478****
+   * 168**********184
    */
   aliUid?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * OSS文件保存桶名称。
    * 
    * @example
    * alicom-cardsms-resources
@@ -29,7 +29,7 @@ export class GetOSSInfoForCardTemplateResponseBodyData extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The timeout period.
+   * 超时时间戳。单位：秒。
    * 
    * @example
    * 1634209418
@@ -37,34 +37,34 @@ export class GetOSSInfoForCardTemplateResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The hostname.
+   * 访问地址。
    * 
    * @example
-   * https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
+   * http://***.aliyuncs.com
    */
   host?: string;
   /**
    * @remarks
-   * The signature policy.
+   * 签名策略。
    * 
    * @example
-   * eyJxxx0=
+   * eyJleHBpcmF0aW9uIjoiMjAyNS0wMy0yNlQwMzo0NDoyMy4xNTlaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCIxNDIwNjM0******************
    */
   policy?: string;
   /**
    * @remarks
-   * The signature.
+   * 短信签名。
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signature?: string;
   /**
    * @remarks
-   * The path of the policy.
+   * 策略路径。
    * 
    * @example
-   * 1631792777
+   * 168**********184
    */
   startPath?: string;
   static names(): { [key: string]: string } {
@@ -105,10 +105,10 @@ export class GetOSSInfoForCardTemplateResponseBodyData extends $dara.Model {
 export class GetOSSInfoForCardTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * 请求状态码。
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - OK：代表请求成功。
+   * - 其他错误码，请参见[API错误码](https://help.aliyun.com/document_detail/101346.html)。
    * 
    * @example
    * OK
@@ -116,12 +116,12 @@ export class GetOSSInfoForCardTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * 返回数据。
    */
   data?: GetOSSInfoForCardTemplateResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * A90E4451-FED7-49D2-87C8-00700A8C4D0D
@@ -129,10 +129,11 @@ export class GetOSSInfoForCardTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * 调用接口是否成功。取值：
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：调用成功。
+   * 
+   * - **false**：调用失败。
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryShortUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the short URL was created.
+   * The creation date and time of the short link.
    * 
    * @example
    * 2019-01-08 16:44:13
@@ -13,7 +13,7 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The time when the short URL expires.
+   * The expiration date and time of the short link.
    * 
    * @example
    * 2019-01-22 11:21:11
@@ -21,7 +21,7 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
-   * The PV.
+   * The page view (PV) count for the short link.
    * 
    * @example
    * 300
@@ -29,7 +29,7 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   pageViewCount?: string;
   /**
    * @remarks
-   * The short URL.
+   * The generated short link.
    * 
    * @example
    * http://****.cn/6y8uy7
@@ -37,20 +37,23 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   shortUrl?: string;
   /**
    * @remarks
-   * The service name of the short URL.
+   * The name of the service that generated the short link.
    * 
    * @example
-   * The Alibaba Cloud Short Link service.
+   * 阿里短链测试
    */
   shortUrlName?: string;
   /**
    * @remarks
-   * The status of the short URL. Valid values:
+   * The short link status. Valid values:
    * 
-   * *   **expired**
-   * *   **effective**
-   * *   **audit**
-   * *   **reject**
+   * - **expired**: The short link has expired.
+   * 
+   * - **effective**: The short link is active.
+   * 
+   * - **audit**: The short link is under review.
+   * 
+   * - **reject**: The short link was rejected.
    * 
    * @example
    * expired
@@ -58,7 +61,7 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   shortUrlStatus?: string;
   /**
    * @remarks
-   * The source address.
+   * The source URL.
    * 
    * @example
    * https://www.****.com/product/sms
@@ -66,7 +69,7 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   sourceUrl?: string;
   /**
    * @remarks
-   * The UV.
+   * The unique visitor (UV) count for the short link.
    * 
    * @example
    * 23
@@ -110,10 +113,11 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
 export class QueryShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - A successful request returns `OK`.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -121,12 +125,12 @@ export class QueryShortUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the short URL.
+   * The details of the short link.
    */
   data?: QueryShortUrlResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK

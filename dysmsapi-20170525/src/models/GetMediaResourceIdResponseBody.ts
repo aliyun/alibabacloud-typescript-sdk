@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaResourceIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the resource.
+   * 资源下载地址。
    * 
    * @example
    * http://test-example.com/download.jpg
@@ -13,10 +13,10 @@ export class GetMediaResourceIdResponseBodyData extends $dara.Model {
   resUrlDownload?: string;
   /**
    * @remarks
-   * The resource ID.
+   * 资源ID。
    * 
    * @example
-   * SMS_14571****
+   * 0
    */
   resourceId?: number;
   static names(): { [key: string]: string } {
@@ -45,10 +45,10 @@ export class GetMediaResourceIdResponseBodyData extends $dara.Model {
 export class GetMediaResourceIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * 请求状态码。
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - 返回OK代表请求成功。
+   * - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
    * 
    * @example
    * OK
@@ -56,12 +56,12 @@ export class GetMediaResourceIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * 返回数据。
    */
   data?: GetMediaResourceIdResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * F07CF237-F6E3-5F77-B91B-F9B7C5DE84AB
@@ -69,10 +69,11 @@ export class GetMediaResourceIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * 调用接口是否成功。取值：
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：调用成功。
+   * 
+   * - **false**：调用失败。
    * 
    * @example
    * true

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - `OK` indicates the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,7 +17,7 @@ export class DeleteShortUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK

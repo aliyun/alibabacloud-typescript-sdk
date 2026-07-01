@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The request status code. Valid values:
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - OK: The request was successful.
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,10 +16,10 @@ export class TagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether tags were attached. Valid values:
+   * The result of adding the tags. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: success.
+   * - **false**: failure.
    * 
    * @example
    * true
@@ -30,7 +30,7 @@ export class TagResourcesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * A90E4451-FED7-49D2-87C8-00700A8C****
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
    */
   requestId?: string;
   static names(): { [key: string]: string } {

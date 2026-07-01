@@ -7,8 +7,11 @@ export class QueryDigitalSignByNameRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The name of the digital SMS signature. The signature must belong to your Alibaba Cloud account.
+   * 
    * @example
-   * 示例值示例值
+   * 阿里云数字商城
    */
   signName?: string;
   static names(): { [key: string]: string } {

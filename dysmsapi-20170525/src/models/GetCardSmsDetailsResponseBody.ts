@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara.Model {
   /**
    * @remarks
-   * Error code for sending
+   * The sending error code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   errCode?: string;
   /**
    * @remarks
-   * Customer-transmitted outId
+   * The outId passed by the customer.
    * 
    * @example
    * 12345678
@@ -21,7 +21,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   outId?: string;
   /**
    * @remarks
-   * Phone number that received the SMS
+   * The phone number that received the SMS.
    * 
    * @example
    * 156****9080
@@ -29,7 +29,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   phoneNumber?: string;
   /**
    * @remarks
-   * Receive date
+   * The receive time.
    * 
    * @example
    * 2024-09-27 11:26:35
@@ -37,7 +37,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   receiveDate?: string;
   /**
    * @remarks
-   * Receive SMS type
+   * The SMS receive type.
    * 
    * @example
    * CARD_SMS
@@ -45,7 +45,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   receiveType?: string;
   /**
    * @remarks
-   * Render date
+   * The render time.
    * 
    * @example
    * 2024-09-27 12:13:39
@@ -53,7 +53,11 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   renderDate?: string;
   /**
    * @remarks
-   * Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
+   * The parsing status. Valid values:
+   * 
+   * - 0: not parsed.
+   * - 1: parsed successfully.
+   * - 3: not parsed.
    * 
    * @example
    * 1
@@ -61,7 +65,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   renderStatus?: number;
   /**
    * @remarks
-   * Time when the SMS was sent
+   * The SMS sending time.
    * 
    * @example
    * 2024-09-27 11:26:32
@@ -69,7 +73,12 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   sendDate?: string;
   /**
    * @remarks
-   * Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
+   * The sending status. Valid values:
+   * 
+   * - 1: sending.
+   * - 2: sending failed.
+   * - 3: sending succeeded.
+   * - 4: addressing failed.
    * 
    * @example
    * 3
@@ -77,7 +86,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   sendStatus?: number;
   /**
    * @remarks
-   * SMS content. Only applicable for text messages.
+   * The SMS content. Only text SMS has a value.
    * 
    * @example
    * 您收到一条短信消息
@@ -85,7 +94,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
   smsContent?: string;
   /**
    * @remarks
-   * Template code
+   * The template code.
    * 
    * @example
    * CARD_SMS_6***
@@ -135,7 +144,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara
 export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The page number.
    * 
    * @example
    * 1
@@ -143,7 +152,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -151,12 +160,12 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * List of card SMS sending records
+   * The list of card SMS sending records.
    */
   records?: GetCardSmsDetailsResponseBodyCardSendDetailDTORecords[];
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 10
@@ -195,7 +204,7 @@ export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $dara.Model 
 export class GetCardSmsDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied detail; this field is returned only if the RAM check fails.
+   * The access denied details. This parameter is returned only when the RAM check fails.
    * 
    * @example
    * 无
@@ -203,14 +212,14 @@ export class GetCardSmsDetailsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Card SMS sending result
+   * The card SMS sending result.
    */
   cardSendDetailDTO?: GetCardSmsDetailsResponseBodyCardSendDetailDTO;
   /**
    * @remarks
-   * Request status code.
-   * * OK indicates a successful request.
-   * * For other error codes, see [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
+   * The request status code.
+   * * OK indicates that the request was successful.
+   * * For other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -218,7 +227,7 @@ export class GetCardSmsDetailsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -226,8 +235,11 @@ export class GetCardSmsDetailsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Values:
-   * - **true** - **false**
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

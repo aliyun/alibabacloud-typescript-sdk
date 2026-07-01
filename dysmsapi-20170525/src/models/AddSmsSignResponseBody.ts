@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * * OK is returned if the request is successful.
+   * * For other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,7 +16,7 @@ export class AddSmsSignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -32,10 +32,10 @@ export class AddSmsSignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the signature.
+   * The signature name.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
   static names(): { [key: string]: string } {

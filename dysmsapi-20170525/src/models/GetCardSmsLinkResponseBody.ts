@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCardSmsLinkResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone numbers that support card messages.
+   * 支持卡片短信的手机号码。
    * 
    * @example
    * [\\"1390000****\\",\\"1370000****\\"]
@@ -13,15 +13,15 @@ export class GetCardSmsLinkResponseBodyData extends $dara.Model {
   cardPhoneNumbers?: string;
   /**
    * @remarks
-   * The signatures must correspond to the mobile numbers and short URLs in sequence.
+   * 用于申请卡片短信短链的短信签名，在发送时签名、接收号码、卡片短信短链要一一对应。
    * 
    * @example
-   * ["aliyun","aliyun2"]
+   * ["阿里云","阿里云2"]
    */
   cardSignNames?: string;
   /**
    * @remarks
-   * The short URLs.
+   * 卡片短信短链。
    * 
    * @example
    * [\\"mw2m.cn/LAaGGa\\",\\"mw2m.cn/LAAaes\\"]
@@ -29,13 +29,12 @@ export class GetCardSmsLinkResponseBodyData extends $dara.Model {
   cardSmsLinks?: string;
   /**
    * @remarks
-   * The review status of the card message template.
+   * 卡片短信模板审核状态。取值：
+   * - **0**：审核中。
+   * - **1**：审核通过。
+   * - **2**：审核不通过。
    * 
-   * *   **0**: pending approval
-   * *   **1**: approved
-   * *   **2**: rejected
-   * 
-   * > Unapproved card messages are rolled back.
+   * > 未审核通过的短信走回落流程。
    * 
    * @example
    * 0
@@ -43,7 +42,7 @@ export class GetCardSmsLinkResponseBodyData extends $dara.Model {
   cardTmpState?: number;
   /**
    * @remarks
-   * The mobile phone numbers that do not support card messages.
+   * 不支持卡片短信的手机号。
    * 
    * @example
    * 1390000****
@@ -81,10 +80,9 @@ export class GetCardSmsLinkResponseBodyData extends $dara.Model {
 export class GetCardSmsLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 请求状态码。取值：
+   * - OK：代表请求成功。
+   * - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
    * 
    * @example
    * OK
@@ -92,12 +90,12 @@ export class GetCardSmsLinkResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * 返回数据。
    */
   data?: GetCardSmsLinkResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * CC89A90C-978F-46AC-B80D-54738371E7CA
@@ -105,10 +103,10 @@ export class GetCardSmsLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * 接口调用是否成功。取值：
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**：调用成功。
+   * - **false**：调用失败。
    * 
    * @example
    * true

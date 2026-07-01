@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetOSSInfoForUploadFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Business type, default value is **fcMediaSms**.
+   * The business type. Default value: **fcMediaSms**.
    * 
-   * When creating signatures and templates, and uploading **additional materials**, this value is **fcMediaSms**.
+   * When you create a signature or template and upload **More Materials**, the value is **fcMediaSms**.
    * 
    * @example
    * fcMediaSms

@@ -6,7 +6,7 @@ export class QuerySmsTemplateListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The current page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class QuerySmsTemplateListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of templates per page. Valid values: **1 to 50**.
+   * The number of templates displayed per page. Valid values: **1 to 50**. Default value: **10**.
    * 
    * @example
    * 10

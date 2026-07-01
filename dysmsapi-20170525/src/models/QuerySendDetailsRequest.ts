@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySendDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery receipt. The delivery receipt ID is the value of the BizId parameter that is returned when you call the SendSms or SendBatchSms operation.
+   * The delivery receipt ID. This is the `BizId` returned in the response when you call the [SendSms](https://help.aliyun.com/document_detail/419273.html) or [SendBatchSms](https://help.aliyun.com/document_detail/419274.html) operation.
+   * 
+   * > You can specify only one `BizId`.
    * 
    * @example
    * 134523^435****
@@ -13,7 +15,7 @@ export class QuerySendDetailsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The page number of the first page.
+   * The current page number for paginated results.
    * 
    * This parameter is required.
    * 
@@ -24,22 +26,25 @@ export class QuerySendDetailsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of items displayed per page.
+   * The number of delivery records to return on each page.
    * 
    * Valid values: 1 to 50.
    * 
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The mobile numbers of the recipients. Format:
+   * The phone number to query. The format is as follows:
    * 
-   * *   If you send messages in the Chinese mainland, specify an 11-digit mobile number, for example, 1390000\\*\\*\\*\\*.
-   * *   If you send messages to countries or regions outside the Chinese mainland, specify this parameter in the \\<Area code>\\<Mobile number> format. Example: 8520000\\*\\*\\*\\*.
+   * - For messages to the Chinese mainland, use an 11-digit phone number, such as 1390000\\*\\*\\*\\*.
+   * 
+   * - For international SMS, use the format: country/region code + phone number, such as 8520000\\*\\*\\*\\*.
+   * 
+   * > You can specify only one phone number.
    * 
    * This parameter is required.
    * 
@@ -51,14 +56,14 @@ export class QuerySendDetailsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The date when the message was sent. You can query messages that were sent within the last 30 days.
+   * The date when the SMS message was sent. You can query records from the past 30 days.
    * 
-   * Format: yyyyMMdd. Example: 20181225.
+   * Format: **yyyyMMdd**, for example, 20250601.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20181228
+   * 20250601
    */
   sendDate?: string;
   static names(): { [key: string]: string } {

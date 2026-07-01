@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token used to query the next page.
+   * The token used to query the next page of tags.
    * 
    * @example
    * 23432453245
@@ -62,7 +62,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the cloud service. Set the value to **dysms**.
+   * The product name. Default value: **dysms**.
    * 
    * @example
    * dysms
@@ -70,7 +70,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The region ID. Set the value to **cn-hangzhou**.
+   * The region ID. Default value: **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -80,7 +80,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The code of the message template. Specify either the Tag or the ResourceId parameter.
+   * The SMS template code. The SMS template code and the tag list **Tag** cannot be empty at the same time.
    * 
    * @example
    * SMS_23423423
@@ -90,7 +90,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to TEMPLATE.
+   * The resource type. Default value: TEMPLATE.
    * 
    * This parameter is required.
    * 
@@ -100,7 +100,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list. Specify either the Tag or the ResourceId parameter. You can specify a maximum of 20 tags.
+   * The tag list. The tag list and **ResourceId** (SMS template code) cannot be empty at the same time. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

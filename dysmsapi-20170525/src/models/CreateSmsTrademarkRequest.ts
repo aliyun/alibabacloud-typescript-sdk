@@ -8,17 +8,17 @@ export class CreateSmsTrademarkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 申请人名称
+   * The name of the applicant. The value can be up to 50 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 阿里巴巴（中国）有限公司
    */
   trademarkApplicantName?: string;
   /**
    * @remarks
-   * 专用权生失效日期
+   * The effective and expiration dates of the exclusive right.
    * 
    * This parameter is required.
    * 
@@ -28,17 +28,32 @@ export class CreateSmsTrademarkRequest extends $dara.Model {
   trademarkEffExpDate?: string;
   /**
    * @remarks
-   * 商标名称
+   * The trademark name. The value can be up to 15 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 阿里云
    */
   trademarkName?: string;
   /**
    * @remarks
-   * 商标详情截图osskey
+   * The fileKey of the trademark details screenshot.
+   * 
+   * 1. How to query a trademark:
+   * - Log on to the China Trademark Network, click **Trademark Online Query**, and take a screenshot of the trademark details.
+   * - Accept the terms of use and enter the **Application/Registration Number** to query.
+   * - Click the **Application/Registration Number** to view the details.
+   * 
+   * 2. Information about the trademark file uploaded to OSS. File upload requirements:
+   * - The name of the file to be uploaded cannot contain Chinese characters or special characters.
+   * - Only images in JPG, PNG, GIF, and JPEG formats are supported, and the image size cannot exceed 5 MB.
+   * - The screenshot must contain the complete URL.
+   * - The trademark image must be clear and identical to the **signature name**.
+   * - The **applicant name** must be identical to the name of the enterprise or institution associated with the signature.
+   * - The trademark status must be registered trademark.
+   * 
+   * 3. To obtain the fileKey, see [Upload files to OSS](https://help.aliyun.com/document_detail/2833114.html).
    * 
    * This parameter is required.
    * 
@@ -48,7 +63,7 @@ export class CreateSmsTrademarkRequest extends $dara.Model {
   trademarkPic?: string;
   /**
    * @remarks
-   * 商标注册号
+   * The trademark registration number. The value can be up to 15 characters in length.
    * 
    * This parameter is required.
    * 

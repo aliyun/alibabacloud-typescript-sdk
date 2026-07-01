@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+   * The administrator\\"s ID card validity period. Format: YYYY-MM-DD~YYYY-MM-DD.
+   * > If the ID card has a long-term validity period, set the end date to 2099-12-31.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,12 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminIDCardExpDate?: string;
   /**
    * @remarks
-   * 经办人身份证照片国徽面
+   * The front photo of the administrator\\"s ID card (national emblem side). Only jpg, png, gif, and jpeg formats are supported. The image must not exceed 5 MB. Specify the file path uploaded to OSS. The file name must not contain Chinese characters or special characters. For upload instructions, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
+   * 
+   * >Notice: 
+   * Color originals do not require a stamp. If you upload a photocopy or black-and-white photo, stamp the photocopy with the company seal and take a photo to upload.
+   * 
+   * .
    * 
    * This parameter is required.
    * 
@@ -25,7 +31,7 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminIDCardFrontFace?: string;
   /**
    * @remarks
-   * 经办人身份证号码
+   * The administrator\\"s ID card number.
    * 
    * This parameter is required.
    * 
@@ -35,7 +41,12 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminIDCardNo?: string;
   /**
    * @remarks
-   * 经办人身份证照片人像面
+   * The back photo of the administrator\\"s ID card (portrait side). Only jpg, png, gif, and jpeg formats are supported. The image must not exceed 5 MB. Specify the file path uploaded to OSS. The file name must not contain Chinese characters or special characters. For upload instructions, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
+   * 
+   * >Notice: 
+   * Color originals do not require a stamp. If you upload a photocopy or black-and-white photo, stamp the photocopy with the company seal and take a photo to upload.
+   * 
+   * .
    * 
    * This parameter is required.
    * 
@@ -45,7 +56,14 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminIDCardPic?: string;
   /**
    * @remarks
-   * 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * The administrator\\"s ID card type. Valid values:
+   * 
+   * - identityCard: ID card.
+   * - passport: passport.
+   * - homeReturnPermit: Hong Kong/Macao resident travel permit to mainland.
+   * - TaiwanCompatriotPermit: Taiwan resident travel permit to mainland.
+   * - residencePermit: Hong Kong/Macao/Taiwan resident residence permit.
+   * - other: other.
    * 
    * This parameter is required.
    * 
@@ -55,17 +73,19 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminIDCardType?: string;
   /**
    * @remarks
-   * 经办人姓名
+   * The administrator\\"s name. Maximum length: 50 characters. **Under the current [SMS signature real-name requirements](https://help.aliyun.com/document_detail/2873145.html), if the same administrator applies for qualifications for multiple different enterprises, carrier registration will fail. Ensure one administrator per enterprise to improve the registration success rate.**
+   * 
+   * > The administrator (also called the handler) is the person who logs on to the Alibaba Cloud account and manages SMS services. This person typically manages qualifications, signatures, and templates under this Alibaba Cloud account and performs SMS sending operations. This person\\"s phone number must be able to receive verification codes. The administrator does not have to be the Alibaba Cloud account administrator and can be the same person as the legal representative.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 李华
    */
   adminName?: string;
   /**
    * @remarks
-   * 经办人手机号码
+   * The administrator\\"s phone number. Format: +/+86/0086/86 or a phone number without any prefix, such as 1390000****.
    * 
    * This parameter is required.
    * 
@@ -75,12 +95,14 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   adminPhoneNo?: string;
   /**
    * @remarks
-   * 企业营业证件信息，非大客户必填
+   * The business license information. This parameter is required when the qualification purpose `UseBySelf` is set to `false` (third-party use).
+   * > - Based on carrier real-name registration regulatory requirements, we strongly recommend that you provide the relevant field information. Otherwise, the probability of "review rejection or carrier registration failure" increases significantly.
    */
   businessLicensePicsShrink?: string;
   /**
    * @remarks
-   * 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+   * The business license validity period. Format: YYYY-MM-DD~YYYY-MM-DD.
+   * > If the certificate has a long-term validity period, set the end date to 2099-12-31.
    * 
    * This parameter is required.
    * 
@@ -90,7 +112,9 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   bussinessLicenseExpDate?: string;
   /**
    * @remarks
-   * 手机号验证码
+   * The phone verification code. Call the [RequiredPhoneCode](~~RequiredPhoneCode~~) operation with the **administrator\\"s phone number**, and then enter the SMS verification code received.
+   * 
+   * > You can use [ValidPhoneCode](~~ValidPhoneCode~~) to verify whether the SMS verification code is correct before passing it in.
    * 
    * This parameter is required.
    * 
@@ -100,17 +124,21 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   certifyCode?: string;
   /**
    * @remarks
-   * 公司名称
+   * The enterprise name. Only the middle dot `·`, Chinese brackets `【】（）`, English parentheses `()`, and `spaces` are supported as symbols. Other symbols or pure digits are not allowed. Maximum length: 150 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云云通信有限公司
    */
   companyName?: string;
   /**
    * @remarks
-   * 企业类型, COMPANY:公司;NON_PROFIT_ORGANIZATION:政府或者事业单位
+   * The enterprise type. Valid values:
+   * 
+   * - COMPANY: enterprise.
+   * 
+   * - NON_PROFIT_ORGANIZATION: government agency or public institution.
    * 
    * This parameter is required.
    * 
@@ -120,7 +148,7 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   companyType?: string;
   /**
    * @remarks
-   * 法人身份证号码
+   * The legal representative\\"s ID card number.
    * 
    * This parameter is required.
    * 
@@ -130,7 +158,14 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   legalPersonIDCardNo?: string;
   /**
    * @remarks
-   * 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * The legal representative\\"s ID card type. Valid values:
+   * 
+   * - identityCard: ID card.
+   * - passport: passport.
+   * - homeReturnPermit: Hong Kong/Macao resident travel permit to mainland.
+   * - TaiwanCompatriotPermit: Taiwan resident travel permit to mainland.
+   * - residencePermit: Hong Kong/Macao/Taiwan resident residence permit.
+   * - other: other.
    * 
    * This parameter is required.
    * 
@@ -140,7 +175,9 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   legalPersonIDCardType?: string;
   /**
    * @remarks
-   * 法人身份证照片人像面
+   * The back photo of the legal representative\\"s ID card (portrait side). Only jpg, png, gif, and jpeg formats are supported. The image must not exceed 5 MB. Specify the file path uploaded to OSS. The file name must not contain Chinese characters or special characters. For upload instructions, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
+   * 
+   * > The system verifies the legal representative\\"s name and ID number you provide. If verification fails, you must upload photos of the legal representative\\"s ID card.
    * 
    * @example
    * 123456/111.png
@@ -148,7 +185,8 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   legalPersonIdCardBackSide?: string;
   /**
    * @remarks
-   * 法人身份证有效期
+   * The legal representative\\"s ID card validity period. Format: YYYY-MM-DD~YYYY-MM-DD.
+   * > If the ID card has a long-term validity period, set the end date to 2099-12-31.
    * 
    * This parameter is required.
    * 
@@ -158,7 +196,10 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   legalPersonIdCardEffTime?: string;
   /**
    * @remarks
-   * 法人身份证照片国徽面
+   * The front photo of the legal representative\\"s ID card (national emblem side). Only jpg, png, gif, and jpeg formats are supported. The image must not exceed 5 MB. Specify the file path uploaded to OSS. The file name must not contain Chinese characters or special characters. For upload instructions, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
+   * 
+   * 
+   * > The system verifies the legal representative\\"s name and ID number you provide. If verification fails, you must upload photos of the legal representative\\"s ID card.
    * 
    * @example
    * 123456/111.png
@@ -166,17 +207,20 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   legalPersonIdCardFrontSide?: string;
   /**
    * @remarks
-   * 法人姓名
+   * The legal representative\\"s name. Maximum length: 50 characters.
+   * 
+   * > - If the organization certificate does not contain legal representative information but includes a person in charge or chief representative, prepare the ID card photos of the corresponding person in charge or chief representative listed on the certificate.
+   * > - If the organization certificate contains neither legal representative information nor any person in charge, prepare the name and ID card photos of the primary business contact.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 李华
    */
   legalPersonName?: string;
   /**
    * @remarks
-   * 社会统一信用代码
+   * The unified social credit code. Maximum length: 150 characters.
    * 
    * This parameter is required.
    * 
@@ -186,33 +230,36 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   organizationCode?: string;
   /**
    * @remarks
-   * 更多资料
+   * Additional materials. If you have other supporting documents, notes, or photos, upload them here.
    */
   otherFilesShrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 资质名称,名称不能重复
+   * The qualification name, used to manage and distinguish multiple qualifications you apply for. It does not appear in SMS content. The name must be unique among your existing qualifications. Only Chinese characters, English letters, or combinations with digits are supported. Symbols or pure digits are not supported. Maximum length: 100 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 阿里云云通信有限公司资质李华
    */
   qualificationName?: string;
   /**
    * @remarks
-   * 备注
+   * Remarks. If you have additional information to provide or notes for the qualification verification reviewer, add a description here.
    * 
    * @example
-   * 示例值示例值
+   * 无
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 资质是自用还是他用，true：自用，false：他用
+   * The purpose of the qualification application. Valid values:
+   * 
+   * - **true**: **Self-use**. The entity that owns the signature is the same as the entity verified for this account.
+   * - **false**: **Third-party use**. The entity that owns the signature is different from the entity verified for this account.
    * 
    * This parameter is required.
    * 
@@ -222,7 +269,10 @@ export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
   useBySelf?: boolean;
   /**
    * @remarks
-   * 是否同意与其他业务线共享
+   * Qualification authorization. Specifies whether to share the qualification with other cloud communication products (such as domestic voice services and domestic number privacy protection). Sharing is available only when you apply for a **self-use qualification** and the qualification information **matches the enterprise information verified for the current Alibaba Cloud account**. Otherwise, this setting has no effect. Valid values:
+   * 
+   * - true: Agree. Your qualification information can be referenced during the qualification verification process of other cloud communication products, eliminating redundant verification.
+   * - false: Disagree.
    * 
    * This parameter is required.
    * 

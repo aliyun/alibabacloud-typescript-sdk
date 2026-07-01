@@ -204,10 +204,6 @@ export class GetSmsTemplateListResponseBodyData extends $dara.Model {
 }
 
 export class GetSmsTemplateListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example

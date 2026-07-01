@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCardSmsDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * Card SMS sending ID, which is the BizCardId field in the response when calling SendCardSms or SendBatchCardSms.
+   * The card SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizCardId field from the response.
    * 
    * @example
    * 123456^0
@@ -13,7 +13,7 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   bizCardId?: string;
   /**
    * @remarks
-   * Digital SMS sending ID, which is the BizDigitalId field in the response when calling SendCardSms or SendBatchCardSms.
+   * The digital SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizDigitalId field from the response.
    * 
    * @example
    * 12346^0
@@ -21,7 +21,7 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   bizDigitId?: string;
   /**
    * @remarks
-   * Text SMS sending ID, which is the BizSmsId field in the response when calling SendCardSms or SendBatchCardSms.
+   * The text SMS sending ID. When you send a card SMS by calling the [SendCardSms](https://help.aliyun.com/document_detail/434120.html) or [SendBatchCardSms](https://help.aliyun.com/document_detail/434119.html) operation, obtain the BizSmsId field from the response.
    * 
    * @example
    * 1234576^0
@@ -29,7 +29,7 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   bizSmsId?: string;
   /**
    * @remarks
-   * For paginated viewing of sending records, specify the current page number of the sending records.
+   * The current page number when you paginate sending records.
    * 
    * @example
    * 1
@@ -38,9 +38,9 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * For paginated viewing of sending records, specify the number of card SMS records to display per page.
+   * The number of card SMS records to display on each page when you paginate sending records.
    * 
-   * The value range is 1~50.
+   * Valid values: 1 to 50.
    * 
    * @example
    * 10
@@ -48,7 +48,7 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Domestic phone number that received the SMS. Format: 11-digit phone number, for example, 1390000****.
+   * The domestic mobile phone number that received the SMS. Format: an 11-digit mobile phone number. For example, 1390000****.
    * 
    * This parameter is required.
    * 
@@ -60,9 +60,9 @@ export class GetCardSmsDetailsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Card SMS sending date, supports querying records from the last 30 days.
+   * The card SMS sending date. Records from the last 30 days can be queried.
    * 
-   * Format: yyyyMMdd, for example, 20240112.
+   * Format: yyyyMMdd. For example, 20240112.
    * 
    * This parameter is required.
    * 

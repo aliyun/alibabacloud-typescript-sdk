@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCardSmsTemplateReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the data returned.
+   * The list of returned data.
    */
   model?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -35,10 +35,11 @@ export class QueryCardSmsTemplateReportResponseBodyData extends $dara.Model {
 export class QueryCardSmsTemplateReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - The value OK indicates that the request was successful.
+   * 
+   * - For information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -46,7 +47,7 @@ export class QueryCardSmsTemplateReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: QueryCardSmsTemplateReportResponseBodyData;
   /**
@@ -54,15 +55,16 @@ export class QueryCardSmsTemplateReportResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CC89A90C-978F-46AC-B80D-54738371E7CA
+   * B71F06CA-7735-183A-B52E-234EF8AFE14B
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code. Valid values:
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - OK: The request was successful.
+   * - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,10 +16,11 @@ export class UntagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * The execution result of deleting the tag. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: success.
+   * 
+   * - **false**: failure.
    * 
    * @example
    * true
@@ -30,7 +31,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * A90E4451-FED7-49D2-87C8-00700A8C****
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
    */
   requestId?: string;
   static names(): { [key: string]: string } {

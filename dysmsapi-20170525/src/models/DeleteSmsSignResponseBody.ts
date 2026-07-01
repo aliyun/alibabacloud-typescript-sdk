@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * * The value OK indicates that the request was successful.
+   * * For information about other return values, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,7 +16,7 @@ export class DeleteSmsSignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -32,10 +32,10 @@ export class DeleteSmsSignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The signature.
+   * The name of the deleted signature.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
   static names(): { [key: string]: string } {

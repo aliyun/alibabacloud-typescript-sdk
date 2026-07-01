@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * 请求状态码。
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - 返回OK代表请求成功。
+   * - 其他错误码，请参见[API错误码](https://help.aliyun.com/document_detail/101346.html)。
    * 
    * @example
    * OK
@@ -16,7 +16,7 @@ export class DeleteSmsTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * 状态码的描述。
    * 
    * @example
    * OK
@@ -24,7 +24,7 @@ export class DeleteSmsTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * CCA2BCFF-2BA7-427C-90EE-AC6994748607
@@ -32,10 +32,10 @@ export class DeleteSmsTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * 已删除的模板Code。
    * 
    * @example
-   * SMS_20375****
+   * SMS_152550****
    */
   templateCode?: string;
   static names(): { [key: string]: string } {

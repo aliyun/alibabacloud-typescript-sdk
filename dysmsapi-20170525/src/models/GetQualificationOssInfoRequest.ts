@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualificationOssInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务，非空
+   * The business type. When applying for a qualification or creating an authorization letter file, enter **dysms**.
    * 
    * This parameter is required.
    * 

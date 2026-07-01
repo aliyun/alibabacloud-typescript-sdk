@@ -10,7 +10,7 @@ export class DeleteExtCodeSignRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 01
+   * 示例值
    */
   extCode?: string;
   ownerId?: number;

@@ -14,7 +14,7 @@ export class QuerySmsSignListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of signatures per page. Valid values: **1 to 50**.
+   * The number of signatures to return on each page. Default value: **10**. Valid values: **1 to 50**.
    * 
    * @example
    * 10

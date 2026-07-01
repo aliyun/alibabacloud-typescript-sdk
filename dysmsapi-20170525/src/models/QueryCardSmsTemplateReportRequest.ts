@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCardSmsTemplateReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2020-10-11 00:00:01
@@ -13,7 +13,7 @@ export class QueryCardSmsTemplateReportRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2020-10-10 00:00:01
@@ -21,7 +21,7 @@ export class QueryCardSmsTemplateReportRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The array of message templates.
+   * The card SMS object.
    * 
    * This parameter is required.
    */

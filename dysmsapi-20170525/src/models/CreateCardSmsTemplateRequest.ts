@@ -5,44 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCardSmsTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone manufacturer. Valid values:
+   * The vendors to which the template will be submitted. Valid values:
    * 
-   * *   **HuaWei**: HUAWEI
-   * *   **XiaoMi**: Xiaomi
-   * *   **OPPO**: OPPO
-   * *   **VIVO**: vivo
-   * *   **MEIZU**: MEIZU
+   * - **HuaWei**: Huawei
    * 
-   * > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
+   * - **XiaoMi**: Xiaomi
+   * 
+   * - **OPPO**: OPPO
+   * 
+   * - **VIVO**: VIVO
+   * 
+   * - **MEIZU**: MEIZU
+   * 
+   * - **HONOR**: HONOR
+   * 
+   * > If you do not specify this parameter, the system automatically submits the template to all supported mobile phone vendors.
    * 
    * @example
-   * XiaoMi
+   * ["HuaWei","XiaoMi"]
    */
   factorys?: string;
   /**
    * @remarks
-   * The description of the message template.
+   * A description of the template.
    * 
    * @example
-   * Image and Text Template
+   * 图文类模板
    */
   memo?: string;
   /**
    * @remarks
-   * The content of the card message template.
+   * The content of the card SMS template.
    * 
-   * > 
-   * 
-   * *   For information about fields such as Template, ExtendInfo, TemplateContent, TmpCard, and Action, see [Parameters of card message templates](https://help.aliyun.com/document_detail/434929.html).
-   * 
-   * *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
+   * > - For more information about the `Template`, `ExtendInfo`, `TemplateContent`, `TmpCard`, and `Action` fields, see [Card SMS template parameters](https://help.aliyun.com/document_detail/434929.html).
+   * >
+   * > - The content structure varies based on the type of card SMS template. For more information, see [Card SMS template examples](https://help.aliyun.com/document_detail/435361.html).
    * 
    * This parameter is required.
    * 
    * @example
    * {
    *        "extendInfo":{
-   *               "scene":"HMOVM",
+   *               "scene":"HMOVM图文",
    *               "purpose":"2",
    *               "userExt":{
    *                      "outId":"1234554321"
@@ -59,7 +63,7 @@ export class CreateCardSmsTemplateRequest extends $dara.Model {
    *                                           "actionType":"OPEN_APP",
    *                                           "action":{
    *                                                  "target":"https://s.tb.cn/c.KxzZ",
-   *                                                  "merchantName":"test-template",
+   *                                                  "merchantName":"测试-图文模板",
    *                                                  "packageName":[
    *                                                         "com.taobao.taobao"],
    *                                                  "floorUrl":"https://s.tb.cn/c.KxzZ"
@@ -68,41 +72,42 @@ export class CreateCardSmsTemplateRequest extends $dara.Model {
    *                                    },
    *                                    {
    *                                           "type":"TEXT",
-   *                                           "content":"this is a test msg.",
+   *                                           "content":"测试- BENZ AMG 2020 试驾邀请",
    *                                           "isTextTitle":true,
    *                                           "positionNumber":2
    *                                    },
    *                                    {
    *                                           "type":"TEXT",
-   *                                           "content":"Promotional information",
+   *                                           "content":"测试-梅赛德斯-奔驰，创新激情永不灭。作为汽车 XXXX",
    *                                           "isTextTitle":false,
    *                                           "positionNumber":3
    *                                    },
    *                                    {
    *                                           "type":"BUTTON",
-   *                                           "content":"Promotional information,",
+   *                                           "content":"预约试驾",
    *                                           "actionType":"OPEN_BROWSER",
    *                                           "action":{
-   *                                                  "target":"https://www.aliyun.com",
-   *                                                  "merchantName":"Currently on the Alibaba Cloud official website."
+   *                                                  "target":"https://www.mercedes-benz.com.cn",
+   *                                                  "merchantName":"测试-正在跳转梅赛德斯-奔驰"
    * },
    *                                           "positionNumber":4
    *                                    }]
    *                      }]
    *        },
-   *        "cardSignName":"aliyun",
-   *        "cardType":5
+   *        "cardSignName":"阿里云",
+   *        "cardType":5,
+   *        "companyName": "投放企业名称"
    * }
    */
   template?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the card message template.
+   * The name of the card SMS template.
    * 
    * This parameter is required.
    * 
    * @example
-   * Aliyun Image and Text Template
+   * 阿里云图文类模板
    */
   templateName?: string;
   static names(): { [key: string]: string } {

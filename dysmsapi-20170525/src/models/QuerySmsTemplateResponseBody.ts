@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - OK indicates that the request was successful.
+   * 
+   * - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,15 +17,15 @@ export class QuerySmsTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the message template was created.
+   * The time when the template was created.
    * 
    * @example
-   * 2019-06-04 11:42:17
+   * 2024-06-03 10:02:34
    */
   createDate?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -32,13 +33,14 @@ export class QuerySmsTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The approval remarks.
+   * The review notes for the template.
    * 
-   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+   * - If the review status is **Approved** or **Reviewing**, the message "No review remarks" is returned.
+   * 
+   * - If the review status is **Rejected**, the reason for the rejection is returned.
    * 
    * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
+   * 无审批备注
    */
   reason?: string;
   /**
@@ -51,49 +53,55 @@ export class QuerySmsTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * The template code.
    * 
    * @example
-   * SMS_16703****
+   * SMS_1525****
    */
   templateCode?: string;
   /**
    * @remarks
-   * The content of the message template.
+   * The template content.
    * 
    * @example
-   * You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+   * 亲爱的会员！阿里云短信服务祝您新年快乐！
    */
   templateContent?: string;
   /**
    * @remarks
-   * The name of the message template.
+   * The template name.
    * 
    * @example
-   * aliyun verification code
+   * 通知短信
    */
   templateName?: string;
   /**
    * @remarks
-   * The approval status of the message template. Valid values:
+   * The review status of the template. Valid values:
    * 
-   * *   **0**: The message template is pending approval.
-   * *   **1**: The message template is approved.
-   * *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
-   * *   **10**: The approval is canceled.
+   * - **0**: Reviewing.
+   * 
+   * - **1**: Approved.
+   * 
+   * - **2**: Rejected. The reason for the rejection is returned in the response. For more information, see [Suggestions for handling a failed review](https://help.aliyun.com/document_detail/65990.html). You can then call the [ModifySmsTemplate](https://help.aliyun.com/document_detail/419287.html) API or modify the template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+   * 
+   * - **10**: Canceled.
    * 
    * @example
-   * 1
+   * 0
    */
   templateStatus?: number;
   /**
    * @remarks
-   * The type of the message. Valid values:
+   * The message type. Valid values:
    * 
-   * *   **0**: verification code
-   * *   **1**: notification message
-   * *   **2**: promotional message
-   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * - **0**: Verification code.
+   * 
+   * - **1**: Message notification.
+   * 
+   * - **2**: Promotional message.
+   * 
+   * - **3**: International message.
    * 
    * @example
    * 1

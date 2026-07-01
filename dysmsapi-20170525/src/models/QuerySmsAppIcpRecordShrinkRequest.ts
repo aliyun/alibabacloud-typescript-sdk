@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsAppIcpRecordShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * app-icp备案实体id列表
+   * A list of icp record entity IDs.
    * 
    * This parameter is required.
    */

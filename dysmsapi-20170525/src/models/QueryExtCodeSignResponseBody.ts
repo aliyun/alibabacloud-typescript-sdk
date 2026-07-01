@@ -8,7 +8,7 @@ export class QueryExtCodeSignResponseBodyDataList extends $dara.Model {
    * 是否可回收
    * 
    * @example
-   * 1
+   * 9
    */
   active?: number;
   /**
@@ -16,7 +16,7 @@ export class QueryExtCodeSignResponseBodyDataList extends $dara.Model {
    * 扩展码A3
    * 
    * @example
-   * 01
+   * 示例值示例值示例值
    */
   extCode?: string;
   /**
@@ -76,17 +76,17 @@ export class QueryExtCodeSignResponseBodyData extends $dara.Model {
   list?: QueryExtCodeSignResponseBodyDataList[];
   /**
    * @example
-   * 1
+   * 33
    */
   pageNo?: number;
   /**
    * @example
-   * 20
+   * 41
    */
   pageSize?: number;
   /**
    * @example
-   * 5
+   * 90
    */
   total?: number;
   static names(): { [key: string]: string } {
@@ -123,18 +123,18 @@ export class QueryExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   code?: string;
   data?: QueryExtCodeSignResponseBodyData;
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值示例值
    */
   requestId?: string;
   /**

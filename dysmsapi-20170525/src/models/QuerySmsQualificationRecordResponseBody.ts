@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * 审核备注
+   * 审核备注。
    * 
    * @example
-   * 示例值示例值
+   * 无
    */
   auditRemark?: string;
   /**
    * @remarks
-   * 审核时间
+   * 审核时间。
    * 
    * @example
    * 2024-12-26 17:29:04
@@ -21,15 +21,15 @@ export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model
   auditTime?: string;
   /**
    * @remarks
-   * 公司名称或实人认证姓名
+   * 企业名称。
    * 
    * @example
-   * 示例值示例值示例值
+   * 阿里云云通信有限公司
    */
   companyName?: string;
   /**
    * @remarks
-   * 创建时间
+   * 资质创建时间。
    * 
    * @example
    * 2025-02-20 11:59:30
@@ -37,7 +37,7 @@ export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model
   createDate?: string;
   /**
    * @remarks
-   * 资质组ID
+   * 资质ID。
    * 
    * @example
    * 10000****
@@ -45,31 +45,40 @@ export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model
   groupId?: number;
   /**
    * @remarks
-   * 法人名称
+   * 法人姓名。
    * 
    * @example
-   * 示例值示例值
+   * 李华
    */
   legalPersonName?: string;
   /**
    * @remarks
-   * 资质组名称
+   * 资质名称。
    * 
    * @example
-   * 示例值示例值示例值
+   * 阿里云云通信有限公司李华
    */
   qualificationGroupName?: string;
   /**
    * @remarks
-   * 审核状态名
+   * 审核状态。取值：
+   * 
+   * - INIT：审核中。
+   * - NOT_PASS：审核不通过。 
+   * - PASS：审核通过。
+   * - NOT_FINISH：资料待补充。
+   * - CANCEL：已撤回。
    * 
    * @example
-   * INT
+   * INIT
    */
   stateName?: string;
   /**
    * @remarks
-   * 是否自用
+   * 资质申请用途，取值：
+   * 
+   * - **true**：自用。
+   * - **false**：他用。
    * 
    * @example
    * true
@@ -77,7 +86,7 @@ export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model
   useBySelf?: string;
   /**
    * @remarks
-   * 工单ID
+   * 审核工单ID。
    * 
    * @example
    * 2001****
@@ -123,18 +132,31 @@ export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model
 }
 
 export class QuerySmsQualificationRecordResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 满足过滤条件的数据列表。
+   */
   list?: QuerySmsQualificationRecordResponseBodyDataList[];
   /**
+   * @remarks
+   * 当前页码。
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * 每页数据条数。
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * 总条数。
+   * 
    * @example
    * 25
    */
@@ -170,24 +192,53 @@ export class QuerySmsQualificationRecordResponseBodyData extends $dara.Model {
 }
 
 export class QuerySmsQualificationRecordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * 访问被拒绝详细信息。
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * 请求状态码。
+   * 
+   * * 返回OK代表请求成功。
+   * * 其他错误码，请参见本章节的错误码列表或产品[API错误码](https://help.aliyun.com/document_detail/101346.html)。
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * 资质审核列表
+   */
   data?: QuerySmsQualificationRecordResponseBodyData;
   /**
+   * @remarks
+   * 状态码的描述。
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * 请求ID。
+   * 
    * @example
    * 25D5AFDE-8EBC-132E-8909-1FDC071DA
    */
   requestId?: string;
   /**
+   * @remarks
+   * 调用接口是否成功。取值：
+   * 
+   * - **true**：调用成功。
+   * - **false**：调用失败。
+   * 
    * @example
    * true
    */

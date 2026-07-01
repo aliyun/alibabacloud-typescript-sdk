@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeSignatureQualificationRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权委托书id
+   * The ID of the authorization letter.
    * 
    * @example
    * 1000********1234
@@ -14,7 +14,7 @@ export class ChangeSignatureQualificationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 资质id
+   * The ID of the qualification, which is returned when you apply for it. You can also find this ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page in the console for messages to the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -26,12 +26,12 @@ export class ChangeSignatureQualificationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 签名
+   * The signature.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云
    */
   signatureName?: string;
   static names(): { [key: string]: string } {

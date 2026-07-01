@@ -10,7 +10,7 @@ export class AddExtCodeSignRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 01
+   * 示例值示例值
    */
   extCode?: string;
   ownerId?: number;

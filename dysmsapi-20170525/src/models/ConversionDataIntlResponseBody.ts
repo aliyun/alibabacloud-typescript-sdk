@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ConversionDataIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
+   * 状态码。取值：
+   * 
+   * - OK：代表请求成功。
+   * 
+   * - 其他错误码，请参见[错误码列表](https://help.aliyun.com/document_detail/101346.html)。
    * 
    * @example
    * OK
@@ -13,7 +17,7 @@ export class ConversionDataIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * 状态码的描述。
    * 
    * @example
    * OK
@@ -21,10 +25,10 @@ export class ConversionDataIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
-   * F655A8D5-B967-440B-8683-DAD6FF8D****
+   * 819BE656-D2E0-4858-8B21-B2E477085AAF
    */
   requestId?: string;
   static names(): { [key: string]: string } {

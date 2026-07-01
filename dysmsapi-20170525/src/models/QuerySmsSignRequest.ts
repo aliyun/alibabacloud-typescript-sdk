@@ -8,12 +8,12 @@ export class QuerySmsSignRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The signature.
+   * The name of an existing SMS signature in your account.
    * 
    * This parameter is required.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
   static names(): { [key: string]: string } {

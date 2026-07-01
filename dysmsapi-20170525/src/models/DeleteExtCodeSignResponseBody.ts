@@ -6,7 +6,7 @@ export class DeleteExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   code?: string;
   /**
@@ -16,12 +16,12 @@ export class DeleteExtCodeSignResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @example
-   * OK
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值示例值示例值
    */
   requestId?: string;
   /**

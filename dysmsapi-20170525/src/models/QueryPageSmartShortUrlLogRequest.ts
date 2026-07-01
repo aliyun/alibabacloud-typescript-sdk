@@ -8,7 +8,7 @@ export class QueryPageSmartShortUrlLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 20181225
+   * 14
    */
   createDateEnd?: number;
   /**
@@ -16,7 +16,7 @@ export class QueryPageSmartShortUrlLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 20181225
+   * 31
    */
   createDateStart?: number;
   ownerId?: number;
@@ -25,7 +25,7 @@ export class QueryPageSmartShortUrlLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 99
    */
   pageNo?: number;
   /**
@@ -33,19 +33,19 @@ export class QueryPageSmartShortUrlLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 84
    */
   pageSize?: number;
   /**
    * @example
-   * 1390000****
+   * 示例值示例值示例值
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @example
-   * http://ays.cn/****
+   * 示例值示例值示例值
    */
   shortUrl?: string;
   static names(): { [key: string]: string } {

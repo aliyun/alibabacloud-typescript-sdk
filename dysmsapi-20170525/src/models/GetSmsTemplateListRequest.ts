@@ -8,7 +8,7 @@ export class GetSmsTemplateListRequest extends $dara.Model {
    * 模板审核状态
    * 
    * @example
-   * 1
+   * 53
    */
   auditStatus?: number;
   ownerId?: number;
@@ -17,7 +17,7 @@ export class GetSmsTemplateListRequest extends $dara.Model {
    * 页码, 默认1
    * 
    * @example
-   * 1
+   * 75
    */
   pageIndex?: number;
   /**
@@ -25,7 +25,7 @@ export class GetSmsTemplateListRequest extends $dara.Model {
    * 每页数量，默认10
    * 
    * @example
-   * 10
+   * 72
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
@@ -43,7 +43,7 @@ export class GetSmsTemplateListRequest extends $dara.Model {
    * 模板code
    * 
    * @example
-   * SMS_1688168
+   * 示例值示例值
    */
   templateCode?: string;
   /**
@@ -67,7 +67,7 @@ export class GetSmsTemplateListRequest extends $dara.Model {
    * 模板类型
    * 
    * @example
-   * 0
+   * 52
    */
   templateType?: number;
   /**

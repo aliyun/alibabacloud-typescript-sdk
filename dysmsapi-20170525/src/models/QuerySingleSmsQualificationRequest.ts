@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySingleSmsQualificationRequest extends $dara.Model {
   /**
    * @remarks
-   * 工单id
+   * The review ticket ID. You can call the [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~) operation to obtain the qualifications and corresponding review ticket IDs under your current account.
    * 
    * @example
    * 2001****
@@ -14,7 +14,7 @@ export class QuerySingleSmsQualificationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 资质id
+   * The qualification ID, which is the ID returned when you [apply for a qualification](~~SubmitSmsQualification~~). You can call the [QuerySmsQualificationRecord](~~QuerySmsQualificationRecord~~) operation to obtain the qualification IDs under your current account.
    * 
    * This parameter is required.
    * 

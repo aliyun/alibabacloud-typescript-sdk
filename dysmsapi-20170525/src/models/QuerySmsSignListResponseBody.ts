@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsSignListResponseBodySmsSignListReason extends $dara.Model {
   /**
    * @remarks
-   * The time when the signature was rejected. Format: yyyy-MM-dd HH:mm:ss.
+   * The time when the signature was rejected. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
-   * 2020-01-08 19:02:13
+   * 2020-06-04 13:35:10
    */
   rejectDate?: string;
   /**
    * @remarks
-   * The reason why the signature was rejected.
+   * The reason for the rejection.
    * 
    * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
+   * 文件不能证明信息真实性，请重新上传。
    */
   rejectInfo?: string;
   /**
    * @remarks
-   * The remarks about the rejection.
+   * The remarks for the rejection.
    * 
    * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
+   * 文件不能证明信息真实性，请重新上传。
    */
   rejectSubInfo?: string;
   static names(): { [key: string]: string } {
@@ -53,65 +53,102 @@ export class QuerySmsSignListResponseBodySmsSignListReason extends $dara.Model {
 }
 
 export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
+  /**
+   * @remarks
+   * The APP-ICP filing entity ID.
+   * 
+   * @example
+   * 1000001***123
+   */
   appIcpRecordId?: number;
   /**
    * @remarks
-   * The approval status of the signature. Valid values:
+   * The audit status of the signature. Valid values:
    * 
-   * *   **AUDIT_STATE_INIT**: The signature is pending approval.
-   * *   **AUDIT_STATE_PASS**: The signature is approved.
-   * *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
-   * *   **AUDIT_STATE_CANCEL**: The approval is canceled.
+   * - **AUDIT_STATE_INIT**: under review.
+   * 
+   * - **AUDIT_STATE_PASS**: approved.
+   * 
+   * - **AUDIT_STATE_NOT_PASS**: rejected. You can view the rejection reason in the Reason response parameter.
+   * 
+   * - **AUDIT_STATE_CANCEL**: review canceled.
    * 
    * @example
    * AUDIT_STATE_NOT_PASS
    */
   auditStatus?: string;
+  /**
+   * @remarks
+   * The ID of the letter of authorization.
+   * 
+   * @example
+   * 1000********1234
+   */
   authorizationLetterId?: number;
   /**
    * @remarks
-   * The type of the signature scenario. The return value ends with "type". Valid values:
+   * The scenario type of the signature. Valid values:
    * 
-   * *   Verification code type
-   * *   General-purpose type
+   * - Verification code.
+   * 
+   * - General-purpose.
    * 
    * @example
-   * Verification code type
+   * 验证码类型
    */
   businessType?: string;
   /**
    * @remarks
-   * The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
+   * The time when the SMS signature was created. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
-   * 2020-01-08 16:44:13
+   * 2020-06-04 11:42:17
    */
   createDate?: string;
   /**
    * @remarks
-   * The ticket ID.
+   * The order ID.
+   * 
+   * This parameter is used by auditors when querying the audit. You must provide this order ID if you need to expedite the audit.
    * 
    * @example
-   * 236****5
+   * 2005098****
    */
   orderId?: string;
   /**
    * @remarks
-   * The approval remarks.
+   * The audit remarks.
    * 
-   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
+   * - If the audit status is **approved** or **under review**, the Reason parameter is displayed as "No audit remarks".
+   * 
+   * - If the audit status is **rejected**, the Reason parameter displays the specific reason for the rejection.
    */
   reason?: QuerySmsSignListResponseBodySmsSignListReason;
   /**
    * @remarks
-   * The name of the signature.
+   * The signature name.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
+  /**
+   * @remarks
+   * The trademark entity ID.
+   * 
+   * @example
+   * 1000009081***
+   */
   trademarkId?: number;
+  /**
+   * @remarks
+   * The audit status of the letter of authorization. Valid values:
+   * - true: approved.
+   * - false: not approved (includes all statuses other than approved).
+   * 
+   * @example
+   * true
+   */
   authorizationLetterAuditPass?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -158,10 +195,11 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
 export class QuerySmsSignListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code. Valid values:
+   *  
+   * - OK: The request was successful.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -177,7 +215,7 @@ export class QuerySmsSignListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -185,7 +223,7 @@ export class QuerySmsSignListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of signatures per page. Valid values: **1 to 50**.
+   * The number of signatures to return on each page. Default value: **10**. Valid values: **1 to 50**.
    * 
    * @example
    * 10
@@ -196,12 +234,12 @@ export class QuerySmsSignListResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 819BE656-D2E0-4858-8B21-B2E47708****
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
    */
   requestId?: string;
   /**
    * @remarks
-   * The queried message signatures.
+   * The list of returned results.
    */
   smsSignList?: QuerySmsSignListResponseBodySmsSignList[];
   /**

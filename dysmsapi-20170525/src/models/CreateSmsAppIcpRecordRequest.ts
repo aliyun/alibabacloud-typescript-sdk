@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSmsAppIcpRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * 审核通过日期，示例2025-09-01
+   * The ICP filing approval date.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,37 @@ export class CreateSmsAppIcpRecordRequest extends $dara.Model {
   appApprovalDate?: string;
   /**
    * @remarks
-   * ICP备案/许可证号
+   * The ICP record/license number. The number must not exceed 15 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 浙B2-20080101
    */
   appIcpLicenseNumber?: string;
   /**
    * @remarks
-   * app-icp备案详情截图osskey
+   * The fileKey for the screenshot of your app\\"s ICP filing details.
+   * 
+   * 1. To look up your ICP filing, go to the [MIIT service platform](https://beian.miit.gov.cn/#/Integrated/recordQuery), search for your filing, and open its details page.
+   * 
+   * 2. The ICP filing screenshot must be uploaded to OSS and meet the following requirements:
+   * 
+   * - The filename cannot contain Chinese characters or special characters.
+   * 
+   * - The file must be an image in `jpg`, `png`, `gif`, or `jpeg` format. The file size cannot exceed 5 MB.
+   * 
+   * - The screenshot must show the full URL.
+   * 
+   * - For **Record Type**, select "APP".
+   * 
+   * - The **principal unit name** must be identical to the company or institution name on the qualification documents associated with the signature.
+   * 
+   * - The screenshot must clearly show the complete ICP record/license number.
+   * 
+   * - The **service name** must be identical to the **signature name**.
+   * 
+   * 3. To obtain the fileKey, see [Upload files through OSS](https://help.aliyun.com/document_detail/2833114.html).
    * 
    * This parameter is required.
    * 
@@ -35,32 +55,50 @@ export class CreateSmsAppIcpRecordRequest extends $dara.Model {
   appIcpRecordPic?: string;
   /**
    * @remarks
-   * 主办单位名称
+   * The principal unit name from your ICP filing. The name must not exceed 50 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 阿里云计算有限公司
    */
   appPrincipalUnitName?: string;
   /**
    * @remarks
-   * app服务名称
-   * 
-   * This parameter is required.
+   * APP实际运行截图osskey
    * 
    * @example
    * 示例值示例值示例值
    */
-  appServiceName?: string;
+  appRuntimePic?: string;
   /**
    * @remarks
-   * APP应用商店链接
+   * The service name from your ICP filing. The name must not exceed 15 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * https://alicom-ops.alibaba-inc.com/dyorder/audit-domain/rule_manage
+   * 阿里云
+   */
+  appServiceName?: string;
+  /**
+   * @remarks
+   * APP应用商店下载截图osskey
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  appStoreDownloadPic?: string;
+  /**
+   * @remarks
+   * The app store link.
+   * 
+   * > - The link must start with `http://` or `https://`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://apps.apple.com/cn/app/阿里云/id981011420
    */
   domain?: string;
   ownerId?: number;
@@ -72,7 +110,9 @@ export class CreateSmsAppIcpRecordRequest extends $dara.Model {
       appIcpLicenseNumber: 'AppIcpLicenseNumber',
       appIcpRecordPic: 'AppIcpRecordPic',
       appPrincipalUnitName: 'AppPrincipalUnitName',
+      appRuntimePic: 'AppRuntimePic',
       appServiceName: 'AppServiceName',
+      appStoreDownloadPic: 'AppStoreDownloadPic',
       domain: 'Domain',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -86,7 +126,9 @@ export class CreateSmsAppIcpRecordRequest extends $dara.Model {
       appIcpLicenseNumber: 'string',
       appIcpRecordPic: 'string',
       appPrincipalUnitName: 'string',
+      appRuntimePic: 'string',
       appServiceName: 'string',
+      appStoreDownloadPic: 'string',
       domain: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

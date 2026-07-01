@@ -8,14 +8,15 @@ export class DeleteSmsSignRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The signature.
+   * The SMS signature. You can delete signatures that are in the Withdrawn, Failed, or Approved state. You cannot delete signatures that are in the Pending Approval state.
    * 
-   * > The signature must be submitted by the current Alibaba Cloud account, and has been approved.
+   * You can call the [QuerySmsSignList](https://help.aliyun.com/document_detail/419282.html) operation to query the signatures that have been applied for under the current account, or view the signature list on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page in the SMS console.
+   * >Notice: Deleted SMS signatures cannot be recovered, and the signature can no longer be used to send SMS messages. Proceed with caution.
    * 
    * This parameter is required.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
   static names(): { [key: string]: string } {

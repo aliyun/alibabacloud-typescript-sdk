@@ -8,10 +8,11 @@ export class GetSmsOcrOssInfoRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * OCR任务类型
+   * The OCR task type. Valid values:
+   * - ICP_DOMAIN: ICP filing screenshot for domain-type links.
    * 
    * @example
-   * 示例值
+   * ICP_DOMAIN
    */
   taskType?: string;
   static names(): { [key: string]: string } {

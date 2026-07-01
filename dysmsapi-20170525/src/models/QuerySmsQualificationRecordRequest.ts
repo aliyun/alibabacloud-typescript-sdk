@@ -5,52 +5,67 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsQualificationRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * 公司名
+   * The company name.
    * 
    * @example
-   * 示例值
+   * 阿里云云通信有限公司
    */
   companyName?: string;
   /**
    * @remarks
-   * 法人姓名
+   * The name of the legal representative.
    * 
    * @example
-   * 示例值示例值
+   * 李华
    */
   legalPersonName?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 50**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * 资质组名称
+   * The qualification name.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云云通信有限公司李华
    */
   qualificationGroupName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 审核状态。INT:审核中FAILED:审核失败,PASSED:审核通过,NOT_FINISH:资料待补充,CANCELED:已撤回
+   * The review status. Valid values:
+   * 
+   * - INIT: Under review.
+   * - NOT_PASS: Review rejected. 
+   * - PASS: Review approved.
+   * - NOT_FINISH: Additional information required.
+   * - CANCEL: Withdrawn.
    * 
    * @example
-   * PASSED
+   * PASS
    */
   state?: string;
   /**
    * @remarks
-   * 是否自用
+   * The purpose of the qualification application. Valid values:
+   * 
+   * - **true**: For self-use.
+   * - **false**: For use by others.
    * 
    * @example
    * true
@@ -58,7 +73,7 @@ export class QuerySmsQualificationRecordRequest extends $dara.Model {
   useBySelf?: boolean;
   /**
    * @remarks
-   * 工单ID
+   * The review ticket ID.
    * 
    * @example
    * 2001****

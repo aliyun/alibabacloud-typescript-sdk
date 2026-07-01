@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySendStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Format: yyyyMMdd. Example: 20181225.
+   * The end date. The format is yyyyMMdd.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class QuerySendStatisticsRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The site from where the message is sent. Valid values:
+   * The destination scope of the messages. Valid values:
    * 
-   * *   **1**: China site
-   * *   **2**: international site
+   * - **1**: domestic messages.
+   * 
+   * - **2**: international messages.
    * 
    * This parameter is required.
    * 
@@ -29,7 +30,7 @@ export class QuerySendStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -39,7 +40,7 @@ export class QuerySendStatisticsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1 to 50**.
+   * The page size. Valid values: **1 to 50**.
    * 
    * This parameter is required.
    * 
@@ -54,12 +55,12 @@ export class QuerySendStatisticsRequest extends $dara.Model {
    * The signature.
    * 
    * @example
-   * Aliyun
+   * 阿里云平台
    */
   signName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Format: yyyyMMdd. Example: 20181225.
+   * The start date. The format is yyyyMMdd.
    * 
    * This parameter is required.
    * 
@@ -69,13 +70,17 @@ export class QuerySendStatisticsRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The type of the message template. Valid values: Valid values:
+   * The template type. Valid values:
    * 
-   * *   **0**: verification code
-   * *   **1**: notification
-   * *   **2**: promotional message (Enterprise users only)
-   * *   **3**: international purpose (Enterprise users only)
-   * *   **7**: digital message
+   * - **0**: verification code.
+   * 
+   * - **1**: notification message.
+   * 
+   * - **2**: promotional message. (Enterprise customers only)
+   * 
+   * - **3**: international message. (Enterprise customers only)
+   * 
+   * - **7**: digital message.
    * 
    * @example
    * 0

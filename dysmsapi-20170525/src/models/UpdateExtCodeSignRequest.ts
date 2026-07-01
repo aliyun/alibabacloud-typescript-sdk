@@ -10,7 +10,7 @@ export class UpdateExtCodeSignRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 01
+   * 示例值
    */
   existExtCode?: string;
   /**
@@ -20,7 +20,7 @@ export class UpdateExtCodeSignRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 02
+   * 示例值示例值
    */
   newExtCode?: string;
   ownerId?: number;

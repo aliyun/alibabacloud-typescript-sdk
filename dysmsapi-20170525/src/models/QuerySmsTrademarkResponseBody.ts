@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 申请人名称
+   * The applicant name.
    * 
    * @example
-   * 示例值示例值
+   * 阿里云
    */
   trademarkApplicantName?: string;
   /**
    * @remarks
-   * 专用权生失效日期
+   * The validity period of the trademark.
    * 
    * @example
    * 2025-11-01~2025-12-19
@@ -21,7 +21,7 @@ export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
   trademarkEffExpDate?: string;
   /**
    * @remarks
-   * 商标材料id
+   * The trademark ID.
    * 
    * @example
    * 10000*******
@@ -29,15 +29,15 @@ export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
   trademarkId?: number;
   /**
    * @remarks
-   * 商标名称
+   * The name of the trademark.
    * 
    * @example
-   * 示例值示例值
+   * 示例商标
    */
   trademarkName?: string;
   /**
    * @remarks
-   * 商标截图Osskey（给签名传工单用）
+   * The Object Storage Service (OSS) file key for the trademark image.
    * 
    * @example
    * 100000*****802/afdebd46-****-46e4-899d-b4375826c898_mhk9oz0p_1762****31542.png
@@ -45,7 +45,7 @@ export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
   trademarkPic?: string;
   /**
    * @remarks
-   * 商标截图url地址
+   * The URL of the trademark screenshot.
    * 
    * @example
    * https://alicom-fc-media.oss-cn-zhangjiakou.aliyuncs.com/100000****50802/afde****-496d-46e4-899d-b43758****8_mhk9oz0p_176224****542.png?Expires=1762****6&OSSAccessKeyId=bypFN****73PsLI&Signature=BygI9X****h7%2FXmFIo****FB2c%3D
@@ -53,7 +53,7 @@ export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
   trademarkPicUrl?: string;
   /**
    * @remarks
-   * 商标注册号
+   * The trademark registration number.
    * 
    * @example
    * 1234
@@ -93,24 +93,55 @@ export class QuerySmsTrademarkResponseBodyData extends $dara.Model {
 }
 
 export class QuerySmsTrademarkResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the request.
+   * 
+   * - `OK` indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * A list of trademark details.
+   */
   data?: QuerySmsTrademarkResponseBodyData[];
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 569E9DBD-23FF-1785-99AD-E4B23608C104
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - **true**: The request is successful.
+   * 
+   * - **false**: The request fails.
+   * 
    * @example
    * true
    */

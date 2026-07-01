@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaResourceIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended fields.
+   * The extended field.
    * 
-   * > If you set the ResourceType parameter to **2**, this parameter is required.
+   * > Required when the resource type is **image**.
    * 
    * @example
    * {\\"img_rate\\":\\"oneToOne\\"}
@@ -15,7 +15,7 @@ export class GetMediaResourceIdRequest extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * The size of the resource. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * This parameter is required.
    * 
@@ -25,15 +25,15 @@ export class GetMediaResourceIdRequest extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The description of the resource.
+   * The description of the uploaded resource.
    * 
    * @example
-   * remark
+   * 图片信息
    */
   memo?: string;
   /**
    * @remarks
-   * The address of the resource.
+   * The address of the resource to retrieve.
    * 
    * This parameter is required.
    * 
@@ -43,24 +43,18 @@ export class GetMediaResourceIdRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
-   * *   **1**: text.
-   * *   **2**: image. A small image cannot exceed 100 KB in size, and a large image cannot exceed 2 MB in size. The image must be clear. Supported format: JPG, JPEG, and PNG.
-   * *   **3**: audio.
-   * *   **4**: video. Supported format: MP4.
-   * 
+   * - **1**: Text
+   * - **2**: Image. Small images must not exceed 100 KB. Large images must not exceed 2 MB. Images must be clear. Supported formats: JPG, JPEG, PNG.
+   * - **3**: Audio
+   * - **4**: Video. Supported format: MP4.
    * > 
-   * 
-   * *   If you set the ResourceType parameter to 2, the **img_rate** required is required. Valid values:
-   * 
-   * *   1:1
-   * 
-   * *   16:9
-   * 
-   * *   3:1
-   * 
-   * *   48:65
+   * > - If the resource type is image, **img_rate** is required.
+   * > - 1:1 ratio: oneToOne
+   * > - 16:9 ratio: sixteenToNine
+   * > - 3:1 ratio: threeToOne
+   * > - 48:65 ratio: fortyEightToSixtyFiv.
    * 
    * This parameter is required.
    * 

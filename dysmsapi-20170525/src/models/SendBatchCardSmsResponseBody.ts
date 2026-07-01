@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the card message.
+   * The ID of the card SMS sending task.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   bizCardId?: string;
   /**
    * @remarks
-   * The ID of the digital message.
+   * The ID of the digital SMS sending task.
    * 
    * @example
    * 3214
@@ -21,7 +21,7 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   bizDigitalId?: string;
   /**
    * @remarks
-   * The ID of the text message.
+   * The ID of the text SMS sending task.
    * 
    * @example
    * 3256
@@ -29,13 +29,11 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   bizSmsId?: string;
   /**
    * @remarks
-   * The review status of the card message template.
-   * 
-   * *   **0**: pending approval
-   * *   **1**: approved
-   * *   **2**: rejected
-   * 
-   * > Unapproved card messages are rolled back.
+   * The review status of the card SMS template. Valid values:
+   * - **0**: Under review.
+   * - **1**: Approved.
+   * - **2**: Rejected.
+   * > For SMS messages that are rejected, you can configure the fallback process by using the **FallbackType** parameter.
    * 
    * @example
    * 0
@@ -43,7 +41,7 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   cardTmpState?: number;
   /**
    * @remarks
-   * The mobile phone number from which the card message is sent.
+   * The mobile phone numbers that receive the card SMS messages.
    * 
    * @example
    * 1390000****
@@ -51,7 +49,7 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
   mediaMobiles?: string;
   /**
    * @remarks
-   * The mobile phone number whose card message is rolled back.
+   * The fallback phone numbers.
    * 
    * @example
    * 1390000****
@@ -91,10 +89,9 @@ export class SendBatchCardSmsResponseBodyData extends $dara.Model {
 export class SendBatchCardSmsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+   * The request status code.
+   * * If **OK** is returned, the request is successful.
+   * * For information about other error codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -102,7 +99,7 @@ export class SendBatchCardSmsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: SendBatchCardSmsResponseBodyData;
   /**
@@ -115,10 +112,11 @@ export class SendBatchCardSmsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call is successful.
+   * 
+   * - **false**: The call fails.
    * 
    * @example
    * true

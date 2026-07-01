@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * *   If OK is returned, the request is successful.
-   * *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+   * - `OK` indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
    * 
    * @example
    * OK
@@ -16,7 +17,7 @@ export class QuerySmsSignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The date and time when the signature was created.
+   * The date and time when the SMS signature was created.
    * 
    * @example
    * 2019-01-08 16:44:13
@@ -24,7 +25,7 @@ export class QuerySmsSignResponseBody extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -32,13 +33,14 @@ export class QuerySmsSignResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The remarks of the review. Valid values:
+   * The review reason.
    * 
-   * *   If the signature is in the **Approved** or **Pending Approval** state, No Remarks is returned.
-   * *   If the signature is in the **Not Approved** state, the reason why the signature is rejected is returned.
+   * - If the review status is **Approved** or **Pending Review**, this parameter is empty.
+   * 
+   * - If the review status is **Rejected**, this parameter provides the reason for the rejection.
    * 
    * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
+   * 文件不能证明信息真实性，请重新上传
    */
   reason?: string;
   /**
@@ -51,20 +53,23 @@ export class QuerySmsSignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The signature.
+   * The SMS signature.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   signName?: string;
   /**
    * @remarks
-   * The status of the signature. Valid values:
+   * The review status of the SMS signature. Valid values:
    * 
-   * *   **0**: The signature is pending approval.
-   * *   **1**: The signature is approved.
-   * *   **2**: The signature is rejected. The Reason parameter indicates the reason why the signature is rejected.
-   * *   **10**: The signature is cancelled.
+   * - **0**: Pending Review.
+   * 
+   * - **1**: Approved.
+   * 
+   * - **2**: Rejected. For details, see the `Reason` parameter.
+   * 
+   * - **10**: Canceled.
    * 
    * @example
    * 1

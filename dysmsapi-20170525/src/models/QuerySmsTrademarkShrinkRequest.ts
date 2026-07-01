@@ -8,7 +8,7 @@ export class QuerySmsTrademarkShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 商标实体id列表
+   * A list of trademark IDs.
    * 
    * This parameter is required.
    */

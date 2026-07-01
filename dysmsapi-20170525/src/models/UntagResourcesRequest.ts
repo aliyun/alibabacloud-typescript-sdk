@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags from the message template. Valid values:
+   * Specifies whether to delete all tags under the template. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the cloud service. Set the value to **dysms**.
+   * The product name. Default value: **dysms**.
    * 
    * @example
    * dysms
@@ -25,7 +25,8 @@ export class UntagResourcesRequest extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The region. Set the value to cn-hangzhou.
+   * The region ID. Set the value to cn-hangzhou by default.
+   * For more region IDs, see [Service endpoints](https://help.aliyun.com/document_detail/419270.html).
    * 
    * This parameter is required.
    * 
@@ -35,7 +36,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The array of message template codes. You can specify 1 to 20 message templates.
+   * The SMS template code. The number of codes cannot exceed 20.
    * 
    * @example
    * SMS_23423423
@@ -45,7 +46,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to TEMPLATE.
+   * The resource type. Set the value to TEMPLATE by default.
    * 
    * This parameter is required.
    * 
@@ -55,7 +56,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The array of tag keys. You can specify 1 to 20 tag keys.
+   * The tag key. You can add no more than 20 tags at a time.
    * 
    * @example
    * TestKey
