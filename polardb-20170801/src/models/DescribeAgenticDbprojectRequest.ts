@@ -2,44 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBClusterResponseBody extends $dara.Model {
+export class DescribeAgenticDBProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * This parameter is required.
    * 
    * @example
-   * pc-*************
+   * pagc-bp1abcdef1234567
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * The order ID.
+   * This parameter is required.
    * 
    * @example
-   * 2148126708*****
+   * proj-a1b2c3d4e5f6
    */
-  orderId?: string;
+  projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * This parameter is required.
    * 
    * @example
-   * CD3FA5F3-FAF3-44CA-AFFF-BAF869******
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t-4b83e0da66674951
+   */
+  tenantId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      tenantId: 'TenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      orderId: 'string',
-      requestId: 'string',
+      projectId: 'string',
+      regionId: 'string',
+      tenantId: 'string',
     };
   }
 

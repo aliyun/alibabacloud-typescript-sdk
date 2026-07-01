@@ -11,11 +11,11 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * ON
    */
   compressStorage?: string;
+  connectionResourceQuota?: number;
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > You can call the DescribeDBClusters operation to query the details of all clusters in a specific region, including their cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query information about all clusters in the specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The names of the nodes to target in the fault simulation.
-   * 
-   * > For a node-level simulation, you can specify only a single node. For a zone-level simulation, you can leave this parameter empty or specify all nodes.
+   * The list of node instance names for the disaster recovery drill.
+   * > Node-level drills support only a single node. For zone-level drills, you can leave this parameter empty or specify all nodes.
    * 
    * @example
    * pi-rwxxx
@@ -35,11 +34,10 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBNodeCrashList?: string;
   /**
    * @remarks
-   * The cross-zone data replication method for the cluster. Valid values:
+   * The cross-zone data replication mode of the cluster. Valid values:
    * 
-   * - **AsyncSync**: asynchronous.
-   * 
-   * - **SemiSync**: semi-synchronous.
+   * - **AsyncSync**: asynchronous
+   * - **SemiSync**: semi-synchronous
    * 
    * @example
    * AsynSync
@@ -49,7 +47,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * @remarks
    * The fault injection method. Valid values:
    * 
-   * - `0`: instance-level fault injection based on Crash SQL.
+   * - 0: instance fault injection based on `Crash SQL`
    * 
    * @example
    * 0
@@ -57,15 +55,11 @@ export class ModifyDBClusterRequest extends $dara.Model {
   faultInjectionType?: string;
   /**
    * @remarks
-   * The fault simulation scope for the cluster. Valid values:
-   * 
-   * - `0` or `FaultInjection`: primary zone-level fault simulation.
-   * 
-   * - `1`: node-level fault simulation.
-   * 
-   * > * In a **primary zone-level fault simulation**, all compute nodes in the primary zone become unavailable. The disaster recovery failover in this scenario is lossy.
-   * >
-   * > * In a **node-level fault simulation**, you can simulate a fault on only a single compute node. You must specify the target compute node by using the `DBNodeCrashList` parameter.
+   * The dimension of the disaster recovery drill for the cluster. Valid values:
+   * - `0` or `FaultInjection`: primary zone-level disaster recovery drill.
+   * - `1`: node-level disaster recovery drill.
+   * > - In the **primary zone-level disaster recovery drill** scenario, all compute nodes in the primary zone become unavailable. The failover in this scenario causes service interruptions.
+   * > - In the **node-level disaster recovery drill** scenario, only a single compute node is supported for the drill. Specify the desired compute node name by using `DBNodeCrashList`.
    * 
    * @example
    * 0
@@ -73,15 +67,12 @@ export class ModifyDBClusterRequest extends $dara.Model {
   faultSimulateMode?: string;
   /**
    * @remarks
-   * Controls the automatic columnar index feature. Valid values:
+   * The automatic IMCI-based query acceleration feature. Valid values:
+   * - `ON`: enabled.
+   * - `OFF`: disabled.
    * 
-   * - `ON`: enables the feature.
-   * 
-   * - `OFF`: disables the feature.
-   * 
-   * > * This feature is available only for PolarDB for MySQL clusters.
-   * >
-   * > * For cluster version limits, see [Automatic indexing (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
+   * > - Only PolarDB for MySQL clusters are supported.
+   * > - For cluster version requirements, see [Automatic acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
    * 
    * @example
    * OFF
@@ -89,7 +80,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   imciAutoIndex?: string;
   /**
    * @remarks
-   * Enables or disables row-level compression.
+   * Modifies the row compression settings.
    * 
    * @example
    * OFF
@@ -101,11 +92,10 @@ export class ModifyDBClusterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The automatic cross-zone failover mode for the cluster. Valid values:
+   * The cross-zone automatic switchover mode of the cluster. Valid values:
    * 
-   * - **ON**: enables automatic cross-zone failover.
-   * 
-   * - **OFF**: disables automatic cross-zone failover.
+   * - **ON**: enables cross-zone automatic switchover.
+   * - **OFF**: disables cross-zone automatic switchover.
    * 
    * @example
    * ON
@@ -113,10 +103,9 @@ export class ModifyDBClusterRequest extends $dara.Model {
   standbyHAMode?: string;
   /**
    * @remarks
-   * Enables or disables automatic storage scaling for a standard cluster. Valid values:
+   * Specifies whether to enable automatic storage scaling for the Standard Edition cluster. Valid values:
    * 
    * - Enable: enables automatic storage scaling.
-   * 
    * - Disable: disables automatic storage scaling.
    * 
    * @example
@@ -125,7 +114,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   storageAutoScale?: string;
   /**
    * @remarks
-   * The upper limit for automatic storage scaling on a standard cluster. Unit: GB.
+   * The upper limit for automatic storage scaling of the Standard Edition cluster. Unit: GB.
    * 
    * > The maximum value is 32000.
    * 
@@ -135,10 +124,22 @@ export class ModifyDBClusterRequest extends $dara.Model {
   storageUpperBound?: number;
   /**
    * @remarks
-   * A JSON string that specifies information about the destination databases and tables to be restored. All values in the database and table information must be strings.
-   * Example: `[ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]`.
-   * 
-   * > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query for restorable databases and tables. Use the returned information to populate the fields in the example JSON.
+   * The JSON string that contains the information about the databases and tables to be restored. The values of the database and table information are strings.
+   * Example: `[
+   *    {
+   *        "tables":[
+   *            {
+   *                "name":"testtb",
+   *                "type":"table",
+   *                "newname":"testtb_restore"
+   *            }
+   *        ],
+   *        "name":"testdb",
+   *        "type":"db",
+   *        "newname":"testdb_restore"
+   *    }
+   * ]`.
+   * > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query the names of databases and tables that can be restored, and then specify the information in the corresponding fields in the preceding example.
    * 
    * @example
    * [ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]
@@ -147,6 +148,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       compressStorage: 'CompressStorage',
+      connectionResourceQuota: 'ConnectionResourceQuota',
       DBClusterId: 'DBClusterId',
       DBNodeCrashList: 'DBNodeCrashList',
       dataSyncMode: 'DataSyncMode',
@@ -168,6 +170,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       compressStorage: 'string',
+      connectionResourceQuota: 'number',
       DBClusterId: 'string',
       DBNodeCrashList: 'string',
       dataSyncMode: 'string',

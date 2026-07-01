@@ -2492,6 +2492,192 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an AgenticDB branch.
+   * 
+   * @param request - CreateAgenticDBBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticDBBranchResponse
+   */
+  async createAgenticDBBranchWithOptions(request: $_model.CreateAgenticDBBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticDBBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.parentBranchId)) {
+      query["ParentBranchId"] = request.parentBranchId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticDBBranch",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticDBBranchResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticDBBranchResponse({}));
+  }
+
+  /**
+   * Creates an AgenticDB branch.
+   * 
+   * @param request - CreateAgenticDBBranchRequest
+   * @returns CreateAgenticDBBranchResponse
+   */
+  async createAgenticDBBranch(request: $_model.CreateAgenticDBBranchRequest): Promise<$_model.CreateAgenticDBBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticDBBranchWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an AgenticDB project.
+   * 
+   * @param request - CreateAgenticDBProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticDBProjectResponse
+   */
+  async createAgenticDBProjectWithOptions(request: $_model.CreateAgenticDBProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticDBProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.defaultBranchName)) {
+      query["DefaultBranchName"] = request.defaultBranchName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticDBProject",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticDBProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticDBProjectResponse({}));
+  }
+
+  /**
+   * Creates an AgenticDB project.
+   * 
+   * @param request - CreateAgenticDBProjectRequest
+   * @returns CreateAgenticDBProjectResponse
+   */
+  async createAgenticDBProject(request: $_model.CreateAgenticDBProjectRequest): Promise<$_model.CreateAgenticDBProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticDBProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 AgenticDB 租户 API Key
+   * 
+   * @param request - CreateAgenticDBTenantApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgenticDBTenantApiKeyResponse
+   */
+  async createAgenticDBTenantApiKeyWithOptions(request: $_model.CreateAgenticDBTenantApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgenticDBTenantApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantName)) {
+      query["TenantName"] = request.tenantName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgenticDBTenantApiKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgenticDBTenantApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgenticDBTenantApiKeyResponse({}));
+  }
+
+  /**
+   * 创建 AgenticDB 租户 API Key
+   * 
+   * @param request - CreateAgenticDBTenantApiKeyRequest
+   * @returns CreateAgenticDBTenantApiKeyResponse
+   */
+  async createAgenticDBTenantApiKey(request: $_model.CreateAgenticDBTenantApiKeyRequest): Promise<$_model.CreateAgenticDBTenantApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgenticDBTenantApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an application attached to a PolarDB instance.
    * 
    * @param tmpReq - CreateApplicationRequest
@@ -3454,7 +3640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a db cluster.
+   * Creates a PolarDB cluster.
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3463,6 +3649,18 @@ export default class Client extends OpenApi {
   async createDBClusterWithOptions(request: $_model.CreateDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBClusterResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agenticDbClusterDescription)) {
+      query["AgenticDbClusterDescription"] = request.agenticDbClusterDescription;
+    }
+
+    if (!$dara.isNull(request.agenticDbClusterId)) {
+      query["AgenticDbClusterId"] = request.agenticDbClusterId;
+    }
+
+    if (!$dara.isNull(request.agenticDbType)) {
+      query["AgenticDbType"] = request.agenticDbType;
+    }
+
     if (!$dara.isNull(request.allowShutDown)) {
       query["AllowShutDown"] = request.allowShutDown;
     }
@@ -3733,7 +3931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a db cluster.
+   * Creates a PolarDB cluster.
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -6145,6 +6343,222 @@ export default class Client extends OpenApi {
   async deleteAccountZonal(request: $_model.DeleteAccountZonalRequest): Promise<$_model.DeleteAccountZonalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an AgenticDB branch.
+   * 
+   * @param request - DeleteAgenticDBBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDBBranchResponse
+   */
+  async deleteAgenticDBBranchWithOptions(request: $_model.DeleteAgenticDBBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDBBranch",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDBBranchResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDBBranchResponse({}));
+  }
+
+  /**
+   * Deletes an AgenticDB branch.
+   * 
+   * @param request - DeleteAgenticDBBranchRequest
+   * @returns DeleteAgenticDBBranchResponse
+   */
+  async deleteAgenticDBBranch(request: $_model.DeleteAgenticDBBranchRequest): Promise<$_model.DeleteAgenticDBBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDBBranchWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an AgenticDB compute cluster.
+   * 
+   * @param request - DeleteAgenticDBComputeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDBComputeClusterResponse
+   */
+  async deleteAgenticDBComputeClusterWithOptions(request: $_model.DeleteAgenticDBComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBComputeClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.computeClusterId)) {
+      query["ComputeClusterId"] = request.computeClusterId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDBComputeCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDBComputeClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDBComputeClusterResponse({}));
+  }
+
+  /**
+   * Deletes an AgenticDB compute cluster.
+   * 
+   * @param request - DeleteAgenticDBComputeClusterRequest
+   * @returns DeleteAgenticDBComputeClusterResponse
+   */
+  async deleteAgenticDBComputeCluster(request: $_model.DeleteAgenticDBComputeClusterRequest): Promise<$_model.DeleteAgenticDBComputeClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDBComputeClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an AgenticDB project.
+   * 
+   * @param request - DeleteAgenticDBProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDBProjectResponse
+   */
+  async deleteAgenticDBProjectWithOptions(request: $_model.DeleteAgenticDBProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDBProject",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDBProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDBProjectResponse({}));
+  }
+
+  /**
+   * Deletes an AgenticDB project.
+   * 
+   * @param request - DeleteAgenticDBProjectRequest
+   * @returns DeleteAgenticDBProjectResponse
+   */
+  async deleteAgenticDBProject(request: $_model.DeleteAgenticDBProjectRequest): Promise<$_model.DeleteAgenticDBProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDBProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an API key for an AgenticDB tenant.
+   * 
+   * @param request - DeleteAgenticDBTenantApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticDBTenantApiKeyResponse
+   */
+  async deleteAgenticDBTenantApiKeyWithOptions(request: $_model.DeleteAgenticDBTenantApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBTenantApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["ApiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticDBTenantApiKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticDBTenantApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticDBTenantApiKeyResponse({}));
+  }
+
+  /**
+   * Deletes an API key for an AgenticDB tenant.
+   * 
+   * @param request - DeleteAgenticDBTenantApiKeyRequest
+   * @returns DeleteAgenticDBTenantApiKeyResponse
+   */
+  async deleteAgenticDBTenantApiKey(request: $_model.DeleteAgenticDBTenantApiKeyRequest): Promise<$_model.DeleteAgenticDBTenantApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticDBTenantApiKeyWithOptions(request, runtime);
   }
 
   /**
@@ -9412,6 +9826,590 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an AgenticDB branch.
+   * 
+   * @param request - DescribeAgenticDBBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBBranchResponse
+   */
+  async describeAgenticDBBranchWithOptions(request: $_model.DescribeAgenticDBBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBBranch",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBBranchResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchResponse({}));
+  }
+
+  /**
+   * Queries the details of an AgenticDB branch.
+   * 
+   * @param request - DescribeAgenticDBBranchRequest
+   * @returns DescribeAgenticDBBranchResponse
+   */
+  async describeAgenticDBBranch(request: $_model.DescribeAgenticDBBranchRequest): Promise<$_model.DescribeAgenticDBBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBBranchWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the connection information of an AgenticDB branch.
+   * 
+   * @param request - DescribeAgenticDBBranchEndpointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBBranchEndpointsResponse
+   */
+  async describeAgenticDBBranchEndpointsWithOptions(request: $_model.DescribeAgenticDBBranchEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchEndpointsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBBranchEndpoints",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBBranchEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchEndpointsResponse({}));
+  }
+
+  /**
+   * Queries the connection information of an AgenticDB branch.
+   * 
+   * @param request - DescribeAgenticDBBranchEndpointsRequest
+   * @returns DescribeAgenticDBBranchEndpointsResponse
+   */
+  async describeAgenticDBBranchEndpoints(request: $_model.DescribeAgenticDBBranchEndpointsRequest): Promise<$_model.DescribeAgenticDBBranchEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBBranchEndpointsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the branch lineage of an AgenticDB cluster.
+   * 
+   * @param request - DescribeAgenticDBBranchLineageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBBranchLineageResponse
+   */
+  async describeAgenticDBBranchLineageWithOptions(request: $_model.DescribeAgenticDBBranchLineageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchLineageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.includeDestroying)) {
+      query["IncludeDestroying"] = request.includeDestroying;
+    }
+
+    if (!$dara.isNull(request.maxViewDepth)) {
+      query["MaxViewDepth"] = request.maxViewDepth;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBBranchLineage",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBBranchLineageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchLineageResponse({}));
+  }
+
+  /**
+   * Queries the branch lineage of an AgenticDB cluster.
+   * 
+   * @param request - DescribeAgenticDBBranchLineageRequest
+   * @returns DescribeAgenticDBBranchLineageResponse
+   */
+  async describeAgenticDBBranchLineage(request: $_model.DescribeAgenticDBBranchLineageRequest): Promise<$_model.DescribeAgenticDBBranchLineageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBBranchLineageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of AgenticDB branches.
+   * 
+   * @param request - DescribeAgenticDBBranchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBBranchesResponse
+   */
+  async describeAgenticDBBranchesWithOptions(request: $_model.DescribeAgenticDBBranchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBBranches",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBBranchesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchesResponse({}));
+  }
+
+  /**
+   * Queries the list of AgenticDB branches.
+   * 
+   * @param request - DescribeAgenticDBBranchesRequest
+   * @returns DescribeAgenticDBBranchesResponse
+   */
+  async describeAgenticDBBranches(request: $_model.DescribeAgenticDBBranchesRequest): Promise<$_model.DescribeAgenticDBBranchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBBranchesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of Agentic Database clusters.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+   * 
+   * @param request - DescribeAgenticDBClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBClustersResponse
+   */
+  async describeAgenticDBClustersWithOptions(request: $_model.DescribeAgenticDBClustersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBClustersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agenticDbClusterIds)) {
+      query["AgenticDbClusterIds"] = request.agenticDbClusterIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterIds)) {
+      query["DBClusterIds"] = request.DBClusterIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterStatus)) {
+      query["DBClusterStatus"] = request.DBClusterStatus;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBClusters",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBClustersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBClustersResponse({}));
+  }
+
+  /**
+   * Queries the list of Agentic Database clusters.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+   * 
+   * @param request - DescribeAgenticDBClustersRequest
+   * @returns DescribeAgenticDBClustersResponse
+   */
+  async describeAgenticDBClusters(request: $_model.DescribeAgenticDBClustersRequest): Promise<$_model.DescribeAgenticDBClustersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBClustersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 AgenticDB 计算实例列表
+   * 
+   * @param request - DescribeAgenticDBComputeClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBComputeClustersResponse
+   */
+  async describeAgenticDBComputeClustersWithOptions(request: $_model.DescribeAgenticDBComputeClustersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBComputeClustersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.computeClusterId)) {
+      query["ComputeClusterId"] = request.computeClusterId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBComputeClusters",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBComputeClustersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBComputeClustersResponse({}));
+  }
+
+  /**
+   * 查询 AgenticDB 计算实例列表
+   * 
+   * @param request - DescribeAgenticDBComputeClustersRequest
+   * @returns DescribeAgenticDBComputeClustersResponse
+   */
+  async describeAgenticDBComputeClusters(request: $_model.DescribeAgenticDBComputeClustersRequest): Promise<$_model.DescribeAgenticDBComputeClustersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBComputeClustersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 AgenticDB 项目详情
+   * 
+   * @param request - DescribeAgenticDBProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBProjectResponse
+   */
+  async describeAgenticDBProjectWithOptions(request: $_model.DescribeAgenticDBProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBProject",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBProjectResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBProjectResponse({}));
+  }
+
+  /**
+   * 查询 AgenticDB 项目详情
+   * 
+   * @param request - DescribeAgenticDBProjectRequest
+   * @returns DescribeAgenticDBProjectResponse
+   */
+  async describeAgenticDBProject(request: $_model.DescribeAgenticDBProjectRequest): Promise<$_model.DescribeAgenticDBProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 AgenticDB 项目列表
+   * 
+   * @param request - DescribeAgenticDBProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBProjectsResponse
+   */
+  async describeAgenticDBProjectsWithOptions(request: $_model.DescribeAgenticDBProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBProjects",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBProjectsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBProjectsResponse({}));
+  }
+
+  /**
+   * 查询 AgenticDB 项目列表
+   * 
+   * @param request - DescribeAgenticDBProjectsRequest
+   * @returns DescribeAgenticDBProjectsResponse
+   */
+  async describeAgenticDBProjects(request: $_model.DescribeAgenticDBProjectsRequest): Promise<$_model.DescribeAgenticDBProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of API keys for an AgenticDB tenant.
+   * 
+   * @param request - DescribeAgenticDBTenantApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBTenantApiKeysResponse
+   */
+  async describeAgenticDBTenantApiKeysWithOptions(request: $_model.DescribeAgenticDBTenantApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBTenantApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantName)) {
+      query["TenantName"] = request.tenantName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBTenantApiKeys",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBTenantApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBTenantApiKeysResponse({}));
+  }
+
+  /**
+   * Queries the list of API keys for an AgenticDB tenant.
+   * 
+   * @param request - DescribeAgenticDBTenantApiKeysRequest
+   * @returns DescribeAgenticDBTenantApiKeysResponse
+   */
+  async describeAgenticDBTenantApiKeys(request: $_model.DescribeAgenticDBTenantApiKeysRequest): Promise<$_model.DescribeAgenticDBTenantApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBTenantApiKeysWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a specified API key.
    * 
    * @param request - DescribeApikeyAttributeRequest
@@ -11302,7 +12300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a specified cluster.
+   * Queries the attribute information of a cluster.
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11353,7 +12351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a specified cluster.
+   * Queries the attribute information of a cluster.
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @returns DescribeDBClusterAttributeResponse
@@ -12476,7 +13474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+   * Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
    * 
    * @param request - DescribeDBClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12587,7 +13585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+   * Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
    * 
    * @param request - DescribeDBClustersRequest
    * @returns DescribeDBClustersResponse
@@ -21612,7 +22610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the feature configuration of a PolarDB MySQL cluster.
+   * Modifies the feature configurations of a PolarDB for MySQL cluster.
    * 
    * @param request - ModifyDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21623,6 +22621,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.compressStorage)) {
       query["CompressStorage"] = request.compressStorage;
+    }
+
+    if (!$dara.isNull(request.connectionResourceQuota)) {
+      query["ConnectionResourceQuota"] = request.connectionResourceQuota;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
@@ -21703,7 +22705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the feature configuration of a PolarDB MySQL cluster.
+   * Modifies the feature configurations of a PolarDB for MySQL cluster.
    * 
    * @param request - ModifyDBClusterRequest
    * @returns ModifyDBClusterResponse
@@ -26190,6 +27192,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets the API key of an AgenticDB tenant.
+   * 
+   * @param request - ResetAgenticDBTenantApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAgenticDBTenantApiKeyResponse
+   */
+  async resetAgenticDBTenantApiKeyWithOptions(request: $_model.ResetAgenticDBTenantApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetAgenticDBTenantApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["ApiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetAgenticDBTenantApiKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetAgenticDBTenantApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ResetAgenticDBTenantApiKeyResponse({}));
+  }
+
+  /**
+   * Resets the API key of an AgenticDB tenant.
+   * 
+   * @param request - ResetAgenticDBTenantApiKeyRequest
+   * @returns ResetAgenticDBTenantApiKeyResponse
+   */
+  async resetAgenticDBTenantApiKey(request: $_model.ResetAgenticDBTenantApiKeyRequest): Promise<$_model.ResetAgenticDBTenantApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetAgenticDBTenantApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Resets an api key.
    * 
    * @param request - ResetConsumerApiKeyRequest
@@ -28375,6 +29431,52 @@ export default class Client extends OpenApi {
   async upgradePolarClawSkills(request: $_model.UpgradePolarClawSkillsRequest): Promise<$_model.UpgradePolarClawSkillsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradePolarClawSkillsWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验 AgenticDB 租户 API Key
+   * 
+   * @param request - VerifyAgenticDBTenantApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyAgenticDBTenantApiKeyResponse
+   */
+  async verifyAgenticDBTenantApiKeyWithOptions(request: $_model.VerifyAgenticDBTenantApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyAgenticDBTenantApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyAgenticDBTenantApiKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyAgenticDBTenantApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.VerifyAgenticDBTenantApiKeyResponse({}));
+  }
+
+  /**
+   * 校验 AgenticDB 租户 API Key
+   * 
+   * @param request - VerifyAgenticDBTenantApiKeyRequest
+   * @returns VerifyAgenticDBTenantApiKeyResponse
+   */
+  async verifyAgenticDBTenantApiKey(request: $_model.VerifyAgenticDBTenantApiKeyRequest): Promise<$_model.VerifyAgenticDBTenantApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyAgenticDBTenantApiKeyWithOptions(request, runtime);
   }
 
 }

@@ -6,8 +6,7 @@ export class DescribeDBClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including the cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeDBClusterAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to query information about AI nodes.
+   * Specifies whether to retrieve AI-related node information.
    * 
    * @example
    * AI

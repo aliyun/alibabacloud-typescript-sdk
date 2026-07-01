@@ -2,43 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBClusterResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * pc-*************
-   */
-  DBClusterId?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 2148126708*****
-   */
-  orderId?: string;
+export class DeleteAgenticDBBranchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * CD3FA5F3-FAF3-44CA-AFFF-BAF869******
+   * D4E5F6A7-B8C9-0123-DEFA-456789012DEF
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      DBClusterId: 'DBClusterId',
-      orderId: 'OrderId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBClusterId: 'string',
-      orderId: 'string',
       requestId: 'string',
     };
   }

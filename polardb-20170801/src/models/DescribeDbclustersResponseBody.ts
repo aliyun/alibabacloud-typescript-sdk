@@ -127,6 +127,8 @@ export class DescribeDBClustersResponseBodyItemsDBClusterTags extends $dara.Mode
 export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
   aiType?: string;
   category?: string;
+  connectionResourceQuota?: number;
+  connectionResourceUsed?: number;
   cpuCores?: string;
   createTime?: string;
   DBClusterDescription?: string;
@@ -165,6 +167,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
     return {
       aiType: 'AiType',
       category: 'Category',
+      connectionResourceQuota: 'ConnectionResourceQuota',
+      connectionResourceUsed: 'ConnectionResourceUsed',
       cpuCores: 'CpuCores',
       createTime: 'CreateTime',
       DBClusterDescription: 'DBClusterDescription',
@@ -206,6 +210,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
     return {
       aiType: 'string',
       category: 'string',
+      connectionResourceQuota: 'number',
+      connectionResourceUsed: 'number',
       cpuCores: 'string',
       createTime: 'string',
       DBClusterDescription: 'string',
@@ -285,10 +291,6 @@ export class DescribeDBClustersResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeDBClustersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the clusters.
-   */
   items?: DescribeDBClustersResponseBodyItems;
   /**
    * @remarks
@@ -300,7 +302,7 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of clusters returned on the current page.
+   * The number of clusters on the current page.
    * 
    * @example
    * 5

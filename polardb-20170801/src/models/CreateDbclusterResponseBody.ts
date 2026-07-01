@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBClusterResponseBody extends $dara.Model {
+  agenticDbClusterDescription?: string;
+  agenticDbClusterId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -37,6 +39,8 @@ export class CreateDBClusterResponseBody extends $dara.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      agenticDbClusterDescription: 'AgenticDbClusterDescription',
+      agenticDbClusterId: 'AgenticDbClusterId',
       DBClusterId: 'DBClusterId',
       orderId: 'OrderId',
       requestId: 'RequestId',
@@ -46,6 +50,8 @@ export class CreateDBClusterResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agenticDbClusterDescription: 'string',
+      agenticDbClusterId: 'string',
       DBClusterId: 'string',
       orderId: 'string',
       requestId: 'string',
