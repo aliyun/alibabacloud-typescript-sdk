@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with a `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It must start with a letter or a Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+   * > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
    * 
    * @example
    * FinanceDept
@@ -17,11 +17,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with a `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
-   * >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+   * > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
    * 
    * @example
    * FinanceJoshua
@@ -53,7 +53,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
    * 
    * @example
    * 20
@@ -61,10 +61,11 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - You do not need to specify this parameter for the first query.
+   * 
+   * - For a subsequent query, set this parameter to the NextToken value returned from the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -93,9 +94,11 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   **IPAM**
-   * *   **IPAMSCOPE**
-   * *   **IPAMPOOL**
+   * - **IPAM**: IPAM
+   * 
+   * - **IPAMSCOPE**: IPAM scope
+   * 
+   * - **IPAMPOOL**: IPAM address pool
    * 
    * This parameter is required.
    * 
@@ -105,7 +108,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

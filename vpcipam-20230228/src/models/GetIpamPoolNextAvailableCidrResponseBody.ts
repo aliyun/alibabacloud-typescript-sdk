@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpamPoolNextAvailableCidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Available CIDR.
+   * The available CIDR block.
    * 
    * @example
    * 172.68.0.0/26

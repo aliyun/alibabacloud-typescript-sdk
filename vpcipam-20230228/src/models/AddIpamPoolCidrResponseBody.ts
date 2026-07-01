@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddIpamPoolCidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The successfully provisioned CIDR block.
+   * The CIDR block that is successfully provisioned for the IPAM pool.
    * 
    * @example
    * 192.168.1.0/24

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The number of available IP addresses.
+   * 
+   * @example
+   * 252
+   */
   freeIpCount?: string;
+  /**
+   * @remarks
+   * The total number of IP addresses.
+   * 
+   * @example
+   * 256
+   */
   totalIpCount?: string;
+  /**
+   * @remarks
+   * The number of allocated IP addresses.
+   * 
+   * @example
+   * 4
+   */
   usedIpCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +55,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail ext
 export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail extends $dara.Model {
   /**
    * @remarks
-   * The CIDR that overlaps with the current resource.
+   * The CIDR block of the resource that overlaps with the current resource.
    * 
    * @example
    * 192.168.1.0/24
@@ -42,7 +63,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail ext
   overlapResourceCidr?: string;
   /**
    * @remarks
-   * Instance ID that overlaps with the current resource.
+   * The instance ID of the resource that overlaps with the current resource.
    * 
    * @example
    * vpc-aq3fjgnig5av6jb8d****
@@ -50,7 +71,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail ext
   overlapResourceId?: string;
   /**
    * @remarks
-   * The region of instance that overlaps with the current resource.
+   * The region of the instance that overlaps with the current resource.
    * 
    * @example
    * cn-hangzhou
@@ -84,7 +105,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail ext
 export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 132193271328****
@@ -95,26 +116,30 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
    * The CIDR block of the resource.
    * 
    * @example
-   * 192.168.1.0/32
+   * 192.168.1.0/24
    */
   cidr?: string;
   /**
    * @remarks
    * The compliance status of the resource.
    * 
-   * *   **Compliant**
-   * *   **Noncompliant**
-   * *   **Ignored** Ignored resources are not monitored.
-   * *   **Unmanaged**: The resource does not have a CIDR block allocated from the IPAM pool. IPAM does not monitor whether the CIDR block of the resource meets the allocation rules of the IP address pool.
+   * - **Compliant**: The CIDR block of the managed resource complies with the allocation rules of the IPAM pool.
+   * - **Noncompliant**: The CIDR block of the managed resource does not comply with one or more allocation rules of the IPAM pool.
+   * - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance.
+   * - **Unmanaged**: The resource does not have a CIDR block allocated from an IPAM pool. IPAM does not monitor whether the CIDR block of the resource complies with the allocation rules of the pool, but monitors the CIDR block for overlap.
    * 
    * @example
    * Compliant
    */
   complianceStatus?: string;
+  /**
+   * @remarks
+   * The details of the resource IP address count.
+   */
   ipCountDetail?: ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail;
   /**
    * @remarks
-   * The IP usage that is displayed in decimal form.
+   * The IP utilization rate, expressed as a decimal.
    * 
    * @example
    * 0
@@ -122,7 +147,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   ipUsage?: string;
   /**
    * @remarks
-   * The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+   * The instance ID of the IPAM pool CIDR allocation.
    * 
    * @example
    * ipam-pool-alloc-112za33e4****
@@ -130,7 +155,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   ipamAllocationId?: string;
   /**
    * @remarks
-   * The ID of the IPAM.
+   * The instance ID of the IPAM.
    * 
    * @example
    * ipam-uq5dcfc2eqhpf4****
@@ -138,7 +163,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   ipamId?: string;
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
    * @example
    * ipam-pool-6rcq3tobayc20t***
@@ -146,7 +171,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   ipamPoolId?: string;
   /**
    * @remarks
-   * The ID of the IPAM scope.
+   * The instance ID of the IPAM scope.
    * 
    * @example
    * ipam-scope-glfmcyldpm8lsy****
@@ -156,9 +181,9 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
    * @remarks
    * The management status of the resource.
    * 
-   * *   **Managed**: The resource has a CIDR block allocated from an IPAM pool. IPAM is monitoring whether the allocated CIDR block overlaps with other CIDR blocks and whether the allocated CIDR block meets the allocation rules.
-   * *   **Unmanaged**: The resource does not have a CIDR block allocated from the IPAM pool. IPAM is monitoring whether the resource has CIDR blocks that meet the allocation rules. Monitor whether CIDR blocks overlap with each other.
-   * *   **Ignored**: The resource is not monitored. Ignored resources are not monitored. If you ignore a resource, CIDR blocks allocated to the resource are returned to the IPAM pool and will not be automatically allocated to the resource (if automatic allocation rules are specified).
+   * - **Managed**: The resource has a CIDR block allocated from an IPAM pool. IPAM monitors the resource for potential CIDR overlap and compliance with pool allocation rules.
+   * - **Unmanaged**: The resource does not have a CIDR block allocated from an IPAM pool. IPAM monitors the resource for potential CIDRs that comply with pool allocation rules and monitors CIDRs for overlap.
+   * - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance. When a resource is ignored, any space allocated to it from an IPAM pool is returned to the pool, and the resource is not re-imported through automatic import (if an automatic import allocation rule is configured for the pool).
    * 
    * @example
    * Managed
@@ -166,16 +191,16 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   managementStatus?: string;
   /**
    * @remarks
-   * List of resources that overlap with the current resource.
+   * The list of resources that overlap with the current resource.
    */
   overlapDetail?: ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail[];
   /**
    * @remarks
-   * The overlapping status of the resource.
+   * The overlap status of the resource.
    * 
-   * *   **Nonoverlapping**
-   * *   **Overlapping**
-   * *   **Ignored** Ignored resources are not monitored.
+   * - **Nonoverlapping**: The CIDR block of the resource does not overlap with other CIDR blocks within the same scope.
+   * - **Overlapping**: The CIDR block of the resource overlaps with another CIDR block within the same scope.
+   * - **Ignored**: The resource has been excluded from monitoring. Ignored resources are not evaluated for overlap or allocation rule compliance.
    * 
    * @example
    * Nonoverlapping
@@ -191,7 +216,12 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The resource name.
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the resource ownership.
    * 
    * @example
    * 132193271328****
@@ -199,7 +229,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The effective region ID of the resource.
+   * The ID of the region where the resource takes effect.
    * 
    * @example
    * cn-hangzhou
@@ -207,10 +237,10 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   resourceRegionId?: string;
   /**
    * @remarks
-   * The type of resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   **VPC**
-   * *   **VSwitch**
+   * - **VPC**: The resource type is VPC.
+   * - **VSwitch**: The resource type is vSwitch.
    * 
    * @example
    * VPC
@@ -228,8 +258,8 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
    * @remarks
    * The status of the resource in the IPAM pool. Valid values:
    * 
-   * *   **Created**
-   * *   **Deleted**
+   * - **Created**: created.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Created
@@ -237,7 +267,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The instance ID of the VPC-connected instance to which the resource belongs.
    * 
    * @example
    * vpc-bp1fjfnrg3av6zb9e****
@@ -258,6 +288,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
       overlapDetail: 'OverlapDetail',
       overlapStatus: 'OverlapStatus',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       resourceOwnerId: 'ResourceOwnerId',
       resourceRegionId: 'ResourceRegionId',
       resourceType: 'ResourceType',
@@ -282,6 +313,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
       overlapDetail: { 'type': 'array', 'itemType': ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail },
       overlapStatus: 'string',
       resourceId: 'string',
+      resourceName: 'string',
       resourceOwnerId: 'number',
       resourceRegionId: 'string',
       resourceType: 'string',
@@ -309,7 +341,7 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $dara.Mo
 export class ListIpamResourceCidrsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -317,12 +349,12 @@ export class ListIpamResourceCidrsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of resources in the IPAM pool.
+   * The list of resource information.
    */
   ipamResourceCidrs?: ListIpamResourceCidrsResponseBodyIpamResourceCidrs[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -330,10 +362,9 @@ export class ListIpamResourceCidrsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no more results exist.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -349,7 +380,7 @@ export class ListIpamResourceCidrsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned under the current query conditions.
    * 
    * @example
    * 1000

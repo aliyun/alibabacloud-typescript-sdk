@@ -53,7 +53,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the IPAM.
+   * The instance ID of the IPAM.
    * 
    * @example
    * ipam-ccxbnsbhew0d6t****
@@ -69,7 +69,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   ipamScopeDescription?: string;
   /**
    * @remarks
-   * The ID of the IPAM scope.
+   * The instance ID of the IPAM scope.
    * 
    * @example
    * ipam-scope-glfmcyldpm8lsy****
@@ -87,8 +87,9 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
    * @remarks
    * The type of the IPAM scope. Valid values:
    * 
-   * *   **public**
-   * *   **private**
+   * - **public**: the public scope.
+   * 
+   * - **private**: the private scope.
    * 
    * @example
    * private
@@ -98,8 +99,9 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
    * @remarks
    * Indicates whether the scope is the default scope. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The scope is the default scope.
+   * 
+   * - **false**: The scope is not the default scope.
    * 
    * @example
    * true
@@ -107,7 +109,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the IPAM scope.
+   * The ID of the Alibaba Cloud account to which the IPAM scope belongs.
    * 
    * @example
    * 1210123456******
@@ -115,7 +117,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of pools in the IPAM scope.
+   * The number of IPAM pools in the IPAM scope.
    * 
    * @example
    * 2
@@ -123,7 +125,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   poolCount?: number;
   /**
    * @remarks
-   * The region ID of the IPAM.
+   * The region ID of the IPAM scope.
    * 
    * @example
    * cn-hangzhou
@@ -131,7 +133,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group to which the IPAM scope belongs.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -141,10 +143,13 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
    * @remarks
    * The status of the IPAM scope. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Creating**: The IPAM scope is being created.
+   * 
+   * - **Created**: The IPAM scope is created.
+   * 
+   * - **Deleting**: The IPAM scope is being deleted.
+   * 
+   * - **Deleted**: The IPAM scope is deleted.
    * 
    * @example
    * Created
@@ -152,7 +157,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tags?: ListIpamScopesResponseBodyIpamScopesTags[];
   static names(): { [key: string]: string } {
@@ -206,7 +211,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
 export class ListIpamScopesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -214,12 +219,12 @@ export class ListIpamScopesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The IPAM scopes.
+   * A list of IPAM scopes.
    */
   ipamScopes?: ListIpamScopesResponseBodyIpamScopes[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -227,10 +232,11 @@ export class ListIpamScopesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used for the next page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

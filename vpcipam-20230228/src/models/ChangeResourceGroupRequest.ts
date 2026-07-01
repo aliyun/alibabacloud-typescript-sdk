@@ -17,7 +17,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the hosted region. Call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to get the region ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the IPAM resource.
+   * The ID of the resource whose resource group you want to change.
    * 
    * This parameter is required.
    * 
@@ -39,20 +39,20 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Resource type, with values:
+   * The resource type. Valid values:
    * 
-   * - Ipam:IPAM instance
+   * - Ipam: an IPAM instance
    * 
-   * - IpamScope:IPAM scope
+   * - IpamScope: an IPAM scope
    * 
-   * - IpamPool:IPAM address pool
+   * - IpamPool: an IPAM pool
    * 
-   * - IpamResourceDiscovery:IPAM resource discovery
+   * - IpamResourceDiscovery: an IPAM resource discovery
    * 
    * This parameter is required.
    * 
    * @example
-   * ipam
+   * Ipam
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

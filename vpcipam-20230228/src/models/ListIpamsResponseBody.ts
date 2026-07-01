@@ -53,7 +53,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Default resource discovery association ID.
+   * The ID of the default resource discovery association.
    * 
    * @example
    * ipam-res-disco-assoc-jt5fac8twugdbbgip****
@@ -61,7 +61,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   defaultResourceDiscoveryAssociationId?: string;
   /**
    * @remarks
-   * Default resource discovery instance ID.
+   * The ID of the default resource discovery.
    * 
    * @example
    * ipam-res-disco-jt5f2af2u6nk2z321****
@@ -95,10 +95,13 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
    * @remarks
    * The status of the IPAM. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Creating**: The IPAM is being created.
+   * 
+   * - **Created**: The IPAM is created.
+   * 
+   * - **Deleting**: The IPAM is being deleted.
+   * 
+   * - **Deleted**: The IPAM is deleted.
    * 
    * @example
    * Created
@@ -106,12 +109,12 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   ipamStatus?: string;
   /**
    * @remarks
-   * The effective regions of the IPAM.
+   * The list of operating regions of the IPAM.
    */
   operatingRegionList?: string[];
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the IPAM.
+   * The ID of the Alibaba Cloud account to which the IPAM belongs.
    * 
    * @example
    * 1210123456******
@@ -119,7 +122,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The default private scope created by the system after the IPAM is created.
+   * The ID of the default private scope that is automatically created when you create the IPAM.
    * 
    * @example
    * ipam-scope-okoerbco6unqfr****
@@ -127,7 +130,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   privateDefaultScopeId?: string;
   /**
    * @remarks
-   * The default public scope created by the system after the IPAM is created.
+   * The ID of the default public scope that is automatically created when you create the IPAM.
    * 
    * @example
    * ipam-scope-ovb76p1g1m19dr****
@@ -135,7 +138,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   publicDefaultScopeId?: string;
   /**
    * @remarks
-   * The region ID of the IPAM.
+   * The ID of the region where the IPAM is created.
    * 
    * @example
    * cn-hangzhou
@@ -143,7 +146,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Number of resource discovery associations.
+   * The number of resource discovery associations.
    * 
    * @example
    * 1
@@ -151,7 +154,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   resourceDiscoveryAssociationCount?: number;
   /**
    * @remarks
-   * The resource group ID of the IPAM.
+   * The ID of the resource group to which the IPAM belongs.
    * 
    * @example
    * rg-aek2dbprgpt****
@@ -159,7 +162,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of IPAM scopes. Value: **2 to 5**.
+   * The number of scopes in the IPAM. Valid values: 2 to **5**.
    * 
    * @example
    * 2
@@ -167,7 +170,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
   scopeCount?: number;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tags?: ListIpamsResponseBodyIpamsTags[];
   static names(): { [key: string]: string } {
@@ -230,7 +233,7 @@ export class ListIpamsResponseBodyIpams extends $dara.Model {
 export class ListIpamsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -238,12 +241,12 @@ export class ListIpamsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The IPAMs.
+   * A list of IPAM instances.
    */
   ipams?: ListIpamsResponseBodyIpams[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries returned per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 20
@@ -253,8 +256,9 @@ export class ListIpamsResponseBody extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -270,7 +274,7 @@ export class ListIpamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries.
+   * The total number of entries.
    * 
    * @example
    * 10

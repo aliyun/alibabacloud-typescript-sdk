@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpamPoolAllocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom reserved CIDR block.
+   * The allocated CIDR block.
    * 
    * @example
    * 192.168.1.0/24

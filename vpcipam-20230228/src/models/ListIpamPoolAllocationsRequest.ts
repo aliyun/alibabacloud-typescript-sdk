@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpamPoolAllocationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to query allocations by specifying allocated CIDR blocks.
+   * The allocated CIDR block that you want to query.
    * 
-   * **
-   * 
-   * **Usage notes** Only IPv4 CIDR blocks are supported.
+   * > Only IPv4 CIDR blocks are supported.
    * 
    * @example
    * 192.168.1.0/24
@@ -17,12 +15,14 @@ export class ListIpamPoolAllocationsRequest extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The IDs of the instances to which CIDR blocks are allocated from the IPAM pool.
+   * A list of instance IDs of the IPAM pool CIDR block allocations.
    */
   ipamPoolAllocationIds?: string[];
   /**
    * @remarks
-   * The name of  allocations.
+   * The name of the IPAM pool CIDR block allocation.
+   * 
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test name
@@ -30,7 +30,7 @@ export class ListIpamPoolAllocationsRequest extends $dara.Model {
   ipamPoolAllocationName?: string;
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class ListIpamPoolAllocationsRequest extends $dara.Model {
   ipamPoolId?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -50,8 +50,9 @@ export class ListIpamPoolAllocationsRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -59,9 +60,9 @@ export class ListIpamPoolAllocationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where you want to perform the operation.
+   * The region of the IPAM pool that contains the CIDR block allocation.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * > If the IPAM pool has a specific region, this parameter specifies that region. If the IPAM pool does not have a specific region, this parameter specifies the managed region of IPAM.
    * 
    * This parameter is required.
    * 

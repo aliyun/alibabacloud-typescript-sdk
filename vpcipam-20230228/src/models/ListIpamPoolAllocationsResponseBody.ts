@@ -21,7 +21,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   creationTime?: string;
   /**
    * @remarks
-   * The description of the allocation.
+   * The description of the IPAM pool CIDR block allocation.
    * 
    * @example
    * test description
@@ -29,7 +29,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   ipamPoolAllocationDescription?: string;
   /**
    * @remarks
-   * The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+   * The instance ID of the IPAM pool CIDR block allocation.
    * 
    * @example
    * ipam-pool-alloc-112za33e4****
@@ -37,7 +37,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   ipamPoolAllocationId?: string;
   /**
    * @remarks
-   * The name of the allocation.
+   * The name of the IPAM pool CIDR block allocation.
    * 
    * @example
    * test name
@@ -45,7 +45,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   ipamPoolAllocationName?: string;
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
    * @example
    * ipam-pool-6rcq3tobayc20t****
@@ -53,7 +53,9 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   ipamPoolId?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region of the IPAM pool that contains the CIDR block allocation.
+   * 
+   * > If the IPAM pool has a specific region, this parameter specifies that region. If the IPAM pool does not have a specific region, this parameter specifies the managed region of IPAM.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +79,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The effective region ID of the resource.
+   * The ID of the region where the resource is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -87,9 +89,11 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
    * @remarks
    * The type of the resource to which the CIDR block is allocated. Valid values:
    * 
-   * *   **VPC**
-   * *   **IpamPool**
-   * *   **Custom**
+   * - **VPC**: The resource is a VPC.
+   * 
+   * - **IpamPool**: The resource is a child IPAM pool.
+   * 
+   * - **Custom**: The resource is a custom reserved CIDR block.
    * 
    * @example
    * Custom
@@ -107,8 +111,9 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   **Created**
-   * *   **Deleted**
+   * - **Created**: The instance is created.
+   * 
+   * - **Deleted**: The instance is deleted.
    * 
    * @example
    * Created
@@ -162,7 +167,7 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $dar
 export class ListIpamPoolAllocationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries returned for the current query.
    * 
    * @example
    * 10
@@ -170,12 +175,12 @@ export class ListIpamPoolAllocationsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The IDs of the instances to which CIDR blocks are allocated from the IPAM pool.
+   * A list of IPAM pool CIDR block allocations.
    */
   ipamPoolAllocations?: ListIpamPoolAllocationsResponseBodyIpamPoolAllocations[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -185,8 +190,9 @@ export class ListIpamPoolAllocationsResponseBody extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -202,7 +208,7 @@ export class ListIpamPoolAllocationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 1000

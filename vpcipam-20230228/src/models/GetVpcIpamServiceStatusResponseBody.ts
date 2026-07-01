@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcIpamServiceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether IPAM is activated.
+   * Indicates whether the IPAM service is enabled.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The service is enabled.
+   * 
+   * - **false**: The service is not enabled.
    * 
    * @example
    * true

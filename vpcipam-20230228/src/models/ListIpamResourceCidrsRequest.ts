@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpamResourceCidrsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
-   * >  You must specify at least one of **IpamScopeId** and **IpamPoolId**.
+   * > **IpamPoolId** cannot be the instance ID of a shared IPAM pool.
    * 
    * @example
    * ipam-pool-6rcq3tobayc20t****
@@ -15,9 +15,7 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   ipamPoolId?: string;
   /**
    * @remarks
-   * The ID of the IPAM scope.
-   * 
-   * >  You must specify at least one of **IpamScopeId** and **IpamPoolId**.
+   * The instance ID of the IPAM scope.
    * 
    * @example
    * ipam-scope-glfmcyldpm8lsy****
@@ -25,7 +23,7 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   ipamScopeId?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -33,10 +31,10 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - If this is the first request or no more results exist, leave this parameter empty.
+   * - If more results exist, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -44,9 +42,9 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where the IPAM instance is hosted.
+   * The ID of the region where IPAM is hosted.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -65,10 +63,10 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   **VPC**
-   * *   **VSwitch**
+   * - **VPC**: The resource type is VPC.
+   * - **VSwitch**: The resource type is vSwitch.
    * 
    * @example
    * VPC
@@ -76,7 +74,7 @@ export class ListIpamResourceCidrsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The instance ID of the VPC-connected instance to which the resource belongs.
    * 
    * @example
    * vpc-bp1fjfnrg3av6zb9e****

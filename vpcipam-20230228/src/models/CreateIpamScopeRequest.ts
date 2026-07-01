@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpamScopeRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify at most 20 tag keys. It cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,7 +15,7 @@ export class CreateIpamScopeRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. You can specify empty strings as tag values.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -49,9 +49,9 @@ export class CreateIpamScopeRequestTag extends $dara.Model {
 export class CreateIpamScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * A client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the request as the ClientToken. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -59,10 +59,11 @@ export class CreateIpamScopeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and the actual request. After the request passes the dry run, a 2xx HTTP status code is returned and the IPAM scope is created.
+   * - **true**: Sends a check request but does not create the IPAM scope. The request is checked for valid AccessKeys, RAM user permissions, and required parameters. If the check fails, a corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): Sends a normal request. If the request passes the check, a 2xx HTTP status code is returned and the IPAM scope is created.
    * 
    * @example
    * false
@@ -70,7 +71,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the IPAM.
+   * The ID of the IPAM instance.
    * 
    * This parameter is required.
    * 
@@ -82,7 +83,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
    * @remarks
    * The description of the IPAM scope.
    * 
-   * It must be 1 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`. This parameter is empty by default.
+   * The description must be 1 to 256 characters in length and must start with a letter. It cannot start with `http://` or `https://`. The default value is an empty string.
    * 
    * @example
    * test description
@@ -92,7 +93,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
    * @remarks
    * The name of the IPAM scope.
    * 
-   * It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -100,10 +101,9 @@ export class CreateIpamScopeRequest extends $dara.Model {
   ipamScopeName?: string;
   /**
    * @remarks
-   * The type of IPAM scope: **private**
+   * The type of the IPAM scope: **private**.
    * 
-   * 
-   * **Usage notes** You can create only private IPAM scopes.
+   * > Currently, you can create only private scopes.
    * 
    * @example
    * private
@@ -113,7 +113,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the region where the IPAM instance is hosted. Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to get the region ID.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the IPAM scope.
+   * The ID of the resource group to which the IPAM scope belongs.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -133,7 +133,7 @@ export class CreateIpamScopeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tag?: CreateIpamScopeRequestTag[];
   static names(): { [key: string]: string } {

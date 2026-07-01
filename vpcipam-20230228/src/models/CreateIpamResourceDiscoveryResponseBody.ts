@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpamResourceDiscoveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance for resource discovery.
+   * The ID of the resource discovery instance.
    * 
    * @example
    * ipam-res-disco-jt5f2af2u6nk2z321****

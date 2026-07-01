@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpamResourceDiscoveriesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify at most 20 tag keys. It cannot be an empty string.
+   * The tag key. You can specify up to 20 tag keys. The key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * A tag key can be up to 64 characters in length. It must start with a letter or a Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). The key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,7 +15,7 @@ export class ListIpamResourceDiscoveriesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify at most 20 tag values. The tag value cannot be an empty string.
+   * The tag value. You can specify up to 20 tag values. The value can be an empty string.
    * 
    * A tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -49,14 +49,14 @@ export class ListIpamResourceDiscoveriesRequestTags extends $dara.Model {
 export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of resource discovery instances. Valid values of N: 1 to 100. A maximum of 100 resource discoveries can be queried at a time.
+   * The IDs of the resource discovery instances. You can query up to 100 instances at a time.
    */
   ipamResourceDiscoveryIds?: string[];
   /**
    * @remarks
    * The name of the resource discovery.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+   * The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * test
@@ -64,7 +64,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   ipamResourceDiscoveryName?: string;
   /**
    * @remarks
-   * Whether it is a shared resource discovery.
+   * Specifies whether the resource discovery is shared.
    * 
    * @example
    * true
@@ -72,7 +72,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -80,10 +80,11 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, there is no next page.
-   * *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no more results are available.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -93,7 +94,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where you want to query resource discovery. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to get the region ID.
    * 
    * This parameter is required.
    * 
@@ -103,7 +104,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group that resource discovery belongs.
+   * The ID of the resource group to which the resource discovery belongs.
    * 
    * @example
    * rg-aek2sermdd6****
@@ -113,16 +114,18 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag.
+   * The list of tags.
    */
   tags?: ListIpamResourceDiscoveriesRequestTags[];
   /**
    * @remarks
-   * The type of resource discovery.
+   * The type of the resource discovery.
    * 
-   * > Supported types:
-   * > - system: default resource discovery created by the system.
-   * > - custom: custom resource discovery created by users.
+   * > The following types are supported:
+   * >
+   * > - system: a default resource discovery created by the system.
+   * >
+   * > - custom: a custom resource discovery created by a user.
    * 
    * @example
    * system

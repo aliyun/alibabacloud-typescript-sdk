@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpamsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListIpamsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,14 +49,14 @@ export class ListIpamsRequestTags extends $dara.Model {
 export class ListIpamsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of IPAMs. Valid values of N: 1 to 100. A maximum of 100 IPAMs can be queried at a time.
+   * The IDs of the IPAMs. You can specify up to 100 IPAM IDs.
    */
   ipamIds?: string[];
   /**
    * @remarks
    * The name of the IPAM.
    * 
-   * It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -64,7 +64,7 @@ export class ListIpamsRequest extends $dara.Model {
   ipamName?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -74,8 +74,9 @@ export class ListIpamsRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * - You do not need to specify this parameter for the first request or when no next page exists.
+   * 
+   * - If a next page exists, set the value to the NextToken value returned in the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -85,7 +86,7 @@ export class ListIpamsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the hosted region of the IPAM. You can call [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) to get the region ID.
    * 
    * This parameter is required.
    * 
@@ -95,7 +96,7 @@ export class ListIpamsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the IPAM.
+   * The ID of the resource group to which the IPAM belongs.
    * 
    * @example
    * rg-aek2sermdd6****
@@ -105,7 +106,7 @@ export class ListIpamsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag information.
+   * The tags.
    */
   tags?: ListIpamsRequestTags[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpamPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM address pool.
    * 
    * @example
    * ipam-pool-6rcq3tobayc20t****

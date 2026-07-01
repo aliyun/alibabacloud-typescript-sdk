@@ -7,7 +7,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
    * @remarks
    * The new default network mask for the IPAM pool.
    * 
-   * The mask must be **0 to 32** bits in length.
+   * Valid values: **0 to 32**.
    * 
    * @example
    * 28
@@ -17,7 +17,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
    * @remarks
    * The new maximum network mask for the IPAM pool.
    * 
-   * The mask must be **0 to 32** bits in length.
+   * Valid values: **0 to 32**.
    * 
    * @example
    * 32
@@ -27,7 +27,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
    * @remarks
    * The new minimum network mask for the IPAM pool.
    * 
-   * The mask must be **0 to 32** bits in length.
+   * Valid values: **0 to 32**.
    * 
    * @example
    * 8
@@ -35,7 +35,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   allocationMinCidrMask?: number;
   /**
    * @remarks
-   * Whether the pool has the auto-import feature enabled.
+   * Specifies whether to enable the auto import feature for the address pool.
    * 
    * @example
    * true
@@ -43,10 +43,11 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   autoImport?: boolean;
   /**
    * @remarks
-   * Specifies whether to delete the default network mask for the IPAM pool. Valid values:
+   * Specifies whether to clear the default network mask of the IPAM pool. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -54,9 +55,9 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   clearAllocationDefaultCidrMask?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * A client token that is used to ensure the idempotence of the request. Generate a unique token for each request. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -64,10 +65,11 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: Sends a check request without modifying the IPAM pool. The system checks for required parameters, request format, and service limits. If the check fails, an error message is returned. If the check succeeds, the \\`DryRunOperation\\` error code is returned.
+   * 
+   * - **false** (default): Sends a normal request. After the request passes the check, a 2xx HTTP status code is returned and the IPAM pool is modified.
    * 
    * @example
    * false
@@ -77,7 +79,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
    * @remarks
    * The new description of the IPAM pool.
    * 
-   * It must be 2 to 268 characters in length. It must start with a letter but cannot start with a `http://` or `https://`. This parameter is empty by default.
+   * The description must be 1 to 256 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. If you do not specify this parameter, the value is not changed. By default, the value is empty.
    * 
    * @example
    * test description
@@ -85,7 +87,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   ipamPoolDescription?: string;
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
    * This parameter is required.
    * 
@@ -97,7 +99,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
    * @remarks
    * The new name of the IPAM pool.
    * 
-   * It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -107,7 +109,7 @@ export class UpdateIpamPoolRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPAM instance is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the hosted region of the IPAM. Call [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) to get the region ID.
    * 
    * This parameter is required.
    * 

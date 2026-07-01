@@ -15,9 +15,11 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   **IPAM**
-   * *   **IPAMSCOPE**
-   * *   **IPAMPOOL**
+   * - **IPAM**: IPAM
+   * 
+   * - **IPAMSCOPE**: IPAM scope
+   * 
+   * - **IPAMPOOL**: IPAM address pool
    * 
    * @example
    * IPAM
@@ -69,10 +71,11 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no more results are returned.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -88,7 +91,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources to which the tags are added.
+   * The details of the resources and their tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

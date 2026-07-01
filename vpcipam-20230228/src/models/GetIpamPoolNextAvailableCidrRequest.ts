@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
   /**
    * @remarks
-   * CIDR to be allocated.
+   * The CIDR block to be allocated.
    * 
-   * >  You must enter at least one of the CidrBlock and CidrMask fields.
+   * > You must specify CidrBlock or CidrMask.
    * 
    * @example
    * 172.68.0.0/26
@@ -15,9 +15,9 @@ export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The length of the CIDR mask to be allocated.
+   * The mask length of the CIDR block to be allocated.
    * 
-   * >  You must enter at least one of the CidrBlock and CidrMask fields.
+   * > You must specify CidrBlock or CidrMask.
    * 
    * @example
    * 26
@@ -25,9 +25,9 @@ export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
   cidrMask?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system uses the RequestId as the ClientToken. The RequestId of each request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -35,7 +35,7 @@ export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the IPAM pool.
+   * The instance ID of the IPAM pool.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
    * @remarks
    * The region of the IPAM pool.
    * 
-   * >  If the IPAM pool has the region attribute, this parameter is set to the effective region of the IPAM pool. If not, this is set to the hosted region.
+   * > If the IPAM pool has a region property, this parameter specifies the region where the pool is active. If the IPAM pool does not have a region property, this parameter specifies the managed region of IPAM.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpamPoolAllocationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+   * The ID of the IPAM pool allocation.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class GetIpamPoolAllocationRequest extends $dara.Model {
   ipamPoolAllocationId?: string;
   /**
    * @remarks
-   * The region of the IPAM pool.
+   * The region of the IPAM pool to which the CIDR block allocation belongs.
    * 
-   * >  If the IPAM pool to which CIDR allocation belongs has the region attribute, this parameter is the region of the IPAM pool. If not, this parameter is the IPAM hosted region.
+   * > If the IPAM pool has a region attribute, this parameter specifies the region of the IPAM pool. If the IPAM pool does not have a region attribute, this parameter specifies the managed region of IPAM.
    * 
    * This parameter is required.
    * 

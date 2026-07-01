@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The number of available IP addresses.
+   */
   freeIpCount?: string;
+  /**
+   * @remarks
+   * The total number of IP addresses.
+   */
   totalIpCount?: string;
+  /**
+   * @remarks
+   * The number of allocated IP addresses.
+   */
   usedIpCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +46,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCoun
 export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 132193271328****
@@ -52,16 +64,20 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
    * @remarks
    * The time when the resource was discovered.
    * 
-   * >  If the resource has not been modified since it was created, the discovery time remains unchanged.
+   * > If the resource has not been modified since it was created, the discovery time remains unchanged.
    * 
    * @example
    * 2024-01-01 00:00:00
    */
   discoveryTime?: string;
+  /**
+   * @remarks
+   * The details of the resource IP address count.
+   */
   ipCountDetail?: ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail;
   /**
    * @remarks
-   * The IP usage in decimal form.
+   * The IP utilization rate, in decimal format.
    * 
    * @example
    * 0
@@ -69,7 +85,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
   ipUsage?: string;
   /**
    * @remarks
-   * The ID of resource discovery instance.
+   * The resource discovery instance ID.
    * 
    * @example
    * ipam-res-disco-jt5f2af2u6nk2z321****
@@ -77,7 +93,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
   ipamResourceDiscoveryId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * vpc-uf611fp465c7dyb4z****
@@ -85,7 +101,12 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The resource name.
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the resource ownership.
    * 
    * @example
    * 132193271328****
@@ -93,7 +114,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the resource belongs.
+   * The region ID of the resource ownership.
    * 
    * @example
    * cn-hangzhou
@@ -103,8 +124,9 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   **VPC**
-   * *   **VSwitch**
+   * - **VPC**: VPC.
+   * 
+   * - **VSwitch**: vSwitch.
    * 
    * @example
    * VPC
@@ -120,7 +142,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
   sourceCidr?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the resource belongs.
+   * The instance ID of the VPC-connected instance to which the resource belongs.
    * 
    * @example
    * vpc-uf611fp465c7dyb4z****
@@ -135,6 +157,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
       ipUsage: 'IpUsage',
       ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       resourceOwnerId: 'ResourceOwnerId',
       resourceRegionId: 'ResourceRegionId',
       resourceType: 'ResourceType',
@@ -152,6 +175,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
       ipUsage: 'string',
       ipamResourceDiscoveryId: 'string',
       resourceId: 'string',
+      resourceName: 'string',
       resourceOwnerId: 'number',
       resourceRegionId: 'string',
       resourceType: 'string',
@@ -175,7 +199,7 @@ export class ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources exten
 export class ListIpamDiscoveredResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -183,12 +207,12 @@ export class ListIpamDiscoveredResourceResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of resources.
+   * The resources.
    */
   ipamDiscoveredResources?: ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources[];
   /**
    * @remarks
-   * The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -196,10 +220,9 @@ export class ListIpamDiscoveredResourceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, there is no next page.
-   * *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** has a return value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -215,7 +238,7 @@ export class ListIpamDiscoveredResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 1000

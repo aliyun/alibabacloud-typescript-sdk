@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenVpcIpamServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OpenVpcIpamServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Information returned upon successful IPAM activation.
+   * The returned message.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class OpenVpcIpamServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3F814C37-B032-5477-AF5A-2925D0593CD4
