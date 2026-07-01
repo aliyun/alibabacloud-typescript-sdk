@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApiKeysResponseBodyApiKeysAuthModelAccessScope extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accessible models.
+   */
   accessibleModels?: string[];
+  /**
+   * @remarks
+   * Indicates whether access to all models with inference permissions in the workspace is allowed.
+   */
   allowAllModels?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -34,9 +42,13 @@ export class ListApiKeysResponseBodyApiKeysAuthModelAccessScope extends $dara.Mo
 export class ListApiKeysResponseBodyApiKeysAuth extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP access whitelist.
    */
   accessIps?: string[];
+  /**
+   * @remarks
+   * The model access scope.
+   */
   modelAccessScope?: ListApiKeysResponseBodyApiKeysAuthModelAccessScope;
   /**
    * @remarks
@@ -204,7 +216,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -220,7 +232,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+   * The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token obtained from the previous response.
    * 
    * @example
    * lwytFRtLdNk=

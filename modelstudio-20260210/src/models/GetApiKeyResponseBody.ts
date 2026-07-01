@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApiKeyResponseBodyApiKeyAuthModelAccessScope extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accessible models.
+   */
   accessibleModels?: string[];
+  /**
+   * @remarks
+   * Indicates whether all models with granted inference permissions in the workspace can be accessed. Valid values:
+   * 
+   * - true
+   * - false
+   * 
+   * @example
+   * false
+   */
   allowAllModels?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -34,13 +48,17 @@ export class GetApiKeyResponseBodyApiKeyAuthModelAccessScope extends $dara.Model
 export class GetApiKeyResponseBodyApiKeyAuth extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP access whitelist.
    */
   accessIps?: string[];
+  /**
+   * @remarks
+   * The model access scope.
+   */
   modelAccessScope?: GetApiKeyResponseBodyApiKeyAuthModelAccessScope;
   /**
    * @remarks
-   * The permission type. Valid values: All: all permissions. Custom: custom permissions.
+   * All: all permissions. Custom: custom permissions.
    * 
    * @example
    * Custom
@@ -117,7 +135,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the API key is disabled. Valid values:
+   * Indicates whether the API key is disabled.
    * 
    * - **0**: Active.
    * - **1**: Disabled.
@@ -128,7 +146,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
   disabled?: number;
   /**
    * @remarks
-   * The creation time.
+   * The time when the API key was created.
    * 
    * @example
    * 1774338222000
@@ -220,7 +238,7 @@ export class GetApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * - true: The request was successful.
    * - false: The request failed.
    * 

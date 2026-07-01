@@ -39,8 +39,8 @@ export class UpdateApiKeyResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the API call is successful. Valid values:
    * 
-   * - true: The call succeeded.
-   * - false: The call failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

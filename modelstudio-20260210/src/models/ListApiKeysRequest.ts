@@ -13,7 +13,7 @@ export class ListApiKeysRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The keyword for fuzzy match against the description.
+   * The keyword for fuzzy match by description.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListApiKeysRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -29,7 +29,7 @@ export class ListApiKeysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve more results. You do not need to provide this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+   * The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token obtained from the previous response.
    * 
    * @example
    * w9Z+S5+TZyw=
@@ -41,7 +41,7 @@ export class ListApiKeysRequest extends $dara.Model {
    * 
    * - DESC (default)
    * 
-   * - ASC.
+   * - ASC
    * 
    * @example
    * ASC
@@ -53,7 +53,7 @@ export class ListApiKeysRequest extends $dara.Model {
    * 
    * - apiKeyId (default)
    * 
-   * - gmtCreate.
+   * - gmtCreate
    * 
    * @example
    * gmtCreate

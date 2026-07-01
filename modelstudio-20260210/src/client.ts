@@ -506,7 +506,7 @@ export default class Client extends OpenApi {
    * Disables an API key.
    * 
    * @remarks
-   * An API key cannot be disabled if it is already disabled.
+   * An API key that is already disabled cannot be disabled again.
    * 
    * @param request - DisableApiKeyRequest
    * @param headers - map
@@ -536,7 +536,7 @@ export default class Client extends OpenApi {
    * Disables an API key.
    * 
    * @remarks
-   * An API key cannot be disabled if it is already disabled.
+   * An API key that is already disabled cannot be disabled again.
    * 
    * @param request - DisableApiKeyRequest
    * @returns DisableApiKeyResponse
@@ -593,7 +593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified authentication credential API key.
+   * Retrieves the information about a specified API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -618,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified authentication credential API key.
+   * Retrieves the information about a specified API key.
    * @returns GetApiKeyResponse
    */
   async getApiKey(apiKeyId: string): Promise<$_model.GetApiKeyResponse> {
@@ -949,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API key authentication credentials.
+   * Retrieves a list of API key information for authentication credentials.
    * 
    * @param request - ListApiKeysRequest
    * @param headers - map
@@ -1006,7 +1006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API key authentication credentials.
+   * Retrieves a list of API key information for authentication credentials.
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse

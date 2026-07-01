@@ -3,7 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateApiKeyRequestAuthModelAccessScope extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accessible models.
+   * >Notice: The content takes effect only when allowAllModels is set to false.
+   */
   accessibleModels?: string[];
+  /**
+   * @remarks
+   * Specifies whether to allow access to all models with granted inference permissions in the workspace. Valid values:
+   * 
+   * - true
+   * - false
+   */
   allowAllModels?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37,9 +49,13 @@ export class UpdateApiKeyRequestAuth extends $dara.Model {
    * The IP access whitelist.
    * 
    * > 
-   * > - When you set custom permissions and do not specify the IP access whitelist, the server sets the whitelist to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
+   * > - When you customize the permission scope, if the IP access whitelist is not specified, the server sets it to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
    */
   accessIps?: string[];
+  /**
+   * @remarks
+   * The model access scope.
+   */
   modelAccessScope?: UpdateApiKeyRequestAuthModelAccessScope;
   /**
    * @remarks
@@ -87,6 +103,8 @@ export class UpdateApiKeyRequest extends $dara.Model {
   /**
    * @remarks
    * The API key permission settings.
+   * 
+   * > Do not fill in this section or fill it in completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
    */
   auth?: UpdateApiKeyRequestAuth;
   /**
