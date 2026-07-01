@@ -1489,6 +1489,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a new dataset under a specified project. Available since v6.2.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This API creates a new dataset in a specified project.
+   * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+   * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+   * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+   * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+   * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+   * 
+   * @param tmpReq - CreateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
+   */
+  async createDatasetWithOptions(tmpReq: $_model.CreateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataset",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetResponse({}));
+  }
+
+  /**
+   * Creates a new dataset under a specified project. Available since v6.2.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This API creates a new dataset in a specified project.
+   * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+   * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+   * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+   * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+   * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
+   */
+  async createDataset(request: $_model.CreateDatasetRequest): Promise<$_model.CreateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
    * 
    * @param tmpReq - CreateDirectoryRequest
@@ -3170,6 +3248,56 @@ export default class Client extends OpenApi {
   async deleteDataSource(request: $_model.DeleteDataSourceRequest): Promise<$_model.DeleteDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a dataset. Release version: v6.2.0.
+   * 
+   * @param request - DeleteDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDatasetWithOptions(request: $_model.DeleteDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataset",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasetResponse({}));
+  }
+
+  /**
+   * Deletes a dataset. Release version: v6.2.0.
+   * 
+   * @param request - DeleteDatasetRequest
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDataset(request: $_model.DeleteDatasetRequest): Promise<$_model.DeleteDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatasetWithOptions(request, runtime);
   }
 
   /**
@@ -5053,6 +5181,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定离线模板ID版本列表。
+   * 
+   * @param request - GetBatchTemplateVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchTemplateVersionsResponse
+   */
+  async getBatchTemplateVersionsWithOptions(request: $_model.GetBatchTemplateVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBatchTemplateVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBatchTemplateVersions",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBatchTemplateVersionsResponse>(await this.callApi(params, req, runtime), new $_model.GetBatchTemplateVersionsResponse({}));
+  }
+
+  /**
+   * 获取指定离线模板ID版本列表。
+   * 
+   * @param request - GetBatchTemplateVersionsRequest
+   * @returns GetBatchTemplateVersionsResponse
+   */
+  async getBatchTemplateVersions(request: $_model.GetBatchTemplateVersionsRequest): Promise<$_model.GetBatchTemplateVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBatchTemplateVersionsWithOptions(request, runtime);
+  }
+
+  /**
    * Query mapping relationships by belonging asset GUID.
    * Release version: v5.4.2.
    * 
@@ -6295,6 +6477,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a dataset. Release version: v6.2.0.
+   * 
+   * @remarks
+   * Queries the details of a tested connectivity task based on the data source ID.
+   * 
+   * @param request - GetDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResponse
+   */
+  async getDatasetWithOptions(request: $_model.GetDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataset",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatasetResponse>(await this.callApi(params, req, runtime), new $_model.GetDatasetResponse({}));
+  }
+
+  /**
+   * Retrieves a dataset. Release version: v6.2.0.
+   * 
+   * @remarks
+   * Queries the details of a tested connectivity task based on the data source ID.
+   * 
+   * @param request - GetDatasetRequest
+   * @returns GetDatasetResponse
+   */
+  async getDataset(request: $_model.GetDatasetRequest): Promise<$_model.GetDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDatasetWithOptions(request, runtime);
+  }
+
+  /**
    * Query upstream dependencies of development objects.
    * 
    * @param request - GetDevObjectDependencyRequest
@@ -6810,6 +7048,168 @@ export default class Client extends OpenApi {
   async getNodeUpDownStream(request: $_model.GetNodeUpDownStreamRequest): Promise<$_model.GetNodeUpDownStreamResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNodeUpDownStreamWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据Id查询运行记录
+   * 
+   * @param tmpReq - GetOperationRecordByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationRecordByIdResponse
+   */
+  async getOperationRecordByIdWithOptions(tmpReq: $_model.GetOperationRecordByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOperationRecordByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetOperationRecordByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.detailCommand)) {
+      request.detailCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detailCommand, "DetailCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detailCommandShrink)) {
+      body["DetailCommand"] = request.detailCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOperationRecordById",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOperationRecordByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetOperationRecordByIdResponse({}));
+  }
+
+  /**
+   * 根据Id查询运行记录
+   * 
+   * @param request - GetOperationRecordByIdRequest
+   * @returns GetOperationRecordByIdResponse
+   */
+  async getOperationRecordById(request: $_model.GetOperationRecordByIdRequest): Promise<$_model.GetOperationRecordByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOperationRecordByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an execution record. Released in version v6.2.0.
+   * 
+   * @param tmpReq - GetOperationRecordDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationRecordDetailResponse
+   */
+  async getOperationRecordDetailWithOptions(tmpReq: $_model.GetOperationRecordDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOperationRecordDetailResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetOperationRecordDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.recordDetailCommand)) {
+      request.recordDetailCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recordDetailCommand, "RecordDetailCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recordDetailCommandShrink)) {
+      body["RecordDetailCommand"] = request.recordDetailCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOperationRecordDetail",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOperationRecordDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetOperationRecordDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of an execution record. Released in version v6.2.0.
+   * 
+   * @param request - GetOperationRecordDetailRequest
+   * @returns GetOperationRecordDetailResponse
+   */
+  async getOperationRecordDetail(request: $_model.GetOperationRecordDetailRequest): Promise<$_model.GetOperationRecordDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOperationRecordDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution code of an operation log. Online version: v6.2.0.
+   * 
+   * @param tmpReq - GetOperationRecordRunCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationRecordRunCodeResponse
+   */
+  async getOperationRecordRunCodeWithOptions(tmpReq: $_model.GetOperationRecordRunCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOperationRecordRunCodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetOperationRecordRunCodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.codeCommand)) {
+      request.codeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.codeCommand, "CodeCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.codeCommandShrink)) {
+      body["CodeCommand"] = request.codeCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOperationRecordRunCode",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOperationRecordRunCodeResponse>(await this.callApi(params, req, runtime), new $_model.GetOperationRecordRunCodeResponse({}));
+  }
+
+  /**
+   * Queries the execution code of an operation log. Online version: v6.2.0.
+   * 
+   * @param request - GetOperationRecordRunCodeRequest
+   * @returns GetOperationRecordRunCodeResponse
+   */
+  async getOperationRecordRunCode(request: $_model.GetOperationRecordRunCodeRequest): Promise<$_model.GetOperationRecordRunCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOperationRecordRunCodeWithOptions(request, runtime);
   }
 
   /**
@@ -9951,6 +10351,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries offline computing templates by paging. Online version: v6.2.0.
+   * 
+   * @param tmpReq - ListBatchTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchTemplatesResponse
+   */
+  async listBatchTemplatesWithOptions(tmpReq: $_model.ListBatchTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBatchTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListBatchTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBatchTemplates",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBatchTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListBatchTemplatesResponse({}));
+  }
+
+  /**
+   * Queries offline computing templates by paging. Online version: v6.2.0.
+   * 
+   * @param request - ListBatchTemplatesRequest
+   * @returns ListBatchTemplatesResponse
+   */
+  async listBatchTemplates(request: $_model.ListBatchTemplatesRequest): Promise<$_model.ListBatchTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBatchTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of business entities.
    * 
    * @param tmpReq - ListBizEntitiesRequest
@@ -10725,6 +11187,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+   * 
+   * @param tmpReq - ListDatasetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetsResponse
+   */
+  async listDatasetsWithOptions(tmpReq: $_model.ListDatasetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDatasetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.datasetQuery)) {
+      request.datasetQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetQuery, "DatasetQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetQueryShrink)) {
+      body["DatasetQuery"] = request.datasetQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasets",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasetsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasetsResponse({}));
+  }
+
+  /**
+   * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+   * 
+   * @param request - ListDatasetsRequest
+   * @returns ListDatasetsResponse
+   */
+  async listDatasets(request: $_model.ListDatasetsRequest): Promise<$_model.ListDatasetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatasetsWithOptions(request, runtime);
+  }
+
+  /**
    * Query the directory tree file list.
    * 
    * @param tmpReq - ListFilesRequest
@@ -10950,6 +11474,60 @@ export default class Client extends OpenApi {
   async listNodes(request: $_model.ListNodesRequest): Promise<$_model.ListNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query on the list of operation records. Online version: v6.2.0.
+   * 
+   * @param tmpReq - ListOperationRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationRecordResponse
+   */
+  async listOperationRecordWithOptions(tmpReq: $_model.ListOperationRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationRecordResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListOperationRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listCommand)) {
+      request.listCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listCommand, "ListCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listCommandShrink)) {
+      body["ListCommand"] = request.listCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationRecord",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationRecordResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationRecordResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the list of operation records. Online version: v6.2.0.
+   * 
+   * @param request - ListOperationRecordRequest
+   * @returns ListOperationRecordResponse
+   */
+  async listOperationRecord(request: $_model.ListOperationRecordRequest): Promise<$_model.ListOperationRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOperationRecordWithOptions(request, runtime);
   }
 
   /**
@@ -14438,6 +15016,82 @@ export default class Client extends OpenApi {
   async updateDataSourceConfig(request: $_model.UpdateDataSourceConfigRequest): Promise<$_model.UpdateDataSourceConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataSourceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Dataphin OpenAPI 模板。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+   * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+   * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+   * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+   * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+   * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+   * 
+   * @param tmpReq - UpdateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetResponse
+   */
+  async updateDatasetWithOptions(tmpReq: $_model.UpdateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataset",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDatasetResponse({}));
+  }
+
+  /**
+   * Dataphin OpenAPI 模板。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+   * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+   * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+   * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+   * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+   * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+   * 
+   * @param request - UpdateDatasetRequest
+   * @returns UpdateDatasetResponse
+   */
+  async updateDataset(request: $_model.UpdateDatasetRequest): Promise<$_model.UpdateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDatasetWithOptions(request, runtime);
   }
 
   /**

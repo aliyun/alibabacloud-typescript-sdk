@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dataphin-public20230630",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
