@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentReadNarratorOption extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable the document narration feature. Set to `true` to enable narration. Defaults to `false`.
+   * Specifies whether to fetch.
+   * 
+   * @example
+   * true
    */
   narrate?: boolean;
   static names(): { [key: string]: string } {

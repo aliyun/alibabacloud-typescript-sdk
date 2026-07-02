@@ -4,10 +4,17 @@ import { SmartClusterRule } from "./SmartClusterRule";
 
 
 export class SmartCluster extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the grouping.
+   * 
+   * @example
+   * figure
+   */
   clusterType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the grouping was created.
    * 
    * @example
    * 2022-01-14T10:17:18.102700407+08:00
@@ -23,12 +30,15 @@ export class SmartCluster extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The group description.
+   * The description of the grouping.
+   * 
+   * @example
+   * 这是一个智能分组的描述示例，它用于展示记录的格式。
    */
   description?: string;
   /**
    * @remarks
-   * The group name.
+   * The grouping name.
    * 
    * @example
    * MySmartCluster1
@@ -36,7 +46,7 @@ export class SmartCluster extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The smart cluster ID.
+   * The intelligent grouping ID.
    * 
    * @example
    * SmartCluster-12cd1645-deae-4b5e-9434-613747b75f6d
@@ -44,7 +54,7 @@ export class SmartCluster extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The group status. Valid values are `Succeeded`, `Failed`, and `Running`.
+   * The status of the grouping.
    * 
    * @example
    * Succeeded
@@ -52,7 +62,7 @@ export class SmartCluster extends $dara.Model {
   objectStatus?: string;
   /**
    * @remarks
-   * The group type. The value is always `smart-cluster`.
+   * The grouping type.
    * 
    * @example
    * smart-cluster
@@ -74,16 +84,27 @@ export class SmartCluster extends $dara.Model {
    * MyProject
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The reason why the grouping failed.
+   * 
+   * @example
+   * [InvalidArgument.BaseURIs] Each BaseURI must contain exactly one figure
+   */
   reason?: string;
   /**
    * @remarks
-   * The clustering rule.
+   * The grouping rule. This parameter is deprecated. Use the Rules parameter instead.
    */
   rule?: SmartClusterRule;
+  /**
+   * @remarks
+   * The list of grouping rules.
+   */
   rules?: SmartClusterRule[];
   /**
    * @remarks
-   * The update time.
+   * The time when the grouping was last updated.
    * 
    * @example
    * 2022-01-14T10:17:18.102700407+08:00

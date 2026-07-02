@@ -4,7 +4,15 @@ import { Summary } from "./Summary";
 
 
 export class PaperDescription extends $dara.Model {
+  /**
+   * @remarks
+   * The guide result.
+   */
   description?: Summary[];
+  /**
+   * @remarks
+   * The section heading included in the guide result.
+   */
   titleID?: string[];
   static names(): { [key: string]: string } {
     return {

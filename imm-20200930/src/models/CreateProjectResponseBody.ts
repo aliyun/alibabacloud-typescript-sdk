@@ -6,7 +6,7 @@ import { Project } from "./Project";
 export class CreateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The project information. Click Project for details.
+   * The project information. Click Project to view details.
    */
   project?: Project;
   /**

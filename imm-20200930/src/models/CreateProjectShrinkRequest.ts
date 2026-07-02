@@ -3,10 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProjectShrinkRequest extends $dara.Model {
-  datasetConfigShrink?: string;
   /**
    * @remarks
-   * The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
+   * The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
    * 
    * @example
    * 10
@@ -14,7 +13,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities in each dataset. Default value: 10000000000.
+   * The maximum number of metadata entities per dataset. Default value: 10000000000.
    * >This parameter is reserved for future use and is not enforced.
    * 
    * @example
@@ -23,7 +22,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in each dataset. Valid values: 1 to 100000000. Default value: 10000000000.
+   * The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 10000000000.
    * 
    * @example
    * 100000000
@@ -31,7 +30,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in each dataset. Default value: 100000000000.
+   * The maximum number of metadata relationships per dataset. Default value: 100000000000.
    * >This parameter is reserved for future use and is not enforced.
    * 
    * @example
@@ -40,7 +39,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
+   * The maximum total file size per dataset. After this limit is reached, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
    * 
    * @example
    * 90000000000000000
@@ -64,7 +63,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The project name. The naming rules are as follows:
+   * The project name. The following naming rules apply:
    * 
    * - The name must be 1 to 128 characters in length.
    * 
@@ -103,7 +102,6 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -120,7 +118,6 @@ export class CreateProjectShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

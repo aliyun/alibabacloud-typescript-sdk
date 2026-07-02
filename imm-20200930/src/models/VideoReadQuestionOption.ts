@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class VideoReadQuestionOption extends $dara.Model {
   /**
    * @remarks
-   * Specifies the maximum number of answers to return when `Extract` is `true`. If omitted, the service returns all detected answers.
+   * The number of keywords. Valid values: 0 to 10.
+   * 
+   * @example
+   * 1
    */
   count?: number;
   /**
    * @remarks
-   * Specifies whether to extract answer segments from the video. When `true`, the service identifies and returns these segments. The default is `false`.
+   * Specifies whether to fetch.
+   * 
+   * @example
+   * true
    */
   extract?: boolean;
   static names(): { [key: string]: string } {

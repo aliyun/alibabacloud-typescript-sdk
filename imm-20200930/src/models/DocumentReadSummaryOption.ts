@@ -6,17 +6,23 @@ import { DocumentChapterSummarizeOption } from "./DocumentChapterSummarizeOption
 export class DocumentReadSummaryOption extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to generate a summary for each chapter. This setting applies only if the service can identify chapters.
+   * Specifies whether to extract the chapter-level summary of the article.
    * 
-   * **Default value**: `false`.
+   * @example
+   * true
    */
   chapterSummarize?: boolean;
+  /**
+   * @remarks
+   * The chapter-level summary options for the article.
+   */
   chapterSummarizeOption?: DocumentChapterSummarizeOption;
   /**
    * @remarks
-   * Specifies whether to generate a summary for the entire document.
+   * Specifies whether to extract the article summary.
    * 
-   * **Default value**: `false`.
+   * @example
+   * true
    */
   summarize?: boolean;
   static names(): { [key: string]: string } {

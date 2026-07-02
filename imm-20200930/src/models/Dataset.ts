@@ -1,13 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DatasetConfig } from "./DatasetConfig";
 import { WorkflowParameter } from "./WorkflowParameter";
 
 
 export class Dataset extends $dara.Model {
   /**
    * @remarks
-   * Number of OSS buckets currently attached to the dataset.
+   * The number of OSS buckets currently bound to the dataset.
    * 
    * @example
    * 2
@@ -15,7 +14,7 @@ export class Dataset extends $dara.Model {
   bindCount?: number;
   /**
    * @remarks
-   * Timestamp of dataset creation in RFC3339Nano format.
+   * The timestamp when the dataset was created, in RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -23,12 +22,7 @@ export class Dataset extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Dataset configuration.
-   */
-  datasetConfig?: DatasetConfig;
-  /**
-   * @remarks
-   * Maximum number of bindings per dataset.
+   * The maximum number of bindings allowed for each dataset.
    * 
    * @example
    * 10
@@ -36,7 +30,7 @@ export class Dataset extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * Maximum number of metadata entities in the dataset.
+   * The maximum number of metadata entities allowed in the dataset.
    * 
    * @example
    * 10000000000
@@ -44,7 +38,7 @@ export class Dataset extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * Maximum number of files in the dataset.
+   * The maximum number of files allowed in the dataset.
    * 
    * @example
    * 100000000
@@ -52,7 +46,7 @@ export class Dataset extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * Maximum number of metadata relations in the dataset.
+   * The maximum number of metadata relationships allowed in the dataset.
    * 
    * @example
    * 100000000000
@@ -60,7 +54,7 @@ export class Dataset extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * Maximum total file size in the dataset, in bytes.
+   * The maximum total file size allowed in the dataset, in bytes.
    * 
    * @example
    * 90000000000000000
@@ -68,7 +62,7 @@ export class Dataset extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * Dataset name.
+   * The dataset name.
    * 
    * @example
    * dataset001
@@ -76,7 +70,7 @@ export class Dataset extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * Dataset description.
+   * The description of the dataset.
    * 
    * @example
    * 测试数据集
@@ -84,7 +78,7 @@ export class Dataset extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Current number of files in the dataset.
+   * The current number of files in the dataset.
    * 
    * @example
    * 10
@@ -92,7 +86,7 @@ export class Dataset extends $dara.Model {
   fileCount?: number;
   /**
    * @remarks
-   * Project name.
+   * The project name.
    * 
    * @example
    * immtest
@@ -100,7 +94,7 @@ export class Dataset extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Workflow template ID.
+   * The workflow template ID.
    * 
    * @example
    * Official:ImageManagement
@@ -108,7 +102,7 @@ export class Dataset extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Total file size in the dataset, in bytes.
+   * The total file size in the dataset, in bytes.
    * 
    * @example
    * 100000
@@ -116,9 +110,9 @@ export class Dataset extends $dara.Model {
   totalFileSize?: number;
   /**
    * @remarks
-   * Timestamp of the last dataset update in RFC3339Nano format.
+   * The timestamp when the dataset was last modified, in RFC3339Nano format.
    * 
-   * > If the dataset has never been updated since creation, the update timestamp equals the creation timestamp.
+   * >If the dataset has not been updated since it was created, this timestamp is the same as the creation timestamp.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -126,17 +120,18 @@ export class Dataset extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Custom parameters.
+   * The custom parameters.
    * 
    * **if can be null:**
    * true
+   * 
+   * @deprecated
    */
   workflowParameters?: WorkflowParameter[];
   static names(): { [key: string]: string } {
     return {
       bindCount: 'BindCount',
       createTime: 'CreateTime',
-      datasetConfig: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -157,7 +152,6 @@ export class Dataset extends $dara.Model {
     return {
       bindCount: 'number',
       createTime: 'string',
-      datasetConfig: DatasetConfig,
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',
@@ -175,9 +169,6 @@ export class Dataset extends $dara.Model {
   }
 
   validate() {
-    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
-      (this.datasetConfig as any).validate();
-    }
     if(Array.isArray(this.workflowParameters)) {
       $dara.Model.validateArray(this.workflowParameters);
     }

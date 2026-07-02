@@ -8,12 +8,16 @@ export class InsightsConfig extends $dara.Model {
   image?: ImageInsightsConfig;
   /**
    * @remarks
-   * The language of the source content.
+   * The language.
    * 
    * @example
    * zh-Hans
    */
   language?: string;
+  /**
+   * @remarks
+   * The video content-aware configuration.
+   */
   video?: VideoInsightsConfig;
   static names(): { [key: string]: string } {
     return {

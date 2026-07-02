@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DatasetConfig } from "./DatasetConfig";
 
 
 export class UpdateProjectRequestTag extends $dara.Model {
@@ -44,7 +43,6 @@ export class UpdateProjectRequestTag extends $dara.Model {
 }
 
 export class UpdateProjectRequest extends $dara.Model {
-  datasetConfig?: DatasetConfig;
   /**
    * @remarks
    * The maximum number of bindings for each dataset. Valid values: 1 to 10.
@@ -105,7 +103,7 @@ export class UpdateProjectRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -138,7 +136,6 @@ export class UpdateProjectRequest extends $dara.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetConfig: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -155,7 +152,6 @@ export class UpdateProjectRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetConfig: DatasetConfig,
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',
@@ -171,9 +167,6 @@ export class UpdateProjectRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
-      (this.datasetConfig as any).validate();
-    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }

@@ -14,7 +14,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The array of projects. Returns information about the projects.
+   * The array of projects. Project information is returned.
    */
   projects?: Project[];
   /**

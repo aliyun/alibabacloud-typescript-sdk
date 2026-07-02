@@ -1,12 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DatasetConfig } from "./DatasetConfig";
 
 
 export class ProjectTags extends $dara.Model {
   /**
    * @remarks
-   * 标签键。
+   * The tag key.
    * 
    * @example
    * TestKey
@@ -14,7 +13,7 @@ export class ProjectTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * 标签值。
+   * The tag value.
    * 
    * @example
    * TestValue
@@ -52,7 +51,6 @@ export class Project extends $dara.Model {
    * 2021-06-29T14:50:13.011643661+08:00
    */
   createTime?: string;
-  datasetConfig?: DatasetConfig;
   /**
    * @remarks
    * The current number of datasets in the project.
@@ -107,7 +105,7 @@ export class Project extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The project description.
+   * The description of the project.
    * 
    * @example
    * test project
@@ -115,7 +113,7 @@ export class Project extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of tasks that the project can process per second. This specifies the maximum number of operators that can run in parallel at the same time across the project. Default value: 100.
+   * The maximum number of tasks that the project can process per second. This specifies the maximum number of operators across the project that can run in parallel at the same time. Default value: 100.
    * 
    * - Synchronous tasks: if the number of concurrent tasks exceeds this limit, task execution time increases until a timeout occurs.
    * 
@@ -190,7 +188,7 @@ export class Project extends $dara.Model {
    * @remarks
    * The timestamp when the project was last modified, in RFC3339Nano format.
    * 
-   * > If the project has not been updated since creation, this timestamp is the same as the creation timestamp.
+   * > If the project has not been updated since it was created, the modification timestamp is the same as the creation timestamp.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -199,7 +197,6 @@ export class Project extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
-      datasetConfig: 'DatasetConfig',
       datasetCount: 'DatasetCount',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
@@ -223,7 +220,6 @@ export class Project extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      datasetConfig: DatasetConfig,
       datasetCount: 'number',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
@@ -245,9 +241,6 @@ export class Project extends $dara.Model {
   }
 
   validate() {
-    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
-      (this.datasetConfig as any).validate();
-    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

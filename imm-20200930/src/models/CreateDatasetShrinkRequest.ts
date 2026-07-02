@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset configuration.
-   */
-  datasetConfigShrink?: string;
-  /**
-   * @remarks
-   * The maximum number of bindings for each dataset. Valid values: 1 to 10. The default value is 10.
+   * The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
    * 
    * @example
    * 10
@@ -18,7 +13,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities in each dataset. The default value is 10,000,000,000.
+   * The maximum number of metadata entities per dataset. Default value: 10000000000.
    * 
    * @example
    * 10000000000
@@ -26,7 +21,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in each dataset. Valid values: 1 to 100,000,000. The default value is 100,000,000.
+   * The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 100000000.
    * 
    * @example
    * 100000000
@@ -34,7 +29,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in each dataset. The default value is 100,000,000,000.
+   * The maximum number of metadata relationships per dataset. Default value: 100000000000.
    * 
    * @example
    * 100000000000
@@ -42,7 +37,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total size of files in each dataset. You cannot add more indexes after exceeding this limit. The default value is 90,000,000,000,000,000 bytes.
+   * The maximum total file size per dataset, in bytes. After this limit is exceeded, no more indexes can be added. Default value: 90000000000000000.
    * 
    * @example
    * 90000000000000000
@@ -50,13 +45,10 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The dataset name. It must be unique within the same project. Naming conventions are as follows:
-   * 
-   * - Length: 1 to 128 characters.
-   * 
-   * - Only English letters, digits, hyphens (-), and underscores (_) are allowed.
-   * 
-   * - Must start with an English letter or an underscore (_).
+   * The dataset name. The name must be unique within the same project. The following naming rules apply:
+   * - The name must be 1 to 128 characters in length.
+   * - The name can contain only letters, digits, hyphens (-), and underscores (_).
+   * - The name must start with a letter or an underscore (_).
    * 
    * This parameter is required.
    * 
@@ -66,7 +58,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the dataset. Length: 1 to 256 English or Chinese characters. The default value is empty.
+   * The description of the dataset. The description can be 1 to 256 characters in length. Default value: empty.
    * 
    * @example
    * immtest
@@ -74,7 +66,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -84,7 +76,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The workflow template ID. For more information, see [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html). The default value is empty.
+   * The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html). Default value: empty.
    * 
    * @example
    * Official:ImageManagement
@@ -93,11 +85,12 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Invalid parameter.
+   * 
+   * @deprecated
    */
   workflowParametersShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -113,7 +106,6 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

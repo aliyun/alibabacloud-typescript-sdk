@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateProjectShrinkRequest extends $dara.Model {
-  datasetConfigShrink?: string;
   /**
    * @remarks
    * The maximum number of bindings for each dataset. Valid values: 1 to 10.
@@ -64,7 +63,7 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -97,7 +96,6 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -114,7 +112,6 @@ export class UpdateProjectShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentReadKeywordOption extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of keywords to return.
+   * The number of keywords. Valid values: 0 to 10.
+   * 
+   * @example
+   * 1
    */
   count?: number;
   /**
    * @remarks
-   * Whether to extract keywords from the document.
+   * Specifies whether to extract keywords.
+   * 
+   * @example
+   * true
    */
   extract?: boolean;
   static names(): { [key: string]: string } {

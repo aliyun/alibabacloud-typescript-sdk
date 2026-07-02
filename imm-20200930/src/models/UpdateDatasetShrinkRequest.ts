@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset configuration.
-   */
-  datasetConfigShrink?: string;
-  /**
-   * @remarks
-   * The maximum number of bindings for the dataset. Valid values: 1 to 10.
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10.
    * 
    * @example
    * 10
@@ -18,9 +13,8 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities, such as data files, file relationships, and cluster groups, in the dataset. The maximum value is 2^63 - 1.
-   * 
-   * > This parameter is reserved and not enforced in practice.
+   * The maximum number of metadata entities (including data files, file relationships, and clustering groups) in each dataset. The maximum value is 2^63-1.
+   * >This is a reserved parameter and is not enforced during use.
    * 
    * @example
    * 10000000000
@@ -28,7 +22,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in the dataset. Valid values: 1 to 100000000.
+   * The maximum number of files in each dataset. Valid values: 1 to 100000000.
    * 
    * @example
    * 100000000
@@ -36,9 +30,8 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in the dataset. The maximum value is 2^63 - 1.
-   * 
-   * > This parameter is reserved and not enforced in practice.
+   * The maximum number of metadata relationships in each dataset. The maximum value is 2^63-1.
+   * >This is a reserved parameter and is not enforced during use.
    * 
    * @example
    * 100000000000
@@ -46,7 +39,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total size of all files in the dataset, in bytes. If this limit is exceeded, you can no longer add new index entries. The maximum value is 2^63 - 1.
+   * The maximum total file size in each dataset. After this limit is exceeded, no more indexes can be added. The maximum value is 2^63-1. Unit: bytes.
    * 
    * @example
    * 90000000000000000
@@ -64,7 +57,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The dataset description.
+   * The description of the dataset.
    * 
    * @example
    * immtest
@@ -90,12 +83,13 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * This parameter is invalid.
+   * Invalid parameter.
+   * 
+   * @deprecated
    */
   workflowParametersShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -111,7 +105,6 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

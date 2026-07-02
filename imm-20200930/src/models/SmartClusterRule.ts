@@ -3,16 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SmartClusterRule extends $dara.Model {
+  /**
+   * @remarks
+   * The array of URIs for the reference files.
+   */
   baseURIs?: string[];
   /**
    * @remarks
-   * An array of keywords for clustering.
+   * The keywords.
    */
   keywords?: string[];
+  /**
+   * @remarks
+   * The rule type.
+   * 
+   * @example
+   * figure
+   */
   ruleType?: string;
   /**
    * @remarks
-   * The sensitivity for clustering, ranging from 0.0 to 1.0.
+   * The sensitivity.
    * 
    * @example
    * 0.5

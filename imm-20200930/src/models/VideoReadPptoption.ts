@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class VideoReadPPTOption extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to extract content from the presentation slides. Set this parameter to `true` to enable extraction.
+   * Specifies whether to fetch.
+   * 
+   * @example
+   * true
    */
   extract?: boolean;
   static names(): { [key: string]: string } {

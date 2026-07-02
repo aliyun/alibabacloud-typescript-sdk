@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The project name. For information about how to obtain the project name, see [创建项目](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class GetProjectRequest extends $dara.Model {
    * 
    * - File statistics are collected. The FileCount and TotalFileSize values in the returned Project struct are valid.
    * 
-   * - File statistics are not collected. The FileCount and TotalFileSize values in the returned Project struct may be inaccurate or both may be 0.
+   * - File statistics are not collected. The FileCount and TotalFileSize values in the returned Project struct may be inaccurate or zero.
    * 
-   * >Notice: Only files in datasets created before December 20, 2025 can be counted..
+   * >Notice: Only files in datasets created before December 20, 2025 can be counted.
    * 
    * @example
    * true
