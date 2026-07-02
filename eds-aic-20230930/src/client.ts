@@ -5861,6 +5861,10 @@ export default class Client extends OpenApi {
       query["ScheduleId"] = request.scheduleId;
     }
 
+    if (!$dara.isNull(request.targets)) {
+      query["Targets"] = request.targets;
+    }
+
     if (!$dara.isNull(request.taskConfigId)) {
       query["TaskConfigId"] = request.taskConfigId;
     }

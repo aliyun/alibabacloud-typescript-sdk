@@ -115,6 +115,7 @@ export { RecoveryFileResponseBodyData } from './RecoveryFileResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasksChildTasks } from './ResetAndroidInstancesInGroupResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasks } from './ResetAndroidInstancesInGroupResponseBody';
 export { ResumeAgentTaskResponseBodyTasks } from './ResumeAgentTaskResponseBody';
+export { RunAgentTaskRequestTargets } from './RunAgentTaskRequest';
 export { RunAgentTaskResponseBodyTasks } from './RunAgentTaskResponseBody';
 export { RunCommandResponseBodyRunCommandInfos } from './RunCommandResponseBody';
 export { RunSyncCommandResponseBodyData } from './RunSyncCommandResponseBody';

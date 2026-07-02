@@ -33,6 +33,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
    * 2026-04-13T17:42:19Z
    */
   runningAt?: string;
+  sessionId?: string;
   /**
    * @remarks
    * The task ID, which is globally unique.
@@ -54,6 +55,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
       currentStatus: 'CurrentStatus',
       instanceId: 'InstanceId',
       runningAt: 'RunningAt',
+      sessionId: 'SessionId',
       taskId: 'TaskId',
       userPrompt: 'UserPrompt',
     };
@@ -64,6 +66,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
       currentStatus: 'string',
       instanceId: 'string',
       runningAt: 'string',
+      sessionId: 'string',
       taskId: 'string',
       userPrompt: 'string',
     };

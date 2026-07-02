@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RunAgentTaskRequestTargets extends $dara.Model {
+  instanceId?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -14,8 +40,6 @@ export class RunAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
-   * 
-   * This parameter is required.
    */
   instanceIds?: string[];
   /**
@@ -27,6 +51,7 @@ export class RunAgentTaskRequest extends $dara.Model {
    */
   maxSteps?: number;
   scheduleId?: string;
+  targets?: RunAgentTaskRequestTargets[];
   taskConfigId?: string;
   /**
    * @remarks
@@ -50,6 +75,7 @@ export class RunAgentTaskRequest extends $dara.Model {
       instanceIds: 'InstanceIds',
       maxSteps: 'MaxSteps',
       scheduleId: 'ScheduleId',
+      targets: 'Targets',
       taskConfigId: 'TaskConfigId',
       timeoutSeconds: 'TimeoutSeconds',
       userPrompt: 'UserPrompt',
@@ -62,6 +88,7 @@ export class RunAgentTaskRequest extends $dara.Model {
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxSteps: 'number',
       scheduleId: 'string',
+      targets: { 'type': 'array', 'itemType': RunAgentTaskRequestTargets },
       taskConfigId: 'string',
       timeoutSeconds: 'number',
       userPrompt: 'string',
@@ -71,6 +98,9 @@ export class RunAgentTaskRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.targets)) {
+      $dara.Model.validateArray(this.targets);
     }
     super.validate();
   }
