@@ -5,25 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether resource expiration reminders are enabled.
+   * Indicates whether resource expiration reminders are enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
    */
   appInstanceGroupExpireRemind?: boolean;
+  /**
+   * @example
+   * None
+   */
+  multiSessionSupportType?: string;
+  multiSessionSupportedRegions?: string[];
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupExpireRemind: 'AppInstanceGroupExpireRemind',
+      multiSessionSupportType: 'MultiSessionSupportType',
+      multiSessionSupportedRegions: 'MultiSessionSupportedRegions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appInstanceGroupExpireRemind: 'boolean',
+      multiSessionSupportType: 'string',
+      multiSessionSupportedRegions: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.multiSessionSupportedRegions)) {
+      $dara.Model.validateArray(this.multiSessionSupportedRegions);
+    }
     super.validate();
   }
 

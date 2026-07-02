@@ -105,7 +105,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
 export class ListTagCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that indicates whether more results are available for the next query.
+   * The token that determines whether the next query exists based on the NextToken value.
    * 
    * @example
    * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
@@ -126,7 +126,7 @@ export class ListTagCloudResourcesResponseBody extends $dara.Model {
   resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 15

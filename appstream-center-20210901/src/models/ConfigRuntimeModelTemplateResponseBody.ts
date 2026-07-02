@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigRuntimeModelTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the execution fails.
+   * The error code returned when the execution fails.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ConfigRuntimeModelTemplateResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned if the execution fails.
+   * The HTTP status code returned when the execution fails.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ConfigRuntimeModelTemplateResponseBodyData extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the execution fails.
+   * The error message returned when the execution fails.
    * 
    * @example
    * The parameter callerUid may not be null.

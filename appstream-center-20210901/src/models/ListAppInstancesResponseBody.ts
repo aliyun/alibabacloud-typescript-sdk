@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the end user bound to the instance.
+   * The end user ID bound to the instance.
    * 
    * @example
    * app.test
@@ -69,7 +69,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
    * The billing method of the instance. Valid values:
    * - **PrePaid**: subscription.
    * - **PostPaid**: pay-as-you-go.
-   * > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
+   * > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * PostPaid
@@ -93,7 +93,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
+   * The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to the mixed pattern (`Mixed`). Otherwise, this value is empty.
    * 
    * @example
    * 10.13.13.211
@@ -104,7 +104,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   /**
    * @remarks
    * The ID of the node on which the instance runs.
-   * > This parameter is returned only when the billing mode of the delivery group to which the instance belongs is set to resource-based billing (ChargeResourceMode=Node).
+   * > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * i-bp13********

@@ -23,7 +23,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The list of application instance IDs. A maximum of 100 IDs can be specified.
+   * The list of application instance IDs. Maximum length: 100.
    * 
    * **if can be null:**
    * false
@@ -63,7 +63,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The list of user IDs. A maximum of 100 IDs can be specified.
+   * The list of user IDs. Maximum length: 100.
    */
   userIdList?: string[];
   static names(): { [key: string]: string } {
