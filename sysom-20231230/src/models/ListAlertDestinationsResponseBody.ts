@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertDestinationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. If authorization failed, view the `message` field to obtain detailed error message.
+   * Status code
+   * - `code == Success` indicates that the authorization was successful;
+   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information;
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Maximum number of records retrieved in a single request.
+   * Maximum number of records to retrieve at a time.
    * 
    * @example
    * 10
@@ -31,9 +31,9 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Error message.  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * Error message
+   * - If `code == Success`, this field is empty;
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * server error
@@ -41,7 +41,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paging token for the next request.
+   * Pagination token for the next request.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -57,7 +57,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * MaxResults is the maximum number of records returned in this request.
+   * Maximum number of records returned by this request
    * 
    * @example
    * 623

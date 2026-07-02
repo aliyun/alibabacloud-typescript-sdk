@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceHealthRequest extends $dara.Model {
   /**
    * @remarks
-   * cluster ID
+   * The cluster ID.
    * 
    * @example
    * 2dc6f3be-bf24-4070-8d3a-c03c26850532
@@ -13,7 +13,7 @@ export class ListInstanceHealthRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * Current page number for paging
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListInstanceHealthRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * End Time
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListInstanceHealthRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -39,7 +39,7 @@ export class ListInstanceHealthRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Page size. Default value is 5. Valid range: [1,100]
+   * The number of entries per page. Default value: 5. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListInstanceHealthRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * This parameter is required.
    * 

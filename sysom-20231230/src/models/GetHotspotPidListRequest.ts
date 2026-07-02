@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotPidListRequest extends $dara.Model {
   /**
    * @remarks
-   * stop time
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetHotspotPidListRequest extends $dara.Model {
   begEnd?: number;
   /**
    * @remarks
-   * start time
+   * The start time.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetHotspotPidListRequest extends $dara.Model {
   begStart?: number;
   /**
    * @remarks
-   * instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class GetHotspotPidListRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Table name to query
+   * The name of the table to query.
    * 
    * This parameter is required.
    * 

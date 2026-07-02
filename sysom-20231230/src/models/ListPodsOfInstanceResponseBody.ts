@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPodsOfInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Namespace where the pod resides
+   * The namespace in which the pod resides.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class ListPodsOfInstanceResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Pod Name
+   * The pod name.
    * 
    * @example
    * test-pod
@@ -53,7 +53,7 @@ export class ListPodsOfInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * Success
@@ -61,12 +61,12 @@ export class ListPodsOfInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data returned
+   * The returned data.
    */
   data?: ListPodsOfInstanceResponseBodyData[];
   /**
    * @remarks
-   * Error message; empty indicates that data reading is complete
+   * The error message. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class ListPodsOfInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The maximum number of records returned by this request
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 42

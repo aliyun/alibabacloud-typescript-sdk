@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AuthDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
-   * - If `code == Success`, the authorization succeeded.
-   * - Any other status code indicates that the authorization failed. In this case, check the `message` field for detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class AuthDiagnosisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * This API returns no data.
+   * This operation does not return data.
    * 
    * @example
    * {}
@@ -23,9 +23,9 @@ export class AuthDiagnosisResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
@@ -33,7 +33,7 @@ export class AuthDiagnosisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0

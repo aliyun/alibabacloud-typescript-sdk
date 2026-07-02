@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * 1808078950770264
@@ -13,7 +13,7 @@ export class GetResourcesRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -21,7 +21,7 @@ export class GetResourcesRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Resource type
+   * The resource type.
    * 
    * @example
    * mem

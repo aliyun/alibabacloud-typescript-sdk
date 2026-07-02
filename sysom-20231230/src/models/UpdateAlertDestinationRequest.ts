@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAlertDestinationRequestParams extends $dara.Model {
   /**
    * @remarks
-   * mailbox
+   * The email address.
    * 
    * @example
    * xxx@email.com
@@ -13,7 +13,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Phone number
+   * The phone number.
    * 
    * @example
    * 1xxx
@@ -21,7 +21,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Robot key
+   * The secret key of the chatbot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * Robot webhook address
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -65,7 +65,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
 export class UpdateAlertDestinationRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the alert contact
+   * The ID of the alert contact.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Name of the alert contact
+   * The name of the alert contact.
    * 
    * @example
    * name1
@@ -81,12 +81,12 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Configuration Parameter
+   * The configuration parameters.
    */
   params?: UpdateAlertDestinationRequestParams;
   /**
    * @remarks
-   * Source of the configuration
+   * The configuration source.
    * 
    * @example
    * console
@@ -94,7 +94,7 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Push Target for alerts. Currently, only DingTalk contacts are supported.
+   * The alert notification target. Currently, only DingTalk contacts are supported.
    * 
    * @example
    * dingtalk

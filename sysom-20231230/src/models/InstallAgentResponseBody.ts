@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job ID.  
+   * The task ID.
    * 
-   * You can use this job ID to invoke the GetAgentTask API to view the job execution status.
+   * You can use this task ID to call the GetAgentTask operation to retrieve the task execution status.
    * 
    * @example
    * 26b3cd97389c43dcad6bc4901c36fcec
@@ -37,7 +37,7 @@ export class InstallAgentResponseBodyData extends $dara.Model {
 export class InstallAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 1D8887FC-4BDB-5A1C-AB19-135C29A9E481
@@ -45,9 +45,9 @@ export class InstallAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Any other status code indicates that authorization failed. If authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -55,14 +55,14 @@ export class InstallAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The response data.
    */
   data?: InstallAgentResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * ""

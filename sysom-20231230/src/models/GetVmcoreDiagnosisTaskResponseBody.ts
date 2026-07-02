@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   /**
    * @remarks
-   * Download link for the debuginfo-common RPM package
+   * The download URL of the debuginfo-common RPM package.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/debuginfo-common/file/path
@@ -13,7 +13,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   debuginfoCommonUrl?: string;
   /**
    * @remarks
-   * Link to download the debuginfo RPM package
+   * The download URL of the debuginfo RPM package.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/debuginfo/file/path
@@ -21,7 +21,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   debuginfoUrl?: string;
   /**
    * @remarks
-   * Download link for the dmesg log
+   * The download URL of the dmesg log.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/dmesg/file/path
@@ -29,7 +29,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
   dmesgUrl?: string;
   /**
    * @remarks
-   * Download link for the vmcore file
+   * The download URL of the vmcore file.
    * 
    * @example
    * https://bucket-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/vmcore/file/path
@@ -65,7 +65,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyDataUrls extends $dara.Model {
 export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time
+   * The time when the task was created.
    * 
    * @example
    * 2025-12-02T17:36:12
@@ -73,7 +73,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Diagnosis Result
+   * The diagnostic result.
    * 
    * @example
    * result
@@ -81,7 +81,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   diagnoseResult?: string;
   /**
    * @remarks
-   * Diagnosis error message
+   * The diagnostic error message.
    * 
    * @example
    * error message
@@ -89,7 +89,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Job ID
+   * The task ID.
    * 
    * @example
    * bbe94a98-4192-4172-b856-95777e0a55d7
@@ -97,7 +97,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task Status
+   * The task status.
    * 
    * @example
    * running
@@ -105,7 +105,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * Task Type
+   * The task type.
    * 
    * @example
    * vmcore
@@ -113,7 +113,7 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * Download links for files associated with the job
+   * The download URLs of related files associated with the task.
    */
   urls?: GetVmcoreDiagnosisTaskResponseBodyDataUrls;
   static names(): { [key: string]: string } {
@@ -155,9 +155,9 @@ export class GetVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
 export class GetVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -165,14 +165,14 @@ export class GetVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result
+   * The returned result.
    */
   data?: GetVmcoreDiagnosisTaskResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

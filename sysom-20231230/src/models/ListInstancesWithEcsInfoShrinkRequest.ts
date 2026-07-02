@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * This field exists when using paging and indicates the current page.
+   * The page number for pagination. This parameter specifies the current page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Filter instances by health status.
+   * Filters instances by health status.
    * 
    * @example
    * healthy
@@ -21,7 +21,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * If this field is specified, filter the Agent installation status for the specified instance.
+   * Specifies an instance ID to filter the Agent installation status of the specified instance.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -29,7 +29,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Filter by instance name or instance ID. Fuzzy query is supported.
+   * Filters instances by instance name or instance ID. Fuzzy match is supported.
    * 
    * @example
    * 84b
@@ -37,7 +37,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   instanceIdName?: string;
   /**
    * @remarks
-   * Widget instance name.
+   * The name of the component instance.
    * 
    * @example
    * block-load-balancer-hjdm9
@@ -45,12 +45,12 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Filter by tags of instances.
+   * Filters instances by instance tag.
    */
   instanceTagShrink?: string;
   /**
    * @remarks
-   * Filter instances by managed status.
+   * Filters instances by management status.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   isManaged?: number;
   /**
    * @remarks
-   * Filter instances by operating system name.
+   * Filters instances by operating system name.
    * 
    * @example
    * Alibaba Cloud Linux  3.2104 LTS 64bit
@@ -66,7 +66,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   osName?: string;
   /**
    * @remarks
-   * Page size. Default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filter instances by private IP address.
+   * Filters instances by private IP address.
    * 
    * @example
    * 1.1.1.1
@@ -82,7 +82,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   privateIp?: string;
   /**
    * @remarks
-   * Filter instances by public IP address.
+   * Filters instances by public IP address.
    * 
    * @example
    * 1.1.1.1
@@ -90,7 +90,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * Filter instances by region.
+   * Filters instances by region.
    * 
    * This parameter is required.
    * 
@@ -100,7 +100,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filter instances by resource group ID.
+   * Filters instances by resource group ID.
    * 
    * @example
    * rg-xxxxxxx
@@ -108,7 +108,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Filter by resource group name or resource group ID. Fuzzy query is supported.
+   * Filters instances by resource group name or resource group ID. Fuzzy match is supported.
    * 
    * @example
    * default
@@ -116,7 +116,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
   resourceGroupIdName?: string;
   /**
    * @remarks
-   * Filter instances by resource group name.
+   * Filters instances by resource group name.
    * 
    * @example
    * default resource group

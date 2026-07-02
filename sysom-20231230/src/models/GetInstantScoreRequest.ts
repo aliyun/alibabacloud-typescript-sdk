@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstantScoreRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * Cluster ID.
    * 
    * @example
    * 2ijff4be-bf24-4070-89ca-c47c879b0g32

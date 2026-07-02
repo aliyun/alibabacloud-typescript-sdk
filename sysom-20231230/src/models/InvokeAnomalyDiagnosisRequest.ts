@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeAnomalyDiagnosisRequest extends $dara.Model {
   /**
    * @remarks
-   * UUID corresponding to the anomalous activity
+   * The UUID of the anomaly event.
    * 
    * @example
    * 8047d763-5465-4a8c-b1cd-23f5a8ba2594

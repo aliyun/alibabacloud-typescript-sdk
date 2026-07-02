@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesEcsInfoListRequest extends $dara.Model {
   /**
    * @remarks
-   * Type of information to retrieve
+   * The type of information to retrieve.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListInstancesEcsInfoListRequest extends $dara.Model {
   infoType?: string;
   /**
    * @remarks
-   * If this field is specified, the response filters and returns the Agent installation status for the specified instance.
+   * Specifies the instance ID to filter and return the Agent installation status of the specified instance.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -23,7 +23,7 @@ export class ListInstancesEcsInfoListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Management status of the instance
+   * The management status of the instance.
    * 
    * @example
    * managed
@@ -31,7 +31,7 @@ export class ListInstancesEcsInfoListRequest extends $dara.Model {
   managedType?: string;
   /**
    * @remarks
-   * If this parameter is specified, the response filters and returns the instance information list for the corresponding widget.
+   * Specifies the component ID to filter and return the instance information list for the corresponding component.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -39,7 +39,7 @@ export class ListInstancesEcsInfoListRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Filter instances by area
+   * The region used to filter instances.
    * 
    * This parameter is required.
    * 

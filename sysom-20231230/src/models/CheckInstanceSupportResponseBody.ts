@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * ECS instance ID
+   * The ECS instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -13,7 +13,7 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * When `success` is false, this value is not empty and indicates the reason why the instance cannot be managed by SysOM.
+   * The reason why the instance cannot be managed. This field is not empty when success is false.
    * 
    * @example
    * instance not found in ecs
@@ -21,9 +21,9 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * Indicates whether the instance can be managed by SysOM.  
+   * Indicates whether the instance can be managed by SysOM.
    * 
-   * - **true**: The instance can be managed by SysOM.  
+   * - **true**: The instance can be managed by SysOM.
    * 
    * - **false**: The instance cannot be managed by SysOM.
    * 
@@ -59,9 +59,9 @@ export class CheckInstanceSupportResponseBodyData extends $dara.Model {
 export class CheckInstanceSupportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -69,12 +69,12 @@ export class CheckInstanceSupportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: CheckInstanceSupportResponseBodyData[];
   /**
    * @remarks
-   * Error message. When code != Success, the error message is stored here.
+   * The error message. This field contains the error information when code is not Success.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAbnormalyEventsResponseBodyDataOptsResult extends $dara.Model {
   /**
    * @remarks
-   * Diagnosis status
+   * The diagnostic status.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class ListAbnormalyEventsResponseBodyDataOptsResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Diagnosis details URL
+   * The URL of the diagnostic details.
    * 
    * @example
    * /diagnose/result/PhfFg456
@@ -45,7 +45,7 @@ export class ListAbnormalyEventsResponseBodyDataOptsResult extends $dara.Model {
 export class ListAbnormalyEventsResponseBodyDataOpts extends $dara.Model {
   /**
    * @remarks
-   * Operation Type
+   * The operation type.
    * 
    * @example
    * diagnose
@@ -53,12 +53,12 @@ export class ListAbnormalyEventsResponseBodyDataOpts extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * Diagnosis result of the abnormal item
+   * The diagnostic result of the anomaly item.
    */
   result?: ListAbnormalyEventsResponseBodyDataOptsResult;
   /**
    * @remarks
-   * Diagnosis Type
+   * The diagnostic type.
    * 
    * @example
    * auto
@@ -95,7 +95,7 @@ export class ListAbnormalyEventsResponseBodyDataOpts extends $dara.Model {
 export class ListAbnormalyEventsResponseBodyDataRawMetrics extends $dara.Model {
   /**
    * @remarks
-   * End Time
+   * The end time.
    * 
    * @example
    * 1761814928
@@ -103,12 +103,12 @@ export class ListAbnormalyEventsResponseBodyDataRawMetrics extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * List of metric values.
+   * The list of metric values.
    */
   metrics?: string[];
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 1761814928
@@ -145,7 +145,7 @@ export class ListAbnormalyEventsResponseBodyDataRawMetrics extends $dara.Model {
 export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1725801090000
@@ -153,7 +153,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * Detailed description of the anomalous item.
+   * The detailed description of the anomaly item.
    * 
    * @example
    * 节点发生OOM, 可查看OOM发生原因
@@ -161,7 +161,12 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Diagnosis status (1 indicates diagnosis ready, 2 indicates running, 3 indicates completed, 4 indicates undiagnosable, 5 indicates failed)
+   * The diagnostic status. Valid values:
+   * - 1: diagnosis ready.
+   * - 2: diagnosis in progress.
+   * - 3: diagnosis completed.
+   * - 4: not diagnosable.
+   * - 5: diagnosis failed.
    * 
    * @example
    * 3
@@ -169,7 +174,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   diagStatus?: number;
   /**
    * @remarks
-   * End time of the anomalous activity.
+   * The end time of the anomaly event.
    * 
    * @example
    * 1725797727754
@@ -177,7 +182,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   endAt?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -185,7 +190,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Name of the anomalous item.
+   * The name of the anomaly item.
    * 
    * @example
    * 节点CPU使用率检测
@@ -193,7 +198,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   item?: string;
   /**
    * @remarks
-   * Level of the anomalous item.
+   * The level of the anomaly item.
    * 
    * @example
    * potential
@@ -201,7 +206,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Namespace where the pod is located
+   * The namespace of the pod.
    * 
    * @example
    * default
@@ -209,12 +214,12 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * List of operations for the abnormal item
+   * The list of operations for the anomaly item.
    */
   opts?: ListAbnormalyEventsResponseBodyDataOpts[];
   /**
    * @remarks
-   * Pod name.
+   * The pod name.
    * 
    * @example
    * test-pod
@@ -222,12 +227,12 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * Raw metrics
+   * The raw metrics.
    */
   rawMetrics?: ListAbnormalyEventsResponseBodyDataRawMetrics;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -235,7 +240,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Type of abnormal item
+   * The type of the anomaly item.
    * 
    * @example
    * saturation
@@ -243,7 +248,7 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * UUID corresponding to the anomalous activity
+   * The UUID of the anomaly event.
    * 
    * @example
    * 43f05b46-1034-42e8-a528-6e5ca1108277
@@ -305,9 +310,9 @@ export class ListAbnormalyEventsResponseBodyData extends $dara.Model {
 export class ListAbnormalyEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.  
-   * - If `code == Success`, authorization succeeded.  
-   * - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization was successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -315,12 +320,12 @@ export class ListAbnormalyEventsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The returned result.
    */
   data?: ListAbnormalyEventsResponseBodyData[];
   /**
    * @remarks
-   * Error code description; empty if no error
+   * The error code description. This value is empty if no error occurred.
    * 
    * @example
    * Success
@@ -328,7 +333,7 @@ export class ListAbnormalyEventsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 4

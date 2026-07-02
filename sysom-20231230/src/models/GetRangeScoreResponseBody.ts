@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRangeScoreResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Time point
+   * The point in time.
    * 
    * @example
    * 1725797727754
@@ -13,7 +13,7 @@ export class GetRangeScoreResponseBodyData extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * Metric type
+   * The metric type.
    * 
    * @example
    * saturation
@@ -21,7 +21,7 @@ export class GetRangeScoreResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Score
+   * The score.
    * 
    * @example
    * 100
@@ -55,9 +55,9 @@ export class GetRangeScoreResponseBodyData extends $dara.Model {
 export class GetRangeScoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -65,14 +65,14 @@ export class GetRangeScoreResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetRangeScoreResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * ""
@@ -80,7 +80,7 @@ export class GetRangeScoreResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -88,7 +88,7 @@ export class GetRangeScoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total data volume.
+   * The total amount of data.
    * 
    * @example
    * 2

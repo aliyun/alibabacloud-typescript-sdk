@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * This field exists when paging is used and indicates the current page (starting from 1).
+   * The current page number (starting from 1). This field is present when pagination is used.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListInstanceStatusRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9b9vucz1iubsz355rh
@@ -21,7 +21,7 @@ export class ListInstanceStatusRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Number of entries returned per page. Default value: pageSize=10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListInstanceStatusRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shenzhen
@@ -37,7 +37,7 @@ export class ListInstanceStatusRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filter the instance list by status. If this field is specified, only instances with the corresponding status are returned.
+   * Filters the instance list by status. If this field is specified, only instances with the corresponding status are returned.
    * 
    * @example
    * Running

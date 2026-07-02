@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotTrackingResponseBodyDataFlame extends $dara.Model {
   /**
    * @remarks
-   * List of column names
+   * The list of field names.
    */
   columns?: string[];
   /**
    * @remarks
-   * List of flame graph data
+   * The list of flame graph data.
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetHotspotTrackingResponseBodyDataFlame extends $dara.Model {
 export class GetHotspotTrackingResponseBodyDataSeries extends $dara.Model {
   /**
    * @remarks
-   * List of column names
+   * The list of field names.
    */
   columns?: string[];
   /**
    * @remarks
-   * List of hot spot metric data
+   * The list of hot spot time series data.
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class GetHotspotTrackingResponseBodyDataSeries extends $dara.Model {
 export class GetHotspotTrackingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Flame graph data
+   * The flame graph data.
    */
   flame?: GetHotspotTrackingResponseBodyDataFlame;
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: GetHotspotTrackingResponseBodyDataSeries;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetHotspotTrackingResponseBodyData extends $dara.Model {
 export class GetHotspotTrackingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -133,12 +133,12 @@ export class GetHotspotTrackingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: GetHotspotTrackingResponseBodyData;
   /**
    * @remarks
-   * Return message
+   * The response message.
    * 
    * @example
    * Success
@@ -146,7 +146,7 @@ export class GetHotspotTrackingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822

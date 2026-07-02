@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllInstancesResponseBodyDataAttributes extends $dara.Model {
   /**
    * @remarks
-   * information key
+   * Information key.
    * 
    * @example
    * sysom
@@ -13,7 +13,7 @@ export class ListAllInstancesResponseBodyDataAttributes extends $dara.Model {
   infoKey?: string;
   /**
    * @remarks
-   * information type
+   * Information type.
    * 
    * @example
    * instance_tag
@@ -21,7 +21,7 @@ export class ListAllInstancesResponseBodyDataAttributes extends $dara.Model {
   infoType?: string;
   /**
    * @remarks
-   * information value
+   * Information value.
    * 
    * @example
    * diagnosis
@@ -55,7 +55,7 @@ export class ListAllInstancesResponseBodyDataAttributes extends $dara.Model {
 export class ListAllInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent configuration ID
+   * Agent configuration ID.
    * 
    * @example
    * test_id
@@ -63,7 +63,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   agentConfigId?: string;
   /**
    * @remarks
-   * Agent configuration name
+   * Agent configuration name.
    * 
    * @example
    * test_name
@@ -71,12 +71,12 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   agentConfigName?: string;
   /**
    * @remarks
-   * Extension information.
+   * Extended information.
    */
   attributes?: ListAllInstancesResponseBodyDataAttributes[];
   /**
    * @remarks
-   * Cluster ID
+   * Cluster ID.
    * 
    * @example
    * 3b24a621-acb3-11ef-8c90-00163e1029af
@@ -84,7 +84,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * Cluster name.
    * 
    * @example
    * zjk_vpc_domain_1
@@ -100,7 +100,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Installation level
+   * Installation level.
    * 
    * @example
    * Cluster
@@ -108,7 +108,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   installLevel?: string;
   /**
    * @remarks
-   * Installation type
+   * Installation type.
    * 
    * @example
    * console
@@ -116,7 +116,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   installType?: string;
   /**
    * @remarks
-   * Instance ID
+   * Instance ID.
    * 
    * @example
    * i-bp17uabeke9v7n30abm2
@@ -132,7 +132,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Instance type
+   * Instance type.
    * 
    * @example
    * ecs
@@ -140,7 +140,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Milvus version
+   * Kernel version.
    * 
    * @example
    * 5.10.134-18.al8.x86_64
@@ -148,7 +148,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   kernelVersion?: string;
   /**
    * @remarks
-   * Management level
+   * Management level.
    * 
    * @example
    * cluster
@@ -156,7 +156,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   manageLevel?: string;
   /**
    * @remarks
-   * Management type
+   * Management type.
    * 
    * @example
    * managed
@@ -164,7 +164,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   manageType?: string;
   /**
    * @remarks
-   * Operating system architecture
+   * Operating system architecture.
    * 
    * @example
    * x86_64
@@ -172,7 +172,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   osArch?: string;
   /**
    * @remarks
-   * Operating system health score
+   * Operating system health score.
    * 
    * @example
    * 100
@@ -180,7 +180,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   osHealthScore?: number;
   /**
    * @remarks
-   * Operating system name
+   * Operating system name.
    * 
    * @example
    * alios
@@ -204,7 +204,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * 3b24a621-acb3-11ef-8c90-00163e1029af
@@ -212,7 +212,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource group name
+   * Resource group name.
    * 
    * @example
    * xxxx
@@ -220,11 +220,13 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The running status of the instance. Valid values:
+   * Running status of the instance. Valid values:
    * - **Running**: The instance is running.
    * - **Offline**: The instance is offline.
    * 
-   * > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. It does not mean that the corresponding ECS instance is not running.
+   * 
+   * 
+   * > An instance in the Offline status indicates that the heartbeat from the node to the SysOM server is lost. It does not necessarily mean that the corresponding ECS instance is not running.
    * 
    * @example
    * Running
@@ -299,7 +301,7 @@ export class ListAllInstancesResponseBodyData extends $dara.Model {
 export class ListAllInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * Status code.
    * 
    * @example
    * Success
@@ -307,12 +309,12 @@ export class ListAllInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Returned data.
    */
   data?: ListAllInstancesResponseBodyData[];
   /**
    * @remarks
-   * Maximum number of returned items
+   * Maximum number of results returned.
    * 
    * @example
    * 20
@@ -320,9 +322,9 @@ export class ListAllInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Error message:
+   * Error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message of the request.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * instance not exists
@@ -330,9 +332,9 @@ export class ListAllInstancesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paging cursor.
+   * Pagination token.
    * 
-   * > If not empty, more data is available.
+   * > A non-empty value indicates that more data is available.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4

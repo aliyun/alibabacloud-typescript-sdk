@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVmcoreDiagnosisTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates jobs from the past days days, up to a maximum of 30 days
+   * Specifies the tasks from the past number of days, up to a maximum of 30 days
    * 
    * This parameter is required.
    * 

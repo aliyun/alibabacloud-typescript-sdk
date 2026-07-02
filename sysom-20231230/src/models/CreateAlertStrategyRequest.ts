@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertStrategyRequestStrategy extends $dara.Model {
   /**
    * @remarks
-   * Set of clusters that receive alerts
+   * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
   destinations?: number[];
   /**
    * @remarks
-   * Set of abnormal items that trigger alerts
+   * The collection of anomaly items for which alerts are received.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
 export class CreateAlertStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether the alert policy is enabled
+   * Specifies whether the alert strategy is enabled.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
-   * Alert policy name
+   * The name of the alert strategy.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Details of the alert policy
+   * The details of the alert strategy.
    * 
    * This parameter is required.
    */

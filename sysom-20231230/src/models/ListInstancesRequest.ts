@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * xxxxx
@@ -13,7 +13,7 @@ export class ListInstancesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * This field exists when paging is used and indicates the current page.
+   * The current page number. This field exists when pagination is used.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListInstancesRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Filter by ECS instance ID
+   * The ECS instance ID used to filter results.
    * 
    * @example
    * i-8vbfd3g9vs32sfuvv38h
@@ -29,7 +29,7 @@ export class ListInstancesRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Page size. Default value is 20. Valid range: [1, 100].
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filter instances by area
+   * Filters instances by region.
    * 
    * @example
    * cn-shenzhen
@@ -45,7 +45,7 @@ export class ListInstancesRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filter instances by status
+   * Filters instances by status.
    * 
    * @example
    * Running

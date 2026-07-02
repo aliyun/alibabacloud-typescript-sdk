@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   /**
    * @remarks
-   * Configuration process
+   * The configuration process.
    * 
    * @example
    * java
@@ -13,7 +13,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   addCmd?: string;
   /**
    * @remarks
-   * ONCPU tracing Toggle
+   * The ONCPU tracing switch.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Duration in seconds (s)
+   * The start duration, in seconds (s).
    * 
    * @example
    * 3600
@@ -29,7 +29,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Storage Path
+   * The storage path.
    * 
    * @example
    * /tmp/sysom/java-profiler
@@ -37,7 +37,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   javaStorePath?: string;
   /**
    * @remarks
-   * Edit Lock tracing Toggle
+   * The lock tracing switch.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   locks?: string;
   /**
    * @remarks
-   * Tracing epoch
+   * The tracing cycle.
    * 
    * @example
    * -1
@@ -53,7 +53,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   loop?: number;
   /**
    * @remarks
-   * Memory tracing Toggle
+   * The memory tracing switch.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   mem?: string;
   /**
    * @remarks
-   * Process PID
+   * The process PID.
    * 
    * @example
    * 1243
@@ -69,7 +69,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   pid?: number;
   /**
    * @remarks
-   * System tracing toggle
+   * The system tracing switch.
    * 
    * @example
    * true
@@ -115,12 +115,12 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
 export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   /**
    * @remarks
-   * Configuration Parameter
+   * The configuration parameters.
    */
   args?: UpdateFuncSwitchRecordRequestParamsArgs;
   /**
    * @remarks
-   * Feature Name
+   * The feature name.
    * 
    * This parameter is required.
    * 
@@ -130,7 +130,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * i-2zei55fwj8nnu31h3z46
@@ -138,7 +138,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Operation Type
+   * The operation type.
    * 
    * @example
    * restart
@@ -146,7 +146,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * Region to which the instance belongs. Ensure that all instance IDs passed in the instances field belong to the same region.
+   * The region to which the instance belongs. All instance IDs passed in instances must belong to the same region.
    * 
    * @example
    * cn-beijing
@@ -154,7 +154,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1664516888213680
@@ -197,7 +197,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
 export class UpdateFuncSwitchRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * Diagnosis channel (currently fixed to the ecs channel)
+   * The diagnostic channel. Currently, this parameter is fixed to the ECS channel.
    * 
    * This parameter is required.
    * 
@@ -207,14 +207,14 @@ export class UpdateFuncSwitchRecordRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Diagnosis parameters. Different diagnosis types require different diagnosis parameters. You can use this field to filter records whose parameters match specified values.
+   * The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
    * 
    * This parameter is required.
    */
   params?: UpdateFuncSwitchRecordRequestParams;
   /**
    * @remarks
-   * Service Name
+   * The service name.
    * 
    * This parameter is required.
    * 

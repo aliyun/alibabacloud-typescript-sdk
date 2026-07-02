@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceHealthResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of container image names in the pod.
+   * The list of container image names in the Pod.
    */
   images?: string[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -18,7 +18,7 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Namespace where the pod resides.
+   * The namespace of the Pod.
    * 
    * @example
    * default
@@ -26,7 +26,7 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Pod name.
+   * The Pod name.
    * 
    * @example
    * test-pod
@@ -34,7 +34,7 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -42,7 +42,7 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Health score value.
+   * The health score.
    * 
    * @example
    * 100
@@ -50,11 +50,13 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * Running status of the instance. Valid values:  
-   * - **Running**: The instance is running.  
-   * - **Offline**: The instance is offline.  
+   * The running status of the instance. Valid values:
+   * - **Running**: running.
+   * - **Offline**: offline.
    * 
-   * > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM server has been lost. This does not mean that the corresponding ECS instance is not running.
+   * 
+   * 
+   * > An instance in the Offline status indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
    * 
    * @example
    * Running
@@ -99,9 +101,9 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
 export class ListInstanceHealthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Other status codes indicate that authorization failed. When authorization fails, check the `message` field for detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -109,14 +111,14 @@ export class ListInstanceHealthResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListInstanceHealthResponseBodyData[];
   /**
    * @remarks
-   * error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * Query no data
@@ -124,7 +126,7 @@ export class ListInstanceHealthResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -132,7 +134,7 @@ export class ListInstanceHealthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of query results.
    * 
    * @example
    * 42

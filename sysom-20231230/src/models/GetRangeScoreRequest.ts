@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRangeScoreRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * 2ijff4be-bf24-4070-89ca-c47c879b0g32
@@ -13,7 +13,7 @@ export class GetRangeScoreRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * End Time
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetRangeScoreRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -31,7 +31,7 @@ export class GetRangeScoreRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * This parameter is required.
    * 

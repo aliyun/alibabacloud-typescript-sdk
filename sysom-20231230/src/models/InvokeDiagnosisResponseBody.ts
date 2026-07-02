@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeDiagnosisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Diagnostic task ID. You can use this ID to invoke the `GetDiagnosisResult` API to query the diagnosis result.
+   * Diagnosis task ID. You can use this ID to call the `GetDiagnosisResult` API to query the diagnosis result.
    * 
    * @example
    * ihqhAcrt
@@ -35,8 +35,8 @@ export class InvokeDiagnosisResponseBodyData extends $dara.Model {
 export class InvokeDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
+   * Status code.
+   * - If `code == Success`, the authorization is successful.
    * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
    * 
    * @example
@@ -45,14 +45,14 @@ export class InvokeDiagnosisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * Response result.
    */
   data?: InvokeDiagnosisResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * Error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
@@ -60,7 +60,7 @@ export class InvokeDiagnosisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * Request ID.
    * 
    * @example
    * 43A910E9-A739-525E-855D-A32C257F1826

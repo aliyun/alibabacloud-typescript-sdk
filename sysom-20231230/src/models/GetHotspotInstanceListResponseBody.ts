@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Column Name
+   * Field names
    */
   columns?: string[];
   /**
    * @remarks
-   * Instance List
+   * Instance list
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
 export class GetHotspotInstanceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code
+   * Error code
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -53,7 +53,7 @@ export class GetHotspotInstanceListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    */
   data?: GetHotspotInstanceListResponseBodyData;
   /**

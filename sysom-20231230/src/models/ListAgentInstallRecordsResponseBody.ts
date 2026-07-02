@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2024-11-27T16:37:53
@@ -13,7 +13,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * instance ID
+   * The instance ID.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -21,7 +21,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * widget ID
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -29,7 +29,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * plugin Version
+   * The plug-in version.
    * 
    * @example
    * 3.4.0-1
@@ -37,7 +37,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   pluginVersion?: string;
   /**
    * @remarks
-   * widget status
+   * The component status.
    * 
    * @example
    * Installed
@@ -45,7 +45,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Updated At
+   * The update time.
    * 
    * @example
    * 2024-11-27T16:37:53
@@ -85,7 +85,7 @@ export class ListAgentInstallRecordsResponseBodyData extends $dara.Model {
 export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end Diagnosis
+   * The request ID, which is active for end-to-end diagnostics.
    * 
    * @example
    * E8CDFBA1-0564-5897-B070-D3C85002AF2F
@@ -93,9 +93,9 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -103,14 +103,14 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The returned results.
    */
   data?: ListAgentInstallRecordsResponseBodyData[];
   /**
    * @remarks
-   * error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error message for the request.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
@@ -118,7 +118,7 @@ export class ListAgentInstallRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 64

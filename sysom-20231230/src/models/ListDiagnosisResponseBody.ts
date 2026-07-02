@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnosisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Diagnosis error code; 0 indicates no error
+   * Diagnostic error code. 0 indicates no error.
    * 
    * @example
    * 0
@@ -36,7 +36,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   command?: any;
   /**
    * @remarks
-   * Creation Time
+   * Creation time
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -52,7 +52,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * Diagnosis parameters
+   * Diagnostic parameters
    * 
    * @example
    * {
@@ -66,7 +66,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * Diagnosis result
+   * Diagnostic result
    * 
    * @example
    * {
@@ -290,7 +290,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   result?: any;
   /**
    * @remarks
-   * Diagnosis Type
+   * Diagnostic type
    * 
    * @example
    * memgraph
@@ -298,12 +298,12 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Status of the diagnostic task execution.  
-   * Valid values:  
-   * - **Ready**: Ready  
-   * - **Running**: Running  
-   * - **Success**: Succeeded  
-   * - **Fail**: Failed
+   * Execution status of the diagnostic task.
+   * Valid values:
+   * - **Ready**: Ready
+   * - **Running**: Running
+   * - **Success**: Execution succeeded
+   * - **Fail**: Execution failed
    * 
    * @example
    * Running
@@ -311,7 +311,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Job ID.
+   * Task ID.
    * 
    * @example
    * grcuU21a
@@ -319,7 +319,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Update Time
+   * Update time
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -327,7 +327,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Diagnostic details URL
+   * URL for diagnostic details
    * 
    * @example
    * /diagnose/detail/qe3Z34sa
@@ -377,7 +377,7 @@ export class ListDiagnosisResponseBodyData extends $dara.Model {
 export class ListDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * Request ID, which can be used for full-link diagnostics
    * 
    * @example
    * 44841312-7227-55C9-AE03-D59729BFAE38
@@ -385,9 +385,9 @@ export class ListDiagnosisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information;
+   * Status code
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
    * 
    * @example
    * Success
@@ -400,8 +400,8 @@ export class ListDiagnosisResponseBody extends $dara.Model {
   data?: ListDiagnosisResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
+   * Error message
+   * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * This parameter is required.
@@ -412,7 +412,7 @@ export class ListDiagnosisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total count
+   * Total
    * 
    * @example
    * 319

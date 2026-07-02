@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   /**
    * @remarks
-   * Set of clusters that receive alerts
+   * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
   destinations?: number[];
   /**
    * @remarks
-   * Set of abnormal items that receive alerts
+   * 接收告警的异常项合计
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
 export class UpdateAlertStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether the alert policy is enabled
+   * Specifies whether the alert policy is enabled.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Alert policy ID
+   * The ID of the alert policy.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
-   * Alert policy name
+   * The Policy Name of the alerting policy.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Alert policy details
+   * The details of the alert policy.
    * 
    * This parameter is required.
    */

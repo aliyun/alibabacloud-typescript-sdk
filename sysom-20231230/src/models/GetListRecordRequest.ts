@@ -3,17 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetListRecordRequest extends $dara.Model {
+  analysisId?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 5
    */
   current?: number;
+  customId?: number;
   /**
    * @remarks
-   * Number of data entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +23,7 @@ export class GetListRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +31,9 @@ export class GetListRecordRequest extends $dara.Model {
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      analysisId: 'analysisId',
       current: 'current',
+      customId: 'customId',
       pageSize: 'pageSize',
       region: 'region',
     };
@@ -37,7 +41,9 @@ export class GetListRecordRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analysisId: 'string',
       current: 'number',
+      customId: 'number',
       pageSize: 'number',
       region: 'string',
     };

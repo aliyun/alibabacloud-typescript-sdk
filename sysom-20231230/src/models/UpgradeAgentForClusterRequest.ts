@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAgentForClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * widget ID
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -13,7 +13,7 @@ export class UpgradeAgentForClusterRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * widget Version
+   * The component version.
    * 
    * @example
    * 3.4.0-1
@@ -21,9 +21,9 @@ export class UpgradeAgentForClusterRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * cluster ID.  
+   * The cluster ID.
    * 
-   * > This cluster ID must be the ID of the ACK cluster.
+   * > The cluster ID must be the ID of an ACK cluster.
    * 
    * @example
    * c1c187fd513cb41a19876bac0e6b05212

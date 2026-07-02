@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitialSysomResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service role exists
+   * Indicates whether the service-linked role exists.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class InitialSysomResponseBodyData extends $dara.Model {
 export class InitialSysomResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 3FCA2E38-2A8E-5501-93BD-5CE1BA58F2EF
@@ -43,9 +43,9 @@ export class InitialSysomResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Any other status code indicates a failed authorization. In such cases, view the `message` field for detailed error information.
+   * The status code.
+   * - `code == Success`: The authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,14 +53,14 @@ export class InitialSysomResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The response data.
    */
   data?: InitialSysomResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

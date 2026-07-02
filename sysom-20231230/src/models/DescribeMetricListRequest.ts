@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricListRequest extends $dara.Model {
   /**
    * @remarks
-   * End time, in seconds as a UNIX timestamp
+   * The end time as a UNIX timestamp in seconds.
    * 
    * @example
    * 1683618245000
@@ -13,7 +13,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -21,7 +21,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Metric name
+   * The metric name.
    * 
    * @example
    * sysom_cpu_graph
@@ -29,7 +29,7 @@ export class DescribeMetricListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Start time, in seconds as a UNIX timestamp
+   * The start time as a UNIX timestamp in seconds.
    * 
    * @example
    * 1709740800000

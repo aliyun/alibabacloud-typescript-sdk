@@ -35,7 +35,7 @@ export class StartAIAnalysisResponseBodyData extends $dara.Model {
 export class StartAIAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * Response code.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class StartAIAnalysisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Response data
    */
   data?: StartAIAnalysisResponseBodyData;
   /**

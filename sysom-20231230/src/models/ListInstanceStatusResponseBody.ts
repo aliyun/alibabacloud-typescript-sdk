@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -13,7 +13,7 @@ export class ListInstanceStatusResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,11 +21,13 @@ export class ListInstanceStatusResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Instance running status. Valid values:  
-   * - **Running**: Running  
-   * - **Offline**: Offline  
+   * The running status of the instance. Valid values:
+   * - **Running**: running.
+   * - **Offline**: offline.
    * 
-   * > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM server is lost. This does not mean that the corresponding ECS instance is not running.
+   * 
+   * 
+   * > An instance in the Offline status indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
    * 
    * @example
    * Running
@@ -59,7 +61,7 @@ export class ListInstanceStatusResponseBodyData extends $dara.Model {
 export class ListInstanceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 5BC79EF5-798B-5499-9683-4E14EBBBF712
@@ -67,9 +69,9 @@ export class ListInstanceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed error message.
    * 
    * @example
    * Success
@@ -77,14 +79,14 @@ export class ListInstanceStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: ListInstanceStatusResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
@@ -92,7 +94,7 @@ export class ListInstanceStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 218

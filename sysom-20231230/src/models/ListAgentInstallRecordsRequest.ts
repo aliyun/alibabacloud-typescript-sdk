@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentInstallRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number (starting from 1)
+   * The current page number. Pages start from page 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * If this field is specified, the response filters the Agent installation status for the specified instance.
+   * The ID of the instance. If you specify this parameter, only the Agent installation records for the specified instance are returned.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -21,7 +21,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * If this parameter is specified, the response filters the installation list for the specified Agent. It can be used together with the plugin_version parameter.
+   * The ID of the Agent. If you specify this parameter, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -37,7 +37,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * This parameter cannot be used alone. It must be used together with plugin_id to filter the installation list for a specified version of the specified Agent.
+   * The version of the Agent. This parameter cannot be used alone. Use this parameter together with the plugin_id parameter to filter installation records for a specific version of the specified Agent.
    * 
    * @example
    * 3.4.0-1
@@ -45,7 +45,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pluginVersion?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Filter widget installation records by status
+   * Filters component installation records by status.
    * 
    * @example
    * Installed

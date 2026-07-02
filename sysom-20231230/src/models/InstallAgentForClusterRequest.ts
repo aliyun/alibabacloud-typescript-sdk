@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAgentForClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Widget ID
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -13,7 +13,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Widget version
+   * The component version.
    * 
    * @example
    * 3.4.0-1
@@ -21,9 +21,9 @@ export class InstallAgentForClusterRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Cluster ID.  
+   * The cluster ID.
    * 
-   * > You must pass the ID of the ACK cluster here.
+   * > The cluster ID here must be an ACK cluster ID.
    * 
    * @example
    * c9d7f3fc3d42942afbcb65c1100ffb19d
@@ -31,7 +31,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Widget configuration ID
+   * The component configuration ID.
    * 
    * @example
    * 8gj86wrt7-3170-412c-8e67-da3389ecg6a9
@@ -39,7 +39,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * Canary release environment
+   * The canary release configuration.
    * 
    * @example
    * {"type":"numeric","config":{"value":2}}

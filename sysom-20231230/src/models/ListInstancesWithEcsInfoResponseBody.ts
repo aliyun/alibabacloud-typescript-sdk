@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesWithEcsInfoResponseBodyDataInstanceTag extends $dara.Model {
   /**
    * @remarks
-   * Name of the tag.
+   * The tag key.
    * 
    * @example
    * test_tag_key
@@ -13,7 +13,7 @@ export class ListInstancesWithEcsInfoResponseBodyDataInstanceTag extends $dara.M
   tagKey?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * test_tag_value
@@ -45,7 +45,7 @@ export class ListInstancesWithEcsInfoResponseBodyDataInstanceTag extends $dara.M
 export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * cbf7a37bc905d4682a3338b3744810269
@@ -53,7 +53,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * instance ID
+   * The instance ID.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -61,7 +61,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance Name.
+   * The instance name.
    * 
    * @example
    * allowed-repos-r2tzl
@@ -69,12 +69,12 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * tags of instances
+   * The instance tags.
    */
   instanceTag?: ListInstancesWithEcsInfoResponseBodyDataInstanceTag[];
   /**
    * @remarks
-   * Milvus version
+   * The kernel version.
    * 
    * @example
    * 5.10.134-14.an8.x86_64
@@ -82,7 +82,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   kernelVersion?: string;
   /**
    * @remarks
-   * ECS instance architecture
+   * The architecture of the ECS instance.
    * 
    * @example
    * x86
@@ -90,7 +90,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   osArch?: string;
   /**
    * @remarks
-   * Instance health score
+   * The health score of the instance.
    * 
    * @example
    * 100
@@ -98,7 +98,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   osHealthScore?: string;
   /**
    * @remarks
-   * The operating system name of the instance
+   * The operating system name of the instance.
    * 
    * @example
    * Alibaba Cloud Linux  3.2104 LTS 64bit
@@ -106,7 +106,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   osName?: string;
   /**
    * @remarks
-   * Instance private IP
+   * The private IP address of the instance.
    * 
    * @example
    * 1.1.1.1
@@ -114,7 +114,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   privateIp?: string;
   /**
    * @remarks
-   * Instance Internet IP
+   * The public IP address of the instance.
    * 
    * @example
    * 1.1.1.1
@@ -122,7 +122,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-xxxxxx
@@ -130,7 +130,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource group name
+   * The resource group name.
    * 
    * @example
    * default resource group
@@ -138,11 +138,13 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The running status of the instance. Valid values:  
-   * - **Running**: The instance is running.  
-   * - **Offline**: The instance is offline.  
+   * The running status of the instance. Valid values:
+   * - **Running**: The instance is running.
+   * - **Offline**: The instance is offline.
    * 
-   * > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. This does not mean that the corresponding ECS instance is not running.
+   * 
+   * 
+   * > An instance in the Offline state indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance has stopped running.
    * 
    * @example
    * Running
@@ -199,7 +201,7 @@ export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
 export class ListInstancesWithEcsInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Success
@@ -207,12 +209,12 @@ export class ListInstancesWithEcsInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListInstancesWithEcsInfoResponseBodyData[];
   /**
    * @remarks
-   * Error message. An empty value indicates that the data has been read completely.
+   * The error message. An empty value indicates that all data has been read.
    * 
    * @example
    * result: code=1 msg=(Request failed, status_code != 200)
@@ -220,7 +222,7 @@ export class ListInstancesWithEcsInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -228,7 +230,7 @@ export class ListInstancesWithEcsInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 319

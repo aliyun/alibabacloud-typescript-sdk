@@ -51,7 +51,7 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * Identity flag
+   * Identifier flag
    * 
    * This parameter is required.
    * 

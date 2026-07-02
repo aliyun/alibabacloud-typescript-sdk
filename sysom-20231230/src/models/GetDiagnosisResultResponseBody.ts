@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Error code (0 indicates no error)
+   * The error code. A value of 0 indicates no error.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Diagnosis command
+   * The diagnostic command.
    * 
    * @example
    * {
@@ -36,7 +36,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   command?: any;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2025-12-03 16:30:28
@@ -44,7 +44,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * Diagnosis failed
@@ -52,7 +52,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * Diagnosis parameters
+   * The diagnostic parameters.
    * 
    * @example
    * {
@@ -66,7 +66,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * Diagnosis result
+   * The diagnostic result.
    * 
    * @example
    * {
@@ -290,7 +290,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   result?: any;
   /**
    * @remarks
-   * Diagnosis Type
+   * The diagnostic type.
    * 
    * @example
    * memgraph
@@ -298,12 +298,12 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The execution status of the diagnostic task.  
-   * Valid values:  
-   * - **Ready**: Ready  
-   * - **Running**: Running  
-   * - **Success**: Succeeded  
-   * - **Fail**: Failed
+   * The execution status of the diagnostic task.
+   * Valid values:
+   * - **Ready**: ready
+   * - **Running**: running
+   * - **Success**: succeeded
+   * - **Fail**: failed.
    * 
    * @example
    * Running
@@ -311,7 +311,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * grcuU21a
@@ -319,7 +319,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 2025-12-03 16:30:28
@@ -327,7 +327,7 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Diagnosis details URL
+   * The URL of the diagnostic details.
    * 
    * @example
    * /diagnose/detail/qe3Z34sa
@@ -377,9 +377,9 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
 export class GetDiagnosisResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == "Success"`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization was successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -387,14 +387,14 @@ export class GetDiagnosisResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    */
   data?: GetDiagnosisResultResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * ""
@@ -402,7 +402,7 @@ export class GetDiagnosisResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 9515E5A0-8905-59B0-9BBF-5F0BE568C3A0

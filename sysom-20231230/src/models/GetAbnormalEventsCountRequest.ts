@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAbnormalEventsCountRequest extends $dara.Model {
   /**
    * @remarks
-   * cluster ID
+   * Cluster ID.
    * 
    * @example
    * 2ijff4be-bf24-4070-89ca-c47c879b0g32
@@ -13,7 +13,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * End time
+   * End time.
    * 
    * @example
    * 1725801327754
@@ -21,7 +21,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * instance ID.
+   * Instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -29,7 +29,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Level of the anomalous activity
+   * Level of abnormal events.
    * 
    * @example
    * potential
@@ -37,7 +37,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Namespace where the pod is located
+   * The namespace where the Pod resides.
    * 
    * @example
    * default
@@ -45,7 +45,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Name of the pod
+   * Pod name.
    * 
    * @example
    * test-pod
@@ -53,7 +53,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * is whether to display pod anomalous activity
+   * Whether to display Pod abnormal events.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   showPod?: number;
   /**
    * @remarks
-   * Start time
+   * Start time.
    * 
    * @example
    * 1725797727754

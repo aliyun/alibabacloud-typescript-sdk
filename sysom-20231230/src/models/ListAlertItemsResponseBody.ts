@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Any other status code indicates authorization failed. When authorization fails, view the `message` field to obtain the detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class ListAlertItemsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    * 
    * @example
    * {
@@ -62,9 +62,9 @@ export class ListAlertItemsResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

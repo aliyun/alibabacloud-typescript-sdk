@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number (starting from page 1)
+   * The current page number. Pages start from page 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAgentsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Filter plugins by plugin name
+   * Filters plug-ins by plug-in name.
    * 
    * @example
    * SysOM
@@ -21,7 +21,7 @@ export class ListAgentsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListAgentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Retrieve the list based on the Agent Type. For example, passing "control" retrieves all control-type Agents.
+   * The agent type used to filter the list. For example, set this parameter to control to retrieve all agents of the control type.
    * 
    * @example
    * control

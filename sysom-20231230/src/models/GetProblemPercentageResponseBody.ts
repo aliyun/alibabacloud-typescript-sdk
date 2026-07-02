@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProblemPercentageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Type of abnormal item
+   * Abnormal item type.
    * 
    * @example
    * saturation
@@ -13,7 +13,7 @@ export class GetProblemPercentageResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Quantity of abnormal types
+   * Number of abnormal items.
    * 
    * @example
    * 5
@@ -45,9 +45,9 @@ export class GetProblemPercentageResponseBodyData extends $dara.Model {
 export class GetProblemPercentageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
+   * Status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failure. Check the `message` field for detailed error information.
    * 
    * @example
    * Success
@@ -55,14 +55,14 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    */
   data?: GetProblemPercentageResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the request error message.
+   * Error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * result: code=1 msg=(Request failed, status_code != 200)
@@ -70,7 +70,7 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * Request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -78,7 +78,7 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total data volume.
+   * Total number of data entries.
    * 
    * @example
    * 19

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AI analysis ID
+   * The AI analysis ID.
    * 
    * @example
    * 16896fa8-37f6-4c70-bb32-67fa9817d426
@@ -13,7 +13,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   analysisId?: string;
   /**
    * @remarks
-   * Analysis time
+   * The analysis time.
    * 
    * @example
    * 2024-12-24 12:02:05
@@ -21,7 +21,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   analysisTime?: string;
   /**
    * @remarks
-   * Analysis parameters for the AI job
+   * The analysis parameters of the AI job analysis.
    * 
    * @example
    * timeout=2000 ms
@@ -29,7 +29,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   arguments?: string;
   /**
    * @remarks
-   * Analysis failure log
+   * The analysis failure log.
    * 
    * @example
    * 机器i-wz9dej066kii4goqpnze分析失败, 失败原因: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
@@ -37,7 +37,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   failedLog?: string;
   /**
    * @remarks
-   * Analysis status
+   * The analysis status.
    * 
    * @example
    * 已完成/分析失败
@@ -75,7 +75,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
 export class GetListRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Success
@@ -83,12 +83,12 @@ export class GetListRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetListRecordResponseBodyData[];
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * ""
@@ -104,7 +104,7 @@ export class GetListRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 19

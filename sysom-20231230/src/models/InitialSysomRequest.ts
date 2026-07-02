@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class InitialSysomRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to only check if the service role exists
+   * Specifies whether to only check whether the service-linked role exists.
    */
   checkOnly?: boolean;
   /**
    * @remarks
-   * Source, which is fixed as console.
+   * The source. Set this parameter to console.
    * 
    * @example
    * console

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProblemPercentageRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * Cluster ID.
    * 
    * @example
    * 2ijff4be-bf24-4070-89ca-c47c879b0g32
@@ -13,7 +13,7 @@ export class GetProblemPercentageRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * End Time
+   * End time.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetProblemPercentageRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Start Time
+   * Start time.
    * 
    * This parameter is required.
    * 

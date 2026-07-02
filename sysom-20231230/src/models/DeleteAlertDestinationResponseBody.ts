@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class DeleteAlertDestinationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * {}
@@ -23,9 +23,9 @@ export class DeleteAlertDestinationResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
@@ -33,7 +33,7 @@ export class DeleteAlertDestinationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822

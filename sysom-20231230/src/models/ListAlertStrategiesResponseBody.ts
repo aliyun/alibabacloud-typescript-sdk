@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * Set of clusters that accept alerts
+   * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
   destinations?: number[];
   /**
    * @remarks
-   * List of abnormal items that accept alerts
+   * 接收告警的异常项列表
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
 export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 1753669116286
@@ -59,7 +59,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Whether the alert policy is enabled
+   * Indicates whether the alert policy is enabled.
    * 
    * @example
    * false
@@ -67,7 +67,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
-   * Policy Name
+   * The policy name.
    * 
    * @example
    * strategy1
@@ -84,12 +84,12 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Details of the alert policy
+   * The alert policy details.
    */
   strategy?: ListAlertStrategiesResponseBodyDataStrategy;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1880327028143673
@@ -97,7 +97,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 1753237017710
@@ -144,9 +144,9 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
 export class ListAlertStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -154,12 +154,12 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The returned result.
    */
   data?: ListAlertStrategiesResponseBodyData[];
   /**
    * @remarks
-   * Maximum number of returned records
+   * The maximum number of entries returned.
    * 
    * @example
    * 20
@@ -167,9 +167,9 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error information for the request.
    * 
    * @example
    * success
@@ -177,7 +177,7 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Pagination token for the next request.
+   * The pagination token for the next request.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -193,7 +193,7 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 92

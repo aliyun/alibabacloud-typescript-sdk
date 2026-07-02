@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertDestinationRequestParams extends $dara.Model {
   /**
    * @remarks
-   * Email
+   * The email address.
    * 
    * @example
    * xxx@email.com
@@ -13,7 +13,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Phone number
+   * The phone number.
    * 
    * @example
    * 1xxx
@@ -21,7 +21,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Robot key
+   * The secret key of the chatbot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * Robot link
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -65,7 +65,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
 export class CreateAlertDestinationRequest extends $dara.Model {
   /**
    * @remarks
-   * Alert contact name
+   * The name of the alert contact.
    * 
    * @example
    * test_name
@@ -73,12 +73,12 @@ export class CreateAlertDestinationRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Configuration parameters for the alert contact
+   * The configuration parameters of the alert contact.
    */
   params?: CreateAlertDestinationRequestParams;
   /**
    * @remarks
-   * Configuration source
+   * The configuration source.
    * 
    * @example
    * console
@@ -86,7 +86,7 @@ export class CreateAlertDestinationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Push Target. Currently, only DingTalk Robot is supported.
+   * The notification target. Currently, only DingTalk chatbots are supported.
    * 
    * @example
    * dingtalk

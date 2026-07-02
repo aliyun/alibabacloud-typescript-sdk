@@ -6,9 +6,9 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   agentConfigId?: string;
   /**
    * @remarks
-   * Filter by cluster ID.  
+   * Filter by cluster ID.
    * 
-   * > This cluster ID is not the ACK cluster ID. Instead, it refers to the `cluster_id` field in the data returned by this API or the `id` field in the data returned by the ListCluster API.
+   * > This cluster ID is not the ACK cluster ID, but the `cluster_id` field in the data returned by this API, or the `id` field in the data returned by the ListCluster API.
    * 
    * @example
    * cbd80af02b9d6454ebdc579c5e022d0c8
@@ -32,7 +32,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * If this parameter is specified, the response filters the installation list for the specified agent. It can be used together with the plugin_version parameter.
+   * Specify this parameter to filter the installation list for a specific agent. Can be used in combination with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -40,7 +40,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * This parameter cannot be used alone. It must be used together with plugin_id to filter the installation list for a specific agent version.
+   * Cannot be used alone. Use in combination with plugin_id to filter the installation list for a specific agent version.
    * 
    * @example
    * 3.4.0-1

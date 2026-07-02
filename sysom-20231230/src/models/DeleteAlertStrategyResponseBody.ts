@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed error message.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class DeleteAlertStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    * 
    * @example
    * {
@@ -38,9 +38,9 @@ export class DeleteAlertStrategyResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

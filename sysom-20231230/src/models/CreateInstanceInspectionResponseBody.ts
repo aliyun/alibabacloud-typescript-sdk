@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceInspectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * reportId
    */
   data?: any;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Text content of the chat
+   * The text content of the chat message.
    * 
    * @example
    * copilot回复的具体内容
@@ -13,7 +13,7 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Time of the chat record, string type
+   * The time of the chat record. The value is of the STRING type.
    * 
    * @example
    * 2024-09-02 10:02:39
@@ -21,7 +21,9 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * user/copilot; user indicates the User, and copilot indicates the bot
+   * The role of the message sender. Valid values:
+   * - user: the user.
+   * - copilot: the bot.
    * 
    * @example
    * user
@@ -56,7 +58,7 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
 export class GetCopilotHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SysomOpenAPI.InvalidParameter
@@ -64,14 +66,14 @@ export class GetCopilotHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of chat records. The length equals the requested quantity. If the actual number of chat records is less than the requested quantity, the list contains all available records. Format: [{"user": "", "content": "", "time": ""}, {...}]
+   * The list of chat records. The length equals the requested count. If the actual number of chat records is less than the requested count, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}].
    */
   data?: GetCopilotHistoryResponseBodyData[];
   /**
    * @remarks
-   * error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

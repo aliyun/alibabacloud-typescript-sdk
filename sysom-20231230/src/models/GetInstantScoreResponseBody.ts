@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstantScoreResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Error score
+   * Error score.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
   error?: number;
   /**
    * @remarks
-   * Latency score
+   * Latency score.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * Load score
+   * Load score.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
   load?: number;
   /**
    * @remarks
-   * Saturation score
+   * Saturation score.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
   saturation?: number;
   /**
    * @remarks
-   * Total score
+   * Total score.
    * 
    * @example
    * 100
@@ -75,9 +75,9 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
 export class GetInstantScoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * Status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failure. Check the `message` field for detailed error information when authorization fails.
    * 
    * @example
    * Success
@@ -85,13 +85,13 @@ export class GetInstantScoreResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    */
   data?: GetInstantScoreResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
+   * Error message.
+   * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * @example

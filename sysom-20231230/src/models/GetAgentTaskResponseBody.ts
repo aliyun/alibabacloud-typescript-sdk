@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   /**
    * @remarks
-   * When Job execution fails, this field contains the error message indicating the cause of the failure.
+   * The cause of the task failure. This field is returned only when the task fails.
    * 
    * @example
    * 已废弃（误用）
@@ -13,26 +13,26 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   error?: string;
   /**
    * @remarks
-   * The error code indicating the reason for sub-job failure. Possible values:
-   * * empty: The job executed normally.
+   * The error code of the subtask failure. Valid values:
+   * * Empty: The task is executed normally.
    * * INSTANCE_NOT_SUPPORTED: The instance type is not supported.
    * * INSTANCE_NOT_EXISTS: The instance does not exist.
    * * INSTANCE_RELEASED: The instance has been released.
    * * INSTANCE_NOT_RUNNING: The instance is not running.
    * * INSTANCE_NOT_OWNED: The instance does not belong to the current account.
-   * * AGENT_ALREADY_INSTALLED: The agent is already installed.
-   * * AGENT_NOT_INSTALLED: The agent is not installed.
+   * * AGENT_ALREADY_INSTALLED: The Agent is already installed.
+   * * AGENT_NOT_INSTALLED: The Agent is not installed.
    * * AGENT_SAME_VERSION: The version is the same.
-   * * HAS_RUNNING_JOB: There is a running job.
+   * * HAS_RUNNING_JOB: A running task exists.
    * * RPM_LOCK_HELD: The RPM lock is held.
    * * DISK_SPACE_INSUFFICIENT: Insufficient disk space.
-   * * NODE_LOAD_HIGH: High edge zone load.
+   * * NODE_LOAD_HIGH: The node load is high.
    * * COMMAND_FAILED: Command execution failed.
-   * * CLIENT_NOT_RUNNING: The Cloud Assistant agent is not running.
-   * * CLIENT_NOT_RESPONSE: The Cloud Assistant agent is unresponsive.
-   * * DELIVERY_TIMEOUT: Command delivery timeout.
-   * * EXECUTION_TIMEOUT: Command execution timeout.
-   * * TASK_CONCURRENCY_LIMIT: Task concurrency limit reached.
+   * * CLIENT_NOT_RUNNING: The Cloud Assistant Agent is not running.
+   * * CLIENT_NOT_RESPONSE: The Cloud Assistant Agent is not responding.
+   * * DELIVERY_TIMEOUT: Command delivery timed out.
+   * * EXECUTION_TIMEOUT: Command execution timed out.
+   * * TASK_CONCURRENCY_LIMIT: The task concurrency limit is reached.
    * 
    * @example
    * DISK_SPACE_INSUFFICIENT
@@ -40,25 +40,25 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Detailed reason for subtask execution failure. Possible values:  
-   * * Instance type is not supported  
-   * * Instance does not exist  
-   * * Instance has been released  
-   * * Instance is not running  
-   * * Instance does not belong to the current account  
-   * * Agent is already installed  
-   * * Agent is not installed  
-   * * Agent version is the same; no upgrade is required  
-   * * A task is currently running; please retry later  
-   * * RPM lock is occupied; please retry later  
-   * * Insufficient disk space  
-   * * Edge zone payload is too high; please retry later  
-   * * Command execution failed; please retry later  
-   * * Cloud Assistant Agent is not running  
-   * * Cloud Assistant Agent is unresponsive  
-   * * Command sending timeout  
-   * * Command execution timeout  
-   * * Task concurrency limit has been reached
+   * The detailed description of the subtask failure. Valid values:
+   * * The instance type is not supported.
+   * * The instance does not exist.
+   * * The instance has been released.
+   * * The instance is not running.
+   * * The instance does not belong to the current account.
+   * * The Agent is already installed.
+   * * The Agent is not installed.
+   * * The Agent version is the same. No upgrade is required.
+   * * A running task exists. Try again later.
+   * * The RPM lock is held. Try again later.
+   * * Insufficient disk space.
+   * * The node load is too high. Try again later.
+   * * Command execution failed. Try again later.
+   * * The Cloud Assistant Agent is not running.
+   * * The Cloud Assistant Agent is not responding.
+   * * Command delivery timed out.
+   * * Command execution timed out.
+   * * The task concurrency limit is reached.
    * 
    * @example
    * 磁盘空间不足
@@ -66,7 +66,7 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-2zehme0rs1tc090fdl3n
@@ -74,7 +74,7 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Parameters of the sub-Job
+   * The subtask parameters.
    * 
    * @example
    * {
@@ -87,7 +87,7 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -95,7 +95,7 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Result of sub-Job execution
+   * The subtask execution result.
    * 
    * @example
    * 已废弃（误用）
@@ -103,11 +103,11 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Sub-Job status:  
-   * - Created: Created  
-   * - Running: Running  
-   * - Success: Job Run Succeeded  
-   * - Fail: Job Run failed
+   * The subtask status. Valid values:
+   * - Created: Created.
+   * - Running: Running.
+   * - Success: The task succeeded.
+   * - Fail: The task failed.
    * 
    * @example
    * Running
@@ -151,13 +151,13 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
 export class GetAgentTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of sub-Jobs
+   * The list of subtasks.
    */
   jobs?: GetAgentTaskResponseBodyDataJobs[];
   status?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * c41d8e3506224184a714682fea86d22d
@@ -194,7 +194,7 @@ export class GetAgentTaskResponseBodyData extends $dara.Model {
 export class GetAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end Diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 2E75336A-0DB2-5263-B201-A6488EC97B50
@@ -202,9 +202,9 @@ export class GetAgentTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization Succeeded.  
-   * - Any other status code indicates Failed to Authorize. When authorization fails, View the `message` field to obtain the detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -212,14 +212,14 @@ export class GetAgentTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned Data.
+   * The returned data.
    */
   data?: GetAgentTaskResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the Request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

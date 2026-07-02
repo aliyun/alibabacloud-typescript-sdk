@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotSpotUniqListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of data names
+   * List of data column names
    */
   columns?: string[];
   /**
@@ -45,9 +45,9 @@ export class GetHotSpotUniqListResponseBodyData extends $dara.Model {
 export class GetHotSpotUniqListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
+   * Status code
+   * - `code == Success` indicates that the authorization is successful;
+   * - Other status codes indicate that the authorization has failed. When authorization fails, check the `message` field for detailed error information;
    * 
    * @example
    * Success
@@ -55,12 +55,12 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Response data
    */
   data?: GetHotSpotUniqListResponseBodyData;
   /**
    * @remarks
-   * Return message
+   * Response message
    * 
    * @example
    * success
@@ -76,7 +76,7 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * true if the API call succeeded; false if the API call failed
+   * true indicates the API call succeeded, false indicates the API call failed
    * 
    * @example
    * true

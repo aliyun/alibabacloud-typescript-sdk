@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 391f5aeba2054f66b3aaef0136142fe2
@@ -35,7 +35,7 @@ export class UpgradeAgentResponseBodyData extends $dara.Model {
 export class UpgradeAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end Diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
@@ -43,9 +43,9 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization Succeeded.  
-   * - Other status codes indicate Failed to Authorize. When authorization fails, view the `message` field to obtain the detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,14 +53,14 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned Data
+   * The returned data.
    */
   data?: UpgradeAgentResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

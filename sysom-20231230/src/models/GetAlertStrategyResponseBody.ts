@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * Set of clusters that accept alerts
+   * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
   destinations?: any;
   /**
    * @remarks
-   * List of abnormal items that accept alerts
+   * 接收告警的异常项列表
    * 
    * @example
    * 节点CPU使用率检测
@@ -48,7 +48,7 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
 export class GetAlertStrategyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 1751520976660
@@ -56,7 +56,7 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * Indicates whether the alert policy is enabled
+   * Indicates whether the alert policy is enabled.
    * 
    * @example
    * false
@@ -64,7 +64,7 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Alert policy ID
+   * The alert policy ID.
    * 
    * @example
    * 1
@@ -72,12 +72,12 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * k8s label
+   * The Kubernetes label.
    */
   k8sLabel?: boolean;
   /**
    * @remarks
-   * Policy Name
+   * The policy name.
    * 
    * @example
    * strategy1
@@ -85,12 +85,12 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Details of the alert policy
+   * The alert policy details.
    */
   strategy?: GetAlertStrategyResponseBodyDataStrategy;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1222933234714935
@@ -98,7 +98,7 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Update Time.
+   * The update time.
    * 
    * @example
    * 1751254826285
@@ -145,9 +145,9 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
 export class GetAlertStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code:  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -155,13 +155,13 @@ export class GetAlertStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    */
   data?: GetAlertStrategyResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
+   * The error message.
+   * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * @example

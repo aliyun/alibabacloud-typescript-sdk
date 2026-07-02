@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * Creation Time of the Agent version
+   * Agent version creation time
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -13,7 +13,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Installation script for this version of the Agent
+   * Installation script for this agent version
    * 
    * @example
    * sysom.sh install
@@ -21,7 +21,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
   installScript?: string;
   /**
    * @remarks
-   * Uninstall script for this Agent version
+   * Uninstallation script for this agent version
    * 
    * @example
    * sysom.sh uninstall
@@ -29,7 +29,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
   uninstallScript?: string;
   /**
    * @remarks
-   * Update Time of the Agent version
+   * Agent version update time
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -37,7 +37,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Upgrade script for this Agent version
+   * Upgrade script for this agent version
    * 
    * @example
    * sysom.sh upgrade
@@ -45,7 +45,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
   upgradeScript?: string;
   /**
    * @remarks
-   * Version number of the Agent
+   * Agent version number
    * 
    * @example
    * 3.4.0-1
@@ -85,7 +85,7 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
 export class GetAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time of the widget
+   * Agent creation time
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -93,7 +93,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Description of the widget
+   * Agent description
    * 
    * @example
    * SysOM Agent
@@ -101,7 +101,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Widget ID
+   * Agent ID
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -109,7 +109,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Name of the widget
+   * Agent name
    * 
    * @example
    * SysOM
@@ -117,7 +117,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Supported architecture
+   * Supported architectures
    * 
    * @example
    * x86
@@ -125,7 +125,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   supportArch?: string;
   /**
    * @remarks
-   * Type of the Agent
+   * Agent type
    * 
    * @example
    * control
@@ -133,7 +133,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Update Time
+   * Update time
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -141,7 +141,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Widget version information
+   * Agent version information
    */
   versions?: GetAgentResponseBodyDataVersions[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class GetAgentResponseBodyData extends $dara.Model {
 export class GetAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end Diagnosis
+   * Request ID, which can be used for end-to-end diagnostics
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -193,9 +193,9 @@ export class GetAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * Status code
+   * - `code == Success` indicates the authorization is successful;
+   * - Other status codes indicate authorization failure. Check the `message` field for detailed error information when authorization fails;
    * 
    * @example
    * Success
@@ -203,14 +203,14 @@ export class GetAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    */
   data?: GetAgentResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the Request error message.
+   * Error message
+   * - If `code == Success`, this field is empty;
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

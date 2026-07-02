@@ -4,18 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceInspectionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * i-2ze5ru5rjurix7f71sxv
    */
   instance?: string;
+  /**
+   * @remarks
+   * 异常项
+   */
   items?: string[];
+  /**
+   * @remarks
+   * The metric source.
+   * 
+   * @example
+   * sysom
+   */
   metricSource?: string;
   /**
+   * @remarks
+   * The region to which the instance belongs.
+   * 
    * @example
    * cn-shenzhen
    */
   region?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * console
    */

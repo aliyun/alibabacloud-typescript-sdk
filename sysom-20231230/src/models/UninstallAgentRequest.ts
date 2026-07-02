@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentRequestInstances extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UninstallAgentRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class UninstallAgentRequestInstances extends $dara.Model {
 export class UninstallAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the widget to uninstall
+   * The ID of the component to uninstall.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class UninstallAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Version of the widget to uninstall
+   * The version of the component to uninstall.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class UninstallAgentRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * List of instances from which to uninstall the widget
+   * The list of instances from which to uninstall the component.
    * 
    * This parameter is required.
    */

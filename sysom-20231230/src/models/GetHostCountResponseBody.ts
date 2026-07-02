@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Time point
+   * The point in time.
    * 
    * @example
    * 1725797727754
@@ -13,7 +13,7 @@ export class GetHostCountResponseBodyData extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * Quantity
+   * The count.
    * 
    * @example
    * 5
@@ -45,9 +45,9 @@ export class GetHostCountResponseBodyData extends $dara.Model {
 export class GetHostCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -55,14 +55,14 @@ export class GetHostCountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetHostCountResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * “”
@@ -70,7 +70,7 @@ export class GetHostCountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 43A910E9-A739-525E-855D-A32C257F1826
@@ -78,7 +78,7 @@ export class GetHostCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 3

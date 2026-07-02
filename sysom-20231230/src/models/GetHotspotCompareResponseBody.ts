@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotCompareResponseBodyDataFlame extends $dara.Model {
   /**
    * @remarks
-   * List of column names
+   * Field name list
    */
   columns?: string[];
   /**
    * @remarks
-   * List of flame graph data
+   * Flame graph data list
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetHotspotCompareResponseBodyDataFlame extends $dara.Model {
 export class GetHotspotCompareResponseBodyDataSeriesInstance1 extends $dara.Model {
   /**
    * @remarks
-   * List of column names
+   * Field name list
    */
   columns?: string[];
   /**
    * @remarks
-   * List of hot spot metric data
+   * Hotspot time series data list
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class GetHotspotCompareResponseBodyDataSeriesInstance1 extends $dara.Mode
 export class GetHotspotCompareResponseBodyDataSeriesInstance2 extends $dara.Model {
   /**
    * @remarks
-   * List of column names
+   * Field name list
    */
   columns?: string[];
   /**
    * @remarks
-   * List of hot spot metric data
+   * Hotspot time series data list
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -130,12 +130,12 @@ export class GetHotspotCompareResponseBodyData extends $dara.Model {
   flame?: GetHotspotCompareResponseBodyDataFlame;
   /**
    * @remarks
-   * Hot spot timing series 1
+   * Hotspot time series 1
    */
   seriesInstance1?: GetHotspotCompareResponseBodyDataSeriesInstance1;
   /**
    * @remarks
-   * Hot spot metric series 2
+   * Hotspot time series 2
    */
   seriesInstance2?: GetHotspotCompareResponseBodyDataSeriesInstance2;
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class GetHotspotCompareResponseBodyData extends $dara.Model {
 export class GetHotspotCompareResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code
+   * Error code
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -183,12 +183,12 @@ export class GetHotspotCompareResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Response data
    */
   data?: GetHotspotCompareResponseBodyData;
   /**
    * @remarks
-   * Return message
+   * Response message
    * 
    * @example
    * success
@@ -204,7 +204,7 @@ export class GetHotspotCompareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * true indicates that the API call succeeded; false indicates that the API call failed.
+   * true: API call succeeded; false: API call failed
    * 
    * @example
    * true

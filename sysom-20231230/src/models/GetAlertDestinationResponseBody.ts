@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertDestinationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 1751520976660
@@ -13,7 +13,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Alert contact ID
+   * The alert contact ID.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Alert contact name
+   * The alert contact name.
    * 
    * @example
    * name1
@@ -29,7 +29,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Configuration Parameter
+   * The configuration parameters.
    * 
    * @example
    * {
@@ -40,7 +40,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * Configuration source
+   * The configuration source.
    * 
    * @example
    * console
@@ -48,7 +48,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Alert push target. Currently, only DingTalk Robot is supported.
+   * The alert notification target. Currently, only DingTalk chatbots are supported.
    * 
    * @example
    * dingtalk
@@ -56,7 +56,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1234123412352311
@@ -64,7 +64,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Update Time.
+   * The update time.
    * 
    * @example
    * 1751254826285
@@ -108,9 +108,9 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
 export class GetAlertDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success or Sysom.ServerError
@@ -118,14 +118,14 @@ export class GetAlertDestinationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetAlertDestinationResponseBodyData;
   /**
    * @remarks
-   * Error message.  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
@@ -133,7 +133,7 @@ export class GetAlertDestinationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822

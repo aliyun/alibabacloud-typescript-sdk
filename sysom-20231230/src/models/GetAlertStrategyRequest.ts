@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 1

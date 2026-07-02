@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHostCountRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * 1808078950770264
@@ -13,7 +13,7 @@ export class GetHostCountRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * End Time
+   * The end time.
    * 
    * @example
    * 1725801327754
@@ -21,7 +21,7 @@ export class GetHostCountRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -29,7 +29,7 @@ export class GetHostCountRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 1725797727754

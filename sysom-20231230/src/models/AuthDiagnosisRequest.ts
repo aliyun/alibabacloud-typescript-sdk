@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthDiagnosisRequestInstances extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9b9vucz1iubsz8sjqo
@@ -15,7 +15,7 @@ export class AuthDiagnosisRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -47,17 +47,17 @@ export class AuthDiagnosisRequestInstances extends $dara.Model {
 export class AuthDiagnosisRequest extends $dara.Model {
   /**
    * @remarks
-   * Automatic creation of role
+   * Specifies whether to enable automatic creation of the service-linked role.
    */
   autoCreateRole?: boolean;
   /**
    * @remarks
-   * Automatic installation of agent
+   * Specifies whether to automatically install the agent.
    */
   autoInstallAgent?: boolean;
   /**
    * @remarks
-   * List of instances to authorize for diagnosis
+   * The list of instances to authorize for diagnostics.
    */
   instances?: AuthDiagnosisRequestInstances[];
   static names(): { [key: string]: string } {

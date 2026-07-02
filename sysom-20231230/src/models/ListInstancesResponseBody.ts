@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * c2218ca2b76ec45e7b7ee1693f6fcd374
@@ -13,7 +13,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * ECS instance ID
+   * The ECS instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -21,7 +21,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Milvus version of the instance
+   * The current kernel version of the instance.
    * 
    * @example
    * 5.10.134-16.1.an8.x86_64
@@ -29,7 +29,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   kernelVersion?: string;
   /**
    * @remarks
-   * Metadata of the instance
+   * The metadata of the instance.
    * 
    * @example
    * {
@@ -53,7 +53,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   meta?: any;
   /**
    * @remarks
-   * Architecture of the ECS instance
+   * The architecture of the ECS instance.
    * 
    * @example
    * x86
@@ -61,7 +61,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osArch?: string;
   /**
    * @remarks
-   * Health score of the instance
+   * The health score of the instance.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osHealthScore?: string;
   /**
    * @remarks
-   * Operating system name of the instance (retrieved from /etc/os-release)
+   * The operating system name of the instance (obtained from /etc/os-release).
    * 
    * @example
    * Anolis OS
@@ -77,7 +77,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osName?: string;
   /**
    * @remarks
-   * Operating system name ID of the instance (retrieved from /etc/os-release)
+   * The operating system name ID of the instance (obtained from /etc/os-release).
    * 
    * @example
    * anolis
@@ -85,7 +85,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osNameId?: string;
   /**
    * @remarks
-   * Operating system version of the instance (obtained from /etc/os-release)
+   * The operating system version of the instance (obtained from /etc/os-release).
    * 
    * @example
    * 8.9
@@ -93,7 +93,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * Operating system version ID of the instance (retrieved from /etc/os-release)
+   * The operating system version ID of the instance (obtained from /etc/os-release).
    * 
    * @example
    * rhel fedora centos
@@ -101,7 +101,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   osVersionId?: string;
   /**
    * @remarks
-   * Region where the instance is located
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -109,7 +109,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Status of the instance
+   * The status of the instance.
    * 
    * @example
    * Running
@@ -161,9 +161,9 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Any other status code indicates that authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -171,14 +171,14 @@ export class ListInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The returned result.
    */
   data?: ListInstancesResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * Requests for llm service failed
@@ -186,7 +186,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 9515E5A0-8905-59B0-9BBF-5F0BE568C3A0
@@ -194,7 +194,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 623

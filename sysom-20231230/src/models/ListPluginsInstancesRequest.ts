@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * This field exists when paging is used and indicates the current page number.
+   * The current page number. This field is present when pagination is used.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Filter by instance ID or instance name. Fuzzy query is supported.
+   * Filters instances by instance ID or instance name. Fuzzy match is supported.
    * 
    * @example
    * i-bpxx
@@ -21,7 +21,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   instanceIdName?: string;
   /**
    * @remarks
-   * Filter by instance tags.
+   * Filters instances by instance tag.
    * 
    * @example
    * {"key":"app","value":"sysom-aliyun-com"}
@@ -29,7 +29,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   instanceTag?: string;
   /**
    * @remarks
-   * Filter instances by plugin installation status.
+   * Filters instances by plug-in installation status.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * Page size. Default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 20
@@ -47,7 +47,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * If this parameter is specified, the response filters and returns the instance list for the specified agent.
+   * Filters the instance list by the specified agent. If this parameter is specified, only instances associated with the specified agent are returned.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Filter instances by area.
+   * Filters instances by region.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAgentRequestInstances extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class InstallAgentRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class InstallAgentRequestInstances extends $dara.Model {
 export class InstallAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the widget to install
+   * The ID of the component to install.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class InstallAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Version of the widget to install
+   * The version of the component to install.
    * 
    * This parameter is required.
    * 
@@ -69,10 +69,11 @@ export class InstallAgentRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Installation Type:  
-   * - InstallAndUpgrade: Install if not present; update if present.  
-   * - OnlyInstallNotHasAgent: Install if not present; do nothing if present.  
-   * - OnlyUpgradeHasAgent: Do nothing if not present; update if present.
+   * The installation type. Valid values:
+   * - InstallAndUpgrade: installs the component if it does not exist, or updates it if it exists.
+   * - OnlyInstallNotHasAgent: installs the component if it does not exist, or takes no action if it exists.
+   * - OnlyUpgradeHasAgent: takes no action if the component does not exist, or updates it if it exists.
+   * - OnlyInstallWithoutStart: installs the component only without starting the service.
    * 
    * This parameter is required.
    * 
@@ -82,7 +83,7 @@ export class InstallAgentRequest extends $dara.Model {
   installType?: string;
   /**
    * @remarks
-   * List of instances on which to install the widget
+   * The list of instances on which to install the component.
    * 
    * This parameter is required.
    */

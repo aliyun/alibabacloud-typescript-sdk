@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAbnormalyEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * 2d33d4be-bf54-4070-82ca-c1dc2d8b1562
@@ -13,7 +13,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * This field is present when paging is used and indicates the current page.
+   * The current page number. This parameter is present during paginated queries.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * End time
+   * The end time.
    * 
    * @example
    * 1725801327754
@@ -29,7 +29,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * Anomalous activity name
+   * The name of the anomaly event.
    * 
    * @example
    * 节点根文件系统使用检测
@@ -37,7 +37,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -45,7 +45,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Level of the anomalous activity
+   * The level of the anomaly event.
    * 
    * @example
    * potential
@@ -53,7 +53,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Namespace where the pod is located
+   * The namespace of the pod.
    * 
    * @example
    * default
@@ -61,7 +61,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Page size. The default value is 5. Valid values are in the range [1,100].
+   * The number of entries per page. Default value: 5. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Pod name
+   * The pod name.
    * 
    * @example
    * test-pod
@@ -77,7 +77,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * Whether to display anomalous activities of the pod
+   * Specifies whether to display pod anomaly events.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
   showPod?: number;
   /**
    * @remarks
-   * Start time
+   * The start time.
    * 
    * @example
    * 1725797727754

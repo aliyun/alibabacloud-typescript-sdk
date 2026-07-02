@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * Widget version creation time
+   * The time when the component version was created.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -13,7 +13,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The widget\\"s install script
+   * The installation script of the component.
    * 
    * @example
    * sysom.sh install
@@ -21,7 +21,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   installScript?: string;
   /**
    * @remarks
-   * Widget uninstall script
+   * The uninstallation script of the component.
    * 
    * @example
    * sysom.sh uninstall
@@ -29,7 +29,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   uninstallScript?: string;
   /**
    * @remarks
-   * Widget version update time
+   * The time when the component version was last updated.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -37,7 +37,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Widget upgrade script
+   * The update script of the component.
    * 
    * @example
    * sysom.sh upgrade
@@ -45,7 +45,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   upgradeScript?: string;
   /**
    * @remarks
-   * Widget version number
+   * The component version number.
    * 
    * @example
    * 3.4.0-1
@@ -85,7 +85,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
 export class ListAgentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Widget creation time
+   * The time when the component was created.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -93,7 +93,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Widget description
+   * The component description.
    * 
    * @example
    * SysOM Agent
@@ -101,7 +101,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Widget ID
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -109,7 +109,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Widget name
+   * The component name.
    * 
    * @example
    * SysOM Agent
@@ -117,7 +117,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Supported architecture (multiple architectures separated by commas)
+   * The supported architectures. Multiple architectures are separated by commas.
    * 
    * @example
    * x86
@@ -125,9 +125,9 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   supportArch?: string;
   /**
    * @remarks
-   * Widget type  
-   * - Control: control-type widget  
-   * - AI: AI widget
+   * The type of the component. Valid values:
+   * - Control: control-type component.
+   * - AI: AI component.
    * 
    * @example
    * Control
@@ -135,7 +135,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Widget Update Time
+   * The time when the component was last updated.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -143,7 +143,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Widget Version List
+   * The list of component versions.
    */
   versions?: ListAgentsResponseBodyDataVersions[];
   static names(): { [key: string]: string } {
@@ -187,7 +187,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
 export class ListAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end Diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 66EAED72-542B-583B-BCED-64433DC27AD7
@@ -195,9 +195,9 @@ export class ListAgentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error message;
+   * The status code.
+   * - If code is Success, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the message field for the detailed fault information.
    * 
    * @example
    * Success
@@ -205,13 +205,13 @@ export class ListAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned Data
+   * The returned data.
    */
   data?: ListAgentsResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
+   * The error message.
+   * - If code is Success, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * @example
@@ -220,7 +220,7 @@ export class ListAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIQueryResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class GetAIQueryResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result, with large Data Volume
+   * The returned results. The data volume can be large.
    * 
    * @example
    * {\\"task_id\\": \\"y4ba8uRV\\"}
@@ -21,7 +21,7 @@ export class GetAIQueryResultResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * 分析ID: 56dae746-ef55-4f77-8373-cb3594c41457

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeDiagnosisRequest extends $dara.Model {
   /**
    * @remarks
-   * Diagnosis channel (currently fixed as the ECS channel)
+   * Diagnosis channel (currently fixed as the ECS channel).
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class InvokeDiagnosisRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Diagnosis parameters. Different diagnosis types require different parameters. For the required parameters of each diagnosis type, see the Request Parameters supplement below.  
+   * Diagnosis parameters. Different types of diagnoses require different diagnosis parameters. For the parameters required by each diagnosis type, refer to the supplementary request parameter description below.
    * 
-   * >Notice: Please pass a string in JSON format
+   * >Notice: Please pass a JSON-formatted string.</notice>
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class InvokeDiagnosisRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * Diagnosis type, used to distinguish between different types of diagnosis
+   * Diagnosis type, used to distinguish different types of diagnoses.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 63fc5acb99e642d793f42912612e8001
@@ -35,7 +35,7 @@ export class UninstallAgentResponseBodyData extends $dara.Model {
 export class UninstallAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 13772206-1162-5A0F-81F0-79A10C249A5E
@@ -43,9 +43,9 @@ export class UninstallAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * The status code.
+   * - If code is Success, the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the message field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,14 +53,14 @@ export class UninstallAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The response data.
    */
   data?: UninstallAgentResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If code is Success, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
@@ -13,7 +13,7 @@ export class ListRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class ListRegionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of areas
+   * The list of regions.
    * 
    * @example
    * ["cn-hangzhou", "cn-shengzhen"]
@@ -29,7 +29,7 @@ export class ListRegionsResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * Description of the error code; empty if no error occurred
+   * The error code description. This value is empty if no error occurs.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeAnomalyDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Any other status code indicates a failed authorization. When authorization fails, view the `message` field to obtain the detailed error message.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -15,9 +15,9 @@ export class InvokeAnomalyDiagnosisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

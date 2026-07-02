@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model {
   /**
    * @remarks
-   * Name of the tag.
+   * The tag key.
    * 
    * @example
    * test_tag_key
@@ -13,7 +13,7 @@ export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model
   tagKey?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * test_tag_value
@@ -45,7 +45,7 @@ export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model
 export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * i-bp118piqcio9tiwgh84b
@@ -53,7 +53,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Widget instance name.
+   * The component instance name.
    * 
    * @example
    * allowed-repos-qmf8w
@@ -61,12 +61,12 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Tags of instances
+   * The instance tag.
    */
   instanceTag?: ListPluginsInstancesResponseBodyDataInstanceTag[];
   /**
    * @remarks
-   * Operating system name of the instance
+   * The operating system name of the instance.
    * 
    * @example
    * Alibaba Cloud Linux  3.2104 LTS 64 bit
@@ -74,7 +74,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   osName?: string;
   /**
    * @remarks
-   * Private IP address
+   * The private IP address.
    * 
    * @example
    * 1.1.1.1
@@ -82,7 +82,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   privateIp?: string;
   /**
    * @remarks
-   * Internet IP address
+   * The public IP address.
    * 
    * @example
    * 1.1.1.1
@@ -90,7 +90,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * Area where the instance resides
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -98,7 +98,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-xxxx
@@ -106,7 +106,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource group name
+   * The resource group name.
    * 
    * @example
    * default resource group
@@ -155,9 +155,9 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
 export class ListPluginsInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -165,12 +165,12 @@ export class ListPluginsInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return Result.
+   * The returned result.
    */
   data?: ListPluginsInstancesResponseBodyData[];
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
@@ -178,7 +178,7 @@ export class ListPluginsInstancesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -186,7 +186,7 @@ export class ListPluginsInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of entries returned.
    * 
    * @example
    * 42

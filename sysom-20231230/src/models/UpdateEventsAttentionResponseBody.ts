@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEventsAttentionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Updated follow level value
+   * The updated attention level value.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class UpdateEventsAttentionResponseBodyData extends $dara.Model {
 export class UpdateEventsAttentionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 44841312-7227-55C9-AE03-D59729BFAE38
@@ -43,9 +43,9 @@ export class UpdateEventsAttentionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code:  
-   * - `code == Success` indicates that authorization succeeded;  
-   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain the detailed error message.
+   * The status code. Valid values:
+   * - Success: The authorization is successful.
+   * - Other values: The authorization failed. Check the message field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,12 +53,12 @@ export class UpdateEventsAttentionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    */
   data?: UpdateEventsAttentionResponseBodyData;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * Instance not belong to current user

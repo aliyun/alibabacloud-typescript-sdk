@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentForClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Widget ID
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -13,7 +13,7 @@ export class UninstallAgentForClusterRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Widget version
+   * The component version.
    * 
    * @example
    * 3.4.0-1
@@ -21,9 +21,9 @@ export class UninstallAgentForClusterRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Cluster ID.  
+   * The cluster ID.
    * 
-   * > This cluster ID must be the ID of an ACK cluster.
+   * > This parameter must be set to the ID of an ACK cluster.
    * 
    * @example
    * c822f83bb45994ddbac9326b4c2f04f35

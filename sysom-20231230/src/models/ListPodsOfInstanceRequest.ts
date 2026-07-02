@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPodsOfInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster identity
+   * The cluster ID.
    * 
    * @example
    * c96e34d74eb6748f3b2a46552d5d653f6
@@ -13,7 +13,7 @@ export class ListPodsOfInstanceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Current page number (starting from 1)
+   * The current page number. Pages start from page 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListPodsOfInstanceRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -29,7 +29,7 @@ export class ListPodsOfInstanceRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Page size; default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

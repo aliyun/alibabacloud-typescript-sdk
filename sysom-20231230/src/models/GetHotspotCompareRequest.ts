@@ -45,7 +45,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg2Start?: number;
   /**
    * @remarks
-   * Hot spot type
+   * Hotspot type
    * 
    * @example
    * alloc
@@ -73,7 +73,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   instance2?: string;
   /**
    * @remarks
-   * Process of instance 1
+   * Instance 1 process
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   pid1?: number;
   /**
    * @remarks
-   * Process of instance 2
+   * Instance 2 process
    * 
    * @example
    * i-2zei55fwj8nnu31h3z46

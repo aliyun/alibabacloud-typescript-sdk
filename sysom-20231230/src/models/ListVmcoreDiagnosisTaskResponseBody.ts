@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job creation time
+   * Task creation time
    * 
    * @example
    * 2025-12-02T17:36:12
@@ -13,7 +13,7 @@ export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * error message
+   * Error message
    * 
    * @example
    * error message
@@ -21,7 +21,7 @@ export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Job ID
+   * Task ID
    * 
    * @example
    * bbe94a98-4192-4172-b856-95777e0a55d7
@@ -29,7 +29,7 @@ export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task Status
+   * Task status
    * 
    * @example
    * running
@@ -37,7 +37,7 @@ export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * Task Type
+   * Task type
    * 
    * @example
    * vmcore
@@ -75,9 +75,9 @@ export class ListVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
 export class ListVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
+   * Status code.
+   * - `code == Success` indicates the authorization was successful.
+   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
    * 
    * @example
    * Success
@@ -85,13 +85,13 @@ export class ListVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Response data.
    */
   data?: ListVmcoreDiagnosisTaskResponseBodyData[];
   /**
    * @remarks
-   * error message  
-   * - If `code == Success`, this field is empty.  
+   * Error message.
+   * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * @example
@@ -108,7 +108,7 @@ export class ListVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of jobs
+   * Total number of tasks
    * 
    * @example
    * 2

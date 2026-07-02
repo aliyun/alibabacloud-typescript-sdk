@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page
+   * Current page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Managed type.
+   * Management type.
    * 
    * @example
    * managed
@@ -37,7 +37,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   managedType?: string;
   /**
    * @remarks
-   * Maximum number of records to retrieve in a single request.
+   * Maximum number of records to retrieve at a time.
    * 
    * @example
    * 100
@@ -45,8 +45,8 @@ export class ListAllInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Paging cursor.  
-   * > If this parameter is not empty, it indicates that more data is available.
+   * Pagination token.
+   * > If this parameter is not empty, more data is available.
    * 
    * @example
    * U+w1wv2R4ZWR5oZLXD0+Dp4dD+2BRJj42DLT6GrZysw=
@@ -62,7 +62,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Plugin ID
+   * Plugin ID.
    * 
    * @example
    * 01fc4a0b-f199-4885-9861-b4054a310fe7

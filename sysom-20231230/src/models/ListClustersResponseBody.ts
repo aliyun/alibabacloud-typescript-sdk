@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListClustersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Actual cluster ID.  
+   * Actual cluster ID.
    * 
-   * > - For `ACK` type clusters, this ID is the ACK cluster ID.  
-   * > - For `CUSTOM` type clusters, this ID serves as a UUID and has no additional meaning.
+   * > - For `ACK` type clusters, this cluster ID is the ACK cluster ID.
+   * > - For `CUSTOM` type clusters, this cluster ID serves as a unique identifier with no additional meaning.
    * 
    * @example
    * c666d4774f0e2440b979bf917bf100e40
@@ -16,11 +16,11 @@ export class ListClustersResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * - `Running`: Cluster management is normal.  
-   * - `Installing`: An install job is in progress for the cluster.  
-   * - `Uninstalling`: An uninstall job is in progress for the cluster.  
-   * - `Upgrading`: An update job is in progress for the cluster.  
-   * - `Offline`: The cluster is offline and cluster management is abnormal.
+   * - `Running`: The cluster is managed normally.
+   * - `Installing`: The cluster has an installation task in progress.
+   * - `Uninstalling`: The cluster has an uninstallation task in progress.
+   * - `Upgrading`: The cluster has an upgrade task in progress.
+   * - `Offline`: The cluster is offline and management is abnormal.
    * 
    * @example
    * Running
@@ -28,8 +28,8 @@ export class ListClustersResponseBodyData extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * - `ACK`: ACK cluster  
-   * - `CUSTOM`: Custom cluster (default clusters are classified as custom clusters)
+   * - `ACK`: ACK cluster.
+   * - `CUSTOM`: Custom cluster (the default cluster belongs to custom clusters).
    * 
    * @example
    * ACK
@@ -37,7 +37,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Creation Time
+   * Creation time.
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -45,7 +45,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Cluster ID
+   * Cluster ID.
    * 
    * @example
    * 5389fba5-92a1-4ff4-9b26-773b97828144
@@ -53,7 +53,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Cluster Name
+   * Cluster name.
    * 
    * @example
    * auto-name-sbvCT
@@ -69,7 +69,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Update Time
+   * Update time.
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -113,7 +113,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * Request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
@@ -121,9 +121,9 @@ export class ListClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error message.
+   * Status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failure. Check the `message` field for detailed error information.
    * 
    * @example
    * Success
@@ -131,14 +131,14 @@ export class ListClustersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * Response data.
    */
   data?: ListClustersResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty;  
-   * - Otherwise, this field contains the request error message.
+   * Error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success
@@ -146,7 +146,7 @@ export class ListClustersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of records
+   * Total number of records.
    * 
    * @example
    * 64

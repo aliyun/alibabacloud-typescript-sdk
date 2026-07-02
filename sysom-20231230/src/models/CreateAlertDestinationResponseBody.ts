@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   /**
    * @remarks
-   * mailbox
+   * The email address.
    * 
    * @example
    * xxx@email.com
@@ -13,7 +13,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Phone
+   * The phone number.
    * 
    * @example
    * 1xxx
@@ -21,7 +21,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Robot key
+   * The secret key of the chatbot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * Robot address
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -65,7 +65,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
 export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 1753669116286
@@ -73,7 +73,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Policy Name
+   * The policy name.
    * 
    * @example
    * SysOM
@@ -89,12 +89,12 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Configuration Parameter of alert contact
+   * The configuration parameters of the alert contact.
    */
   params?: CreateAlertDestinationResponseBodyDataParams;
   /**
    * @remarks
-   * Configuration Source
+   * The configuration source.
    * 
    * @example
    * console
@@ -102,7 +102,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Push Target. Currently, only DingTalk Robot is supported.
+   * The notification target. Currently, only DingTalk chatbots are supported.
    * 
    * @example
    * dingtalk
@@ -110,7 +110,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1222933234714935
@@ -118,7 +118,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 1751254826285
@@ -165,7 +165,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
 export class CreateAlertDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * Success
@@ -173,14 +173,14 @@ export class CreateAlertDestinationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: CreateAlertDestinationResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
@@ -188,7 +188,7 @@ export class CreateAlertDestinationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822

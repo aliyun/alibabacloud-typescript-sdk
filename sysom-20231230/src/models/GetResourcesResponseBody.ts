@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Total amount of resources
+   * The total number of resources.
    * 
    * @example
    * 2354
@@ -13,7 +13,7 @@ export class GetResourcesResponseBodyData extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * Unit
+   * The unit.
    * 
    * @example
    * Kbytes
@@ -21,7 +21,7 @@ export class GetResourcesResponseBodyData extends $dara.Model {
   unit?: string;
   /**
    * @remarks
-   * Resource usage
+   * The resource usage.
    * 
    * @example
    * 100
@@ -55,9 +55,9 @@ export class GetResourcesResponseBodyData extends $dara.Model {
 export class GetResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - If `code == Success`, authorization succeeded.  
-   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -65,14 +65,14 @@ export class GetResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetResourcesResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * result: code=1 msg=(Request failed, status_code != 200)
@@ -80,7 +80,7 @@ export class GetResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0

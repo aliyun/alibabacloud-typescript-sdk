@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAIAnalysisRequest extends $dara.Model {
   /**
    * @remarks
-   * Analysis tool. This field does not need to be filled in when using OpenAPI.
+   * Analysis tool. Not required for OpenAPI access.
    * 
    * @example
    * gp/pyki/analysis
@@ -26,7 +26,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Process name. This is an optional parameter.
+   * Process name, optional parameter
    * 
    * @example
    * python_test
@@ -34,7 +34,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   comms?: string;
   /**
    * @remarks
-   * Creator. You do not need to specify this parameter when using OpenAPI.
+   * Creator. Not required for OpenAPI access.
    * 
    * @example
    * 445333
@@ -50,7 +50,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Instance type. This field does not need to be filled in when using OpenAPI.
+   * Instance type. Not required for OpenAPI access.
    * 
    * @example
    * ip/sn/hostname
@@ -58,7 +58,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Iteration entry function. Required only in iteration mode. This parameter is optional.
+   * Iteration entry function. Required only in iteration mode. Can be left blank.
    * 
    * @example
    * Class.function
@@ -66,7 +66,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   iterationFunc?: string;
   /**
    * @remarks
-   * Iteration entry module. Required only in iteration mode. This parameter is optional.
+   * Iteration entry module. Required only in iteration mode. Can be left blank.
    * 
    * @example
    * a.b.module
@@ -74,12 +74,12 @@ export class StartAIAnalysisRequest extends $dara.Model {
   iterationMod?: string;
   /**
    * @remarks
-   * Iteration range (iteration count: the number of iterations when the data collection module is activated, independent of the AI job\\"s iteration count)
+   * Iteration range (iteration count: refers to the number of iterations when the data collection module is activated, independent of the AI job\\"s iteration count)
    */
   iterationRange?: number[];
   /**
    * @remarks
-   * Process IDs (PIDs) of the AI job. Batch input is supported, separated by commas.
+   * AI job process PIDs. Supports batch input, separated by commas.
    * 
    * @example
    * 2421,36547,10043
@@ -95,9 +95,9 @@ export class StartAIAnalysisRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * AI Infra analysis duration.  
-   * Unit: milliseconds.  
-   * Default value: 2000.
+   * AI Infra analysis time;
+   * Unit: milliseconds;
+   * Default value: 2000;
    * 
    * @example
    * 2000
@@ -105,7 +105,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Alibaba Cloud User ID. You do not need to specify this parameter when using OpenAPI.
+   * Alibaba Cloud user ID. Not required for OpenAPI access.
    * 
    * @example
    * 123423414

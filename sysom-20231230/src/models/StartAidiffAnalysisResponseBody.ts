@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class StartAIDiffAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class StartAIDiffAnalysisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * AI differential analysis result data
+   * The AI differential analysis result data.
    * 
    * @example
    * "[
@@ -40,7 +40,7 @@ export class StartAIDiffAnalysisResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Error message description; empty if no error occurred
+   * The error code description. This field is empty if no error occurs.
    * 
    * @example
    * ""

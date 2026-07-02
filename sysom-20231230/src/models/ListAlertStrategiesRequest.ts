@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertStrategiesRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number (starting from 1)
+   * The current page number (starting from 1).
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Maximum number of records to retrieve in a single request.
+   * The maximum number of records to retrieve in a single request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Alert policy name
+   * The policy name of the alerting policy.
    * 
    * @example
    * strategy1
@@ -29,7 +29,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Pagination token for the next request.
+   * The pagination token for the next request.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -37,7 +37,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10

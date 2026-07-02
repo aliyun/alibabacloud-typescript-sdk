@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentForClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job ID.  
-   * You can use this job ID to invoke GetAgentTask to query the execution status of the job.
+   * The task ID. You can use this task ID to call GetAgentTasK to query the execution status of the task.
    * 
    * @example
    * 049ea0609515414b9e19c3389d7ba638
@@ -36,7 +35,7 @@ export class UninstallAgentForClusterResponseBodyData extends $dara.Model {
 export class UninstallAgentForClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnosis
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * 44841312-7227-55C9-AE03-D59729BFAE38
@@ -44,9 +43,9 @@ export class UninstallAgentForClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates that authorization succeeded.  
-   * - Any other status code indicates that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -54,14 +53,14 @@ export class UninstallAgentForClusterResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The response data.
    */
   data?: UninstallAgentForClusterResponseBodyData;
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
-   * - Otherwise, this field contains the request error message.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.NotAuthorizedInstance Instance 21 is not authorized

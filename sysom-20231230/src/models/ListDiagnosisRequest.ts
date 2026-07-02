@@ -21,7 +21,7 @@ export class ListDiagnosisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Diagnostic parameters. Different diagnosis types require different diagnostic parameters. You can use this field to filter records whose parameter values match the specified value.
+   * Diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
    * 
    * @example
    * [{\\"key\\":\\"region\\",\\"value\\":\\"cn-beijing\\"}]
@@ -29,7 +29,7 @@ export class ListDiagnosisRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * Diagnosis type
+   * Diagnostic type
    * 
    * @example
    * memgraph
@@ -37,12 +37,12 @@ export class ListDiagnosisRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Status of the diagnostic task execution.  
-   * Valid values:  
-   * - **Ready**: Ready  
-   * - **Running**: Running  
-   * - **Success**: Succeeded  
-   * - **Fail**: Failed
+   * Execution status of the diagnostic task.
+   * Valid values:
+   * - **Ready**: Ready
+   * - **Running**: Running
+   * - **Success**: Execution succeeded
+   * - **Fail**: Execution failed
    * 
    * @example
    * Running

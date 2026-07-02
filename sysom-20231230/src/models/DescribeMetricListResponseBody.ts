@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Metric labels
+   * The metric labels.
    * 
    * @example
    * {\\"taskExecName\\": \\"build-and-deploy\\", \\"pipelineName\\": \\"pipeline-run-1722909642357\\"}
@@ -13,7 +13,7 @@ export class DescribeMetricListResponseBodyData extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * Metric name
+   * The metric name.
    * 
    * @example
    * sysom_cpu_usage_idle
@@ -21,7 +21,7 @@ export class DescribeMetricListResponseBodyData extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Metric data
+   * The metric data.
    */
   values?: string[][];
   static names(): { [key: string]: string } {
@@ -55,9 +55,9 @@ export class DescribeMetricListResponseBodyData extends $dara.Model {
 export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code  
-   * - `code == Success` indicates successful authorization;  
-   * - Any other status code indicates authorization failure. When authorization fails, check the `message` field for detailed error information.
+   * The status code.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -65,13 +65,13 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DescribeMetricListResponseBodyData[];
   /**
    * @remarks
-   * Error message  
-   * - If `code == Success`, this field is empty.  
+   * The error message.
+   * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error message.
    * 
    * @example
