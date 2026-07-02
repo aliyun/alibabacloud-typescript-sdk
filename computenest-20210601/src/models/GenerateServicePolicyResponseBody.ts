@@ -10,7 +10,7 @@ export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model 
   action?: string[];
   /**
    * @remarks
-   * The object to which the permissions are granted. An asterisk (\\*) indicates all resources.
+   * The specific resource that is authorized. An asterisk (*) indicates all resources.
    * 
    * @example
    * *
@@ -18,7 +18,7 @@ export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model 
   resource?: string;
   /**
    * @remarks
-   * The name of the service to which the access policy belongs.
+   * The service name to which the access policy belongs.
    * 
    * @example
    * ecs
@@ -60,7 +60,7 @@ export class GenerateServicePolicyResponseBody extends $dara.Model {
   missingPolicy?: GenerateServicePolicyResponseBodyMissingPolicy[];
   /**
    * @remarks
-   * The required access policy.
+   * The custom properties of the required access policy.
    * 
    * @example
    * {Statement": [{ "Action": ["oos:*"], "Effect": "Allow", "Resource": "*"},{ "Action": ["ecs:DescribeInstances"], "Effect": "Allow", "Resource": "*"},{ "Action": ["ecs:RunInstance"], "Effect": "Allow", "Resource": "*"}], "Version": "1"}

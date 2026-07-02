@@ -2,10 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListPublicSkillsResponseBodySkillsLocales extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the skill was created.
    * 
    * @example
    * 2025-09-11T02:18:42Z
@@ -13,23 +42,29 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The download link for the skill package.
+   * The download URL of the skill package.
    * 
    * @example
    * https://testts-1.oss-cn-beijing.aliyuncs.com/app/yyb_9.1.1.zip
    */
   downloadUrl?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  locales?: ListPublicSkillsResponseBodySkillsLocales[];
+  /**
    * @remarks
-   * The description of the skill.
+   * The skill description.
    * 
    * @example
    * 11111
    */
   skillDescription?: string;
+  skillDisplayName?: string;
   /**
    * @remarks
-   * The ID of the skill.
+   * Skill ID
    * 
    * @example
    * af7e49d9-277f-454a-afc5-1513d41cac31
@@ -37,12 +72,12 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The labels attached to the skill.
+   * The skill label set.
    */
   skillLabels?: string[];
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * @example
    * ziptest
@@ -50,7 +85,7 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The ID of the skill space.
+   * The ID of the SkillSpace to which the skill belongs.
    * 
    * @example
    * ss-1111111
@@ -58,7 +93,7 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   skillSpaceId?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the skill was last updated.
    * 
    * @example
    * 2025-11-03T22:58:52Z
@@ -68,7 +103,9 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
     return {
       createTime: 'CreateTime',
       downloadUrl: 'DownloadUrl',
+      locales: 'Locales',
       skillDescription: 'SkillDescription',
+      skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
       skillLabels: 'SkillLabels',
       skillName: 'SkillName',
@@ -81,7 +118,9 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
     return {
       createTime: 'string',
       downloadUrl: 'string',
+      locales: { 'type': 'array', 'itemType': ListPublicSkillsResponseBodySkillsLocales },
       skillDescription: 'string',
+      skillDisplayName: 'string',
       skillId: 'string',
       skillLabels: { 'type': 'array', 'itemType': 'string' },
       skillName: 'string',
@@ -91,6 +130,9 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.locales)) {
+      $dara.Model.validateArray(this.locales);
+    }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);
     }
@@ -105,7 +147,7 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
 export class ListPublicSkillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 10
@@ -113,7 +155,7 @@ export class ListPublicSkillsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The token for the next page.
    * 
    * @example
    * AAAAAZ9FmxgN6wKfeK/GOKRnnjU=
@@ -121,7 +163,7 @@ export class ListPublicSkillsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3F976EF8-C10A-57DC-917C-BB7BEB508FFB
@@ -129,7 +171,7 @@ export class ListPublicSkillsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of public skills.
+   * The list of skills.
    */
   skills?: ListPublicSkillsResponseBodySkills[];
   /**

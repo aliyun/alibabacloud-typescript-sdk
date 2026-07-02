@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token that ensures request idempotence. It must be unique for each request. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters long.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,7 +13,7 @@ export class CreateSkillRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Required when SourceType is set to UPLOAD. The OSS URL of the Skill package to upload.
+   * The OSS URL of the Skill package to upload. This parameter is required when SourceType is set to UPLOAD.
    * 
    * @example
    * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/30516570
@@ -21,12 +21,13 @@ export class CreateSkillRequest extends $dara.Model {
   ossUrl?: string;
   /**
    * @remarks
-   * The description of the Skill.
+   * The Skill description.
    * 
    * @example
    * 11111
    */
   skillDescription?: string;
+  skillDisplayName?: string;
   /**
    * @remarks
    * The Skill labels.
@@ -37,7 +38,7 @@ export class CreateSkillRequest extends $dara.Model {
   skillLabels?: string[];
   /**
    * @remarks
-   * The name of the Skill.
+   * The Skill name.
    * 
    * @example
    * 11111
@@ -45,7 +46,7 @@ export class CreateSkillRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The ID of the SkillSpace containing the Skill.
+   * The ID of the SkillSpace to which the Skill belongs.
    * 
    * This parameter is required.
    * 
@@ -55,7 +56,7 @@ export class CreateSkillRequest extends $dara.Model {
   skillSpaceId?: string;
   /**
    * @remarks
-   * Required when SourceType is set to COPY. The ID of the public Skill.
+   * The public Skill ID. This parameter is required when SourceType is set to COPY.
    * 
    * @example
    * s-11111
@@ -63,7 +64,7 @@ export class CreateSkillRequest extends $dara.Model {
   sourceSkillId?: string;
   /**
    * @remarks
-   * The creation method for the Skill.
+   * The source type used when creating the Skill.
    * 
    * This parameter is required.
    * 
@@ -76,6 +77,7 @@ export class CreateSkillRequest extends $dara.Model {
       clientToken: 'ClientToken',
       ossUrl: 'OssUrl',
       skillDescription: 'SkillDescription',
+      skillDisplayName: 'SkillDisplayName',
       skillLabels: 'SkillLabels',
       skillName: 'SkillName',
       skillSpaceId: 'SkillSpaceId',
@@ -89,6 +91,7 @@ export class CreateSkillRequest extends $dara.Model {
       clientToken: 'string',
       ossUrl: 'string',
       skillDescription: 'string',
+      skillDisplayName: 'string',
       skillLabels: { 'type': 'array', 'itemType': 'string' },
       skillName: 'string',
       skillSpaceId: 'string',

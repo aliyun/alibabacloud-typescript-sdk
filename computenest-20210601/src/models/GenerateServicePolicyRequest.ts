@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateServicePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The types of operations for which to generate policy information.
+   * The operation types for which policy information needs to be generated.
    */
   operationTypes?: string[];
   parameters?: { [key: string]: any };
@@ -47,11 +47,11 @@ export class GenerateServicePolicyRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The trial type. The default value is NotTrial. Valid values:
+   * The trial type. Default value: NotTrial. Valid values:
    * 
-   * - Trial: The service supports trial use.
+   * - Trial: Trial is supported.
    * 
-   * - NotTrial: The service does not support trial use.
+   * - NotTrial: Trial is not supported.
    * 
    * @example
    * NotTrial

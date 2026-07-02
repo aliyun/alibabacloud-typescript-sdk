@@ -2,18 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetSkillResponseBodyLocales extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time the Skill was created.
+   * The time when the Skill was created.
    * 
    * @example
    * 2021-05-20T00:00:00Z
    */
   createTime?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  locales?: GetSkillResponseBodyLocales[];
+  /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 13FE89A5-C036-56BF-A0FF-A31C59819FD7
@@ -21,15 +55,16 @@ export class GetSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of the Skill.
+   * The Skill description.
    * 
    * @example
    * 11111111
    */
   skillDescription?: string;
+  skillDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Skill.
+   * Skill ID
    * 
    * @example
    * s-04zzrgosj6xd11yah
@@ -37,12 +72,12 @@ export class GetSkillResponseBody extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The labels of the Skill.
+   * The Skill labels.
    */
   skillLabels?: string[];
   /**
    * @remarks
-   * The name of the Skill.
+   * The Skill name.
    * 
    * @example
    * skill-hello
@@ -58,7 +93,7 @@ export class GetSkillResponseBody extends $dara.Model {
   skillSpaceId?: string;
   /**
    * @remarks
-   * The time the Skill was last updated.
+   * The time when the Skill was last updated.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -67,8 +102,10 @@ export class GetSkillResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      locales: 'Locales',
       requestId: 'RequestId',
       skillDescription: 'SkillDescription',
+      skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
       skillLabels: 'SkillLabels',
       skillName: 'SkillName',
@@ -80,8 +117,10 @@ export class GetSkillResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      locales: { 'type': 'array', 'itemType': GetSkillResponseBodyLocales },
       requestId: 'string',
       skillDescription: 'string',
+      skillDisplayName: 'string',
       skillId: 'string',
       skillLabels: { 'type': 'array', 'itemType': 'string' },
       skillName: 'string',
@@ -91,6 +130,9 @@ export class GetSkillResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.locales)) {
+      $dara.Model.validateArray(this.locales);
+    }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);
     }

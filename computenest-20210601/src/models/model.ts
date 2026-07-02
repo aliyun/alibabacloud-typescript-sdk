@@ -54,11 +54,13 @@ export { GetServiceTemplateParameterConstraintsRequestParameters } from './GetSe
 export { GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints } from './GetServiceTemplateParameterConstraintsResponseBody';
 export { GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors } from './GetServiceTemplateParameterConstraintsResponseBody';
 export { GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints } from './GetServiceTemplateParameterConstraintsResponseBody';
+export { GetSkillResponseBodyLocales } from './GetSkillResponseBody';
 export { GetUserInformationResponseBodyDeliverySettings } from './GetUserInformationResponseBody';
 export { ListBackupsRequestFilter } from './ListBackupsRequest';
 export { ListBackupsResponseBodyBackups } from './ListBackupsResponseBody';
 export { ListPoliciesResponseBodyPolicies } from './ListPoliciesResponseBody';
 export { ListPublicSkillsRequestFilter } from './ListPublicSkillsRequest';
+export { ListPublicSkillsResponseBodySkillsLocales } from './ListPublicSkillsResponseBody';
 export { ListPublicSkillsResponseBodySkills } from './ListPublicSkillsResponseBody';
 export { ListRestoreTasksRequestFilter } from './ListRestoreTasksRequest';
 export { ListRestoreTasksResponseBodyRestoreTasks } from './ListRestoreTasksResponseBody';
@@ -92,6 +94,7 @@ export { ListSkillFilesResponseBodySkillFiles } from './ListSkillFilesResponseBo
 export { ListSkillSpacesRequestFilter } from './ListSkillSpacesRequest';
 export { ListSkillSpacesResponseBodySkillSpaces } from './ListSkillSpacesResponseBody';
 export { ListSkillsRequestFilter } from './ListSkillsRequest';
+export { ListSkillsResponseBodySkillsLocales } from './ListSkillsResponseBody';
 export { ListSkillsResponseBodySkills } from './ListSkillsResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
