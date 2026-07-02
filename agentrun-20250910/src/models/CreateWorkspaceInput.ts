@@ -4,11 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWorkspaceInput extends $dara.Model {
   description?: string;
+  enablePresetModel?: boolean;
   name?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      enablePresetModel: 'enablePresetModel',
       name: 'name',
       resourceGroupId: 'resourceGroupId',
     };
@@ -17,6 +19,7 @@ export class CreateWorkspaceInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      enablePresetModel: 'boolean',
       name: 'string',
       resourceGroupId: 'string',
     };

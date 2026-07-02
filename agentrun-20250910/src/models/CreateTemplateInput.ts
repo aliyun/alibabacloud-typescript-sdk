@@ -13,7 +13,7 @@ import { ScalingConfig } from "./ScalingConfig";
 export class CreateTemplateInput extends $dara.Model {
   /**
    * @remarks
-   * Controls whether data plane calls can create, stop, or delete the sandbox.
+   * Whether to allow data channel to call create/stop/delete sandbox APIs
    * 
    * @example
    * true
@@ -24,17 +24,17 @@ export class CreateTemplateInput extends $dara.Model {
   allowAnonymousManage?: boolean;
   /**
    * @remarks
-   * The Application Real-Time Monitoring Service (ARMS) configuration.
+   * ARMS configuration
    */
   armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
-   * The container configuration. You can only use images based on the Browser or Code Interpreter base images.
+   * Container configuration, only images based on Browser/Code Interpreter base images are allowed
    */
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
-   * The number of CPU cores.
+   * CPU resource configuration (unit: cores)
    * 
    * This parameter is required.
    * 
@@ -44,12 +44,12 @@ export class CreateTemplateInput extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The credential configuration.
+   * Credential configuration
    */
   credentialConfiguration?: CredentialConfiguration;
   /**
    * @remarks
-   * The template description.
+   * Template description
    * 
    * @example
    * 模板描述
@@ -57,7 +57,7 @@ export class CreateTemplateInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The disk size in MB.
+   * Disk size
    * 
    * @example
    * 10240
@@ -65,22 +65,18 @@ export class CreateTemplateInput extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * Controls whether to enable the Sandbox Agent.
+   * Sandbox Agent switch
    */
   enableAgent?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable the pre-stop hook.
-   */
   enablePreStop?: boolean;
   /**
    * @remarks
-   * The environment variables for the sandbox.
+   * Environment variables
    */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the execution role.
+   * Execution role ARN
    * 
    * @example
    * acs:ram::123456789:role/aliyunfcdefaultrole
@@ -88,12 +84,12 @@ export class CreateTemplateInput extends $dara.Model {
   executionRoleArn?: string;
   /**
    * @remarks
-   * The log configuration.
+   * Log configuration
    */
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
-   * The memory size in MB.
+   * Memory resource configuration (unit: MB)
    * 
    * This parameter is required.
    * 
@@ -103,29 +99,25 @@ export class CreateTemplateInput extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The Network Attached Storage (NAS) mount configuration.
+   * NAS mount configuration
    */
   nasConfig?: NASConfig;
   /**
    * @remarks
-   * The network configuration.
+   * Network configuration
    * 
    * This parameter is required.
    */
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * A list of Object Storage Service (OSS) configurations.
+   * OSS configuration
    */
   ossConfiguration?: OssConfiguration[];
-  /**
-   * @remarks
-   * The timeout for the pre-stop hook, in seconds. This parameter applies only when `enablePreStop` is set to `true`.
-   */
   preStopTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The duration in seconds that a sandbox can be idle before it is automatically stopped.
+   * Sandbox idle timeout (in seconds)
    * 
    * @example
    * 1800
@@ -133,7 +125,7 @@ export class CreateTemplateInput extends $dara.Model {
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The maximum time-to-live (TTL) in seconds for the sandbox. The sandbox is terminated after this duration, regardless of activity.
+   * Sandbox time-to-live (in seconds)
    * 
    * @example
    * 26000
@@ -141,17 +133,17 @@ export class CreateTemplateInput extends $dara.Model {
   sandboxTTLInSeconds?: number;
   /**
    * @remarks
-   * The scaling configuration.
+   * Scaling configuration
    */
   scalingConfig?: ScalingConfig;
   /**
    * @remarks
-   * The template configuration. This is a flexible object whose structure varies depending on the `templateType`.
+   * Template configuration (flexible object structure that varies depending on templateType)
    */
   templateConfiguration?: { [key: string]: any };
   /**
    * @remarks
-   * A unique name for the template within your account.
+   * Template name (must be unique within the account)
    * 
    * This parameter is required.
    * 
@@ -161,7 +153,7 @@ export class CreateTemplateInput extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The template type.
+   * Template type
    * 
    * This parameter is required.
    * 
@@ -169,10 +161,6 @@ export class CreateTemplateInput extends $dara.Model {
    * Browser
    */
   templateType?: string;
-  /**
-   * @remarks
-   * The ID of the workspace.
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

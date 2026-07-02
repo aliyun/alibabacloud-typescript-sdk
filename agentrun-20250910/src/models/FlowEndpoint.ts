@@ -30,7 +30,7 @@ export class FlowEndpoint extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the flow endpoint.
    * 
    * @example
-   * acs:agentrun:cn-hangzhou:1760720386195983:workspaces/ws-xxx/flows/flow-xxx/endpoints/fe-xxx
+   * acs:agentrun:cn-hangzhou:123456789012:workspaces/ws-xxx/flows/flow-xxx/endpoints/fe-xxx
    */
   flowEndpointArn?: string;
   /**

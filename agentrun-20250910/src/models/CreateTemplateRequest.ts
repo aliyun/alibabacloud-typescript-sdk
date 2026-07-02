@@ -6,7 +6,7 @@ import { CreateTemplateInput } from "./CreateTemplateInput";
 export class CreateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Contains the parameters for creating the template.
+   * CreateTemplate request parameters
    * 
    * This parameter is required.
    */
