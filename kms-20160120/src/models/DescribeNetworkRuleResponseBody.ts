@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the access control rule.
+   * The ARN of the network rule.
    * 
    * @example
    * acs:kms:cn-hangzhou:119285303511****:network/networkrule_test
@@ -16,12 +16,12 @@ export class DescribeNetworkRuleResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * Creat by kst-hzz62ee817bvyyr5****
+   * Create by kst-hzz62ee817bvyyr5****
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 3bf02f7a-015b-4f93-be0f-cc043fda2d33
@@ -29,7 +29,7 @@ export class DescribeNetworkRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The private IP address or private CIDR block.
+   * The private IP addresses or private CIDR blocks.
    * 
    * @example
    * ["192.10.XX.XX","192.168.XX.XX/24"]
@@ -37,7 +37,7 @@ export class DescribeNetworkRuleResponseBody extends $dara.Model {
   sourcePrivateIp?: string;
   /**
    * @remarks
-   * The network type. Only private IP addresses are supported. The value is fixed as Private.
+   * The network type. The only valid value is Private, which means only private IP addresses are supported.
    * 
    * @example
    * Private

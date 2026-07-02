@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKeyMaterialRequest extends $dara.Model {
   /**
    * @remarks
-   * Use **GetParametersForImport** the Returned public key and the base64-encoded key material.
+   * The key material encrypted with the public key returned by **GetParametersForImport**, and then Base64-encoded.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ImportKeyMaterialRequest extends $dara.Model {
   encryptedKeyMaterial?: string;
   /**
    * @remarks
-   * By calling **GetParametersForImport** the import token.
+   * The import token obtained by calling **GetParametersForImport**.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ImportKeyMaterialRequest extends $dara.Model {
    * 
    * If this parameter is not specified or set this parameter to 0, the key material does not expire.
    * 
-   * >  The value cannot be earlier than the time when the API is called (based on the server time).
+   * > The value cannot be earlier than the time when the operation is called (based on the server time).
    * 
    * This parameter is required.
    * 

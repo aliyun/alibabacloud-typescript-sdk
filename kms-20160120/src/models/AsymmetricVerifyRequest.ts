@@ -15,9 +15,9 @@ export class AsymmetricVerifyRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The digest that is generated for the original message by using a hash algorithm. The hash algorithm is specified by the **Algorithm** parameter.
+   * The digest that is generated using the hash algorithm that corresponds to the value of **Algorithm** to hash the original message.
    * 
-   * >  The value is encoded in Base64.
+   * > The value is Base64-encoded.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,31 @@ export class AsymmetricVerifyRequest extends $dara.Model {
    * ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuy****=
    */
   digest?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
+   * - true: performs a dry run.
+   * 
+   * - false (default): does not perform a dry run.
+   * 
+   * A dry run is used to test API calls and verify whether you have the permissions to access the specified resources and whether the request parameters are valid. If you perform a dry run, KMS always returns a failure response that indicates the cause of the failure. The following failure causes are included:
+   * 
+   * - DryRunOperationError: The request would have succeeded if the DryRun parameter is not specified.
+   * 
+   * - ValidationError: The specified parameters in the request are invalid.
+   * 
+   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
   /**
    * @remarks
-   * The ID of the CMK. The ID must be globally unique.
+   * The globally unique identifier (GUID) of the customer master key (CMK).
    * 
-   * >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
+   * > You can also specify the alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
    * 
    * This parameter is required.
    * 
@@ -40,7 +59,7 @@ export class AsymmetricVerifyRequest extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The version ID of the CMK. The ID must be globally unique.
+   * The ID of the key version. The ID must be the GUID of the key version.
    * 
    * This parameter is required.
    * 
@@ -52,7 +71,7 @@ export class AsymmetricVerifyRequest extends $dara.Model {
    * @remarks
    * The signature value to be verified.
    * 
-   * >  The value is encoded in Base64.
+   * > The value is Base64-encoded.
    * 
    * This parameter is required.
    * 

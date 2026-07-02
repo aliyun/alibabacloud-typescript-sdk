@@ -12,7 +12,7 @@ export class DescribeKeyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 05754286-3ba2-4fa6-8d41-4323aca6****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   static names(): { [key: string]: string } {

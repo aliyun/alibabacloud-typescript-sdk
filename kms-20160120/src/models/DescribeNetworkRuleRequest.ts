@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the access control rule that you want to query.
+   * The name of the network rule to query.
    * 
    * This parameter is required.
    * 

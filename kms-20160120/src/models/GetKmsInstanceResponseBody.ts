@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetKmsInstanceResponseBodyKmsInstanceBindVpcsBindVpc extends $dara.Model {
-  /**
-   * @remarks
-   * The region to which the VPC belongs.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The vSwitch in the VPC.
-   * 
-   * @example
-   * vsw-bp1i512amhdje10f1****
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * @example
-   * vpc-bp19z7djuhtad5dff****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account to which the VPC belongs.
-   * 
-   * @example
-   * 190325303126****
-   */
   vpcOwnerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,30 +61,37 @@ export class GetKmsInstanceResponseBodyKmsInstanceBindVpcs extends $dara.Model {
 }
 
 export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
-  /**
-   * @remarks
-   * A list of associated VPCs.
-   * 
-   * >  If your self-managed applications are deployed in multiple VPCs in the same region, you can associate VPCs with the KMS instance beyond the VPC that you specify when you enable the KMS instance. The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in the VPCs can access the specified KMS instance.
-   */
   bindVpcs?: GetKmsInstanceResponseBodyKmsInstanceBindVpcs;
   /**
    * @remarks
-   * The content of the certificate authority (CA) certificate of the KMS instance.
+   * The CA certificate chain for the KMS instance in PEM format.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----\\r\\nMIIDuzCCAqOgAwIBAgIJALTKwWAjvbMiMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV****-----END CERTIFICATE-----
    */
   caCertificateChainPem?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * - `PREPAY`: subscription
+   * 
+   * - `POSTPAY`: pay-as-you-go
+   * 
+   * @example
+   * POSTPAY
+   */
   chargeType?: string;
   /**
    * @remarks
-   * The time when the KMS instance is created.
+   * The creation time of the KMS instance.
    * 
    * @example
    * 2023-09-05T12:44:20Z
    */
   createTime?: string;
+  deletionProtection?: boolean;
+  deletionProtectionDescription?: string;
   /**
    * @remarks
    * The expiration time of the KMS instance.
@@ -139,20 +118,55 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of keys that can be created for the KMS instance.
+   * The maximum number of keys that can be created in the KMS instance.
    * 
    * @example
    * 1000
    */
   keyNum?: number;
+  /**
+   * @remarks
+   * Indicates whether logging is enabled for the KMS instance. Valid values: `1` (enabled) and `0` (disabled).
+   * 
+   * @example
+   * 1
+   */
   log?: number;
+  /**
+   * @remarks
+   * The log storage capacity. Unit: GB.
+   * 
+   * @example
+   * 100
+   */
   logStorage?: number;
+  /**
+   * @remarks
+   * The product type.<br>Subscription:<br>`kms_ddi_public_cn`: China site<br>`kms_ddi_public_intl`: international site<br>Pay-as-you-go:<br>`kms_ppi_public_cn`: China site<br>`kms_ppi_public_intl`: international site<br><br><br><br><br><br>
+   * 
+   * @example
+   * kms_ddi_public_cn
+   */
   productType?: string;
+  /**
+   * @remarks
+   * The version of the KMS instance.
+   * 
+   * @example
+   * 3
+   */
   productVersion?: string;
+  /**
+   * @remarks
+   * The sales status of the instance.
+   * 
+   * @example
+   * Normal
+   */
   saleStatus?: string;
   /**
    * @remarks
-   * The number of secrets that can be created for the KMS instance.
+   * The maximum number of credentials that can be created in the KMS instance.
    * 
    * @example
    * 10
@@ -168,7 +182,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   spec?: number;
   /**
    * @remarks
-   * The time when the KMS instance is enabled.
+   * The time when the KMS instance was enabled.
    * 
    * @example
    * 2023-09-05T12:44:19Z
@@ -178,11 +192,15 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
    * @remarks
    * The status of the KMS instance. Valid values:
    * 
-   * *   Uninitialized: The KMS instance is not enabled.
-   * *   Connecting: The KMS instance is being connected.
-   * *   Connected: The KMS instance is enabled.
-   * *   Disconnected: The KMS instance is disconnected.
-   * *   Error: The KMS instance is abnormal.
+   * - `Uninitialized`: The instance is not enabled.
+   * 
+   * - `Connecting`: The instance is connecting.
+   * 
+   * - `Connected`: The instance is enabled.
+   * 
+   * - `Disconnected`: The instance is disconnected.
+   * 
+   * - `Error`: The instance is in an error state.
    * 
    * @example
    * Connected
@@ -190,7 +208,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) with which the KMS instance is associated.
+   * The VPC to which the KMS instance is attached.
    * 
    * @example
    * vpc-bp19z7cwmltad5dff****
@@ -198,7 +216,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The access management quota for the KMS instance.
+   * The maximum number of VPCs that can be associated with the KMS instance for access control.
    * 
    * @example
    * 5
@@ -206,7 +224,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   vpcNum?: number;
   /**
    * @remarks
-   * The vSwitch in the VPC.
+   * The vSwitches in the VPC to which the KMS instance is attached.
    * 
    * @example
    * vsw-bp1i512amda6d10a0****
@@ -214,7 +232,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
   vswitchIds?: string[];
   /**
    * @remarks
-   * The zone with which the KMS instance is associated.
+   * The zones to which the KMS instance is attached.
    * 
    * @example
    * "cn-hangzhou-k",       "cn-hangzhou-j"
@@ -226,6 +244,8 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
       caCertificateChainPem: 'CaCertificateChainPem',
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
+      deletionProtectionDescription: 'DeletionProtectionDescription',
       endDate: 'EndDate',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -252,6 +272,8 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
       caCertificateChainPem: 'string',
       chargeType: 'string',
       createTime: 'string',
+      deletionProtection: 'boolean',
+      deletionProtectionDescription: 'string',
       endDate: 'string',
       instanceId: 'string',
       instanceName: 'string',
@@ -294,11 +316,14 @@ export class GetKmsInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the KMS instance.
+   * 
+   * @example
+   * 3
    */
   kmsInstance?: GetKmsInstanceResponseBodyKmsInstance;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to locate and troubleshoot issues.
    * 
    * @example
    * 46b4a94a-57d2-44b4-9810-1e87d31abb33

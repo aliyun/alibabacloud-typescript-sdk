@@ -3,10 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GenerateDataKeyWithoutPlaintextShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the DryRun mode.
+   * 
+   * - true: enables the DryRun mode.
+   * 
+   * - false (default): disables the DryRun mode.
+   * 
+   * The DryRun mode is used to test API calls, verify your permissions on the required resources, and check if the request parameters are valid. If you enable the DryRun mode, KMS returns a failure response with a reason. The failure reasons include the following:
+   * 
+   * - DryRunOperationError: The request would have succeeded if the DryRun parameter was not specified.
+   * 
+   * - ValidationError: The request parameters are invalid.
+   * 
+   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
   /**
    * @remarks
-   * A JSON string that consists of key-value pairs. If you specify this parameter, an equivalent value is required when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+   * A JSON string of key-value pairs. If you specify this parameter, you must provide the same parameter when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
    * 
    * @example
    * {"Example":"Example"}
@@ -14,22 +33,23 @@ export class GenerateDataKeyWithoutPlaintextShrinkRequest extends $dara.Model {
   encryptionContextShrink?: string;
   /**
    * @remarks
-   * The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see Use aliases.
+   * The globally unique identifier of the CMK. You can also specify an alias that is bound to the CMK. For more information about how to use an alias, see Alias overview.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234abcd-12ab-34cd-56ef-12345678****
+   * 599fa825-17de-417e-9554-bb032cc6****
    */
   keyId?: string;
   /**
    * @remarks
-   * The length of the data key that you want to generate. Valid values:
+   * The length of the data key to generate. Valid values:
    * 
-   * *   AES_256: 256-bit symmetric key
-   * *   AES_128: 128-bit symmetric key
+   * - AES_256: a 256-bit symmetric key
    * 
-   * >  We recommend that you use the KeySpec or NumberOfBytes parameter to specify the length of a data key. If both of them are not specified, KMS generates a 256-bit data key. If both of them are specified, KMS ignores the KeySpec parameter.
+   * - AES_128: a 128-bit symmetric key
+   * 
+   * > Use KeySpec or NumberOfBytes to specify the length of the data key. If you do not specify either parameter, KMS generates a 256-bit data key. If you specify both parameters, KMS ignores the KeySpec parameter.
    * 
    * @example
    * AES_256
@@ -37,11 +57,7 @@ export class GenerateDataKeyWithoutPlaintextShrinkRequest extends $dara.Model {
   keySpec?: string;
   /**
    * @remarks
-   * The length of the data key that you want to generate.
-   * 
-   * Valid values: 1 to 1024.
-   * 
-   * Unit: bytes.
+   * The length of the data key to generate.<br> Valid values: 1 to 1024.<br> Unit: bytes<br><br><br><br><br>
    * 
    * @example
    * 256

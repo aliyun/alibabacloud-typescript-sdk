@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationAccessPointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the AAP.
+   * The Alibaba Cloud Resource Name (ARN) of the AAP.
    * 
    * @example
    * acs:kms:cn-hangzhou:119285303511****:applicationaccesspoint/aap_test
@@ -37,7 +37,7 @@ export class DescribeApplicationAccessPointResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The permission policy that is bound to the AAP.
+   * The attached access policies.
    * 
    * @example
    * ["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]
@@ -45,7 +45,7 @@ export class DescribeApplicationAccessPointResponseBody extends $dara.Model {
   policies?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * bcfefe15-46f0-44a3-bd96-3d422474b71a

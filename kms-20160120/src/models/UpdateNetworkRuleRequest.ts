@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNetworkRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description after the update.
+   * The updated description.
    * 
    * @example
-   * Creat by kst-hzz62ee817bvyyr5****
+   * Create by kst-hzz62ee817bvyyr5****
    */
   description?: string;
   /**
    * @remarks
-   * The name of the access control rule that you want to update.
+   * The name of the network control rule that you want to update.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateNetworkRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private IP address or CIDR block after the update. Separate multiple items with commas (,).
+   * The updated private IP addresses or private CIDR blocks. Separate multiple IP addresses or private CIDR blocks with a comma (,).
    * 
    * @example
    * ["192.10.XX.XX","192.168.XX.XX/24"]

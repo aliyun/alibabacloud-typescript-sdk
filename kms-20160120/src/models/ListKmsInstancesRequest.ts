@@ -6,7 +6,7 @@ export class ListKmsInstancesRequest extends $dara.Model {
   filters?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The number of the page to return. The default value is 1.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class ListKmsInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 10

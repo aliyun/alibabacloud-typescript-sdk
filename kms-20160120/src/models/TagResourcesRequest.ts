@@ -9,9 +9,9 @@ export class TagResourcesRequestTag extends $dara.Model {
    * 
    * You can enter up to 20 tags. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
    * 
-   * Each key can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
+   * Each key can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
    * 
-   * >  The key cannot start with aliyun or acs:.
+   * > The key cannot start with aliyun or acs:.
    * 
    * @example
    * disk-encryption
@@ -23,7 +23,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * 
    * You can enter up to 20 tags. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
    * 
-   * Each value can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
+   * Each value can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/601478.html) to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/601478.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -78,8 +78,9 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource to which you want to add tags. Valid values:
    * 
-   * *   key
-   * *   secret
+   * - key
+   * 
+   * - secret
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the AAP that you want to query.
+   * The name of the application access point (AAP) to query.
    * 
    * This parameter is required.
    * 

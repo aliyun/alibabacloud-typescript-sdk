@@ -9,7 +9,7 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * ` Valid characters: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ! \\"#$%&\\"()*+,-. /:;<=>? @[\\] your_project_id} ~  `.
+   * `Valid characters: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ! \\"#$%&\\"()*+,-. /:;<=>? @[\\] your_project_id} ~ `.
    * 
    * This parameter is empty by default.
    * 
@@ -23,8 +23,9 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -36,8 +37,9 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -49,8 +51,9 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -62,8 +65,9 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -87,8 +91,9 @@ export class GetRandomPasswordRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

@@ -8,17 +8,17 @@ export class DescribeKeyVersionResponseBodyKeyVersion extends $dara.Model {
    * The date and time when the CMK version was created. The time is displayed in UTC.
    * 
    * @example
-   * 2016-03-25T10:42:40Z
+   * 2024-03-25T10:42:40Z
    */
   creationDate?: string;
   /**
    * @remarks
    * The globally unique ID of the CMK.
    * 
-   * >  If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+   * > If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
    * 
    * @example
-   * 1234abcd-12ab-34cd-56ef-12345678****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**
@@ -62,7 +62,7 @@ export class DescribeKeyVersionResponseBody extends $dara.Model {
   keyVersion?: DescribeKeyVersionResponseBodyKeyVersion;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7021b6ec-4be7-4d3c-8a68-1e85d4d515a0

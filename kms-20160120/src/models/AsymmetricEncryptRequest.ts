@@ -13,24 +13,43 @@ export class AsymmetricEncryptRequest extends $dara.Model {
    * RSAES_OAEP_SHA_1
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dry run feature.
+   * 
+   * - true: enables the feature.
+   * 
+   * - false (default): disables the feature.
+   * 
+   * The dry run feature is used to test the API call and verify the permissions on the specified resources and the validity of the request parameters. If you enable the dry run feature, KMS always returns a failed result and a failure reason. The failure reasons include the following:
+   * 
+   * - DryRunOperationError: The request would have succeeded if the DryRun parameter was not specified.
+   * 
+   * - ValidationError: The specified parameters in the request are invalid.
+   * 
+   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
   /**
    * @remarks
-   * The ID of the CMK. The ID must be globally unique.
+   * The ID of the key. You can also specify the alias or the Amazon Resource Name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
    * 
-   * >  You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
+   * > To access a key of another Alibaba Cloud account, you must specify the ARN of the key. The key ARN is in the format of `acs:kms:${region}:${account}:key/${keyid}`.
    * 
    * This parameter is required.
    * 
    * @example
-   * 5c438b18-05be-40ad-b6c2-3be6752c****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**
    * @remarks
-   * The version ID of the CMK. The ID must be globally unique.
+   * The ID of the key version. The ID must be a globally unique identifier.
    * 
-   * >  You can call the [ListKeyVersions](https://help.aliyun.com/document_detail/133966.html) operation to query the versions of a CMK. The ID of a version is specified by the KeyVersionId parameter.
+   * > To obtain the key version ID, call the [ListKeyVersions](https://help.aliyun.com/document_detail/133966.html) operation.
    * 
    * This parameter is required.
    * 
@@ -40,7 +59,7 @@ export class AsymmetricEncryptRequest extends $dara.Model {
   keyVersionId?: string;
   /**
    * @remarks
-   * The plaintext that you want to encrypt. The plaintext must be Base64-encoded.
+   * The plaintext to be encrypted. The value must be Base64-encoded.
    * 
    * This parameter is required.
    * 

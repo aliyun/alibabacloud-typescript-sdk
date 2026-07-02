@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKmsInstancesResponseBodyKmsInstancesKmsInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the KMS instance.
-   * 
-   * @example
-   * acs:kms:pre-hangzhou:120708975881****:keystore/kst-phzz64c9f84eo32dbs****
-   */
   kmsInstanceArn?: string;
-  /**
-   * @remarks
-   * The ID of the KMS instance.
-   * 
-   * @example
-   * kst-phzz64c9f84eo32dbs****
-   */
   kmsInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,14 +55,10 @@ export class ListKmsInstancesResponseBodyKmsInstances extends $dara.Model {
 }
 
 export class ListKmsInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of KMS instances.
-   */
   kmsInstances?: ListKmsInstancesResponseBodyKmsInstances;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -84,7 +66,7 @@ export class ListKmsInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of KMS instances returned per page.
    * 
    * @example
    * 10
@@ -92,7 +74,7 @@ export class ListKmsInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * d3eca5c8-a856-4347-8eb6-e1898c3fda2e

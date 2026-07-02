@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Specifies whether to return resource tags for each secret. Valid values:
    * 
-   * Valid values: 1 to 100.
+   * - `true`: Resource tags are returned.
    * 
-   * Default value: 10.
+   * - `false` (default): Resource tags are not returned.
    * 
    * @example
    * false
@@ -17,7 +17,39 @@ export class ListSecretsRequest extends $dara.Model {
   fetchTags?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Filters secrets based on specified conditions. The value is a list of up to 10 key-value pairs. When you filter by tag, the query returns a maximum of 4,000 resources. If more than 4,000 resources match the filter, call the [ListResourceTags](https://help.aliyun.com/document_detail/120090.html) operation.
+   * 
+   * - Key
+   * 
+   *   - Description: The filter property.
+   * 
+   *   - Type: String.
+   * 
+   * - Values
+   * 
+   *   - Description: The filter value.
+   * 
+   *   - Type: String.
+   * 
+   *   - You can specify up to 10 items.
+   * 
+   * Valid values for Key:
+   * 
+   * - Set `Key` to **SecretName** to filter by secret name.
+   * 
+   * - Set `Key` to **Description** to filter by secret description.
+   * 
+   * - Set `Key` to **TagKey** to filter by tag key.
+   * 
+   * - Set `Key` to **TagValue** to filter by tag value.
+   * 
+   * - Set `Key` to **DKMSInstanceId** to filter by KMS instance ID.
+   * 
+   * - Set Key to **SecretType** to filter by secret type. `Values` can be `Generic`, `RDS`, `Redis`, `RAMCredentials`, `ECS`, or `PolarDB`.
+   * 
+   * - Set `Key` to **Creator** to filter by the creator of the secret.
+   * 
+   * If you specify multiple values for a key, the filter applies a logical OR. For example, if you enter `[ {"Key":"SecretName", "Values":["sec1","sec2"]} ]`, this means: `(SecretName=sec1 OR SecretName=sec2)`.
    * 
    * @example
    * [{"Key":"SecretName", "Values":["Val1","Val2"]}]
@@ -25,37 +57,9 @@ export class ListSecretsRequest extends $dara.Model {
   filters?: string;
   /**
    * @remarks
-   * The secret filter. The filter consists of one or more key-value pairs. You can specify one key-value pair or leave this parameter empty. If you use one tag key or tag value to filter resources, up to 4,000 resources can be queried. If you want to query more than 4,000 resources, call the [ListResourceTags](https://help.aliyun.com/document_detail/120090.html) operation.
-   * 
-   * *   Key
-   * 
-   *     *   Description: the property that you want to filter.
-   * 
-   *     *   Type: string.
-   * 
-   *     *   Valid values:
-   * 
-   *         *   SecretName: the secret name.
-   *         *   Description: the description of the secret.
-   *         *   TagKey: the tag key.
-   *         *   TagValue: the tag value.
-   * 
-   * *   Values
-   * 
-   *     *   Description: the value to be included after filtering.
-   * 
-   *     *   Type: string.
-   * 
-   *     *   Length: 0 to 10.
-   * 
-   *     *   Valid values:
-   * 
-   *         *   If the Key field is set to SecretName, the value must be 1 to 192 characters in length and can contain letters, digits, and special characters `_ / + = . @ -`.
-   *         *   If the Key field is set to Description, the value must be 1 to 256 characters in length.
-   *         *   If the Key field is set to TagKey, the value must be 1 to 256 characters in length and can contain letters, digits, and special characters `/ _ - . + = @ :`.
-   *         *   If the Key field is set to TagValue, the value must be 1 to 256 characters in length and can contain letters, numbers, and special characters `/ _ - . + = @ :`.
-   * 
-   * The logical relationship between values of the Values field in a key-value pair is OR. Example: `[ {"Key":"SecretName", "Values":["sec1","sec2"]}]`. In this example, the semantics are `SecretName=sec 1 OR SecretName=sec 2`.
+   * The page number.<br>
+   * The value must be greater than 0.<br>
+   * Default: 1.<br><br>
    * 
    * @example
    * 1
@@ -63,7 +67,9 @@ export class ListSecretsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page size.<br>
+   * The value must be between 1 and 100.<br>
+   * Default: 10.<br><br>
    * 
    * @example
    * 2

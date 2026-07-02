@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretVersionIdsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return deprecated secret versions.
+   * Specifies whether to include credential versions that have no version stages in the response.
    * 
    * Valid values:
    * 
-   * *   false: no
-   * *   true: yes
+   * - false (default): No
    * 
-   * Default value: false.
+   * - true: Yes
    * 
    * @example
    * false
@@ -20,7 +19,7 @@ export class ListSecretVersionIdsRequest extends $dara.Model {
   includeDeprecated?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The number of the page to return for a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -28,7 +27,7 @@ export class ListSecretVersionIdsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The number of entries to return on each page for a paged query. Default value: 20.
    * 
    * @example
    * 10
@@ -36,7 +35,9 @@ export class ListSecretVersionIdsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the secret.
+   * The name or Alibaba Cloud Resource Name (ARN) of the credential.
+   * 
+   * > When you access a credential that belongs to another Alibaba Cloud account, you must specify the ARN of the credential. The ARN of a credential is in the format of `acs:kms:${region}:${account}:secret/${secret-name}`.
    * 
    * This parameter is required.
    * 

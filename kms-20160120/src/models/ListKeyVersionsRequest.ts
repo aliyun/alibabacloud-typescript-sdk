@@ -10,7 +10,7 @@ export class ListKeyVersionsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0b30658a-ed1a-4922-b8f7-a673ca9c****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**

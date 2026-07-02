@@ -13,7 +13,7 @@ export class RotateSecretResponseBody extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 10257c86-269d-43aa-aaf3-90ed4144bb7c

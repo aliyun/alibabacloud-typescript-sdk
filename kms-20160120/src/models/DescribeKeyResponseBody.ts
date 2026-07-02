@@ -8,20 +8,22 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the CMK.
    * 
    * @example
-   * acs:kms:cn-hangzhou:154035569884****:key/05754286-3ba2-4fa6-8d41-4323aca6****
+   * acs:kms:cn-hangzhou:154035569884****:key/key-hzz630494463ejqjx****
    */
   arn?: string;
   /**
    * @remarks
    * Indicates whether automatic key rotation is enabled. Valid values:
    * 
-   * *   Enabled
-   * *   Disabled
-   * *   Suspended
+   * - Enabled
+   * 
+   * - Disabled
+   * 
+   * - Suspended
    * 
    * For more information, see [Automatic key rotation](https://help.aliyun.com/document_detail/134270.html).
    * 
-   * >  Only symmetric CMKs support automatic key rotation.
+   * > Only symmetric CMKs support automatic key rotation.
    * 
    * @example
    * Disabled
@@ -32,7 +34,7 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * The time when the CMK was created. The time is displayed in UTC.
    * 
    * @example
-   * 2021-05-20T06:34:21Z
+   * 2024-05-20T06:34:21Z
    */
   creationDate?: string;
   /**
@@ -57,18 +59,19 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * 
    * For more information, see [ScheduleKeyDeletion](https://help.aliyun.com/document_detail/44196.html).
    * 
-   * >  This parameter is returned only when the value of the KeyState parameter is PendingDeletion.
+   * > This parameter is returned only when the value of the KeyState parameter is PendingDeletion.
    * 
    * @example
-   * 2021-05-26T18:22:03Z
+   * 2024-05-26T18:22:03Z
    */
   deleteDate?: string;
   /**
    * @remarks
    * Indicates whether deletion protection is enabled. Valid values:
    * 
-   * *   Enabled
-   * *   Disabled
+   * - Enabled
+   * 
+   * - Disabled
    * 
    * @example
    * Enabled
@@ -95,7 +98,7 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * The ID of the CMK. The ID must be globally unique.
    * 
    * @example
-   * 05754286-3ba2-4fa6-8d41-4323aca6****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**
@@ -129,7 +132,7 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * The time when the last rotation was performed. The time is displayed in UTC. For a new CMK, the value of this parameter is the time when the initial version of the CMK was generated.
    * 
    * @example
-   * 2021-05-20T06:34:21Z
+   * 2024-05-20T06:34:21Z
    */
   lastRotationDate?: string;
   /**
@@ -137,14 +140,14 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * The time when the key material expires. The time is displayed in UTC. If this parameter value is empty, the key material does not expire.
    * 
    * @example
-   * 2021-07-06T18:22:03Z
+   * 2024-07-06T18:22:03Z
    */
   materialExpireTime?: string;
   /**
    * @remarks
    * The time when the next rotation will be performed.
    * 
-   * >  This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+   * > This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
    * 
    * @example
    * 2021-07-06T18:22:03Z
@@ -182,7 +185,7 @@ export class DescribeKeyResponseBodyKeyMetadata extends $dara.Model {
    * 
    * For example, if the value is 604800s, automatic key rotation is performed at a 7-day interval.
    * 
-   * >  This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
+   * > This parameter is returned only when the value of the AutomaticRotation parameter is Enabled or Suspended.
    * 
    * @example
    * 31536000s
@@ -255,7 +258,7 @@ export class DescribeKeyResponseBody extends $dara.Model {
   keyMetadata?: DescribeKeyResponseBodyKeyMetadata;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * f1fdfa9d-bd49-418b-942f-8f3e3ec00a4f

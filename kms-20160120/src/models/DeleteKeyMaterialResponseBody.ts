@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKeyMaterialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4162a6af-bc99-40b3-a552-89dcc8aaf7c8

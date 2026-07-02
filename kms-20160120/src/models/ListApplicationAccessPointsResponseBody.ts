@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationAccessPointsResponseBodyApplicationAccessPointsApplicationAccessPoint extends $dara.Model {
-  /**
-   * @remarks
-   * The authentication method.
-   * 
-   * @example
-   * ClientKey
-   */
   authenticationMethod?: string;
-  /**
-   * @remarks
-   * The name of the AAP.
-   * 
-   * @example
-   * aap_test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListApplicationAccessPointsResponseBodyApplicationAccessPoints exte
 }
 
 export class ListApplicationAccessPointsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of AAPs.
-   */
   applicationAccessPoints?: ListApplicationAccessPointsResponseBodyApplicationAccessPoints;
   /**
    * @remarks
@@ -92,7 +74,7 @@ export class ListApplicationAccessPointsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * bcfefe15-46f0-44a3-bd96-3d422474b71a

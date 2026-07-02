@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRotationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * efb1cbbd-a093-4278-bc03-639dd4fcc207

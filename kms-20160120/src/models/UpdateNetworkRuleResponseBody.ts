@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNetworkRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 3bf02f7a-015b-4f34-be0f-cc043fda2d85

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecretResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * val1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,12 +189,6 @@ export class DescribeSecretResponseBody extends $dara.Model {
    * Rds
    */
   secretType?: string;
-  /**
-   * @remarks
-   * The resource tags of the secret.
-   * 
-   * This parameter is not returned if you set the FetchTags parameter to false or you do not specify the FetchTags parameter.
-   */
   tags?: DescribeSecretResponseBodyTags;
   /**
    * @remarks

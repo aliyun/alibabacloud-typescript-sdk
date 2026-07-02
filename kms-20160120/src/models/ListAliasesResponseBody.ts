@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAliasesResponseBodyAliasesAlias extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the alias.
-   * 
-   * @example
-   * acs:kms:cn-hangzhou:123456:alias/ExampleAlias1
-   */
   aliasArn?: string;
-  /**
-   * @remarks
-   * The ID of the alias.
-   * 
-   * @example
-   * alias/ExampleAlias1
-   */
   aliasName?: string;
-  /**
-   * @remarks
-   * The CMK to which the alias belongs.
-   * 
-   * @example
-   * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d****
-   */
   keyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class ListAliasesResponseBodyAliases extends $dara.Model {
 }
 
 export class ListAliasesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The alias of the user.
-   */
   aliases?: ListAliasesResponseBodyAliases;
   /**
    * @remarks
@@ -102,7 +77,7 @@ export class ListAliasesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1b57992c-834b-4811-a889-f8bac1ba0353

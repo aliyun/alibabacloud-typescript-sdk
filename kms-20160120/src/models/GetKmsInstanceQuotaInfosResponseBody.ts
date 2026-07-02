@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetKmsInstanceQuotaInfosResponseBodyKmsInstanceQuotaInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The quota.
+   * 
+   * @example
+   * 12
+   */
   resourceQuota?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * key
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The quota usage.
+   * 
+   * @example
+   * 10
+   */
   usedQuantity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,26 @@ export class GetKmsInstanceQuotaInfosResponseBodyKmsInstanceQuotaInfos extends $
 }
 
 export class GetKmsInstanceQuotaInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the KMS instance.
+   * 
+   * @example
+   * kst-hzz6****
+   */
   kmsInstanceId?: string;
+  /**
+   * @remarks
+   * An array of quota details for the instance.
+   */
   kmsInstanceQuotaInfos?: GetKmsInstanceQuotaInfosResponseBodyKmsInstanceQuotaInfos[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * f1fdfa9d-bd49-418b-942f-8f3e3ec00a4f
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

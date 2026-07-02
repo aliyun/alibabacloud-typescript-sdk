@@ -3,11 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DecryptResponseBody extends $dara.Model {
+  ciphertextForRecipient?: string;
   /**
    * @remarks
-   * The ID of the customer master key (CMK) that is used to decrypt the ciphertext.
-   * 
-   * It is the GUID of the CMK.
+   * The ID of the master key that is used to decrypt the ciphertext.<br> The globally unique identifier of the master key.<br>
    * 
    * @example
    * 202b9877-5a25-46e3-a763-e20791b5****
@@ -15,7 +14,7 @@ export class DecryptResponseBody extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The ID of the CMK version that is used to decrypt the ciphertext.
+   * The ID of the key version that is used to decrypt the ciphertext. This key version is a version of the master key.
    * 
    * @example
    * 2ab1a983-7072-4bbc-a582-584b5bd8****
@@ -23,7 +22,7 @@ export class DecryptResponseBody extends $dara.Model {
   keyVersionId?: string;
   /**
    * @remarks
-   * The plaintext that is generated after decryption.
+   * The decrypted plaintext.
    * 
    * @example
    * tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****
@@ -31,7 +30,7 @@ export class DecryptResponseBody extends $dara.Model {
   plaintext?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 207596a2-36d3-4840-b1bd-f87044699bd7
@@ -39,6 +38,7 @@ export class DecryptResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      ciphertextForRecipient: 'CiphertextForRecipient',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
       plaintext: 'Plaintext',
@@ -48,6 +48,7 @@ export class DecryptResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ciphertextForRecipient: 'string',
       keyId: 'string',
       keyVersionId: 'string',
       plaintext: 'string',

@@ -12,7 +12,7 @@ export class DescribeKeyVersionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234abcd-12ab-34cd-56ef-12345678****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**

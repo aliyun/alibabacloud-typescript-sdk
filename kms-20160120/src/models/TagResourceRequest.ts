@@ -7,7 +7,7 @@ export class TagResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the certificate.
    * 
-   * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+   * > You can configure only one of the KeyId, SecretName, and CertificateId parameters.
    * 
    * @example
    * 770dbe42-e146-43d1-a55a-1355db86****
@@ -17,17 +17,17 @@ export class TagResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the customer master key (CMK). The ID must be globally unique.
    * 
-   * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+   * > You can configure only one of the KeyId, SecretName, and CertificateId parameters.
    * 
    * @example
-   * 08c33a6f-4e0a-4a1b-a3fa-7ddf****
+   * key-hzz630494463ejqjx****
    */
   keyId?: string;
   /**
    * @remarks
    * The name of the secret.
    * 
-   * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
+   * > You can configure only one of the KeyId, SecretName, and CertificateId parameters.
    * 
    * @example
    * MyDbC****
@@ -39,8 +39,9 @@ export class TagResourceRequest extends $dara.Model {
    * 
    * Tag attributes:
    * 
-   * *   TagKey: the tag key.
-   * *   TagValue: the tag value.
+   * - TagKey: the tag key.
+   * 
+   * - TagValue: the tag value.
    * 
    * This parameter is required.
    * 

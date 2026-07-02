@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceTagsResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The globally unique ID of the CMK.
-   * 
-   * @example
-   * 33caea95-c3e5-4b3e-a9c6-cec76e4e****
-   */
   keyId?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Project
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Test
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class ListResourceTagsResponseBody extends $dara.Model {
    * 4162a6af-bc99-40b3-a552-89dcc8aaf7c8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags of the CMK.
-   */
   tags?: ListResourceTagsResponseBodyTags;
   static names(): { [key: string]: string } {
     return {

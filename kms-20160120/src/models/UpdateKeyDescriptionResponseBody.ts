@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKeyDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 3455b9b4-95c1-419d-b310-db6a53b09a39

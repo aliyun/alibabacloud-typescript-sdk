@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListNetworkRulesResponseBodyNetworkRulesNetworkRule extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the access control rule.
-   * 
-   * @example
-   * networkrule_test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The network type. The value is fixed as Private. Self-managed applications can access KMS instances only over a private virtual private cloud (VPC).
-   * 
-   * @example
-   * Private
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class ListNetworkRulesResponseBodyNetworkRules extends $dara.Model {
 }
 
 export class ListNetworkRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of access control rules.
-   */
   networkRules?: ListNetworkRulesResponseBodyNetworkRules;
   /**
    * @remarks
@@ -92,7 +74,7 @@ export class ListNetworkRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 3bf02f7a-015b-4f34-be0f-cc043fda2d33

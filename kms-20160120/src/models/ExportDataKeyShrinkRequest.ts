@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportDataKeyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ciphertext of the data key encrypted by using a CMK.
+   * The ciphertext of the data key that is encrypted using a master key (CMK).
    * 
    * This parameter is required.
    * 
@@ -13,10 +13,29 @@ export class ExportDataKeyShrinkRequest extends $dara.Model {
    * ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901q********
    */
   ciphertextBlob?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the DryRun mode.
+   * 
+   * - true
+   * 
+   * - false (default)
+   * 
+   * The DryRun mode is used to test the API call and verify the permissions on the specified resources and the validity of the request parameters. If you enable the DryRun mode, KMS returns a failure response and a failure reason. The failure reasons include the following:
+   * 
+   * - DryRunOperationError: The request would have succeeded if the DryRun parameter was not specified.
+   * 
+   * - ValidationError: The specified parameters in the request are invalid.
+   * 
+   * - AccessDeniedError: You are not authorized to perform the operation on the KMS resource.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
   /**
    * @remarks
-   * A JSON string that consists of key-value pairs. If you specify this parameter when you use a CMK to encrypt the data key, an equivalent value is required here. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+   * A JSON string that consists of key-value pairs. EncryptionContext is the encryption context that is passed in when the data key is encrypted using a CMK. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
    * 
    * @example
    * {"Example":"Example"}
@@ -24,7 +43,7 @@ export class ExportDataKeyShrinkRequest extends $dara.Model {
   encryptionContextShrink?: string;
   /**
    * @remarks
-   * A Base64-encoded public key.
+   * The public key in Base64 format.
    * 
    * This parameter is required.
    * 
@@ -34,13 +53,13 @@ export class ExportDataKeyShrinkRequest extends $dara.Model {
   publicKeyBlob?: string;
   /**
    * @remarks
-   * The encryption algorithm based on which you want to use the public key specified by PublicKeyBlob to encrypt the data key. For more information about encryption algorithms, see [AsymmetricDecrypt](https://help.aliyun.com/document_detail/148130.html).
+   * The encryption algorithm that is used to encrypt the data key using the public key specified by PublicKeyBlob. For more information about the algorithms, see [AsymmetricDecrypt](https://help.aliyun.com/document_detail/148130.html).<br> Valid values:<br><br>
    * 
-   * Valid values:
+   * - RSAES_OAEP_SHA_256
    * 
-   * *   RSAES_OAEP_SHA_256
-   * *   RSAES_OAEP_SHA_1
-   * *   SM2PKE
+   * - RSAES_OAEP_SHA_1
+   * 
+   * - SM2PKE
    * 
    * This parameter is required.
    * 
@@ -50,12 +69,11 @@ export class ExportDataKeyShrinkRequest extends $dara.Model {
   wrappingAlgorithm?: string;
   /**
    * @remarks
-   * The key type of the public key specified by PublicKeyBlob. For more information about key types, see [Introduction to asymmetric keys](https://help.aliyun.com/document_detail/148147.html).
+   * The type of the public key specified by PublicKeyBlob. For more information about key types, see [Introduction to asymmetric keys](https://help.aliyun.com/document_detail/148147.html).<br> Valid values:<br><br>
    * 
-   * Valid values:
+   * - RSA_2048
    * 
-   * *   RSA_2048
-   * *   EC_SM2
+   * - EC_SM2
    * 
    * This parameter is required.
    * 

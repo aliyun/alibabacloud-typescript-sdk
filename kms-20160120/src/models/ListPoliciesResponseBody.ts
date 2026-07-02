@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPoliciesResponseBodyPoliciesPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the permission policy.
-   * 
-   * @example
-   * policy_test
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,14 +68,10 @@ export class ListPoliciesResponseBody extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * A list of permission policies.
-   */
   policies?: ListPoliciesResponseBodyPolicies;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * b66ad557-9c00-4064-9c8d-b621c3263308

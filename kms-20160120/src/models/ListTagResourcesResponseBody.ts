@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * key-hzz62f1cb66fa42qo****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * key
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * disk-encryption
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * true
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,8 +65,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * *   If NextToken is empty ("NextToken": ""), no next page exists.
-   * *   If NextToken is not empty, the next query is required, and the value is the token used to start the next query.
+   * - If NextToken is empty ("NextToken": ""), no next page exists.
+   * 
+   * - If NextToken is not empty, the next query is required, and the value is the token used to start the next query.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -108,10 +81,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 00827261-20B7-4562-83F2-4DF39876A45A
    */
   requestId?: string;
-  /**
-   * @remarks
-   * A list of tags.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

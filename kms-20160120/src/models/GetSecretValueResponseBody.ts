@@ -31,13 +31,12 @@ export class GetSecretValueResponseBodyVersionStages extends $dara.Model {
 export class GetSecretValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic rotation is enabled. Valid values:
+   * Indicates whether automatic rotation is enabled. Valid values:  
+   * - Enabled: Automatic rotation is enabled.  
+   * - Disabled: Automatic rotation is disabled.  
+   * - Invalid: The rotation status is abnormal, and KMS cannot automatically rotate the credential for you.  
    * 
-   * *   Enabled: indicates that automatic rotation is enabled.
-   * *   Disabled: indicates that automatic rotation is disabled.
-   * *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
-   * 
-   * >  This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+   * > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials.
    * 
    * @example
    * Enabled
@@ -45,17 +44,17 @@ export class GetSecretValueResponseBody extends $dara.Model {
   automaticRotation?: string;
   /**
    * @remarks
-   * The time when the secret was created.
+   * The time when the credential was created.
    * 
    * @example
-   * 2020-02-21T15:39:26Z
+   * 2024-02-21T15:39:26Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The extended configuration of the secret.
+   * The extended configuration of the credential.  
    * 
-   * >  This parameter is returned if you set the FetchExtendedConfig parameter to true. This parameter is returned only for a managed ApsaraDB RDS secret, a managed RAM secret, or a managed ECS secret.
+   * > This parameter is returned only for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, or ECS credentials when FetchExtendedConfig is set to true.
    * 
    * @example
    * {\\"SecretSubType\\":\\"SingleUser\\", \\"DBInstanceId\\":\\"rm-uf667446pc955****\\",  \\"CustomData\\":{} }
@@ -63,27 +62,27 @@ export class GetSecretValueResponseBody extends $dara.Model {
   extendedConfig?: string;
   /**
    * @remarks
-   * The time when the last rotation was performed.
+   * The time of the most recent rotation.  
    * 
-   * >  This parameter is returned if the secret was rotated.
+   * > This parameter is returned only if the credential has been rotated.
    * 
    * @example
-   * 2020-07-05T08:22:03Z
+   * 2023-07-05T08:22:03Z
    */
   lastRotationDate?: string;
   /**
    * @remarks
-   * The time when the next rotation will be performed.
+   * The time of the next rotation.  
    * 
-   * >  This parameter is returned if automatic rotation is enabled.
+   * > This parameter is returned only when automatic rotation is enabled.
    * 
    * @example
-   * 2020-07-06T18:22:03Z
+   * 2024-07-06T18:22:03Z
    */
   nextRotationDate?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the current request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and issue tracking.
    * 
    * @example
    * 6a3e9c36-1150-4881-84d3-eb8672fcafad
@@ -91,11 +90,10 @@ export class GetSecretValueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The interval for automatic rotation.
+   * The epoch for automatic credential rotation.    
+   * The format is `integer[unit]`, where `integer` indicates the time duration and `unit` indicates the time unit. Valid value for `unit`: s (seconds). For example, a 7-day rotation epoch is 604800s.
    * 
-   * The value is in the `integer[unit]` format. The `unit` field has a fixed value of s. For example, if the value is 604800s, automatic rotation is performed at a 7-day interval.
-   * 
-   * >  This parameter is returned if automatic rotation is enabled.
+   * > This parameter is returned only when automatic rotation is enabled.
    * 
    * @example
    * 604800s
@@ -103,18 +101,19 @@ export class GetSecretValueResponseBody extends $dara.Model {
   rotationInterval?: string;
   /**
    * @remarks
-   * The secret value. Secrets Manager decrypts the ciphertext of the secret value and returns the plaintext of the secret value in this parameter.
+   * The value of the credential. KMS decrypts the stored ciphertext and returns this parameter.  
    * 
-   * *   For a generic secret, the secret value of the specified version is returned.
+   * - For generic secrets, the credential value you specified is returned.  
    * 
-   * *   For a managed ApsaraDB RDS secret, the value is returned in the following format:`{"AccountName":"","AccountPassword":""}` .
+   * - For RDS credentials and Redis/Tair credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.  
    * 
-   * *   For a managed RAM secret, the secret value is returned in the following format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2016-03-25T10:42:40Z"}`.
+   * - For RAM credentials, the credential value is in the format: `{"AccessKeyId":"Adfdsfd","AccessKeySecret":"fdsfdsf","GenerateTimestamp": "2023-03-25T10:42:40Z"}`.  
    * 
-   * *   For a managed ECS secret, the secret value is returned in one of the following formats:
+   * - For ECS credentials, the credential value is in one of the following formats:  
+   *   - Security token type: `{"UserName":"ecs-user","Password":"H5asdasdsads****"}`.  
+   *   - Public-private key pair type (private key in PEM format): `{"UserName":"ecs-user","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`.  
    * 
-   *     *   `{"UserName":"root","Password":"H5asdasdsads****"}`: The secret value is returned in this format if the ECS secret is a password.
-   *     *   `{"UserName":"root","PublicKey":"ssh-rsa ****mKwnVix9YTFY9Rs= imported-openssh-key","PrivateKey": "d6bee1cb-2e14-4277-ba6b-73786b21****"}`: The secret value is returned in this format is the ECS secret is a pair of SSH keys. The private key is in the Privacy Enhanced Mail (PEM) format.
+   * - For PolarDB credentials, the credential value is in the format: `{"AccountName":"","AccountPassword":""}`.
    * 
    * @example
    * testdata1
@@ -122,10 +121,9 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretData?: string;
   /**
    * @remarks
-   * The type of the secret value. Valid values:
-   * 
-   * *   text
-   * *   binary
+   * The value type of the credential. Valid values:
+   * - text
+   * - binary
    * 
    * @example
    * binary
@@ -133,7 +131,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretDataType?: string;
   /**
    * @remarks
-   * The name of the secret.
+   * The name of the credential.
    * 
    * @example
    * secret001
@@ -141,12 +139,13 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The type of the secret. Valid values:
-   * 
-   * *   Generic: indicates a generic secret.
-   * *   Rds: indicates a managed ApsaraDB RDS secret.
-   * *   RAMCredentials: indicates a managed RAM secret.
-   * *   ECS: indicates a managed ECS secret.
+   * The type of the credential. Valid values:
+   * - Generic: generic secret.  
+   * - Rds: RDS credential.  
+   * - Redis: Redis/Tair credential.
+   * - RAMCredentials: RAM credential.  
+   * - ECS: ECS credential.
+   * - PolarDB: PolarDB credential.
    * 
    * @example
    * Generic
@@ -154,16 +153,12 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * The version number of the secret value.
+   * The version number of the credential.
    * 
    * @example
-   * 00000000000000000000000000000001
+   * v1
    */
   versionId?: string;
-  /**
-   * @remarks
-   * The stage labels that mark the secret versions.
-   */
   versionStages?: GetSecretValueResponseBodyVersionStages;
   static names(): { [key: string]: string } {
     return {

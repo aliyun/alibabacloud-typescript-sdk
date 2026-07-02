@@ -13,7 +13,7 @@ export class GetRandomPasswordResponseBody extends $dara.Model {
   randomPassword?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6b0cbe25-5e33-467e-972e-7a83c6c97604
