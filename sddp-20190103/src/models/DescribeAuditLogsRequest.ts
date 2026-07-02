@@ -13,7 +13,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   asyncRequestId?: string;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address of the request client.
    * 
    * @example
    * 10.*.*.94
@@ -29,7 +29,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   clientUa?: string;
   /**
    * @remarks
-   * The page number to return. Default value: 1.
+   * The page number in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   effectRowRange?: string;
   /**
    * @remarks
-   * The end time for querying alert logs, provided as a UNIX timestamp in milliseconds.
+   * The end time of the alert log. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1583856000000
@@ -61,7 +61,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The execution time range.
+   * The range of execution time.
    * 
    * @example
    * in[1000 2000]
@@ -69,7 +69,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   executeTimeRange?: string;
   /**
    * @remarks
-   * The name of the data asset instance.
+   * The name of the asset instance.
    * 
    * @example
    * i-2zeftaaq4gqcqb9kfkzg
@@ -79,9 +79,9 @@ export class DescribeAuditLogsRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * - **default**: The IP address is from outside of Alibaba Cloud. This is the default value.
+   * - **default** (default): non-Alibaba Cloud service
    * 
-   * - **aliyun**: The IP address is from within Alibaba Cloud.
+   * - **aliyun**: Alibaba Cloud service
    * 
    * @example
    * aliyun
@@ -89,10 +89,8 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ipType?: string;
   /**
    * @remarks
-   * Specifies the language of the request and response. Default value: **zh_cn**. Valid values:
-   * 
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * - **zh_cn**: Chinese.
-   * 
    * - **en_us**: English.
    * 
    * @example
@@ -101,7 +99,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve the whitelist status.
+   * Specifies whether to load the whitelist status.
    * 
    * @example
    * false
@@ -109,7 +107,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   loadWhiteList?: boolean;
   /**
    * @remarks
-   * A JSON string that specifies which query conditions to include or exclude.
+   * The JSON string that specifies whether the query conditions are included.
    * 
    * @example
    * [ {   "isContain" : false,   "queryKey" : "effectRowRange" }, {   "isContain" : false,   "queryKey" : "remoteClientIp" } ]
@@ -125,7 +123,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * **********8103
@@ -157,7 +155,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ossObjectKey?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -165,7 +163,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The service to which the data asset belongs. Valid values include **MaxCompute, OSS, AnalyticDB for MySQL, TableStore, and RDS**.
+   * The name of the product to which the data asset belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and more.
    * 
    * @example
    * RDS
@@ -173,30 +171,18 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the data object belongs. Valid values:
-   * 
+   * The ID that corresponds to the product name to which the data object belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
-   * - **3**: AnalyticDB for MySQL
-   * 
+   * - **3**: ADB-MYSQL
    * - **4**: TableStore
-   * 
    * - **5**: RDS
-   * 
    * - **6**: SELF_DB
-   * 
    * - **7**: PolarDB-X
-   * 
    * - **8**: PolarDB
-   * 
-   * - **9**: AnalyticDB for PostgreSQL
-   * 
+   * - **9**: ADB-PG
    * - **10**: OceanBase
-   * 
    * - **11**: MongoDB
-   * 
    * - **25**: Redis
    * 
    * @example
@@ -221,15 +207,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ruleCategory?: string;
   /**
    * @remarks
-   * The ID of the audit rule.
-   * 
-   * @example
-   * 994007
-   */
-  ruleID?: string;
-  /**
-   * @remarks
-   * The ID of the audit rule.
+   * The ID of the audit policy.
    * 
    * @example
    * 867028
@@ -237,7 +215,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the audit rule.
+   * The name of the audit policy.
    * 
    * @example
    * test_rule
@@ -245,7 +223,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The content of the SQL statement.
    * 
    * @example
    * select * from test03
@@ -253,7 +231,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   sqlText?: string;
   /**
    * @remarks
-   * The start time for querying alert logs, provided as a UNIX timestamp in milliseconds.
+   * The start time of the alert log, in milliseconds.
    * 
    * @example
    * 1616068534877
@@ -292,7 +270,6 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       productId: 'ProductId',
       ruleAggQuery: 'RuleAggQuery',
       ruleCategory: 'RuleCategory',
-      ruleID: 'RuleID',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       sqlText: 'SqlText',
@@ -326,7 +303,6 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       productId: 'number',
       ruleAggQuery: 'boolean',
       ruleCategory: 'string',
-      ruleID: 'string',
       ruleId: 'string',
       ruleName: 'string',
       sqlText: 'string',

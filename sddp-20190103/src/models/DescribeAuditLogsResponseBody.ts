@@ -23,7 +23,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   clientPort?: string;
   /**
    * @remarks
-   * The user agent of the client.
+   * The client type.
    * 
    * @example
    * mysql
@@ -31,7 +31,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   clientUa?: string;
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * hide14
@@ -39,7 +39,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   columnName?: string;
   /**
    * @remarks
-   * The time when the alert was generated. This value is a UNIX timestamp in milliseconds.
+   * The alert time, in milliseconds.
    * 
    * @example
    * 1536751124000
@@ -55,7 +55,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   dataSet?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * chngc_b2b_migration_sh
@@ -63,7 +63,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The type of the database.
+   * The database type.
    * 
    * @example
    * MySQL
@@ -79,7 +79,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   effectRow?: number;
   /**
    * @remarks
-   * The execution status. Valid values: 0 (failed) and 1 (successful).
+   * The execution status. Valid values:
+   * - 0: failed.
+   * - 1: succeeded.
    * 
    * @example
    * 1
@@ -87,7 +89,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   executeStatus?: number;
   /**
    * @remarks
-   * The execution duration in milliseconds.
+   * The execution duration, in milliseconds.
    * 
    * @example
    * 1751870592000
@@ -95,7 +97,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   executeTime?: number;
   /**
    * @remarks
-   * Indicates whether the operation is whitelisted.
+   * Indicates whether the entry is whitelisted.
    * 
    * @example
    * true
@@ -103,7 +105,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   inWhiteList?: boolean;
   /**
    * @remarks
-   * The audit status of the instance.
+   * The instance audit status.
    * 
    * @example
    * 2
@@ -111,7 +113,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   instanceAuditStatus?: string;
   /**
    * @remarks
-   * The description of the data asset.
+   * The description of the data asset instance.
    * 
    * @example
    * instance dscription
@@ -119,7 +121,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The name of the data asset.
+   * The name of the asset instance.
    * 
    * @example
    * rm-1234
@@ -129,9 +131,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * **default**: a non-Alibaba Cloud service. This is the default value.
+   * **default** (default): non-Alibaba Cloud service
    * 
-   * **aliyun**: an Alibaba Cloud service.
+   * **aliyun**: Alibaba Cloud service
    * 
    * @example
    * aliyun
@@ -147,7 +149,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The time when the operation was logged. This value is a UNIX timestamp in milliseconds.
+   * The log execution time.
    * 
    * @example
    * 1751870592000
@@ -155,7 +157,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   logTime?: number;
   /**
    * @remarks
-   * The ID of the member.
+   * The UID of the member accounts.
    * 
    * @example
    * **********8103
@@ -171,7 +173,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The sensitive data detection rule that was matched.
+   * The sensitive data model that was matched.
    * 
    * @example
    * Identity Card
@@ -195,7 +197,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   ossObjectKey?: string;
   /**
    * @remarks
-   * The name of the MaxCompute package.
+   * The MaxCompute package name.
    * 
    * @example
    * test01
@@ -203,7 +205,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   packageName?: string;
   /**
    * @remarks
-   * The code of the Alibaba Cloud service. Examples: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and more.
    * 
    * @example
    * RDS
@@ -211,19 +213,13 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service that contains the data asset. Valid values:
-   * 
-   * - **1**: MaxCompute
-   * 
-   * - **2**: OSS
-   * 
-   * - **3**: ADS
-   * 
-   * - **4**: OTS
-   * 
-   * - **5**: RDS
-   * 
-   * - **6**: SELF_DB
+   * The ID that corresponds to the product name to which the data asset belongs. Valid values:
+   * - **1**: MaxCompute.
+   * - **2**: OSS.
+   * - **3**: ADS.
+   * - **4**: OTS.
+   * - **5**: RDS.
+   * - **6**: SELF_DB.
    * 
    * @example
    * 5
@@ -232,7 +228,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   ramConsoleLink?: string;
   /**
    * @remarks
-   * The type of the rule.
+   * The rule type.
    * 
    * @example
    * 10
@@ -240,7 +236,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   ruleCategory?: string;
   /**
    * @remarks
-   * The ID of the audit rule.
+   * The audit policy ID.
    * 
    * @example
    * 9952275
@@ -248,7 +244,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the audit rule.
+   * The name of the audit policy.
    * 
    * @example
    * name
@@ -264,7 +260,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   sqlText?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * it_table
@@ -272,7 +268,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user UID.
    * 
    * @example
    * 19********94
@@ -280,7 +276,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The name of the user.
+   * The username.
    * 
    * @example
    * admin
@@ -289,12 +285,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
-   * - **1**: Low
-   * 
-   * - **2**: Medium
-   * 
-   * - **3**: High
+   * - **1**: Low.
+   * - **2**: Medium.
+   * - **3**: High.
    * 
    * @example
    * 2
@@ -303,12 +296,9 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The name of the risk level. Valid values:
-   * 
-   * - Low
-   * 
-   * - Medium
-   * 
-   * - High
+   * - Low.
+   * - Medium.
+   * - High.
    * 
    * @example
    * High risk
@@ -416,7 +406,7 @@ export class DescribeAuditLogsResponseBody extends $dara.Model {
   asyncRequestId?: string;
   /**
    * @remarks
-   * The current page number. Default value: 1.
+   * The page number in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -424,12 +414,12 @@ export class DescribeAuditLogsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * An array of alert logs.
+   * The list of alert logs.
    */
   items?: DescribeAuditLogsResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
