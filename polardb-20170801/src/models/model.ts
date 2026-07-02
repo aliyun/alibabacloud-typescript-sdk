@@ -293,6 +293,14 @@ export { DescribePolarClawSkillDetailResponseBodySkillStats } from './DescribePo
 export { DescribePolarClawSkillDetailResponseBodySkill } from './DescribePolarClawSkillDetailResponseBody';
 export { DescribePolarClawTaskResponseBodyTaskError } from './DescribePolarClawTaskResponseBody';
 export { DescribePolarClawTaskResponseBodyTask } from './DescribePolarClawTaskResponseBody';
+export { DescribePolarFsRequestTag } from './DescribePolarFsRequest';
+export { DescribePolarFsResponseBodyItemsPolarFsPathsMountInfo } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItemsPolarFsPathsMountedAIDBClustersMountedAIDBClusters } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItemsPolarFsPathsMountedAIDBClusters } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItemsPolarFsPathsTagsTag } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItemsPolarFsPathsTags } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItemsPolarFsPaths } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponseBodyItems } from './DescribePolarFsResponseBody';
 export { DescribePolarFsAttributeResponseBodyCustomBucketPathList } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsAttributeResponseBodyMountInfo } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsObjectsResponseBodyItems } from './DescribePolarFsObjectsResponseBody';
@@ -1135,6 +1143,9 @@ export { DescribePolarClawSkillDetailResponse } from './DescribePolarClawSkillDe
 export { DescribePolarClawTaskRequest } from './DescribePolarClawTaskRequest';
 export { DescribePolarClawTaskResponseBody } from './DescribePolarClawTaskResponseBody';
 export { DescribePolarClawTaskResponse } from './DescribePolarClawTaskResponse';
+export { DescribePolarFsRequest } from './DescribePolarFsRequest';
+export { DescribePolarFsResponseBody } from './DescribePolarFsResponseBody';
+export { DescribePolarFsResponse } from './DescribePolarFsResponse';
 export { DescribePolarFsAttributeRequest } from './DescribePolarFsAttributeRequest';
 export { DescribePolarFsAttributeResponseBody } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsAttributeResponse } from './DescribePolarFsAttributeResponse';

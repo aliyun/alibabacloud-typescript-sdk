@@ -2230,7 +2230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for a PolarDB cluster.
+   * Creates a PolarDB database account.
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2313,7 +2313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for a PolarDB cluster.
+   * Creates a PolarDB database account.
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -10170,7 +10170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 计算实例列表
+   * Queries the list of AgenticDB compute instances.
    * 
    * @param request - DescribeAgenticDBComputeClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10221,7 +10221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 计算实例列表
+   * Queries the list of AgenticDB compute instances.
    * 
    * @param request - DescribeAgenticDBComputeClustersRequest
    * @returns DescribeAgenticDBComputeClustersResponse
@@ -17541,6 +17541,80 @@ export default class Client extends OpenApi {
   async describePolarClawTask(request: $_model.DescribePolarClawTaskRequest): Promise<$_model.DescribePolarClawTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePolarClawTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看polarfs信息
+   * 
+   * @param request - DescribePolarFsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsResponse
+   */
+  async describePolarFsWithOptions(request: $_model.DescribePolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceDescription)) {
+      query["PolarFsInstanceDescription"] = request.polarFsInstanceDescription;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceIds)) {
+      query["PolarFsInstanceIds"] = request.polarFsInstanceIds;
+    }
+
+    if (!$dara.isNull(request.polarFsType)) {
+      query["PolarFsType"] = request.polarFsType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDbClusterId)) {
+      query["RelativeDbClusterId"] = request.relativeDbClusterId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsResponse({}));
+  }
+
+  /**
+   * 查看polarfs信息
+   * 
+   * @param request - DescribePolarFsRequest
+   * @returns DescribePolarFsResponse
+   */
+  async describePolarFs(request: $_model.DescribePolarFsRequest): Promise<$_model.DescribePolarFsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsWithOptions(request, runtime);
   }
 
   /**
@@ -29434,7 +29508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验 AgenticDB 租户 API Key
+   * Validates an AgenticDB tenant API key.
    * 
    * @param request - VerifyAgenticDBTenantApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29469,7 +29543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验 AgenticDB 租户 API Key
+   * Validates an AgenticDB tenant API key.
    * 
    * @param request - VerifyAgenticDBTenantApiKeyRequest
    * @returns VerifyAgenticDBTenantApiKeyResponse

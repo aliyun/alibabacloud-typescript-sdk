@@ -10,6 +10,8 @@ export class DescribeAgenticDBComputeClustersRequest extends $dara.Model {
   computeClusterId?: string;
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +19,25 @@ export class DescribeAgenticDBComputeClustersRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 30. Maximum value: 100.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +45,9 @@ export class DescribeAgenticDBComputeClustersRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The status filter. Valid values: Running, Stopped, and Waiting.
+   * 
    * @example
    * Running
    */
