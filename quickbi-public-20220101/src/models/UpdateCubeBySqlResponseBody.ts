@@ -13,10 +13,8 @@ export class UpdateCubeBySqlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the request. Valid values:
-   * 
+   * The execution result of the operation. Valid values:
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example
@@ -28,7 +26,6 @@ export class UpdateCubeBySqlResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example

@@ -2,28 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateTicketResponseBody extends $dara.Model {
+export class DeleteAuthorizationByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * D787E1A3-A93C-424A-B626-C2B05DF8D885
+   * 46e53***********70
    */
   requestId?: string;
   /**
    * @remarks
-   * The generated ticket value.
+   * Indicates whether the deletion was successful.
    * 
    * @example
-   * ccd3428c-****-****-a608-26bae29dffee
+   * true
    */
-  result?: string;
+  result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -40,7 +38,7 @@ export class CreateTicketResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'string',
+      result: 'boolean',
       success: 'boolean',
     };
   }

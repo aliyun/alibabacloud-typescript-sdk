@@ -2,23 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateTicketResponseBody extends $dara.Model {
+export class TransferUsergroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * D787E1A3-A93C-424A-B626-C2B05DF8D885
+   * DC4E1E63-B337-44F8-8C22-6F00DF67E2C3
    */
   requestId?: string;
   /**
    * @remarks
-   * The generated ticket value.
+   * Indicates whether the migration was successful.
    * 
    * @example
-   * ccd3428c-****-****-a608-26bae29dffee
+   * true
    */
-  result?: string;
+  result?: boolean;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
@@ -40,7 +40,7 @@ export class CreateTicketResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'string',
+      result: 'boolean',
       success: 'boolean',
     };
   }

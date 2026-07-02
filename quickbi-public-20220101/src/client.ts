@@ -11,7 +11,19 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-east-1': "quickbi-public.us-east-1.aliyuncs.com",
+      'me-central-1': "quickbi-public.me-central-1.aliyuncs.com",
+      'eu-central-1': "quickbi-public.eu-central-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "quickbi-public.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-hongkong': "quickbi-public.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "quickbi-public.cn-hangzhou.aliyuncs.com",
+      'ap-southeast-5': "quickbi-public.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "quickbi-public.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "quickbi-public.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "quickbi-public.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quickbi-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -714,7 +726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch add Feishu users.
+   * Adds Lark users in batches.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -763,7 +775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch add Feishu users.
+   * Adds Lark users in batches.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -1149,7 +1161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataset from a custom SQL statement.
+   * Creates a dataset based on a custom SQL statement.
    * 
    * @param request - CreateCubeBySqlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1178,8 +1190,14 @@ export default class Client extends OpenApi {
       query["WorkspaceId"] = request.workspaceId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.placeholders)) {
+      body["Placeholders"] = request.placeholders;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateCubeBySql",
@@ -1196,7 +1214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataset from a custom SQL statement.
+   * Creates a dataset based on a custom SQL statement.
    * 
    * @param request - CreateCubeBySqlRequest
    * @returns CreateCubeBySqlResponse
@@ -1269,10 +1287,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate a ticket for third-party embedding.
+   * Generates a ticket required for embedded report access.
    * 
    * @remarks
-   * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+   * For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
    * 
    * @param request - CreateTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1297,10 +1315,6 @@ export default class Client extends OpenApi {
       query["ExpireTime"] = request.expireTime;
     }
 
-    if (!$dara.isNull(request.globalParam)) {
-      query["GlobalParam"] = request.globalParam;
-    }
-
     if (!$dara.isNull(request.ticketNum)) {
       query["TicketNum"] = request.ticketNum;
     }
@@ -1317,8 +1331,14 @@ export default class Client extends OpenApi {
       query["WorksId"] = request.worksId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.globalParam)) {
+      body["GlobalParam"] = request.globalParam;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateTicket",
@@ -1335,10 +1355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate a ticket for third-party embedding.
+   * Generates a ticket required for embedded report access.
    * 
    * @remarks
-   * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+   * For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -1728,6 +1748,56 @@ export default class Client extends OpenApi {
   async delayTicketExpireTime(request: $_model.DelayTicketExpireTimeRequest): Promise<$_model.DelayTicketExpireTimeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.delayTicketExpireTimeWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the collaborative authorization record of a specified user.
+   * 
+   * @param request - DeleteAuthorizationByUserIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAuthorizationByUserIdResponse
+   */
+  async deleteAuthorizationByUserIdWithOptions(request: $_model.DeleteAuthorizationByUserIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuthorizationByUserIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.qbiUserId)) {
+      query["QbiUserId"] = request.qbiUserId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAuthorizationByUserId",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAuthorizationByUserIdResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAuthorizationByUserIdResponse({}));
+  }
+
+  /**
+   * Deletes the collaborative authorization record of a specified user.
+   * 
+   * @param request - DeleteAuthorizationByUserIdRequest
+   * @returns DeleteAuthorizationByUserIdResponse
+   */
+  async deleteAuthorizationByUserId(request: $_model.DeleteAuthorizationByUserIdRequest): Promise<$_model.DeleteAuthorizationByUserIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAuthorizationByUserIdWithOptions(request, runtime);
   }
 
   /**
@@ -2380,6 +2450,52 @@ export default class Client extends OpenApi {
   async getWorksEmbedList(request: $_model.GetWorksEmbedListRequest): Promise<$_model.GetWorksEmbedListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorksEmbedListWithOptions(request, runtime);
+  }
+
+  /**
+   * Configures the IP address whitelist for data security.
+   * 
+   * @param request - IpWhiteListConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IpWhiteListConfigResponse
+   */
+  async ipWhiteListConfigWithOptions(request: $_model.IpWhiteListConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.IpWhiteListConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ipWhiteList)) {
+      query["IpWhiteList"] = request.ipWhiteList;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IpWhiteListConfig",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IpWhiteListConfigResponse>(await this.callApi(params, req, runtime), new $_model.IpWhiteListConfigResponse({}));
+  }
+
+  /**
+   * Configures the IP address whitelist for data security.
+   * 
+   * @param request - IpWhiteListConfigRequest
+   * @returns IpWhiteListConfigResponse
+   */
+  async ipWhiteListConfig(request: $_model.IpWhiteListConfigRequest): Promise<$_model.IpWhiteListConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.ipWhiteListConfigWithOptions(request, runtime);
   }
 
   /**
@@ -5056,7 +5172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据绑定的第三方账号ID查询UserId
+   * Queries a UserId by the bound third-party account ID.
    * 
    * @param request - QueryUserByMobileAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5091,7 +5207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据绑定的第三方账号ID查询UserId
+   * Queries a UserId by the bound third-party account ID.
    * 
    * @param request - QueryUserByMobileAccountRequest
    * @returns QueryUserByMobileAccountResponse
@@ -6153,7 +6269,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a dataset that is based on a custom SQL statement.
+   * Migrates a user group.
+   * 
+   * @param request - TransferUsergroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferUsergroupResponse
+   */
+  async transferUsergroupWithOptions(request: $_model.TransferUsergroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferUsergroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.parentUserGroupId)) {
+      query["ParentUserGroupId"] = request.parentUserGroupId;
+    }
+
+    if (!$dara.isNull(request.userGroupId)) {
+      query["UserGroupId"] = request.userGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TransferUsergroup",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TransferUsergroupResponse>(await this.callApi(params, req, runtime), new $_model.TransferUsergroupResponse({}));
+  }
+
+  /**
+   * Migrates a user group.
+   * 
+   * @param request - TransferUsergroupRequest
+   * @returns TransferUsergroupResponse
+   */
+  async transferUsergroup(request: $_model.TransferUsergroupRequest): Promise<$_model.TransferUsergroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.transferUsergroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a custom SQL dataset.
    * 
    * @param request - UpdateCubeBySqlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6172,6 +6334,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dsId)) {
       query["DsId"] = request.dsId;
+    }
+
+    if (!$dara.isNull(request.placeholders)) {
+      query["Placeholders"] = request.placeholders;
     }
 
     if (!$dara.isNull(request.userId)) {
@@ -6200,7 +6366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a dataset that is based on a custom SQL statement.
+   * Updates a custom SQL dataset.
    * 
    * @param request - UpdateCubeBySqlRequest
    * @returns UpdateCubeBySqlResponse

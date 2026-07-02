@@ -2,38 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
+export class IpWhiteListConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The QuickBI user ID of the bound account.
-   * 
-   * @example
-   * test
+   * The IP address whitelist array.
    */
-  boundUserId?: string;
-  /**
-   * @remarks
-   * The mobile account name.
-   * 
-   * @example
-   * test
-   */
-  thirdAccountName?: string;
+  ipWhiteList?: string[];
   static names(): { [key: string]: string } {
     return {
-      boundUserId: 'BoundUserId',
-      thirdAccountName: 'ThirdAccountName',
+      ipWhiteList: 'IpWhiteList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      boundUserId: 'string',
-      thirdAccountName: 'string',
+      ipWhiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.ipWhiteList)) {
+      $dara.Model.validateArray(this.ipWhiteList);
+    }
     super.validate();
   }
 
@@ -42,26 +32,23 @@ export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
   }
 }
 
-export class QueryUserByMobileAccountResponseBody extends $dara.Model {
+export class IpWhiteListConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 46e53***********270
+   * D787E1A3-A93C-424A-B626-C2B05DF8D885
    */
   requestId?: string;
   /**
    * @remarks
-   * The user information bound to the third-party account.
+   * The IP address whitelist.
    */
-  result?: QueryUserByMobileAccountResponseBodyResult;
+  result?: IpWhiteListConfigResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -78,7 +65,7 @@ export class QueryUserByMobileAccountResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: QueryUserByMobileAccountResponseBodyResult,
+      result: IpWhiteListConfigResponseBodyResult,
       success: 'boolean',
     };
   }

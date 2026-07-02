@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class BatchAddFeishuUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * Information of the users to be added
+   * The information about the users to be added.
    * 
    * @example
-   * {"ad****fd": "张三", "82****5a": "李四"}"
+   * {"ad****fd": "test", "82****5a": "t\\"t"}"
    */
   feishuUsers?: string;
   /**
    * @remarks
-   * Whether the user is an admin user:
+   * Specifies whether the user is an admin user. Valid values:
    * - true
    * - false
    * 
-   * Default is false if not provided
+   * Default value: false.
    * 
    * @example
    * False
@@ -25,12 +25,12 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   isAdmin?: boolean;
   /**
    * @remarks
-   * Whether the user is an authorization administrator
+   * Specifies whether the user is a permission management administrator. Valid values:
    * 
    * - true
    * - false
    * 
-   * Default is false if not provided
+   * Default value: false.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   isAuthAdmin?: boolean;
   /**
    * @remarks
-   * User group ID(s)
+   * The user groups to which the users belong.
    * 
    * @example
    * "0d5fb19b-5555-41f0-99da-1248fc27ca51,0f868dd6_68dd_4d13_8422_c5dca3bd4b61"
@@ -46,10 +46,10 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   userGroupIds?: string;
   /**
    * @remarks
-   * User type
-   * - Developer: 1
-   * - Visitor: 2
-   * - Analyst: 3
+   * The user type. Valid values:
+   * - 1: developer
+   * - 2: visitor
+   * - 3: analyst
    * 
    * @example
    * 1

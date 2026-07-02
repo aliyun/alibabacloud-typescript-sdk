@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * ACCOUNT_EXIST
@@ -13,15 +13,15 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
   code?: string;
   /**
    * @remarks
-   * Description of the error code.
+   * The error code description.
    * 
    * @example
-   * 账号已存在
+   * test
    */
   codeDesc?: string;
   /**
    * @remarks
-   * Incorrect input value.
+   * The invalid input value.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
 export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Model {
   /**
    * @remarks
-   * Reasons for errors.
+   * The error causes.
    */
   failInfos?: BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Mode
 export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Number of failed validations.
+   * The number of users that failed validation.
    * 
    * @example
    * 10
@@ -93,12 +93,12 @@ export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * Details of the failures.
+   * The details of the failures.
    */
   failResults?: BatchAddFeishuUsersResponseBodyResultFailResults[];
   /**
    * @remarks
-   * Count of successes.
+   * The number of users that were added.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
 export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
@@ -143,10 +143,11 @@ export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result of adding members to the user group. Possible values:
+   * The result of adding user group members. Valid values:
    * 
-   * - true: Addition successful
-   * - false: Addition failed
+   * - true: The users were added.
+   * 
+   * - false: The users failed to be added.
    * 
    * @example
    * True
@@ -154,10 +155,10 @@ export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   result?: BatchAddFeishuUsersResponseBodyResult;
   /**
    * @remarks
-   * Whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request successful
-   * - false: Request failed
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * True
