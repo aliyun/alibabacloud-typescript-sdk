@@ -132,6 +132,9 @@ export { SubmitYikePromptExpansionVoiceFixJobResponse } from './SubmitYikePrompt
 export { SubmitYikeStoryboardJobRequest } from './SubmitYikeStoryboardJobRequest';
 export { SubmitYikeStoryboardJobResponseBody } from './SubmitYikeStoryboardJobResponseBody';
 export { SubmitYikeStoryboardJobResponse } from './SubmitYikeStoryboardJobResponse';
+export { SubmitYikeVideoCloneJobRequest } from './SubmitYikeVideoCloneJobRequest';
+export { SubmitYikeVideoCloneJobResponseBody } from './SubmitYikeVideoCloneJobResponseBody';
+export { SubmitYikeVideoCloneJobResponse } from './SubmitYikeVideoCloneJobResponse';
 export { SubmitYikeVoiceNarratorJobRequest } from './SubmitYikeVoiceNarratorJobRequest';
 export { SubmitYikeVoiceNarratorJobResponseBody } from './SubmitYikeVoiceNarratorJobResponseBody';
 export { SubmitYikeVoiceNarratorJobResponse } from './SubmitYikeVoiceNarratorJobResponse';

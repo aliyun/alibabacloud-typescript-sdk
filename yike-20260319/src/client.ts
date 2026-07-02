@@ -1573,6 +1573,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交一刻数字人口播视频生成任务
+   * 
+   * @param request - SubmitYikeVideoCloneJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitYikeVideoCloneJobResponse
+   */
+  async submitYikeVideoCloneJobWithOptions(request: $_model.SubmitYikeVideoCloneJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitYikeVideoCloneJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobParams)) {
+      body["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitYikeVideoCloneJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitYikeVideoCloneJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitYikeVideoCloneJobResponse({}));
+  }
+
+  /**
+   * 提交一刻数字人口播视频生成任务
+   * 
+   * @param request - SubmitYikeVideoCloneJobRequest
+   * @returns SubmitYikeVideoCloneJobResponse
+   */
+  async submitYikeVideoCloneJob(request: $_model.SubmitYikeVideoCloneJobRequest): Promise<$_model.SubmitYikeVideoCloneJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitYikeVideoCloneJobWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
    * 
    * @param request - SubmitYikeVoiceNarratorJobRequest
