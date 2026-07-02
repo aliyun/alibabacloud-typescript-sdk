@@ -29,7 +29,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the scope permission.
+   * The scope permission ID.
    * 
    * @example
    * rss_xxxxxxxxxxx
@@ -37,7 +37,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The name of the scope permission.
+   * The scope permission name.
    * 
    * @example
    * Read User Info
@@ -45,7 +45,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * The type of the scope permission.
+   * The scope permission type.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -53,7 +53,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * The value of the scope permission.
+   * The scope permission value.
    * 
    * @example
    * User:Read:ALL
@@ -103,7 +103,7 @@ export class GetResourceServerScopeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the scope permission of the resource server.
+   * The scope permission information under the ResourceServer.
    */
   resourceServerScope?: GetResourceServerScopeResponseBodyResourceServerScope;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserRequestCustomFields extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the custom field. You must create this field in the console before you can use it in a request. For more information, see the Custom Fields module in the console.
+   * The identifier of the custom field. Create the custom field in advance. For more information, refer to the custom fields module in the console.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class CreateUserRequestCustomFields extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The value of the custom field. This value must comply with the constraints defined for the corresponding custom field.
+   * The value of the custom field. The value must comply with the attribute constraints of the corresponding custom field.
    * 
    * @example
    * 10
@@ -45,11 +45,9 @@ export class CreateUserRequestCustomFields extends $dara.Model {
 export class CreateUserRequestPasswordInitializationConfig extends $dara.Model {
   /**
    * @remarks
-   * The status of forced password update. This setting is disabled by default. Valid values:
-   * 
-   * - `enabled`: Enables forced password updates.
-   * 
-   * - `disabled`: Disables forced password updates.
+   * The forced password change status. By default, this feature is not enabled. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -57,11 +55,9 @@ export class CreateUserRequestPasswordInitializationConfig extends $dara.Model {
   passwordForcedUpdateStatus?: string;
   /**
    * @remarks
-   * The priority of the password initialization policy. This setting is disabled by default. Valid values:
-   * 
-   * - `global`: The service uses the instance-level password initialization policy and ignores the policy specified in this request. For more information, see the password initialization policy settings.
-   * 
-   * - `custom`: The service uses the password initialization policy defined in this request. This includes the forced password update setting, the password initialization method, and the notification channels.
+   * The priority of the password initialization policy. By default, this parameter does not take effect. Valid values:
+   * - global: The global policy policy priority. The instance-level password initialization policy is used, and the password initialization policy specified in this request does not take effect. For more information, refer to the password initialization policy in password-related policies.
+   * - custom: The custom policy policy priority. The password initialization policy defined in this request is used, including whether to enable forced password change, the password initialization method, and the notification channel.
    * 
    * @example
    * global
@@ -69,9 +65,8 @@ export class CreateUserRequestPasswordInitializationConfig extends $dara.Model {
   passwordInitializationPolicyPriority?: string;
   /**
    * @remarks
-   * The password initialization type. Valid values:
-   * 
-   * - `random`: The system generates a random password.
+   * The password initialization method. Valid values:
+   * - random: random.
    * 
    * @example
    * random
@@ -118,7 +113,7 @@ export class CreateUserRequestPasswordInitializationConfig extends $dara.Model {
 export class CreateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-provided token to ensure the idempotence of the request. This value must be unique for each request. The token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](~~~/doc-en/6a938a5b-2402-4c9d-b235-3733a1f813c9.dita).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: How to ensure idempotence.
    * 
    * @example
    * client-token-example
@@ -134,7 +129,7 @@ export class CreateUserRequest extends $dara.Model {
   customFields?: CreateUserRequestCustomFields[];
   /**
    * @remarks
-   * The description. The maximum length is 256 characters.
+   * The description. The description can be up to 256 characters in length.
    * 
    * @example
    * description text
@@ -142,7 +137,7 @@ export class CreateUserRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name. The maximum length is 128 characters.
+   * The display name of the account. The display name can be up to 128 characters in length.
    * 
    * @example
    * name_001
@@ -150,7 +145,7 @@ export class CreateUserRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The email address. The local part of the address can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), or hyphens (-). The maximum length is 128 characters.
+   * The email address. The email prefix can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-). The email address can be up to 128 characters in length.
    * 
    * @example
    * example@example.com
@@ -158,7 +153,7 @@ export class CreateUserRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the email address is verified. A verified address is considered trusted. This parameter is required if you specify the `Email` parameter. For typical use, set this to `true`.
+   * Specifies whether the email address is verified as a trusted email address. This parameter is required if Email is specified. If no special business requirement exists, set this parameter to true.
    * 
    * @example
    * true
@@ -166,7 +161,7 @@ export class CreateUserRequest extends $dara.Model {
   emailVerified?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -176,12 +171,12 @@ export class CreateUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of subordinate organizational unit IDs. A user can belong to multiple organizational units.
+   * The list of organizational unit IDs to which the account belongs. An account can belong to multiple organizational units.
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The password. The format must comply with the password policy.
+   * The password. The password must meet the requirements of the password policy.
    * 
    * @example
    * 123456
@@ -189,12 +184,12 @@ export class CreateUserRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The settings for the password initialization policy.
+   * The password initialization configuration.
    */
   passwordInitializationConfig?: CreateUserRequestPasswordInitializationConfig;
   /**
    * @remarks
-   * The phone number. It must be 6 to 15 digits long.
+   * The phone number. The value is a 6 to 15-digit number.
    * 
    * @example
    * 12345678901
@@ -202,7 +197,7 @@ export class CreateUserRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Indicates whether the phone number is verified. A verified number is considered trusted. This parameter is required if you specify the `PhoneNumber` parameter. For typical use, set this to `true`.
+   * Specifies whether the phone number is verified as a trusted phone number. This parameter is required if PhoneNumber is specified. If no special business requirement exists, set this parameter to true.
    * 
    * @example
    * true
@@ -210,7 +205,7 @@ export class CreateUserRequest extends $dara.Model {
   phoneNumberVerified?: boolean;
   /**
    * @remarks
-   * The country code. It must contain 1 to 6 digits and must not include the plus sign (+).
+   * The phone region code. The value is a 1 to 6-digit number and does not include a plus sign (+).
    * 
    * @example
    * 86
@@ -228,7 +223,7 @@ export class CreateUserRequest extends $dara.Model {
   primaryOrganizationalUnitId?: string;
   /**
    * @remarks
-   * The external ID for associating the user with an external system. The maximum length is 128 characters. If this parameter is not specified, its value defaults to the system-generated user ID.
+   * The external ID of the account. This parameter is used to associate the account with an external system. The value can be up to 128 characters in length. If this parameter is not specified, the account ID is used by default.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -236,7 +231,7 @@ export class CreateUserRequest extends $dara.Model {
   userExternalId?: string;
   /**
    * @remarks
-   * The username. It can contain letters, digits, and the following special characters: underscores (_), periods (.), at signs (@), and hyphens (-). The maximum length is 256 characters.
+   * The username. The username can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-). The username can be up to 256 characters in length.
    * 
    * This parameter is required.
    * 

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cross-region replication status.
+   * 
    * @example
    * disabled
    */
@@ -13,7 +16,7 @@ export class ListInstancesRequest extends $dara.Model {
    * The license edition. Valid values:
    * - free: Free Edition.
    * - trial: Trial Edition.
-   * - scalability: Capability Expansion Edition.
+   * - scalability: Scalability Edition.
    * - standard: Standard Edition.
    * - enterprise: Enterprise Edition.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number for paging
+   * The page number of the query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListEventTypesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of entries per page.
    * 
    * @example
    * 10

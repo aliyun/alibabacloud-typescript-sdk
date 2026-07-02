@@ -15,7 +15,7 @@ export class ListGroupsForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListGroupsForUserRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20

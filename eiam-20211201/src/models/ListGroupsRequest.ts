@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The external ID of the group.
+   * Group external ID.
    * 
    * @example
    * group_external_id
@@ -13,12 +13,12 @@ export class ListGroupsRequest extends $dara.Model {
   groupExternalId?: string;
   /**
    * @remarks
-   * The group IDs.
+   * Group ID list.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The name of the group. If you specify this parameter, the query is based on an exact match.
+   * Group name. The query uses exact matching.
    * 
    * @example
    * name_test
@@ -26,7 +26,7 @@ export class ListGroupsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The prefix of the group name. If you specify this parameter, the query follows the leftmost matching principle.
+   * Group name prefix. The query uses prefix matching.
    * 
    * @example
    * name
@@ -34,7 +34,7 @@ export class ListGroupsRequest extends $dara.Model {
   groupNameStartsWith?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class ListGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class ListGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Page size.
    * 
    * @example
    * 20

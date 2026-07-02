@@ -15,7 +15,7 @@ export class ListOrganizationalUnitParentsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The organizational unit ID.
+   * The organization ID.
    * 
    * This parameter is required.
    * 

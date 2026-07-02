@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The group ID.
+   * Group ID.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -13,7 +13,7 @@ export class CreateGroupResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

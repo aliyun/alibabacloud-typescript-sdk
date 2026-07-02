@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was created, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -13,7 +13,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The description of the organizational unit.
+   * Description of the organizational unit.
    * 
    * @example
    * Test organization
@@ -21,7 +21,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -29,7 +29,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the node is a leaf node.
+   * Indicates whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes, and a value of false indicates that the organizational unit has child nodes.
    * 
    * @example
    * false
@@ -37,9 +37,9 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   leaf?: boolean;
   /**
    * @remarks
-   * The external ID of the organizational unit. The external ID can be used by external data to map the data of the organizational unit in IDaaS EIAM. By default, the external ID is the organizational unit ID.
+   * Organizational unit external ID, used for mapping between external data and IDaaS organizational units. The default value is the IDaaS organizational unit ID.
    * 
-   * For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+   * Note: The external ID is unique within the same source type and source ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -47,7 +47,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   organizationalUnitExternalId?: string;
   /**
    * @remarks
-   * The ID of the organizational unit.
+   * Organizational unit ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -55,7 +55,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The Name of the organizational unit.
+   * Organizational unit name.
    * 
    * @example
    * test_organizationalUnit_name
@@ -63,9 +63,9 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   organizationalUnitName?: string;
   /**
    * @remarks
-   * The source ID of the organizational unit.
+   * Organizational unit source ID.
    * 
-   * If the organizational unit was created in IDaaS, its source ID is the ID of the IDaaS instance. If the organizational unit was imported, its source ID is the enterprise ID in the source. For example, if the organizational unit was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
+   * The default value for the self-built type is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, the DingTalk source corresponds to the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -73,15 +73,12 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   organizationalUnitSourceId?: string;
   /**
    * @remarks
-   * The source type of the organizational unit. Valid values:
-   * 
-   * - build_in: The organizational unit was created in IDaaS.
-   * 
-   * - ding_talk: The organizational unit was imported from DingTalk.
-   * 
-   * - ad: The organizational unit was imported from Microsoft Active Directory (AD).
-   * 
-   * - ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * Account source type. Valid values:
+   * - build_in: self-built.
+   * - ding_talk: imported from DingTalk.
+   * - ad: imported from AD.
+   * - ldap: imported from LDAP.
+   * - we_com: imported from WeCom.
    * 
    * @example
    * build_in
@@ -89,7 +86,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   organizationalUnitSourceType?: string;
   /**
    * @remarks
-   * The ID of the parent organizational unit.
+   * Parent organizational unit ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -97,7 +94,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
   parentId?: string;
   /**
    * @remarks
-   * The time when the organizational unit was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was last updated, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -147,12 +144,12 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
 export class GetOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object of the organizational unit.
+   * Organizational unit data object.
    */
   organizationalUnit?: GetOrganizationalUnitResponseBodyOrganizationalUnit;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

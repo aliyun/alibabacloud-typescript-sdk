@@ -15,7 +15,7 @@ export class AddUserToOrganizationalUnitsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of organization IDs. The list can contain up to 100 IDs.
+   * The list of organization IDs. The list can contain up to 100 elements.
    * 
    * This parameter is required.
    */

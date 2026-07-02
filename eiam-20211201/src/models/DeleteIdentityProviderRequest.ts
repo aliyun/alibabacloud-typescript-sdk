@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdentityProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * Identity provider ID.
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteIdentityProviderRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

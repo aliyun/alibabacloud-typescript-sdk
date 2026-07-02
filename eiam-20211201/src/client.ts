@@ -334,7 +334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
+   * Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -373,7 +373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
+   * Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @returns AddUserToOrganizationalUnitsResponse
@@ -384,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+   * Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
    * 
    * @param request - AddUsersToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -423,7 +423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+   * Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
    * 
    * @param request - AddUsersToGroupRequest
    * @returns AddUsersToGroupResponse
@@ -2322,7 +2322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Create an EIAM account group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2365,7 +2365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Create an EIAM account group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -2376,7 +2376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an identity provider.
+   * Create an identity provider.
    * 
    * @param request - CreateIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2475,7 +2475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an identity provider.
+   * Create an identity provider.
    * 
    * @param request - CreateIdentityProviderRequest
    * @returns CreateIdentityProviderResponse
@@ -2748,7 +2748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Creates an EIAM organization under a specified organization.
    * 
    * @param request - CreateOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2795,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Creates an EIAM organization under a specified organization.
    * 
    * @param request - CreateOrganizationalUnitRequest
    * @returns CreateOrganizationalUnitResponse
@@ -2868,7 +2868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an EIAM account in a specific EIAM instance.
+   * Creates an EIAM account in a specified EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2959,7 +2959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an EIAM account in a specific EIAM instance.
+   * Creates an EIAM account in a specified EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -3894,7 +3894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Delete an EIAM account group.
    * 
    * @param request - DeleteGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3929,7 +3929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Delete an EIAM account group.
    * 
    * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
@@ -3940,7 +3940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete identity provider
+   * Deletes an identity provider.
    * 
    * @param request - DeleteIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3975,7 +3975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete identity provider
+   * Deletes an identity provider.
    * 
    * @param request - DeleteIdentityProviderRequest
    * @returns DeleteIdentityProviderResponse
@@ -4126,7 +4126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+   * Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
    * 
    * @param request - DeleteOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4161,7 +4161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+   * Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
    * 
    * @param request - DeleteOrganizationalUnitRequest
    * @returns DeleteOrganizationalUnitResponse
@@ -4172,7 +4172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
+   * Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4207,7 +4207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
+   * Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @returns DeleteOrganizationalUnitChildrenResponse
@@ -4268,7 +4268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM user and purges all related information.
+   * Deletes a specified EIAM account and purges all information associated with the account.
    * 
    * @param request - DeleteUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4303,7 +4303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM user and purges all related information.
+   * Deletes a specified EIAM account and purges all information associated with the account.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -5439,7 +5439,7 @@ export default class Client extends OpenApi {
    * Disables authentication.
    * 
    * @remarks
-   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
+   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5477,7 +5477,7 @@ export default class Client extends OpenApi {
    * Disables authentication.
    * 
    * @remarks
-   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
+   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @returns DisableIdentityProviderAuthnResponse
@@ -5488,7 +5488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable identity provider synchronization
+   * Disables the inbound synchronization feature of an identity provider.
    * 
    * @param request - DisableIdentityProviderUdPullRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5523,7 +5523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable identity provider synchronization
+   * Disables the inbound synchronization feature of an identity provider.
    * 
    * @param request - DisableIdentityProviderUdPullRequest
    * @returns DisableIdentityProviderUdPullResponse
@@ -5668,7 +5668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+   * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
    * 
    * @param request - DisableUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5703,7 +5703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+   * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
    * 
    * @param request - DisableUserRequest
    * @returns DisableUserResponse
@@ -6737,7 +6737,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
+   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6775,7 +6775,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
+   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @returns EnableIdentityProviderAuthnResponse
@@ -6786,7 +6786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable identity provider synchronization.
+   * Enables the inbound synchronization feature for an identity provider.
    * 
    * @param request - EnableIdentityProviderUdPullRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6821,7 +6821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable identity provider synchronization.
+   * Enables the inbound synchronization feature for an identity provider.
    * 
    * @param request - EnableIdentityProviderUdPullRequest
    * @returns EnableIdentityProviderUdPullResponse
@@ -6966,7 +6966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   * Sets an account to the enabled state.
    * 
    * @param request - EnableUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7001,7 +7001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   * Sets an account to the enabled state.
    * 
    * @param request - EnableUserRequest
    * @returns EnableUserResponse
@@ -7876,7 +7876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权服务器
+   * Queries an authorization server.
    * 
    * @param request - GetAuthorizationServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7911,7 +7911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权服务器
+   * Queries an authorization server.
    * 
    * @param request - GetAuthorizationServerRequest
    * @returns GetAuthorizationServerResponse
@@ -8018,7 +8018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about resources in an Alibaba Cloud account.
+   * Queries the resource information of a cloud account.
    * 
    * @param request - GetCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8053,7 +8053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about resources in an Alibaba Cloud account.
+   * Queries the resource information of a cloud account.
    * 
    * @param request - GetCloudAccountRequest
    * @returns GetCloudAccountResponse
@@ -8530,7 +8530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Queries the details of an EIAM account group.
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8565,7 +8565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Queries the details of an EIAM account group.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -8576,7 +8576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get an identity provider.
+   * Retrieves an identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8611,7 +8611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get an identity provider.
+   * Retrieves an identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @returns GetIdentityProviderResponse
@@ -8718,7 +8718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get IdP Inbound Synchronization Configuration Information
+   * Retrieves the inbound synchronization configuration of an identity provider (IdP).
    * 
    * @param request - GetIdentityProviderUdPullConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8753,7 +8753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get IdP Inbound Synchronization Configuration Information
+   * Retrieves the inbound synchronization configuration of an identity provider (IdP).
    * 
    * @param request - GetIdentityProviderUdPullConfigurationRequest
    * @returns GetIdentityProviderUdPullConfigurationResponse
@@ -9260,7 +9260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the information of an EIAM organizational unit.
    * 
    * @param request - GetOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9295,7 +9295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the information of an EIAM organizational unit.
    * 
    * @param request - GetOrganizationalUnitRequest
    * @returns GetOrganizationalUnitResponse
@@ -9474,7 +9474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the permission scopes for a specified resource server.
+   * Queries the scope permissions under a specified ResourceServer.
    * 
    * @param request - GetResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9513,7 +9513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the permission scopes for a specified resource server.
+   * Queries the scope permissions under a specified ResourceServer.
    * 
    * @param request - GetResourceServerScopeRequest
    * @returns GetResourceServerScopeResponse
@@ -9654,7 +9654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the details of an EIAM account.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9689,7 +9689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Queries the details of an EIAM account.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -10332,7 +10332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of applications that an EIAM group can access.
+   * Query the list of applications accessible to an EIAM group.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10379,7 +10379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of applications that an EIAM group can access.
+   * Query the list of applications accessible to an EIAM group.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @returns ListApplicationsForGroupResponse
@@ -10502,10 +10502,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
+   * Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+   * This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10552,10 +10552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
+   * Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+   * This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @returns ListApplicationsForOrganizationalUnitResponse
@@ -11118,7 +11118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of information about one or more Alibaba Cloud accounts.
+   * Queries information about one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11161,7 +11161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a paginated list of information about one or more Alibaba Cloud accounts.
+   * Queries information about one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @returns ListCloudAccountsResponse
@@ -11232,7 +11232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the conditional access policies associated with an application.
+   * List conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11267,7 +11267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the conditional access policies associated with an application.
+   * List conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @returns ListConditionalAccessPoliciesForApplicationResponse
@@ -11801,7 +11801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the event list.
+   * Queries the event list.
    * 
    * @param request - ListEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11836,7 +11836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the event list.
+   * Queries the event list.
    * 
    * @param request - ListEventTypesRequest
    * @returns ListEventTypesResponse
@@ -11909,7 +11909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * List EIAM account groups.
    * 
    * @param request - ListGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11964,7 +11964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * List EIAM account groups.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -12157,7 +12157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+   * Queries the list of account groups to which a specified EIAM account belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12200,7 +12200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+   * Queries the list of account groups to which a specified EIAM account belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @returns ListGroupsForUserResponse
@@ -12211,7 +12211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of identity providers.
+   * Query the list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12254,7 +12254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of identity providers.
+   * Query the list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @returns ListIdentityProvidersResponse
@@ -12319,7 +12319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more Employee Identity and Access Management (EIAM) instances.
+   * Queries information about one or more EIAM instances.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12370,7 +12370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more Employee Identity and Access Management (EIAM) instances.
+   * Queries information about one or more EIAM instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -12624,7 +12624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
+   * Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12659,7 +12659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
+   * Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @returns ListOrganizationalUnitParentsResponse
@@ -13197,10 +13197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of EIAM accounts.
+   * Queries EIAM account information by using paging.
    * 
    * @remarks
-   * This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13291,10 +13291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of EIAM accounts.
+   * Queries EIAM account information by using paging.
    * 
    * @remarks
-   * This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -13697,7 +13697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the proxy token for a domain name in an EIAM instance.
+   * Queries the proxy token of an EIAM instance domain name.
    * 
    * @param request - ObtainDomainProxyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13736,7 +13736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the proxy token for a domain name in an EIAM instance.
+   * Queries the proxy token of an EIAM instance domain name.
    * 
    * @param request - ObtainDomainProxyTokenRequest
    * @returns ObtainDomainProxyTokenResponse
@@ -14989,7 +14989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the default domain name for a specified EIAM instance.
+   * Sets a specified domain name of an EIAM instance as the default domain name.
    * 
    * @param request - SetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15024,7 +15024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the default domain name for a specified EIAM instance.
+   * Sets a specified domain name of an EIAM instance as the default domain name.
    * 
    * @param request - SetDefaultDomainRequest
    * @returns SetDefaultDomainResponse
@@ -15085,7 +15085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update authentication information
+   * Modify Authentication Information
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15136,7 +15136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update authentication information
+   * Modify Authentication Information
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @returns SetIdentityProviderAuthnConfigurationResponse
@@ -15147,7 +15147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the inbound synchronization configuration for an IdP.
+   * Modifies the inbound synchronization configuration of an Identity Provider (IdP).
    * 
    * @param request - SetIdentityProviderUdPullConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15210,7 +15210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the inbound synchronization configuration for an IdP.
+   * Modifies the inbound synchronization configuration of an Identity Provider (IdP).
    * 
    * @param request - SetIdentityProviderUdPullConfigurationRequest
    * @returns SetIdentityProviderUdPullConfigurationResponse
@@ -15931,7 +15931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   * Unlocks a locked EIAM account.
    * 
    * @param request - UnlockUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15966,7 +15966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+   * Unlocks a locked EIAM account.
    * 
    * @param request - UnlockUserRequest
    * @returns UnlockUserResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -43,7 +43,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
   applicationId?: string;
   /**
    * @remarks
-   * A list of application roles.
+   * The list of application roles.
    */
   applicationRoles?: ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
 export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of applications that are granted access.
+   * The list of applications that are authorized for access.
    */
   applications?: ListApplicationsForOrganizationalUnitResponseBodyApplications[];
   /**
@@ -88,7 +88,7 @@ export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

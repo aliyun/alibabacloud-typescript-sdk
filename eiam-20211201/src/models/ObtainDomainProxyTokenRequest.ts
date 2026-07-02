@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainDomainProxyTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ObtainDomainProxyTokenRequest extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The ID of the domain name proxy token.
+   * The domain proxy token ID.
    * 
    * This parameter is required.
    * 

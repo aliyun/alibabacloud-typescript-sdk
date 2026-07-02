@@ -45,12 +45,12 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The reason for the error. This field is returned when the health check status is unhealthy.
+   * The error reason. This field is returned when the health check status is unhealthy.
    */
   errorReason?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last health check. This is a UNIX timestamp in milliseconds.
+   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -58,11 +58,9 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   lastCheckTime?: number;
   /**
    * @remarks
-   * The result of the health check. Valid values:
-   * 
-   * - success: The check was successful.
-   * 
-   * - failed: The check failed.
+   * The health check result of the cloud account. Valid values:
+   * - success: Succeeded.
+   * - failed: Failed.
    * 
    * @example
    * success
@@ -99,7 +97,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   /**
    * @remarks
-   * The external unique ID of the Alibaba Cloud account.
+   * The external unique identifier of the cloud account.
    * 
    * @example
    * 1234567
@@ -107,13 +105,10 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * The health check status of the Alibaba Cloud account. Valid values:
-   * 
-   * - healthy: The account is healthy.
-   * 
-   * - unhealthy: The account is unhealthy.
-   * 
-   * - unknown: The status is unknown.
+   * The health status of the cloud account. Valid values:
+   * - healthy: Healthy.
+   * - unhealthy: Unhealthy.
+   * - unknown: Unknown.
    * 
    * @example
    * healthy
@@ -121,12 +116,12 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountHealth?: string;
   /**
    * @remarks
-   * The result of the health check for the Alibaba Cloud account.
+   * The health check result of the cloud account.
    */
   cloudAccountHealthCheckResult?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -134,7 +129,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account.
+   * The cloud account name.
    * 
    * @example
    * cloud_accout_xxxx
@@ -142,17 +137,18 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The name of the identity provider.
+   * The identity provider name.
    * 
    * @example
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  cloudAccountSite?: string;
   /**
    * @remarks
-   * The type of the Alibaba Cloud account. Valid values:
+   * The cloud account type. Valid values:
    * 
-   * - alibaba_cloud: Alibaba Cloud
+   * - alibaba_cloud: Alibaba Cloud.
    * 
    * @example
    * alibaba_cloud
@@ -160,7 +156,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * The time when the account was created. This is a UNIX timestamp in milliseconds.
+   * The time when the cloud account was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -168,7 +164,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the Alibaba Cloud account.
+   * The description of the cloud account.
    * 
    * @example
    * cloud_accout_description
@@ -184,7 +180,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the account was last updated. This is a UNIX timestamp in milliseconds.
+   * The time when the cloud account was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -198,6 +194,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
       cloudAccountId: 'CloudAccountId',
       cloudAccountName: 'CloudAccountName',
       cloudAccountProviderName: 'CloudAccountProviderName',
+      cloudAccountSite: 'CloudAccountSite',
       cloudAccountVendorType: 'CloudAccountVendorType',
       createTime: 'CreateTime',
       description: 'Description',
@@ -214,6 +211,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
       cloudAccountId: 'string',
       cloudAccountName: 'string',
       cloudAccountProviderName: 'string',
+      cloudAccountSite: 'string',
       cloudAccountVendorType: 'string',
       createTime: 'number',
       description: 'string',
@@ -237,12 +235,12 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
 export class ListCloudAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of Alibaba Cloud accounts.
+   * The list of cloud accounts.
    */
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of rows per page for paging.
    * 
    * @example
    * 20
@@ -250,7 +248,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned from this call.
+   * The token returned for the current call.
    * 
    * @example
    * NTxxxexample
@@ -266,7 +264,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

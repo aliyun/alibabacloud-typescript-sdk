@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the group. The value can be up to 256 characters in length.
+   * Description. The maximum length is 256 characters.
    * 
    * @example
    * this is a test.
@@ -13,7 +13,7 @@ export class CreateGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The external ID of the group, which can be used to associate the group with an external system. By default, the external ID is the group ID. The value can be up to 64 characters in length.
+   * Group external ID, used for association with external systems. The default value is the group ID. The maximum length is 64 characters.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -21,7 +21,7 @@ export class CreateGroupRequest extends $dara.Model {
   groupExternalId?: string;
   /**
    * @remarks
-   * The name of the group. The name can be up to 64 characters in length.
+   * Group name. The maximum length is 64 characters.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 

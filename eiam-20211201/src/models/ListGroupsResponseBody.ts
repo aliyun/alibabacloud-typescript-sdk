@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The time at which the group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Group creation time in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -13,7 +13,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the group.
+   * Group description.
    * 
    * @example
    * test group
@@ -21,7 +21,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The external ID of the group, which can be used to associate the group with an external system. By default, the external ID is the group ID.
+   * Group external ID, used for association with external systems. Defaults to the account group ID.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -29,7 +29,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   groupExternalId?: string;
   /**
    * @remarks
-   * The group ID.
+   * Group ID.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -37,7 +37,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * Group name.
    * 
    * @example
    * group_name
@@ -45,7 +45,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The source ID of the group. If the group was imported from other services, this value indicates the external source ID. By default, the source ID is the instance ID.
+   * Group source ID. If created by importing from other sources, this is the external source ID. Defaults to the instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -53,7 +53,8 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   groupSourceId?: string;
   /**
    * @remarks
-   * The source type of the group. Only build_in may be returned, which indicates that the group was created in IDaaS.
+   * Group source type. Currently, only self-built is supported. Valid values:
+   * - build_in: self-built.
    * 
    * @example
    * build_in
@@ -61,7 +62,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   groupSourceType?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -69,7 +70,7 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time at which the group was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Group last update time in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -115,12 +116,12 @@ export class ListGroupsResponseBodyGroups extends $dara.Model {
 export class ListGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried account groups.
+   * Account group list.
    */
   groups?: ListGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -128,7 +129,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned. The maximum number of entries returned at a time depends on the value of PageSize.
+   * Total number of matched entries. The maximum number of entries returned in a single request is determined by pageSize.
    * 
    * @example
    * 100

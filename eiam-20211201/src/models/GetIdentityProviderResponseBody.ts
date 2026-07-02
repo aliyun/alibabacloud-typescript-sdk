@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig extends $dara.Model {
   /**
    * @remarks
-   * The AppKey of your first-party application in DingTalk.
+   * The AppKey of the DingTalk first-party application.
    * 
    * @example
    * 41reopmwoy9s
@@ -13,7 +13,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   appKey?: string;
   /**
    * @remarks
-   * The AppSecret of your first-party application in DingTalk.
+   * The AppSecret of the DingTalk first-party application.
    * 
    * @example
    * REOQ6Cl55kriOd8NOBeqWYLKpHR4p6fdZxxxx
@@ -21,7 +21,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   appSecret?: string;
   /**
    * @remarks
-   * The corporate ID of your first-party application in DingTalk.
+   * The CorpId of the DingTalk first-party application.
    * 
    * @example
    * 3756043633237690761
@@ -29,7 +29,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   corpId?: string;
   /**
    * @remarks
-   * The version of DingTalk QR code login.
+   * The DingTalk QR code logon version.
    * 
    * @example
    * old_version
@@ -37,11 +37,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   dingtalkLoginVersion?: string;
   /**
    * @remarks
-   * The DingTalk edition. Valid values:
+   * The DingTalk version. Valid values:
    * 
-   * - Standard DingTalk: `public_dingtalk`
+   * - public_dingtalk: Standard DingTalk.
    * 
-   * - Exclusive DingTalk: `private_dingtalk`
+   * - private_dingtalk: Dedicated DingTalk.
    * 
    * @example
    * public_dingtalk
@@ -49,7 +49,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   dingtalkVersion?: string;
   /**
    * @remarks
-   * The encryption key for your first-party application in DingTalk.
+   * The EncryptKey of the DingTalk application.
    * 
    * @example
    * 29003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200d
@@ -57,7 +57,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   encryptKey?: string;
   /**
    * @remarks
-   * The verification token for your first-party application in DingTalk.
+   * The VerificationToken of the DingTalk application.
    * 
    * @example
    * 5ba9c127a7abe029003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200d
@@ -99,7 +99,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
 export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds extends $dara.Model {
   /**
    * @remarks
-   * The department ID in DingTalk.
+   * The DingTalk department ID.
    * 
    * @example
    * 123xxx444
@@ -107,7 +107,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
   deptId?: string;
   /**
    * @remarks
-   * The department name in DingTalk.
+   * The DingTalk department name.
    * 
    * @example
    * test_department
@@ -139,7 +139,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
 export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers extends $dara.Model {
   /**
    * @remarks
-   * The user name in DingTalk.
+   * The DingTalk username.
    * 
    * @example
    * zhangsan
@@ -147,7 +147,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
   name?: string;
   /**
    * @remarks
-   * The user ID in DingTalk.
+   * The DingTalk user ID.
    * 
    * @example
    * 130308333929200479
@@ -184,12 +184,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
   authedDepartmentIds?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds[];
   /**
    * @remarks
-   * The list of authorized DingTalk user accounts.
+   * The list of authorized DingTalk accounts.
    */
   authedUsers?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers[];
   /**
    * @remarks
-   * The corporate ID in DingTalk.
+   * The DingTalk enterprise CorpId.
    * 
    * @example
    * ding_xxxxx
@@ -197,7 +197,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
   corpId?: string;
   /**
    * @remarks
-   * The corporate name in DingTalk.
+   * The DingTalk enterprise name.
    * 
    * @example
    * test_enterprise
@@ -239,7 +239,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
 export class GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata extends $dara.Model {
   /**
    * @remarks
-   * SAML ACS address
+   * The SAML Assertion Consumer Service (ACS) endpoint.
    * 
    * @example
    * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/acs
@@ -247,7 +247,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetada
   samlAcsEndpoint?: string;
   /**
    * @remarks
-   * SAML EntityId
+   * The SAML EntityId.
    * 
    * @example
    * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/meta
@@ -255,7 +255,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetada
   samlEntityId?: string;
   /**
    * @remarks
-   * SAML metadata address
+   * The SAML metadata endpoint.
    * 
    * @example
    * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/meta
@@ -289,7 +289,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetada
 export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig extends $dara.Model {
   /**
    * @remarks
-   * The App ID of your custom application in Lark.
+   * The AppId of the Lark self-built application.
    * 
    * @example
    * cli_a7a99f53a317100c
@@ -297,7 +297,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
   appId?: string;
   /**
    * @remarks
-   * The App Secret of your custom application in Lark.
+   * The AppSecret of the Lark self-built application.
    * 
    * @example
    * ***
@@ -305,7 +305,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
   appSecret?: string;
   /**
    * @remarks
-   * The encryption key for your custom application in Lark.
+   * The EncryptKey of the Lark self-built application.
    * 
    * @example
    * VkdWw91mdkrjVFr3ObNwefap21dfbZbK
@@ -313,7 +313,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
   encryptKey?: string;
   /**
    * @remarks
-   * The enterprise code for Lark.
+   * The Lark enterprise number.
    * 
    * @example
    * FX1231xxxx
@@ -321,7 +321,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
   enterpriseNumber?: string;
   /**
    * @remarks
-   * The Verification Token of your custom application in Lark.
+   * The VerificationToken of the Lark self-built application.
    * 
    * @example
    * VkdWw91mdkrjVFr3ObNwefap21dfbZbK
@@ -359,7 +359,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig ext
 export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig extends $dara.Model {
   /**
    * @remarks
-   * The password of the AD/LDAP administrator.
+   * The AD/LDAP administrator password.
    * 
    * @example
    * XXXX
@@ -367,7 +367,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   administratorPassword?: string;
   /**
    * @remarks
-   * The username of the AD/LDAP administrator.
+   * The AD/LDAP administrator account.
    * 
    * @example
    * example.com
@@ -375,11 +375,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   administratorUsername?: string;
   /**
    * @remarks
-   * Indicates whether to verify the certificate fingerprint. Valid values:
+   * Specifies whether to verify the certificate fingerprint. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * enabled
@@ -392,7 +392,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   certificateFingerprints?: string[];
   /**
    * @remarks
-   * The communication protocol for AD/LDAP.
+   * The communication protocol of AD/LDAP.
    * 
    * @example
    * ldap
@@ -400,7 +400,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   ldapProtocol?: string;
   /**
    * @remarks
-   * The address of the AD/LDAP server.
+   * The AD/LDAP server address.
    * 
    * @example
    * 127.xx.xx.100
@@ -408,7 +408,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   ldapServerHost?: string;
   /**
    * @remarks
-   * The port of the AD/LDAP server.
+   * The AD/LDAP server address.
    * 
    * @example
    * 389
@@ -416,11 +416,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig ext
   ldapServerPort?: number;
   /**
    * @remarks
-   * Indicates whether StartTLS is enabled. Valid values:
+   * Specifies whether StartTLS is enabled. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * enabled
@@ -525,7 +525,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndp
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * The OIDC issuer.
+   * The OIDC issuer information.
    * 
    * @example
    * https://example.com/oauth
@@ -549,7 +549,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndp
   tokenEndpoint?: string;
   /**
    * @remarks
-   * The OIDC userinfo endpoint.
+   * The OIDC user information endpoint.
    * 
    * @example
    * https://example.com/oauth/userinfo
@@ -597,7 +597,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
   endpointConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig;
   /**
    * @remarks
-   * The list of OIDC authorization scopes.
+   * The list of OIDC grant scopes.
    * 
    * @example
    * openid
@@ -613,11 +613,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
   grantType?: string;
   /**
    * @remarks
-   * The algorithm for Proof Key for Code Exchange (PKCE). Valid values:
+   * The PKCE algorithm. Valid values:
    * 
-   * - SHA256: `S256`
+   * - S256: SHA-256.
    * 
-   * - Plaintext: `plain`
+   * - plain: Plaintext.
    * 
    * @example
    * S256
@@ -625,7 +625,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * Indicates whether to use PKCE in the authorization code grant type.
+   * Specifies whether to use PKCE in the AuthorizationCode grant mode.
    * 
    * @example
    * true
@@ -674,7 +674,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
 export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata extends $dara.Model {
   /**
    * @remarks
-   * Certificate expiration on or before
+   * The latest validity date of the certificate.
    * 
    * @example
    * 1704067200000
@@ -682,7 +682,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCert
   notAfter?: number;
   /**
    * @remarks
-   * Certificate not valid before
+   * The earliest validity date of the certificate.
    * 
    * @example
    * 1672531200000
@@ -714,12 +714,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCert
 export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the certificate.
+   * The certificate metadata.
    */
   certificateMetadata?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The content of the certificate.
+   * The certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX -----END CERTIFICATE-----
@@ -754,7 +754,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCert
 export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig extends $dara.Model {
   /**
    * @remarks
-   * Binding Type
+   * The binding type.
    * 
    * @example
    * HTTP-REDIRECT
@@ -762,12 +762,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
   bindingMethod?: string;
   /**
    * @remarks
-   * The list of signing certificates for the SAML identity provider.
+   * The list of IdP signing certificates.
    */
   certificates?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates[];
   /**
    * @remarks
-   * The entity ID of the SAML identity provider.
+   * The EntityId of the IdP.
    * 
    * @example
    * http://dc.test.com/adfs/services/trust
@@ -775,7 +775,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
   idPEntityId?: string;
   /**
    * @remarks
-   * The single sign-on (SSO) URL of the SAML identity provider.
+   * The logon URL of the IdP.
    * 
    * @example
    * https://dc.test.com/adfs/ls/
@@ -783,7 +783,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
   idPSsoUrl?: string;
   /**
    * @remarks
-   * Maximum clock skew
+   * The maximum clock skew.
    * 
    * @example
    * 180
@@ -791,7 +791,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
   maxClockSkew?: number;
   /**
    * @remarks
-   * Is request signing required?
+   * Specifies whether the request must be signed.
    * 
    * @example
    * true
@@ -840,12 +840,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
 export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of source nodes for synchronization.
+   * The list of synchronization source nodes.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * The target node for synchronization.
+   * The synchronization target node.
    * 
    * @example
    * ou_123xxxx
@@ -880,11 +880,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUd
 export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether group synchronization is enabled. Valid values:
+   * Specifies whether group synchronization is enabled. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -892,11 +892,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig e
   groupSyncStatus?: string;
   /**
    * @remarks
-   * Indicates whether to process incremental callback data from the identity provider. Valid values:
+   * The incremental callback status. Specifies whether to process incremental callback data from the IdP. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -938,12 +938,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig e
 export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
-   * The list of source nodes for synchronization.
+   * The list of synchronization source nodes.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * The target node for synchronization.
+   * The synchronization target node.
    * 
    * @example
    * ou_123xxxx
@@ -978,7 +978,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUd
 export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig extends $dara.Model {
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * This field is not in use. Ignore it.
    * 
    * @example
    * disabled
@@ -1018,7 +1018,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig e
 export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of your custom application in WeCom.
+   * The ID of the WeCom self-built application.
    * 
    * @example
    * 1242350
@@ -1026,7 +1026,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
   agentId?: string;
   /**
    * @remarks
-   * The authorized callback domain.
+   * The authorization callback domain.
    * 
    * @example
    * https://example.com/xxxx
@@ -1034,7 +1034,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
   authorizeCallbackDomain?: string;
   /**
    * @remarks
-   * The corporate ID of your custom application in WeCom.
+   * The CorpId of the WeCom self-built application.
    * 
    * @example
    * 3562012953454577801
@@ -1042,7 +1042,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
   corpId?: string;
   /**
    * @remarks
-   * The secret of your custom application in WeCom.
+   * The CorpSecret of the WeCom self-built application.
    * 
    * @example
    * weaseiszjskejskaj12sjeszojxxxx
@@ -1050,7 +1050,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
   corpSecret?: string;
   /**
    * @remarks
-   * The trusted domain.
+   * The trusted domain name.
    * 
    * @example
    * https://example.com
@@ -1088,11 +1088,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig ex
 export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara.Model {
   /**
    * @remarks
-   * The status of the advanced configuration. Valid values:
+   * The advanced configuration status. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -1102,21 +1102,21 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
    * @remarks
    * The authentication source product, such as Okta, Google, or Azure AD. Valid values:
    * 
-   * - DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk`
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk: DingTalk.
    * 
-   * - LDAP: `urn:alibaba:idaas:idp:unknown:ldap`
+   * - urn:alibaba:idaas:idp:unknown:ldap: LDAP.
    * 
-   * - Alibaba Cloud IDaaS: `urn:alibaba:idaas:idp:alibaba:idaas`
+   * - urn:alibaba:idaas:idp:alibaba:idaas: Alibaba Cloud IDaaS.
    * 
-   * - WeCom: `urn:alibaba:idaas:idp:tencent:wecom`
+   * - urn:alibaba:idaas:idp:tencent:wecom: WeCom.
    * 
-   * - Lark: `urn:alibaba:idaas:idp:bytedance:lark`
+   * - urn:alibaba:idaas:idp:bytedance:lark: Lark.
    * 
-   * - Active Directory: `urn:alibaba:idaas:idp:microsoft:ad`
+   * - urn:alibaba:idaas:idp:microsoft:ad: Active Directory.
    * 
-   * - Azure Active Directory: `urn:alibaba:idaas:idp:microsoft:aad`
+   * - urn:alibaba:idaas:idp:microsoft:aad: Azure Active Directory.
    * 
-   * - Alibaba Cloud SASE: `urn:alibaba:idaas:idp:alibaba:sase`
+   * - urn:alibaba:idaas:idp:alibaba:sase: Alibaba Cloud SASE.
    * 
    * @example
    * urn:alibaba:idaas:idp:bytedance:lark
@@ -1124,11 +1124,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   authnSourceSupplier?: string;
   /**
    * @remarks
-   * The authentication protocol. Valid values:
+   * The authentication method type, such as OIDC or SAML. Valid values:
    * 
-   * - OIDC: `urn:alibaba:idaas:authntype:oidc`
+   * - urn:alibaba:idaas:authntype:oidc: OIDC.
    * 
-   * - SAML: `urn:alibaba:idaas:authntype:saml2`
+   * - urn:alibaba:idaas:authntype:saml2: SAML.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -1136,11 +1136,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   authnSourceType?: string;
   /**
    * @remarks
-   * Indicates whether the identity provider supports authentication. Valid values:
+   * Specifies whether the corresponding IdP supports authentication. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -1148,7 +1148,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   authnStatus?: string;
   /**
    * @remarks
-   * The time when the identity provider was created, represented as a Unix timestamp in milliseconds.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1726021079000
@@ -1164,17 +1164,17 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   description?: string;
   /**
    * @remarks
-   * The basic configuration for DingTalk.
+   * The DingTalk basic configuration.
    */
   dingtalkAppConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig;
   /**
    * @remarks
-   * The DingTalk provisioning configuration. This parameter is returned only for DingTalk identity providers.
+   * The DingTalk synchronization configuration. This value is returned only for DingTalk identity providers.
    */
   dingtalkProvisioningConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig;
   /**
    * @remarks
-   * Endpoint metadata
+   * The endpoint metadata.
    */
   endpointMetadata?: GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata;
   /**
@@ -1195,7 +1195,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   identityProviderId?: string;
   /**
    * @remarks
-   * The identity provider name.
+   * The name of the identity provider.
    * 
    * @example
    * test
@@ -1203,23 +1203,23 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   identityProviderName?: string;
   /**
    * @remarks
-   * The provisioning type of the identity provider.
+   * The synchronization type of the identity provider. Valid values:
    * 
-   * - Inbound DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk:pull`
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: Inbound DingTalk.
    * 
-   * - Outbound DingTalk: `urn:alibaba:idaas:idp:alibaba:dingtalk:push`
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk:push: Outbound DingTalk.
    * 
-   * - Inbound WeCom: `urn:alibaba:idaas:idp:tencent:wecom:pull`
+   * - urn:alibaba:idaas:idp:tencent:wecom:pull: Inbound WeCom.
    * 
-   * - Inbound Lark: `urn:alibaba:idaas:idp:bytedance:lark:pull`
+   * - urn:alibaba:idaas:idp:bytedance:lark:pull: Inbound Lark.
    * 
-   * - Inbound AD: `urn:alibaba:idaas:idp:microsoft:ad:pull`
+   * - urn:alibaba:idaas:idp:microsoft:ad:pull: Inbound AD.
    * 
-   * - Inbound LDAP: `urn:alibaba:idaas:idp:unknown:ldap:pull`
+   * - urn:alibaba:idaas:idp:unknown:ldap:pull: Inbound LDAP.
    * 
-   * - Standard OIDC: `urn:alibaba:idaas:idp:standard:oidc`
+   * - urn:alibaba:idaas:idp:standard:oidc: Standard OIDC.
    * 
-   * - Customized OIDC for SASE: `urn:alibaba:idaas:idp:alibaba:sase`
+   * - urn:alibaba:idaas:idp:alibaba:sase: SASE custom OIDC.
    * 
    * @example
    * urn:alibaba:idaas:idp:alibaba:dingtalk:push
@@ -1235,7 +1235,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The configuration for Lark.
+   * The Lark configuration.
    */
   larkConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig;
   /**
@@ -1248,7 +1248,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   lastStatusCheckJobResult?: string;
   /**
    * @remarks
-   * The information about the AD/LDAP identity provider.
+   * The AD/LDAP identity provider configuration.
    */
   ldapConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig;
   /**
@@ -1261,7 +1261,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   lockReason?: string;
   /**
    * @remarks
-   * The URL of the custom logo for the identity provider.
+   * The custom logo URL of the identity provider.
    * 
    * @example
    * https://img.alicdn.com/imgextra/i4/O1CN01lvYwpv1aGowQXDML9_!!6000000003303-0-tps-580-580.jpg
@@ -1269,7 +1269,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   logoUrl?: string;
   /**
    * @remarks
-   * The network access endpoint ID.
+   * The network endpoint ID.
    * 
    * @example
    * nae_mx4vsadfe6govkqkwckxxxx
@@ -1277,12 +1277,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The OIDC identity provider configuration.
+   * The OIDC IdP configuration.
    */
   oidcConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig;
   /**
    * @remarks
-   * The SAML identity provider configuration.
+   * The SAML IdP configuration.
    */
   samlConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig;
   /**
@@ -1292,11 +1292,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   udPullConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig;
   /**
    * @remarks
-   * Indicates whether inbound synchronization is supported. Valid values:
+   * Specifies whether the inbound synchronization feature is supported. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -1309,11 +1309,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   udPushConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig;
   /**
    * @remarks
-   * Indicates whether outbound synchronization is enabled. Valid values:
+   * Specifies whether the outbound synchronization feature is enabled. Valid values:
    * 
-   * - `disabled`
+   * - disabled: Disabled.
    * 
-   * - `enabled`
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -1321,7 +1321,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   udPushStatus?: string;
   /**
    * @remarks
-   * The last update time, represented as a Unix timestamp in milliseconds.
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1726021079000
@@ -1329,7 +1329,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
   updateTime?: number;
   /**
    * @remarks
-   * The configuration information for WeCom.
+   * The WeCom configuration.
    */
   weComConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig;
   static names(): { [key: string]: string } {
@@ -1440,12 +1440,12 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
 export class GetIdentityProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the identity provider.
+   * The identity provider information.
    */
   identityProviderDetail?: GetIdentityProviderResponseBodyIdentityProviderDetail;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

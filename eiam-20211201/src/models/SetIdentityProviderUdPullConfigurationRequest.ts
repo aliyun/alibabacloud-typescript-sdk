@@ -13,7 +13,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   groupMemberAttributeName?: string;
   /**
    * @remarks
-   * The group objectClass.
+   * The group ObjectClass.
    * 
    * @example
    * group
@@ -21,7 +21,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   groupObjectClass?: string;
   /**
    * @remarks
-   * The custom group filter.
+   * The custom filter for groups.
    * 
    * @example
    * (|(cn=test)(group=test@test.com))
@@ -29,7 +29,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   groupObjectClassCustomFilter?: string;
   /**
    * @remarks
-   * The organizational unit objectClass.
+   * The organizational unit ObjectClass.
    * 
    * @example
    * organizationUnit,top
@@ -37,7 +37,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   organizationUnitObjectClass?: string;
   /**
    * @remarks
-   * The user objectClass.
+   * The user ObjectClass.
    * 
    * @example
    * userPrincipalName, mail
@@ -45,7 +45,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   userObjectClass?: string;
   /**
    * @remarks
-   * The custom user filter.
+   * The custom filter for users.
    * 
    * @example
    * (|(cn=test)(mail=test@test.com))
@@ -93,12 +93,12 @@ export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig ext
   periodicSyncCron?: string;
   /**
    * @remarks
-   * The time points for synchronization. This parameter is required when periodicSyncType is set to time. For example, if you set this parameter to [3, 5], the synchronization is performed from 03:00 to 04:00 and from 05:00 to 06:00.
+   * The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
    */
   periodicSyncTimes?: number[];
   /**
    * @remarks
-   * The type.
+   * The type of periodic synchronization.
    * 
    * @example
    * cron
@@ -135,7 +135,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig ext
 export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule extends $dara.Model {
   /**
    * @remarks
-   * The threshold for the number of groups to be deleted. If the number of groups to be deleted exceeds this value, the synchronization task is stopped.
+   * The threshold for the number of deleted groups. If the number of deleted groups exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 10
@@ -143,7 +143,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
   groupDeletedThreshold?: number;
   /**
    * @remarks
-   * The threshold for the number of organizational units to be deleted. If the number of organizational units to be deleted exceeds this value, the synchronization task is stopped.
+   * The threshold for the number of deleted organizational units. If the number of deleted organizational units exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 10
@@ -151,7 +151,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
   organizationalUnitDeletedThreshold?: number;
   /**
    * @remarks
-   * The threshold for the number of users to be deleted. If the number of users to be deleted exceeds this value, the synchronization task is stopped.
+   * The threshold for the number of deleted accounts. If the number of deleted users exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 30
@@ -226,10 +226,9 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   /**
    * @remarks
    * The group synchronization status. Valid values:
+   * - disabled: Disabled.
    * 
-   * - disabled: The feature is disabled.
-   * 
-   * - enabled: The feature is enabled.
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -247,11 +246,11 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * The status of incremental callback. This parameter specifies whether to process incremental callback data from the IdP. Valid values:
+   * Specifies whether to process incremental callback data from the IdP. Valid values:
    * 
-   * - disabled: The feature is disabled.
+   * - disabled: Disabled.
    * 
-   * - enabled: The feature is enabled.
+   * - enabled: Enabled.
    * 
    * This parameter is required.
    * 
@@ -271,21 +270,21 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of LDAP synchronization.
+   * The LDAP synchronization configuration.
    */
   ldapUdPullConfig?: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig;
   /**
    * @remarks
-   * The scheduled synchronization configuration.
+   * The periodic synchronization configuration.
    */
   periodicSyncConfig?: SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig;
   /**
    * @remarks
-   * The status of scheduled check. This parameter specifies whether to periodically check for data inconsistencies between IDaaS and the IdP. Valid values:
+   * Specifies whether to periodically verify data differences between IDaaS and the identity provider. Valid values:
    * 
-   * - disabled: The feature is disabled.
+   * - disabled: Disabled.
    * 
-   * - enabled: The feature is enabled.
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -298,7 +297,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   pullProtectedRule?: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule;
   /**
    * @remarks
-   * The inbound synchronization configuration.
+   * The inbound synchronization scope configuration.
    */
   udSyncScopeConfig?: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig;
   static names(): { [key: string]: string } {

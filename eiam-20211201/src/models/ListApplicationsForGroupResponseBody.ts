@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForGroupResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The application role ID.
+   * Application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,7 +35,7 @@ export class ListApplicationsForGroupResponseBodyApplicationsApplicationRoles ex
 export class ListApplicationsForGroupResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * Application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -43,16 +43,15 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * The list of application roles.
+   * Application role list.
    */
   applicationRoles?: ListApplicationsForGroupResponseBodyApplicationsApplicationRoles[];
   /**
    * @remarks
-   * Indicates whether a direct authorization exists. Valid values:
+   * Whether direct authorization exists. Valid values:
    * 
-   * - true: A direct authorization record exists between the application and the group.
-   * 
-   * - false: No direct authorization record exists between the application and the group.
+   * - true: A direct authorization relationship record exists between the application and the group.
+   * - false: No direct authorization relationship record exists between the application and the group.
    * 
    * @example
    * true
@@ -60,7 +59,7 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether an inherited authorization exists.
+   * Whether inherited authorization exists.
    * 
    * @example
    * false
@@ -99,12 +98,12 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
 export class ListApplicationsForGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of applications that are granted access.
+   * List of applications authorized for access.
    */
   applications?: ListApplicationsForGroupResponseBodyApplications[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -112,7 +111,7 @@ export class ListApplicationsForGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total number of entries.
    * 
    * @example
    * 100

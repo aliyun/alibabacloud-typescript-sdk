@@ -13,7 +13,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   errorCode?: string;
   /**
    * @remarks
-   * The description of the error.
+   * The error description.
    * 
    * @example
    * There is no permission.
@@ -45,12 +45,12 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
 export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The reason for the fault. This field returns a value when the health check status is unhealthy.
+   * The error reason. This field is returned when the health check status is unhealthy.
    */
   errorReason?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last check. The value is a UNIX timestamp in milliseconds.
+   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -58,11 +58,10 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   lastCheckTime?: number;
   /**
    * @remarks
-   * The result of the health check for the cloud account. Valid values:
+   * The health check result of the cloud account. Valid values:
    * 
-   * - success: The health check was successful.
-   * 
-   * - failed: The health check failed.
+   * - success: Succeeded.
+   * - failed: Failed.
    * 
    * @example
    * success
@@ -99,7 +98,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
 export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The audience identity.
+   * The audience identifier.
    * 
    * @example
    * urn:cloud:idaas:sts:xxx:xxx
@@ -107,7 +106,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
   audience?: string;
   /**
    * @remarks
-   * The ID of the authorization server.
+   * The authorization server ID.
    * 
    * @example
    * iauths_system
@@ -115,7 +114,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
   authorizationServerId?: string;
   /**
    * @remarks
-   * The issuer.
+   * Issuer。
    * 
    * @example
    * https://xxxxx.aliyunidaas.com/api/v2/iauths_system/oauth2
@@ -123,7 +122,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
   issuer?: string;
   /**
    * @remarks
-   * The public key endpoint for signature verification.
+   * The signature verification public key endpoint.
    * 
    * @example
    * https://xxxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/jwks
@@ -159,7 +158,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
 export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   /**
    * @remarks
-   * The unique external ID of the Alibaba Cloud account.
+   * The external unique identifier of the cloud account.
    * 
    * @example
    * 1234567
@@ -167,12 +166,9 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * The health status of the Alibaba Cloud account. Valid values:
-   * 
+   * The health status of the cloud account. Valid values:
    * - healthy: Healthy.
-   * 
    * - unhealthy: Unhealthy.
-   * 
    * - unknown: Unknown.
    * 
    * @example
@@ -181,12 +177,12 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountHealth?: string;
   /**
    * @remarks
-   * The health check result for the cloud account.
+   * The health check result of the cloud account.
    */
   cloudAccountHealthCheckResult?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResult;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -194,7 +190,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account.
+   * The cloud account name.
    * 
    * @example
    * cloud_accout_xxxx
@@ -202,22 +198,23 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The configuration of the identity provider.
+   * The identity provider configuration.
    */
   cloudAccountProviderConfig?: GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig;
   /**
    * @remarks
-   * The name of the identity provider.
+   * The identity provider name.
    * 
    * @example
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  cloudAccountSite?: string;
   /**
    * @remarks
-   * The type of the Alibaba Cloud account. The valid value is:
+   * The cloud account type. Valid values:
    * 
-   * - alibaba_cloud: Alibaba Cloud
+   * - alibaba_cloud: Alibaba Cloud.
    * 
    * @example
    * alibaba_cloud
@@ -233,7 +230,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the Alibaba Cloud account.
+   * The cloud account description.
    * 
    * @example
    * cloud_accout_description
@@ -249,7 +246,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time of the last update. The value is a UNIX timestamp in milliseconds.
+   * The most recent update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -264,6 +261,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
       cloudAccountName: 'CloudAccountName',
       cloudAccountProviderConfig: 'CloudAccountProviderConfig',
       cloudAccountProviderName: 'CloudAccountProviderName',
+      cloudAccountSite: 'CloudAccountSite',
       cloudAccountVendorType: 'CloudAccountVendorType',
       createTime: 'CreateTime',
       description: 'Description',
@@ -281,6 +279,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
       cloudAccountName: 'string',
       cloudAccountProviderConfig: GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig,
       cloudAccountProviderName: 'string',
+      cloudAccountSite: 'string',
       cloudAccountVendorType: 'string',
       createTime: 'number',
       description: 'string',
@@ -307,7 +306,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
 export class GetCloudAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the Alibaba Cloud account.
+   * The cloud account details.
    */
   cloudAccount?: GetCloudAccountResponseBodyCloudAccount;
   /**

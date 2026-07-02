@@ -15,7 +15,7 @@ export class DisableUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the account.
+   * The account ID.
    * 
    * This parameter is required.
    * 

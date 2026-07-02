@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableIdentityProviderAuthnRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the identity provider (IdP).
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 

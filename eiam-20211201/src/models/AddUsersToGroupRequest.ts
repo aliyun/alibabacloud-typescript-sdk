@@ -25,7 +25,7 @@ export class AddUsersToGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The account IDs.
+   * The list of account IDs. The list can contain up to 100 elements.
    * 
    * This parameter is required.
    * 

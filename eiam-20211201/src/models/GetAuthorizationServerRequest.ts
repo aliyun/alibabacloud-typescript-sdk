@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationServerRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的授权服务器资源ID。
+   * The authorization server ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAuthorizationServerRequest extends $dara.Model {
   authorizationServerId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

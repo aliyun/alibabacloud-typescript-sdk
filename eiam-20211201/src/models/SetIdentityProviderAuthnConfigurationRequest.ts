@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig extends $dara.Model {
   /**
    * @remarks
-   * Automatic account creation status.
+   * Indicates whether automatic account creation is enabled.
    * 
    * @example
    * disabled
@@ -13,7 +13,7 @@ export class SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig ex
   autoCreateUserStatus?: string;
   /**
    * @remarks
-   * Organization ID
+   * The organizational unit IDs.
    */
   targetOrganizationalUnitIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig ex
 export class SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic account updates.
+   * Indicates whether automatic account update is enabled.
    * 
    * @example
    * disabled
@@ -75,7 +75,7 @@ export class SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig ex
 export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchUserProfileExpressions extends $dara.Model {
   /**
    * @remarks
-   * Type of expression.
+   * The type of the expression.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
   expressionMappingType?: string;
   /**
    * @remarks
-   * Expression for mapping attribute value.
+   * The value expression of the mapping attribute.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
   sourceValueExpression?: string;
   /**
    * @remarks
-   * Target attribute name for mapping.
+   * The name of the mapping target attribute.
    * 
    * This parameter is required.
    * 
@@ -105,7 +105,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
   targetField?: string;
   /**
    * @remarks
-   * Target attribute name for mapping.
+   * The description of the mapping target attribute.
    * 
    * @example
    * username
@@ -146,7 +146,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $
   autoMatchUserProfileExpressions?: SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchUserProfileExpressions[];
   /**
    * @remarks
-   * Automatic account matching status.
+   * Indicates whether automatic account matching is enabled.
    * 
    * @example
    * disabled
@@ -154,7 +154,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $
   autoMatchUserStatus?: string;
   /**
    * @remarks
-   * Specifies whether the manual account binding feature is enabled.
+   * Indicates whether the manual account binding feature is enabled.
    * 
    * @example
    * enabled
@@ -191,7 +191,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $
 export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically update passwords.
+   * Indicates whether automatic password update is supported.
    * 
    * @example
    * enabled
@@ -199,7 +199,7 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
   autoUpdatePasswordStatus?: string;
   /**
    * @remarks
-   * User Login Identifier
+   * The user login identifier.
    * 
    * @example
    * email
@@ -207,7 +207,7 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
   userLoginIdentifier?: string;
   /**
    * @remarks
-   * User ObjectClass
+   * The user ObjectClass.
    * 
    * @example
    * posixAccount
@@ -241,22 +241,22 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
 export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Automatic Account Creation Rule Configuration.
+   * Automatic account creation rule configuration.
    */
   autoCreateUserConfig?: SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig;
   /**
    * @remarks
-   * Automatic Account Update Configuration
+   * Automatic account update configuration.
    */
   autoUpdateUserConfig?: SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig;
   /**
    * @remarks
-   * Account Binding Rule Configuration
+   * Account binding rule configuration.
    */
   bindingConfig?: SetIdentityProviderAuthnConfigurationRequestBindingConfig;
   /**
    * @remarks
-   * Identity Provider ID
+   * Identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -266,7 +266,7 @@ export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * Instance ID
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -276,7 +276,7 @@ export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * AD/LDAP Authentication Configuration
+   * AD/LDAP authentication configuration.
    */
   ldapAuthnConfig?: SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig;
   static names(): { [key: string]: string } {

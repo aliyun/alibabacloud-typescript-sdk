@@ -13,9 +13,9 @@ export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Mod
   endpoint?: string;
   /**
    * @remarks
-   * The status of the instance endpoint. Valid values:
+   * The endpoint status. Valid values:
    * - resolved: Resolved.
-   * - unresolved: Unresolved.
+   * - unresolved: Not resolved.
    * 
    * @example
    * resolved
@@ -46,26 +46,41 @@ export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Mod
 
 export class ListInstancesResponseBodyInstancesReplicationConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the backup instance.
+   * 
    * @example
    * idaas_xxxxxx
    */
   backupInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the backup instance.
+   * 
    * @example
    * cn-beijing
    */
   backupInstanceRegionId?: string;
   /**
+   * @remarks
+   * The instance ID of the primary instance.
+   * 
    * @example
    * idaas_xxxxxx
    */
   primaryInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the primary instance.
+   * 
    * @example
    * cn-hangzhou
    */
   primaryInstanceRegionId?: string;
   /**
+   * @remarks
+   * The time when the disaster recovery data replication was created, in UNIX timestamp format. Unit: milliseconds.
+   * 
    * @example
    * 1778499337000
    */
@@ -102,18 +117,24 @@ export class ListInstancesResponseBodyInstancesReplicationConfiguration extends 
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created. The value is a UNIX timestamp in milliseconds.
+   * The instance creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1550115455000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
+   * 
    * @example
    * enabled
    */
   crossRegionReplication?: string;
   /**
+   * @remarks
+   * The cross-region replication role. Valid values: primary (primary instance) or backup (backup instance).
+   * 
    * @example
    * primary
    */
@@ -125,13 +146,16 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   defaultEndpoint?: ListInstancesResponseBodyInstancesDefaultEndpoint;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * instance_for_test
    */
   description?: string;
   /**
+   * @remarks
+   * The instance failover activation status. Valid values: active (activated) or inactive (not activated).
+   * 
    * @example
    * inactive
    */
@@ -152,6 +176,10 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * sase
    */
   managedServiceCode?: string;
+  /**
+   * @remarks
+   * The replication configuration. This parameter is returned only when CrossRegionReplication is set to enabled.
+   */
   replicationConfiguration?: ListInstancesResponseBodyInstancesReplicationConfiguration;
   /**
    * @remarks
@@ -234,7 +262,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 100

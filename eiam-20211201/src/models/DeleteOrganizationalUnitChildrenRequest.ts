@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOrganizationalUnitChildrenRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteOrganizationalUnitChildrenRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Organizational Unit ID.
+   * The organization ID.
    * 
    * This parameter is required.
    * 

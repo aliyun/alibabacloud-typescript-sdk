@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint extends $dara.Model {
   /**
+   * @remarks
+   * The token endpoint of the authorization server.
+   * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/token
    */
   oauth2TokenEndpoint?: string;
   /**
+   * @remarks
+   * The JWKS endpoint of the authorization server.
+   * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/jwks
    */
@@ -39,7 +45,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoi
 export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 授权服务器ID
+   * The authorization server ID.
    * 
    * @example
    * iauths_system
@@ -47,7 +53,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   authorizationServerId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 授权服务器名称
+   * The name of the authorization server.
    * 
    * @example
    * System_Default
@@ -55,7 +61,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   authorizationServerName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 授权服务器创建时间
+   * The time when the authorization server was created.
    * 
    * @example
    * 1754620108295
@@ -63,7 +69,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   createTime?: number;
   /**
    * @remarks
-   * 创建类型：system_init-系统默认创建，jwt_credential_provider-JWT凭据提供商创建，user_custom-用户创建
+   * The creation type.
    * 
    * @example
    * system_init
@@ -71,7 +77,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   creationType?: string;
   /**
    * @remarks
-   * 授权服务器描述
+   * The description of the authorization server.
    * 
    * @example
    * description of authorization server
@@ -79,7 +85,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_qzljgbhtwnnsywtdbz7yzy2any
@@ -87,7 +93,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 授权token颁发者
+   * The issuer of the authorization token.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2
@@ -95,7 +101,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   issuer?: string;
   /**
    * @remarks
-   * Issuer使用的域名，可为初始化域名或已添加的自定义域名
+   * The domain name used by the issuer.
    * 
    * @example
    * xxxx.aliyunidaas.com
@@ -103,7 +109,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   issuerDomain?: string;
   /**
    * @remarks
-   * Issuer模式：dynamic-动态基于请求域名，static-使用固定域名
+   * The issuer mode.
    * 
    * @example
    * static
@@ -111,16 +117,20 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   issuerMode?: string;
   /**
    * @remarks
-   * IDaaS EIAM 授权服务器最近更新时间
+   * The time when the authorization server was last updated.
    * 
    * @example
    * 1781608572164
    */
   lastUpdateTime?: number;
+  /**
+   * @remarks
+   * The endpoint configuration of the authorization server.
+   */
   protocolEndpoint?: GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint;
   /**
    * @remarks
-   * IDaaS EIAM 授权服务器状态，enabled启用，disabled禁用
+   * The status of the authorization server.
    * 
    * @example
    * ENABLE
@@ -173,8 +183,15 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
 }
 
 export class GetAuthorizationServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization server.
+   */
   authorizationServer?: GetAuthorizationServerResponseBodyAuthorizationServer;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig extends $dara.Model {
   /**
    * @remarks
-   * Group Member Identifier
+   * The group member identifier attribute.
    * 
    * @example
    * group
@@ -13,7 +13,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupMemberAttributeName?: string;
   /**
    * @remarks
-   * Group ObjectClass
+   * The group ObjectClass.
    * 
    * @example
    * member
@@ -21,7 +21,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupObjectClass?: string;
   /**
    * @remarks
-   * Group Custom Filter
+   * The custom filter for groups.
    * 
    * @example
    * (|(cn=test)(group=test@test.com))
@@ -29,7 +29,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupObjectClassCustomFilter?: string;
   /**
    * @remarks
-   * Organization ObjectClass
+   * The organizational unit ObjectClass.
    * 
    * @example
    * ou,top
@@ -37,7 +37,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   organizationUnitObjectClass?: string;
   /**
    * @remarks
-   * User ObjectClass
+   * The user ObjectClass.
    * 
    * @example
    * ou,top
@@ -45,7 +45,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   userObjectClass?: string;
   /**
    * @remarks
-   * User ObjectClass Custom Filter
+   * The custom filter for users.
    * 
    * @example
    * (|(cn=test)(mail=test@test.com))
@@ -85,7 +85,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * Cron expression
+   * The cron expression.
    * 
    * @example
    * 0 45 1 * * ?
@@ -93,7 +93,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   periodicSyncCron?: string;
   /**
    * @remarks
-   * Execution time slots, for example 3,5, meaning the task runs once between 03:00–04:00 and once between 05:00–06:00.
+   * The execution time points. For example, [3, 5] indicates that synchronization runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
    * 
    * @example
    * [3,5]
@@ -101,7 +101,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   periodicSyncTimes?: number;
   /**
    * @remarks
-   * type
+   * The periodic synchronization type.
    * 
    * @example
    * cron
@@ -135,7 +135,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule extends $dara.Model {
   /**
    * @remarks
-   * Group Deletion Threshold: If the number of deleted groups exceeds this value, the synchronization task will be terminated.
+   * The threshold for the number of deleted groups. If the number of deleted groups exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 10
@@ -143,7 +143,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupDeletedThreshold?: number;
   /**
    * @remarks
-   * Organization Deletion Threshold: If the number of deleted organizations exceeds this value, the synchronization task will be terminated.
+   * The threshold for the number of deleted organizational units. If the number of deleted organizational units exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 10
@@ -151,7 +151,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   organizationalUnitDeletedThreshold?: number;
   /**
    * @remarks
-   * Account Deletion Threshold: If the number of deleted users exceeds this value, the synchronization task will be terminated.
+   * The threshold for the number of deleted accounts. If the number of deleted users exceeds this value, the synchronization task is terminated.
    * 
    * @example
    * 30
@@ -185,12 +185,12 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * Synchronization Source Node
+   * The list of source nodes for synchronization.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * Synchronization Target Node
+   * The target node for synchronization.
    * 
    * @example
    * ou_asjdfhaskfhw213mnsj33sXXX
@@ -225,12 +225,10 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Group Synchronization Status
-   * Possible values:
+   * The group synchronization status. Valid values:
    * 
-   * Disabled: disabled
-   * 
-   * Enabled: enabled
+   * - disabled
+   * - enabled.
    * 
    * @example
    * enabled
@@ -238,7 +236,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   groupSyncStatus?: string;
   /**
    * @remarks
-   * Identity provider ID
+   * The identity provider ID.
    * 
    * @example
    * idp_my664lwkhpicbyzirog3xxxxx
@@ -246,7 +244,10 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   identityProviderId?: string;
   /**
    * @remarks
-   * Incremental Callback Status: Whether to process incremental callback data from the IdP
+   * The incremental callback status, which specifies whether to process incremental callback data from the IdP. Valid values:
+   * 
+   * - disabled
+   * - enabled.
    * 
    * @example
    * enabled
@@ -254,7 +255,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -262,21 +263,20 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   instanceId?: string;
   /**
    * @remarks
-   * LDAP Synchronization Side Related Configuration Information
+   * The LDAP synchronization configuration.
    */
   ldapUdPullConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig;
   /**
    * @remarks
-   * Scheduled sync configuration
+   * The periodic synchronization configuration.
    */
   periodicSyncConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig;
   /**
    * @remarks
-   * Scheduled Validation Status: Whether to periodically validate data discrepancies between IDaaS and the Identity Provider. Possible values:
+   * The periodic verification status, which specifies whether to periodically verify data differences between IDaaS and the identity provider. Valid values:
    * 
-   * Disabled: disabled
-   * 
-   * Enabled: enabled
+   * - disabled
+   * - enabled.
    * 
    * @example
    * enabled
@@ -284,12 +284,12 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * Inbound Synchronization Protection Rule Configuration
+   * The inbound synchronization protection rule configuration.
    */
   pullProtectedRule?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule;
   /**
    * @remarks
-   * Synchronization Scope Configuration Information
+   * The synchronization scope configuration.
    */
   udSyncScopeConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig;
   static names(): { [key: string]: string } {
@@ -352,7 +352,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Inbound Synchronization Configuration Information
+   * The inbound synchronization configuration.
    */
   udPullConfiguration?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration;
   static names(): { [key: string]: string } {

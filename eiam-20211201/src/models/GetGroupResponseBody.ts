@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
-   * The time at which the group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the group was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -13,7 +13,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the group.
+   * The group description.
    * 
    * @example
    * test_group
@@ -21,7 +21,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The external ID of the group, which can be used to associate the group with an external system. By default, the external ID is the group ID.
+   * The external ID of the group, which is used to associate the group with an external system. The default value is the account group ID.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -37,7 +37,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The group name.
    * 
    * @example
    * group_name
@@ -45,7 +45,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The source ID of the group. By default, the source ID is the instance ID.
+   * The source ID of the group. The default value is the instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -53,9 +53,8 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   groupSourceId?: string;
   /**
    * @remarks
-   * The source type of the group. Only build_in may be returned, which indicates that the group was created in IDaaS.
-   * 
-   * \\*build_in:Create By Self.
+   * The source type of the group. Currently, only built-in groups are supported. Valid values:
+   * - build_in: built-in.
    * 
    * @example
    * build_in
@@ -71,7 +70,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time at which the group was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the group was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -117,7 +116,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
 export class GetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the account group.
+   * The account group object information.
    */
   group?: GetGroupResponseBodyGroup;
   /**

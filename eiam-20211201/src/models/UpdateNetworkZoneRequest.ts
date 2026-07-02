@@ -43,7 +43,7 @@ export class UpdateNetworkZoneRequest extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * The name of the network zone.
+   * The network zone name.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateNetworkZoneRequest extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc_xxxxx

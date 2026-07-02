@@ -13,7 +13,7 @@ export class CreateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The account ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
