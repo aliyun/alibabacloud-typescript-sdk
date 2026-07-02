@@ -2380,6 +2380,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 在指定的实例上安装 Agent
+   * 
+   * @remarks
+   * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - InstallAgentWithTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallAgentWithTypeResponse
+   */
+  async installAgentWithTypeWithOptions(request: $_model.InstallAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAgentWithTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      body["agentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.configId)) {
+      body["configId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      body["instanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallAgentWithType",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/agent/installAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallAgentWithTypeResponse>(await this.callApi(params, req, runtime), new $_model.InstallAgentWithTypeResponse({}));
+  }
+
+  /**
+   * 在指定的实例上安装 Agent
+   * 
+   * @remarks
+   * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - InstallAgentWithTypeRequest
+   * @returns InstallAgentWithTypeResponse
+   */
+  async installAgentWithType(request: $_model.InstallAgentWithTypeRequest): Promise<$_model.InstallAgentWithTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.installAgentWithTypeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Initiates an anomaly diagnostics task.
    * 
    * @param request - InvokeAnomalyDiagnosisRequest
