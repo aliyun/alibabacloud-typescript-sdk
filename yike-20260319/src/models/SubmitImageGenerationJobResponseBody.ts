@@ -2,21 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitYikeVideoCloneJobResponseBody extends $dara.Model {
+export class SubmitImageGenerationJobResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The task ID.
-   * 
    * @example
-   * task_abc123def456
+   * ******3B0E1A586AAC29742247******
    */
   jobId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * req_create_20260420_001
+   * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

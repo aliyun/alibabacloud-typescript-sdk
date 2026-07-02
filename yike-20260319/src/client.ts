@@ -451,6 +451,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询图片生成任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - GetImageGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageGenerationJobResponse
+   */
+  async getImageGenerationJobWithOptions(request: $_model.GetImageGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageGenerationJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.GetImageGenerationJobResponse({}));
+  }
+
+  /**
+   * 查询图片生成任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - GetImageGenerationJobRequest
+   * @returns GetImageGenerationJobResponse
+   */
+  async getImageGenerationJob(request: $_model.GetImageGenerationJobRequest): Promise<$_model.GetImageGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询视频生成任务
+   * 
+   * @param request - GetVideoGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoGenerationJobResponse
+   */
+  async getVideoGenerationJobWithOptions(request: $_model.GetVideoGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoGenerationJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoGenerationJobResponse({}));
+  }
+
+  /**
+   * 查询视频生成任务
+   * 
+   * @param request - GetVideoGenerationJobRequest
+   * @returns GetVideoGenerationJobResponse
+   */
+  async getVideoGenerationJob(request: $_model.GetVideoGenerationJobRequest): Promise<$_model.GetVideoGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an AI application task.
    * 
    * @param request - GetYikeAIAppJobRequest
@@ -1263,6 +1359,182 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交图像生成接口
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitImageGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitImageGenerationJobResponse
+   */
+  async submitImageGenerationJobWithOptions(request: $_model.SubmitImageGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitImageGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aspectRatio)) {
+      query["AspectRatio"] = request.aspectRatio;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.jobParameters)) {
+      query["JobParameters"] = request.jobParameters;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.n)) {
+      query["N"] = request.n;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitImageGenerationJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitImageGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitImageGenerationJobResponse({}));
+  }
+
+  /**
+   * 提交图像生成接口
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitImageGenerationJobRequest
+   * @returns SubmitImageGenerationJobResponse
+   */
+  async submitImageGenerationJob(request: $_model.SubmitImageGenerationJobRequest): Promise<$_model.SubmitImageGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitImageGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频生成接口
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitVideoGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoGenerationJobResponse
+   */
+  async submitVideoGenerationJobWithOptions(request: $_model.SubmitVideoGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aspectRatio)) {
+      query["AspectRatio"] = request.aspectRatio;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.jobParameters)) {
+      query["JobParameters"] = request.jobParameters;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.n)) {
+      query["N"] = request.n;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoGenerationJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoGenerationJobResponse({}));
+  }
+
+  /**
+   * 提交视频生成接口
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitVideoGenerationJobRequest
+   * @returns SubmitVideoGenerationJobResponse
+   */
+  async submitVideoGenerationJob(request: $_model.SubmitVideoGenerationJobRequest): Promise<$_model.SubmitVideoGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
    * Submits an AI application task to Yike AI.
    * 
    * @param request - SubmitYikeAIAppJobRequest
@@ -1573,7 +1845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交一刻数字人口播视频生成任务
+   * Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
    * 
    * @param request - SubmitYikeVideoCloneJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1608,7 +1880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交一刻数字人口播视频生成任务
+   * Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
    * 
    * @param request - SubmitYikeVideoCloneJobRequest
    * @returns SubmitYikeVideoCloneJobResponse
