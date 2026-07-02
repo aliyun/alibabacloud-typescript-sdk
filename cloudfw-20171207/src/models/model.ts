@@ -49,7 +49,10 @@ export { DescribeDnsFirewallPolicyResponseBodyPolicys } from './DescribeDnsFirew
 export { DescribeDomainResolveResponseBodyResolveResult } from './DescribeDomainResolveResponseBody';
 export { DescribeDownloadTaskResponseBodyTasks } from './DescribeDownloadTaskResponseBody';
 export { DescribeDownloadTaskTypeResponseBodyTaskTypeArray } from './DescribeDownloadTaskTypeResponseBody';
+export { DescribeFirewallDropTrendResponseBodyDataList } from './DescribeFirewallDropTrendResponseBody';
 export { DescribeFirewallTaskResponseBodyTaskSteps } from './DescribeFirewallTaskResponseBody';
+export { DescribeFirewallTrafficTrendResponseBodyDataList } from './DescribeFirewallTrafficTrendResponseBody';
+export { DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps } from './DescribeFirewallTrafficTrendResponseBody';
 export { DescribeFirewallVSwitchResponseBodyVswitchListFirewallList } from './DescribeFirewallVswitchResponseBody';
 export { DescribeFirewallVSwitchResponseBodyVswitchList } from './DescribeFirewallVswitchResponseBody';
 export { DescribeFirewallVswitchResourcesResponseBodyVswitchListFirewallList } from './DescribeFirewallVswitchResourcesResponseBody';
@@ -508,9 +511,15 @@ export { DescribeDownloadTaskTypeResponseBody } from './DescribeDownloadTaskType
 export { DescribeDownloadTaskTypeResponse } from './DescribeDownloadTaskTypeResponse';
 export { DescribeFirewallDropStatisticsResponseBody } from './DescribeFirewallDropStatisticsResponseBody';
 export { DescribeFirewallDropStatisticsResponse } from './DescribeFirewallDropStatisticsResponse';
+export { DescribeFirewallDropTrendRequest } from './DescribeFirewallDropTrendRequest';
+export { DescribeFirewallDropTrendResponseBody } from './DescribeFirewallDropTrendResponseBody';
+export { DescribeFirewallDropTrendResponse } from './DescribeFirewallDropTrendResponse';
 export { DescribeFirewallTaskRequest } from './DescribeFirewallTaskRequest';
 export { DescribeFirewallTaskResponseBody } from './DescribeFirewallTaskResponseBody';
 export { DescribeFirewallTaskResponse } from './DescribeFirewallTaskResponse';
+export { DescribeFirewallTrafficTrendRequest } from './DescribeFirewallTrafficTrendRequest';
+export { DescribeFirewallTrafficTrendResponseBody } from './DescribeFirewallTrafficTrendResponseBody';
+export { DescribeFirewallTrafficTrendResponse } from './DescribeFirewallTrafficTrendResponse';
 export { DescribeFirewallVSwitchRequest } from './DescribeFirewallVswitchRequest';
 export { DescribeFirewallVSwitchResponseBody } from './DescribeFirewallVswitchResponseBody';
 export { DescribeFirewallVSwitchResponse } from './DescribeFirewallVswitchResponse';
@@ -756,6 +765,9 @@ export { DescribeSdlEventSdListResponse } from './DescribeSdlEventSdListResponse
 export { DescribeSdlEventStatisticRequest } from './DescribeSdlEventStatisticRequest';
 export { DescribeSdlEventStatisticResponseBody } from './DescribeSdlEventStatisticResponseBody';
 export { DescribeSdlEventStatisticResponse } from './DescribeSdlEventStatisticResponse';
+export { DescribeSdlLastPayloadRequest } from './DescribeSdlLastPayloadRequest';
+export { DescribeSdlLastPayloadResponseBody } from './DescribeSdlLastPayloadResponseBody';
+export { DescribeSdlLastPayloadResponse } from './DescribeSdlLastPayloadResponse';
 export { DescribeSdlStatisticRequest } from './DescribeSdlStatisticRequest';
 export { DescribeSdlStatisticResponseBody } from './DescribeSdlStatisticResponseBody';
 export { DescribeSdlStatisticResponse } from './DescribeSdlStatisticResponse';

@@ -29,7 +29,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   assetInstanceName?: string;
   /**
    * @remarks
-   * The inbound traffic. Unit: bytes.
+   * The inbound traffic, in bytes.
    * 
    * @example
    * 0.0
@@ -45,7 +45,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   ipsHitCnt?: number;
   /**
    * @remarks
-   * The outbound traffic. Unit: bytes.
+   * The outbound traffic, in bytes.
    * 
    * @example
    * 0.0
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   outBytes?: number;
   /**
    * @remarks
-   * The list of ports.
+   * The port list.
    */
   portList?: string[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionResourceTypeAutoEnableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The traffic redirection switch for asset types in the region.
+   * The traffic redirection settings for asset types in each region.
    */
   regionResourceAutoEnable?: { [key: string]: {[key: string]: any} };
   /**

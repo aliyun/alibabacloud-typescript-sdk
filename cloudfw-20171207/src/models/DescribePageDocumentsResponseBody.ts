@@ -85,7 +85,7 @@ export class DescribePageDocumentsResponseBodyMore extends $dara.Model {
 export class DescribePageDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The document list.
+   * The list of documents.
    */
   docs?: DescribePageDocumentsResponseBodyDocs[];
   /**

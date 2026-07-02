@@ -29,8 +29,8 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   internetTraffic?: number;
   /**
    * @remarks
-   * Indicates whether the bill is waived. A value of 0 indicates that the bill is not waived. Any value greater than 0 indicates that the bill is waived. If the bill is waived, it will not be issued.
-   * > This field is meaningful only when you query hourly data.
+   * Indicates whether a deduction is applied. A value of 0 indicates that no deduction is applied. Any value greater than 0 indicates that a deduction is applied. If a deduction is applied, the bill is not generated.
+   * > This field is meaningful only when you query data at the hourly level.
    * 
    * @example
    * 0
@@ -38,7 +38,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   isDerated?: number;
   /**
    * @remarks
-   * The log service usage duration, in TB*h.
+   * The log service usage duration, in TB × hours.
    * 
    * @example
    * 24
@@ -62,7 +62,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   natTraffic?: number;
   /**
    * @remarks
-   * The data leak detection usage duration, in hours.
+   * The sensitive data leak detection usage duration, in hours.
    * 
    * @example
    * 0

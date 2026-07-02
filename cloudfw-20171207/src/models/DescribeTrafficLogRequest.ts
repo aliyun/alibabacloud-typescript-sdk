@@ -169,7 +169,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
    * @remarks
    * The language type of the received message. Valid values:
    * - **zh** (default): Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -307,7 +307,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   srcVpcRegionNo?: string;
   /**
    * @remarks
-   * The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query does not exceed one day.
+   * The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. A single query should not exceed one day.
    * 
    * This parameter is required.
    * 

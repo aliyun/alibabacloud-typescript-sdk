@@ -37,7 +37,7 @@ export default class Client extends OpenApi {
       'cn-beijing-finance-1': "cloudfw.aliyuncs.com",
       'cn-beijing': "cloudfw.aliyuncs.com",
       'ap-southeast-5': "cloudfw.aliyuncs.com",
-      'ap-southeast-3': "cloudfw.aliyuncs.com",
+      'ap-southeast-3': "cloudfw.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "cloudfw.aliyuncs.com",
     };
     this.checkConfig(config);
@@ -1701,12 +1701,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+   * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
    * 
    * @remarks
-   * This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+   * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
    * 
    * @param request - CreateVpcFirewallCenConfigureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1781,12 +1781,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+   * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
    * 
    * @remarks
-   * This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+   * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
    * 
    * @param request - CreateVpcFirewallCenConfigureRequest
    * @returns CreateVpcFirewallCenConfigureResponse
@@ -4155,7 +4155,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeAclRuleCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4194,7 +4194,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeAclRuleCountRequest
    * @returns DescribeAclRuleCountResponse
@@ -5470,6 +5470,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+   * 
+   * @param request - DescribeFirewallDropTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFirewallDropTrendResponse
+   */
+  async describeFirewallDropTrendWithOptions(request: $_model.DescribeFirewallDropTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFirewallDropTrendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFirewallDropTrend",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFirewallDropTrendResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFirewallDropTrendResponse({}));
+  }
+
+  /**
+   * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+   * 
+   * @param request - DescribeFirewallDropTrendRequest
+   * @returns DescribeFirewallDropTrendResponse
+   */
+  async describeFirewallDropTrend(request: $_model.DescribeFirewallDropTrendRequest): Promise<$_model.DescribeFirewallDropTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFirewallDropTrendWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a firewall task.
    * 
    * @remarks
@@ -5533,6 +5583,56 @@ export default class Client extends OpenApi {
   async describeFirewallTask(request: $_model.DescribeFirewallTaskRequest): Promise<$_model.DescribeFirewallTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFirewallTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取总流量趋势
+   * 
+   * @param request - DescribeFirewallTrafficTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFirewallTrafficTrendResponse
+   */
+  async describeFirewallTrafficTrendWithOptions(request: $_model.DescribeFirewallTrafficTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFirewallTrafficTrendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFirewallTrafficTrend",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFirewallTrafficTrendResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFirewallTrafficTrendResponse({}));
+  }
+
+  /**
+   * 获取总流量趋势
+   * 
+   * @param request - DescribeFirewallTrafficTrendRequest
+   * @returns DescribeFirewallTrafficTrendResponse
+   */
+  async describeFirewallTrafficTrend(request: $_model.DescribeFirewallTrafficTrendRequest): Promise<$_model.DescribeFirewallTrafficTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFirewallTrafficTrendWithOptions(request, runtime);
   }
 
   /**
@@ -6166,7 +6266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes a Cloud Firewall access control policy group.
+   * Queries the details of an access control policy group in Cloud Firewall.
    * 
    * @param request - DescribeInternetOpenIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6245,7 +6345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes a Cloud Firewall access control policy group.
+   * Queries the details of an access control policy group in Cloud Firewall.
    * 
    * @param request - DescribeInternetOpenIpRequest
    * @returns DescribeInternetOpenIpResponse
@@ -8879,7 +8979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details about an outbound domain.
+   * Retrieves the details of an outbound domain.
    * 
    * @param request - DescribeOutgoingDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8974,7 +9074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details about an outbound domain.
+   * Retrieves the details of an outbound domain.
    * 
    * @param request - DescribeOutgoingDomainDetailRequest
    * @returns DescribeOutgoingDomainDetailResponse
@@ -9213,11 +9313,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the FAQ of a page.
+   * Queries the FAQ for a page.
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @deprecated OpenAPI DescribePageDocuments is deprecated
    * 
@@ -9270,11 +9370,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the FAQ of a page.
+   * Queries the FAQ for a page.
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @deprecated OpenAPI DescribePageDocuments is deprecated
    * 
@@ -9798,10 +9898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询包年包月2.0账单概览
+   * Queries the billing overview of a subscription 2.0 instance.
    * 
    * @remarks
-   * 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+   * The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
    * 
    * @param request - DescribePrepayBillTotalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9852,10 +9952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询包年包月2.0账单概览
+   * Queries the billing overview of a subscription 2.0 instance.
    * 
    * @remarks
-   * 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+   * The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
    * 
    * @param request - DescribePrepayBillTotalRequest
    * @returns DescribePrepayBillTotalResponse
@@ -10042,7 +10142,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeRegionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10089,7 +10189,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeRegionInfoRequest
    * @returns DescribeRegionInfoResponse
@@ -10105,7 +10205,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeRegionResourceTypeAutoEnableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10141,7 +10241,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeRegionResourceTypeAutoEnableRequest
    * @returns DescribeRegionResourceTypeAutoEnableResponse
@@ -10155,9 +10255,9 @@ export default class Client extends OpenApi {
    * Queries the default traffic redirection for an asset type.
    * 
    * @remarks
-   * This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+   * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeResourceTypeAutoEnableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10191,9 +10291,9 @@ export default class Client extends OpenApi {
    * Queries the default traffic redirection for an asset type.
    * 
    * @remarks
-   * This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+   * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeResourceTypeAutoEnableRequest
    * @returns DescribeResourceTypeAutoEnableResponse
@@ -11062,6 +11162,76 @@ export default class Client extends OpenApi {
   async describeSdlEventStatistic(request: $_model.DescribeSdlEventStatisticRequest): Promise<$_model.DescribeSdlEventStatisticResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSdlEventStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the packet payload of a sensitive data leak event.
+   * 
+   * @remarks
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * 
+   * @param request - DescribeSdlLastPayloadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSdlLastPayloadResponse
+   */
+  async describeSdlLastPayloadWithOptions(request: $_model.DescribeSdlLastPayloadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSdlLastPayloadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dstIp)) {
+      query["DstIp"] = request.dstIp;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.sensitiveCategory)) {
+      query["SensitiveCategory"] = request.sensitiveCategory;
+    }
+
+    if (!$dara.isNull(request.srcIp)) {
+      query["SrcIp"] = request.srcIp;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSdlLastPayload",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSdlLastPayloadResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSdlLastPayloadResponse({}));
+  }
+
+  /**
+   * Retrieves the packet payload of a sensitive data leak event.
+   * 
+   * @remarks
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * 
+   * @param request - DescribeSdlLastPayloadRequest
+   * @returns DescribeSdlLastPayloadResponse
+   */
+  async describeSdlLastPayload(request: $_model.DescribeSdlLastPayloadRequest): Promise<$_model.DescribeSdlLastPayloadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSdlLastPayloadWithOptions(request, runtime);
   }
 
   /**

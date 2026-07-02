@@ -85,12 +85,12 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTo
 export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic extends $dara.Model {
   /**
    * @remarks
-   * The region-specific statistics for the Internet firewall.
+   * The region-specific statistics of Internet firewall instances.
    */
   cfwGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic[];
   /**
    * @remarks
-   * The region-specific statistics for all Internet firewall instances.
+   * The full region-specific statistics of Internet firewall instances.
    */
   cfwTotalGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic[];
   /**
@@ -111,7 +111,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalCfwGeneralInstanceUsedCnt?: number;
   /**
    * @remarks
-   * The total quota.
+   * The total quota of general instances.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
   ipNumUsed?: number;
   /**
    * @remarks
-   * The quota for sensitive data IP addresses.
+   * The quota for IP addresses with sensitive data protection.
    * 
    * @example
    * 0
@@ -209,7 +209,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
   sensitiveDataIpNumSpec?: number;
   /**
    * @remarks
-   * The number of sensitive data IP addresses with protection enabled.
+   * The number of IP addresses with sensitive data protection enabled.
    * 
    * @example
    * 0
@@ -253,7 +253,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   autoResourceEnable?: boolean;
   /**
    * @remarks
-   * The general instance specifications for version 2.0.
+   * The general instance specifications for the 2.0 billing model.
    */
   generalInstanceSpecStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic;
   /**
@@ -266,7 +266,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The consumed quota statistics information.
+   * The quota usage statistics information.
    */
   resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
   static names(): { [key: string]: string } {

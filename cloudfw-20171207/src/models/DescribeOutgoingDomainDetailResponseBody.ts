@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDomainDetailResponseBodyAssetListTagList extends $dara.Model {
   /**
    * @remarks
-   * The risk classification ID.
+   * The risk category ID.
    * 
    * @example
    * 3
@@ -91,7 +91,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   domain?: string;
   /**
    * @remarks
-   * The first access time, as a Unix timestamp in seconds.
+   * The time of the first access. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1738548990
@@ -107,7 +107,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   inBytes?: number;
   /**
    * @remarks
-   * The IPS hit count.
+   * The number of IPS hits.
    * 
    * @example
    * 32
@@ -115,7 +115,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   ipsHitCnt?: number;
   /**
    * @remarks
-   * The last access time, as a Unix timestamp in seconds.
+   * The time of the most recent access. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1739326614
@@ -123,7 +123,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   lastTime?: number;
   /**
    * @remarks
-   * The NAT Gateway ID.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-bp1utx6wj4x9qu9tl****
@@ -131,7 +131,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   natGatewayId?: string;
   /**
    * @remarks
-   * The NAT Gateway name.
+   * The NAT gateway name.
    * 
    * @example
    * ngw-test
@@ -171,7 +171,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   regionNo?: string;
   /**
    * @remarks
-   * The asset instance ID.
+   * The ID of the asset instance.
    * 
    * @example
    * i-uf63wjhyoohc1g4z****
@@ -179,7 +179,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The asset instance name.
+   * The name of the asset instance.
    * 
    * @example
    * test
@@ -187,7 +187,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The type of the asset\\"s public IP address.
+   * The type of the public IP address of the asset.
    * 
    * @example
    * NatEIP
@@ -195,7 +195,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   resourceType?: string;
   /**
    * @remarks
-   * The ACL rule ID.
+   * The ID of the ACL rule.
    * 
    * @example
    * 08a58465-ff4d-4c47-8782-eb008301****
@@ -203,7 +203,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   ruleId?: string;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
    * test
@@ -211,7 +211,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * The session count.
+   * The number of access sessions.
    * 
    * @example
    * 10
@@ -219,12 +219,12 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   sessionCount?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The list of tag names.
    */
   tagList?: DescribeOutgoingDomainDetailResponseBodyAssetListTagList[];
   /**
    * @remarks
-   * The total traffic, in bytes.
+   * The total traffic.
    * 
    * @example
    * 321120825843
@@ -232,7 +232,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   totalBytes?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-9dp16jgwgyvn****
@@ -323,7 +323,7 @@ export class DescribeOutgoingDomainDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 8

@@ -13,7 +13,7 @@ export class DescribeTrafficLogResponseBodyDataListDstVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-8vba1c1em97h0ji71b****
@@ -155,7 +155,7 @@ export class DescribeTrafficLogResponseBodyDataListSrcVpc extends $dara.Model {
 export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
+   * The policy ID of the ACL pre-match. If this parameter is not specified, all policies are included.
    * 
    * @example
    * 2
@@ -177,7 +177,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
    * 
    * **domain_unknown**: domain name not identified
    * 
-   * **normal**: normal.
+   * **normal**: normal
    * 
    * @example
    * normal
@@ -201,7 +201,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
    * 
    * **unknown_strict**: strict mode, identification failed
    * 
-   * **success**: identification succeeded.
+   * **success**: identification succeeded
    * 
    * @example
    * success
@@ -328,7 +328,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The additional extension data.
+   * Other extended data.
    * 
    * @example
    * None
@@ -336,7 +336,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The inbound traffic in bytes.
+   * The inbound traffic.
    * 
    * @example
    * 125
@@ -392,7 +392,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The outbound traffic in bytes.
+   * The outbound traffic.
    * 
    * @example
    * 230
@@ -501,7 +501,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The source port.
+   * The port of the data source.
    * 
    * @example
    * 20206

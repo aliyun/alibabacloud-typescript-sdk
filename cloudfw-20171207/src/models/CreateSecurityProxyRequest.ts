@@ -152,7 +152,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The instance ID of the VPC.
+   * The VPC-connected instance ID.
    * 
    * This parameter is required.
    * 

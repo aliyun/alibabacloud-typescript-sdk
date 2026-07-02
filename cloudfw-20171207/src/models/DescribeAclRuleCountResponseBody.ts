@@ -21,7 +21,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   internetOutAclCount?: number;
   /**
    * @remarks
-   * The number of inbound access control policies for the NAT firewall.>Notice: This field is deprecated..
+   * The number of inbound access control policies for the NAT firewall.>Notice: This field is deprecated.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   totalAclCount?: number;
   /**
    * @remarks
-   * The number of access control policies for the VPC firewall.
+   * The number of access control policies for VPC firewalls.
    * 
    * @example
    * 3

@@ -2,37 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAclRuleCountRequest extends $dara.Model {
+export class DescribeFirewallTrafficTrendRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language type. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * - **en**: English
-   * 
+   * @example
+   * 1758474000
+   */
+  endTime?: number;
+  /**
    * @example
    * zh
    */
   lang?: string;
   /**
-   * @remarks
-   * The source IP address of the request.
-   * 
    * @example
-   * 27.151.85.XX
+   * 1758470400
    */
-  sourceIp?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       lang: 'Lang',
-      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       lang: 'string',
-      sourceIp: 'string',
+      startTime: 'number',
     };
   }
 

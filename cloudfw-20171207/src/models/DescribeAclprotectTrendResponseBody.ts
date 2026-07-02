@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   /**
    * @remarks
-   * The total number of sessions that matched an ACL policy and triggered the monitor (alert) action at this point in time.
+   * The total number of sessions that matched an ACL policy and triggered the monitor (alert) action during the time interval.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   alertCnt?: number;
   /**
    * @remarks
-   * The total number of sessions that matched an ACL policy and were allowed at this point in time.
+   * The total number of sessions that matched an ACL policy and were allowed during the time interval.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   protectCnt?: number;
   /**
    * @remarks
-   * The timestamp of 00:00 on each day. Unit: seconds. Indicates the date.
+   * The timestamp of 00:00 of each day, in seconds. This indicates the date.
    * 
    * @example
    * 1697299200
@@ -83,7 +83,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   interVPCProtectCnt?: number;
   /**
    * @remarks
-   * The interval at which data is returned. Unit: seconds. A result is returned at each interval.
+   * The step size of the returned data, in seconds. This indicates the interval between consecutive data points.
    * 
    * @example
    * 86400
@@ -107,7 +107,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The cumulative total of AlertCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and triggered the monitor (alert) action during the entire time period.
+   * The cumulative sum of AlertCnt across all time points within the query time range. This represents the total number of sessions that matched an ACL policy and triggered the monitor (alert) action during the entire time period.
    * 
    * @example
    * 100
@@ -115,7 +115,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   totalAlertCnt?: number;
   /**
    * @remarks
-   * The cumulative total of PassCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and were allowed during the entire time period.
+   * The cumulative sum of PassCnt across all time points within the query time range. This represents the total number of sessions that matched an ACL policy and were allowed during the entire time period.
    * 
    * @example
    * 100
@@ -131,7 +131,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   totalProtectCnt?: number;
   /**
    * @remarks
-   * The list of Internet access control intercept trend data.
+   * The list of Internet access control interception trend data.
    */
   trendList?: DescribeACLProtectTrendResponseBodyTrendList[];
   static names(): { [key: string]: string } {

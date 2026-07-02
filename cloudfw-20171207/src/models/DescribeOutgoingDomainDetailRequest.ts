@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy coverage status to filter by.
+   * The policy coverage status.
    * 
    * @example
    * FullCoverage
@@ -13,7 +13,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   aclCoverage?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The domain name to query.
+   * The domain name.
    * 
    * @example
    * example.com
@@ -29,7 +29,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * A list of domain names to query.
+   * The list of domain names.
    */
   domainList?: string[];
   /**
@@ -44,7 +44,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The IP address type. Set to `NatPrivate` to query details for outbound connections that originate from a private IP address via a NAT Gateway.
+   * Specifies whether to query NAT private network outbound connections.
    * 
    * @example
    * NatPrivate
@@ -52,7 +52,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   IPType?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -60,7 +60,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-uf62zzi7000bca7zn****
@@ -76,7 +76,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -84,7 +84,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The private IP address to query.
+   * The private IP address.
    * 
    * @example
    * 10.210.0.XXX
@@ -92,7 +92,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   privateIP?: string;
   /**
    * @remarks
-   * The public IP address to query.
+   * The public IP address.
    * 
    * @example
    * 47.96.181.XXX
@@ -100,7 +100,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The field to sort the results by.
+   * The field by which to sort the results.
    * 
    * @example
    * OutBytes
@@ -108,7 +108,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The source IP address of the request.
    * 
    * @example
    * 121.15.137.XXX
@@ -116,7 +116,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp in seconds.
+   * The beginning of the time range to query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -126,7 +126,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The tag ID to filter by.
+   * The tag ID.
    * 
    * @example
    * FirstFlow

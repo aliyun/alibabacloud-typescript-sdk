@@ -21,7 +21,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   assetIP?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp. Unit: seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -103,7 +103,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The instance ID of the peer VPC.
+   * The instance ID of the peer VPC instance.
    * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
@@ -135,7 +135,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp. Unit: seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

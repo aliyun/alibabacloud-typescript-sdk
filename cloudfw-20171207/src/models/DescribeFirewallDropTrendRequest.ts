@@ -2,18 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
+export class DescribeFirewallDropTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. Specify a UNIX timestamp in seconds.
+   * The end time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * @example
-   * 1751210395
+   * 1758474000
    */
-  endTime?: string;
+  endTime?: number;
   /**
    * @remarks
-   * The language type of the received message.
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -21,35 +24,25 @@ export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The start time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * @example
-   * 61.155.60.XXX
+   * 1758470400
    */
-  sourceIp?: string;
-  /**
-   * @remarks
-   * The start time. Specify a UNIX timestamp in seconds.
-   * 
-   * @example
-   * 1655778046
-   */
-  startTime?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       lang: 'Lang',
-      sourceIp: 'SourceIp',
       startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
+      endTime: 'number',
       lang: 'string',
-      sourceIp: 'string',
-      startTime: 'string',
+      startTime: 'number',
     };
   }
 

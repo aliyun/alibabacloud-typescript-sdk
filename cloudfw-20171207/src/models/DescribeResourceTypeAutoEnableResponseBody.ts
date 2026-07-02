@@ -13,7 +13,7 @@ export class DescribeResourceTypeAutoEnableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether traffic redirection is enabled by default.
+   * Indicates whether default traffic redirection is enabled.
    */
   resourceTypeAutoEnable?: { [key: string]: boolean };
   static names(): { [key: string]: string } {

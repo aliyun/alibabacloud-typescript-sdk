@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUnprotectedPortTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of blocked requests.
+   * The number of interceptions.
    * 
    * @example
    * 1
