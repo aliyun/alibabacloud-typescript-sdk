@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,10 @@ export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network type.
+   */
   netType?: string;
   ownerAccount?: string;
   ownerId?: number;

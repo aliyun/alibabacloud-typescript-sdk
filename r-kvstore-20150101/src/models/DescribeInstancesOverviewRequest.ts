@@ -51,7 +51,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
    * *   7.0
    * 
    * @example
-   * 4.0
+   * 6.0
    */
   engineVersion?: string;
   /**

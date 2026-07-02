@@ -31,7 +31,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
    * *   **tair_pdb**: Tair (On Disk)
    * 
    * @example
-   * redis
+   * tair_pena
    */
   engine?: string;
   /**

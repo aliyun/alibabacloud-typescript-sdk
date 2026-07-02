@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTairInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum bandwidth of the instance. Unit: Mbit/s.
+   * The maximum bandwidth in MB/s.
    * 
    * @example
    * 96
@@ -13,10 +13,11 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The charge type. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * - **PrePaid**: prepaid.
+   * 
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -24,7 +25,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The detailed configurations of the instance. The value is a JSON string. For more information about the parameters, see [Configure parameters](https://help.aliyun.com/document_detail/43885.html).
+   * The detailed configuration of the instance, returned as a JSON string. For parameter details, see [Configuration parameters](https://help.aliyun.com/document_detail/43885.html).
    * 
    * @example
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
@@ -32,7 +33,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The internal endpoint of the instance.
+   * The internal connection address.
    * 
    * @example
    * r-bp13ac3d047b****.tairpena.rds.aliyuncs.com
@@ -40,7 +41,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The maximum number of connections to the instance.
+   * The maximum number of connections.
    * 
    * @example
    * 10000
@@ -48,7 +49,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   connections?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp13ac3d047b****
@@ -58,7 +59,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
    * @remarks
    * The instance name.
    * 
-   * >  This parameter is returned only if the **InstanceName** parameter is specified in the request.
+   * > This parameter is returned only when the **InstanceName** parameter is specified in the request.
    * 
    * @example
    * redistest
@@ -66,7 +67,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The current status of the instance. The value is **Creating**.
+   * The instance status. The value is always **Creating**.
    * 
    * @example
    * Creating
@@ -82,7 +83,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The service port number of the instance.
+   * The instance port.
    * 
    * @example
    * 6379
@@ -90,7 +91,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The maximum number of read and write operations that can be processed by the instance per second. The value is a theoretical value.
+   * The theoretical maximum number of read and write operations per second (QPS) for the instance.
    * 
    * @example
    * 100000
@@ -122,7 +123,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The availability zone ID.
    * 
    * @example
    * cn-hangzhou-h

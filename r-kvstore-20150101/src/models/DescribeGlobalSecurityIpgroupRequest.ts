@@ -6,7 +6,7 @@ export class DescribeGlobalSecurityIPGroupRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The ID of the global IP whitelist template.
    * 
    * @example
    * g-zsldxfiwjmti0kcm****
@@ -16,7 +16,7 @@ export class DescribeGlobalSecurityIPGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DescribeGlobalSecurityIPGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmyiu4ekp****

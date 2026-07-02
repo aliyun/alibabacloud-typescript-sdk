@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTairSkvDdbTableSchemaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the backup file.
+   * 
+   * @example
+   * 78241****
+   */
   backupId?: string;
   /**
    * @remarks
+   * The ID of the instance to query.
+   * 
    * This parameter is required.
    * 
    * @example

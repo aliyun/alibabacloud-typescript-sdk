@@ -42,7 +42,7 @@ export class RenewInstanceRequest extends $dara.Model {
    * > To change the specifications when you renew the instance, you must specify at least one of the `Capacity` and `InstanceClass` parameters.
    * 
    * @example
-   * 1024
+   * -
    */
   capacity?: string;
   /**
@@ -50,7 +50,7 @@ export class RenewInstanceRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * TF-ModifyInstanceSpec-1686645570-7dac7257-4a14-4811-939c-51a282f
+   * 0.6823317918435086
    */
   clientToken?: string;
   /**
@@ -76,7 +76,7 @@ export class RenewInstanceRequest extends $dara.Model {
    * > To change the specifications when you renew the instance, you must specify at least one of the `Capacity` and `InstanceClass` parameters.
    * 
    * @example
-   * redis.master.small.default
+   * -
    */
   instanceClass?: string;
   /**

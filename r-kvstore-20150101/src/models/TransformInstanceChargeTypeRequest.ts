@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class TransformInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **true**: Automatic payment is enabled.
-   * *   **false**: Automatic payment is disabled. If automatic payment is disabled, you must perform the following steps to complete the payment: In the top navigation bar of the Tair (Redis OSS-compatible) console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane of the Billing Management console, click **Orders**. On the **Orders** page, find the order and complete the payment.
+   * - **true**: Automatic payment. This is the default value.
+   * 
+   * - **false**: Manual payment. In the console, choose **Billing Management** > **Renewal Management** in the top navigation bar. In the navigation pane on the left, click **Or\\*\\*rs** > **My Or\\*\\*rs** to find and pay for the or\\*er.
    * 
    * @example
    * true
@@ -18,13 +19,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * *   **true**: enables auto-renewal.
-   * *   **false** (default): disables auto-renewal.
+   * - **true**: Auto-renewal is enabled.
    * 
-   * Valid values:
-   * 
-   * *   false
-   * *   true
+   * - **false** (default): Auto-renewal is disabled.
    * 
    * @example
    * false
@@ -32,9 +29,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * The auto-renewal period, in months. Valid values: **1**, **2**, **3**, **6**, and **12**.
    * 
-   * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * > This parameter is required when the **AutoRenew** parameter is set to **true**.
    * 
    * @example
    * 1
@@ -42,10 +39,11 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The new billing method. Valid values:
+   * The target billing method. Valid values:
    * 
-   * *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
-   * *   **PostPaid**: pay-as-you-go
+   * - **PrePaid**: subscription. If you set this parameter to this value, you must also specify the **Period** parameter.
+   * 
+   * - **PostPaid**: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -53,10 +51,14 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  /**
+   * @remarks
+   * The coupon ID.
+   */
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance IDs.
    * 
    * This parameter is required.
    * 
@@ -68,9 +70,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, **36**.
+   * The subscription duration, in months. Valid values: **1** to **9**, **12**, **24**, and **36**.
    * 
-   * >  This parameter is valid and required only if you set the **ChargeType** parameter to **PrePaid**.
+   * > This parameter is available and required only when the **ChargeType** parameter is set to **PrePaid**.
    * 
    * @example
    * 1

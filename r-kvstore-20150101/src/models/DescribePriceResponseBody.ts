@@ -100,7 +100,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
    * The activity name.
    * 
    * @example
-   * contract promotion_order_xxx discount
+   * 合同优惠_整单_xxx折
    */
   activityName?: string;
   /**

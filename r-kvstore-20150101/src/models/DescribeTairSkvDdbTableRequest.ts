@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTairSkvDdbTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance to query.
+   * 
    * This parameter is required.
    * 
    * @example

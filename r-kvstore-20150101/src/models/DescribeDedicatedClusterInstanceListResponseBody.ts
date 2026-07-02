@@ -415,7 +415,7 @@ export class DescribeDedicatedClusterInstanceListResponseBody extends $dara.Mode
    * The number of entries per page.
    * 
    * @example
-   * 30
+   * 25
    */
   pageSize?: number;
   /**
@@ -431,7 +431,7 @@ export class DescribeDedicatedClusterInstanceListResponseBody extends $dara.Mode
    * The total number of entries returned.
    * 
    * @example
-   * 1
+   * 0
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

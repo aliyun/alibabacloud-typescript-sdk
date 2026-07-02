@@ -41,7 +41,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * >  You must specify one of the **NewConnectionString** and **Port** parameters.
    * 
    * @example
-   * standardredis
+   * standardredis123
    */
   newConnectionString?: string;
   ownerAccount?: string;

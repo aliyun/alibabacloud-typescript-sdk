@@ -2,62 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest extends $dara.Model {
+export class CreateInstanceMultiVIPRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
-  endTime?: string;
-  express?: string;
+  addCount?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  length?: string;
-  metricName?: string;
   ownerAccount?: string;
   ownerId?: number;
-  period?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  securityToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      express: 'Express',
+      addCount: 'AddCount',
       instanceId: 'InstanceId',
-      length: 'Length',
-      metricName: 'MetricName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      period: 'Period',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
-      express: 'string',
+      addCount: 'string',
       instanceId: 'string',
-      length: 'string',
-      metricName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      period: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      securityToken: 'string',
-      startTime: 'string',
     };
   }
 

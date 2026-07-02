@@ -8,7 +8,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalDisplayName?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalOwnerId?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalType?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   encodedDiagnosticMessage?: string;
   /**
@@ -48,7 +48,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   noPermissionType?: string;
   /**
@@ -56,7 +56,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
    * This parameter is no longer used. Ignore this parameter.
    * 
    * @example
-   * _
+   * -
    */
   policyType?: string;
   static names(): { [key: string]: string } {

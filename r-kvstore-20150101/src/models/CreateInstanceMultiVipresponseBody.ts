@@ -2,7 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyTairKVCacheCustomInstanceAttributeResponseBody extends $dara.Model {
+export class CreateInstanceMultiVIPResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 52D901ED-E0A5-42FB-B9DB-39C295C3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

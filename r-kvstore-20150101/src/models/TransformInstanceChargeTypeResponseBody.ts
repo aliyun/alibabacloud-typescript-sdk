@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance expires.
+   * The expiration time of the instance.
    * 
-   * >  A value is returned for this parameter only if the instance was changed from pay-as-you-go to subscription.
+   * > This parameter is returned only when you change the billing method of an instance from pay-as-you-go to subscription.
    * 
    * @example
    * 2021-05-13T00:00:00Z
@@ -15,7 +15,7 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20881824000****
@@ -23,7 +23,7 @@ export class TransformInstanceChargeTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 82C791FB-8979-489E-853D-706D7743****

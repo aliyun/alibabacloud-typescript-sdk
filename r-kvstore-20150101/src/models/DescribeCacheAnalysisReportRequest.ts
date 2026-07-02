@@ -30,7 +30,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * -bp1zxszhcgatnx****
+   * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeCacheAnalysisReportRequest extends $dara.Model {
    * >  If you do not specify this parameter, the analysis results of all child nodes in the instance are returned.
    * 
    * @example
-   * -bp1zxszhcgatnx****-db-0
+   * r-bp1zxszhcgatnx****-db-0
    */
   nodeId?: string;
   ownerAccount?: string;

@@ -122,7 +122,7 @@ export class DescribeAccountsResponseBody extends $dara.Model {
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6C9E114C-217C-4118-83C0-B4070222****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup file. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html)operation to query the IDs of backup files.
+   * The ID of the backup file. You can find backup file IDs by calling the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation.
    * 
    * @example
    * 78241****
@@ -13,12 +13,13 @@ export class RestoreInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The key that you want to restore. You can specify multiple keys. Separate multiple keys with commas (,). Regular expressions are supported.
+   * The keys to restore, which can be specified as a regular expression. To specify multiple keys, separate them with commas (,).
    * 
-   * *   If you do not specify this parameter, the entire instance is restored.
-   * *   If you specify this parameter, only the involved keys are restored. Only classic instances support this feature.
+   * - If you do not specify this parameter, the entire instance is restored.
    * 
-   * >  In a regular expression, an asterisk (`*`) matches zero or more occurrences of a subexpression that occurs before. For example, if you set this parameter to `h.*llo`, strings such as `hllo` and `heeeello` are matched.
+   * - If you specify this parameter, only the specified keys are restored. This feature is available only for instances that use the classic architecture.
+   * 
+   * > In a regular expression, the asterisk (`*`) matches the preceding element zero or more times. For example, if you set this parameter to `h.*llo`, strings such as `hllo` and `heeeello` are matched.
    * 
    * @example
    * key:00000007198*
@@ -40,9 +41,9 @@ export class RestoreInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time to which you want to restore data. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The restore point in time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
    * 
-   * >  The point in time cannot be earlier than the point in time when the data flashback feature is enabled.
+   * > This point in time cannot be earlier than the time when the Data Flashback feature was enabled.
    * 
    * @example
    * 2021-07-06T07:25:57Z
@@ -50,10 +51,11 @@ export class RestoreInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The restoration mode. Valid values:
+   * The restore method. Valid values:
    * 
-   * *   **0** (default): The parameter is invalid.
-   * *   **1**: restores data to a specified point in time. You can specify this value only if the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature is enabled for the instance. If you specify this value, you also need to set the **RestoreTime** parameter.
+   * - **0** (default): This value is deprecated.
+   * 
+   * - **1**: Restores data to a specific point in time. You can set this parameter to 1 only if the [Data Flashback](https://help.aliyun.com/document_detail/148479.html) feature is enabled for the instance. If you set this parameter to 1, you must also specify the **RestoreTime** parameter.
    * 
    * @example
    * 1
@@ -62,13 +64,11 @@ export class RestoreInstanceRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * When you restore a classic instance, regardless of whether you choose to restore all data or specific keys, you can apply an offset to the expiration time of the keys. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. A key expires after the remaining validity period of the key elapses based on the expiration offset time point.
+   * For instances that use the classic architecture, you can apply an offset to the expiration time of restored keys. This applies whether you restore the entire instance or only specific keys. The system calculates a key\\"s remaining time-to-live (TTL) at the specified flashback point in time and then adds this TTL to the `TimeShift` value to set the key\\"s new expiration time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
-   * > 
-   * 
-   * *   This feature applies only to keys and does not work on elements in the self-developed data structures of Tair, such as fields in exHash and skeys in TairTS.
-   * 
-   * *   This time point must be between the specified flashback time point and the submission time of the data restoration task.
+   * > - This feature adjusts the expiration time for top-level keys only. It does not apply to the expiration times of elements within Tair-specific data structures, such as fields in an exHash or secondary keys (Skeys) in a Time Series (TS) data structure.
+   * >
+   * > - The specified time must be later than `RestoreTime` and earlier than the task submission time.
    * 
    * @example
    * 2021-07-06T08:25:57Z

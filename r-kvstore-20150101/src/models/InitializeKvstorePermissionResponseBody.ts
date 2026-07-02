@@ -8,7 +8,7 @@ export class InitializeKvstorePermissionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   * 5D622714-AEDD-4609-9167-F5DDD3D2****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

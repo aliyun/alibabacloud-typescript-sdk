@@ -31,7 +31,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
    * *   **PostPaid**: pay-as-you-go
    * 
    * @example
-   * PostPaid
+   * PrePaid
    */
   chargeType?: string;
   /**
@@ -63,7 +63,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
    * The engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
    * 
    * @example
-   * 4.0
+   * 6.0
    */
   engineVersion?: string;
   /**

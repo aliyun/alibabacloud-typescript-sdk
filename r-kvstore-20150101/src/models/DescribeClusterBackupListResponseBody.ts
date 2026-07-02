@@ -120,7 +120,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
    * The instance name.
    * 
    * @example
-   * hins100322105_data_20240108012127.rdb
+   * r-bp1y4is8svonly****-db-0
    */
   instanceName?: string;
   /**
@@ -248,6 +248,13 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
    * OK
    */
   clusterBackupStatus?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the backup set, in the format yyyy-MM-ddTHH:mmZ (UTC time).
+   * 
+   * @example
+   * 2025-06-01T21:51:22Z
+   */
   expectExpireTime?: string;
   /**
    * @remarks

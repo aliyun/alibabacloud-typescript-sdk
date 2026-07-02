@@ -24,7 +24,7 @@ export class DescribeParameterGroupSupportParamResponseBodyResourceList extends 
    * The engine version.
    * 
    * @example
-   * 5
+   * 5.0
    */
   dbVersion?: string;
   /**

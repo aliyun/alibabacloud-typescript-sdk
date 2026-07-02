@@ -3,30 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResizeTairKVCacheCustomInstanceDiskRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   autoPay?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * d-5v1aggi3ffoxufb57**
    */
   diskId?: string;
-  /**
-   * @example
-   * 5000
-   */
   diskSize?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * tc-bp1zxszhcgatnx****
    */
   instanceId?: string;
   ownerAccount?: string;

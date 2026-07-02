@@ -7,10 +7,11 @@ export class DeleteShardingNodeRequest extends $dara.Model {
    * @remarks
    * The time when you want to delete the proxy nodes for instance in the proxy mode. Valid values:
    * 
-   * *   **0 or Immediately** (default): immediately delete the proxy nodes.
-   * *   **1 or MaintainTime**: delete the proxy nodes during the maintenance window.
+   * - **0 or Immediately** (default): immediately delete the proxy nodes.
    * 
-   * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of an instance.
+   * - **1 or MaintainTime**: delete the proxy nodes during the maintenance window.
+   * 
+   * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of an instance.
    * 
    * @example
    * Immediately
@@ -20,8 +21,9 @@ export class DeleteShardingNodeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable forced transmission during a configuration change. Valid values:
    * 
-   * *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
-   * *   **true**: The system skips the version check and directly performs the configuration change.
+   * - **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+   * 
+   * - **true**: The system skips the version check and directly performs the configuration change.
    * 
    * @example
    * false

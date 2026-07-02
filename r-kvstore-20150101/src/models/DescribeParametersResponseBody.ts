@@ -134,7 +134,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
-   * The database engine that the instance runs.
+   * The database type.
    * 
    * @example
    * redis
@@ -142,7 +142,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version.
    * 
    * @example
    * 4.0
@@ -150,7 +150,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C1338BE-8DE8-4890-A900-E1BC06BF****

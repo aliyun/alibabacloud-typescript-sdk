@@ -18,7 +18,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2019-03-22T14:11Z
+   * 2019-03-10T15:00Z
    */
   endTime?: string;
   /**
@@ -110,7 +110,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2019-03-10T14:11Z
+   * 2019-03-10T14:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class CreateBackupResponseBody extends $dara.Model {
    * The ID of the backup task.
    * 
    * @example
-   * 1162****
+   * "1022,2480"
    */
   backupJobID?: string;
   /**

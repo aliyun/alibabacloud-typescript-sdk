@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****

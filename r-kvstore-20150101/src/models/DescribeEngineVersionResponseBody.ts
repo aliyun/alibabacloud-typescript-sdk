@@ -323,7 +323,7 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
    * The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
    * 
    * @example
-   * {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"Feature optimization: The stability is improved.\\"}],\\"versionChangesLevel\\":2}
+   * {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"功能更新：增强稳定性。\\"}],\\"versionChangesLevel\\":2}
    */
   DBVersionRelease?: string;
   /**
@@ -461,7 +461,7 @@ export class DescribeEngineVersionResponseBody extends $dara.Model {
    * >  This parameter is returned only for cluster and read/write splitting instances.
    * 
    * @example
-   * {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"New feature: Some internal commands are supported.\\"}],\\"versionChangesLevel\\":2}
+   * {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"新特性：增加对部分内部命令的支持。\\"}],\\"versionChangesLevel\\":2}
    */
   proxyVersionRelease?: string;
   /**

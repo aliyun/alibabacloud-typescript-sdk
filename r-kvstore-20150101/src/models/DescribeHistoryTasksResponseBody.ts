@@ -35,7 +35,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * *   **modifySwitchTime**: changes the switching or restoration time.
    * 
    * @example
-   * {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
+   * {"steps":[{"action_info":{"Waiting":["modifySwitchTime"]},"step_name":"exec_task"}]}
    */
   actionInfo?: string;
   /**
@@ -126,7 +126,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * The reason why the current task was initiated.
    * 
    * @example
-   * UpgradeMinorVersion
+   * 小版本升级
    */
   reasonCode?: string;
   /**

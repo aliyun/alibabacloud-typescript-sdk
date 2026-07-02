@@ -5,58 +5,58 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   authAction?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   authPrincipalType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   noPermissionType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * This parameter is deprecated.
    * 
    * @example
-   * _
+   * -
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -189,13 +189,19 @@ export class DescribeBackupsResponseBodyBackups extends $dara.Model {
 export class DescribeBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The following parameters are no longer used. Ignore the parameters.
+   * This parameter is deprecated.
    */
   accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * Details about the backup sets.
+   */
   backups?: DescribeBackupsResponseBodyBackups;
   /**
    * @remarks
-   * This parameter does not take effect. Ignore this parameter.
+   * <props="china">The free backup quota for the instance, in bytes. The free quota is equal to the default memory size of the instance type. For more information, see [Changes to the free backup quota policy](https://help.aliyun.com/document_detail/2664017.html).
+   * Full backups and log backups share this free quota. When the instance type is changed, the free quota also changes.
+   * <props="intl">This parameter is not in effect. Ignore this parameter.
    * 
    * @example
    * 100000
@@ -203,9 +209,9 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   freeSize?: number;
   /**
    * @remarks
-   * The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+   * The total size of full backups for the instance, in bytes. Full backups are generated from scheduled daily backups, manual backups, or cache analysis.
    * 
-   * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid full backups of the instance.
+   * > This value represents the total size of all valid full backups for the instance, regardless of the backup sets returned in this request.
    * 
    * @example
    * 1000
@@ -213,9 +219,9 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   fullStorageSize?: number;
   /**
    * @remarks
-   * The size of the log backup file of the instance. Unit: bytes. This value is valid only when flashback is enabled.
+   * The total size of log backups for the instance, in bytes. This parameter is returned only if flashback is enabled.
    * 
-   * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid log backups of the instance.
+   * > This value represents the total size of all valid log backups for the instance, regardless of the backup sets returned in this request.
    * 
    * @example
    * 5000
@@ -223,7 +229,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   logStorageSize?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -231,7 +237,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -239,7 +245,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 963C20F0-7CE1-4591-AAF3-6F3CD1CE****
@@ -247,7 +253,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of backup files that were returned.
+   * The total number of backup sets.
    * 
    * @example
    * 5

@@ -8,7 +8,7 @@ export class DeleteParameterGroupResponseBody extends $dara.Model {
    * The parameter template ID, which is globally unique.
    * 
    * @example
-   * sys-001*****
+   * rpg-sys-00*****
    */
   paramGroupId?: string;
   /**

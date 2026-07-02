@@ -165,25 +165,9 @@ export class DescribeTairKVCacheCustomInstancesResponseBodyInstances extends $da
 
 export class DescribeTairKVCacheCustomInstancesResponseBody extends $dara.Model {
   instances?: DescribeTairKVCacheCustomInstancesResponseBodyInstances;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
   pageSize?: number;
-  /**
-   * @example
-   * B79C1A90-495B-4E99-A2AA-A4DB13B8****
-   */
   requestId?: string;
-  /**
-   * @example
-   * 40
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

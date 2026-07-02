@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetTairKVCacheCustomInstancePasswordResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

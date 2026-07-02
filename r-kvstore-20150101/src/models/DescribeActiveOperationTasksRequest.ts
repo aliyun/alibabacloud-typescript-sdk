@@ -125,7 +125,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * *   rds_apsaradb_maxscale: proxy minor version update
    * 
    * @example
-   * all
+   * rds_apsradb_transfer
    */
   taskType?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Tair VNode instance.
+   * The instance ID of the virtual node.
    * 
    * @example
    * tv-2zeb1ce76fee****
@@ -13,7 +13,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the VNode.
+   * The ID of the virtual node.
    * 
    * @example
    * vn-03a49876edb****
@@ -29,7 +29,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -37,7 +37,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2BE6E619-A657-42E3-AD2D-18F8428A****
@@ -45,7 +45,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the VCluster.
+   * The ID of the virtual cluster.
    * 
    * @example
    * vc-16965a9267*****-*****
@@ -53,7 +53,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   VClusterId?: string;
   /**
    * @remarks
-   * The ID of the VCluster instance.
+   * The instance ID of the virtual cluster.
    * 
    * @example
    * tk-2ze4bba3c8fe****
@@ -61,7 +61,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   vkName?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-beijing-f

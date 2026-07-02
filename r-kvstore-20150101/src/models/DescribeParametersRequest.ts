@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParametersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class DescribeParametersRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the node.
-   * 
-   * > You can set this parameter to query the parameter settings of the specified node in a cluster instance.
+   * The node ID.
+   * > Specify this parameter to query the parameter settings of a specific node in a cluster instance.
    * 
    * @example
    * r-bp1xxxxxxxxxxxxx-db-0
@@ -27,7 +26,7 @@ export class DescribeParametersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions. Use this parameter to specify the region of the instance.
    * 
    * @example
    * cn-hangzhou

@@ -16,7 +16,7 @@ export class ModifyTaskInfoRequest extends $dara.Model {
    * *   **recoverTime**: specifies the point in time for restoration. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter is required if the **recoverMode** parameter is set to **timePoint**.
    * 
    * @example
-   * {\\"recoverMode\\":\\"immediate\\"}
+   * {"recoverMode":"immediate"}
    */
   actionParams?: string;
   /**
@@ -37,7 +37,7 @@ export class ModifyTaskInfoRequest extends $dara.Model {
    * The name of the current step.
    * 
    * @example
-   * exec_task
+   * do_pause
    */
   stepName?: string;
   /**

@@ -8,7 +8,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
    * The regular expression used to validate input.
    * 
    * @example
-   * "\\\\d+\\\\s+\\\\d+\\\\s+\\\\d+"
+   * [0|1]
    */
   checkingCode?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
    * The description of the parameter.
    * 
    * @example
-   * Open AOF persistence mode
+   * 开启Aof持久化模式。
    */
   parameterDescription?: string;
   /**

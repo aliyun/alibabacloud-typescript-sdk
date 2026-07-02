@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAdditionalBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2084452111111
@@ -13,7 +13,7 @@ export class EnableAdditionalBandwidthResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D622714-AEDD-4609-9167-F5DDD3D1****

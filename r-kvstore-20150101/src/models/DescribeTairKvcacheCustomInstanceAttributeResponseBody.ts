@@ -110,133 +110,33 @@ export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyTags extends 
 }
 
 export class DescribeTairKVCacheCustomInstanceAttributeResponseBody extends $dara.Model {
-  /**
-   * @example
-   * tair_custom
-   */
   architectureType?: string;
-  /**
-   * @example
-   * PrePaid
-   */
   chargeType?: string;
-  /**
-   * @example
-   * 2
-   */
   cpu?: number;
-  /**
-   * @example
-   * 2024-02-21T08:23Z
-   */
   createTime?: string;
   disks?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisks;
-  /**
-   * @example
-   * 2024-05-28T00:00:00Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * m-bp10k5694v6yfevajw**
-   */
   imageId?: string;
-  /**
-   * @example
-   * tair.gpu.test.16g
-   */
   instanceClass?: string;
-  /**
-   * @example
-   * tc-bp1zxszhcgatnx****
-   */
   instanceId?: string;
-  /**
-   * @example
-   * newinstancename
-   */
   instanceName?: string;
-  /**
-   * @example
-   * Normal
-   */
   instanceStatus?: string;
-  /**
-   * @example
-   * TairCustom
-   */
   instanceType?: string;
-  /**
-   * @example
-   * true
-   */
   isOrderCompleted?: boolean;
-  /**
-   * @example
-   * 262144
-   */
   memory?: number;
-  /**
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @example
-   * 172.16.49.***
-   */
   privateIp?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @example
-   * 2BE6E619-A657-42E3-AD2D-18F8428A****
-   */
   requestId?: string;
-  /**
-   * @example
-   * rg-acfmyiu4ekp****
-   */
   resourceGroupId?: string;
-  /**
-   * @example
-   * sg-bpcfmyiu4ekp****
-   */
   securityGroupId?: string;
-  /**
-   * @example
-   * 60
-   */
   storage?: number;
-  /**
-   * @example
-   * essd_pl1
-   */
   storageType?: string;
   tags?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyTags;
   useEni?: boolean;
-  /**
-   * @example
-   * vsw-bp1e7clcw529l773d****
-   */
   vSwitchId?: string;
-  /**
-   * @example
-   * vpc-bp1nme44gek34slfc****
-   */
   vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
-  /**
-   * @example
-   * singlezone
-   */
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {

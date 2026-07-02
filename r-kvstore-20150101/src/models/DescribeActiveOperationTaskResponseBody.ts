@@ -8,7 +8,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2018-07-15 23:59:59
+   * 2023-02-24T06:00:11Z
    */
   createdTime?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
    * 
    * @example
-   * 2018-07-19 23:59:59
+   * 2023-03-29T13:59:59Z
    */
   deadline?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The ID of the O&M task.
    * 
    * @example
-   * 114111
+   * 1****1
    */
   id?: number;
   /**
@@ -48,7 +48,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2018-07-19 14:00:00
+   * 2023-02-24T08:18:53Z
    */
   modifiedTime?: string;
   /**
@@ -72,7 +72,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The time when the O\\&M task was preformed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2018-07-19 10:00:00
+   * 2023-03-20T02:40:00Z
    */
   startTime?: string;
   /**
@@ -95,7 +95,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2018-07-19 14:00:00
+   * 2023-03-20T03:10:00Z
    */
   switchTime?: string;
   /**

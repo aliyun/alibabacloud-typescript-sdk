@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****

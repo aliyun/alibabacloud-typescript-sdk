@@ -18,7 +18,7 @@ export class DescribeClusterBackupListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2021-05-13T00:00:00Z
+   * 2024-07-01T09:26Z
    */
   endTime?: string;
   /**
@@ -97,7 +97,7 @@ export class DescribeClusterBackupListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2018-12-03T07:01Z
+   * 2024-06-28T08:26Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

@@ -38,7 +38,7 @@ export class DescribeParameterGroupSupportParamRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 5
+   * 5.0
    */
   engineVersion?: string;
   ownerAccount?: string;

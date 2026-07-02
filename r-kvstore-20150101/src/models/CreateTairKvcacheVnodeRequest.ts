@@ -7,7 +7,7 @@ export class CreateTairKVCacheVNodeRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * >  A maximum of five key-value pairs can be specified at a time.
+   * > You can specify up to 5 tag key-value pairs at a time.
    * 
    * @example
    * value1_test
@@ -15,9 +15,9 @@ export class CreateTairKVCacheVNodeRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the instance.
+   * The tag value.
    * 
-   * >  **N** specifies the value of the nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+   * > **N** represents the index of a tag, starting from 1. For example, **Tag.1.Value** is the value of the first tag.
    * 
    * @example
    * key1_test
@@ -49,7 +49,7 @@ export class CreateTairKVCacheVNodeRequestTag extends $dara.Model {
 export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Set the value to **true**.
+   * Specifies whether to automatically complete the payment. The value must be **true**.
    * 
    * @example
    * true
@@ -57,10 +57,11 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+   * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disables auto-renewal.
+   * - **true**: Enables auto-renewal.
+   * 
+   * - **false** (default): Disables auto-renewal.
    * 
    * @example
    * false
@@ -68,9 +69,9 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * The auto-renewal period, in months. Valid values: **1**, **2**, **3**, **6**, and **12**.
    * 
-   * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * > This parameter is required when the **AutoRenew** parameter is set to **true**.
    * 
    * @example
    * 1
@@ -80,8 +81,9 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use a coupon. Valid values:
    * 
-   * *   **true**: uses a coupon.
-   * *   **false**: does not use a coupon.
+   * - **true**: Use a coupon.
+   * 
+   * - **false** (default): Do not use a coupon.
    * 
    * @example
    * false
@@ -89,7 +91,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The extended information such as the promotional event ID and business information.
+   * Additional business information, such as a promotion ID.
    * 
    * @example
    * 000000000
@@ -97,9 +99,9 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The new billing method. Valid values:
+   * The billing method for the instance. Valid value:
    * 
-   * *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+   * - **PrePaid**: Subscription. If you specify this value, you must also specify the **Period** parameter.
    * 
    * @example
    * PrePaid
@@ -107,7 +109,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests and is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that ensures request idempotence. This token must be unique across requests, is case-sensitive, and cannot exceed 64 ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -115,7 +117,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The number of compute units. Valid values: 1.
+   * The number of compute units. Currently, only one compute unit is supported.
    * 
    * This parameter is required.
    * 
@@ -135,17 +137,22 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+   * - **true**: Performs a dry run and does not create the instance. The system checks the request parameters, request format, business limits, and available inventory. If the check fails, the system returns the corresponding error. If the check passes, the system returns the `DryRunOperation` error code.
+   * 
+   * - **false** (default): Sends a normal request. If the check passes, the system creates the instance.
    * 
    * @example
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is no longer used.
+   */
   elasticTimeRange?: string;
   /**
    * @remarks
-   * Instance specification
+   * The instance specification.
    * 
    * This parameter is required.
    * 
@@ -155,7 +162,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 80 characters in length. The name must start with a letter and cannot contain spaces or the following special characters: `@ / : = " < > { [ ] }`
+   * The name of the new instance. The name must be 2 to 80 characters long and must start with a letter (case-insensitive) or a Chinese character. Spaces and the following special characters are not supported: `@/:=”<>{[]}`.
    * 
    * @example
    * vnodetest
@@ -165,9 +172,9 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration. Valid values: **1** to **9**, **12**, **24**, and **36**. Unit: months.
+   * The subscription period in months. Valid values: **1** to **9**, **12**, **24**, and **36**.
    * 
-   * >  This parameter is required only if the **ChargeType** parameter is set to **PrePaid**.
+   * > This parameter is required when the **ChargeType** parameter is set to **PrePaid**.
    * 
    * @example
    * 1
@@ -175,7 +182,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The ID of the region where you want to create the instance.
    * 
    * This parameter is required.
    * 
@@ -185,13 +192,11 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group that you want to manage.
+   * The ID of the resource group to which the instance will belong.
    * 
-   * > 
-   * 
-   * *   You can query resource group IDs in the console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View the basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
-   * 
-   * *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
+   * > - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or view resource group IDs in the console. For more information, see [View the basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * >
+   * > - Before changing the resource group of an instance, call the [ListResources](158866) API to view the current resource group of the instance.
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -202,15 +207,19 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * Details of the tags.
+   * The tags to add to the instance. You can specify a maximum of five tags.
    */
   tag?: CreateTairKVCacheVNodeRequestTag[];
+  /**
+   * @remarks
+   * This parameter is no longer used.
+   */
   VNodeType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance belongs. The vSwitch must belong to the VPC of the VCluser. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the VPC ID.
+   * The ID of the vSwitch for the instance. The vSwitch must belong to the VPC that is associated with the specified virtual cluster. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to obtain the vSwitch ID.
    * 
-   * >  The vSwitch and the instance must be deployed in the same zone.
+   * > The vSwitch must be in the same zone as the instance.
    * 
    * This parameter is required.
    * 
@@ -220,7 +229,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VCluster that contains the VNode.
+   * The ID of the virtual cluster that hosts the VNode.
    * 
    * This parameter is required.
    * 
@@ -230,7 +239,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   vkName?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone where you want to create the instance.
    * 
    * This parameter is required.
    * 

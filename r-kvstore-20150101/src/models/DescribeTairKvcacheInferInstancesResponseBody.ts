@@ -209,7 +209,7 @@ export class DescribeTairKVCacheInferInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned records.
+   * The total number of entries.
    * 
    * @example
    * 3

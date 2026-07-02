@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class TransformToEcsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature. Valid values:
+   * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   **true**: enables auto-renewal.
-   * *   **false**: does not enable auto-renewal.
+   * - **true**: enables auto-renewal.
+   * 
+   * - **false**: disables auto-renewal.
    * 
    * @example
    * false
@@ -16,9 +17,9 @@ export class TransformToEcsRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * The auto-renewal cycle. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
    * 
-   * > This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * > This parameter is required if you set **AutoRenew** to **true**.
    * 
    * @example
    * 1
@@ -26,10 +27,11 @@ export class TransformToEcsRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The new billing method. Valid values:
+   * The billing method of the target instance. Valid values:
    * 
-   * *   **PostPaid:** pay-as-you-go
-   * *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+   * - **PostPaid**: pay-as-you-go
+   * 
+   * - **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
    * 
    * @example
    * PostPaid
@@ -37,10 +39,11 @@ export class TransformToEcsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether to perform a precheck before the system creates the instance. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: The system performs a dry run and does not create the cloud-native instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * - **true**: performs a dry run to check the request. The check items include the required parameters, request format, service limits, and available resources. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request and creates an instance after the request passes the check.
    * 
    * @example
    * true
@@ -48,12 +51,13 @@ export class TransformToEcsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The time when a database switchover is performed after data is migrated. Valid values:
+   * The time when to switch the database after data migration. Valid values:
    * 
-   * *   **Immediately**: A database switchover is performed immediately after data is migrated.
-   * *   **MaintainTime**: A database switchover is performed during the maintenance window.
+   * - **Immediately**: The database is immediately switched after the migration is complete.
    * 
-   * > Default value: Immediately.
+   * - **MaintainTime**: The database is switched within the maintenance window.
+   * 
+   * > Default value: **Immediately**.
    * 
    * @example
    * Immediately
@@ -61,7 +65,7 @@ export class TransformToEcsRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The database engine version of the instance. Valid values: **5.0**, **6.0**, and **7.0**.
+   * The Redis-compatible version of the instance. Valid values: **5.0**, **6.0**, and **7.0**.
    * 
    * This parameter is required.
    * 
@@ -71,17 +75,22 @@ export class TransformToEcsRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The instance specification of the cloud-native instance. For more information, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * The instance type of the target cloud-native instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26350.html).
+   * 
+   * > If you want to convert a cluster instance, you must specify the corresponding cloud-native cluster instance type that includes .with.proxy in its name and specify the ShardCount parameter.
+   * >
+   * > - For a cluster instance, you must provide the corresponding cloud-native cluster specification that includes `.proxy`. You must also specify the number of shards by using the `ShardCount` parameter.
    * 
    * This parameter is required.
    * 
    * @example
    * tair.rdb.1g
+   * tair.rdb.with.proxy.1g
    */
   instanceClass?: string;
   /**
    * @remarks
-   * The ID of the instance that you want to convert.
+   * The ID of the classic instance that you want to convert.
    * 
    * This parameter is required.
    * 
@@ -89,13 +98,23 @@ export class TransformToEcsRequest extends $dara.Model {
    * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to deploy the instance across availability zones. This feature is supported only for cluster instances.
+   */
+  isAcrossZone?: boolean;
+  /**
+   * @remarks
+   * The ID of the availability zone.
+   */
+  izNo?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration of the instance. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, **36**.
+   * The subscription duration. Unit: month. Valid values: **1**, **2**, **3**, **4**, **5**, 6, 7, 8, 9, 12, 24, and 36.
    * 
-   * > This parameter is available and required only if the **ChargeType** parameter is set to **PrePaid**.
+   * > This parameter is available and required only if you set the **ChargeType** parameter to **PrePaid**.
    * 
    * @example
    * 1
@@ -105,12 +124,22 @@ export class TransformToEcsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the secondary availability zone.
+   */
+  secondaryIzNo?: string;
+  /**
+   * @remarks
    * The number of data shards in the cloud-native cluster instance.
    * 
    * @example
    * 2
    */
   shardCount?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   */
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
@@ -121,12 +150,16 @@ export class TransformToEcsRequest extends $dara.Model {
       engineVersion: 'EngineVersion',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
+      isAcrossZone: 'IsAcrossZone',
+      izNo: 'IzNo',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       period: 'Period',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      secondaryIzNo: 'SecondaryIzNo',
       shardCount: 'ShardCount',
+      vSwitchId: 'VSwitchId',
     };
   }
 
@@ -140,12 +173,16 @@ export class TransformToEcsRequest extends $dara.Model {
       engineVersion: 'string',
       instanceClass: 'string',
       instanceId: 'string',
+      isAcrossZone: 'boolean',
+      izNo: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       period: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      secondaryIzNo: 'string',
       shardCount: 'number',
+      vSwitchId: 'string',
     };
   }
 

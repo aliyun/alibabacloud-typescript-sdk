@@ -84,6 +84,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
   port?: number;
   privateIp?: string;
   QPS?: number;
+  quotaCount?: number;
   readOnlyCount?: string;
   regionId?: string;
   replacateId?: string;
@@ -95,6 +96,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
   slaveReadOnlyCount?: number;
   slaveReplicaCount?: number;
   tags?: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags;
+  usedCount?: number;
   userName?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -131,6 +133,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       port: 'Port',
       privateIp: 'PrivateIp',
       QPS: 'QPS',
+      quotaCount: 'QuotaCount',
       readOnlyCount: 'ReadOnlyCount',
       regionId: 'RegionId',
       replacateId: 'ReplacateId',
@@ -142,6 +145,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
       slaveReplicaCount: 'SlaveReplicaCount',
       tags: 'Tags',
+      usedCount: 'UsedCount',
       userName: 'UserName',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -181,6 +185,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       port: 'number',
       privateIp: 'string',
       QPS: 'number',
+      quotaCount: 'number',
       readOnlyCount: 'string',
       regionId: 'string',
       replacateId: 'string',
@@ -192,6 +197,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       slaveReadOnlyCount: 'number',
       slaveReplicaCount: 'number',
       tags: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags,
+      usedCount: 'number',
       userName: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -242,7 +248,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the instance list.
    * 
    * @example
    * 1
@@ -250,7 +256,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -258,7 +264,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1E83311F-0EE4-4922-A3BF-730B312B****

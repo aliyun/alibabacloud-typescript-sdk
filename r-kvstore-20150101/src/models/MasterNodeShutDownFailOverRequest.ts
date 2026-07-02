@@ -41,7 +41,7 @@ export class MasterNodeShutDownFailOverRequest extends $dara.Model {
    * *   Soft
    * 
    * @example
-   * Safe
+   * Hard
    */
   failMode?: string;
   /**

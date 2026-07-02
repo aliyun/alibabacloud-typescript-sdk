@@ -62,6 +62,9 @@ export class DescribeTairSkvDdbTableResponseBodyTables extends $dara.Model {
 
 export class DescribeTairSkvDdbTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID, which is used to locate logs and troubleshoot issues.
+   * 
    * @example
    * 2363CEDF-C697-14B6-AB9E-C57A4AA0EAD4
    */

@@ -12,7 +12,7 @@ export class DeleteParameterGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rpg-sys-00*****
+   * g-sysa00*****
    */
   parameterGroupId?: string;
   resourceOwnerAccount?: string;

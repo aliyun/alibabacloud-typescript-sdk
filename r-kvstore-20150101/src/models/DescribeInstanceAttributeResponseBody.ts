@@ -278,7 +278,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instances?: DescribeInstanceAttributeResponseBodyInstances;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CA40C261-EB72-4EDA-AC57-958722162595

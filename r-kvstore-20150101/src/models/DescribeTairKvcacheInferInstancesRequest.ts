@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTairKVCacheInferInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
-   * 
-   * >  A maximum of five key-value pairs can be specified at a time.
+   * The key of the tag. The key and value of a tag form a key-value pair.
+   * > You can specify up to 5 key-value pairs of tags in a single request.
    * 
    * @example
    * key1_test
@@ -15,9 +14,8 @@ export class DescribeTairKVCacheInferInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the instance.
-   * 
-   * >  **N** specifies the value of the nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+   * The value of the tag.
+   * > **N** specifies the sequence number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
    * 
    * @example
    * testvalue
@@ -49,10 +47,9 @@ export class DescribeTairKVCacheInferInstancesRequestTag extends $dara.Model {
 export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the simple application servers. Valid values:
-   * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * The billing method of the instance. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -60,10 +57,10 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether the instance has expired. Valid values:
+   * The expiration status of the instance. Valid values:
    * 
-   * *   **true**: The instance has expired.
-   * *   **false**: The instance has not expired.
+   * * **true**: expired.
+   * * **false**: not expired.
    * 
    * @example
    * false
@@ -80,8 +77,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the instances that you want to query.
-   * 
-   * >  If you want to specify multiple instance IDs, separate the instance IDs with commas (,). You can specify a maximum of 30 instance IDs in a single request.
+   * > To specify multiple instance IDs, separate them with commas (,). You can specify up to 30 instance IDs in a single request.
    * 
    * @example
    * tk-2zefe7728c2c****
@@ -89,12 +85,11 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
+   * The instance status. Valid values:
+   * * **Normal**: Normal.
+   * * **Creating**: The instance is being created.
    * 
-   * *   **Normal**: The instance is normal.
-   * *   **Creating**: The instance is being created.
-   * 
-   * >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * > For more information about instance statuses, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
    * 
    * @example
    * Normal
@@ -102,14 +97,8 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The network type of the instance. Default value: VPC. Valid values:
-   * 
-   * *   **VPC** (default)
-   * 
-   * Valid values:
-   * 
-   * *   CLASSIC
-   * *   VPC
+   * The network type. Valid values:
+   * * **VPC**: virtual private cloud (VPC). This is the default value.
    * 
    * @example
    * VPC
@@ -119,7 +108,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the instance list. Start value: 1. Default value: 1.
+   * The page number. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -135,7 +124,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The private IP address of the instance. This parameter is deprecated.
+   * The private IP address in the VPC. This parameter is deprecated.
    * 
    * @example
    * 172.16.49.***
@@ -143,7 +132,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   privateIp?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -153,7 +142,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. You can leave this parameter empty.
+   * The resource group ID. This parameter can be left empty.
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -163,7 +152,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The keyword that you want to use for fuzzy match. The keyword can be a part of an instance name or an instance ID.
+   * The keyword used for fuzzy search by instance name or instance ID.
    * 
    * @example
    * apitest
@@ -172,12 +161,12 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * Details of the tags.
+   * The tags of the instance.
    */
   tag?: DescribeTairKVCacheInferInstancesRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****
@@ -185,7 +174,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1nme44gek34slfc****

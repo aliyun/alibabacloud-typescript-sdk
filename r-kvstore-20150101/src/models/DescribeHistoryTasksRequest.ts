@@ -123,7 +123,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2022-03-02T11:31:03Z
+   * 2022-02-02T11:31:03Z
    */
   toStartTime?: string;
   static names(): { [key: string]: string } {

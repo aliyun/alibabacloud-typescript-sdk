@@ -6,9 +6,6 @@ export class ResetTairKVCacheCustomInstancePasswordRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
   ownerAccount?: string;
@@ -16,18 +13,11 @@ export class ResetTairKVCacheCustomInstancePasswordRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * Pass!123456
    */
   password?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  /**
-   * @example
-   * SDK
-   */
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {

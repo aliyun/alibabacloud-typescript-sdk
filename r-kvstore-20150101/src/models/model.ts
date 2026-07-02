@@ -76,6 +76,7 @@ export { DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute } fro
 export { DescribeInstanceAttributeResponseBodyInstances } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAutoRenewalAttributeResponseBodyItemsItem } from './DescribeInstanceAutoRenewalAttributeResponseBody';
 export { DescribeInstanceAutoRenewalAttributeResponseBodyItems } from './DescribeInstanceAutoRenewalAttributeResponseBody';
+export { DescribeInstanceMultiVIPResponseBodyMultiVIPList } from './DescribeInstanceMultiVipresponseBody';
 export { DescribeInstancesRequestTag } from './DescribeInstancesRequest';
 export { DescribeInstancesResponseBodyInstancesKVStoreInstanceTagsTag } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesKVStoreInstanceTags } from './DescribeInstancesResponseBody';
@@ -200,6 +201,9 @@ export { CreateGlobalSecurityIPGroupResponse } from './CreateGlobalSecurityIpgro
 export { CreateInstanceRequest } from './CreateInstanceRequest';
 export { CreateInstanceResponseBody } from './CreateInstanceResponseBody';
 export { CreateInstanceResponse } from './CreateInstanceResponse';
+export { CreateInstanceMultiVIPRequest } from './CreateInstanceMultiViprequest';
+export { CreateInstanceMultiVIPResponseBody } from './CreateInstanceMultiVipresponseBody';
+export { CreateInstanceMultiVIPResponse } from './CreateInstanceMultiVipresponse';
 export { CreateInstancesRequest } from './CreateInstancesRequest';
 export { CreateInstancesResponseBody } from './CreateInstancesResponseBody';
 export { CreateInstancesResponse } from './CreateInstancesResponse';
@@ -341,6 +345,9 @@ export { DescribeInstanceAutoRenewalAttributeResponse } from './DescribeInstance
 export { DescribeInstanceConfigRequest } from './DescribeInstanceConfigRequest';
 export { DescribeInstanceConfigResponseBody } from './DescribeInstanceConfigResponseBody';
 export { DescribeInstanceConfigResponse } from './DescribeInstanceConfigResponse';
+export { DescribeInstanceMultiVIPRequest } from './DescribeInstanceMultiViprequest';
+export { DescribeInstanceMultiVIPResponseBody } from './DescribeInstanceMultiVipresponseBody';
+export { DescribeInstanceMultiVIPResponse } from './DescribeInstanceMultiVipresponse';
 export { DescribeInstanceSSLRequest } from './DescribeInstanceSslrequest';
 export { DescribeInstanceSSLResponseBody } from './DescribeInstanceSslresponseBody';
 export { DescribeInstanceSSLResponse } from './DescribeInstanceSslresponse';

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The keys of the tags that are added to the instance.
+   * The key of the tag.
    * 
-   * > *   **N** specifies the serial number of the tag. Up to 20 tags can be added to a single instance. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag.
-   * > *   If the key of the tag does not exist, the tag is automatically created.
+   * > - `N` represents the sequence number of the tag, from 1 to 20. You can add a maximum of 20 tags to an instance.
+   * >
+   * > - If the tag key does not exist, it is automatically created.
    * 
    * @example
    * testkey
@@ -16,9 +17,9 @@ export class CreateInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The values of the tags that are added to the instance.
+   * The value for tag `N`.
    * 
-   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
+   * > The N in **Tag.N.Value** specifies the sequence number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
    * 
    * @example
    * testvalue
@@ -50,14 +51,13 @@ export class CreateInstanceRequestTag extends $dara.Model {
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable append-only file (AOF) persistence for the instance. Valid values:
+   * Specifies whether to enable AOF persistence for the new instance. Valid values:
    * 
-   * *   **yes** (default): enables AOF persistence.
-   * *   **no**: disables AOF persistence.
+   * - **yes** (default): Enables AOF persistence.
    * 
-   * **
+   * - **no**: Disables AOF persistence.
    * 
-   * **Description** This parameter is applicable to classic instances, and is unavailable for cloud-native instances.
+   * > This parameter is available only for classic edition instances. AOF persistence cannot be configured for cloud native edition instances at creation.
    * 
    * @example
    * yes
@@ -67,8 +67,9 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * *   **true**: enables auto-renewal.
-   * *   **false** (default): disables auto-renewal.
+   * - **true**: Enables auto-renewal.
+   * 
+   * - **false** (default): Disables auto-renewal.
    * 
    * @example
    * true
@@ -76,9 +77,9 @@ export class CreateInstanceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * The auto-renewal duration, in months. Valid values: **1**, **2**, **3**, **6**, and **12**.
    * 
-   * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * > This parameter is required when **AutoRenew** is set to **true**.
    * 
    * @example
    * 3
@@ -88,8 +89,9 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use a coupon. Valid values:
    * 
-   * *   **true**: uses a coupon.
-   * *   **false** (default): does not use a coupon.
+   * - **true**: Uses a coupon.
+   * 
+   * - **false** (default): Does not use a coupon.
    * 
    * @example
    * false
@@ -97,9 +99,9 @@ export class CreateInstanceRequest extends $dara.Model {
   autoUseCoupon?: string;
   /**
    * @remarks
-   * If your instance is a cloud-native cluster instance, we recommend that you use [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) to query the backup set ID of the cluster instance, such as cb-xx. Then, set the ClusterBackupId request parameter to the backup set ID to clone the cluster instance. This eliminates the need to specify the backup set ID of each shard.
+   * The ID of the backup that you want to use to create the new instance. You can obtain backup IDs by calling the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation. If the source instance has a cluster architecture, you must specify the backup IDs of all its shards, separated by commas (for example, "10\\*\\*,11\\*\\*,15\\*\\*").
    * 
-   * You can set the BackupId parameter to the backup set ID of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to query backup set IDs. If the source instance is a cluster instance, set the BackupId parameter to the backup set IDs of all shards of the source instance, separated by commas (,). Example: "10\\*\\*,11\\*\\*,15\\*\\*".
+   * > If your source instance is a cloud native cluster instance, it is recommended to call [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) to get a cluster backup ID (for example, "cb-xx") and use the `ClusterBackupId` parameter instead. This avoids the need to specify the backup ID for each shard.
    * 
    * @example
    * 111111111
@@ -107,7 +109,7 @@ export class CreateInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The ID of the promotional event or business information.
+   * The campaign ID or business information.
    * 
    * @example
    * 000000000
@@ -115,9 +117,9 @@ export class CreateInstanceRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: MB.
+   * The storage capacity of the instance, in MB.
    * 
-   * > You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call this operation.
+   * > You must specify either the **Capacity** or the **InstanceClass** parameter.
    * 
    * @example
    * 16384
@@ -125,10 +127,11 @@ export class CreateInstanceRequest extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid** (default): pay-as-you-go
+   * - **PrePaid**: subscription.
+   * 
+   * - **PostPaid** (default): pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -136,18 +139,21 @@ export class CreateInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * This parameter is supported for specific new cluster instances. You can query the backup set ID by using the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
+   * The ID of the cluster backup. You can get this ID by calling the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation. This parameter is available for some cloud native cluster instances.
    * 
-   * *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
-   * *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets for all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
+   * - This parameter is mutually exclusive with `BackupId`.
+   * 
+   * - If this parameter is not available for your instance, you must specify the backup ID of each shard in the `BackupId` parameter (for example, "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22").
    * 
    * @example
-   * cb-hyxdof5x9kqbtust
+   * cb-hyxdof5x9kqb****
    */
   clusterBackupId?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **AllocateInstancePublicConnection**.
+   * The prefix of the connection string. The prefix must be 8 to 40 characters long, start with a lowercase letter, and contain only lowercase letters and digits.
+   * 
+   * > The full connection string is in the format: \\<prefix>.redis.rds.aliyuncs.com.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -163,7 +169,7 @@ export class CreateInstanceRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The ID of the dedicated cluster. This parameter is required if you create an instance in a dedicated cluster.
+   * The ID of the dedicated host group. This parameter is required when you create a Redis instance in a dedicated host group.
    * 
    * @example
    * dhg-uv4fnk6r7zff****
@@ -171,10 +177,11 @@ export class CreateInstanceRequest extends $dara.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * - **true**: Checks the request for validity without creating the instance. The system verifies required parameters, request format, and service limits. If the request is valid, the `DryRunOperation` error code is returned. If the request is invalid, an error message is returned.
+   * 
+   * - **false** (default): Sends the request. If the request is valid, the instance is created.
    * 
    * @example
    * false
@@ -182,36 +189,39 @@ export class CreateInstanceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The engine version. Valid values for **classic instances**:
+   * The Redis engine version. Valid values for **classic edition** instances:
    * 
-   * *   **2.8** (not recommended due to [scheduled EOFS](https://help.aliyun.com/document_detail/2674657.html))
-   * *   **4.0** (not recommended)
-   * *   **5.0**
+   * - **2.8** (Not recommended. [Support for this version is scheduled to be discontinued](https://help.aliyun.com/document_detail/2674657.html).)
    * 
-   * Valid values for **cloud-native instances**:
+   * - **4.0** (Not recommended.)
    * 
-   * *   **5.0**
-   * *   **6.0** (recommended)
-   * *   **7.0**
+   * - **5.0**
    * 
-   * >  The default value is **5.0**.
+   * Valid values for **cloud native edition** instances:
+   * 
+   * - **5.0**
+   * 
+   * - **6.0** (Recommended)
+   * 
+   * - **7.0**
+   * 
+   * > The default value is **5.0**.
    * 
    * @example
-   * 4.0
+   * 5.0
    */
   engineVersion?: string;
   /**
    * @remarks
-   * Specifies whether to use the new instance as the first child instance of a distributed instance. Valid values:
+   * Specifies whether to create the new instance as the first child instance of a distributed instance. Valid values:
    * 
-   * *   **true**: uses the new instance as the first child instance.
-   * *   **false** (default): does not use the new instance as the first child instance.
+   * - **true**: Creates the instance as the first child instance.
    * 
-   * > 
+   * - **false** (default): Does not create the instance as the first child instance.
    * 
-   * *   If you want to create a Tair DRAM-based instance that runs Redis 5.0, you must set this parameter to **true**.
-   * 
-   * *   This parameter is available only on the China site (aliyun.com).
+   * > * If you set this parameter to **true**, the new instance must be a Tair memory-enhanced instance that runs Redis 5.0.
+   * >
+   * > * This parameter is available only in Chinese mainland.
    * 
    * @example
    * false
@@ -219,7 +229,11 @@ export class CreateInstanceRequest extends $dara.Model {
   globalInstance?: boolean;
   /**
    * @remarks
-   * The ID of the distributed instance. This parameter is available only on the China site (aliyun.com).
+   * The ID of the distributed instance. This parameter is available only in Chinese mainland.
+   * 
+   * <props="china">
+   * 
+   * This parameter is required to add the new instance as a child of a distributed instance. For more information and the console procedure, see [Add a child instance to a distributed instance](https://help.aliyun.com/document_detail/106885.html).
    * 
    * @example
    * gr-bp14rkqrhac****
@@ -227,7 +241,8 @@ export class CreateInstanceRequest extends $dara.Model {
   globalInstanceId?: string;
   /**
    * @remarks
-   * The global IP whitelist template for the instance. Multiple IP whitelist templates should be separated by English commas (,) and cannot be duplicated.
+   * The IDs of the security groups to associate with the instance. You can specify multiple security group IDs, separated by commas (,). IDs cannot be repeated.
+   * >Notice: This parameter is available only for cloud native edition instances. Security groups are not supported for classic edition instances.
    * 
    * @example
    * g-zsldxfiwjmti0kcm****
@@ -235,20 +250,39 @@ export class CreateInstanceRequest extends $dara.Model {
   globalSecurityGroupIds?: string;
   /**
    * @remarks
-   * The instance type. For example, redis.master.small.default indicates a Community Edition standard master-replica instance that has 1 GB of memory. For more information, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * The instance type. For example, `redis.master.small.default` specifies a 1 GB Community Edition (classic edition) instance with a standard, dual-replica architecture. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/26350.html).
    * 
-   * **
-   * 
-   * **Description** You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call the CreateInstance operation.
+   * > You must specify either the **Capacity** or the **InstanceClass** parameter.
    * 
    * @example
    * redis.master.small.default
    */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The connection endpoint type. This parameter is applicable only when you create a dual-zone, read/write splitting instance of the cloud native edition. If this parameter is not specified, `AzIndependentEndpoint` is used. Valid values:
+   * 
+   * - **AzIndependentEndpoint**: (**Default**) Zone-Independent Endpoint. The primary and secondary zones each provide an independent connection string for zone-local access.
+   * 
+   * - **UnifiedEndpoint**: Unified Endpoint. Provides a single connection string to access nodes in both zones, which may result in cross-zone access.
+   * 
+   * >Notice: 
+   * 
+   * This parameter is applicable only to dual-zone, read/write splitting instances of the cloud native edition. For other instance types, only zone-independent endpoints are supported, and specifying `UnifiedEndpoint` has no effect.
+   * 
+   * 
+   * 
+   * >Notice: 
+   * 
+   * The `UnifiedEndpoint` parameter is currently available only to allowlisted users. API calls will fail if you are not on the allowlist. To be added to the allowlist, submit a ticket.
+   * 
+   * @example
+   * AzIndependentEndpoint
+   */
   instanceEndpointType?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 80 characters in length and must start with a letter. It cannot contain spaces or specific special characters. These special characters include `@ / : = " < > { [ ] }`
+   * The name of the instance. The name must be 2 to 80 characters long, start with a letter (uppercase or lowercase) or a Chinese character, and not contain spaces or the characters `@/:=”<>{[]}`.
    * 
    * @example
    * apitest
@@ -256,10 +290,11 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The database engine of the instance. Valid values:
+   * The instance type. Valid values:
    * 
-   * *   **Redis** (default)
-   * *   **Memcache**
+   * - **Redis** (default)
+   * 
+   * - **Memcache**
    * 
    * @example
    * Redis
@@ -267,9 +302,31 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
+   * The end time of the maintenance window. Specify the time in the *HH:mm*Z format (UTC). For example, to set the end time to 02:00 (UTC+8), specify `18:00Z`.
+   * 
+   * > The duration of the maintenance window must be at least one hour.
+   * 
+   * > If this parameter is not specified, the maintenance window ends at 06:00 (UTC+8), which is 22:00 (UTC).
+   * 
+   * @example
+   * 07:00Z
+   */
+  maintainEndTime?: string;
+  /**
+   * @remarks
+   * The start of the maintenance window. Specify the time in the *HH:mm*Z format (UTC). For example, to set the start time to 01:00 (UTC+8), specify `17:00Z`.
+   * 
+   * > If this parameter is not specified, the maintenance window starts at 02:00 (UTC+8), which is 18:00 (UTC).
+   * 
+   * @example
+   * 03:00Z
+   */
+  maintainStartTime?: string;
+  /**
+   * @remarks
    * The network type. Valid value:
    * 
-   * *   **VPC** (default)
+   * - **VPC**: Deploys the instance in a Virtual Private Cloud. This is the default value.
    * 
    * @example
    * VPC
@@ -279,12 +336,15 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * *   **MASTER_SLAVE**: high availability (master-replica)
-   * *   **STAND_ALONE**: standalone
-   * *   **double**: master-replica
-   * *   **single**: standalone
+   * - **MASTER_SLAVE**: high-availability (primary-replica)
    * 
-   * >  To create a cloud-native instance, set this parameter to **MASTER_SLAVE** or **STAND_ALONE**. To create a classic instance, set this parameter to **double** or **single**.
+   * - **STAND_ALONE**: standalone (single-node)
+   * 
+   * - **double**: primary-replica
+   * 
+   * - **single**: standalone (single-node)
+   * 
+   * > Set this parameter to **MASTER_SLAVE** or **STAND_ALONE** for cloud native edition instances. Set this parameter to **double** or **single** for classic edition instances.
    * 
    * @example
    * STAND_ALONE
@@ -294,7 +354,7 @@ export class CreateInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The parameter template ID, which must be globally unique.
+   * The ID of the parameter group. This ID must be globally unique.>Notice:  This parameter is available only for cloud native edition instances.
    * 
    * @example
    * rpg-test**
@@ -302,7 +362,7 @@ export class CreateInstanceRequest extends $dara.Model {
   paramGroupId?: string;
   /**
    * @remarks
-   * The password that is used to connect to the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * The password for the instance. The password must be 8 to 32 characters long and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The allowed special characters are `!@#$%^&*()_+-=`.
    * 
    * @example
    * Pass!123456
@@ -310,9 +370,9 @@ export class CreateInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The subscription duration. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**,**36**, and **60**. Unit: months.
+   * The subscription duration, in months. Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
    * 
-   * > This parameter is available and required only if the **ChargeType** parameter is set to **PrePaid**.
+   * > This parameter is available and required only when **ChargeType** is set to **PrePaid**.
    * 
    * @example
    * 12
@@ -320,7 +380,7 @@ export class CreateInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the instance. Valid values: **1024** to **65535**. Default value: **6379**.
+   * The service port of the instance. The port number must be between **1** and **65535**. The default value is **6379**.
    * 
    * @example
    * 6379
@@ -328,9 +388,9 @@ export class CreateInstanceRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The private IP address of the instance.
+   * The private IP address of the new instance.
    * 
-   * > The private IP address must be available within the CIDR block of the vSwitch to which to connect the instance.
+   * > The IP address must be within the CIDR block of the specified vSwitch.
    * 
    * @example
    * 172.16.0.***
@@ -338,27 +398,37 @@ export class CreateInstanceRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The number of read replicas in the primary zone. This parameter applies only to read/write splitting instances that use cloud disks. You can use this parameter to customize the number of read replicas. Valid values: 1 to 9.
+   * The number of read-only replicas in the primary zone. This parameter is available only when creating a read/write splitting instance of the cloud native edition.
    * 
-   * >  The sum of the values of this parameter and SlaveReadOnlyCount cannot be greater than 9.
+   * - For a standard-architecture instance, the value must be an integer from 1 to 9.
+   * 
+   * - For a cluster-architecture instance, the value must be an integer from 1 to 4. This specifies the number of read-only replicas for each data shard.
+   * 
+   * > If you create a multi-zone instance, you can use this parameter and `SlaveReadOnlyCount` to customize the number of read-only replicas in the primary and secondary zones.
+   * >
+   * > - The sum of this parameter and `SlaveReadOnlyCount` cannot exceed 9 for a standard-architecture instance.
+   * >
+   * > - The sum of this parameter and `SlaveReadOnlyCount` cannot exceed 4 for a cluster-architecture instance.
    * 
    * @example
-   * 5
+   * 2
    */
   readOnlyCount?: number;
   /**
    * @remarks
-   * When creating an instance using a specified backup set, whether to restore account, kernel parameter (whitelist), and whitelist (config) information from the original backup set. For example, if you need to restore account information, the value should be `{"account":true}`.
-   * By default, it is empty, indicating that no account, kernel parameter, or whitelist information will be restored from the original backup set. 
-   * > This parameter applies only to cloud-native instances and requires that the original backup set has saved the account, kernel parameter, and whitelist information. You can use the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) API to check if the RecoverConfigMode parameter in the specified backup set contains the above information.
+   * Specifies which configurations to restore from the backup when creating an instance. Valid values include `account`, `config`, and `whitelist`. For example, to restore account settings, specify `account`. To restore multiple configurations, separate them with commas.
+   * 
+   * By default, this parameter is empty, which means no configurations are restored.
+   * 
+   * > This parameter is applicable only to cloud native edition instances. The source backup must contain the specified configurations. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation and check the `RecoverConfigMode` field in the response to determine which configurations a backup contains.
    * 
    * @example
-   * {"whitelist":true,"config":true,"account":true}
+   * whitelist,config,account
    */
   recoverConfigMode?: string;
   /**
    * @remarks
-   * The ID of the region where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+   * The ID of the region in which to create the instance. Call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to get a list of region IDs.
    * 
    * This parameter is required.
    * 
@@ -368,10 +438,9 @@ export class CreateInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of slave replicas in the primary availability zone. This parameter is applicable only for creating cloud-native cluster edition multi-replica instances, allowing you to customize the number of slave replicas. The value range is 1 to 4.
-   * > > - The sum of this parameter and SlaveReplicaCount cannot exceed 4. 
-   * >> - Only one of this parameter and ReadOnlyCount can be passed; there are no instances that simultaneously include both replicas and read-only nodes. 
-   * >> - Primary-secondary instances do not support multiple replicas.
+   * The number of replicas in the primary zone. This parameter is available only for multi-replica cluster instances of the cloud native edition. You can specify a value from 1 to 4.
+   * 
+   * > When creating a multi-zone instance, you can use this parameter and `SlaveReplicaCount` to customize the number of replicas in the primary and secondary zones. The sum of `ReplicaCount` and `SlaveReplicaCount` cannot exceed 4.
    * 
    * @example
    * 2
@@ -389,7 +458,7 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The point in time to which you want to restore data, specified in the *yyyy-MM-dd*T*HH:mm:ss*Z (UTC) format.
    * 
    * @example
    * 2019-06-19T16:00:00Z
@@ -397,18 +466,22 @@ export class CreateInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The secondary zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the most recent zone list.
+   * The ID of the secondary zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the latest list of zones.
    * 
-   * > If you specify this parameter, the master node and replica node of the instance can be deployed in different zones and disaster recovery is implemented across zones. The instance can withstand failures in data centers.
+   * > The value of this parameter cannot be the same as the value of the `ZoneId` parameter, and you cannot specify a multi-zone ID.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-g
    */
   secondaryZoneId?: string;
   securityToken?: string;
   /**
    * @remarks
-   * The number of shards. This parameter applies only to cloud-native cluster instances.
+   * The number of shards. This parameter is available only for cloud native edition instances.
+   * 
+   * - A value of **1** creates an instance with a standard architecture.
+   * 
+   * - A value greater than **1** creates an instance with a cluster architecture.
    * 
    * @example
    * 4
@@ -416,9 +489,7 @@ export class CreateInstanceRequest extends $dara.Model {
   shardCount?: number;
   /**
    * @remarks
-   * The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed across multiple zones. The sum of the values of this parameter and ReadOnlyCount cannot be greater than 9.
-   * 
-   * > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
+   * The number of read-only replicas in the secondary zone.
    * 
    * @example
    * 2
@@ -426,7 +497,7 @@ export class CreateInstanceRequest extends $dara.Model {
   slaveReadOnlyCount?: number;
   /**
    * @remarks
-   * Used for specifying the number of slave replicas in the secondary availability zone when creating a multi-AZ cloud-native cluster edition with multiple replicas. The sum of this parameter and ReplicaCount cannot exceed 4. <notice>When creating a multi-AZ cloud-native cluster edition with multiple replicas, both SlaveReplicaCount and SecondaryZoneId parameters must be specified.</notice>
+   * The number of replicas in the secondary zone.
    * 
    * @example
    * 2
@@ -434,9 +505,9 @@ export class CreateInstanceRequest extends $dara.Model {
   slaveReplicaCount?: number;
   /**
    * @remarks
-   * If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
+   * To create an instance from a backup, specify the ID of the source instance.
    * 
-   * >  After you specify the SrcDBInstanceId parameter, use the **BackupId**, **ClusterBackupId** (recommended for cloud-native cluster instances), or **RestoreTime** parameter to specify the backup set or the specific point in time that you want to use to create an instance. The SrcDBInstanceId parameter must be used in combination with one of the preceding three parameters.
+   * > This parameter must be used in conjunction with one of the following parameters: **BackupId**, **ClusterBackupId** (recommended for cloud native, cluster-architecture instances), or **RestoreTime**.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -449,7 +520,7 @@ export class CreateInstanceRequest extends $dara.Model {
   tag?: CreateInstanceRequestTag[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token to ensure the idempotence of the request. The token must be unique across requests, case-sensitive, and cannot exceed 64 ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -457,7 +528,7 @@ export class CreateInstanceRequest extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which you want the instance to connect.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****
@@ -465,7 +536,7 @@ export class CreateInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1nme44gek34slfc****
@@ -473,10 +544,12 @@ export class CreateInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The primary zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent zone list.
+   * The ID of the primary zone for the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473763.html) operation to query available zones.
+   * 
+   * > You can also specify a secondary zone by using the `SecondaryZoneId` parameter. The primary and replica nodes are then deployed in the specified primary and secondary zones to create a dual-zone architecture for in-city disaster recovery. For example, you can set the `ZoneId` parameter to "cn-hangzhou-h" and the `SecondaryZoneId` parameter to "cn-hangzhou-g".
    * 
    * @example
-   * cn-hangzhou-e
+   * cn-hangzhou-h
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -502,6 +575,8 @@ export class CreateInstanceRequest extends $dara.Model {
       instanceEndpointType: 'InstanceEndpointType',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
       networkType: 'NetworkType',
       nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
@@ -556,6 +631,8 @@ export class CreateInstanceRequest extends $dara.Model {
       instanceEndpointType: 'string',
       instanceName: 'string',
       instanceType: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
       networkType: 'string',
       nodeType: 'string',
       ownerAccount: 'string',

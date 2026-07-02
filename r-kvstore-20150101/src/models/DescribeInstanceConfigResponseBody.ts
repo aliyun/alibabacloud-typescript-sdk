@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameter settings of the instance. For more information, see [Parameter overview and configuration guide](https://help.aliyun.com/document_detail/43885.html).
+   * The default configuration parameters of the instance. To view the full list of parameters, call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation.
    * 
    * @example
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
@@ -13,15 +13,25 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The Sentinel-compatible mode, which is applicable to non-cluster instances. For more information about the parameter, see the relevant documentation.
+   * Specifies whether to enable Sentinel compatibility mode. This parameter applies only to non-cluster instances. Valid values:
+   * 
+   * - **no** (default): Disabled
+   * 
+   * - **yes**: Enabled
+   * 
+   * > For more information, see [Sentinel compatibility mode](https://help.aliyun.com/document_detail/178911.html).
    * 
    * @example
-   * ****
+   * no
    */
   paramNoLooseSentinelEnabled?: string;
   /**
    * @remarks
-   * Indicates whether Sentinel commands can be run without requiring a password when the Sentinel mode is enabled. Valid values: Valid values: yes and no. Default value: no. After you set this parameter to yes, you can run Sentinel commands in a virtual private cloud (VPC) without the need to enable the password-free access feature.
+   * Specifies whether to allow password-free execution of Sentinel commands when Sentinel compatibility mode is enabled. Valid values:
+   * 
+   * - **no** (default): Disabled.
+   * 
+   * - **yes**: Enabled. Allows you to run Sentinel commands on any connection without a password and use the `SENTINEL` command to subscribe to the `+switch-master` channel.
    * 
    * @example
    * no
@@ -29,7 +39,7 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramNoLooseSentinelPasswordFreeAccess?: string;
   /**
    * @remarks
-   * After you enable the Sentinel mode and set the ParamNoLooseSentinelPasswordFreeAccess parameter to yes, you can use this parameter to specify an additional list of commands that can be run without requiring a password. By default, this parameter is empty. After you configure this parameter, you can run the specified commands without a password on any connection. Proceed with caution. The commands must be written in lowercase letters. Multiple commands are separated by commas (,).
+   * Additional commands that can be run without a password. This parameter is valid only when Sentinel compatibility mode is enabled and `ParamNoLooseSentinelPasswordFreeAccess` is set to `yes`. By default, this parameter is empty.
    * 
    * @example
    * ****
@@ -37,10 +47,11 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramNoLooseSentinelPasswordFreeCommands?: string;
   /**
    * @remarks
-   * The synchronization mode.
+   * The replication mode. Valid values:
    * 
-   * *   **semisync**
-   * *   **async**
+   * - **async** (default): asynchronous mode
+   * 
+   * - **semisync**: semi-synchronous mode
    * 
    * @example
    * async
@@ -48,18 +59,26 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramReplMode?: string;
   /**
    * @remarks
-   * The degradation threshold time of the semi-synchronous replication mode. This parameter is required only when semi-synchronous replication is enabled. Unit: milliseconds. Valid values: 10 to 60000.
+   * The degradation threshold for the semi-synchronous mode. This parameter is valid only in semi-synchronous mode. Unit: milliseconds. Valid values: 10 to 60000. Default value: 500.
+   * 
+   * > If replication latency exceeds this threshold, the replication mode degrades to asynchronous mode. When the replication latency returns to normal, the mode reverts to semi-synchronous mode.
    * 
    * @example
-   * ****
+   * 500
    */
   paramReplTimeout?: string;
   /**
    * @remarks
-   * The Sentinel-compatible mode, which is applicable to cluster instances in proxy mode or read/write splitting instances. For more information about the parameter, see the relevant documentation.
+   * Specifies whether to enable Sentinel compatibility mode. This parameter applies to instances that use the cluster architecture with proxy connection mode or the read/write splitting architecture. Valid values:
+   * 
+   * - **0** (default): Disabled
+   * 
+   * - **1**: Enabled
+   * 
+   * > For more information, see [Sentinel compatibility mode](https://help.aliyun.com/document_detail/178911.html).
    * 
    * @example
-   * 1
+   * 0
    */
   paramSentinelCompatEnable?: string;
   /**

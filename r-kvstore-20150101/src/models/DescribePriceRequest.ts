@@ -97,7 +97,7 @@ export class DescribePriceRequest extends $dara.Model {
    * If you want to query cloud-native read/write splitting instances, Tair ESSD-based instances, or instances of different specifications, you must specify this parameter as a JSON string. For more information, see the **Additional description of the Instances parameter** section.
    * 
    * @example
-   * Instances=[{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","InstanceClass": "redis.master.small.default","Period": "1","Quantity": "1","Capacity": "4096"}]
+   * [{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","ShardClass": "tair.scm.with.proxy.standard.2m.8d","ShardCount": "3","Period": "1","Quantity": "1"}]
    */
   instances?: string;
   /**
@@ -165,6 +165,14 @@ export class DescribePriceRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the secondary zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) API to query it.
+   * > The values passed for this parameter and the ZoneId parameter must be different.
+   * 
+   * @example
+   * cn-hangzhou-g
+   */
   secondaryZoneId?: string;
   securityToken?: string;
   /**

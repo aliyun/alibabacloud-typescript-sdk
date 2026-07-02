@@ -6,9 +6,6 @@ export class StopTairKVCacheCustomInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * tc-bp1zxszhcgatnx****
    */
   instanceId?: string;
   ownerAccount?: string;

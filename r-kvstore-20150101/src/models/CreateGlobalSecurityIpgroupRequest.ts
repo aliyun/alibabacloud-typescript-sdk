@@ -12,7 +12,7 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 111.175.56.206,47.253.88.168,111.181.0.162
+   * 192.168.0.1,10.10.10.10,172.16.0.1
    */
   GIpList?: string;
   /**

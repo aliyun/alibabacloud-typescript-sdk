@@ -58,7 +58,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * all
+   * rds_apsaradb_ha
    */
   taskType?: string;
   static names(): { [key: string]: string } {

@@ -20,7 +20,7 @@ export class LockDBInstanceWriteRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * lock reason
+   * 锁写操作验证。
    */
   lockReason?: string;
   ownerAccount?: string;

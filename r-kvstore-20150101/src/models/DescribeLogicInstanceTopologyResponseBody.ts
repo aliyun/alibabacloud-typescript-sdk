@@ -130,7 +130,7 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisShardList extends $da
 export class DescribeLogicInstanceTopologyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -140,7 +140,7 @@ export class DescribeLogicInstanceTopologyResponseBody extends $dara.Model {
   redisShardList?: DescribeLogicInstanceTopologyResponseBodyRedisShardList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 794120D1-E0CF-4713-BAE4-EBAEA04506AF

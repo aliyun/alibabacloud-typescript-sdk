@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEventInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code that is returned if the request failed.
+   * The error code.
    * 
    * @example
    * mst.errorcode.success.errormessage
@@ -13,7 +13,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error ID.
+   * The IDs of the events that failed to be processed.
    * 
    * @example
    * 12343
@@ -29,7 +29,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful records.
+   * The number of events that were successfully processed.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The ID of the successful event.
+   * The IDs of the events that were successfully processed.
    * 
    * @example
    * 234221

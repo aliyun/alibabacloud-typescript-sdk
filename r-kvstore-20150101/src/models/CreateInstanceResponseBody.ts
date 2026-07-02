@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum bandwidth of the instance. Unit: MB/s.
+   * The bandwidth of the instance. Unit: MB/s.
    * 
    * @example
    * 32
@@ -13,7 +13,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: MB.
+   * The storage capacity of the instance, in MB.
    * 
    * @example
    * 16384
@@ -21,10 +21,11 @@ export class CreateInstanceResponseBody extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * - **PrePaid**: subscription
+   * 
+   * - **PostPaid**: pay-as-you-go
    * 
    * @example
    * PostPaid
@@ -40,7 +41,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The internal endpoint of the instance.
+   * The private connection endpoint of the instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
@@ -48,7 +49,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The maximum number of connections supported by the instance.
+   * The maximum number of connections.
    * 
    * @example
    * 10000
@@ -56,7 +57,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   connections?: number;
   /**
    * @remarks
-   * The time when the subscription expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The expiration time of the subscription instance. The time is displayed in UTC. Format: *yyyy-MM-dd*T*HH:mm:ss*Z.
    * 
    * @example
    * 2019-01-18T16:00:00Z
@@ -64,7 +65,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The GUID of the instance.
+   * The ID of the instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -80,7 +81,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The state of the instance. The return value is Creating.
+   * The state of the instance. For this operation, the returned value is always `Creating`.
    * 
    * @example
    * Creating
@@ -88,10 +89,11 @@ export class CreateInstanceResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
+   * The network type. Valid values:
    * 
-   * *   **CLASSIC**: classic network
-   * *   **VPC**: VPC
+   * - **CLASSIC**: classic network
+   * 
+   * - **VPC**: VPC
    * 
    * @example
    * VPC
@@ -101,8 +103,9 @@ export class CreateInstanceResponseBody extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * *   **STAND_ALONE**: standalone
-   * *   **MASTER_SLAVE**: master-replica
+   * - **STAND_ALONE**: standalone
+   * 
+   * - **MASTER_SLAVE**: primary-replica
    * 
    * @example
    * MASTER_SLAVE
@@ -120,7 +123,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The port number that is used to connect to the instance.
+   * The connection port of the instance.
    * 
    * @example
    * 6379
@@ -136,7 +139,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   privateIpAddr?: string;
   /**
    * @remarks
-   * The expected maximum queries per second (QPS).
+   * The theoretical queries per second (QPS) of the instance.
    * 
    * @example
    * 100000
@@ -144,7 +147,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   QPS?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region.
    * 
    * @example
    * cn-hongkong
@@ -160,7 +163,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The username that is used to connect to the instance. By default, Tair (Redis OSS-compatible) provides a username that is named after the instance ID.
+   * The username of the account. By default, the username is the same as the instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -168,7 +171,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****
@@ -184,7 +187,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-b

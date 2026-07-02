@@ -6,17 +6,11 @@ export class ModifyTairKVCacheCustomInstanceAttributeRequest extends $dara.Model
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * redistest
    */
   instanceName?: string;
   ownerAccount?: string;
@@ -24,10 +18,6 @@ export class ModifyTairKVCacheCustomInstanceAttributeRequest extends $dara.Model
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  /**
-   * @example
-   * SDK
-   */
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {

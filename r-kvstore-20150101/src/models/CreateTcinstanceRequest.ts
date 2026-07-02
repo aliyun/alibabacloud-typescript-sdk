@@ -6,25 +6,16 @@ export class CreateTCInstanceRequestDataDisk extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cloud_essd
    */
   category?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * PL0
    */
   performanceLevel?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   size?: number;
   static names(): { [key: string]: string } {
@@ -53,15 +44,7 @@ export class CreateTCInstanceRequestDataDisk extends $dara.Model {
 }
 
 export class CreateTCInstanceRequestTag extends $dara.Model {
-  /**
-   * @example
-   * key1_test
-   */
   key?: string;
-  /**
-   * @example
-   * testvalue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,118 +70,44 @@ export class CreateTCInstanceRequestTag extends $dara.Model {
 }
 
 export class CreateTCInstanceRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   autoRenew?: string;
-  /**
-   * @example
-   * 1
-   */
   autoRenewPeriod?: string;
-  /**
-   * @example
-   * false
-   */
   autoUseCoupon?: string;
-  /**
-   * @example
-   * 000000000
-   */
   businessInfo?: string;
-  /**
-   * @example
-   * ETnLKlblzczshOTUbOCz****
-   */
   clientToken?: string;
-  /**
-   * @example
-   * youhuiquan_promotion_option_id_for_blank
-   */
   couponNo?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   dataDisk?: CreateTCInstanceRequestDataDisk[];
-  /**
-   * @example
-   * false
-   */
   dryRun?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ubuntu_20_04_64_20G_alibase_20210412
    */
   imageId?: string;
-  /**
-   * @example
-   * PrePaid
-   */
   instanceChargeType?: string;
-  /**
-   * @example
-   * tair.kvcache.guis.8.gu60
-   */
   instanceClass?: string;
-  /**
-   * @example
-   * newinstancename
-   */
   instanceName?: string;
   needEni?: boolean;
-  /**
-   * @example
-   * VPC
-   */
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @example
-   * 12
-   */
   period?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @example
-   * rg-acfmyiu4e******
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  /**
-   * @example
-   * sg-bpcfmyiu4ekp****
-   */
   securityGroupId?: string;
   securityToken?: string;
   tag?: CreateTCInstanceRequestTag[];
-  /**
-   * @example
-   * vsw-bp1e7clcw529l773d****
-   */
   vSwitchId?: string;
-  /**
-   * @example
-   * vpc-bp1nme44gek34slfc****
-   */
   vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

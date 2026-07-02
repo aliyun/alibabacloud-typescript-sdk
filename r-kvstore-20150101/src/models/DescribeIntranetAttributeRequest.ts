@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIntranetAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeIntranetAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmyiu4ekp****

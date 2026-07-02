@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The account name.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
   /**
    * @remarks
