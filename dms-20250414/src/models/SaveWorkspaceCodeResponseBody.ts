@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * 错误码
+   * The error code.
    * 
    * @example
    * InvalidTid
@@ -21,7 +21,7 @@ export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * http状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息，在接口失败时，返回具体错误信息，成功时则为空
+   * The error message. This parameter is returned with a specific error message when the request fails, and is empty when the request succeeds.
    * 
    * @example
    * Failed to publish，repo branch empty
@@ -37,7 +37,7 @@ export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
@@ -45,9 +45,9 @@ export class SaveWorkspaceCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功。
-   * - **true**：调用成功。
-   * - **false**：调用失败。
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

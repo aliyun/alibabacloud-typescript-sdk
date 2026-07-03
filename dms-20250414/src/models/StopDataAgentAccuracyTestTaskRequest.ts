@@ -2,43 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeDataAgentSessionRequest extends $dara.Model {
+export class StopDataAgentAccuracyTestTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The current Data Management unit.
+   * The ID of the accuracy test task.
+   * 
+   * @example
+   * 692abb8f-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
+  accuracyTestTaskId?: string;
+  /**
+   * @remarks
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
-  DMSUnit?: string;
+  regionId?: string;
   /**
    * @remarks
-   * The DataAgent session ID. You can obtain this ID by calling CreateDataAgentSession.
+   * The ID of the workspace.
    * 
    * @example
-   * c61n7gm******rj
-   */
-  sessionId?: string;
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * @example
-   * 12****
+   * 8wfig6l33n4f4xxxxxxxxxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      DMSUnit: 'DMSUnit',
-      sessionId: 'SessionId',
+      accuracyTestTaskId: 'AccuracyTestTaskId',
+      regionId: 'RegionId',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DMSUnit: 'string',
-      sessionId: 'string',
+      accuracyTestTaskId: 'string',
+      regionId: 'string',
       workspaceId: 'string',
     };
   }

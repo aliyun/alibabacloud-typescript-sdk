@@ -21,7 +21,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   finishTime?: string;
   /**
    * @remarks
-   * The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId returned by the SendChatMessage operation.
+   * The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
    * 
    * @example
    * bab******33e1
@@ -29,7 +29,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The artifact name. This is typically a string concatenated by the system. It is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+   * The artifact name. This is typically a string concatenated by the system and is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
    * 
    * @example
    * report_****_2026****
@@ -69,7 +69,7 @@ export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The artifact type. Valid values: TextReport and WebReport.
+   * The artifact type. Valid values: TextReport, WebReport.
    * 
    * @example
    * WebReport
@@ -215,7 +215,7 @@ export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara
   score?: number;
   /**
    * @remarks
-   * The type of recalled knowledge.
+   * The type of the recalled knowledge.
    * 
    * @example
    * memory
@@ -258,8 +258,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * - **debug**: the debugging stage.
-   * - **prod**: the production stage.
+   * - **debug**: test stage.
+   * - **prod**: production stage.
    * 
    * @example
    * debug
@@ -275,7 +275,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   enableSearch?: boolean;
   /**
    * @remarks
-   * The encryption key for storing artifacts in OSS (including built-in and user-specified OSS). This is typically specified in CreateDataAgentSession.
+   * The encryption key for storing artifacts in OSS (both built-in and user-specified). This is typically specified in CreateDataAgentSession.
    * 
    * @example
    * ay***1Te
@@ -283,7 +283,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   encryptKey?: string;
   /**
    * @remarks
-   * The encryption type for storing artifacts in OSS (including built-in and user-specified OSS).
+   * The encryption type for storing artifacts in OSS (both built-in and user-specified).
    * 
    * @example
    * null
@@ -291,7 +291,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   encryptType?: string;
   /**
    * @remarks
-   * The list of knowledge base IDs for this session.
+   * The list of knowledge base IDs for the current session.
    */
   kbUuidList?: string[];
   /**
@@ -312,9 +312,9 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The mode. Valid values:
-   * - **ASK_DATA**: the data query mode.
-   * - **ANALYSIS**: the analysis mode.
-   * - **INSIGHT**: the insight mode.
+   *  - **ASK_DATA**: ask data mode.
+   *  - **ANALYSIS**: analysis mode.
+   *  - **INSIGHT**: insight mode.
    * 
    * @example
    * ANALYSIS
@@ -338,7 +338,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+   * The name of the user OSS bucket.
+   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -435,7 +436,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   dataSources?: DescribeDataAgentSessionResponseBodyDataDataSources[];
   /**
    * @remarks
-   * Indicates whether the session is saved to favorites in the workspace by the current user.
+   * Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
    * 
    * @example
    * true
@@ -451,12 +452,12 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   file?: string;
   /**
    * @remarks
-   * The recall results from the knowledge base and memory for this session.
+   * The recall results from the knowledge base and memory for the current session.
    */
   recallResults?: DescribeDataAgentSessionResponseBodyDataRecallResults[];
   /**
    * @remarks
-   * Indicates whether the session is saved to favorites by the current user.
+   * Indicates whether the session is saved as a favorite by the current logged-in user.
    * 
    * @example
    * true
@@ -579,7 +580,7 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -597,8 +598,8 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
    * @remarks
    * The return value. Valid values:
    * 
-   * - **true**: The operation was successful.
-   * - **false**: The operation failed.
+   * - **true**: Succeeded.
+   * - **false**: Failed.
    * 
    * @example
    * true

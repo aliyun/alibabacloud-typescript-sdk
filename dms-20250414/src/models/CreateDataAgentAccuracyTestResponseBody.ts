@@ -2,54 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SendChatMessageResponseBodyData extends $dara.Model {
+export class CreateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AgentId
+   * The instance ID of the accuracy test.
    * 
    * @example
-   * 3jqqdiuxun******
+   * at-xxxxxxxxxxxxxxxxxxxx
    */
-  agentId?: string;
-  /**
-   * @remarks
-   * Message
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The message ID.
-   * 
-   * @example
-   * 922d7fd2-77fb-4549-9091-d51da225d47f
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * SessionId
-   * 
-   * @example
-   * 6zbqbho********
-   */
-  sessionId?: string;
+  accuracyTestInsId?: string;
   static names(): { [key: string]: string } {
     return {
-      agentId: 'AgentId',
-      message: 'Message',
-      messageId: 'MessageId',
-      sessionId: 'SessionId',
+      accuracyTestInsId: 'AccuracyTestInsId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agentId: 'string',
-      message: 'string',
-      messageId: 'string',
-      sessionId: 'string',
+      accuracyTestInsId: 'string',
     };
   }
 
@@ -62,39 +32,42 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
   }
 }
 
-export class SendChatMessageResponseBody extends $dara.Model {
+export class CreateDataAgentAccuracyTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
-  data?: SendChatMessageResponseBodyData;
+  data?: CreateDataAgentAccuracyTestResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
-   * Success
+   * UnknownError
    */
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
-   * ""
+   * UnknownError
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * FE65CE1F-****-****-****-******
+   * A61C2009-xxx-BE7E95CEDF2F
    */
   requestId?: string;
   /**
    * @remarks
-   * Success
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.                                 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -112,7 +85,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: SendChatMessageResponseBodyData,
+      data: CreateDataAgentAccuracyTestResponseBodyData,
       errorCode: 'string',
       errorMessage: 'string',
       requestId: 'string',

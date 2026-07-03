@@ -654,6 +654,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an accuracy test instance.
+   * 
+   * @param request - CreateDataAgentAccuracyTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentAccuracyTestResponse
+   */
+  async createDataAgentAccuracyTestWithOptions(request: $_model.CreateDataAgentAccuracyTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentAccuracyTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.dataset)) {
+      query["Dataset"] = request.dataset;
+    }
+
+    if (!$dara.isNull(request.desc)) {
+      query["Desc"] = request.desc;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.evaluationPrompt)) {
+      query["EvaluationPrompt"] = request.evaluationPrompt;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxConcurrent)) {
+      query["MaxConcurrent"] = request.maxConcurrent;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needDelete)) {
+      query["NeedDelete"] = request.needDelete;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentAccuracyTest",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentAccuracyTestResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentAccuracyTestResponse({}));
+  }
+
+  /**
+   * Creates an accuracy test instance.
+   * 
+   * @param request - CreateDataAgentAccuracyTestRequest
+   * @returns CreateDataAgentAccuracyTestResponse
+   */
+  async createDataAgentAccuracyTest(request: $_model.CreateDataAgentAccuracyTestRequest): Promise<$_model.CreateDataAgentAccuracyTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentAccuracyTestWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
    * 
    * @param request - CreateDataAgentKnowledgeBaseRequest
@@ -1205,6 +1295,66 @@ export default class Client extends OpenApi {
   async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an accuracy test configuration item.
+   * 
+   * @remarks
+   * Deletes an accuracy test item.
+   * 
+   * @param request - DeleteDataAgentAccuracyTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentAccuracyTestResponse
+   */
+  async deleteDataAgentAccuracyTestWithOptions(request: $_model.DeleteDataAgentAccuracyTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentAccuracyTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentAccuracyTest",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentAccuracyTestResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentAccuracyTestResponse({}));
+  }
+
+  /**
+   * Deletes an accuracy test configuration item.
+   * 
+   * @remarks
+   * Deletes an accuracy test item.
+   * 
+   * @param request - DeleteDataAgentAccuracyTestRequest
+   * @returns DeleteDataAgentAccuracyTestResponse
+   */
+  async deleteDataAgentAccuracyTest(request: $_model.DeleteDataAgentAccuracyTestRequest): Promise<$_model.DeleteDataAgentAccuracyTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentAccuracyTestWithOptions(request, runtime);
   }
 
   /**
@@ -3144,6 +3294,232 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists accuracy test configuration items that meet the specified conditions.
+   * 
+   * @remarks
+   * Lists accuracy test configuration items that meet the specified conditions.
+   * 
+   * @param request - ListDataAgentAccuracyTestInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentAccuracyTestInstancesResponse
+   */
+  async listDataAgentAccuracyTestInstancesWithOptions(request: $_model.ListDataAgentAccuracyTestInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentAccuracyTestInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentAccuracyTestInstances",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentAccuracyTestInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentAccuracyTestInstancesResponse({}));
+  }
+
+  /**
+   * Lists accuracy test configuration items that meet the specified conditions.
+   * 
+   * @remarks
+   * Lists accuracy test configuration items that meet the specified conditions.
+   * 
+   * @param request - ListDataAgentAccuracyTestInstancesRequest
+   * @returns ListDataAgentAccuracyTestInstancesResponse
+   */
+  async listDataAgentAccuracyTestInstances(request: $_model.ListDataAgentAccuracyTestInstancesRequest): Promise<$_model.ListDataAgentAccuracyTestInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentAccuracyTestInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the execution results of a self-test task.
+   * 
+   * @remarks
+   * Retrieves the execution results of a self-test task.
+   * 
+   * @param request - ListDataAgentAccuracyTestResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentAccuracyTestResultsResponse
+   */
+  async listDataAgentAccuracyTestResultsWithOptions(request: $_model.ListDataAgentAccuracyTestResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentAccuracyTestResultsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.accuracyTestResultId)) {
+      query["AccuracyTestResultId"] = request.accuracyTestResultId;
+    }
+
+    if (!$dara.isNull(request.accuracyTestSubtaskId)) {
+      query["AccuracyTestSubtaskId"] = request.accuracyTestSubtaskId;
+    }
+
+    if (!$dara.isNull(request.accuracyTestTaskId)) {
+      query["AccuracyTestTaskId"] = request.accuracyTestTaskId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentAccuracyTestResults",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentAccuracyTestResultsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentAccuracyTestResultsResponse({}));
+  }
+
+  /**
+   * Retrieves the execution results of a self-test task.
+   * 
+   * @remarks
+   * Retrieves the execution results of a self-test task.
+   * 
+   * @param request - ListDataAgentAccuracyTestResultsRequest
+   * @returns ListDataAgentAccuracyTestResultsResponse
+   */
+  async listDataAgentAccuracyTestResults(request: $_model.ListDataAgentAccuracyTestResultsRequest): Promise<$_model.ListDataAgentAccuracyTestResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentAccuracyTestResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the running status of self-test tasks by paging.
+   * 
+   * @remarks
+   * Queries the running status of self-test tasks by paging.
+   * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+   * 
+   * @param request - ListDataAgentAccuracyTestTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentAccuracyTestTasksResponse
+   */
+  async listDataAgentAccuracyTestTasksWithOptions(request: $_model.ListDataAgentAccuracyTestTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentAccuracyTestTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.accuracyTestTaskId)) {
+      query["AccuracyTestTaskId"] = request.accuracyTestTaskId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentAccuracyTestTasks",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentAccuracyTestTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentAccuracyTestTasksResponse({}));
+  }
+
+  /**
+   * Queries the running status of self-test tasks by paging.
+   * 
+   * @remarks
+   * Queries the running status of self-test tasks by paging.
+   * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+   * 
+   * @param request - ListDataAgentAccuracyTestTasksRequest
+   * @returns ListDataAgentAccuracyTestTasksResponse
+   */
+  async listDataAgentAccuracyTestTasks(request: $_model.ListDataAgentAccuracyTestTasksRequest): Promise<$_model.ListDataAgentAccuracyTestTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentAccuracyTestTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of historical session descriptions for a Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
@@ -4861,7 +5237,7 @@ export default class Client extends OpenApi {
    * Saves workspace code. If the file does not exist, a new file is automatically created.
    * 
    * @remarks
-   * 发布工作空间的代码
+   * Publishes workspace code.
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4921,7 +5297,7 @@ export default class Client extends OpenApi {
    * Saves workspace code. If the file does not exist, a new file is automatically created.
    * 
    * @remarks
-   * 发布工作空间的代码
+   * Publishes workspace code.
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @returns SaveWorkspaceCodeResponse
@@ -4932,16 +5308,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a user message to a specified session or cancel the session.
+   * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
-   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
    * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5020,6 +5396,10 @@ export default class Client extends OpenApi {
       query["TaskConfig"] = request.taskConfigShrink;
     }
 
+    if (!$dara.isNull(request.userOssBucket)) {
+      query["UserOssBucket"] = request.userOssBucket;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -5042,16 +5422,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a user message to a specified session or cancel the session.
+   * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
-   * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+   * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
    * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
@@ -5180,6 +5560,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates an accuracy self-test task.
+   * 
+   * @remarks
+   * Initiates an accuracy self-test task.
+   * 
+   * @param request - StartDataAgentAccuracyTestTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDataAgentAccuracyTestTaskResponse
+   */
+  async startDataAgentAccuracyTestTaskWithOptions(request: $_model.StartDataAgentAccuracyTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartDataAgentAccuracyTestTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.csvFile)) {
+      query["CsvFile"] = request.csvFile;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartDataAgentAccuracyTestTask",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartDataAgentAccuracyTestTaskResponse>(await this.callApi(params, req, runtime), new $_model.StartDataAgentAccuracyTestTaskResponse({}));
+  }
+
+  /**
+   * Initiates an accuracy self-test task.
+   * 
+   * @remarks
+   * Initiates an accuracy self-test task.
+   * 
+   * @param request - StartDataAgentAccuracyTestTaskRequest
+   * @returns StartDataAgentAccuracyTestTaskResponse
+   */
+  async startDataAgentAccuracyTestTask(request: $_model.StartDataAgentAccuracyTestTaskRequest): Promise<$_model.StartDataAgentAccuracyTestTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startDataAgentAccuracyTestTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops an accuracy self-test task.
+   * 
+   * @remarks
+   * Stops an accuracy self-test task.
+   * 
+   * @param request - StopDataAgentAccuracyTestTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopDataAgentAccuracyTestTaskResponse
+   */
+  async stopDataAgentAccuracyTestTaskWithOptions(request: $_model.StopDataAgentAccuracyTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopDataAgentAccuracyTestTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestTaskId)) {
+      query["AccuracyTestTaskId"] = request.accuracyTestTaskId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopDataAgentAccuracyTestTask",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopDataAgentAccuracyTestTaskResponse>(await this.callApi(params, req, runtime), new $_model.StopDataAgentAccuracyTestTaskResponse({}));
+  }
+
+  /**
+   * Stops an accuracy self-test task.
+   * 
+   * @remarks
+   * Stops an accuracy self-test task.
+   * 
+   * @param request - StopDataAgentAccuracyTestTaskRequest
+   * @returns StopDataAgentAccuracyTestTaskResponse
+   */
+  async stopDataAgentAccuracyTestTask(request: $_model.StopDataAgentAccuracyTestTaskRequest): Promise<$_model.StopDataAgentAccuracyTestTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopDataAgentAccuracyTestTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the properties of an Airflow instance.
    * 
    * @param tmpReq - UpdateAirflowRequest
@@ -5277,6 +5777,102 @@ export default class Client extends OpenApi {
   async updateAirflow(request: $_model.UpdateAirflowRequest): Promise<$_model.UpdateAirflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAirflowWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the content of an accuracy test item.
+   * 
+   * @remarks
+   * Updates the content of an accuracy test item.
+   * 
+   * @param request - UpdateDataAgentAccuracyTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataAgentAccuracyTestResponse
+   */
+  async updateDataAgentAccuracyTestWithOptions(request: $_model.UpdateDataAgentAccuracyTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAgentAccuracyTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accuracyTestInsId)) {
+      query["AccuracyTestInsId"] = request.accuracyTestInsId;
+    }
+
+    if (!$dara.isNull(request.customerAgentId)) {
+      query["CustomerAgentId"] = request.customerAgentId;
+    }
+
+    if (!$dara.isNull(request.dataset)) {
+      query["Dataset"] = request.dataset;
+    }
+
+    if (!$dara.isNull(request.desc)) {
+      query["Desc"] = request.desc;
+    }
+
+    if (!$dara.isNull(request.dmsUnit)) {
+      query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.evaluationPrompt)) {
+      query["EvaluationPrompt"] = request.evaluationPrompt;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.maxConcurrent)) {
+      query["MaxConcurrent"] = request.maxConcurrent;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needDelete)) {
+      query["NeedDelete"] = request.needDelete;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataAgentAccuracyTest",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataAgentAccuracyTestResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataAgentAccuracyTestResponse({}));
+  }
+
+  /**
+   * Updates the content of an accuracy test item.
+   * 
+   * @remarks
+   * Updates the content of an accuracy test item.
+   * 
+   * @param request - UpdateDataAgentAccuracyTestRequest
+   * @returns UpdateDataAgentAccuracyTestResponse
+   */
+  async updateDataAgentAccuracyTest(request: $_model.UpdateDataAgentAccuracyTestRequest): Promise<$_model.UpdateDataAgentAccuracyTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataAgentAccuracyTestWithOptions(request, runtime);
   }
 
   /**
