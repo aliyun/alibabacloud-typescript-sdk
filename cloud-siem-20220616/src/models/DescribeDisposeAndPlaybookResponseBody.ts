@@ -13,7 +13,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataPageInfo extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -53,10 +53,21 @@ export class DescribeDisposeAndPlaybookResponseBodyDataPageInfo extends $dara.Mo
 }
 
 export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the playbook is available.
+   * 
+   * - 1: available
+   * 
+   * - 0: unavailable
+   * 
+   * @example
+   * 1
+   */
   available?: string;
   /**
    * @remarks
-   * The playbook description.
+   * The description of the playbook.
    * 
    * @example
    * WafBlockIP
@@ -72,7 +83,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   displayName?: string;
   /**
    * @remarks
-   * The playbook name, which is the unique identifier of the playbook.
+   * The name of the playbook, which is the unique identifier of the playbook.
    * 
    * @example
    * kill_process_isolate_file
@@ -80,7 +91,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   name?: string;
   /**
    * @remarks
-   * The opcode of the playbook, which corresponds to the opcode of the playbook recommended for entity handling.
+   * The opcode of the playbook. The value corresponds to the recommended playbook opcode of the entity.
    * 
    * @example
    * 7
@@ -88,10 +99,11 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   opCode?: string;
   /**
    * @remarks
-   * Indicates whether quick event handling is selected by default. Valid values:
+   * Indicates whether the playbook is selected by default for one-click event disposition. Valid values:
    * 
-   * *   2: Quick event handling is selected.
-   * *   1: Quick event handling is displayed but not selected.
+   * - 2: selected
+   * 
+   * - 1: displayed but not selected
    * 
    * @example
    * 2
@@ -99,29 +111,44 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   opLevel?: string;
   /**
    * @remarks
-   * The playbook parameters and the corresponding properties.
+   * The list of parameters for the playbook and the attributes of the parameters.
    */
   paramConfig?: any[];
   /**
    * @remarks
-   * The opcode configuration.
+   * The configuration of the opcode.
    * 
    * @example
    * {"opCode":"3"}
    */
   taskConfig?: string;
+  /**
+   * @remarks
+   * The reason why the playbook is unavailable.
+   * 
+   * - PARAM_INVALID: The input parameters are invalid.
+   * 
+   * - NO_INGESTION: The required service is not integrated.
+   * 
+   * @example
+   * PARAM_INVALID
+   */
   unAvailableCode?: string;
   /**
+   * @remarks
+   * The UUID of the playbook, which is the unique identifier of the playbook.
+   * 
    * @example
    * kill_process_isolate_file
    */
   uuid?: string;
   /**
    * @remarks
-   * Indicates whether the playbook is intended for Web Application Firewall (WAF). Valid values:
+   * Indicates whether the playbook is a WAF playbook. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Yes
+   * 
+   * - `false`: No
    * 
    * @example
    * false
@@ -182,36 +209,51 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
   alertNum?: number;
   /**
    * @remarks
-   * The object for handling.
+   * The disposition object.
    * 
    * @example
-   * 192.168.1.1
+   * 192.168.*.*
    */
   dispose?: string;
   /**
    * @remarks
-   * The entity ID
+   * The ID of the entity.
    * 
    * @example
-   * 12345
+   * 12345****
    */
   entityId?: number;
   /**
    * @remarks
-   * The entity information.
+   * The information about the entity.
    * 
    * @example
-   * {"file_path": "c:/www/leixi.jsp","file_hash": "aa0ca926ad948cd820e0a3d9a18c09d0","host_uuid": "efed2cf7-0b77-45d9-a97b-d2cf246bcbb3","malware_type": "${aliyun.siem.sas.alert_tag.webshell}","host_name": "launch-advisor-20230531"}
+   * {"file_path": "c:/www/leixi.jsp","file_hash": "aa0ca926ad948cd820e0a3d9a18c****","host_uuid": "efed2cf7-0b77-45d9-a97b-d2cf246b****","malware_type": "${aliyun.siem.sas.alert_tag.webshell}","host_name": "launch-advisor-2023****"}
    */
   entityInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * The type of the entity. Valid values:
+   * 
+   * - `ip`: IP address
+   * 
+   * - `domain`: Domain name
+   * 
+   * - `url`: URL
+   * 
+   * - `process`: Process
+   * 
+   * - `file`: File
+   * 
+   * - `host`: Host
+   * 
    * @example
    * ip
    */
   entityType?: string;
   /**
    * @remarks
-   * The key-value pairs each of which consists of opcode and oplevel.
+   * The opcode and the corresponding operation level.
    * 
    * @example
    * 12345
@@ -219,7 +261,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
   opcodeMap?: { [key: string]: string };
   /**
    * @remarks
-   * The codes of the playbooks that are recommended for entity handling.
+   * The recommended playbook opcode for the entity.
    * 
    * @example
    * [1,3]
@@ -227,12 +269,15 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
   opcodeSet?: string[];
   /**
    * @remarks
-   * The playbooks that can handle the entity.
+   * The list of playbooks that can be used to handle the entity.
+   * 
+   * @example
+   * [{"name":"云安全中心-云服务器安全","code":"1"}]
    */
   playbookList?: DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList[];
   /**
    * @remarks
-   * The IDs of the users who can handle objects.
+   * The list of user IDs that are authorized to perform the disposition.
    * 
    * @example
    * 176618589410****
@@ -333,7 +378,7 @@ export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
 export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -341,7 +386,7 @@ export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 123456
@@ -349,7 +394,7 @@ export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   data?: DescribeDisposeAndPlaybookResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -367,8 +412,9 @@ export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

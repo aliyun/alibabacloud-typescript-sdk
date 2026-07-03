@@ -5,23 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertsCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * The end time of the query. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1577808000000
    */
   endTime?: number;
   /**
+   * @remarks
+   * The query type.
+   * 
    * @example
    * bySrcProd
    */
   queryType?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region of the data management center. Select the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Your assets are outside China.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +33,7 @@ export class DescribeAlertsCountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of a member. An administrator can specify this parameter to query alerts from the perspective of the member.
    * 
    * @example
    * 113091674488****
@@ -37,9 +41,11 @@ export class DescribeAlertsCountRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -47,7 +53,7 @@ export class DescribeAlertsCountRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * The start time of the query. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1577808000000

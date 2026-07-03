@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDisposeStrategyPlaybookResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The playbook name, which is the unique identifier of the playbook.
+   * The unique name of the playbook.
    * 
    * @example
    * WafBlockIP
@@ -45,7 +45,7 @@ export class DescribeDisposeStrategyPlaybookResponseBodyData extends $dara.Model
 export class DescribeDisposeStrategyPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -79,8 +79,9 @@ export class DescribeDisposeStrategyPlaybookResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

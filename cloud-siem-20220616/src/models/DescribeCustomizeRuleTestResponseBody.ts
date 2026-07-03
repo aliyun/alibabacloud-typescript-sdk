@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeRuleTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the custom rule.
    * 
    * @example
    * 123456789
@@ -13,7 +13,7 @@ export class DescribeCustomizeRuleTestResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The historical data that is used in the simulation test.
+   * The historical data of the simulated test case.
    * 
    * @example
    * [{"key1":"value1","key2":"value2","key3":"value3","key4":"value4","key5":"value5"}]
@@ -23,11 +23,15 @@ export class DescribeCustomizeRuleTestResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   0: The rule is in the initial state.
-   * *   10: The simulation data is tested.
-   * *   15: The business data is being tested.
-   * *   20: The business data test ends.
-   * *   100: The rule takes effect.
+   * - 0: initial
+   * 
+   * - 10: simulated data test
+   * 
+   * - 15: real-time data test in progress
+   * 
+   * - 20: real-time data test complete
+   * 
+   * - 100: published
    * 
    * @example
    * 0
@@ -61,7 +65,7 @@ export class DescribeCustomizeRuleTestResponseBodyData extends $dara.Model {
 export class DescribeCustomizeRuleTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned.
    * 
    * @example
    * 200
@@ -95,8 +99,9 @@ export class DescribeCustomizeRuleTestResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

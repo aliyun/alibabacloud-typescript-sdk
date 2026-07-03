@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostRuleStatusChangeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class PostRuleStatusChangeResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -37,10 +37,11 @@ export class PostRuleStatusChangeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Model {
   /**
    * @remarks
-   * The channel of the contact information. Valid values:
+   * The channel to send the notification. Valid values:
    * 
-   * *   message
-   * *   mail
+   * - message: text message
+   * 
+   * - mail: email
    * 
    * @example
    * message
@@ -16,7 +17,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   channel?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the record was created.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -24,7 +25,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the record was last modified.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -32,7 +33,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the recipient who receives the event handling result.
+   * The record ID of the recipient for the event handling result.
    * 
    * @example
    * 123
@@ -40,7 +41,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique UUID of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -48,7 +49,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   incidentUuid?: string;
   /**
    * @remarks
-   * The message title.
+   * The title of the message.
    * 
    * @example
    * siem event dealed message
@@ -64,10 +65,11 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
   receiver?: string;
   /**
    * @remarks
-   * Indicates whether the message is sent. Valid values:
+   * The sending status of the notification. Valid values:
    * 
-   * *   0: not sent
-   * *   1: sent
+   * - 0: not sent
+   * 
+   * - 1: sent
    * 
    * @example
    * 1
@@ -111,7 +113,7 @@ export class DescribeEventDisposeResponseBodyDataReceiverInfo extends $dara.Mode
 export class DescribeEventDisposeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * An array consisting of JSON objects that are configured for event handling.
+   * The JSON object of the event handling configuration.
    * 
    * @example
    * { playbookName: "使用安全组封禁入方向IP", sophonTaskId: "400442a5-4f98-45ed-97db-5ab117eb0b8f", … }
@@ -119,12 +121,12 @@ export class DescribeEventDisposeResponseBodyData extends $dara.Model {
   eventDispose?: any[];
   /**
    * @remarks
-   * The JSON object that is configured for an alert recipient.
+   * The JSON object of the alert recipient configuration.
    */
   receiverInfo?: DescribeEventDisposeResponseBodyDataReceiverInfo;
   /**
    * @remarks
-   * The description of the event.
+   * The remarks on the event.
    * 
    * @example
    * dealed
@@ -134,10 +136,13 @@ export class DescribeEventDisposeResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the event. Valid values:
    * 
-   * *   0: not handled
-   * *   1: handing
-   * *   5: handling failed
-   * *   10: handled
+   * - 0: unhandled
+   * 
+   * - 1: handling
+   * 
+   * - 5: failed
+   * 
+   * - 10: handled
    * 
    * @example
    * 0
@@ -179,7 +184,7 @@ export class DescribeEventDisposeResponseBodyData extends $dara.Model {
 export class DescribeEventDisposeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -195,7 +200,7 @@ export class DescribeEventDisposeResponseBody extends $dara.Model {
   data?: DescribeEventDisposeResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -213,8 +218,9 @@ export class DescribeEventDisposeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

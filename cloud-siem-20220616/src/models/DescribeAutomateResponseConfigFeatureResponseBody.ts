@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnums extends $dara.Model {
   /**
    * @remarks
-   * The enumerated value of the right operand.
+   * The enumeration value of the right operand.
    * 
    * @example
    * serious
@@ -13,7 +13,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnum
   value?: string;
   /**
    * @remarks
-   * The internal code of the enumerated value.
+   * The Medusa code for the enumeration value of the right operand.
    * 
    * @example
    * aliyun.siem.automate.feature.alert_level.serious
@@ -45,10 +45,11 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnum
 export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperators extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the right operand is required. Valid values:
+   * Indicates whether a right operand is required. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: A right operand is required.
+   * 
+   * - false: A right operand is not required.
    * 
    * @example
    * false
@@ -56,7 +57,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   hasRightValue?: boolean;
   /**
    * @remarks
-   * The position of the operator in the operator list.
+   * The position of the operator in the list of operators.
    * 
    * @example
    * 3
@@ -88,7 +89,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   operatorDescEn?: string;
   /**
    * @remarks
-   * The name of the operator.
+   * The display name of the operator.
    * 
    * @example
    * <=
@@ -96,7 +97,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   operatorName?: string;
   /**
    * @remarks
-   * The data types that are supported by the operator. The data types are separated by commas (,).
+   * The data types that the operator supports. Multiple data types are separated by commas.
    * 
    * @example
    * varchar
@@ -104,7 +105,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   supportDataType?: string;
   /**
    * @remarks
-   * The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as aggregation scenarios. By default, this parameter is empty.
+   * The scenarios that the operator supports. Multiple scenarios are separated by commas, such as aggregation. By default, this parameter is empty.
    * 
    * @example
    * [AGGREGATE]
@@ -151,7 +152,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
 export class DescribeAutomateResponseConfigFeatureResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data type of the condition field in the automated response rule.
+   * The data type of the condition field for the automated response rule.
    * 
    * @example
    * varchar
@@ -159,7 +160,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyData extends $dara
   dataType?: string;
   /**
    * @remarks
-   * The name of the condition field in the automated response rule.
+   * The name of the condition field for the automated response rule.
    * 
    * @example
    * alert_desc
@@ -167,12 +168,12 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyData extends $dara
   feature?: string;
   /**
    * @remarks
-   * The enumerated values of the right operand for the field.
+   * The enumeration of the right operand that corresponds to the field.
    */
   rightValueEnums?: DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnums[];
   /**
    * @remarks
-   * The operators that are supported for the condition field.
+   * The operators that the field supports.
    */
   supportOperators?: DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperators[];
   static names(): { [key: string]: string } {
@@ -211,7 +212,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyData extends $dara
 export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -219,7 +220,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Mod
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 123456
@@ -243,10 +244,11 @@ export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

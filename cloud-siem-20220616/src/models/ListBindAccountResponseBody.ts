@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the cloud account.
+   * The AccessKey ID of the account.
    * 
    * @example
    * ABCXXXXXXXX
@@ -21,15 +21,15 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The username of the cloud account.
+   * The name of the account.
    * 
    * @example
-   * sas_account_xxx
+   * XXXX Company
    */
   accountName?: string;
   /**
    * @remarks
-   * The ID that is generated when the cloud account is added.
+   * The binding ID.
    * 
    * @example
    * 123xxxxxxx
@@ -39,9 +39,11 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
    * @remarks
    * The code of the cloud service provider. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud.
    * 
    * @example
    * hcloud
@@ -49,7 +51,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the account that is used to add the cloud account.
+   * The user who bound the account.
    * 
    * @example
    * 123xxxxxxx
@@ -57,7 +59,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The number of data sources that are added to the threat analysis feature within the cloud account.
+   * The number of data sources that are bound to the account.
    * 
    * @example
    * 2
@@ -65,7 +67,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   dataSourceCount?: number;
   /**
    * @remarks
-   * The modification time.
+   * The time when the binding was modified.
    * 
    * @example
    * 2023-11-10 12:20:35
@@ -109,7 +111,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
 export class ListBindAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The result set.
    */
   data?: ListBindAccountResponseBodyData[];
   /**

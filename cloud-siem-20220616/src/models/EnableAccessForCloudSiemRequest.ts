@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAccessForCloudSiemRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether import the log of SAS alert, the log of WAF alert, the log of CFW alert or not. Valid values:
-   * - 0: not imported automatically
-   * - 1: imported automatically
+   * Specifies whether to automatically add alert logs from Security Center, Web Application Firewall (WAF), and Cloud Firewall. By default, alert logs are automatically added.
    * 
    * @example
    * 1
@@ -15,10 +13,11 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   autoSubmit?: number;
   /**
    * @remarks
-   * The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+   * The region of the Data Management center for Threat Analysis. Select the region based on where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions inside China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: Your assets are in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +25,7 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of a member. An administrator can use this parameter to switch to the perspective of the specified member.
    * 
    * @example
    * 113091674488****
@@ -34,9 +33,11 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The type of the view.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all member accounts.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of the cloud accounts that are added to the threat analysis feature.
+   * The number of account bindings that are added.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class BindAccountResponseBodyData extends $dara.Model {
 export class BindAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The detailed information returned by the Threat Analysis service.
    */
   data?: BindAccountResponseBodyData;
   /**

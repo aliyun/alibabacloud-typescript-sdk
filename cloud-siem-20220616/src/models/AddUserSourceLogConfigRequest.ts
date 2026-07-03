@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserSourceLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to add logs or delete added logs. Valid values:
+   * Specifies whether to add or delete the log collection task. Valid values:
    * 
-   * *   \\-1: deletes added logs.
-   * *   0: adds logs.
+   * - -1: Deletes the task.
+   * 
+   * - 0: Adds the task.
    * 
    * @example
    * 0
@@ -16,7 +17,7 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * The display details of the Logstore.
+   * The detailed information about the SLS log to be collected.
    * 
    * @example
    * cn-shanghai.siem-project.siem-logstore
@@ -24,10 +25,11 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   disPlayLine?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets reside. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: Your assets are in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -35,7 +37,7 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The log code.
+   * The code of the log.
    * 
    * @example
    * cloud_siem_aegis_proc
@@ -43,7 +45,7 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   sourceLogCode?: string;
   /**
    * @remarks
-   * The details of the Logstore that you want to use in the JSON string format.
+   * The detailed information about the Simple Log Service (SLS) log to be collected. The value is a JSON string.
    * 
    * This parameter is required.
    * 
@@ -53,7 +55,7 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   sourceLogInfo?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The code of the product.
    * 
    * @example
    * sas
@@ -61,7 +63,7 @@ export class AddUserSourceLogConfigRequest extends $dara.Model {
   sourceProdCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account for which you want to collect logs.
    * 
    * This parameter is required.
    * 

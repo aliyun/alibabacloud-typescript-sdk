@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAlertSourceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of modules.
+   */
   modules?: string[];
   /**
    * @remarks
-   * The internal code of the alert data source.
+   * The internal code for the alert source.
    * 
    * @example
    * aliyun.siem.alert_datasource.sas
@@ -14,7 +18,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The name of the alert data source.
+   * The name of the alert source.
    * 
    * @example
    * sas
@@ -51,7 +55,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
 export class DescribeAlertSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the response. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -59,7 +63,7 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The list of alert sources.
    * 
    * @example
    * 123456
@@ -67,7 +71,7 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
   data?: DescribeAlertSourceResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -85,8 +89,9 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

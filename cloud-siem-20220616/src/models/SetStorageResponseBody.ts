@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the settings are saved. Valid values:
+   * Indicates whether the settings were saved. Valid values:
    * 
-   * *   true:
-   * *   false:
+   * - true: The settings were saved.
+   * 
+   * - false: The settings failed to be saved.
    * 
    * @example
    * true

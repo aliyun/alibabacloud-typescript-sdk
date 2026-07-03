@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud accounts that are removed. The value 1 indicates that cloud account is removed, and a value less than or equal to 0 indicates that the cloud account failed to be removed.
+   * The number of account bindings that are deleted. A value of 1 indicates that the operation was successful. A value of 0 or less indicates that the operation failed.
    * 
    * @example
    * 1

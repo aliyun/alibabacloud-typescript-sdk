@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImportedLogCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of logs that are added.
+   * The number of ingested logs.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeImportedLogCountResponseBodyData extends $dara.Model {
   totalLogCount?: number;
   /**
    * @remarks
-   * The number of logs that are not added.
+   * The number of logs that are not ingested.
    * 
    * @example
    * 49
@@ -55,12 +55,12 @@ export class DescribeImportedLogCountResponseBodyData extends $dara.Model {
 export class DescribeImportedLogCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeImportedLogCountResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

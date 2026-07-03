@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizeRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The region in which the service is deployed.
+   * The region where the product is deployed.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class DeleteCustomizeRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member. This parameter is used when an administrator switches to the perspective of a member.
    * 
    * @example
    * 113091674488****
@@ -21,9 +21,11 @@ export class DeleteCustomizeRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The type of the view.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts in your enterprise.
    * 
    * @example
    * 1
@@ -31,7 +33,7 @@ export class DeleteCustomizeRuleRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the custom rule.
    * 
    * @example
    * 123456789

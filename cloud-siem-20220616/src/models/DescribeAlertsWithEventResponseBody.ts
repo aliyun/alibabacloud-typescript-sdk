@@ -13,7 +13,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
 export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList extends $dara.Model {
   /**
    * @remarks
-   * The attribute key.
+   * The key of the alert attribute.
    * 
    * @example
    * suspicious.wbd.wb.trojanpath
@@ -63,7 +63,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList ex
   key?: string;
   /**
    * @remarks
-   * The name of the key.
+   * The display name of the alert attribute.
    * 
    * @example
    * Trojan Path
@@ -71,7 +71,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList ex
   keyName?: string;
   /**
    * @remarks
-   * The value of the key.
+   * The value of the alert attribute.
    * 
    * @example
    * /root/test33.php
@@ -113,7 +113,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertDesc?: string;
   /**
    * @remarks
-   * The internal code of the alert description.
+   * The Medusa code of the alert description.
    * 
    * @example
    * security_event_config.event_name.webshell
@@ -121,7 +121,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertDescCode?: string;
   /**
    * @remarks
-   * The alert description in English.
+   * The English description of the alert.
    * 
    * @example
    * The detection model found a suspicious Webshell file on your server, which may be a backdoor file implanted to maintain permissions after the attacker successfully invaded the website.
@@ -129,7 +129,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertDescEn?: string;
   /**
    * @remarks
-   * The details of the alert.
+   * A JSON-formatted string that contains the alert details.
    * 
    * @example
    * {"main_user_id": "165295629792****";"log_uuid_count": "99";"attack_ip": "21.92.*.*"}
@@ -137,7 +137,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertDetail?: string;
   /**
    * @remarks
-   * The displayed details of the alert.
+   * A list of objects that contain detailed alert attributes.
    * 
    * @example
    * aliyun
@@ -145,11 +145,13 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertInfoList?: DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList[];
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level of the alert. Valid values:
    * 
-   * *   serious: high.
-   * *   suspicious: medium.
-   * *   remind: low.
+   * - `serious`: high
+   * 
+   * - `suspicious`: medium
+   * 
+   * - `remind`: low
    * 
    * @example
    * remind
@@ -165,7 +167,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertName?: string;
   /**
    * @remarks
-   * The internal code of the alert name.
+   * The Medusa code of the alert name.
    * 
    * @example
    * security_event_config.event_name.webshell
@@ -173,7 +175,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertNameCode?: string;
   /**
    * @remarks
-   * The alert name in English.
+   * The English name of the alert.
    * 
    * @example
    * Try SNMP weak password
@@ -181,7 +183,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertNameEn?: string;
   /**
    * @remarks
-   * The source of the alert.
+   * The source product of the alert.
    * 
    * @example
    * sas
@@ -189,7 +191,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertSrcProd?: string;
   /**
    * @remarks
-   * The sub-module of the alert source.
+   * The submodule of the source product.
    * 
    * @example
    * waf
@@ -205,7 +207,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertTitle?: string;
   /**
    * @remarks
-   * The alert title in English.
+   * The English title of the alert.
    * 
    * @example
    * Scan-Try SNMP weak password
@@ -221,7 +223,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertType?: string;
   /**
    * @remarks
-   * The internal code of the alert type.
+   * The Medusa code of the alert type.
    * 
    * @example
    * security_event_config.event_name.webshellName
@@ -229,7 +231,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertTypeCode?: string;
   /**
    * @remarks
-   * The alert type in English.
+   * The English type of the alert.
    * 
    * @example
    * Scan
@@ -245,7 +247,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertUuid?: string;
   /**
    * @remarks
-   * The details of the asset.
+   * A JSON-formatted string that lists the assets associated with the alert.
    * 
    * @example
    * [
@@ -264,7 +266,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   assetList?: string;
   /**
    * @remarks
-   * The tag of the ATT\\&CK technique.
+   * The ATT\\&CK tag.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -272,20 +274,29 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   attCk?: string;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The cloud service provider. Valid values:
    * 
-   * *   aliyun: Alibaba Cloud.
-   * *   qcloud: Tencent Cloud.
-   * *   hcloud: Huawei Cloud.
+   * - `aliyun`: Alibaba Cloud
+   * 
+   * - `qcloud`: Tencent Cloud
+   * 
+   * - `hcloud`: Huawei Cloud
    * 
    * @example
    * aliyun
    */
   cloudCode?: string;
+  /**
+   * @remarks
+   * The ID of the detection rule.
+   * 
+   * @example
+   * dr-48zs4tk7qfd4rjd9****
+   */
   detectionRuleId?: string;
   /**
    * @remarks
-   * The time when the alert was closed.
+   * The end time of the alert.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -293,16 +304,23 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The details of the entity.
+   * A JSON-formatted string that lists the entities involved in the alert.
    * 
    * @example
    * [{&quot;entity_user_id&quot;:&quot;198921674491****&quot;,&quot;entity_account_id&quot;:&quot;N/A&quot;,&quot;entity_uuid&quot;:&quot;6245f979d5dd9ef8dd19bdc72228****&quot;,&quot;entity_type&quot;:&quot;host&quot;,&quot;entity_name&quot;:&quot;zhh-test-20240409&quot;,&quot;is_comprised&quot;:&quot;1&quot;,&quot;os_type&quot;:&quot;linux&quot;,&quot;entity_id&quot;:&quot;a88f44dd-b8d4-4ded-831c-77a4835****&quot;,&quot;host_uuid&quot;:&quot;a88f44dd-b8d4-4ded-831c-77a4835****&quot;,&quot;host_name&quot;:&quot;zhh-test-2024****&quot;}]
    */
   entityList?: string;
+  /**
+   * @remarks
+   * A JSON-formatted string that contains extended information about the alert.
+   * 
+   * @example
+   * {"main_user_id": "165295629792****";"log_uuid_count": "99****"}
+   */
   extendContent?: string;
   /**
    * @remarks
-   * The time when the alert was received.
+   * The time when the alert was created.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -326,19 +344,27 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The UUID of the event.
+   * The universally unique identifier (UUID) of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   incidentUuid?: string;
+  /**
+   * @remarks
+   * A JSON-formatted string that contains the investigation report for the alert.
+   * 
+   * @example
+   * {"agent_attack_confidence": 90, "agent_judgement_category": "false_positive", "reason": "The command line contains \\"mediacenter\\" which is a normal startup behavior of Lark (Feishu) client, and the process path is in the standard user installation directory.", "start_time": 1774929064, "end_time": 1774929071}
+   */
   investigationReport?: string;
   /**
    * @remarks
-   * Indicates whether an attack is defended against. Valid values:
+   * Indicates whether the attack was blocked. Valid values:
    * 
-   * *   0: detected.
-   * *   1: blocked.
+   * - `0`: detected
+   * 
+   * - `1`: blocked
    * 
    * @example
    * 1
@@ -362,7 +388,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   logUuid?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is associated with the alert in SIEM.
+   * The ID of the main account associated with the alert.
    * 
    * @example
    * 127608589417****
@@ -370,16 +396,23 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   mainUserId?: number;
   /**
    * @remarks
-   * The time when the alert was triggered.
+   * The time when the alert occurred.
    * 
    * @example
    * 2021-01-06 16:37:29
    */
   occurTime?: string;
+  /**
+   * @remarks
+   * The cloud service ID.
+   * 
+   * @example
+   * alibaba_cloud_sas
+   */
   productId?: string;
   /**
    * @remarks
-   * The time at which the alert was first generated.
+   * The time when the alert first occurred.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -387,17 +420,33 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account within which the alert is generated.
+   * The ID of the sub-account that generated the alert.
    * 
    * @example
    * 176555323***
    */
   subUserId?: number;
   /**
+   * @remarks
+   * The name of the sub-account that generated the alert.
+   * 
    * @example
    * 176555323***
    */
   subUserName?: string;
+  /**
+   * @remarks
+   * The cloud service provider. Valid values:
+   * 
+   * - `aliyun`: Alibaba Cloud
+   * 
+   * - `qcloud`: Tencent Cloud
+   * 
+   * - `hcloud`: Huawei Cloud
+   * 
+   * @example
+   * aliyun
+   */
   vendorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -507,7 +556,7 @@ export class DescribeAlertsWithEventResponseBodyData extends $dara.Model {
   pageInfo?: DescribeAlertsWithEventResponseBodyDataPageInfo;
   /**
    * @remarks
-   * The detailed data.
+   * The details of the alerts.
    */
   responseData?: DescribeAlertsWithEventResponseBodyDataResponseData[];
   static names(): { [key: string]: string } {
@@ -542,7 +591,7 @@ export class DescribeAlertsWithEventResponseBodyData extends $dara.Model {
 export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -550,7 +599,7 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response payload.
    * 
    * @example
    * 123456
@@ -558,7 +607,7 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   data?: DescribeAlertsWithEventResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -576,8 +625,9 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreCapacityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the release command has been sent. Valid values:
+   * Indicates whether the delete command was sent. Valid values:
    * 
-   * *   true: The command has been sent and the storage space is being released.
-   * *   false: The command failed to be sent.
+   * - true: The delete command was sent and the cleanup is in progress.
+   * 
+   * - false: The command failed to send.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class RestoreCapacityResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-58D4-55B2-87B9-74D413F7****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostEventWhiteruleListRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique ID of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -13,10 +13,11 @@ export class PostEventWhiteruleListRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the threat analysis feature is deployed. Select the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: For assets in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: For assets in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -24,7 +25,7 @@ export class PostEventWhiteruleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The ID of a member account. An administrator can use this parameter to switch to the perspective of the member account.
    * 
    * @example
    * 113091674488****
@@ -32,9 +33,11 @@ export class PostEventWhiteruleListRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The account scope to which the rule applies. Valid values:
+   * 
+   * - 0: The current Alibaba Cloud account.
+   * 
+   * - 1: All accounts within the enterprise.
    * 
    * @example
    * 1
@@ -42,7 +45,7 @@ export class PostEventWhiteruleListRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The alert whitelist rule. The value is a JSON object.
+   * The alert whitelisting rule, which is a JSON object.
    * 
    * This parameter is required.
    * 

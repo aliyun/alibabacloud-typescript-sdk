@@ -13,7 +13,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,12 +21,19 @@ export class ListCustomizeRuleTestResultResponseBodyDataPageInfo extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of alerts that passed the verification.
+   * 
+   * @example
+   * 30
+   */
   verifiedCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,12 +68,12 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
    * The description of the alert.
    * 
    * @example
-   * The account you logged in this time is not in the legal account category defined by you. Please confirm the legality of the login behavior.
+   * The account you logged in this time is not in the legal account category defined by you. Please confirm the legality of the login behavior。
    */
   alertDesc?: string;
   /**
    * @remarks
-   * The alert details in the JSON format.
+   * The details of the alert, in JSON format.
    * 
    * @example
    * {"main_user_id": "165295629792****";"log_uuid_count": "99";"attack_ip": "218.92.XX.XX"}
@@ -74,7 +81,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertDetail?: string;
   /**
    * @remarks
-   * The source of the alert.
+   * The source product of the alert that is associated with the event.
    * 
    * @example
    * sas
@@ -82,7 +89,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertSrcProd?: string;
   /**
    * @remarks
-   * The sub-module of the source.
+   * The sub-module of the source product of the alert that is associated with the event.
    * 
    * @example
    * waf
@@ -90,7 +97,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertSrcProdModule?: string;
   /**
    * @remarks
-   * The tag of the ATT\\&CK attack.
+   * The ATT\\&CK attack technique tag.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -98,7 +105,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   attCk?: string;
   /**
    * @remarks
-   * The name of the alert, which corresponds to the name of the custom rule.
+   * The name of the alert. This value corresponds to the name of the custom rule.
    * 
    * @example
    * waf_scan
@@ -106,7 +113,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   eventName?: string;
   /**
    * @remarks
-   * The threat type, which indicates the alert type.
+   * The threat type. This parameter is equivalent to the alert type.
    * 
    * @example
    * WEBSHELL
@@ -116,9 +123,11 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
    * @remarks
    * The threat level. Valid values:
    * 
-   * *   serious: high.
-   * *   suspicious: medium.
-   * *   remind: low.
+   * - serious: high
+   * 
+   * - suspicious: medium
+   * 
+   * - remind: low
    * 
    * @example
    * remind
@@ -126,7 +135,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   level?: string;
   /**
    * @remarks
-   * The log source of the rule.
+   * The log source that corresponds to the rule.
    * 
    * @example
    * cloud_siem_aegis_sas_alert
@@ -137,12 +146,12 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
    * The time when the alert was recorded.
    * 
    * @example
-   * 2021-01-06 16:37:29
+   * 2023-01-06 16:37:29
    */
   logTime?: string;
   /**
    * @remarks
-   * The log type of the rule.
+   * The log type that corresponds to the rule.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -150,7 +159,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   logType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is associated with the alert in SIEM.
+   * The ID of the main Alibaba Cloud account for Security Information and Event Management (SIEM) that is associated with the alert.
    * 
    * @example
    * 127608589417****
@@ -160,8 +169,9 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
    * @remarks
    * The status of the alert data. Valid values:
    * 
-   * *   test: business test data.
-   * *   online: online data.
+   * - test: business test
+   * 
+   * - online: published
    * 
    * @example
    * test
@@ -169,7 +179,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   onlineStatus?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account within which the alert is generated.
+   * The ID of the member account that is associated with the alert.
    * 
    * @example
    * 176555323***
@@ -183,6 +193,17 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
    * sas_71e24437d2797ce8fc59692905a4****
    */
   uuid?: string;
+  /**
+   * @remarks
+   * The result of verifying the alert based on the alert template.
+   * 
+   * - true: The verification is passed.
+   * 
+   * - false: The verification failed.
+   * 
+   * @example
+   * true
+   */
   verifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -278,7 +299,7 @@ export class ListCustomizeRuleTestResultResponseBodyData extends $dara.Model {
 export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -294,7 +315,7 @@ export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
   data?: ListCustomizeRuleTestResultResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -312,8 +333,9 @@ export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

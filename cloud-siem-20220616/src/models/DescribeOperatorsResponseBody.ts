@@ -21,7 +21,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The description of the operator in Chinese.
+   * The Chinese description of the operator.
    * 
    * @example
    * arger than or equal to
@@ -29,7 +29,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
   operatorDescCn?: string;
   /**
    * @remarks
-   * The description of the operator in English.
+   * The English description of the operator.
    * 
    * @example
    * larger than or equal to
@@ -37,7 +37,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
   operatorDescEn?: string;
   /**
    * @remarks
-   * The name of the operator.
+   * The display name of the operator.
    * 
    * @example
    * <=
@@ -45,7 +45,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
   operatorName?: string;
   /**
    * @remarks
-   * The data types that are supported by the operator. The data types are separated by commas (,).
+   * The data types that the operator supports. Multiple data types are separated by commas.
    * 
    * @example
    * varchar
@@ -53,7 +53,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
   supportDataType?: string;
   /**
    * @remarks
-   * The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as AGGREGATE scenarios. By default, this parameter is empty.
+   * The scenarios that the operator supports. Multiple scenarios are separated by commas, such as aggregation (AGGREGATE). The default value is empty.
    * 
    * @example
    * [AGGREGATE]
@@ -98,7 +98,7 @@ export class DescribeOperatorsResponseBodyData extends $dara.Model {
 export class DescribeOperatorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -114,7 +114,7 @@ export class DescribeOperatorsResponseBody extends $dara.Model {
   data?: DescribeOperatorsResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -132,8 +132,9 @@ export class DescribeOperatorsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

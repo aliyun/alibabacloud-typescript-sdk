@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeRuleTestHistogramResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are generated in the query time range.
+   * The number of alerts generated in the subinterval.
    * 
    * @example
    * 125
@@ -13,7 +13,7 @@ export class DescribeCustomizeRuleTestHistogramResponseBodyData extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The start of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+   * The start of the time range for the alert. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1599897188
@@ -21,7 +21,7 @@ export class DescribeCustomizeRuleTestHistogramResponseBodyData extends $dara.Mo
   from?: number;
   /**
    * @remarks
-   * The end of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+   * The end of the time range for the alert. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1599997188
@@ -55,7 +55,7 @@ export class DescribeCustomizeRuleTestHistogramResponseBodyData extends $dara.Mo
 export class DescribeCustomizeRuleTestHistogramResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class DescribeCustomizeRuleTestHistogramResponseBody extends $dara.Model 
   code?: number;
   /**
    * @remarks
-   * The return value for the request.
+   * The data returned.
    * 
    * @example
    * 123456
@@ -71,7 +71,7 @@ export class DescribeCustomizeRuleTestHistogramResponseBody extends $dara.Model 
   data?: DescribeCustomizeRuleTestHistogramResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -89,8 +89,9 @@ export class DescribeCustomizeRuleTestHistogramResponseBody extends $dara.Model 
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

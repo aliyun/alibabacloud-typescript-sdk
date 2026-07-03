@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 同类聚合规则数。
+   * The number of rules for intra-class aggregation.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   aggregationRuleNum?: number;
   /**
    * @remarks
-   * 自定义规则数。
+   * The number of custom rules.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   customizeRuleNum?: number;
   /**
    * @remarks
-   * 专家规则数。
+   * The number of expert rules.
    * 
    * @example
    * 7
@@ -29,7 +29,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   expertRuleNum?: number;
   /**
    * @remarks
-   * 图计算规则数。
+   * The number of graph computing rules.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   graphComputingRuleNum?: number;
   /**
    * @remarks
-   * The number of rules that are used to identify high-risk threats.
+   * The number of high-risk rules.
    * 
    * @example
    * 12
@@ -45,7 +45,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   highRuleNum?: number;
   /**
    * @remarks
-   * The total number of rules.
+   * The number of rules in use.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   inUseRuleNum?: number;
   /**
    * @remarks
-   * The number of rules that are used to identify low-risk threats.
+   * The number of low-risk rules.
    * 
    * @example
    * 3
@@ -61,7 +61,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   lowRuleNum?: number;
   /**
    * @remarks
-   * The number of rules that are used to identify medium-risk threats.
+   * The number of medium-risk rules.
    * 
    * @example
    * 5
@@ -69,7 +69,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   mediumRuleNum?: number;
   /**
    * @remarks
-   * 预定义规则数。
+   * The number of predefined rules.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   predefinedRuleNum?: number;
   /**
    * @remarks
-   * 告警透传规则数。
+   * The number of alert pass-through rules.
    * 
    * @example
    * 3
@@ -85,7 +85,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   singleAlertRuleNum?: number;
   /**
    * @remarks
-   * 总规则数。
+   * The total number of rules.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
   totalRuleNum?: number;
   /**
    * @remarks
-   * 不产生事件规则数。
+   * The number of rules that do not generate events.
    * 
    * @example
    * 3
@@ -145,7 +145,7 @@ export class DescribeCustomizeRuleCountResponseBodyData extends $dara.Model {
 export class DescribeCustomizeRuleCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -161,7 +161,7 @@ export class DescribeCustomizeRuleCountResponseBody extends $dara.Model {
   data?: DescribeCustomizeRuleCountResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -179,8 +179,9 @@ export class DescribeCustomizeRuleCountResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

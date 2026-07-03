@@ -76,6 +76,7 @@ export { DescribeWhiteRuleListResponseBodyDataResponseDataExpression } from './D
 export { DescribeWhiteRuleListResponseBodyDataResponseData } from './DescribeWhiteRuleListResponseBody';
 export { DescribeWhiteRuleListResponseBodyData } from './DescribeWhiteRuleListResponseBody';
 export { GetCapacityResponseBodyData } from './GetCapacityResponseBody';
+export { GetEntitiyStatResponseBodyData } from './GetEntitiyStatResponseBody';
 export { GetStorageResponseBodyData } from './GetStorageResponseBody';
 export { ListAccountAccessIdResponseBodyData } from './ListAccountAccessIdResponseBody';
 export { ListAccountsByLogResponseBodyData } from './ListAccountsByLogResponseBody';
@@ -278,6 +279,9 @@ export { EnableServiceForCloudSiemResponse } from './EnableServiceForCloudSiemRe
 export { GetCapacityRequest } from './GetCapacityRequest';
 export { GetCapacityResponseBody } from './GetCapacityResponseBody';
 export { GetCapacityResponse } from './GetCapacityResponse';
+export { GetEntitiyStatRequest } from './GetEntitiyStatRequest';
+export { GetEntitiyStatResponseBody } from './GetEntitiyStatResponseBody';
+export { GetEntitiyStatResponse } from './GetEntitiyStatResponse';
 export { GetStorageRequest } from './GetStorageRequest';
 export { GetStorageResponseBody } from './GetStorageResponseBody';
 export { GetStorageResponse } from './GetStorageResponse';

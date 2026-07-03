@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitImportLogTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of log collection tasks that are submitted.
+   * The number of log ingestion tasks that are successfully submitted.
    * 
    * @example
    * 10

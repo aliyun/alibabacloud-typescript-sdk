@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CloseDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the threat analysis feature was disabled. Valid values:
+   * The result of the request. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

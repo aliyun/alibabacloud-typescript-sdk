@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthRequest extends $dara.Model {
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region of the threat analysis center. Select a region based on where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Select this value if your assets are deployed in the Chinese mainland or the China (Hong Kong) region.
+   * 
+   * - ap-southeast-1: Select this value if your assets are deployed in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

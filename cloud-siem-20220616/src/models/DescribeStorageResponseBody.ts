@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the projects and Logstores that are created for the threat analysis feature exist in Simple Log Service. Valid values:
+   * Indicates whether the project and Logstore created by the threat analysis service exist in your Simple Log Service. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The project and Logstore exist.
+   * 
+   * - false: The project and Logstore do not exist.
    * 
    * @example
    * true

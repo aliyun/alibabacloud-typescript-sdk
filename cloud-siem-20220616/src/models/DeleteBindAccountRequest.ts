@@ -25,7 +25,7 @@ export class DeleteBindAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID generated when the account is added to the threat analysis feature. You can call the [ListBindAccount](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListBindAccount) operation to query the ID.
+   * The binding ID. Call the [ListBindAccount](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListBindAccount) operation to obtain the binding ID.
    * 
    * @example
    * 10
@@ -33,11 +33,13 @@ export class DeleteBindAccountRequest extends $dara.Model {
   bindId?: number;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The code for the cloud service provider. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud
+   * 
+   * - aliyun: Alibaba Cloud
+   * 
+   * - hcloud: Huawei Cloud
    * 
    * This parameter is required.
    * 
@@ -47,16 +49,35 @@ export class DeleteBindAccountRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the threat analysis data center is located. Select a region based on the location of your assets. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in mainland China or the China (Hong Kong) region.
+   * 
+   * - ap-southeast-1: Your assets are in regions outside China.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the member. An administrator can specify this parameter to perform the operation from the perspective of a member.
+   * 
+   * @example
+   * 113091674488****
+   */
   roleFor?: number;
+  /**
+   * @remarks
+   * The type of the view. Valid values:
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that are managed by your enterprise.
+   * 
+   * @example
+   * 1
+   */
   roleType?: number;
   static names(): { [key: string]: string } {
     return {

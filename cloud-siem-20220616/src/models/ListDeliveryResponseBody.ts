@@ -6,7 +6,7 @@ import { DataProductListLogMapValue } from "./DataProductListLogMapValue";
 export class ListDeliveryResponseBodyDataProductListLogListExtraParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the extended parameter.
+   * The key of the additional parameter.
    * 
    * @example
    * flag
@@ -14,7 +14,7 @@ export class ListDeliveryResponseBodyDataProductListLogListExtraParameters exten
   key?: string;
   /**
    * @remarks
-   * The value of the extended parameter.
+   * The value of the additional parameter.
    * 
    * @example
    * value
@@ -46,10 +46,11 @@ export class ListDeliveryResponseBodyDataProductListLogListExtraParameters exten
 export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the log delivery feature can be enabled or disabled. The feature can be enabled or disabled only by the administrator of the threat analysis feature. Valid values:
+   * Indicates whether the log delivery switch can be operated. Only the delegated administrator for threat analysis can operate the switch. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The switch can be operated.
+   * 
+   * - false: The switch cannot be operated.
    * 
    * @example
    * true
@@ -57,12 +58,12 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   canOperateOrNot?: boolean;
   /**
    * @remarks
-   * The extended parameter.
+   * Additional parameters.
    */
   extraParameters?: ListDeliveryResponseBodyDataProductListLogListExtraParameters[];
   /**
    * @remarks
-   * The code of the log.
+   * The log code.
    * 
    * @example
    * cloud_siem_config_log
@@ -70,7 +71,7 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   logCode?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated. You can ignore it.
    * 
    * @example
    * audit log
@@ -78,7 +79,7 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   logName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated. You can ignore it.
    * 
    * @example
    * audit log
@@ -86,7 +87,7 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   logNameEn?: string;
   /**
    * @remarks
-   * The language code of the log that is used to indicate the language in which the log is displayed.
+   * The language key of the log name. This key is used to display the log name in different languages.
    * 
    * @example
    * ${sas.cloudsiem.prod.cloud_siem_aegis_crack_from_beaver}
@@ -94,10 +95,11 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   logNameKey?: string;
   /**
    * @remarks
-   * The status of the log delivery. Valid values:
+   * The log delivery status. Valid values:
    * 
-   * *   true: The logs are being delivered.
-   * *   false: The log delivery feature is disabled.
+   * - true: Delivery is in progress.
+   * 
+   * - false: Delivery is disabled.
    * 
    * @example
    * true
@@ -105,7 +107,7 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
   status?: boolean;
   /**
    * @remarks
-   * The topic of the log in the Logstore. The value is an index field in the Logstore that can be used to distinguish different logs.
+   * The topic of the log in the LogStore. This parameter is an index field in the LogStore and is used to differentiate logs.
    * 
    * @example
    * sas_login_event
@@ -152,41 +154,63 @@ export class ListDeliveryResponseBodyDataProductListLogList extends $dara.Model 
 export class ListDeliveryResponseBodyDataProductList extends $dara.Model {
   /**
    * @remarks
-   * The logs of the cloud services.
+   * A list of logs for cloud products that do not have subcategories.
    */
   logList?: ListDeliveryResponseBodyDataProductListLogList[];
   /**
    * @remarks
-   * The log group. For example, in Security Center, the logs of hosts and networks are stored in different groups. Key indicates the group information, and value indicates the logs in the group.
+   * A list of logs that are categorized. For example, Security Center logs are categorized into groups such as Host and Network. The group is the key, and the logs in the group are the value.
    */
   logMap?: { [key: string]: DataProductListLogMapValue[] };
   /**
    * @remarks
-   * The code of the cloud service. Valid values:
+   * The code of the cloud product. Valid values:
    * 
-   * *   qcloud_waf
-   * *   qlcoud_cfw
-   * *   hcloud_waf
-   * *   hcloud_cfw
-   * *   ddos
-   * *   sas
-   * *   cfw
-   * *   config
-   * *   csk
-   * *   fc
-   * *   rds
-   * *   nas
-   * *   apigateway
-   * *   cdn
-   * *   mongodb
-   * *   eip
-   * *   slb
-   * *   vpc
-   * *   actiontrail
-   * *   waf
-   * *   bastionhost
-   * *   oss
-   * *   polardb
+   * - qcloud_waf
+   * 
+   * - qcloud_cfw
+   * 
+   * - hcloud_waf
+   * 
+   * - hcloud_cfw
+   * 
+   * - ddos
+   * 
+   * - sas
+   * 
+   * - cfw
+   * 
+   * - config
+   * 
+   * - csk
+   * 
+   * - fc
+   * 
+   * - rds
+   * 
+   * - nas
+   * 
+   * - apigateway
+   * 
+   * - cdn
+   * 
+   * - mongodb
+   * 
+   * - eip
+   * 
+   * - slb
+   * 
+   * - vpc
+   * 
+   * - actiontrail
+   * 
+   * - waf
+   * 
+   * - bastionhost
+   * 
+   * - oss
+   * 
+   * - polardb
    * 
    * @example
    * sas
@@ -194,7 +218,7 @@ export class ListDeliveryResponseBodyDataProductList extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated. You can ignore it.
    * 
    * @example
    * Security Center
@@ -236,7 +260,7 @@ export class ListDeliveryResponseBodyDataProductList extends $dara.Model {
 export class ListDeliveryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL that is displayed in charts.
+   * The URL of the dashboard on the log analysis page.
    * 
    * @example
    * https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
@@ -245,10 +269,11 @@ export class ListDeliveryResponseBodyData extends $dara.Model {
   dashboardUrl?: string;
   /**
    * @remarks
-   * Indicates whether the log delivery switch is displayed. Default value: true. Valid values:
+   * Indicates whether to display the delivery switch. The default value is true. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The delivery switch is displayed.
+   * 
+   * - false: The delivery switch is hidden.
    * 
    * @example
    * true
@@ -256,7 +281,7 @@ export class ListDeliveryResponseBodyData extends $dara.Model {
   displaySwitchOrNot?: boolean;
   /**
    * @remarks
-   * The name of the Logstore for the threat analysis feature on the user side. The value is in the cloud_siem format.
+   * The name of your LogStore for threat analysis. The format is \\`cloud_siem\\`.
    * 
    * @example
    * cloud-siem
@@ -264,12 +289,12 @@ export class ListDeliveryResponseBodyData extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The cloud services.
+   * A list of products.
    */
   productList?: ListDeliveryResponseBodyDataProductList[];
   /**
    * @remarks
-   * The name of the project for the threat analysis feature in Simple Log service on the user side. The value is in the aliyun-cloudsiem-data-${aliUid}-${region} format.
+   * The name of your Simple Log Service (SLS) project for threat analysis. The format is \\`aliyun-cloudsiem-data-${aliUid}-${region}\\`.
    * 
    * @example
    * aliyun-cloudsiem-data-127608589417****-cn-shanghai
@@ -277,7 +302,7 @@ export class ListDeliveryResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The URL that is used for log analysis.
+   * The URL of the Search & Analysis page in the SLS console.
    * 
    * @example
    * https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
@@ -321,7 +346,7 @@ export class ListDeliveryResponseBodyData extends $dara.Model {
 export class ListDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: ListDeliveryResponseBodyData;
   /**

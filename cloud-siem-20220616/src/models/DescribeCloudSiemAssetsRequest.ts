@@ -4,33 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudSiemAssetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The asset name.
+   * 
    * @example
    * test123
    */
   assetName?: string;
   /**
    * @remarks
-   * The type of the asset. Valid values:
+   * The asset type. Valid values:
    * 
-   * *   ip
-   * *   domain
-   * *   url
-   * *   process
-   * *   file
-   * *   host
+   * - ip: IP address
+   * 
+   * - domain: domain name
+   * 
+   * - url: URL
+   * 
+   * - process: process
+   * 
+   * - file: file
+   * 
+   * - host: host
    * 
    * @example
    * ip
    */
   assetType?: string;
   /**
+   * @remarks
+   * The UUID of the asset.
+   * 
    * @example
    * 123456-2222-3333-5555-3435345****
    */
   assetUuid?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -48,7 +59,7 @@ export class DescribeCloudSiemAssetsRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries to return on each page. The maximum value is 100.
    * 
    * This parameter is required.
    * 
@@ -58,10 +69,11 @@ export class DescribeCloudSiemAssetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the Data Management center of Threat Analysis is deployed. Select a region based on the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: assets in the Chinese mainland or China (Hong Kong)
+   * 
+   * - ap-southeast-1: assets outside China
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +81,7 @@ export class DescribeCloudSiemAssetsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member whose data you want to view. This parameter is available only when an administrator wants to switch to the perspective of a member.
    * 
    * @example
    * 113091674488****
@@ -77,9 +89,11 @@ export class DescribeCloudSiemAssetsRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 1

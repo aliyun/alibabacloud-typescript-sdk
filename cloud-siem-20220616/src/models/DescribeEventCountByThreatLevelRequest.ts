@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * End time of the query, in milliseconds.
    * 
    * @example
    * 1577808000000
@@ -13,10 +13,11 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * Region where the Data Management Center for threat analysis is located. Select a region based on the location of your assets. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: Assets are outside China.
    * 
    * @example
    * cn-hangzhou
@@ -24,7 +25,7 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member in the resource directory.
+   * Resource directory member account ID.
    * 
    * @example
    * 113091674488****
@@ -32,10 +33,11 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
+   * View type.
    * 
-   * *   0: view of the current Alibaba Cloud account.
-   * *   1: view of all accounts for the enterprise.
+   * - 0: View for the current Alibaba Cloud account.
+   * 
+   * - 1: View for all accounts in your enterprise.
    * 
    * @example
    * 1
@@ -43,7 +45,7 @@ export class DescribeEventCountByThreatLevelRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * Start time of the query, in milliseconds.
    * 
    * @example
    * 1577808000000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsByLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The code that is used for multi-cloud environments.
+   * The code of the multicloud environment.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAccountsByLogRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The codes of logs. The value is a JSON array.
+   * The list of log codes. The value must be a JSON array.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListAccountsByLogRequest extends $dara.Model {
   logCodes?: string[];
   /**
    * @remarks
-   * The code of the service.
+   * The code of the product.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,11 @@ export class ListAccountsByLogRequest extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+   * The region where the Data Management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions inside China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Your assets are outside China.
    * 
    * @example
    * cn-hangzhou
@@ -46,7 +47,7 @@ export class ListAccountsByLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member. This parameter allows an administrator to switch to the perspective of a member account.
    * 
    * @example
    * 113091674488****
@@ -54,9 +55,11 @@ export class ListAccountsByLogRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 1

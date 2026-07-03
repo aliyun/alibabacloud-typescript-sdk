@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostCustomizeRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The risk type.
+   * The threat type.
    * 
    * @example
    * WEBSHELL
@@ -13,7 +13,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The internal code of the risk type.
+   * The Medusa code of the threat type.
    * 
    * @example
    * ${siem_rule_type_process_abnormal_command}
@@ -21,7 +21,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   alertTypeMds?: string;
   /**
    * @remarks
-   * att&ck.
+   * The ATT\\&CK technique.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -29,7 +29,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   attCk?: string;
   /**
    * @remarks
-   * The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window.
+   * The extended information for event generation. This parameter is returned only when EventTransferType is set to allToSingle. The value indicates the length and unit of the alert aggregation window.
    * 
    * @example
    * {"time":"1","unit":"MINUTE"}
@@ -37,10 +37,11 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   eventTransferExt?: string;
   /**
    * @remarks
-   * Specifies whether to convert an alert to an event. Valid values:
+   * Specifies whether to convert alerts into events. Valid values:
    * 
-   * *   0: no
-   * *   1: yes
+   * - 0: no
+   * 
+   * - 1: yes
    * 
    * @example
    * 1
@@ -50,9 +51,11 @@ export class PostCustomizeRuleRequest extends $dara.Model {
    * @remarks
    * The event generation method. Valid values:
    * 
-   * *   default: The default method is used.
-   * *   singleToSingle: The system generates an event for each alert.
-   * *   allToSingle: The system generates an event for alerts within a period of time.
+   * - default: the default method
+   * 
+   * - singleToSingle: An event is generated for each alert.
+   * 
+   * - allToSingle: An event is generated for all alerts in a period.
    * 
    * @example
    * allToSingle
@@ -60,7 +63,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   eventTransferType?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the custom rule.
    * 
    * @example
    * 123456789
@@ -76,7 +79,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The internal code of the log source.
+   * The Medusa code of the log source.
    * 
    * @example
    * ${sas.cloudsiem.prod.cloud_siem_aegis_sas_alert}
@@ -92,7 +95,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The internal code of the log type.
+   * The Medusa code of the log type.
    * 
    * @example
    * ${security_event_config.event_name.webshellName_clientav}
@@ -100,7 +103,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   logTypeMds?: string;
   /**
    * @remarks
-   * The window length of the rule.
+   * The length of the rule window.
    * 
    * @example
    * {"time":"1","unit":"HOUR"}
@@ -108,10 +111,11 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   queryCycle?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the data management center of Threat Analysis is located. Select the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: assets in the Chinese mainland and China (Hong Kong)
+   * 
+   * - ap-southeast-1: assets outside China
    * 
    * @example
    * cn-hangzhou
@@ -119,7 +123,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID that is used to switch the administrator\\"s perspective to a member\\"s perspective.
    * 
    * @example
    * 113091674488****
@@ -127,9 +131,11 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: the view of the current Alibaba Cloud account.
+   * 
+   * - 1: the view of all accounts that are managed by the administrator.
    * 
    * @example
    * 1
@@ -137,7 +143,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The query condition of the rule. The value is in the JSON format.
+   * The query condition of the rule. The value is a JSON string.
    * 
    * @example
    * [[{"not":false,"left":"alert_name","operator":"=","right":"WEBSHELL"}]]
@@ -153,7 +159,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   ruleDesc?: string;
   /**
    * @remarks
-   * The log aggregation field of the rule. The value is a JSON string.
+   * The fields that are used to group logs. The value is a JSON array.
    * 
    * @example
    * ["asset_id"]
@@ -169,7 +175,7 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The threshold configuration of the rule. The value is in the JSON format.
+   * The threshold configuration of the rule. The value is a JSON string.
    * 
    * @example
    * {"aggregateFunction":"count","aggregateFunctionName":"count","field":"activity_name","operator":"&lt;=","value":1}
@@ -177,11 +183,13 @@ export class PostCustomizeRuleRequest extends $dara.Model {
   ruleThreshold?: string;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level. Valid values:
    * 
-   * *   serious: high
-   * *   suspicious: medium
-   * *   remind: low
+   * - serious: high
+   * 
+   * - suspicious: medium
+   * 
+   * - remind: low
    * 
    * @example
    * remind

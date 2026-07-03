@@ -15,10 +15,11 @@ export class DescribeCloudSiemAssetsCounterRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the data management center of Threat Analysis is deployed. Select a region based on the location of your assets. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or the China (Hong Kong) region.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +27,7 @@ export class DescribeCloudSiemAssetsCounterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The UID of the member. An administrator can use this parameter to switch to the member\\"s view.
    * 
    * @example
    * 113091674488****
@@ -34,9 +35,11 @@ export class DescribeCloudSiemAssetsCounterRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The type of view.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 1

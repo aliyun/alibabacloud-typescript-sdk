@@ -3,34 +3,65 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProdCountResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of automatically connected Alibaba Cloud products.
+   * 
+   * @example
+   * 2
+   */
   aliyunImportedCount?: number;
   /**
    * @remarks
-   * The number of Alibaba Cloud services.
+   * The number of Alibaba Cloud products.
    * 
    * @example
    * 19
    */
   aliyunProdCount?: number;
+  /**
+   * @remarks
+   * The number of automatically connected Huawei Cloud products.
+   * 
+   * @example
+   * 2
+   */
   hcloudImportedCount?: number;
   /**
    * @remarks
-   * The number of Huawei Cloud services.
+   * The number of Huawei Cloud products.
    * 
    * @example
    * 2
    */
   hcloudProdCount?: number;
+  /**
+   * @remarks
+   * The number of automatically connected IDC products.
+   * 
+   * @example
+   * 2
+   */
   idcImportedCount?: number;
   /**
+   * @remarks
+   * The number of IDC products.
+   * 
    * @example
    * 2
    */
   idcProdCount?: number;
+  /**
+   * @remarks
+   * The number of automatically connected Tencent Cloud products.
+   * 
+   * @example
+   * 2
+   */
   qcloudImportedCount?: number;
   /**
    * @remarks
-   * The number of Tencent Cloud services.
+   * The number of Tencent Cloud products.
    * 
    * @example
    * 2
@@ -79,7 +110,7 @@ export class DescribeProdCountResponseBody extends $dara.Model {
   data?: DescribeProdCountResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

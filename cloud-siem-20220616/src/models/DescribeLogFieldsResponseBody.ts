@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogFieldsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the log to which the field belongs.
+   * The log type to which the field belongs.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -13,7 +13,7 @@ export class DescribeLogFieldsResponseBodyData extends $dara.Model {
   activityName?: string;
   /**
    * @remarks
-   * The internal code of the field description.
+   * The Medusa code for the field description.
    * 
    * @example
    * sas.cloudsiem.prod.activity_name
@@ -21,7 +21,7 @@ export class DescribeLogFieldsResponseBodyData extends $dara.Model {
   fieldDesc?: string;
   /**
    * @remarks
-   * The name of the field.
+   * The name of the rule field.
    * 
    * @example
    * activity_name
@@ -31,8 +31,9 @@ export class DescribeLogFieldsResponseBodyData extends $dara.Model {
    * @remarks
    * The data type of the field. Valid values:
    * 
-   * *   varchar
-   * *   bigint
+   * - varchar: string
+   * 
+   * - bigint: number
    * 
    * @example
    * varchar
@@ -78,7 +79,7 @@ export class DescribeLogFieldsResponseBodyData extends $dara.Model {
 export class DescribeLogFieldsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -94,7 +95,7 @@ export class DescribeLogFieldsResponseBody extends $dara.Model {
   data?: DescribeLogFieldsResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -112,8 +113,9 @@ export class DescribeLogFieldsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

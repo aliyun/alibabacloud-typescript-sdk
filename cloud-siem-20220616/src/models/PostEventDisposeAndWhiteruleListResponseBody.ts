@@ -13,7 +13,7 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response value.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -37,10 +37,11 @@ export class PostEventDisposeAndWhiteruleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: succeeded
+   * 
+   * - false: failed
    * 
    * @example
    * true

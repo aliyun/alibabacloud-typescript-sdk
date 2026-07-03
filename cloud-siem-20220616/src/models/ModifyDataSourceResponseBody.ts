@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of data sources that are modified. The value 1 indicates that the modification is successful, and a value less than or equal to 0 indicates that the modification failed.
+   * The number of modified data sources. A value of 1 indicates success. A value of 0 or less indicates failure.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ModifyDataSourceResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+   * The ID of the data source. The ID is an MD5 hash that is calculated based on the values of other parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -50,7 +50,7 @@ export class ModifyDataSourceResponseBody extends $dara.Model {
   data?: ModifyDataSourceResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

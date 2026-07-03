@@ -13,7 +13,7 @@ export class DescribeLogSourceResponseBodyData extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The internal code of the log source.
+   * The Medusa code of the log source for the rule.
    * 
    * @example
    * sas.cloudsiem.prod.cloud_siem_aegis_sas_alert
@@ -45,7 +45,7 @@ export class DescribeLogSourceResponseBodyData extends $dara.Model {
 export class DescribeLogSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class DescribeLogSourceResponseBody extends $dara.Model {
   data?: DescribeLogSourceResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -79,8 +79,9 @@ export class DescribeLogSourceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

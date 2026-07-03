@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetCapacityRequest extends $dara.Model {
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * Region where the Data Management Center for threat analysis is located. Choose a region based on where your assets are located.
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Select this if your assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: Select this if your assets are outside China.
    * 
    * @example
    * cn-hangzhou
@@ -16,7 +17,7 @@ export class GetCapacityRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * User ID of the member whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -24,9 +25,11 @@ export class GetCapacityRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * View type.
+   * 
+   * - 0: View for the current Alibaba Cloud account.
+   * 
+   * - 1: View for all accounts under your enterprise.
    * 
    * @example
    * 1

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class OpenDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the log delivery feature is enabled. Valid values:
+   * Indicates whether log delivery is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled
+   * 
+   * - false: Failed
    * 
    * @example
    * true

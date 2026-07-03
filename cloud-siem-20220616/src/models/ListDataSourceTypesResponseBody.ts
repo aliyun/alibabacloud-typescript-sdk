@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceTypesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The code of the third-party cloud service.
+   * The code of the multicloud service.
    * 
    * @example
    * hcloud
@@ -15,9 +15,11 @@ export class ListDataSourceTypesResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   obs: Huawei Cloud Object Storage Service (OBS)
-   * *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
-   * *   ckafka: Tencent Cloud Kafka (CKafka)
+   * - obs: Huawei Cloud OBS.
+   * 
+   * - wafApi: Tencent Cloud WAF download API.
+   * 
+   * - ckafka: Tencent Cloud CKafka.
    * 
    * @example
    * obs
@@ -54,7 +56,7 @@ export class ListDataSourceTypesResponseBody extends $dara.Model {
   data?: ListDataSourceTypesResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

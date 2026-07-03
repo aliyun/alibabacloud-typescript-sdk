@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The display name of the attribute for the entity.
+   * The display name of the field of the entity that can be added to the whitelist.
    * 
    * @example
    * HOST UUID
@@ -13,7 +13,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The attribute of the entity.
+   * The field of the entity that can be added to the whitelist.
    * 
    * @example
    * host_uuid
@@ -21,7 +21,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The right operand that is displayed by default in the whitelist rule.
+   * The default right operand that is displayed for the whitelist rule.
    * 
    * @example
    * 441862da-a539-4cc0-a00d-47395582****
@@ -29,7 +29,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The right operands supported by the whitelist rule.
+   * The available right operands for the whitelist rule.
    * 
    * @example
    * ["441862da-a539-4cc0-a00d-473955826881"]
@@ -68,7 +68,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
 export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+   * The display name of the alert. The value varies based on the language of the environment.
    * 
    * @example
    * login_common_ip
@@ -84,7 +84,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertNameId?: string;
   /**
    * @remarks
-   * The title of the alert notification. The value varies based on the display language (Chinese or English) of the Security Center console.
+   * The display title of the alert. The value varies based on the language of the environment.
    * 
    * @example
    * unusual login-login_common_ip
@@ -100,7 +100,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertTileId?: string;
   /**
    * @remarks
-   * The type of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+   * The display name of the alert type. The value varies based on the language of the environment.
    * 
    * @example
    * unusual login
@@ -116,7 +116,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertTypeId?: string;
   /**
    * @remarks
-   * The information about the entities for which you need to add the alert to the whitelist.
+   * The objects that can be added to the whitelist.
    * 
    * @example
    * [{"Type": "host_uuid","Value": "441862da-a539-4cc0-a00d-473955826881","Values": ["441862da-a539-4cc0-a00d-473955826881"],"Name": "${aliyun.siem.entity.host_uuid}"}]
@@ -161,7 +161,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
 export class DescribeAlertSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -195,8 +195,9 @@ export class DescribeAlertSceneResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

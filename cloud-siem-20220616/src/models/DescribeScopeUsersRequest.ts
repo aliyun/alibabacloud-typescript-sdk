@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScopeUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+   * The region of the Data Management center. Select the region based on where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions inside China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Assets are in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -16,7 +17,7 @@ export class DescribeScopeUsersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member. This parameter is used when an administrator switches to the view of a member.
    * 
    * @example
    * 113091674488****
@@ -24,9 +25,11 @@ export class DescribeScopeUsersRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 1

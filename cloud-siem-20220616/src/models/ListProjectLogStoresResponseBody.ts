@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the Simple Log Service project.
+   * The endpoint of the SLS project.
    * 
    * @example
    * cn-hangzhou.log.aliyuncs.com
@@ -13,7 +13,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   endPoint?: string;
   /**
    * @remarks
-   * The name of the region in which the Simple Log Service project resides.
+   * The name of the region where the SLS project resides.
    * 
    * @example
    * hangzhou
@@ -21,7 +21,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the SLS Logstore.
    * 
    * @example
    * cloud-siem-logstore
@@ -29,7 +29,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   logStore?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
    * 
    * @example
    * 123XXXXXXXXX
@@ -37,7 +37,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the SLS project.
    * 
    * @example
    * cloud-siem-project
@@ -45,7 +45,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The ID of the region in which the Simple Log Service project resides.
+   * The region where the SLS project resides.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+   * The ID of the member account for which threat analysis is performed.
    * 
    * @example
    * 123XXXXXXXX
@@ -61,7 +61,7 @@ export class ListProjectLogStoresResponseBodyData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+   * The name of the member account.
    * 
    * @example
    * sas_account_xxxx

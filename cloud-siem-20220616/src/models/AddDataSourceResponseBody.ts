@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of data sources that are added. The value 1 indicates that data source is added, and a value less than or equal to 0 indicates that the data source failed to be added.
+   * The number of data sources that were added. A value of 1 indicates success. A value of 0 or less indicates failure.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class AddDataSourceResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+   * The ID of the data source. The threat analysis feature generates the ID by calculating an MD5 hash of the parameter values.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -50,7 +50,7 @@ export class AddDataSourceResponseBody extends $dara.Model {
   data?: AddDataSourceResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

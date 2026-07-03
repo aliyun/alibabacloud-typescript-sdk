@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogFieldsRequest extends $dara.Model {
   /**
    * @remarks
-   * The log source of the rule.
+   * The log source for the rule.
    * 
    * @example
    * cloud_siem_aegis_sas_alert
@@ -13,7 +13,7 @@ export class DescribeLogFieldsRequest extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The log type of the rule.
+   * The log source for the rule.
    * 
    * @example
    * cloud_siem_aegis_sas_alert
@@ -21,10 +21,11 @@ export class DescribeLogFieldsRequest extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the threat analysis Management Hub is located. Select the region of the Management Hub based on the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
    * 
    * @example
    * cn-hangzhou
@@ -32,7 +33,7 @@ export class DescribeLogFieldsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -40,9 +41,11 @@ export class DescribeLogFieldsRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1

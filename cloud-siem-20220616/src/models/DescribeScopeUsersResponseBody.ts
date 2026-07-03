@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScopeUsersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security information and event management (SIEM) user.
+   * The user ID in Security Information and Event Management (SIEM).
    * 
    * @example
    * 123456789****
@@ -13,9 +13,11 @@ export class DescribeScopeUsersResponseBodyData extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * 云code。  取值：
-   * - qcloud：腾讯云
-   * - hcloud：华为云
+   * The cloud code. Valid values:
+   * 
+   * - qcloud: Tencent Cloud
+   * 
+   * - hcloud: Huawei Cloud
    * 
    * @example
    * qcloud
@@ -23,7 +25,7 @@ export class DescribeScopeUsersResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * An array consisting of the domain names that are protected by the WAF instance.
+   * The list of domain names protected by the WAF instance.
    * 
    * @example
    * [123.com, 456.com]
@@ -39,7 +41,7 @@ export class DescribeScopeUsersResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 多云用户ID。
+   * The multicloud user ID.
    * 
    * @example
    * 123456789****
@@ -90,7 +92,7 @@ export class DescribeScopeUsersResponseBodyData extends $dara.Model {
 export class DescribeScopeUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -106,7 +108,7 @@ export class DescribeScopeUsersResponseBody extends $dara.Model {
   data?: DescribeScopeUsersResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -124,8 +126,9 @@ export class DescribeScopeUsersResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

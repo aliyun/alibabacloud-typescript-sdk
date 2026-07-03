@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A comma-separated list of response strategy IDs.
+   * 
+   * @example
+   * 12,13,14
+   */
   disposeStrategyIds?: string;
   /**
    * @remarks
-   * The configuration of event handling. The value is a JSON object.
+   * A JSON object that defines the incident response configuration.
    * 
    * @example
    * [
@@ -38,20 +45,23 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   eventDispose?: string;
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique UUID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   incidentUuid?: string;
   /**
+   * @remarks
+   * The UID of the incident owner.
+   * 
    * @example
    * 1234567890xxxxxx
    */
   owner?: string;
   /**
    * @remarks
-   * The configuration of the alert recipient. The value is a JSON object.
+   * A JSON object that defines the alert recipient configuration.
    * 
    * @example
    * {
@@ -63,10 +73,11 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   receiverInfo?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the Data Management service for threat analysis is deployed. Select a region based on where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Assets in the Chinese mainland or Hong Kong (China)
+   * 
+   * - ap-southeast-1: Assets outside China
    * 
    * @example
    * cn-hangzhou
@@ -74,16 +85,23 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks of the event.
+   * A note about the incident.
    * 
    * @example
    * dealed
    */
   remark?: string;
+  /**
+   * @remarks
+   * The source of the response policy.
+   * 
+   * @example
+   * system
+   */
   responseSource?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The UID of the member whose perspective an administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -91,9 +109,11 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type. Valid values:
+   * 
+   * - 0: Current Alibaba Cloud account view
+   * 
+   * - 1: View for all accounts in your enterprise
    * 
    * @example
    * 1
@@ -101,17 +121,33 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The incident status. Valid values:
    * 
-   * *   0: unhandled
-   * *   1: handing
-   * *   5: handling failed
-   * *   10: handled
+   * - 0: Not handled
+   * 
+   * - 1: Handling
+   * 
+   * - 5: Failed
+   * 
+   * - 10: Handled
    * 
    * @example
    * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * The threat level. Valid values:
+   * 
+   * - serious: Important
+   * 
+   * - suspicious: Medium
+   * 
+   * - remind: Low
+   * 
+   * @example
+   * remind
+   */
   threatLevel?: string;
   static names(): { [key: string]: string } {
     return {

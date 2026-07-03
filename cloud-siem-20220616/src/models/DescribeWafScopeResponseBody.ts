@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWafScopeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account in SIEM.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 127608589417****
@@ -13,7 +13,7 @@ export class DescribeWafScopeResponseBodyData extends $dara.Model {
   aliuid?: number;
   /**
    * @remarks
-   * The domain names that are protected by the WAF instance.
+   * The list of domain names that are protected by the WAF instance.
    * 
    * @example
    * [123.com, 456.com]
@@ -58,7 +58,7 @@ export class DescribeWafScopeResponseBodyData extends $dara.Model {
 export class DescribeWafScopeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -74,7 +74,7 @@ export class DescribeWafScopeResponseBody extends $dara.Model {
   data?: DescribeWafScopeResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -92,8 +92,9 @@ export class DescribeWafScopeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.M
 export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the action that is performed after the automated response rule is hit. The value is in the JSON format.
+   * The action configuration of the automated response rule. The value is a JSON array.
    * 
    * @example
    * [
@@ -69,11 +69,13 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   actionConfig?: string;
   /**
    * @remarks
-   * The type of the handling action. Multiple types are separated by commas (,). Valid values:
+   * The handling action. Multiple values are separated by commas. Valid values:
    * 
-   * *   **doPlaybook**: runs the playbook.
-   * *   **changeEventStatus**: changes the event status.
-   * *   **changeThreatLevel**: changes the risk level of the event.
+   * - **doPlaybook**: executes a playbook.
+   * 
+   * - **changeEventStatus**: changes the status of an event.
+   * 
+   * - **changeThreatLevel**: changes the threat level of an event.
    * 
    * @example
    * doPlaybook,changeEventStatus
@@ -81,7 +83,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   actionType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is associated with the rule in SIEM.
+   * The ID of the Alibaba Cloud account that is associated with the rule.
    * 
    * @example
    * 127608589417****
@@ -89,10 +91,11 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   aliuid?: number;
   /**
    * @remarks
-   * The type of the automated response rule. Valid values:
+   * The type of the automated response. Valid values:
    * 
-   * *   **event**
-   * *   **alert**
+   * - **event**
+   * 
+   * - **alert**
    * 
    * @example
    * event
@@ -100,13 +103,10 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   autoResponseType?: string;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * 
-   * 0: the current Alibaba Cloud account
-   * 1: the global account
+   * The data type of the condition field in the automated response rule.
    * 
    * @example
-   * 1
+   * varchar
    */
   dataType?: number;
   /**
@@ -119,7 +119,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   executionCondition?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the rule was created.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -127,7 +127,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the rule was last modified.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -141,6 +141,17 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
    * 123
    */
   id?: number;
+  /**
+   * @remarks
+   * The type of the response rule.
+   * 
+   * - preset: predefined
+   * 
+   * - custom: custom
+   * 
+   * @example
+   * custom
+   */
   responseRuleType?: string;
   /**
    * @remarks
@@ -154,8 +165,9 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **100**: enabled.
+   * - **0**: disabled
+   * 
+   * - **100**: enabled
    * 
    * @example
    * 0
@@ -257,7 +269,7 @@ export class ListAutomateResponseConfigsResponseBodyData extends $dara.Model {
 export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -291,8 +303,9 @@ export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

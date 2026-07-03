@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the risk.
+   * The threat type.
    * 
    * @example
    * WEBSHELL
@@ -13,7 +13,7 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The internal code of the risk type.
+   * The Medusa code of the threat type.
    * 
    * @example
    * siem_rule_type_process_abnormal_command
@@ -45,7 +45,7 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
 export class DescribeAlertTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -79,8 +79,9 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

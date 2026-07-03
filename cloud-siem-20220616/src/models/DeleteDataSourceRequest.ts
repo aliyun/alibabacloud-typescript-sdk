@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,13 @@ export class DeleteDataSourceRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The code for the multicloud environment. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud.
    * 
    * This parameter is required.
    * 
@@ -29,7 +31,7 @@ export class DeleteDataSourceRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters. You can call the [ListDataSourceLogs](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListDataSourceLogs) operation to query the IDs of data sources.
+   * The ID of the data source. This ID is an MD5 hash value calculated by Threat Analysis based on specific parameters. Call the [ListDataSourceLogs](https://api.aliyun-inc.com/#/publishment/document/cloud-siem/863fdf54478f4cc5877e27c2a5fe9e44?tenantUuid=f382fccd88b94c5c8c864def6815b854\\&activeTabKey=api%7CListDataSourceLogs) operation to obtain the data source ID.
    * 
    * This parameter is required.
    * 
@@ -39,10 +41,11 @@ export class DeleteDataSourceRequest extends $dara.Model {
   dataSourceInstanceId?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the Data Management hub of Threat Analysis is located. Select the region of the management hub based on the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Your assets are outside China.
    * 
    * @example
    * cn-hangzhou

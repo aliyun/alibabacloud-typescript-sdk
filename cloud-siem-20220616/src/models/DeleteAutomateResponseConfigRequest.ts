@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAutomateResponseConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the automated response rule.
    * 
    * @example
    * 123
@@ -13,10 +13,11 @@ export class DeleteAutomateResponseConfigRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region where the Data Management hub for threat analysis is located. Select the region based on the location of your assets. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: your assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: your assets are in a region outside China.
    * 
    * @example
    * cn-hangzhou
@@ -24,7 +25,7 @@ export class DeleteAutomateResponseConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member. An administrator can use this ID to switch to the perspective of the member.
    * 
    * @example
    * 113091674488****
@@ -32,9 +33,11 @@ export class DeleteAutomateResponseConfigRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: the view of the current Alibaba Cloud account.
+   * 
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1

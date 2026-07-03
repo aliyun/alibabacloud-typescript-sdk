@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The risk type.
+   * The threat type.
    * 
    * @example
    * WEBSHELL
@@ -13,7 +13,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The internal code of the risk type.
+   * The Medusa code of the threat type.
    * 
    * @example
    * ${siem_rule_type_process_abnormal_command}
@@ -21,7 +21,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   alertTypeMds?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
    * 
    * @example
    * 127608589417****
@@ -29,7 +29,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   aliuid?: number;
   /**
    * @remarks
-   * 告警附加字段attck
+   * The ATT\\&CK attack technique.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -37,7 +37,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   attCk?: string;
   /**
    * @remarks
-   * 自动化响应规则条件字段数据类型。
+   * The data type of the condition field in the automated response rule.
    * 
    * @example
    * varchar
@@ -45,7 +45,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   dataType?: number;
   /**
    * @remarks
-   * The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+   * The extended information for event generation. This parameter is returned only when EventTransferType is set to allToSingle. The value indicates the length and unit of the alert aggregation window. You must unescape the HTML escape characters.
    * 
    * @example
    * {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
@@ -53,10 +53,11 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   eventTransferExt?: string;
   /**
    * @remarks
-   * Indicates whether the system generates an event for the alert. Valid values:
+   * Indicates whether alerts are converted into events. Valid values:
    * 
-   * *   0: no
-   * *   1: yes
+   * - 0: no
+   * 
+   * - 1: yes
    * 
    * @example
    * 1
@@ -66,9 +67,11 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
    * @remarks
    * The event generation method. Valid values:
    * 
-   * *   default: The default method is used.
-   * *   singleToSingle: The system generates an event for each alert.
-   * *   allToSingle: The system generates an event for alerts within a period of time.
+   * - default: the default method
+   * 
+   * - singleToSingle: An event is generated for each alert.
+   * 
+   * - allToSingle: An event is generated for all alerts in a period.
    * 
    * @example
    * allToSingle
@@ -108,7 +111,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   logSource?: string;
   /**
    * @remarks
-   * The internal code of the log source.
+   * The Medusa code of the log source.
    * 
    * @example
    * ${sas.cloudsiem.prod.cloud_siem_aegis_sas_alert}
@@ -124,7 +127,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The internal code of the log type.
+   * The Medusa code of the log type.
    * 
    * @example
    * ${security_event_config.event_name.webshellName_clientav}
@@ -132,7 +135,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   logTypeMds?: string;
   /**
    * @remarks
-   * The window length of the rule. The HTML escape characters are reversed.
+   * The length of the rule window. You must unescape the HTML escape characters.
    * 
    * @example
    * {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;HOUR&quot;}
@@ -140,7 +143,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   queryCycle?: string;
   /**
    * @remarks
-   * The query condition of the rule. The value is in the JSON format. The HTML escape characters are reversed.
+   * The query condition of the rule in the JSON format. You must unescape the HTML escape characters.
    * 
    * @example
    * [[{&quot;not&quot;:false,&quot;left&quot;:&quot;alert_name&quot;,&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:&quot;WEBSHELL&quot;}]]
@@ -156,7 +159,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   ruleDesc?: string;
   /**
    * @remarks
-   * The log aggregation field of the rule. The value is a JSON string. The HTML escape characters are reversed.
+   * The fields that are used to group logs. The value is a JSON array. You must unescape the HTML escape characters.
    * 
    * @example
    * [&quot;asset_id&quot;]
@@ -172,7 +175,7 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The threshold configuration of the rule. The value is in the JSON format. The HTML escape characters are reversed.
+   * The threshold configuration of the rule in the JSON format. You must unescape the HTML escape characters.
    * 
    * @example
    * {&quot;aggregateFunction&quot;:&quot;count&quot;,&quot;aggregateFunctionName&quot;:&quot;count&quot;,&quot;field&quot;:&quot;activity_name&quot;,&quot;operator&quot;:&quot;&lt;=&quot;,&quot;value&quot;:1}
@@ -180,10 +183,11 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   ruleThreshold?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The rule type. Valid values:
    * 
-   * *   predefine
-   * *   customize
+   * - predefine: predefined
+   * 
+   * - customize: custom
    * 
    * @example
    * customize
@@ -191,13 +195,17 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The rule status. Valid values:
+   * The status of the rule. Valid values:
    * 
-   * *   0: The rule is in the initial state.
-   * *   10: The simulation data is tested.
-   * *   15: The business data is being tested.
-   * *   20: The business data test ends.
-   * *   100: The rule takes effect.
+   * - 0: initial
+   * 
+   * - 10: testing with simulated data
+   * 
+   * - 15: testing with business data
+   * 
+   * - 20: test with business data ends
+   * 
+   * - 100: published
    * 
    * @example
    * 0
@@ -205,11 +213,13 @@ export class PostCustomizeRuleResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level. Valid values:
    * 
-   * *   serious: high
-   * *   suspicious: medium
-   * *   remind: low
+   * - serious: high
+   * 
+   * - suspicious: medium
+   * 
+   * - remind: low
    * 
    * @example
    * remind
@@ -319,8 +329,9 @@ export class PostCustomizeRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

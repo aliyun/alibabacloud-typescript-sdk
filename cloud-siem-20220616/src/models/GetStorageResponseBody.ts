@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetStorageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the storage region can be changed for once. Default value: false Valid values:
+   * Indicates whether you can change the storage region. You can change the storage region only once. The default value is false. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: You can change the storage region.
+   * 
+   * - false: You cannot change the storage region.
    * 
    * @example
    * false
@@ -16,10 +17,11 @@ export class GetStorageResponseBodyData extends $dara.Model {
   canOperate?: boolean;
   /**
    * @remarks
-   * Indicates whether the storage region can be changed. Default value: false Valid values:
+   * Indicates whether you have permission to change the storage region. The default value is false. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: You have permission.
+   * 
+   * - false: You do not have permission.
    * 
    * @example
    * false
@@ -27,9 +29,9 @@ export class GetStorageResponseBodyData extends $dara.Model {
   displayRegion?: boolean;
   /**
    * @remarks
-   * The region where the data is stored.
+   * The storage region.
    * 
-   * If the data management center is **cn-hangzhou**, the default value of **Region** is cn-shanghai, which specifies the China (Shanghai) region. If the data management center is **ap-southeast-1**, the default value of **Region** is ap-southeast-1, which specifies the Singapore region.
+   * If the Data Management hub is in the **cn-hangzhou** region, the default value of **Region** is \\`cn-shanghai\\`. If the Data Management hub is in the **ap-southeast-1** region, the default value of **Region** is \\`ap-southeast-1\\`.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +39,7 @@ export class GetStorageResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The storage period of logs. Unit: day. Default value: 180. Valid values: 30 to 3000.
+   * The storage duration in days. The default value is 180. The value must be an integer from 30 to 3000.
    * 
    * @example
    * 180
@@ -73,12 +75,12 @@ export class GetStorageResponseBodyData extends $dara.Model {
 export class GetStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the storage.
+   * The details of the storage settings.
    */
   data?: GetStorageResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 97A31C3A-3F9F-5866-8979-5159E3DC****

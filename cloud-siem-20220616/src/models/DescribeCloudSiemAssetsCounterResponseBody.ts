@@ -15,12 +15,17 @@ export class DescribeCloudSiemAssetsCounterResponseBodyData extends $dara.Model 
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * *   ip
-   * *   domain
-   * *   url
-   * *   process
-   * *   file
-   * *   host
+   * - ip: IP address
+   * 
+   * - domain: domain name
+   * 
+   * - url: URL
+   * 
+   * - process: process
+   * 
+   * - file: file
+   * 
+   * - host: host
    * 
    * @example
    * domain
@@ -52,7 +57,7 @@ export class DescribeCloudSiemAssetsCounterResponseBodyData extends $dara.Model 
 export class DescribeCloudSiemAssetsCounterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -60,7 +65,7 @@ export class DescribeCloudSiemAssetsCounterResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 123456
@@ -68,7 +73,7 @@ export class DescribeCloudSiemAssetsCounterResponseBody extends $dara.Model {
   data?: DescribeCloudSiemAssetsCounterResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -76,7 +81,7 @@ export class DescribeCloudSiemAssetsCounterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -86,8 +91,9 @@ export class DescribeCloudSiemAssetsCounterResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

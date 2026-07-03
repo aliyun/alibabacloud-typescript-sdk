@@ -2,34 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAlertSourceWithEventResponseBodyData extends $dara.Model {
+export class GetEntitiyStatResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Medusa code for the alert data source.
+   * The number of entities.
    * 
    * @example
-   * aliyun.siem.alert_datasource.sas
+   * 3
    */
-  source?: string;
+  entityNum?: number;
   /**
    * @remarks
-   * The name of the alert data source.
+   * The entity type.
    * 
    * @example
-   * sas
+   * ip
    */
-  sourceName?: string;
+  entityType?: string;
+  /**
+   * @remarks
+   * The entity UUID.
+   * 
+   * @example
+   * 5cde2118666ffda40783ebd7cec9a60a
+   */
+  entityUuid?: string;
   static names(): { [key: string]: string } {
     return {
-      source: 'Source',
-      sourceName: 'SourceName',
+      entityNum: 'EntityNum',
+      entityType: 'EntityType',
+      entityUuid: 'EntityUuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      source: 'string',
-      sourceName: 'string',
+      entityNum: 'number',
+      entityType: 'string',
+      entityUuid: 'string',
     };
   }
 
@@ -42,7 +52,7 @@ export class DescribeAlertSourceWithEventResponseBodyData extends $dara.Model {
   }
 }
 
-export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
+export class GetEntitiyStatResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code of the request.
@@ -53,15 +63,15 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
    */
-  data?: DescribeAlertSourceWithEventResponseBodyData[];
+  data?: GetEntitiyStatResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -79,9 +89,8 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true
@@ -100,7 +109,7 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: { 'type': 'array', 'itemType': DescribeAlertSourceWithEventResponseBodyData },
+      data: { 'type': 'array', 'itemType': GetEntitiyStatResponseBodyData },
       message: 'string',
       requestId: 'string',
       success: 'boolean',

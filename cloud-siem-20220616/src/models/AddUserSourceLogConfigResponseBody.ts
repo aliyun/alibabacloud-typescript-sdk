@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The display details of the Logstore.
+   * The detailed information about the SLS log.
    * 
    * @example
    * cn-shanghai.siem-project.siem-logstore
@@ -13,7 +13,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   diplayLine?: string;
   /**
    * @remarks
-   * Indicates whether the details of added logs are returned. Valid values: true false
+   * Indicates whether the details of the log collection task are returned. Valid values:
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   displayed?: boolean;
   /**
    * @remarks
-   * Indicates whether the logs are added to the threat analysis feature. Valid values: true false
+   * Indicates whether the log is collected. Valid values:
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   imported?: boolean;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
    * 
    * @example
    * 123XXXXXXXXX
@@ -37,7 +37,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The log code.
+   * The code of the log.
    * 
    * @example
    * cloud_siem_aegis_proc
@@ -45,7 +45,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   sourceLogCode?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The code of the product.
    * 
    * @example
    * sas
@@ -53,7 +53,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   sourceProdCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+   * The ID of the Alibaba Cloud account for which the logs are collected.
    * 
    * @example
    * 123XXXXXXXX
@@ -61,7 +61,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+   * The name of the Alibaba Cloud account for which the logs are collected.
    * 
    * @example
    * sas_account_xxx
@@ -105,12 +105,12 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
 export class AddUserSourceLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The return value of the request.
    */
   data?: AddUserSourceLogConfigResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

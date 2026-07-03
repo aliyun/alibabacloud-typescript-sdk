@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the logon Alibaba Cloud account can be used to place orders for the threat analysis feature, such as purchase, upgrade, and specifications change orders. Valid values:
+   * Indicates whether the current account can perform operations on threat analysis orders. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The account can purchase, upgrade, or downgrade threat analysis.
+   * 
+   * - false: The account cannot perform operations on threat analysis orders.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   canBuy?: boolean;
   /**
    * @remarks
-   * The log storage capacity that is purchased for the threat analysis feature. Unit: GB.
+   * The purchased capacity of Simple Log Service (SLS) for threat analysis. Unit: GB.
    * 
    * @example
    * 1024
@@ -24,7 +25,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The number of days before the expiration time of the threat analysis feature.
+   * The number of days before threat analysis expires.
    * 
    * @example
    * 3
@@ -32,7 +33,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   durationDays?: number;
   /**
    * @remarks
-   * The timestamp when the threat analysis feature expires. Unit: milliseconds.
+   * The expiration time of threat analysis. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1669823999000
@@ -40,7 +41,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The ID of the Alibaba Cloud account that purchased threat analysis.
    * 
    * @example
    * 123XXXXXX
@@ -48,7 +49,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The username of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The name of the Alibaba Cloud account that purchased threat analysis.
    * 
    * @example
    * sas_account_xxx
@@ -56,7 +57,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   mainUserName?: string;
   /**
    * @remarks
-   * The ID of the management account of the resource directory.
+   * The ID of the master account of the resource directory.
    * 
    * @example
    * 123XXXXXX
@@ -64,20 +65,27 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   masterUserId?: number;
   /**
    * @remarks
-   * The display name of the management account of the resource directory.
+   * The display name of the master account of the resource directory.
    * 
    * @example
    * rd_master_xxx
    */
   masterUserName?: string;
   /**
+   * @remarks
+   * The type of the current order.
+   * 
+   * - 0: The order includes threat analysis traffic and capacity.
+   * 
+   * - 1: The order includes only threat analysis capacity.
+   * 
    * @example
    * 1
    */
   rdOrder?: number;
   /**
    * @remarks
-   * The instance ID of Security Center.
+   * The ID of the Security Center instance.
    * 
    * @example
    * sas-instance-xxxxx
@@ -85,7 +93,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   sasInstanceId?: string;
   /**
    * @remarks
-   * The ID of the logon Alibaba Cloud account.
+   * The ID of the currently logged-on Alibaba Cloud account.
    * 
    * @example
    * 123XXXXXX
@@ -93,7 +101,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The username of the logon Alibaba Cloud account.
+   * The name of the currently logged-on Alibaba Cloud account.
    * 
    * @example
    * sas_account_xxx
@@ -145,12 +153,12 @@ export class DescribeUserBuyStatusResponseBodyData extends $dara.Model {
 export class DescribeUserBuyStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response parameters.
    */
   data?: DescribeUserBuyStatusResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 81D8EC0C-0804-51AD-8C38-17ED0BC74892

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extends $dara.Model {
+  /**
+   * @remarks
+   * Date.
+   * 
+   * @example
+   * 2025-10-06
+   */
   date?: string;
+  /**
+   * @remarks
+   * Total number of security events.
+   * 
+   * @example
+   * 100
+   */
   eventNum?: number;
+  /**
+   * @remarks
+   * Number of unhandled security events.
+   * 
+   * @example
+   * 34
+   */
   undealEventNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +53,14 @@ export class DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum extend
 }
 
 export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Daily event statistics.
+   */
   eventDailyNum?: DescribeEventCountByThreatLevelResponseBodyDataEventDailyNum[];
   /**
    * @remarks
-   * The total number of events.
+   * Total number of events.
    * 
    * @example
    * 100
@@ -43,16 +68,23 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   eventNum?: number;
   /**
    * @remarks
-   * The number of high-risk events.
+   * Number of high-risk events.
    * 
    * @example
    * 20
    */
   highLevelEventNum?: number;
+  /**
+   * @remarks
+   * Number of informational events.
+   * 
+   * @example
+   * 0
+   */
   infoLevelEventNum?: number;
   /**
    * @remarks
-   * The number of low-risk events.
+   * Number of low-risk events.
    * 
    * @example
    * 52
@@ -60,16 +92,23 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
   lowLevelEventNum?: number;
   /**
    * @remarks
-   * The number of medium-risk events.
+   * Number of medium-risk events.
    * 
    * @example
    * 3
    */
   mediumLevelEventNum?: number;
+  /**
+   * @remarks
+   * Number of critical events.
+   * 
+   * @example
+   * 0
+   */
   seriousLevelEventNum?: number;
   /**
    * @remarks
-   * The number of unhandled events.
+   * Number of unhandled events.
    * 
    * @example
    * 75
@@ -116,7 +155,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
 export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -124,7 +163,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * Response data.
    * 
    * @example
    * 123456
@@ -132,7 +171,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   data?: DescribeEventCountByThreatLevelResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * Response message.
    * 
    * @example
    * success
@@ -140,7 +179,7 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -148,10 +187,11 @@ export class DescribeEventCountByThreatLevelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

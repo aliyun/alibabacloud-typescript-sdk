@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsByLogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 123xxxxxxx
@@ -13,7 +13,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the cloud account.
+   * The name of the Alibaba Cloud account.
    * 
    * @example
    * sas_account_xxx
@@ -21,7 +21,9 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the account is added. Valid values: -1: yes -0: no
+   * Indicates whether the account has been added. Valid values:
+   * -1: The account has been added.
+   * -0: The account has not been added.
    * 
    * @example
    * 123xxxxxxx
@@ -29,7 +31,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   imported?: number;
   /**
    * @remarks
-   * The code of the log.
+   * The log code.
    * 
    * @example
    * cloud_siem_waf_xxxxx
@@ -37,7 +39,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   logCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
    * 
    * @example
    * 123XXXXXXXXX
@@ -45,7 +47,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The code of the service.
+   * The code of the product that corresponds to the log.
    * 
    * @example
    * qcloud_waf
@@ -53,7 +55,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account for which the threat analysis feature is enabled.
+   * The ID of the Alibaba Cloud account that is used for Threat Analysis.
    * 
    * @example
    * 123XXXXXXXX
@@ -95,7 +97,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
 export class ListAccountsByLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The return value of the request.
    */
   data?: ListAccountsByLogResponseBodyData[];
   /**

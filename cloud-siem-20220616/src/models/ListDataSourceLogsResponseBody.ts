@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceLogsResponseBodyDataDataSourceInstanceLogsLogParams extends $dara.Model {
   /**
    * @remarks
-   * The parameter code of the log.
+   * The code of the log parameter.
    * 
    * @example
    * region_code
@@ -13,7 +13,7 @@ export class ListDataSourceLogsResponseBodyDataDataSourceInstanceLogsLogParams e
   paraCode?: string;
   /**
    * @remarks
-   * The parameter value of the log.
+   * The value of the log parameter.
    * 
    * @example
    * ap-guangzhou
@@ -53,7 +53,7 @@ export class ListDataSourceLogsResponseBodyDataDataSourceInstanceLogs extends $d
   logCode?: string;
   /**
    * @remarks
-   * The ID of the log. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+   * The ID of the log. This ID is an MD5 hash value that is calculated by threat analysis based on specific parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -69,15 +69,16 @@ export class ListDataSourceLogsResponseBodyDataDataSourceInstanceLogs extends $d
   logMdsCode?: string;
   /**
    * @remarks
-   * The parameters of the log.
+   * The detailed parameters for the log.
    */
   logParams?: ListDataSourceLogsResponseBodyDataDataSourceInstanceLogsLogParams[];
   /**
    * @remarks
-   * Indicates whether the task for which logs are collected is enabled. Valid values:
+   * The status of the log collection task. Valid values:
    * 
-   * *   1: yes
-   * *   0: no
+   * - 1: collected.
+   * 
+   * - 0: not collected.
    * 
    * @example
    * 1
@@ -118,7 +119,7 @@ export class ListDataSourceLogsResponseBodyDataDataSourceInstanceLogs extends $d
 export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 123xxxxxxx
@@ -126,11 +127,13 @@ export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The code that is used for multi-cloud environments. Valid values:
+   * The code for the cloud service provider. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud
    * 
    * @example
    * hcloud
@@ -138,7 +141,7 @@ export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the data source. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+   * The ID of the data source. This ID is an MD5 hash value that is calculated by threat analysis based on specific parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -146,7 +149,7 @@ export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   dataSourceInstanceId?: string;
   /**
    * @remarks
-   * The logs of the data source.
+   * The list of logs for the data source.
    */
   dataSourceInstanceLogs?: ListDataSourceLogsResponseBodyDataDataSourceInstanceLogs[];
   /**
@@ -159,7 +162,7 @@ export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   dataSourceInstanceName?: string;
   /**
    * @remarks
-   * The remarks of the data source.
+   * The remarks on the data source.
    * 
    * @example
    * waf kafka
@@ -167,7 +170,7 @@ export class ListDataSourceLogsResponseBodyData extends $dara.Model {
   dataSourceInstanceRemark?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account to which the log belongs.
    * 
    * @example
    * 123XXXXXXXX
@@ -217,7 +220,7 @@ export class ListDataSourceLogsResponseBody extends $dara.Model {
   data?: ListDataSourceLogsResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

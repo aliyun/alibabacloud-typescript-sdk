@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloseDeliveryRequest extends $dara.Model {
   /**
    * @remarks
-   * The log code of the cloud service, such as the code of the process log for Security Center. You can obtain the log code from the response of the ListDelivery operation.
+   * The code of the log within the cloud service. For example, the process log of Security Center. For valid values, see the return value of the ListDelivery operation.
    * 
    * @example
    * cloud_siem_aegis_proc
@@ -15,29 +15,51 @@ export class CloseDeliveryRequest extends $dara.Model {
    * @remarks
    * The code of the cloud service. Valid values:
    * 
-   * *   qcloud_waf
-   * *   qlcoud_cfw
-   * *   hcloud_waf
-   * *   hcloud_cfw
-   * *   ddos
-   * *   sas
-   * *   cfw
-   * *   config
-   * *   csk
-   * *   fc
-   * *   rds
-   * *   nas
-   * *   apigateway
-   * *   cdn
-   * *   mongodb
-   * *   eip
-   * *   slb
-   * *   vpc
-   * *   actiontrail
-   * *   waf
-   * *   bastionhost
-   * *   oss
-   * *   polardb
+   * - qcloud_waf
+   * 
+   * - qlcoud_cfw
+   * 
+   * - hcloud_waf
+   * 
+   * - hcloud_cfw
+   * 
+   * - ddos
+   * 
+   * - sas
+   * 
+   * - cfw
+   * 
+   * - config
+   * 
+   * - csk
+   * 
+   * - fc
+   * 
+   * - rds
+   * 
+   * - nas
+   * 
+   * - apigateway
+   * 
+   * - cdn
+   * 
+   * - mongodb
+   * 
+   * - eip
+   * 
+   * - slb
+   * 
+   * - vpc
+   * 
+   * - actiontrail
+   * 
+   * - waf
+   * 
+   * - bastionhost
+   * 
+   * - oss
+   * 
+   * - polardb
    * 
    * This parameter is required.
    * 
@@ -47,10 +69,11 @@ export class CloseDeliveryRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+   * The region where the data management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Select this region if your assets are in the Chinese mainland or Hong Kong (China).
+   * 
+   * - ap-southeast-1: Select this region if your assets are outside China.
    * 
    * @example
    * cn-hangzhou
@@ -58,7 +81,7 @@ export class CloseDeliveryRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of a member. An administrator can use this parameter to switch to the perspective of the member.
    * 
    * @example
    * 113091674488****
@@ -66,9 +89,11 @@ export class CloseDeliveryRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts in your enterprise.
    * 
    * @example
    * 1

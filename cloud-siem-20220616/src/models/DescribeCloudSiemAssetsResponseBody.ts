@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model
 export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extends $dara.Model {
   /**
    * @remarks
-   * The attribute key.
+   * The key of the alert property.
    * 
    * @example
    * suspicious.wbd.wb.trojanpath
@@ -63,7 +63,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
   key?: string;
   /**
    * @remarks
-   * The name of the key.
+   * The name of the alert property.
    * 
    * @example
    * Trojan Path
@@ -71,7 +71,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
   keyName?: string;
   /**
    * @remarks
-   * The value of the key.
+   * The value of the alert property.
    * 
    * @example
    * /root/test33.php
@@ -105,7 +105,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
 export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the alert associated with the event.
+   * The UUID of the alert that is associated with the event.
    * 
    * @example
    * sas_71e24437d2797ce8fc59692905a4****
@@ -113,7 +113,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   alertUuid?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account in SIEM.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 1276085894174392
@@ -129,7 +129,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetId?: string;
   /**
    * @remarks
-   * The display information of the asset is in the JSON format.
+   * The asset information, in a JSON array.
    * 
    * @example
    * [{"KeyName": "${aliyun.siem.asset.asset_name}","Values": "zsw-agentless-ubuntu20","Key": "asset_name"}]
@@ -137,7 +137,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetInfo?: DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo[];
   /**
    * @remarks
-   * The name of the asset.
+   * The asset name.
    * 
    * @example
    * zsw-agentless-centos****
@@ -145,14 +145,19 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetName?: string;
   /**
    * @remarks
-   * The type of the asset. Valid values:
+   * The asset type. Valid values:
    * 
-   * *   ip
-   * *   domain
-   * *   url
-   * *   process
-   * *   file
-   * *   host
+   * - ip: IP address
+   * 
+   * - domain: domain name
+   * 
+   * - url: URL
+   * 
+   * - process: process
+   * 
+   * - file: file
+   * 
+   * - host: host
    * 
    * @example
    * domain
@@ -160,11 +165,13 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetType?: string;
   /**
    * @remarks
-   * The cloud code of the entity. Valid values:
+   * The cloud service provider of the entity. Valid values:
    * 
-   * *   aliyun: Alibaba Cloud
-   * *   qcloud: Tencent Cloud
-   * *   hcloud: Huawei Cloud
+   * - aliyun: Alibaba Cloud
+   * 
+   * - qcloud: Tencent Cloud
+   * 
+   * - hcloud: Huawei Cloud
    * 
    * @example
    * aliyun
@@ -188,7 +195,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the asset.
+   * The asset ID.
    * 
    * @example
    * 123
@@ -204,7 +211,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   incidentUuid?: string;
   /**
    * @remarks
-   * The ID of the associated account to which the asset belongs.
+   * The ID of the linked account.
    * 
    * @example
    * 176555323***
@@ -333,8 +340,9 @@ export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

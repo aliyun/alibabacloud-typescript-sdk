@@ -15,10 +15,11 @@ export class DeleteWhiteRuleListRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+   * The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions in China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: The assets are in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: The assets are in a region outside China.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +27,7 @@ export class DeleteWhiteRuleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of a member. An administrator can switch to the perspective of the member.
    * 
    * @example
    * 113091674488****
@@ -34,9 +35,11 @@ export class DeleteWhiteRuleListRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view for the current Alibaba Cloud account.
+   * 
+   * - 1: The view for all accounts in the enterprise.
    * 
    * @example
    * 1

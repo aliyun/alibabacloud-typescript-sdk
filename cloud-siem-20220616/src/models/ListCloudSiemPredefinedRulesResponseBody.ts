@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudSiemPredefinedRulesResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataPageInfo extends $dara.
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataPageInfo extends $dara.
 export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The type of the risk.
+   * The threat type.
    * 
    * @example
    * WEBSHELL
@@ -63,7 +63,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   alertType?: string;
   /**
    * @remarks
-   * The alert additional field for ATT\\&CK.
+   * The ATT\\&CK technique.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -71,11 +71,13 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   attCk?: string;
   /**
    * @remarks
-   * The method that is used to generate an event. Valid values:
+   * The event generation method. Valid values:
    * 
-   * *   default: built-in method.
-   * *   singleToSingle: The system generates an event for each alert.
-   * *   allToSingle: The system generates an event for alerts within a period of time.
+   * - default: the default built-in method
+   * 
+   * - singleToSingle: An event is generated for each alert.
+   * 
+   * - allToSingle: An event is generated for all alerts in an epoch.
    * 
    * @example
    * allToSingle
@@ -91,7 +93,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the rule was modified.
+   * The time when the rule was last modified.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -107,7 +109,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   id?: number;
   /**
    * @remarks
-   * The internal code of the rule description.
+   * The Medusa code of the rule description.
    * 
    * @example
    * ${siem_rule_description_siem_cfw-attack-count-level-up_cfw-attack}
@@ -115,7 +117,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   ruleDescMds?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * siem_base64-command-exec_aegis-proc
@@ -123,7 +125,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   ruleName?: string;
   /**
    * @remarks
-   * The rule name in Chinese.
+   * The Chinese name of the rule.
    * 
    * @example
    * siem_base64-command-exec_aegis-proc
@@ -131,7 +133,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   ruleNameCn?: string;
   /**
    * @remarks
-   * The rule name in English.
+   * The English name of the rule.
    * 
    * @example
    * siem_base64-command-exec_aegis-proc
@@ -139,7 +141,7 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   ruleNameEn?: string;
   /**
    * @remarks
-   * The internal code of the rule name.
+   * The Medusa code of the rule name.
    * 
    * @example
    * ${siem_rule_name_siem_cfw-attack-count-level-up_cfw-attack}
@@ -157,8 +159,9 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
    * @remarks
    * The status of the predefined rule. Valid values:
    * 
-   * *   0: The rule is in the initial state.
-   * *   100: The rule takes effect.
+   * - 0: initial
+   * 
+   * - 100: published
    * 
    * @example
    * 0
@@ -166,11 +169,13 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $d
   status?: number;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level. Valid values:
    * 
-   * *   serious: high.
-   * *   suspicious: medium.
-   * *   remind: low.
+   * - serious: high
+   * 
+   * - suspicious: medium
+   * 
+   * - remind: low
    * 
    * @example
    * remind
@@ -300,8 +305,9 @@ export class ListCloudSiemPredefinedRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

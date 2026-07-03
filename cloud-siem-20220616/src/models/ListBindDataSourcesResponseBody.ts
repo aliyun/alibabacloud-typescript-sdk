@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 123xxxxxxx
@@ -13,7 +13,7 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The username of the cloud account.
+   * The name of the multicloud account.
    * 
    * @example
    * sas_tq_account_xxxx
@@ -21,11 +21,13 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The code of the multicloud environment. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud.
    * 
    * @example
    * hcloud
@@ -33,7 +35,7 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+   * The ID of the data source. This ID is an MD5 hash value that is calculated by Threat Analysis based on specific parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -49,7 +51,7 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * The remarks on the data source.
+   * The remarks of the data source.
    * 
    * @example
    * waf_kafka
@@ -59,9 +61,11 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   obs: Huawei Cloud Object Storage Service (OBS)
-   * *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
-   * *   ckafka: Tencent Cloud Kafka (CKafka)
+   * - obs: Huawei Cloud OBS.
+   * 
+   * - wafApi: Tencent Cloud WAF download API.
+   * 
+   * - ckafka: Tencent Cloud CKafka.
    * 
    * @example
    * obs
@@ -69,7 +73,7 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The number of logs that are added within the data source.
+   * The number of logs added to the data source.
    * 
    * @example
    * 1
@@ -77,7 +81,7 @@ export class ListBindDataSourcesResponseBodyData extends $dara.Model {
   logCount?: number;
   /**
    * @remarks
-   * The number of existing tasks that are created to add logs within the data source.
+   * The number of log collection tasks created for the data source.
    * 
    * @example
    * 0

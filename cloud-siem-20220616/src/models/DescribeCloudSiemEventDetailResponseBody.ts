@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $dara.Model {
+  /**
+   * @remarks
+   * The number of alerts that are associated with the tactic.
+   * 
+   * @example
+   * 21
+   */
   alertNum?: number;
+  /**
+   * @remarks
+   * The ID of the ATT\\&CK tactic.
+   * 
+   * @example
+   * TA0008
+   */
   tacticId?: string;
+  /**
+   * @remarks
+   * The name of the tactic.
+   * 
+   * @example
+   * Persistence
+   */
   tacticName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,16 +79,20 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   assetNum?: number;
   /**
    * @remarks
-   * The tags of the ATT\\&CK attacks.
+   * The ATT\\&CK technique labels.
    * 
    * @example
    * ["T1595.002 Vulnerability Scanning"]
    */
   attCkLabels?: string[];
+  /**
+   * @remarks
+   * The attack stages.
+   */
   attckStages?: DescribeCloudSiemEventDetailResponseBodyDataAttckStages[];
   /**
    * @remarks
-   * The source of the alert.
+   * The cloud services that generated the alerts associated with the event.
    * 
    * @example
    * [sas,waf]
@@ -83,7 +108,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The description of the event in English.
+   * The English description of the event.
    * 
    * @example
    * The threat event contains 13 Miner Network,1 Execute suspicious encoded commands on Linux, etc
@@ -91,7 +116,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   descriptionEn?: string;
   /**
    * @remarks
-   * The extended information of the event in the JSON format.
+   * The extended information about the event, in JSON format.
    * 
    * @example
    * {"event_transfer_type":"customize_rule"}
@@ -123,16 +148,31 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The name of the event in English.
+   * The English name of the event.
    * 
    * @example
    * Multiple type of alerts, including Miner Network, Command line download and run malicious files, Backdoor Process, etc
    */
   incidentNameEn?: string;
+  /**
+   * @remarks
+   * The type of the event.
+   * 
+   * - net-attack: Expert rule
+   * 
+   * - graph: Graph computing
+   * 
+   * - singleToSingle: Alert pass-through
+   * 
+   * - allToSingle: Alert aggregation
+   * 
+   * @example
+   * graph
+   */
   incidentType?: string;
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique ID of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -140,26 +180,36 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * Users associated with the event.
+   * The linked accounts.
    */
   referAccount?: string;
   /**
    * @remarks
-   * The remarks of the event.
+   * The remarks for the event.
    * 
    * @example
    * dealed
    */
   remark?: string;
+  /**
+   * @remarks
+   * The rule that is used to generate the event.
+   * 
+   * @example
+   * net-attack/101
+   */
   ruleId?: string;
   /**
    * @remarks
    * The status of the event. Valid values:
    * 
-   * *   0: not handled
-   * *   1: handing
-   * *   5: handling failed
-   * *   10: handled
+   * - 0: unhandled
+   * 
+   * - 1: handling
+   * 
+   * - 5: handling failed
+   * 
+   * - 10: handled
    * 
    * @example
    * 0
@@ -167,11 +217,13 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level. Valid values:
    * 
-   * *   serious: high
-   * *   suspicious: medium
-   * *   remind: low
+   * - serious: high
+   * 
+   * - suspicious: medium
+   * 
+   * - remind: low
    * 
    * @example
    * remind
@@ -179,7 +231,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   threatLevel?: string;
   /**
    * @remarks
-   * The risk score of the event. The score ranges from 0 to 100. A higher score indicates a higher risk level.
+   * The threat score of the event. The score is a value from 0 to 100. A higher score indicates a higher threat level.
    * 
    * @example
    * 90.2
@@ -258,7 +310,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
 export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -266,7 +318,7 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 123456
@@ -292,8 +344,9 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

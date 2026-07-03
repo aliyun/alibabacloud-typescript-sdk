@@ -4,21 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCapacityResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Purchased quota for Agent-managed instances.
+   * 
    * @example
    * 1
    */
   agentManagedAssetQuota?: number;
   /**
+   * @remarks
+   * Used quota for Agent-managed instances.
+   * 
    * @example
    * 1
    */
   agentManagedAssetUsed?: number;
   /**
    * @remarks
-   * Indicates whether the Logstores for the threat analysis feature exist on the user side. Valid values:
+   * Indicates whether the LogStore for threat analysis exists.
    * 
-   * *   true: The logs are in the normal state. The log analysis feature is available.
-   * *   false: The logs are being cleared. The log analysis feature is unavailable.
+   * - true: Logs are normal and log analysis is available.
+   * 
+   * - false: Logs are being cleaned up and log analysis is unavailable.
    * 
    * @example
    * true
@@ -26,7 +33,7 @@ export class GetCapacityResponseBodyData extends $dara.Model {
   existLogStore?: boolean;
   /**
    * @remarks
-   * The purchased storage capacity of the threat analysis feature. Unit: GB.
+   * Purchased storage capacity for threat analysis, in GB.
    * 
    * @example
    * 9000
@@ -34,7 +41,7 @@ export class GetCapacityResponseBodyData extends $dara.Model {
   preservedCapacity?: number;
   /**
    * @remarks
-   * The billable storage capacity of the threat analysis feature. Unit: GB.
+   * Current billable storage usage for threat analysis, in GB.
    * 
    * @example
    * 10
@@ -72,12 +79,12 @@ export class GetCapacityResponseBodyData extends $dara.Model {
 export class GetCapacityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the storage capacity.
+   * Storage capacity details.
    */
   data?: GetCapacityResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * ID of the request.
    * 
    * @example
    * 27D27DCB-D76B-5064-8B3B-0900DEF7****

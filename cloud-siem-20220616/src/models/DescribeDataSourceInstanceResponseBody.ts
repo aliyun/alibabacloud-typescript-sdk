@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSourceInstanceResponseBodyDataDataSourceInstanceParams extends $dara.Model {
   /**
    * @remarks
-   * The code of the parameter.
+   * The parameter code.
    * 
    * @example
    * region_code
@@ -13,7 +13,7 @@ export class DescribeDataSourceInstanceResponseBodyDataDataSourceInstanceParams 
   paraCode?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The parameter value.
    * 
    * @example
    * ap-guangzhou
@@ -45,7 +45,7 @@ export class DescribeDataSourceInstanceResponseBodyDataDataSourceInstanceParams 
 export class DescribeDataSourceInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 123xxxxxxx
@@ -53,11 +53,13 @@ export class DescribeDataSourceInstanceResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The code for the multicloud environment. Valid values:
    * 
-   * *   qcloud: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
-   * *   hcloud: Huawei Cloud
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud.
    * 
    * @example
    * hcloud
@@ -65,7 +67,7 @@ export class DescribeDataSourceInstanceResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+   * The ID of the data source. The threat analysis service generates the ID by calculating the MD5 hash of specific parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -73,7 +75,7 @@ export class DescribeDataSourceInstanceResponseBodyData extends $dara.Model {
   dataSourceInstanceId?: string;
   /**
    * @remarks
-   * The parameters of the data source.
+   * The list of detailed parameters for the data source.
    */
   dataSourceInstanceParams?: DescribeDataSourceInstanceResponseBodyDataDataSourceInstanceParams[];
   static names(): { [key: string]: string } {
@@ -114,7 +116,7 @@ export class DescribeDataSourceInstanceResponseBody extends $dara.Model {
   data?: DescribeDataSourceInstanceResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

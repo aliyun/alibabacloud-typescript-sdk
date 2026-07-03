@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shanghai': "cloud-siem.cn-shanghai.aliyuncs.com",
+      'ap-southeast-1': "cloud-siem.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloud-siem", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a data source to a cloud account that is added to the threat analysis feature.
+   * Adds a data source to an attached multicloud account.
    * 
    * @param request - AddDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -85,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a data source to a cloud account that is added to the threat analysis feature.
+   * Adds a data source to an attached multicloud account.
    * 
    * @param request - AddDataSourceRequest
    * @returns AddDataSourceResponse
@@ -96,7 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds logs of a cloud account to the threat analysis feature.
+   * Adds a log for a data source.
    * 
    * @param request - AddDataSourceLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -147,7 +151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds logs of a cloud account to the threat analysis feature.
+   * Adds a log for a data source.
    * 
    * @param request - AddDataSourceLogRequest
    * @returns AddDataSourceLogResponse
@@ -158,7 +162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+   * Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
    * 
    * @param request - AddUserSourceLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -213,7 +217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+   * Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
    * 
    * @param request - AddUserSourceLogConfigRequest
    * @returns AddUserSourceLogConfigResponse
@@ -224,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+   * Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
    * 
    * @param request - BindAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -279,7 +283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+   * Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
    * 
    * @param request - BindAccountRequest
    * @returns BindAccountResponse
@@ -290,7 +294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the log delivery feature for a cloud service.
+   * Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
    * 
    * @param request - CloseDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -337,7 +341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the log delivery feature for a cloud service.
+   * Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
    * 
    * @param request - CloseDeliveryRequest
    * @returns CloseDeliveryResponse
@@ -348,7 +352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the automated response rule with a specified ID.
+   * Deletes an automated response rule by its ID.
    * 
    * @param request - DeleteAutomateResponseConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -391,7 +395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the automated response rule with a specified ID.
+   * Deletes an automated response rule by its ID.
    * 
    * @param request - DeleteAutomateResponseConfigRequest
    * @returns DeleteAutomateResponseConfigResponse
@@ -402,7 +406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+   * Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
    * 
    * @param request - DeleteBindAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -457,7 +461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+   * Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
    * 
    * @param request - DeleteBindAccountRequest
    * @returns DeleteBindAccountResponse
@@ -468,7 +472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule by rule ID.
+   * You can customize rules for a specific ID.
    * 
    * @param request - DeleteCustomizeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -511,7 +515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule by rule ID.
+   * You can customize rules for a specific ID.
    * 
    * @param request - DeleteCustomizeRuleRequest
    * @returns DeleteCustomizeRuleResponse
@@ -522,7 +526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a data source that is no longer required.
+   * Call this operation to delete a data source that is no longer required.
    * 
    * @param request - DeleteDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -565,7 +569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a data source that is no longer required.
+   * Call this operation to delete a data source that is no longer required.
    * 
    * @param request - DeleteDataSourceRequest
    * @returns DeleteDataSourceResponse
@@ -634,7 +638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert whitelist rule with a specified ID.
+   * Deletes an alert whitelist rule with the specified ID.
    * 
    * @param request - DeleteWhiteRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -677,7 +681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert whitelist rule with a specified ID.
+   * Deletes an alert whitelist rule with the specified ID.
    * 
    * @param request - DeleteWhiteRuleListRequest
    * @returns DeleteWhiteRuleListResponse
@@ -688,7 +692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the aggregate functions that are supported for a custom rule.
+   * Describes the aggregate functions that are supported by custom rules.
    * 
    * @param request - DescribeAggregateFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -727,7 +731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the aggregate functions that are supported for a custom rule.
+   * Describes the aggregate functions that are supported by custom rules.
    * 
    * @param request - DescribeAggregateFunctionRequest
    * @returns DescribeAggregateFunctionResponse
@@ -738,7 +742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scenarios in which an alert needs to be added to the whitelist.
+   * Queries the scenarios in which alerts can be whitelisted.
    * 
    * @param request - DescribeAlertSceneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -777,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scenarios in which an alert needs to be added to the whitelist.
+   * Queries the scenarios in which alerts can be whitelisted.
    * 
    * @param request - DescribeAlertSceneRequest
    * @returns DescribeAlertSceneResponse
@@ -788,7 +792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scenarios and objects that can be added to an alert whitelist rule.
+   * Retrieves a list of alert whitelisting scenarios and objects.
    * 
    * @param request - DescribeAlertSceneByEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -831,7 +835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scenarios and objects that can be added to an alert whitelist rule.
+   * Retrieves a list of alert whitelisting scenarios and objects.
    * 
    * @param request - DescribeAlertSceneByEventRequest
    * @returns DescribeAlertSceneByEventResponse
@@ -842,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert data sources.
+   * Retrieves a list of alert sources.
    * 
    * @param request - DescribeAlertSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -893,7 +897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert data sources.
+   * Retrieves a list of alert sources.
    * 
    * @param request - DescribeAlertSourceRequest
    * @returns DescribeAlertSourceResponse
@@ -904,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data sources of the alert that is associated with an event.
+   * Retrieves the alert data sources associated with an event.
    * 
    * @param request - DescribeAlertSourceWithEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -947,7 +951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data sources of the alert that is associated with an event.
+   * Retrieves the alert data sources associated with an event.
    * 
    * @param request - DescribeAlertSourceWithEventRequest
    * @returns DescribeAlertSourceWithEventResponse
@@ -958,7 +962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the threat types that you can select when you create a custom rule.
+   * Retrieves a list of threat types for custom rules.
    * 
    * @param request - DescribeAlertTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,7 +1005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the threat types that you can select when you create a custom rule.
+   * Retrieves a list of threat types for custom rules.
    * 
    * @param request - DescribeAlertTypeRequest
    * @returns DescribeAlertTypeResponse
@@ -1012,7 +1016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alerts within your account.
+   * Gets the list of alerts for a user.
    * 
    * @param request - DescribeAlertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alerts within your account.
+   * Gets the list of alerts for a user.
    * 
    * @param request - DescribeAlertsRequest
    * @returns DescribeAlertsResponse
@@ -1134,7 +1138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of alerts of different severities.
+   * Queries the count of alerts for different severity levels.
    * 
    * @param request - DescribeAlertsCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1185,7 +1189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of alerts of different severities.
+   * Queries the count of alerts for different severity levels.
    * 
    * @param request - DescribeAlertsCountRequest
    * @returns DescribeAlertsCountResponse
@@ -1196,7 +1200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alerts that are associated with an entity.
+   * Queries for alerts that are associated with an entity.
    * 
    * @param request - DescribeAlertsWithEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1267,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alerts that are associated with an entity.
+   * Queries for alerts that are associated with an entity.
    * 
    * @param request - DescribeAlertsWithEntityRequest
    * @returns DescribeAlertsWithEntityResponse
@@ -1278,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alerts that are associated with an event.
+   * Retrieves alerts associated with a specific event.
    * 
    * @param request - DescribeAlertsWithEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1381,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alerts that are associated with an event.
+   * Retrieves alerts associated with a specific event.
    * 
    * @param request - DescribeAlertsWithEventRequest
    * @returns DescribeAlertsWithEventResponse
@@ -1392,7 +1396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+   * Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
    * 
    * @param request - DescribeAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1423,7 +1427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+   * Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
    * 
    * @param request - DescribeAuthRequest
    * @returns DescribeAuthResponse
@@ -1434,7 +1438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of automated response rules.
+   * Returns the number of automated response rules.
    * 
    * @param request - DescribeAutomateResponseConfigCounterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1473,7 +1477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of automated response rules.
+   * Returns the number of automated response rules.
    * 
    * @param request - DescribeAutomateResponseConfigCounterRequest
    * @returns DescribeAutomateResponseConfigCounterResponse
@@ -1484,7 +1488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurable fields and operators of an automated response rule.
+   * Retrieves the configurable fields and operators for automated response rules.
    * 
    * @param request - DescribeAutomateResponseConfigFeatureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,7 +1531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurable fields and operators of an automated response rule.
+   * Retrieves the configurable fields and operators for automated response rules.
    * 
    * @param request - DescribeAutomateResponseConfigFeatureRequest
    * @returns DescribeAutomateResponseConfigFeatureResponse
@@ -1538,7 +1542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the assets that are associated with an event.
+   * Queries a list of assets that are associated with an event.
    * 
    * @param request - DescribeCloudSiemAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1601,7 +1605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the assets that are associated with an event.
+   * Queries a list of assets that are associated with an event.
    * 
    * @param request - DescribeCloudSiemAssetsRequest
    * @returns DescribeCloudSiemAssetsResponse
@@ -1612,7 +1616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of assets that are associated with an event by asset type.
+   * Queries the number of assets of each type that are associated with an event.
    * 
    * @param request - DescribeCloudSiemAssetsCounterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1655,7 +1659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of assets that are associated with an event by asset type.
+   * Queries the number of assets of each type that are associated with an event.
    * 
    * @param request - DescribeCloudSiemAssetsCounterRequest
    * @returns DescribeCloudSiemAssetsCounterResponse
@@ -1666,7 +1670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an event.
+   * Retrieves the details of an event.
    * 
    * @param request - DescribeCloudSiemEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1709,7 +1713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an event.
+   * Retrieves the details of an event.
    * 
    * @param request - DescribeCloudSiemEventDetailRequest
    * @returns DescribeCloudSiemEventDetailResponse
@@ -1720,7 +1724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events in SIEM.
+   * Retrieves a list of threat analysis events.
    * 
    * @param request - DescribeCloudSiemEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1807,7 +1811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events in SIEM.
+   * Retrieves a list of threat analysis events.
    * 
    * @param request - DescribeCloudSiemEventsRequest
    * @returns DescribeCloudSiemEventsResponse
@@ -1818,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of custom rules.
+   * Retrieves the count of custom rules.
    * 
    * @param request - DescribeCustomizeRuleCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1857,7 +1861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of custom rules.
+   * Retrieves the count of custom rules.
    * 
    * @param request - DescribeCustomizeRuleCountRequest
    * @returns DescribeCustomizeRuleCountResponse
@@ -1868,7 +1872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical simulation data that is used in a simulation test scenario.
+   * Retrieves historical simulated data from a test scenario.
    * 
    * @param request - DescribeCustomizeRuleTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical simulation data that is used in a simulation test scenario.
+   * Retrieves historical simulated data from a test scenario.
    * 
    * @param request - DescribeCustomizeRuleTestRequest
    * @returns DescribeCustomizeRuleTestResponse
@@ -1922,7 +1926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the chart that displays the test results of business data for a custom rule.
+   * Retrieves the chart of test results for a custom rule.
    * 
    * @param request - DescribeCustomizeRuleTestHistogramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1965,7 +1969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the chart that displays the test results of business data for a custom rule.
+   * Retrieves the chart of test results for a custom rule.
    * 
    * @param request - DescribeCustomizeRuleTestHistogramRequest
    * @returns DescribeCustomizeRuleTestHistogramResponse
@@ -2030,7 +2034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters of a data source.
+   * Describes the parameters for a data source.
    * 
    * @param request - DescribeDataSourceParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2069,7 +2073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters of a data source.
+   * Describes the parameters for a data source.
    * 
    * @param request - DescribeDataSourceParametersRequest
    * @returns DescribeDataSourceParametersResponse
@@ -2080,7 +2084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of entities and playbooks that need to be handled.
+   * Retrieves entities to be remediated and a list of playbooks.
    * 
    * @param request - DescribeDisposeAndPlaybookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2139,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of entities and playbooks that need to be handled.
+   * Retrieves entities to be remediated and a list of playbooks.
    * 
    * @param request - DescribeDisposeAndPlaybookRequest
    * @returns DescribeDisposeAndPlaybookResponse
@@ -2150,7 +2154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of playbooks that are used by a handling policy.
+   * Retrieves the list of playbooks used in a disposal policy.
    * 
    * @param request - DescribeDisposeStrategyPlaybookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2197,7 +2201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of playbooks that are used by a handling policy.
+   * Retrieves the list of playbooks used in a disposal policy.
    * 
    * @param request - DescribeDisposeStrategyPlaybookRequest
    * @returns DescribeDisposeStrategyPlaybookResponse
@@ -2208,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an entity.
+   * Retrieves the details of an entity.
    * 
    * @param request - DescribeEntityInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2263,7 +2267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an entity.
+   * Retrieves the details of an entity.
    * 
    * @param request - DescribeEntityInfoRequest
    * @returns DescribeEntityInfoResponse
@@ -2274,7 +2278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of events by type.
+   * You can obtain the count for each event type.
    * 
    * @param request - DescribeEventCountByThreatLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2321,7 +2325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of events by type.
+   * You can obtain the count for each event type.
    * 
    * @param request - DescribeEventCountByThreatLevelRequest
    * @returns DescribeEventCountByThreatLevelResponse
@@ -2332,7 +2336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the handling policies of a historical event.
+   * Queries the policy handling history for an event.
    * 
    * @param request - DescribeEventDisposeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2383,7 +2387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the handling policies of a historical event.
+   * Queries the policy handling history for an event.
    * 
    * @param request - DescribeEventDisposeRequest
    * @returns DescribeEventDisposeResponse
@@ -2394,7 +2398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of logs that are added to the threat analysis feature.
+   * Queries the number of imported logs.
    * 
    * @param request - DescribeImportedLogCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2433,7 +2437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of logs that are added to the threat analysis feature.
+   * Queries the number of imported logs.
    * 
    * @param request - DescribeImportedLogCountRequest
    * @returns DescribeImportedLogCountResponse
@@ -2444,7 +2448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fields that can be configured for a custom rule.
+   * Retrieves the list of configurable fields for custom rules.
    * 
    * @param request - DescribeLogFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2491,7 +2495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fields that can be configured for a custom rule.
+   * Retrieves the list of configurable fields for custom rules.
    * 
    * @param request - DescribeLogFieldsRequest
    * @returns DescribeLogFieldsResponse
@@ -2502,7 +2506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log sources that can be configured for a custom rule.
+   * Retrieves a list of configurable log sources for custom rules.
    * 
    * @param request - DescribeLogSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2545,7 +2549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log sources that can be configured for a custom rule.
+   * Retrieves a list of configurable log sources for custom rules.
    * 
    * @param request - DescribeLogSourceRequest
    * @returns DescribeLogSourceResponse
@@ -2556,7 +2560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log types that can be configured for a custom rule.
+   * Retrieves the log types that can be configured for custom rules.
    * 
    * @param request - DescribeLogTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2595,7 +2599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log types that can be configured for a custom rule.
+   * Retrieves the log types that can be configured for custom rules.
    * 
    * @param request - DescribeLogTypeRequest
    * @returns DescribeLogTypeResponse
@@ -2606,7 +2610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operator of a custom rule.
+   * Retrieves the list of operators for custom rules.
    * 
    * @param request - DescribeOperatorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2649,7 +2653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operator of a custom rule.
+   * Retrieves the list of operators for custom rules.
    * 
    * @param request - DescribeOperatorsRequest
    * @returns DescribeOperatorsResponse
@@ -2660,7 +2664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+   * Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
    * 
    * @param request - DescribeProdCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2699,7 +2703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+   * Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
    * 
    * @param request - DescribeProdCountRequest
    * @returns DescribeProdCountResponse
@@ -2710,7 +2714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of users in the playbook scope.
+   * Retrieves the list of users in the playbook scope.
    * 
    * @param request - DescribeScopeUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2749,7 +2753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of users in the playbook scope.
+   * Retrieves the list of users in the playbook scope.
    * 
    * @param request - DescribeScopeUsersRequest
    * @returns DescribeScopeUsersResponse
@@ -2760,7 +2764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the threat analysis feature is authorized to access a resource directory.
+   * Checks whether a resource directory is authorized for threat analysis.
    * 
    * @param request - DescribeServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the threat analysis feature is authorized to access a resource directory.
+   * Checks whether a resource directory is authorized for threat analysis.
    * 
    * @param request - DescribeServiceStatusRequest
    * @returns DescribeServiceStatusResponse
@@ -2802,7 +2806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+   * Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
    * 
    * @param request - DescribeStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2841,7 +2845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+   * Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
    * 
    * @param request - DescribeStorageRequest
    * @returns DescribeStorageResponse
@@ -2852,7 +2856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+   * Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
    * 
    * @param request - DescribeUserBuyStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2887,7 +2891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+   * Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
    * 
    * @param request - DescribeUserBuyStatusRequest
    * @returns DescribeUserBuyStatusResponse
@@ -2898,7 +2902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+   * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
    * 
    * @param request - DescribeWafScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2941,7 +2945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+   * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
    * 
    * @param request - DescribeWafScopeRequest
    * @returns DescribeWafScopeResponse
@@ -2952,7 +2956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of whitelist rules for alerts.
+   * Queries the rules in the alert whitelist.
    * 
    * @param request - DescribeWhiteRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3011,7 +3015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of whitelist rules for alerts.
+   * Queries the rules in the alert whitelist.
    * 
    * @param request - DescribeWhiteRuleListRequest
    * @returns DescribeWhiteRuleListResponse
@@ -3022,7 +3026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+   * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
    * 
    * @param request - EnableAccessForCloudSiemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3065,7 +3069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+   * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
    * 
    * @param request - EnableAccessForCloudSiemRequest
    * @returns EnableAccessForCloudSiemResponse
@@ -3076,7 +3080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+   * Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
    * 
    * @param request - EnableServiceForCloudSiemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3107,7 +3111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+   * Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
    * 
    * @param request - EnableServiceForCloudSiemRequest
    * @returns EnableServiceForCloudSiemResponse
@@ -3118,7 +3122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+   * Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
    * 
    * @param request - GetCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,7 +3161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
+   * Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
    * 
    * @param request - GetCapacityRequest
    * @returns GetCapacityResponse
@@ -3168,7 +3172,99 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations for the threat analysis feature on the user side.
+   * Queries entity counts.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - GetEntitiyStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEntitiyStatResponse
+   */
+  async getEntitiyStatWithOptions(request: $_model.GetEntitiyStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEntitiyStatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assetName)) {
+      body["AssetName"] = request.assetName;
+    }
+
+    if (!$dara.isNull(request.assetUuid)) {
+      body["AssetUuid"] = request.assetUuid;
+    }
+
+    if (!$dara.isNull(request.entityName)) {
+      body["EntityName"] = request.entityName;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.entityUuid)) {
+      body["EntityUuid"] = request.entityUuid;
+    }
+
+    if (!$dara.isNull(request.incidentUuid)) {
+      body["IncidentUuid"] = request.incidentUuid;
+    }
+
+    if (!$dara.isNull(request.isAsset)) {
+      body["IsAsset"] = request.isAsset;
+    }
+
+    if (!$dara.isNull(request.isMalwareEntity)) {
+      body["IsMalwareEntity"] = request.isMalwareEntity;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEntitiyStat",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEntitiyStatResponse>(await this.callApi(params, req, runtime), new $_model.GetEntitiyStatResponse({}));
+  }
+
+  /**
+   * Queries entity counts.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - GetEntitiyStatRequest
+   * @returns GetEntitiyStatResponse
+   */
+  async getEntitiyStat(request: $_model.GetEntitiyStatRequest): Promise<$_model.GetEntitiyStatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEntitiyStatWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
    * 
    * @param request - GetStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3207,7 +3303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations for the threat analysis feature on the user side.
+   * Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
    * 
    * @param request - GetStorageRequest
    * @returns GetStorageResponse
@@ -3218,7 +3314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+   * Lists the AccessKey IDs for attached multicloud accounts.
    * 
    * @param request - ListAccountAccessIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3261,7 +3357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+   * Lists the AccessKey IDs for attached multicloud accounts.
    * 
    * @param request - ListAccountAccessIdRequest
    * @returns ListAccountAccessIdResponse
@@ -3272,7 +3368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query accounts by log.
+   * Queries the accounts associated with a log.
    * 
    * @param request - ListAccountsByLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3323,7 +3419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query accounts by log.
+   * Queries the accounts associated with a log.
    * 
    * @param request - ListAccountsByLogRequest
    * @returns ListAccountsByLogResponse
@@ -3334,7 +3430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud services that can be added to the threat analysis feature.
+   * Lists the cloud products supported by Threat Analysis for data ingestion.
    * 
    * @param request - ListAllProdsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3373,7 +3469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud services that can be added to the threat analysis feature.
+   * Lists the cloud products supported by Threat Analysis for data ingestion.
    * 
    * @param request - ListAllProdsRequest
    * @returns ListAllProdsResponse
@@ -3384,7 +3480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries automated response rules.
+   * Retrieves a list of automated response rules.
    * 
    * @param request - ListAutomateResponseConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3463,7 +3559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries automated response rules.
+   * Retrieves a list of automated response rules.
    * 
    * @param request - ListAutomateResponseConfigsRequest
    * @returns ListAutomateResponseConfigsResponse
@@ -3474,7 +3570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud accounts that are added to the threat analysis feature.
+   * Lists multicloud accounts bound to Threat Analysis.
    * 
    * @param request - ListBindAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +3613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of cloud accounts that are added to the threat analysis feature.
+   * Lists multicloud accounts bound to Threat Analysis.
    * 
    * @param request - ListBindAccountRequest
    * @returns ListBindAccountResponse
@@ -3528,7 +3624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data sources that are added to the threat analysis feature.
+   * Queries all bound data sources.
    * 
    * @param request - ListBindDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3567,7 +3663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data sources that are added to the threat analysis feature.
+   * Queries all bound data sources.
    * 
    * @param request - ListBindDataSourcesRequest
    * @returns ListBindDataSourcesResponse
@@ -3578,7 +3674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom rules.
+   * Retrieves a list of custom rules.
    * 
    * @param request - ListCloudSiemCustomizeRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3665,7 +3761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom rules.
+   * Retrieves a list of custom rules.
    * 
    * @param request - ListCloudSiemCustomizeRulesRequest
    * @returns ListCloudSiemCustomizeRulesResponse
@@ -3676,7 +3772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries predefined rules.
+   * Retrieves a list of predefined rules.
    * 
    * @param request - ListCloudSiemPredefinedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3775,7 +3871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries predefined rules.
+   * Retrieves a list of predefined rules.
    * 
    * @param request - ListCloudSiemPredefinedRulesRequest
    * @returns ListCloudSiemPredefinedRulesResponse
@@ -3786,7 +3882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the test results of a custom rule.
+   * Retrieves the list of test results for a custom rule.
    * 
    * @param request - ListCustomizeRuleTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3853,7 +3949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the test results of a custom rule.
+   * Retrieves the list of test results for a custom rule.
    * 
    * @param request - ListCustomizeRuleTestResultRequest
    * @returns ListCustomizeRuleTestResultResponse
@@ -3864,7 +3960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a data source.
+   * Lists the logs for a data source.
    * 
    * @param request - ListDataSourceLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3907,7 +4003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a data source.
+   * Lists the logs for a data source.
    * 
    * @param request - ListDataSourceLogsRequest
    * @returns ListDataSourceLogsResponse
@@ -3918,7 +4014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+   * Lists the types of multicloud data sources that Threat Analysis supports.
    * 
    * @param request - ListDataSourceTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3953,7 +4049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+   * Lists the types of multicloud data sources that Threat Analysis supports.
    * 
    * @param request - ListDataSourceTypesRequest
    * @returns ListDataSourceTypesResponse
@@ -3964,7 +4060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+   * Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
    * 
    * @param request - ListDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4003,7 +4099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+   * Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
    * 
    * @param request - ListDeliveryRequest
    * @returns ListDeliveryResponse
@@ -4014,7 +4110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries handling policies.
+   * Retrieve a list of system-recommended disposal strategies.
    * 
    * @param request - ListDisposeStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries handling policies.
+   * Retrieve a list of system-recommended disposal strategies.
    * 
    * @param request - ListDisposeStrategyRequest
    * @returns ListDisposeStrategyResponse
@@ -4124,7 +4220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries entities.
+   * Queries a list of entities.
    * 
    * @param request - ListEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4203,7 +4299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries entities.
+   * Queries a list of entities.
    * 
    * @param request - ListEntitiesRequest
    * @returns ListEntitiesResponse
@@ -4214,7 +4310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+   * Queries the log ingestion details for a specific product.
    * 
    * @param request - ListImportedLogsByProdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4261,7 +4357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+   * Queries the log ingestion details for a specific product.
    * 
    * @param request - ListImportedLogsByProdRequest
    * @returns ListImportedLogsByProdResponse
@@ -4272,7 +4368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+   * Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
    * 
    * @param request - ListProjectLogStoresRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4315,7 +4411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+   * Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
    * 
    * @param request - ListProjectLogStoresRequest
    * @returns ListProjectLogStoresResponse
@@ -4326,7 +4422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+   * Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
    * 
    * @param request - ListRdUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4357,7 +4453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+   * Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
    * 
    * @param request - ListRdUsersRequest
    * @returns ListRdUsersResponse
@@ -4368,7 +4464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a third-party cloud account that is added to the threat analysis feature.
+   * Modifies a bound Alibaba Cloud account.
    * 
    * @param request - ModifyBindAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4427,7 +4523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a third-party cloud account that is added to the threat analysis feature.
+   * Modifies a bound Alibaba Cloud account.
    * 
    * @param request - ModifyBindAccountRequest
    * @returns ModifyBindAccountResponse
@@ -4438,7 +4534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a data source that is added to the threat analysis feature.
+   * Modifies the description of an existing data source.
    * 
    * @param request - ModifyDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4497,7 +4593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a data source that is added to the threat analysis feature.
+   * Modifies the description of an existing data source.
    * 
    * @param request - ModifyDataSourceRequest
    * @returns ModifyDataSourceResponse
@@ -4508,7 +4604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+   * Modifies the description of a data source log.
    * 
    * @param request - ModifyDataSourceLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4567,7 +4663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+   * Modifies the description of a data source log.
    * 
    * @param request - ModifyDataSourceLogRequest
    * @returns ModifyDataSourceLogResponse
@@ -4578,7 +4674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+   * Enables log delivery for integrated cloud services.
    * 
    * @param request - OpenDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4625,7 +4721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+   * Enables log delivery for integrated cloud services.
    * 
    * @param request - OpenDeliveryRequest
    * @returns OpenDeliveryResponse
@@ -4636,7 +4732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates an automatic response rule.
+   * Adds or updates an automated response rule.
    * 
    * @param request - PostAutomateResponseConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4703,7 +4799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates an automatic response rule.
+   * Adds or updates an automated response rule.
    * 
    * @param request - PostAutomateResponseConfigRequest
    * @returns PostAutomateResponseConfigResponse
@@ -4714,7 +4810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a custom rule.
+   * Adds or updates a custom rule.
    * 
    * @param request - PostCustomizeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4825,7 +4921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a custom rule.
+   * Adds or updates a custom rule.
    * 
    * @param request - PostCustomizeRuleRequest
    * @returns PostCustomizeRuleResponse
@@ -4898,7 +4994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits event handling information.
+   * Submit incident response information to update the incident status and severity level.
    * 
    * @param request - PostEventDisposeAndWhiteruleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4973,7 +5069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits event handling information.
+   * Submit incident response information to update the incident status and severity level.
    * 
    * @param request - PostEventDisposeAndWhiteruleListRequest
    * @returns PostEventDisposeAndWhiteruleListResponse
@@ -4984,7 +5080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an alert whitelist rule.
+   * Submits alert whitelisting rules.
    * 
    * @param request - PostEventWhiteruleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5031,7 +5127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an alert whitelist rule.
+   * Submits alert whitelisting rules.
    * 
    * @param request - PostEventWhiteruleListRequest
    * @returns PostEventWhiteruleListResponse
@@ -5042,7 +5138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ends the test of a custom rule.
+   * Finishes the test for a custom rule.
    * 
    * @param request - PostFinishCustomizeRuleTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5085,7 +5181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ends the test of a custom rule.
+   * Finishes the test for a custom rule.
    * 
    * @param request - PostFinishCustomizeRuleTestRequest
    * @returns PostFinishCustomizeRuleTestResponse
@@ -5096,7 +5192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of a custom rule.
+   * Updates the statuses of custom rules.
    * 
    * @param request - PostRuleStatusChangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5147,7 +5243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of a custom rule.
+   * Updates the statuses of custom rules.
    * 
    * @param request - PostRuleStatusChangeRequest
    * @returns PostRuleStatusChangeResponse
@@ -5158,7 +5254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+   * Releases storage space. This operation is irreversible and causes data loss. Use with caution.
    * 
    * @param request - RestoreCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5197,7 +5293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+   * Releases storage space. This operation is irreversible and causes data loss. Use with caution.
    * 
    * @param request - RestoreCapacityRequest
    * @returns RestoreCapacityResponse
@@ -5208,7 +5304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the settings of log storage, such as the storage duration and storage region.
+   * Sets user settings, such as the storage duration and storage region.
    * 
    * @param request - SetStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5255,7 +5351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the settings of log storage, such as the storage duration and storage region.
+   * Sets user settings, such as the storage duration and storage region.
    * 
    * @param request - SetStorageRequest
    * @returns SetStorageResponse
@@ -5266,7 +5362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits log collection tasks at a time.
+   * Submits a batch of log ingestion tasks.
    * 
    * @param request - SubmitImportLogTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5325,7 +5421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits log collection tasks at a time.
+   * Submits a batch of log ingestion tasks.
    * 
    * @param request - SubmitImportLogTasksRequest
    * @returns SubmitImportLogTasksResponse
@@ -5336,7 +5432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of an automatic response rule.
+   * Updates the status of an automated response rule.
    * 
    * @param request - UpdateAutomateResponseConfigStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5383,7 +5479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of an automatic response rule.
+   * Updates the status of an automated response rule.
    * 
    * @param request - UpdateAutomateResponseConfigStatusRequest
    * @returns UpdateAutomateResponseConfigStatusResponse
@@ -5394,7 +5490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates an alert whitelist rule.
+   * Adds or updates alert whitelist rules.
    * 
    * @param request - UpdateWhiteRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +5541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates an alert whitelist rule.
+   * Adds or updates alert whitelist rules.
    * 
    * @param request - UpdateWhiteRuleListRequest
    * @returns UpdateWhiteRuleListResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventDisposeRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The number of the page to return. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeEventDisposeRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique UUID of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -21,7 +21,7 @@ export class DescribeEventDisposeRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 500.
+   * The number of entries to return on each page. The maximum value is 500.
    * 
    * @example
    * 10
@@ -29,10 +29,11 @@ export class DescribeEventDisposeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+   * The region where the Data Management center of Threat Analysis is located. Select the region based on the region where your assets are deployed. Valid values:
    * 
-   * *   cn-hangzhou: Your assets reside in regions inside China.
-   * *   ap-southeast-1: Your assets reside in regions outside China.
+   * - cn-hangzhou: Your assets are deployed in the Chinese mainland or China (Hong Kong).
+   * 
+   * - ap-southeast-1: Your assets are deployed in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -40,7 +41,7 @@ export class DescribeEventDisposeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the account that you switch from the management account.
+   * The user ID of the member. An administrator can use this parameter to switch to the perspective of a member.
    * 
    * @example
    * 113091674488****
@@ -48,9 +49,11 @@ export class DescribeEventDisposeRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * - 0: the current Alibaba Cloud account
-   * - 1: the global account
+   * The view type.
+   * 
+   * - 0: The view of the current Alibaba Cloud account.
+   * 
+   * - 1: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 1

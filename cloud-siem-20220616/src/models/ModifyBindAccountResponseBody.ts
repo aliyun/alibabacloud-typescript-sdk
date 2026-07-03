@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of the accounts that are modified. The value 1 indicates that the modification is successful, and a value less than or equal to 0 indicates that the modification failed.
+   * The number of account bindings that are modified. A value of 1 indicates that the operation is successful. A value of 0 or less indicates that the operation failed.
    * 
    * @example
    * 1
@@ -35,12 +35,12 @@ export class ModifyBindAccountResponseBodyData extends $dara.Model {
 export class ModifyBindAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The return value of the request.
    */
   data?: ModifyBindAccountResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

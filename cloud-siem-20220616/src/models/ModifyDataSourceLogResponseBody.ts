@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDataSourceLogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of logs that are modified. The value 1 indicates that the modification is successful, and a value less than or equal to 0 indicates that the modification failed.
+   * The number of modified logs. A value of 1 indicates success. A value of 0 or less indicates failure.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ModifyDataSourceLogResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+   * The ID of the log. The threat analysis feature generates this ID by calculating an MD5 hash of the parameters.
    * 
    * @example
    * 220ba97c9d1fdb0b9c7e8c7ca328d7ea
@@ -50,7 +50,7 @@ export class ModifyDataSourceLogResponseBody extends $dara.Model {
   data?: ModifyDataSourceLogResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

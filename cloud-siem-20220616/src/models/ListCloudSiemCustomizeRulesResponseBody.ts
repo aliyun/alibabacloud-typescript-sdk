@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudSiemCustomizeRulesResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataPageInfo extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataPageInfo extends $dara.M
 export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The type of the risk.
+   * The threat type.
    * 
    * @example
    * WEBSHELL
@@ -63,7 +63,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   alertType?: string;
   /**
    * @remarks
-   * The internal code of the risk type.
+   * The Medusa code of the threat type.
    * 
    * @example
    * ${siem_rule_type_process_abnormal_command}
@@ -71,7 +71,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   alertTypeMds?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account in SIEM.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 127608589417****
@@ -79,7 +79,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   aliuid?: number;
   /**
    * @remarks
-   * The alert additional field for ATT\\&CK.
+   * The ATT\\&CK attack technique.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -87,9 +87,10 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   attCk?: string;
   /**
    * @remarks
-   * The type of the view. Valid values:
+   * The view type.
    * 
-   * 0: view of the current Alibaba Cloud account. 1: view of all accounts for the enterprise.
+   * 0: the view of the current Alibaba Cloud account.
+   * 1: the view of all members in the enterprise.
    * 
    * @example
    * 1
@@ -97,7 +98,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   dataType?: number;
   /**
    * @remarks
-   * The extended information about event generation. If the value of **eventTransferType** is **allToSingle**, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+   * The extended information for event generation. This parameter is returned only when **EventTransferType** is set to **allToSingle**. The value is a JSON-formatted string that indicates the window length and unit for alert aggregation. You must unescape the HTML escape characters in the string.
    * 
    * @example
    * {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
@@ -105,10 +106,11 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   eventTransferExt?: string;
   /**
    * @remarks
-   * Indicates whether the system generates an event for the alert. Valid values:
+   * Indicates whether to convert alerts into events. Valid values:
    * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * - **0**: no
+   * 
+   * - **1**: yes
    * 
    * @example
    * 1
@@ -116,11 +118,13 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   eventTransferSwitch?: number;
   /**
    * @remarks
-   * The method that is used to generate an event. Valid values:
+   * The event generation method. Valid values:
    * 
-   * *   **default**: built-in method.
-   * *   **singleToSingle**: The system generates an event for each alert.
-   * *   **allToSingle**: The system generates an event for alerts within a period of time.
+   * - **default**: the default method
+   * 
+   * - **singleToSingle**: An event is generated for each alert.
+   * 
+   * - **allToSingle**: An event is generated for all alerts within a period.
    * 
    * @example
    * allToSingle
@@ -152,7 +156,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   id?: number;
   /**
    * @remarks
-   * The log source of the rule.
+   * The log source that is associated with the rule.
    * 
    * @example
    * cloud_siem_aegis_sas_alert
@@ -160,7 +164,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   logSource?: string;
   /**
    * @remarks
-   * The internal code of the log source.
+   * The Medusa code of the log source that is associated with the rule.
    * 
    * @example
    * ${sas.cloudsiem.prod.cloud_siem_aegis_sas_alert}
@@ -168,7 +172,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   logSourceMds?: string;
   /**
    * @remarks
-   * The log type of the rule.
+   * The log type that is associated with the rule.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -176,7 +180,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   logType?: string;
   /**
    * @remarks
-   * The internal code of the log type.
+   * The Medusa code of the log type that is associated with the rule.
    * 
    * @example
    * ${sas.cloudsiem.prod.alert_activity}
@@ -184,7 +188,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   logTypeMds?: string;
   /**
    * @remarks
-   * The window length of the rule. The HTML escape characters are reversed.
+   * The window length of the rule, which is a JSON-formatted string. You must unescape the HTML escape characters in the string.
    * 
    * @example
    * {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;HOUR&quot;}
@@ -192,7 +196,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   queryCycle?: string;
   /**
    * @remarks
-   * The query condition of the rule. The value is in the JSON format. The HTML escape characters are reversed.
+   * The query condition of the rule, which is a JSON-formatted string that represents an array. You must unescape the HTML escape characters in the string.
    * 
    * @example
    * [[{&quot;not&quot;:false,&quot;left&quot;:&quot;alert_name&quot;,&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:&quot;WEBSHELL&quot;}]]
@@ -208,7 +212,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   ruleDesc?: string;
   /**
    * @remarks
-   * The log aggregation field. The value is in the JSON format. The HTML escape characters are reversed.
+   * The aggregation field of the log, which is a JSON-formatted string that represents an array. You must unescape the HTML escape characters in the string.
    * 
    * @example
    * [&quot;asset_id&quot;]
@@ -224,7 +228,7 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   ruleName?: string;
   /**
    * @remarks
-   * The threshold configurations of the rule in the JSON format. The HTML escape characters are reversed.
+   * The threshold of the rule, which is a JSON-formatted string. You must unescape the HTML escape characters in the string.
    * 
    * @example
    * {&quot;aggregateFunction&quot;:&quot;count&quot;,&quot;aggregateFunctionName&quot;:&quot;count&quot;,&quot;field&quot;:&quot;activity_name&quot;,&quot;operator&quot;:&quot;&lt;=&quot;,&quot;value&quot;:1}
@@ -234,8 +238,9 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   **predefine**
-   * *   **customize**
+   * - **predefine**: predefined
+   * 
+   * - **customize**: custom
    * 
    * @example
    * customize
@@ -245,11 +250,15 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **0**: The rule is in the initial state.
-   * *   **10**: The simulation data is tested.
-   * *   **15**: The business data is being tested.
-   * *   **20**: The business data test is complete.
-   * *   **100**: The rule is in effect.
+   * - **0**: initial
+   * 
+   * - **10**: testing with simulated data
+   * 
+   * - **15**: testing with business data
+   * 
+   * - **20**: testing with business data is complete
+   * 
+   * - **100**: published
    * 
    * @example
    * 0
@@ -257,11 +266,13 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $da
   status?: number;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The threat level. Valid values:
    * 
-   * *   **serious**: high-risk.
-   * *   **suspicious**: medium-risk.
-   * *   **remind**: low-risk.
+   * - **serious**: high
+   * 
+   * - **suspicious**: medium
+   * 
+   * - **remind**: low
    * 
    * @example
    * remind
@@ -411,8 +422,9 @@ export class ListCloudSiemCustomizeRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
+   * The multicloud code. Valid values:
    * 
-   * *   qcloud: Tencent Cloud.
-   * *   aliyun: Alibaba Cloud.
-   * *   hcloud: Huawei Cloud.
+   * - qcloud: Tencent Cloud.
+   * 
+   * - aliyun: Alibaba Cloud.
+   * 
+   * - hcloud: Huawei Cloud.
    * 
    * @example
    * hcloud
@@ -17,7 +19,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The number of logs within the cloud service that are added to the threat analysis feature.
+   * The number of ingested logs for the product.
    * 
    * @example
    * 10
@@ -25,7 +27,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   importedLogCount?: number;
   /**
    * @remarks
-   * The time when the logs within the cloud service were last added to the threat analysis feature.
+   * The time when logs were last ingested for the product.
    * 
    * @example
    * 2023-11-23 12:12:12
@@ -33,7 +35,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The code of the cloud product.
    * 
    * @example
    * sas
@@ -41,7 +43,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The total number of logs within the cloud service.
+   * The total number of logs for the product.
    * 
    * @example
    * 19
@@ -79,7 +81,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
 export class ListAllProdsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -95,7 +97,7 @@ export class ListAllProdsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The cloud services.
+   * The list of products.
    * 
    * @example
    * 1
