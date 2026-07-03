@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEnterpriseCodeResponseBody extends $dara.Model {
+export class AttachCcnInstanceToCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * FBDB18D8-E91E-4978-8D6C-6E2E3EE10133
+   * 551CD836-9E46-4F2C-A167-B4363180A647
    */
   requestId?: string;
   static names(): { [key: string]: string } {

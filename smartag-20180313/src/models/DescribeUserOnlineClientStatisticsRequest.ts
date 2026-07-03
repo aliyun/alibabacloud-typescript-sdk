@@ -29,6 +29,8 @@ export class DescribeUserOnlineClientStatisticsRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
+   * The usernames. You can query up to 50 users at a time. Separate multiple usernames with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example

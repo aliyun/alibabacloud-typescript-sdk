@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The control status of the SAG device. Valid values:
+   * The control status of the Smart Access Gateway device. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **Abnormal**: abnormal
+   * - **Normal**: Normal.
+   * - **Abnormal**: Abnormal.
    * 
    * @example
    * Normal
@@ -16,7 +16,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   controllerState?: string;
   /**
    * @remarks
-   * The last time when the SAG device was connected to Alibaba Cloud.
+   * The most recent time when the Smart Access Gateway device connected to the controller.
    * 
    * @example
    * 2021-07-14 00:27:48
@@ -24,7 +24,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   lastConnectedControllerTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B6A991F4-F533-1627-8144-B64E01C5EE85
@@ -32,10 +32,10 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the reset button of the SAG device is enabled. Valid values:
+   * Indicates whether the reset button of the Smart Access Gateway device is enabled. Valid values:
    * 
-   * *   **Enabled**: enabled
-   * *   **Disabled**: disabled
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -43,7 +43,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   resettableStatus?: string;
   /**
    * @remarks
-   * The IP address of the SAG device.
+   * The service IP address of the Smart Access Gateway device.
    * 
    * @example
    * 42.XX.XX.151
@@ -51,10 +51,10 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   serviceIP?: string;
   /**
    * @remarks
-   * The model of the SAG device. Valid values:
+   * The type of the Smart Access Gateway device. Valid values:
    * 
-   * *   **sag-100wm**
-   * *   **sag-1000**
+   * - **sag-100wm**.
+   * - **sag-1000**.
    * 
    * @example
    * sag-100wm
@@ -62,7 +62,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   smartAGType?: string;
   /**
    * @remarks
-   * The time when the SAG device was started.
+   * The startup time of the Smart Access Gateway device.
    * 
    * @example
    * 2021-06-15 17:33:43
@@ -70,11 +70,11 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   startupTime?: string;
   /**
    * @remarks
-   * Indicates whether the settings of the SAG device are synchronized to Alibaba Cloud. Valid values:
+   * The synchronization status between the local Smart Access Gateway device and the cloud. Valid values:
    * 
-   * *   **Synchronized**: synchronized
-   * *   **Unsynchronized**: unsynchronized
-   * *   **Synchronizing**: being synchronized
+   * - **Synchronized**: Synchronization is complete.
+   * - **Unsynchronized**: Not synchronized.
+   * - **Synchronizing**: Synchronization is in progress.
    * 
    * @example
    * Unsynchronized
@@ -82,7 +82,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   synStatus?: string;
   /**
    * @remarks
-   * The version of the SAG device.
+   * The software version that runs on the Smart Access Gateway device.
    * 
    * @example
    * 2.3.1.1
@@ -90,10 +90,10 @@ export class DescribeSAGDeviceInfoResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPN connection status of the SAG device. Valid values:
+   * The VPN connection status of the Smart Access Gateway device. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **Abnormal**: abnormal
+   * - **Normal**: Normal.
+   * - **Abnormal**: Abnormal.
    * 
    * @example
    * Abnormal

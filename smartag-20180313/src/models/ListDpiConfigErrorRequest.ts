@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDpiConfigErrorRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance for which the DPI feature is configured. Valid values:
+   * The type of instance for which the DPI feature is configured:
    * 
-   * *   **acl**
-   * *   **qos**
+   * - **acl**: a Resource Access Management instance.
+   * - **qos**: a QoS policy instance.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ListDpiConfigErrorRequest extends $dara.Model {
   dpiConfigType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of configuration errors to return on each page.
    * 
    * Valid values: **1** to **100**.
    * 
@@ -30,7 +30,7 @@ export class ListDpiConfigErrorRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to query the next page.
+   * The token for the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -38,9 +38,7 @@ export class ListDpiConfigErrorRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the SAG instance.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * The ID of the region where the Smart Access Gateway instance is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions and their IDs that Smart Access Gateway supports.
    * 
    * This parameter is required.
    * 
@@ -58,7 +56,7 @@ export class ListDpiConfigErrorRequest extends $dara.Model {
   ruleInstanceId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * @example
    * sag-1e8sgws6b133b8****

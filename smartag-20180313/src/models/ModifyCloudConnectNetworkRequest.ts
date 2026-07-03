@@ -28,15 +28,16 @@ export class ModifyCloudConnectNetworkRequest extends $dara.Model {
    * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
-   * Description
+   * Ccn description
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to allow the SAG instances associated with the same CCN instance to communicate with each other.
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: yes
+   * 
+   * - **disable**: no
    * 
    * @example
    * enable
@@ -49,7 +50,7 @@ export class ModifyCloudConnectNetworkRequest extends $dara.Model {
    * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
    * 
    * @example
-   * Name
+   * Ccn name
    */
   name?: string;
   ownerAccount?: string;

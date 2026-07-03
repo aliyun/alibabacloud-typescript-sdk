@@ -57,7 +57,7 @@ export class DescribeUserOnlineClientStatisticsResponseBodyUserStatistics extend
 export class DescribeUserOnlineClientStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14846A6A-2192-4F6A-B272-B8BD68EBC89B

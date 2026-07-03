@@ -7,9 +7,11 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * The authentication type. Valid values:
    * 
-   * *   **NONE**
-   * *   **WPA-PSK**
-   * *   **WPA2-PSK**
+   * - **NONE**
+   * 
+   * - **WPA-PSK**
+   * 
+   * - **WPA2-PSK**
    * 
    * @example
    * WPA2-PSK
@@ -19,12 +21,14 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * The bandwidth of the channel. Valid values:
    * 
-   * *   **Automatic**
-   * *   **20 MHz**
-   * *   **40 MHz**
+   * - **Automatic**
+   * 
+   * - **20 MHz**
+   * 
+   * - **40 MHz**
    * 
    * @example
-   * 20 MHz
+   * Automatic
    */
   bandwidth?: string;
   /**
@@ -41,9 +45,11 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * The encryption algorithm. Valid values:
    * 
-   * *   **AUTO**: automatically selects the encryption algorithm.
-   * *   **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
-   * *   **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
+   * - **AUTO**: automatically selects the encryption algorithm.
+   * 
+   * - **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
+   * 
+   * - **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
    * 
    * @example
    * AUTO
@@ -53,8 +59,9 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * Specifies whether wireless security is enabled. Valid values:
    * 
-   * *   **true**: enables wireless security.
-   * *   **False**: disables wireless security.
+   * - **true**: enables wireless security.
+   * 
+   * - **False**: disables wireless security.
    * 
    * @example
    * True
@@ -64,10 +71,11 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * Specifies whether broadcast over Wi-Fi is enabled. Valid values:
    * 
-   * *   **true**: enables broadcast.
-   * *   **False**: disables broadcast.
+   * - **true**: enables broadcast.
    * 
-   * >  Only after you enable broadcast, terminals that support wireless connections can search the Wi-Fi network by its SSID and receive Wi-Fi signals.
+   * - **False**: disables broadcast.
+   * 
+   * > Only after you enable broadcast, terminals that support wireless connections can search the Wi-Fi network by its SSID and receive Wi-Fi signals.
    * 
    * @example
    * True
@@ -77,8 +85,9 @@ export class ModifySagWifiRequest extends $dara.Model {
    * @remarks
    * Specifies whether Wi-Fi is enabled. Valid values:
    * 
-   * *   **true**: enables Wi-Fi.
-   * *   **False**: disables Wi-Fi.
+   * - **true**: enables Wi-Fi.
+   * 
+   * - **False**: disables Wi-Fi.
    * 
    * This parameter is required.
    * 

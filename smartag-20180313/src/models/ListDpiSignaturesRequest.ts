@@ -12,18 +12,24 @@ export class ListDpiSignaturesRequest extends $dara.Model {
    */
   dpiGroupId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 235
    */
   dpiSignatureIds?: string[];
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * EdgeCast
    */
   dpiSignatureNames?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of applications to return on each page.
    * 
    * Valid values: **1** to **100**.
    * 
@@ -35,7 +41,7 @@ export class ListDpiSignaturesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to query the next page.
+   * The token for the next page of results.
    * 
    * @example
    * caeba0bbb2****
@@ -45,9 +51,9 @@ export class ListDpiSignaturesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the application or application group belongs.
+   * The region ID.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions and their IDs that are supported by SAG.
    * 
    * This parameter is required.
    * 

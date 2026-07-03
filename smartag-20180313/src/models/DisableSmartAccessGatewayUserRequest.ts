@@ -7,7 +7,7 @@ export class DisableSmartAccessGatewayUserRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG APP instance is deployed.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DisableSmartAccessGatewayUserRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG APP instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DisableSmartAccessGatewayUserRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The username of the client account.
+   * The username.
    * 
    * This parameter is required.
    * 

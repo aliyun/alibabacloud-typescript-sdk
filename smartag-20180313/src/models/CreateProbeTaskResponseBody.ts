@@ -13,7 +13,7 @@ export class CreateProbeTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the probe task.
+   * The ID of the probe task that was created.
    * 
    * @example
    * probe-****
@@ -29,7 +29,7 @@ export class CreateProbeTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 324223F3-93D3-4CE4-B26F-66C0C3809922

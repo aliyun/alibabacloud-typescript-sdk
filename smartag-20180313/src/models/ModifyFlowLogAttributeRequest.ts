@@ -14,6 +14,9 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the flow log.
+   * 
+   * @example
+   * Flow log instance 1
    */
   description?: string;
   /**
@@ -78,9 +81,11 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
    * @remarks
    * The location where the flow log is stored. Valid values:
    * 
-   * *   **sls**: The flow log is stored in Log Service.
-   * *   **netflow**: The flow log is stored on a NetFlow collector.
-   * *   **all**: The flow log is stored both in Log Service and on a NetFlow collector.
+   * - **sls**: The flow log is stored in Log Service.
+   * 
+   * - **netflow**: The flow log is stored on a NetFlow collector.
+   * 
+   * - **all**: The flow log is stored both in Log Service and on a NetFlow collector.
    * 
    * @example
    * sls

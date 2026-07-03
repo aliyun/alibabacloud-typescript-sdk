@@ -161,7 +161,7 @@ export class DescribeACLAttributeResponseBody extends $dara.Model {
   acrs?: DescribeACLAttributeResponseBodyAcrs;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number in a paginated query.
    * 
    * @example
    * 1
@@ -169,7 +169,7 @@ export class DescribeACLAttributeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of access control rule entries displayed per page in a paginated query.
    * 
    * @example
    * 10
@@ -177,7 +177,7 @@ export class DescribeACLAttributeResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8F62CE77-FBA2-4F8D-AED9-0A02814EDA69
@@ -185,7 +185,7 @@ export class DescribeACLAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of access control rule entries in the current ACL instance.
    * 
    * @example
    * 3

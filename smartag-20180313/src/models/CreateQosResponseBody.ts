@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The instance ID of the QoS policy.
    * 
    * @example
    * rg-acfm2iu4fnc****
@@ -13,7 +13,7 @@ export class CreateQosResponseBody extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AACF5140-783D-48F0-9E4F-E59D716F7D08
@@ -21,7 +21,7 @@ export class CreateQosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the QoS policy belongs.
+   * The ID of the resource group to which the QoS policy instance belongs.
    * 
    * @example
    * qos-oek3r2cmvk7m8q****

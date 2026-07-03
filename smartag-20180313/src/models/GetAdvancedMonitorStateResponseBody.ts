@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdvancedMonitorStateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the DPI feature is enabled. Valid values:
+   * Indicates whether the advanced monitoring feature is enabled. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: The feature is enabled.
+   * 
+   * - **false**: The feature is disabled.
    * 
    * @example
    * true
@@ -55,7 +56,7 @@ export class GetAdvancedMonitorStateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 324223F3-93D3-4CE4-B26F-66C0C3809922

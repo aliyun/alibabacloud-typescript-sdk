@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowLogSagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the flow log.
+   * The flow log instance ID.
    * 
    * @example
    * fl-l934tsa5504yuc****
@@ -15,7 +15,7 @@ export class DescribeFlowLogSagsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the SAG instance list. Minimum value: **1**. Default value: **1**
+   * The page number of the query list. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeFlowLogSagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the case of a paged query result. Maximum value: **50**. Default value: **10**
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class DescribeFlowLogSagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region to which the flow log belongs.
+   * The region ID of the flow log.
    * 
    * This parameter is required.
    * 

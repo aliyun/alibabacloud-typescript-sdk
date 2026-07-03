@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudConnectNetworksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that is bound to the CCN instance.
+   * The tag key.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeCloudConnectNetworksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that is bound to the CCN instance.
+   * The tag value.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeCloudConnectNetworksRequestTag extends $dara.Model {
 export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN instance.
+   * The ID of the CCN.
    * 
    * @example
    * ccn-l9340rlu5enst*****
@@ -53,9 +53,9 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   ccnId?: string;
   /**
    * @remarks
-   * The name of the CCN instance.
+   * The name of the CCN.
    * 
-   * The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_),and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 100 characters long, start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * ccnname
@@ -65,7 +65,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the CCN instances are deployed.
+   * The ID of the region where the CCN is located.
    * 
    * This parameter is required.
    * 
@@ -91,6 +91,13 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags to filter CCN instances.
+   * 
+   * @example
+   * DescribeCloudConnectNetworks
+   */
   tag?: DescribeCloudConnectNetworksRequestTag[];
   static names(): { [key: string]: string } {
     return {

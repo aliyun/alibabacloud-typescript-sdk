@@ -13,7 +13,7 @@ export class ListAvailableServiceAddressResponseBodyData extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The type of service address.
+   * The type of the service address.
    * 
    * @example
    * ProbeTask
@@ -62,7 +62,7 @@ export class ListAvailableServiceAddressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 324223F3-93D3-4CE4-B26F-66C0C3809922

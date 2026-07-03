@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQosCarResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the traffic throttling rule.
+   * The description of the QoS rate limiting rule.
    * 
    * @example
    * Qosdesc
@@ -13,10 +13,11 @@ export class CreateQosCarResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the traffic throttling rule. Valid values:
+   * The type of rate limiting. Valid values:
    * 
-   * *   **Absolute**: throttles traffic based on a specific range of bandwidth.
-   * *   **Percent**: throttles traffic based on a specific range of bandwidth percentage.
+   * - **Absolute**: by bandwidth value.
+   * 
+   * - **Percent**: by percentage.
    * 
    * @example
    * Percent
@@ -26,7 +27,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
    * @remarks
    * The maximum bandwidth value. Unit: Mbit/s.
    * 
-   * This parameter is returned when **LimitType** is set to **Absolute**.
+   * This parameter is required when **LimitType** is set to **Absolute**.
    * 
    * @example
    * 6
@@ -44,7 +45,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
    * @remarks
    * The minimum bandwidth value. Unit: Mbit/s.
    * 
-   * This parameter is returned when **LimitType** is set to **Absolute**.
+   * This parameter is required when **LimitType** is set to **Absolute**.
    * 
    * @example
    * 2
@@ -60,10 +61,11 @@ export class CreateQosCarResponseBody extends $dara.Model {
   minBandwidthPercent?: number;
   /**
    * @remarks
-   * The type of bandwidth when traffic is throttled based on bandwidth percentage. Valid values:
+   * The bandwidth type when rate limiting by percentage. Valid values:
    * 
-   * *   **CcnBandwidth**: CCN bandwidth
-   * *   **InternetUpBandwidth**: total Internet bandwidth
+   * - **CcnBandwidth**: CCN bandwidth.
+   * 
+   * - **InternetUpBandwidth**: total Internet bandwidth.
    * 
    * @example
    * CcnBandwidth
@@ -71,7 +73,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
   percentSourceType?: string;
   /**
    * @remarks
-   * The priority value of the traffic throttling rule.
+   * The priority of the rule.
    * 
    * @example
    * 2
@@ -79,7 +81,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the traffic throttling rule.
+   * The instance ID of the QoS rate limiting rule.
    * 
    * @example
    * qoscar-n5k8g97lihlph****
@@ -87,7 +89,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
   qosCarId?: string;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The instance ID of the QoS policy.
    * 
    * @example
    * qos-xitd8690ucu8ro****
@@ -95,7 +97,7 @@ export class CreateQosCarResponseBody extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AC13E8FF-4D61-40AD-868E-817F2D3AC86A

@@ -18,14 +18,18 @@ export class ModifySmartAccessGatewayRequest extends $dara.Model {
    * The description of the SAG instance.
    * 
    * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * SAG description
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to audit the network connection logs of the SAS app instance.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -46,6 +50,9 @@ export class ModifySmartAccessGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The location where the SAG instance is deployed.
+   * 
+   * @example
+   * [ { "adcode":"", "label":"Hangzhou, Zhejiang xx zone xx Road xx number", "value":"B0FFGxxxx", "center":"120.190xxxx, 30.182xxxx", "_new":"true" } ]
    */
   position?: string;
   /**
@@ -64,8 +71,9 @@ export class ModifySmartAccessGatewayRequest extends $dara.Model {
    * @remarks
    * The policy that is used to advertise routes to Alibaba Cloud. Valid values:
    * 
-   * *   **static**: static routing
-   * *   **dynamic**: dynamic routing
+   * - **static**: static routing
+   * 
+   * - **dynamic**: dynamic routing
    * 
    * @example
    * static

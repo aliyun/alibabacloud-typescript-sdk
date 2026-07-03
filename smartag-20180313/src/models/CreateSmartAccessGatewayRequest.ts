@@ -36,7 +36,7 @@ export class CreateSmartAccessGatewayRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Remarks
+   * Message
    */
   buyerMessage?: string;
   /**
@@ -144,7 +144,7 @@ export class CreateSmartAccessGatewayRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * No.XX
+   * No. XX
    */
   receiverAddress?: string;
   /**
@@ -204,7 +204,7 @@ export class CreateSmartAccessGatewayRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Alice
+   * John Doe
    */
   receiverName?: string;
   /**
@@ -232,7 +232,7 @@ export class CreateSmartAccessGatewayRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Zhuan Tang
+   * Zhuantang
    */
   receiverTown?: string;
   /**

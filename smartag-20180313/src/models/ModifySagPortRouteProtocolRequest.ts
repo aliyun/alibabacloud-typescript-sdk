@@ -29,7 +29,7 @@ export class ModifySagPortRouteProtocolRequest extends $dara.Model {
    * @remarks
    * The BGP autonomous system number (ASN) of the peer device.
    * 
-   * >  You must set this parameter when you enable BGP.
+   * > You must set this parameter when you enable BGP.
    * 
    * @example
    * 65535
@@ -39,7 +39,7 @@ export class ModifySagPortRouteProtocolRequest extends $dara.Model {
    * @remarks
    * The IP address of the peer device.
    * 
-   * >  You must set this parameter when you enable BGP.
+   * > You must set this parameter when you enable BGP.
    * 
    * @example
    * 192.XX.XX.1
@@ -51,9 +51,11 @@ export class ModifySagPortRouteProtocolRequest extends $dara.Model {
    * @remarks
    * The routing protocol. Valid values:
    * 
-   * *   **STATIC**: uses a static routing protocol.
-   * *   **OSPF**: uses the Open Shortest Path First protocol (OSPF).
-   * *   **BGP**: uses the Border Gateway Protocol (BGP).
+   * - **STATIC**: uses a static routing protocol.
+   * 
+   * - **OSPF**: uses the Open Shortest Path First protocol (OSPF).
+   * 
+   * - **BGP**: uses the Border Gateway Protocol (BGP).
    * 
    * This parameter is required.
    * 

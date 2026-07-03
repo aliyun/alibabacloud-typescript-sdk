@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHealthCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the health check.
+   * The ID of the health check instance.
    * 
    * @example
    * hc-rrqoucina3gmpn****
@@ -13,7 +13,7 @@ export class CreateHealthCheckResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E38E950D-28A4-4C41-9428-A8908EC6AE5C

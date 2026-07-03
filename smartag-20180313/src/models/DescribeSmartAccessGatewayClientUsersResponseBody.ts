@@ -72,7 +72,7 @@ export class DescribeSmartAccessGatewayClientUsersResponseBodyUsers extends $dar
 export class DescribeSmartAccessGatewayClientUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeSmartAccessGatewayClientUsersResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page when paging is used.
    * 
    * @example
    * 10
@@ -88,7 +88,7 @@ export class DescribeSmartAccessGatewayClientUsersResponseBody extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62F4CF10-F909-487E-8E95-BC35457C5F50
@@ -96,7 +96,7 @@ export class DescribeSmartAccessGatewayClientUsersResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The service address. Example: **192.168.1.1**.
+   * The service address of the Smart Access Gateway instance. Example: **192.168.1.1**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteServiceAddressRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The type of service address. Set the value to **ProbeTask**.
+   * The type of the service address for the Smart Access Gateway instance. Set the value to **ProbeTask**.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DeleteServiceAddressRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The ID of the region where the Smart Access Gateway instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DeleteServiceAddressRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DeleteServiceAddressRequest extends $dara.Model {
   sagId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

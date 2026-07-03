@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
   /**
    * @remarks
-   * The packet loss rate of the SAG instance. Unit: packets per second (PPS).
+   * The packet loss rate of the Smart Access Gateway instance. Unit: pps.
    * 
    * @example
    * 0.0
@@ -13,7 +13,7 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
   dropRate?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * @example
    * sag-whfn****
@@ -21,7 +21,7 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the SAG instance.
+   * The name of the Smart Access Gateway instance.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-shanghai
@@ -65,12 +65,12 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
 export class DescribeSagDropTopNResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about packets dropped by the SAG instance.
+   * The list of packet loss information about Smart Access Gateway instances.
    */
   dropTopN?: DescribeSagDropTopNResponseBodyDropTopN[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AFF7E5A6-6897-4FDC-A5A8-1978B5B3E545

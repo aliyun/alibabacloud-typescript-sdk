@@ -4,6 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyClientUserDNSRequest extends $dara.Model {
   /**
+   * @remarks
+   * The IP addresses of the primary and secondary DNS servers that the client uses when it connects to a private network.
+   * 
+   * > - If the client uses PrivateZone to access Alibaba Cloud, the DNS server IP addresses are 100.100.2.136 and 100.100.2.138.
+   * 
+   * - DNS configuration is supported only on Android and macOS clients, version 2.1.1 or later.
+   * - This parameter is optional. If you do not specify this parameter, the system deletes the existing DNS configuration.
+   * 
    * @example
    * 100.XX.XX.100
    */
@@ -11,13 +19,18 @@ export class ModifyClientUserDNSRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The IP addresses of the primary and secondary DNS servers to use after the client disconnects from the private network.
+   * 
+   * > This feature is not yet available.
+   * 
    * @example
    * 100.XX.XX.110
    */
   recoveredDNS?: string[];
   /**
    * @remarks
-   * The ID of the region where the SAG app instance is deployed.
+   * The region ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +42,7 @@ export class ModifyClientUserDNSRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG app instance.
+   * The ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 

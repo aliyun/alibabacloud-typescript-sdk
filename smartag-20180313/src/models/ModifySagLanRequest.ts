@@ -25,8 +25,9 @@ export class ModifySagLanRequest extends $dara.Model {
    * @remarks
    * The connection type of the LAN port. Valid values:
    * 
-   * *   **DHCP**: a dynamic IP address. Uses the Dynamic Host Configuration Protocol (DHCP) to dynamically assign an IP address to a connected device.
-   * *   **STATIC**: a static IP address. Specifies a static IP address for the LAN port.
+   * - **DHCP**: a dynamic IP address. Uses the Dynamic Host Configuration Protocol (DHCP) to dynamically assign an IP address to a connected device.
+   * 
+   * - **STATIC**: a static IP address. Specifies a static IP address for the LAN port.
    * 
    * This parameter is required.
    * 

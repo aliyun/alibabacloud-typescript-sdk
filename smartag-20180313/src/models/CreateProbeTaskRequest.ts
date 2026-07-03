@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProbeTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name that is probed by the task. If the protocol of the probe task is ICMP or TCP, set the value to the IP address or domain name of the service that you want to probe. If the protocol of the probe task is HTTP, set the value to the URL of the service that you want to probe.
+   * The destination domain name of the probe node.
+   * For ICMP and TCP Protocol Type probes, set this parameter to the IP address or domain name of the destination service. For HTTP Protocol Type probes, set this parameter to the URL of the destination service.
    * 
    * This parameter is required.
    * 
@@ -17,8 +18,8 @@ export class CreateProbeTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the probe task. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -28,11 +29,11 @@ export class CreateProbeTaskRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The number of probe packets transmitted by the probe task per minute.
+   * The number of packets sent per minute for the probe protocol.
    * 
    * Valid values: **1** to **60**.
    * 
-   * > This parameter is required if the protocol of the probe task is ICMP. Ignore this parameter if the protocol of the probe task is not ICMP.
+   * > This parameter is required for ICMP Protocol Type probe tasks. Do not specify this parameter for other protocols.
    * 
    * @example
    * 10
@@ -40,9 +41,9 @@ export class CreateProbeTaskRequest extends $dara.Model {
   packetNumber?: number;
   /**
    * @remarks
-   * The port that is probed by the task.
+   * The port number of the probe protocol.
    * 
-   * > This parameter is required if the protocol of the probe task is TCP. Ignore this parameter if the protocol of the probe task is not TCP.
+   * > This parameter is required for TCP Protocol Type probe tasks. Do not specify this parameter for other protocols.
    * 
    * @example
    * 80
@@ -50,9 +51,9 @@ export class CreateProbeTaskRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The source address of the probe task.
+   * The source address for the private network probe.
    * 
-   * > This parameter is required if the task probes private networks.
+   * > This parameter is required for private network probe tasks.
    * 
    * @example
    * 192.168.1.1
@@ -62,11 +63,11 @@ export class CreateProbeTaskRequest extends $dara.Model {
    * @remarks
    * The protocol of the probe task. Valid values:
    * 
-   * *   **ICMP**
-   * *   **TCP**
-   * *   **HTTP**
+   * - **ICMP**.
+   * - **TCP**.
+   * - **HTTP**.
    * 
-   * > Tasks that probe private networks support only ICMP and TCP.
+   * > Private network probes support only the ICMP and TCP protocols.
    * 
    * This parameter is required.
    * 
@@ -76,9 +77,9 @@ export class CreateProbeTaskRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The region ID of the SAG instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -88,7 +89,7 @@ export class CreateProbeTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * This parameter is required.
    * 
@@ -98,7 +99,7 @@ export class CreateProbeTaskRequest extends $dara.Model {
   sagId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 
@@ -118,8 +119,9 @@ export class CreateProbeTaskRequest extends $dara.Model {
    * @remarks
    * The type of the probe task. Valid values:
    * 
-   * *   **Internet**: probes a public network.
-   * *   **Intranet**: probes a private network.
+   * - **Internet**: public network probe.
+   * 
+   * - **Intranet**: private network probe.
    * 
    * This parameter is required.
    * 

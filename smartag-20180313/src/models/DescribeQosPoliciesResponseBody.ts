@@ -151,7 +151,7 @@ export class DescribeQosPoliciesResponseBodyQosPolicies extends $dara.Model {
 export class DescribeQosPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -159,7 +159,7 @@ export class DescribeQosPoliciesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of quintuple rules returned on each page.
    * 
    * @example
    * 10
@@ -168,7 +168,7 @@ export class DescribeQosPoliciesResponseBody extends $dara.Model {
   qosPolicies?: DescribeQosPoliciesResponseBodyQosPolicies;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 97862812-2C7E-4D25-B0D5-B26DAC7FA293
@@ -176,7 +176,7 @@ export class DescribeQosPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of quintuple rules that meet the query conditions.
    * 
    * @example
    * 2

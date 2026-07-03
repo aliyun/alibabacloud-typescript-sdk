@@ -57,7 +57,7 @@ export class CreateQosPolicyResponseBodyDpiSignatureIds extends $dara.Model {
 export class CreateQosPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the traffic classification rule.
+   * The description of the traffic classification rule for the QoS policy.
    * 
    * @example
    * desctest
@@ -91,7 +91,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The protocol that applies to the traffic classification rule.
+   * The protocol type to which the traffic classification rule applies.
    * 
    * @example
    * TCP
@@ -99,7 +99,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The name of the traffic classification rule.
+   * The name of the traffic classification rule for the QoS policy.
    * 
    * @example
    * nametest
@@ -107,7 +107,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The priority of the traffic throttling policy to which the traffic classification rule belongs.
+   * The priority of the rate limiting rule to which the traffic classification rule belongs.
    * 
    * @example
    * 3
@@ -115,7 +115,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The instance ID of the QoS policy.
    * 
    * @example
    * qos-xitd8690ucu8ro****
@@ -123,7 +123,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the traffic classification rule.
+   * The instance ID of the traffic classification rule for the QoS policy.
    * 
    * @example
    * qospy-xhwhyuo43l********
@@ -131,7 +131,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   qosPolicyId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 97862812-2C7E-4D25-B0D5-B26DAC7FA293

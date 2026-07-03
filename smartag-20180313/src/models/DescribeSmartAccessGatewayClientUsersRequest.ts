@@ -7,7 +7,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page when paging is used. Default value: **10**.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG app instance is deployed.
+   * The region ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG app instance.
+   * The instance ID of the Smart Access Gateway app.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The email address of the client account.
+   * The email address of the client.
    * 
    * @example
    * username@example.com
@@ -53,7 +53,7 @@ export class DescribeSmartAccessGatewayClientUsersRequest extends $dara.Model {
   userMail?: string;
   /**
    * @remarks
-   * The username of the client account.
+   * The username of the client.
    * 
    * @example
    * username

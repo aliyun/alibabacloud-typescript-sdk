@@ -17,7 +17,7 @@ export class AddACLRuleRequest extends $dara.Model {
    * @remarks
    * The description of the ACL rule.
    * 
-   * The description must be **1 to 512** characters in length.
+   * The description must be 1 to **512** characters in length.
    * 
    * @example
    * desctest
@@ -25,9 +25,9 @@ export class AddACLRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The range of the destination IP addresses.
+   * The destination CIDR block.
    * 
-   * Specify the value of this parameter in CIDR notation. Example: 192.168.10.0/24.
+   * For example: 192.168.10.0/24.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,9 @@ export class AddACLRuleRequest extends $dara.Model {
    * @remarks
    * The destination port range.
    * 
-   * Valid values: **1** to **65535** and **-1**.
+   * Valid values: **-1** and **1** to **65535**.
    * 
-   * Set the destination port range in one of the following formats: 1/200 or 80/80. A value of -1/-1 indicates all ports.
+   * Use the format 1/200 or 80/80. A value of -1/-1 means all ports.
    * 
    * This parameter is required.
    * 
@@ -51,10 +51,10 @@ export class AddACLRuleRequest extends $dara.Model {
   destPortRange?: string;
   /**
    * @remarks
-   * The direction of traffic in which the ACL rule is applied. Valid values:
+   * The direction of traffic to which the ACL rule applies. Valid values:
    * 
-   * *   **in**: The ACL rule controls inbound network traffic of the on-premises network that is associated with the Smart Access Gateway (SAG) instance.
-   * *   **out**: The ACL rule controls outbound network traffic of the on-premises network that is associated with the SAG instance.
+   * - **in**: inbound. Traffic from an external network to the local branch where the SAG instance is deployed.
+   * - **out**: outbound. Traffic from the local branch where the SAG instance is deployed to an external network.
    * 
    * This parameter is required.
    * 
@@ -63,20 +63,30 @@ export class AddACLRuleRequest extends $dara.Model {
    */
   direction?: string;
   /**
+   * @remarks
+   * A list of application group IDs. The ACL rule matches traffic of the specified application groups.
+   * 
+   * For more information, see [ListDpiGroups](https://help.aliyun.com/document_detail/196754.html). You can specify up to **10** application group IDs.
+   * 
    * @example
    * 20
    */
   dpiGroupIds?: string[];
   /**
+   * @remarks
+   * A list of application IDs. The ACL rule matches traffic of the specified applications.
+   * 
+   * For more information, see [ListDpiSignatures](https://help.aliyun.com/document_detail/196630.html). You can specify up to **10** application IDs.
+   * 
    * @example
    * 1
    */
   dpiSignatureIds?: string[];
   /**
    * @remarks
-   * The protocol used by the ACL rule.
+   * The protocol to which the ACL rule applies.
    * 
-   * The protocols that are provided in this topic are for reference only. The protocols available in the SAG console may vary. The value of the parameter is not case-sensitive.
+   * For a list of supported protocols, see the console. The protocol is not case-sensitive.
    * 
    * This parameter is required.
    * 
@@ -88,7 +98,7 @@ export class AddACLRuleRequest extends $dara.Model {
    * @remarks
    * The name of the ACL rule.
    * 
-   * The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 2 to 100 characters in length, start with a letter, and can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * doctest
@@ -98,10 +108,10 @@ export class AddACLRuleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The action policy of the ACL rule. Valid values:
+   * The authorization policy of the ACL rule. Valid values:
    * 
-   * *   **accept**: allows network traffic.
-   * *   **drop**: blocks the network traffic.
+   * - **accept**: allows access.
+   * - **drop**: denies access.
    * 
    * This parameter is required.
    * 
@@ -113,9 +123,9 @@ export class AddACLRuleRequest extends $dara.Model {
    * @remarks
    * The priority of the ACL rule.
    * 
-   * A smaller value indicates a higher priority. If rules have the same priority, whichever applied to the SAG devices earlier takes effect.
+   * A smaller value indicates a higher priority. If multiple rules have the same priority, the rule that is first delivered to the Smart Access Gateway device takes precedence.
    * 
-   * Valid values: **1 to 100**. Default value: **1**.
+   * Valid values: 1 to **100**. Default value: **1**.
    * 
    * @example
    * 12
@@ -123,9 +133,9 @@ export class AddACLRuleRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the region where the ACL is deployed.
+   * The ID of the region where the access control list (ACL) is located.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/69813.html).
    * 
    * This parameter is required.
    * 
@@ -137,9 +147,9 @@ export class AddACLRuleRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The range of the source IP addresses.
+   * The source CIDR block.
    * 
-   * Specify the value of this parameter in CIDR notation. Example: 192.168.1.0/24.
+   * For example: 192.168.1.0/24.
    * 
    * This parameter is required.
    * 
@@ -151,9 +161,9 @@ export class AddACLRuleRequest extends $dara.Model {
    * @remarks
    * The source port range.
    * 
-   * Valid values: **1** to **65535** and **-1**.
+   * Valid values: **-1** and **1** to **65535**.
    * 
-   * Set the source port range in one of the following formats: 1/200 or 80/80. A value of -1/-1 indicates all ports.
+   * Use the format 1/200 or 80/80. A value of -1/-1 means all ports.
    * 
    * This parameter is required.
    * 
@@ -163,10 +173,10 @@ export class AddACLRuleRequest extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The type of the ACL rule: Valid values:
+   * The type of the ACL rule. Valid values:
    * 
-   * *   **LAN**: The ACL rule controls network traffic transmitted through private IP addresses.
-   * *   **WAN**: The ACL rule controls network traffic transmitted through public IP addresses.
+   * - **LAN**: (Default) private network. The ACL rule controls traffic on private networks.
+   * - **WAN**: public network. The ACL rule controls traffic on public networks.
    * 
    * @example
    * LAN

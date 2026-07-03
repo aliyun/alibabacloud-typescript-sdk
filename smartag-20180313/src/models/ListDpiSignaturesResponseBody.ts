@@ -13,7 +13,7 @@ export class ListDpiSignaturesResponseBodyDpiSignature extends $dara.Model {
   dpiGroupId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 235
@@ -21,7 +21,7 @@ export class ListDpiSignaturesResponseBodyDpiSignature extends $dara.Model {
   dpiSignatureId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * EdgeCast
@@ -29,7 +29,7 @@ export class ListDpiSignaturesResponseBodyDpiSignature extends $dara.Model {
   dpiSignatureName?: string;
   /**
    * @remarks
-   * The earliest version of engine that supports the application.
+   * The minimum version of the deep packet inspection (DPI) engine that supports the application.
    * 
    * @example
    * 0-0.0.1
@@ -37,7 +37,7 @@ export class ListDpiSignaturesResponseBodyDpiSignature extends $dara.Model {
   minEngineVersion?: string;
   /**
    * @remarks
-   * The earliest version of signature database that supports the application.
+   * The minimum version of the signature library that supports the application.
    * 
    * @example
    * 20201117_1_0-0.0.1
@@ -75,12 +75,12 @@ export class ListDpiSignaturesResponseBodyDpiSignature extends $dara.Model {
 export class ListDpiSignaturesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application.
+   * A list of applications.
    */
   dpiSignature?: ListDpiSignaturesResponseBodyDpiSignature[];
   /**
    * @remarks
-   * The token returned for the next query.
+   * The token for the next page of results.
    * 
    * @example
    * FFrMV38kR4****
@@ -88,7 +88,7 @@ export class ListDpiSignaturesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 63081123-B7C0-4BC9-B9E5-59E77A616EC9
@@ -96,7 +96,7 @@ export class ListDpiSignaturesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on the current page.
+   * The total number of applications returned.
    * 
    * @example
    * 1

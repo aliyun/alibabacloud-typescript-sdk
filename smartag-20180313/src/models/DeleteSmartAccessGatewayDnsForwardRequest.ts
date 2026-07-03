@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartAccessGatewayDnsForwardRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the DNS forwarding rule.
    * 
    * This parameter is required.
    * 

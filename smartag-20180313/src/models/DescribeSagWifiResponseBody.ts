@@ -31,15 +31,23 @@ export class DescribeSagWifiResponseBodyTaskStates extends $dara.Model {
    * @remarks
    * The status of the query task. Valid values:
    * 
-   * *   **Initialized**: The query task has been initialized.
-   * *   **Offline**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will be dispatched after the SAG device is connected to Alibaba Cloud.
-   * *   **Succeed**: The query task has been dispatched.
-   * *   **Processing**: The query task is being dispatched.
-   * *   **VersionNotSupport**: The current version of the SAG device does not support query tasks.
-   * *   **BuildRequestError**: The SAG control system does not support query tasks.
-   * *   **HardwareError**: The query task failed to be dispatched due to device errors.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will not be dispatched after the device is connected to Alibaba Cloud.
+   * - **Initialized**: The query task has been initialized.
+   * 
+   * - **Offline**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will be dispatched after the SAG device is connected to Alibaba Cloud.
+   * 
+   * - **Succeed**: The query task has been dispatched.
+   * 
+   * - **Processing**: The query task is being dispatched.
+   * 
+   * - **VersionNotSupport**: The current version of the SAG device does not support query tasks.
+   * 
+   * - **BuildRequestError**: The SAG control system does not support query tasks.
+   * 
+   * - **HardwareError**: The query task failed to be dispatched due to device errors.
+   * 
+   * - **TaskNotExist**: The query task does not exist.
+   * 
+   * - **OfflineNotConfiged**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will not be dispatched after the device is connected to Alibaba Cloud.
    * 
    * @example
    * Succeed
@@ -77,9 +85,11 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * The authentication type. Valid values:
    * 
-   * *   **NONE**: authentication is disabled.
-   * *   **WPA-PSK**: WPA-PSK authentication is enabled.
-   * *   **WPA2-PSK**: WPA2-PSK authentication is enabled.
+   * - **NONE**: authentication is disabled.
+   * 
+   * - **WPA-PSK**: WPA-PSK authentication is enabled.
+   * 
+   * - **WPA2-PSK**: WPA2-PSK authentication is enabled.
    * 
    * @example
    * WPA2-PSK
@@ -89,9 +99,14 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * The bandwidth of the Wi-Fi channel. Valid values:
    * 
-   * *   **Automatic**
-   * *   **20 HMz**
-   * *   **40 MHz**
+   * - **Automatic**
+   * 
+   * - **20 HMz**
+   * 
+   * - **40 MHz**
+   * 
+   * @example
+   * Automatic
    */
   bandwidth?: string;
   /**
@@ -106,9 +121,11 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * The encryption algorithm.
    * 
-   * *   **AUTO**: automatically selects the encryption algorithm.
-   * *   **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
-   * *   **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
+   * - **AUTO**: automatically selects the encryption algorithm.
+   * 
+   * - **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
+   * 
+   * - **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
    * 
    * @example
    * AES
@@ -118,8 +135,9 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether wireless security is enabled.
    * 
-   * *   **True**: wireless security is enabled.
-   * *   **False**: wireless security is disabled.
+   * - **True**: wireless security is enabled.
+   * 
+   * - **False**: wireless security is disabled.
    * 
    * @example
    * True
@@ -129,8 +147,9 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether broadcast over Wi-Fi is enabled. Valid values:
    * 
-   * *   **True**: broadcast is enabled.
-   * *   **False**: broadcast is disabled.
+   * - **True**: broadcast is enabled.
+   * 
+   * - **False**: broadcast is disabled.
    * 
    * @example
    * True
@@ -140,8 +159,9 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether wireless connections are enabled. Valid values:
    * 
-   * *   **True**: wireless connections are enabled.
-   * *   **False**: wireless connections are disabled.
+   * - **True**: wireless connections are enabled.
+   * 
+   * - **False**: wireless connections are disabled.
    * 
    * @example
    * True

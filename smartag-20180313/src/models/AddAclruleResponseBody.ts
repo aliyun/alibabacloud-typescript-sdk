@@ -85,7 +85,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The destination CIDR block.
    * 
-   * The value of this parameter is specified in CIDR notation. Example: 192.168.10.0/24.
+   * For example: 192.168.10.0/24.
    * 
    * @example
    * 192.168.10.0/24
@@ -101,10 +101,10 @@ export class AddACLRuleResponseBody extends $dara.Model {
   destPortRange?: string;
   /**
    * @remarks
-   * The direction of traffic in which the ACL rule is applied. Valid values:
+   * The direction of traffic to which the ACL rule applies. Valid values:
    * 
-   * *   **in**: The ACL rule controls inbound network traffic of the on-premises network that is associated with the SAG instance.
-   * *   **out**: The ACL rule controls outbound network traffic of the on-premises network that is associated with the SAG instance.
+   * - **in**: inbound. Traffic from an external network to the local branch where the SAG instance is deployed.
+   * - **out**: outbound. Traffic from the local branch where the SAG instance is deployed to an external network.
    * 
    * @example
    * out
@@ -114,9 +114,9 @@ export class AddACLRuleResponseBody extends $dara.Model {
   dpiSignatureIds?: AddACLRuleResponseBodyDpiSignatureIds;
   /**
    * @remarks
-   * The timestamp when the ACL rule was created.
+   * The UNIX timestamp when the ACL rule was created.
    * 
-   * The timestamp is of the Long data type. If multiple ACL rules have the same priority, the rule with the earliest timestamp takes effect.
+   * This value is a long integer. If rules have the same priority, the one with the earlier timestamp takes precedence.
    * 
    * @example
    * 1553766882689
@@ -124,7 +124,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The protocol used by the ACL rule.
+   * The protocol to which the ACL rule applies.
    * 
    * @example
    * TCP
@@ -140,10 +140,10 @@ export class AddACLRuleResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The action policy of the ACL rule.
+   * The authorization policy of the ACL rule.
    * 
-   * *   **accept**: allows the network traffic.
-   * *   **drop**: blocks the network traffic.
+   * - **accept**: allows access.
+   * - **drop**: denies access.
    * 
    * @example
    * drop
@@ -153,7 +153,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The priority of the ACL rule.
    * 
-   * A smaller value indicates a higher priority. If rules have the same priority, whichever applied to the SAG devices earlier takes effect.
+   * A smaller value indicates a higher priority. If multiple rules have the same priority, the rule that is first delivered to the Smart Access Gateway device takes precedence.
    * 
    * @example
    * 1
@@ -161,7 +161,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 880F84CB-9B54-4413-A8A3-8832C82D1BC4
@@ -171,7 +171,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The source CIDR block.
    * 
-   * The value of this parameter is specified in CIDR notation. Example: 192.168.1.0/24.
+   * The source CIDR block is in the CIDR format. For example: 192.168.1.0/24.
    * 
    * @example
    * 192.168.20.0/24
@@ -187,10 +187,10 @@ export class AddACLRuleResponseBody extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The type of the ACL rule:
+   * The type of the ACL rule.
    * 
-   * *   **LAN**: The ACL rule controls network traffic transmitted through private IP addresses.
-   * *   **WAN**: The ACL rule controls network traffic transmitted through public IP addresses.
+   * - **LAN**: private network. The ACL rule controls traffic on private networks.
+   * - **WAN**: public network. The ACL rule controls traffic on public networks.
    * 
    * @example
    * LAN

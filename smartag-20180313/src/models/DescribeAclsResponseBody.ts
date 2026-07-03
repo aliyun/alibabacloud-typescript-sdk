@@ -67,7 +67,7 @@ export class DescribeACLsResponseBody extends $dara.Model {
   acls?: DescribeACLsResponseBodyAcls;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribeACLsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class DescribeACLsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 660F303F-C88E-4026-BC6A-FC24B78FD7EA
@@ -91,7 +91,7 @@ export class DescribeACLsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

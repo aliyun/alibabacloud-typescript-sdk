@@ -49,8 +49,9 @@ export class ListSmartAGByAccessPointRequest extends $dara.Model {
    * @remarks
    * The status of the SAG instance. Valid values:
    * 
-   * *   **Active**: The SAG device is connected to Alibaba Cloud.
-   * *   **offline**: The SAG device is disconnected from Alibaba Cloud.
+   * - **Active**: The SAG device is connected to Alibaba Cloud.
+   * 
+   * - **offline**: The SAG device is disconnected from Alibaba Cloud.
    * 
    * @example
    * Active

@@ -7,7 +7,7 @@ export class DescribeSagOnlineClientStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG app instance is deployed.
+   * The region ID of the SAG app instance.
    * 
    * This parameter is required.
    * 
@@ -18,6 +18,9 @@ export class DescribeSagOnlineClientStatisticsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The IDs of the SAG app instances. The list can contain up to 50 instance IDs.
+   * 
    * @example
    * sag-va03wf4l4idaj*****
    */

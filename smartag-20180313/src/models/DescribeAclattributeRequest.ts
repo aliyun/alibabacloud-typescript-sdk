@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeACLAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The ID of the access control list (ACL) instance.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The direction of traffic in which the ACL rule is applied. Valid values:
+   * The direction of the access control rule. Valid values:
    * 
-   * *   **in**: The ACL rule controls inbound network traffic of the on-premises network that is associated with the Smart Access Gateway (SAG) instance.
-   * *   **out**: The ACL rule controls outbound network traffic of the on-premises network that is associated with the SAG instance.
+   * - **in**: inbound. Refers to traffic from external sources accessing the local branch where the Smart Access Gateway (SAG) instance is deployed.
+   * - **out**: outbound. Refers to traffic from the local branch where the SAG instance is deployed accessing external destinations.
    * 
    * @example
    * out
@@ -26,11 +26,10 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The name of the ACL.
+   * The name of the ACL instance.
    * 
-   * The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
-   * 
-   * >  This parameter supports fuzzy match.
+   * The name must be 2 to 100 characters in length and must start with an uppercase letter, a lowercase letter, or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * > This parameter supports fuzzy search.
    * 
    * @example
    * doctest
@@ -38,7 +37,7 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 1255444444
@@ -48,7 +47,7 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number in a paginated query. Default value: **1**.
    * 
    * @example
    * 1
@@ -56,7 +55,7 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of access control rule entries to display per page in a paginated query.
    * 
    * Valid values: **1** to **50**.
    * 
@@ -68,7 +67,7 @@ export class DescribeACLAttributeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the ACL is deployed.
+   * The region ID of the access control list (ACL) instance.
    * 
    * This parameter is required.
    * 

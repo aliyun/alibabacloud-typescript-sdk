@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQosCarResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 551CD836-9E46-4F2C-A167-B4363180A647

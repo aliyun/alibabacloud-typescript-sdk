@@ -7,7 +7,7 @@ export class DescribeSnatEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the instance status list. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeSnatEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Maximum value: **50**.
+   * The number of entries per page in a paged query. Default value: **10**. Maximum value: **50**.
    * 
    * @example
    * 2
@@ -23,7 +23,7 @@ export class DescribeSnatEntriesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeSnatEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 

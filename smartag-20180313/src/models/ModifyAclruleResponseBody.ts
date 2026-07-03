@@ -57,7 +57,7 @@ export class ModifyACLRuleResponseBodyDpiSignatureIds extends $dara.Model {
 export class ModifyACLRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of ACL.
+   * The ID of the ACL instance.
    * 
    * @example
    * acl-jdc7tir4fkplwr****
@@ -65,7 +65,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The ID of the ACL rule.
+   * The ID of the access control rule.
    * 
    * @example
    * acr-r8hezn2pi39s5a****
@@ -73,7 +73,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   acrId?: string;
   /**
    * @remarks
-   * The description of the ACL rule.
+   * The description of the access control rule.
    * 
    * @example
    * test
@@ -83,7 +83,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The destination CIDR block.
    * 
-   * The value of this parameter is in CIDR notation. Example: 192.168.10.0/24.
+   * The destination CIDR block is in CIDR format. For example: 192.168.10.0/24.
    * 
    * @example
    * 0.0.0.0/0
@@ -99,10 +99,10 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   destPortRange?: string;
   /**
    * @remarks
-   * The direction of traffic in which the ACL rule is applied. Valid values:
+   * The direction in which the access control rule is applied. Valid values:
    * 
-   * *   **in**: The ACL rule controls inbound network traffic of the on-premises network that is associated with the SAG instance.
-   * *   **out**: The ACL rule controls outbound network traffic of the on-premises network that is associated with the SAG instance.
+   * - **in**: inbound. This is the direction of traffic from an external network to the on-premises network where the Smart Access Gateway instance is deployed.
+   * - **out**: outbound. This is the direction of traffic from the on-premises network where the Smart Access Gateway instance is deployed to an external network.
    * 
    * @example
    * in
@@ -112,9 +112,9 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   dpiSignatureIds?: ModifyACLRuleResponseBodyDpiSignatureIds;
   /**
    * @remarks
-   * The timestamp when the ACL rule was created.
+   * The timestamp that indicates when the access control rule was created.
    * 
-   * The timestamp is of the Long data type. If multiple ACL rules have the same priority, the rule with the earliest timestamp takes effect.
+   * The value is a UNIX timestamp. If rules have the same priority, the one with the smaller timestamp takes precedence.
    * 
    * @example
    * 1553777700000
@@ -122,7 +122,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The protocol used by the ACL rule.
+   * The protocol used by the access control rule.
    * 
    * @example
    * ALL
@@ -130,7 +130,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The name of the ACL rule.
+   * The name of the access control rule.
    * 
    * @example
    * doctest
@@ -138,10 +138,10 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The action of the ACL rule.
+   * The authorization policy of the access control rule.
    * 
-   * *   **accept**: allows network traffic.
-   * *   **drop**: blocks network traffic.
+   * - **accept**: allows access.
+   * - **drop**: denies access.
    * 
    * @example
    * accept
@@ -149,9 +149,9 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The priority of the ACL rule.
+   * The priority of the access control rule.
    * 
-   * A smaller value indicates a higher priority. If multiple rules have the same priority, the rule that is applied earlier takes effect.
+   * A smaller value indicates a higher priority. If rules have the same priority, the one that is first delivered to the Smart Access Gateway device takes precedence.
    * 
    * @example
    * 1
@@ -159,7 +159,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7F3DD2C1-0F6B-4575-9106-B2D50DF7A711
@@ -169,7 +169,7 @@ export class ModifyACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The source CIDR block.
    * 
-   * The value of this parameter is in CIDR notation. Example: 192.168.1.0/24.
+   * The source CIDR block is in CIDR format. For example: 192.168.1.0/24.
    * 
    * @example
    * 0.0.0.0/0

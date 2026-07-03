@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQosPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the 5-tuple.
+   * The description of the quintuple rule instance in the QoS policy.
    * 
-   * The description must be 1 to 512 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The description must be 1 to 512 characters in length, start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * docdesc
@@ -17,7 +17,7 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -25,9 +25,9 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of quintuple rules to return on each page.
    * 
-   * Default value: **10**. A maximum of **50** entries can be returned on each page.
+   * The default value is **10**. The maximum value is **50**.
    * 
    * @example
    * 10
@@ -35,11 +35,11 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The priority of the traffic throttling rule that is applied to the 5-tuple.
+   * The priority of the throttling rule to which the quintuple rule in the QoS policy belongs.
    * 
-   * Valid values: **1 to 3**. A smaller value indicates a higher priority.
+   * The priority range is 1 to **3**. A smaller value indicates a higher priority.
    * 
-   * >  If you have submitted a ticket and created a QoS policy with the priority value 4 by calling the [CreateQosPolicy](https://help.aliyun.com/document_detail/131575.html) operation, you can set the value to 4.
+   * > If you have submitted a ticket and created a priority-4 QoS policy by calling the [CreateQosPolicy](https://help.aliyun.com/document_detail/131575.html) operation, you can use this operation to query the configurations of quintuple rules for the priority-4 QoS policy.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The ID of the QoS policy instance.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the 5-tuple.
+   * The ID of the quintuple rule instance in the QoS policy.
    * 
    * @example
    * qospy-427m9fo6wkh****
@@ -65,7 +65,7 @@ export class DescribeQosPoliciesRequest extends $dara.Model {
   qosPolicyId?: string;
   /**
    * @remarks
-   * The ID of the region to which the QoS policy belongs.
+   * The ID of the region where the QoS policy instance resides.
    * 
    * This parameter is required.
    * 

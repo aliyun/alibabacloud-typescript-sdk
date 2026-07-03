@@ -13,9 +13,9 @@ export class CreateCloudConnectNetworkRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The description of the CCN instance.
+   * The description of the Cloud Connect Network (CCN) instance. 
    * 
-   * The description must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The description must start with a letter.
+   * The description must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * ccndesc
@@ -23,9 +23,9 @@ export class CreateCloudConnectNetworkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the CCN instance.
+   * The name of the Cloud Connect Network (CCN) instance. 
    * 
-   * The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_),and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * ccnname
@@ -35,7 +35,7 @@ export class CreateCloudConnectNetworkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the CCN instance is deployed.
+   * The region ID of the Cloud Connect Network (CCN) instance.
    * 
    * @example
    * cn-shanghai
@@ -45,7 +45,7 @@ export class CreateCloudConnectNetworkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The private CIDR block used for Source Network Address Translation (SNAT).
+   * The SNAT private CIDR block.
    * 
    * @example
    * 172.XX.XX.0/25

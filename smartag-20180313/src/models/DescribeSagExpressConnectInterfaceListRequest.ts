@@ -7,7 +7,7 @@ export class DescribeSagExpressConnectInterfaceListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the Express Connect circuit port.
+   * The name of the dedicated connection port.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DescribeSagExpressConnectInterfaceListRequest extends $dara.Model {
   portName?: string;
   /**
    * @remarks
-   * The ID of the region where the Smart Access Gateway (SAG) instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) to query the regions supported by Smart Access Gateway and the corresponding region IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeSagExpressConnectInterfaceListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DescribeSagExpressConnectInterfaceListRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device associated with the SAG instance.
+   * The serial number of the associated Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class DescribeSagCurrentDnsResponseBody extends $dara.Model {
   masterDns?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0937DEA0-AB4B-42F4-9314-07B97D30282B

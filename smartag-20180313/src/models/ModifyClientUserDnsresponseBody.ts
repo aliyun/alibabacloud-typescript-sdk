@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClientUserDNSResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BFE2D0C0-B69F-422D-A8A3-928AD511B471

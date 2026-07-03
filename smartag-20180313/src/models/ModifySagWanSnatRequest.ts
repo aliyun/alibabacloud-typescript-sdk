@@ -41,8 +41,9 @@ export class ModifySagWanSnatRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable SNAT. Valid values:
    * 
-   * *   **ENABLE**: enables SNAT.
-   * *   **DISABLE**: disables SNAT.
+   * - **ENABLE**: enables SNAT.
+   * 
+   * - **DISABLE**: disables SNAT.
    * 
    * This parameter is required.
    * 

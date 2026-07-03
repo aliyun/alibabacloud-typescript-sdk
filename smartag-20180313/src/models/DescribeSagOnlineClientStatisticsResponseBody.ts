@@ -57,7 +57,7 @@ export class DescribeSagOnlineClientStatisticsResponseBodySagStatistics extends 
 export class DescribeSagOnlineClientStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9EC839B6-0EA5-4F19-A4B7-A9E465D057AE

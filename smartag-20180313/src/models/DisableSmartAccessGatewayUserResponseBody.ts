@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSmartAccessGatewayUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 05E86199-6CF6-4F4E-A9CE-9BFC5B020B72

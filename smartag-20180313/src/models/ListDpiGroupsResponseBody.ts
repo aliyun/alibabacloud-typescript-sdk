@@ -21,7 +21,7 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   dpiGroupName?: string;
   /**
    * @remarks
-   * The earliest version of engine that supports the application group.
+   * The minimum version of the deep packet inspection (DPI) engine that supports the application group.
    * 
    * @example
    * 0-0.0.1
@@ -29,7 +29,7 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   minEngineVersion?: string;
   /**
    * @remarks
-   * The earliest version of signature database that supports the application group.
+   * The minimum version of the signature database that supports the application group.
    * 
    * @example
    * 20201117_1_0-0.0.1
@@ -65,12 +65,12 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
 export class ListDpiGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application group.
+   * The list of application groups.
    */
   dpiGroup?: ListDpiGroupsResponseBodyDpiGroup[];
   /**
    * @remarks
-   * The token returned for the next query.
+   * The token for the next page of results.
    * 
    * @example
    * FFPSpX59Ebw****
@@ -78,7 +78,7 @@ export class ListDpiGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC184A86-3C93-49D6-BB34-6C193E14D37F
@@ -86,7 +86,7 @@ export class ListDpiGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of application groups returned.
    * 
    * @example
    * 22

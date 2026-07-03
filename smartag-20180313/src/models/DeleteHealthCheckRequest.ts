@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHealthCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the health check instance.
+   * The health check instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteHealthCheckRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the health check instance is deployed.
+   * The region ID of the health check instance.
    * 
    * This parameter is required.
    * 

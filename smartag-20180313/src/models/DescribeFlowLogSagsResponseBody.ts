@@ -76,7 +76,7 @@ export class DescribeFlowLogSagsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8D945945-85F2-4BD7-A144-7DC0E8B5A0DC

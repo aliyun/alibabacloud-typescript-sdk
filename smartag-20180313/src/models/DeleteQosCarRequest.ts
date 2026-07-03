@@ -7,7 +7,7 @@ export class DeleteQosCarRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The instance ID of the QoS speed limiting rule.
+   * The instance ID of the QoS bandwidth throttling rule.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteQosCarRequest extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the region to which the QoS policy belongs.
+   * The region ID of the quality of service (QoS) policy instance.
    * 
    * This parameter is required.
    * 

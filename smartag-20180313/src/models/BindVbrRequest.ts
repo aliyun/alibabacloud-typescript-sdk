@@ -7,7 +7,7 @@ export class BindVbrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class BindVbrRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class BindVbrRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the SAG instance belongs.
+   * The Alibaba Cloud account ID that owns the Smart Access Gateway instance.
    * 
    * @example
    * 1250123456123456
@@ -37,7 +37,7 @@ export class BindVbrRequest extends $dara.Model {
   smartAGUid?: number;
   /**
    * @remarks
-   * The ID of the VBR that you want to associate with the SAG instance.
+   * The instance ID of the virtual border routing instance to bind.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class BindVbrRequest extends $dara.Model {
   vbrId?: string;
   /**
    * @remarks
-   * The ID of the region where the VBR is deployed.
+   * The region ID of the virtual border router (VBR) to bind.
    * 
    * This parameter is required.
    * 

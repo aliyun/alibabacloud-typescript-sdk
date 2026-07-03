@@ -7,7 +7,7 @@ export class DescribeSagDropTopNRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSagDropTopNRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The number of SAG instances to be queried. Default value:**10**. This value cannot be modified.
+   * The number of Smart Access Gateway instances to query. Default value: **10**. This value cannot be modified.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearSagRouteableAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AEEC8A5A-360E-4865-82D4-38CDE46445FB

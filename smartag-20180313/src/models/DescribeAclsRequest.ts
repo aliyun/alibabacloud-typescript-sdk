@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeACLsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The access control instance ID.
    * 
-   * *   If you want to query multiple ACLs at the same time, separate the ACL IDs with commas (,).
-   * *   If you do not set this parameter, all ACLs in the specified region are queried.
+   * - To query multiple access control instances simultaneously, separate multiple instance IDs with commas (,).
+   * - If this parameter is not specified, information about all access control instances in the current region is queried.
    * 
    * @example
    * acl-xhwhyuo43l*******
@@ -16,10 +16,10 @@ export class DescribeACLsRequest extends $dara.Model {
   aclIds?: string;
   /**
    * @remarks
-   * The type of the SAG instance associated with the ACL. Valid values:
+   * The type of Smart Access Gateway (SAG) instance that the access control instance can be associated with. Valid values:
    * 
-   * *   **acl-hardware**: SAG CPE instance
-   * *   **acl-software**: SAG app instance
+   * - **acl-hardware**: SAG hardware instance.
+   * - **acl-software**: SAG app instance.
    * 
    * @example
    * acl-hardware
@@ -27,9 +27,9 @@ export class DescribeACLsRequest extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The name of the ACL.
+   * The name of the access control instance.
    * 
-   * The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 2 to 100 characters in length and must start with an uppercase letter, lowercase letter, or Chinese character. The name can contain digits, underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class DescribeACLsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeACLsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paginated query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeACLsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the ACL is deployed.
+   * The region ID of the access control instance.
    * 
    * This parameter is required.
    * 

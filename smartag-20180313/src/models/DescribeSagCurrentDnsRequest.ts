@@ -7,7 +7,7 @@ export class DescribeSagCurrentDnsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSagCurrentDnsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DescribeSagCurrentDnsRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device associated with the SAG instance.
+   * The serial number of the Smart Access Gateway device that is associated with the instance.
    * 
    * This parameter is required.
    * 

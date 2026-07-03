@@ -7,7 +7,7 @@ export class ClearSagRouteableAddressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the SAG instance belongs.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-shanghai
@@ -17,7 +17,7 @@ export class ClearSagRouteableAddressRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 

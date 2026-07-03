@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHealthCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the health check.
+   * The description of the health check instance.
    * 
-   * The description must be 2 to 256 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The description must be 2 to 256 characters in length, and must start with a letter or a Chinese character. The description can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * hc_123
@@ -27,7 +27,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
    * @remarks
    * The destination port of the health check.
    * 
-   * >  This parameter is not supported.
+   * > This feature is currently not supported.
    * 
    * @example
    * 1333
@@ -35,9 +35,9 @@ export class CreateHealthCheckRequest extends $dara.Model {
   dstPort?: number;
   /**
    * @remarks
-   * The maximum number of failed probes before a health check is declared failed.
+   * The threshold for the number of consecutive probe failures.
    * 
-   * Valid values: **1 to 15**.
+   * Valid values: **1** to **15**.
    * 
    * Default value: **3**.
    * 
@@ -47,9 +47,9 @@ export class CreateHealthCheckRequest extends $dara.Model {
   failCountThreshold?: number;
   /**
    * @remarks
-   * The name of the health check.
+   * The name of the health check instance.
    * 
-   * The name must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 2 to 100 characters in length, and must start with a letter or a Chinese character. The name can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of probes performed per health check.
+   * The number of probes per health check.
    * 
    * Valid values: **1** to **20**.
    * 
@@ -73,7 +73,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   probeCount?: number;
   /**
    * @remarks
-   * The time interval at which probes are performed. The next probe does not start before the current one is completed.
+   * The interval between health check probes. The next probe will not be initiated until the current probe is complete.
    * 
    * Valid values: **1000** to **60000**.
    * 
@@ -87,7 +87,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   probeInterval?: number;
   /**
    * @remarks
-   * The timeout period of a probe.
+   * The timeout period for a single probe.
    * 
    * Valid values: **10** to **30000**.
    * 
@@ -101,7 +101,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   probeTimeout?: number;
   /**
    * @remarks
-   * The region ID of the SAG instance.
+   * The ID of the region where the Smart Access Gateway instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -113,7 +113,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The number of times that the maximum RTT is exceeded before an alert is triggered.
+   * The number of times that the RTT threshold can be reached.
    * 
    * Valid values: **1** to **15**.
    * 
@@ -125,11 +125,11 @@ export class CreateHealthCheckRequest extends $dara.Model {
   rttFailThreshold?: number;
   /**
    * @remarks
-   * The maximum round-trip time (RTT).
+   * The round-trip time (RTT) threshold.
    * 
-   * Valid values: **-1** and **1** to **5000**.
+   * Valid values: **-1** or **1** to **5000**.
    * 
-   * Default value: **-1**. This value indicates that the maximum RTT is not specified.
+   * Default value: **-1**, which indicates that no RTT threshold is set.
    * 
    * Unit: milliseconds.
    * 
@@ -139,7 +139,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   rttThreshold?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -149,7 +149,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The source IP address of the health check.
+   * The source IP address of the health check instance.
    * 
    * This parameter is required.
    * 
@@ -161,7 +161,7 @@ export class CreateHealthCheckRequest extends $dara.Model {
    * @remarks
    * The source port of the health check.
    * 
-   * >  This parameter is not supported.
+   * > This feature is currently not supported.
    * 
    * @example
    * 1344
@@ -169,9 +169,9 @@ export class CreateHealthCheckRequest extends $dara.Model {
   srcPort?: number;
   /**
    * @remarks
-   * The type of packets used in the health check.
+   * The type of health check packets.
    * 
-   * >  Only **ICMP_ECHO** is supported.
+   * > Only **ICMP_ECHO** is supported.
    * 
    * This parameter is required.
    * 

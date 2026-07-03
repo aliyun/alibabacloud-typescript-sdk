@@ -10,7 +10,7 @@ export class ModifyHealthCheckRequest extends $dara.Model {
    * The description must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
    * 
    * @example
-   * description
+   * Health check instance 1
    */
   description?: string;
   /**

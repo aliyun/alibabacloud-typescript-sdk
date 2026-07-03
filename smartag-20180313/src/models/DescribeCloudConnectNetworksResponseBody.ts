@@ -152,7 +152,7 @@ export class DescribeCloudConnectNetworksResponseBody extends $dara.Model {
   cloudConnectNetworks?: DescribeCloudConnectNetworksResponseBodyCloudConnectNetworks;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -160,7 +160,7 @@ export class DescribeCloudConnectNetworksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -168,7 +168,7 @@ export class DescribeCloudConnectNetworksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3F2A0B80-D6D1-4764-8D77-38067DBBA345
@@ -176,7 +176,7 @@ export class DescribeCloudConnectNetworksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the CCN instances.
+   * The total number of entries that match the query.
    * 
    * @example
    * 3

@@ -7,7 +7,7 @@ export class BindSerialNumberRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SAG instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class BindSerialNumberRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class BindSerialNumberRequest extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The SAG instance ID.
+   * The instance ID of the Smart Access Gateway.
    * 
    * This parameter is required.
    * 

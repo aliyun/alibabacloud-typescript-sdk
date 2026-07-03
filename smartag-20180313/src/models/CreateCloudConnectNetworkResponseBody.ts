@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN instance.
+   * The instance ID of the Cloud Connect Network (CCN).
    * 
    * @example
    * ccn-l9340rlu5ens*****
@@ -21,7 +21,7 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The description about the CCN instance.
+   * The description of the Cloud Connect Network (CCN) instance.
    * 
    * @example
    * ccndesc
@@ -29,7 +29,7 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the CCN instance.
+   * The name of the Cloud Connect Network (CCN) instance.
    * 
    * @example
    * ccnname
@@ -37,7 +37,7 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C48E8EB2-37A4-495B-A95C-29CA1FD26C82
@@ -45,7 +45,7 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the CCN instance belongs.
+   * The ID of the resource group to which the Cloud Connect Network (CCN) instance belongs.
    * 
    * @example
    * rg-acfm2iu4fnc****
@@ -53,7 +53,7 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The private CIDR block used for SNAT.
+   * The SNAT private CIDR block.
    * 
    * @example
    * 172.XX.XX.0/25
@@ -61,10 +61,10 @@ export class CreateCloudConnectNetworkResponseBody extends $dara.Model {
   snatCidrBlock?: string;
   /**
    * @remarks
-   * The status of the CCN instance. Valid values:
+   * The instance status of the Cloud Connect Network (CCN). Valid values:
    * 
-   * *   **Active**: indicates the CNN instance running as expected.
-   * *   **Pending**: indicates the CCN instance is to be created.
+   * - **Active**: Normal.
+   * - **Pending**: Pending creation.
    * 
    * @example
    * Active

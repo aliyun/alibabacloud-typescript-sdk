@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A6E1680B-B34F-4BB7-B504-F8ED675E721C

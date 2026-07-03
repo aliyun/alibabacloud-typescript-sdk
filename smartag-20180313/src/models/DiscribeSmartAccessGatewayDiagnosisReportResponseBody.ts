@@ -5,35 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsCN extends $dara.Model {
   /**
    * @remarks
-   * The suggestion for the diagnosis.
+   * The diagnosis suggestion.
+   * 
+   * @example
+   * Check the leased-line port link wiring first, and then go to the local Leased Line Management page for configuration.
    */
   advice?: string[];
   /**
    * @remarks
-   * The diagnosis.
+   * The diagnosis result.
+   * 
+   * @example
+   * All leased-line ports have link anomalies or missing port IPs: Port 4.
    */
   details?: string[];
   /**
    * @remarks
-   * The diagnosis level of the item. Valid values:
+   * The severity level of the diagnosis result for the diagnosis item.
    * 
-   * *   **ERROR**: indicates that the item has an issue that may affect your services. We recommend that you handle the issue at the earliest opportunity.
-   * *   **WARNING**: indicates that the item has an issue. You can handle the issue based on your business requirements.
-   * *   **INFO**: indicates that the item is working as expected. No additional operation is required.
+   * - **严重** (Critical): indicates that the issue of the diagnosis item may affect service running. We recommend that you handle the issue at the earliest opportunity.
+   * - **警告** (Warning): indicates that the diagnosis item has an issue. Handle the issue based on the suggestion.
+   * - **正常** (Normal): indicates that the diagnosis item is running as expected. No action is required.
+   * 
+   * @example
+   * Normal
    */
   itemLevel?: string;
   /**
    * @remarks
-   * The name of the item.
+   * The name of the diagnosis item.
+   * 
+   * @example
+   * Leased line port configuration check
    */
   itemName?: string;
   /**
    * @remarks
-   * The type of the item. Valid values:
+   * The diagnosis type to which the diagnosis item belongs.
    * 
-   * *   **Config**: **SAG configuration**
-   * *   **Service**: **service quality**
-   * *   **Internet**: **quality of connections to the Internet**
+   * - **配置** (Configuration): indicates the **SAG configuration** type.
+   * - **业务** (Service): indicates the **service quality** type.
+   * - **公网** (Internet): indicates the **Internet quality** type.
+   * 
+   * @example
+   * Configuration
    */
   itemType?: string;
   static names(): { [key: string]: string } {
@@ -74,21 +89,21 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsEN extends $dara.Model {
   /**
    * @remarks
-   * The suggestion for the diagnosis.
+   * The diagnosis suggestion.
    */
   advice?: string[];
   /**
    * @remarks
-   * The diagnosis.
+   * The diagnosis result.
    */
   details?: string[];
   /**
    * @remarks
-   * The diagnosis level of the item. Valid values:
+   * The severity level of the diagnosis result for the diagnosis item.
    * 
-   * *   **ERROR**: indicates that the item has an issue that may affect your services. We recommend that you handle the issue at the earliest opportunity.
-   * *   **WARNING**: indicates that the item has an issue. You can handle the issue based on your business requirements.
-   * *   **INFO**: indicates that the item is working as expected. No additional operation is required.
+   * - **ERROR**: indicates that the issue of the diagnosis item may affect service running. We recommend that you handle the issue at the earliest opportunity.
+   * - **WARNING**: indicates that the diagnosis item has an issue. Handle the issue based on the suggestion.
+   * - **INFO**: indicates that the diagnosis item is running as expected. No action is required.
    * 
    * @example
    * ERROR
@@ -96,7 +111,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   itemLevel?: string;
   /**
    * @remarks
-   * The name of the item.
+   * The name of the diagnosis item.
    * 
    * @example
    * Express Connect Port Configuration
@@ -104,11 +119,11 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   itemName?: string;
   /**
    * @remarks
-   * The type of the item. Valid values:
+   * The diagnosis type to which the diagnosis item belongs.
    * 
-   * *   **Config**: **SAG configuration**
-   * *   **Service**: **service quality**
-   * *   **Internet**: **quality of connections to the Internet**
+   * - **Config**: indicates the **SAG configuration** type.
+   * - **Service**: indicates the **service quality** type.
+   * - **Internet**: indicates the **Internet quality** type.
    * 
    * @example
    * Config
@@ -152,17 +167,17 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItems extends $dara.Model {
   /**
    * @remarks
-   * The diagnosis report in Chinese.
+   * The diagnosis result in Chinese.
    */
   CN?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsCN;
   /**
    * @remarks
-   * The diagnosis report in English.
+   * The diagnosis result in English.
    */
   EN?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsEN;
   /**
    * @remarks
-   * The timestamp when the system finishes diagnosing the item.
+   * The timestamp when the diagnosis of the diagnosis item ended.
    * 
    * @example
    * 1602741570596
@@ -170,7 +185,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   endTime?: number;
   /**
    * @remarks
-   * The name of the item, which is the unique identifier of the item.
+   * The name of the diagnosis item, which is the unique identifier of the diagnosis item.
    * 
    * @example
    * eccConfigCheck
@@ -178,11 +193,11 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   itemName?: string;
   /**
    * @remarks
-   * The diagnosis level of the item. Valid values:
+   * The severity level of the diagnosis result for the diagnosis item.
    * 
-   * *   **error**: severe
-   * *   **warning**: warning
-   * *   **info**: normal
+   * - **error**: Critical.
+   * - **warning**: Warning.
+   * - **info**: Normal.
    * 
    * @example
    * error
@@ -190,7 +205,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   level?: string;
   /**
    * @remarks
-   * The timestamp when the system starts to diagnose the item.
+   * The timestamp when the diagnosis of the diagnosis item started.
    * 
    * @example
    * 1602741570567
@@ -198,11 +213,11 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   startTime?: number;
   /**
    * @remarks
-   * The type of the item. Valid values:
+   * The diagnosis type to which the diagnosis item belongs.
    * 
-   * *   **config**: SAG configuration
-   * *   **internet**: quality of connections to the Internet
-   * *   **biz**: service quality
+   * - **config**: SAG configuration.
+   * - **internet**: Internet quality.
+   * - **biz**: Service quality.
    * 
    * @example
    * config
@@ -250,7 +265,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsStatistics extends $dara.Model {
   /**
    * @remarks
-   * The number of items of the **ERROR** level.
+   * The number of diagnosis items with the **Error** severity level.
    * 
    * @example
    * 5
@@ -258,7 +273,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   error?: number;
   /**
    * @remarks
-   * The number of items of the **INFO** level.
+   * The number of diagnosis items with the **Info** severity level.
    * 
    * @example
    * 3
@@ -266,7 +281,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   info?: number;
   /**
    * @remarks
-   * The total number of items for the current diagnosis type.
+   * The total number of diagnosis items under the current diagnosis type.
    * 
    * @example
    * 10
@@ -274,7 +289,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   total?: number;
   /**
    * @remarks
-   * The number of items of the **WARNING** level.
+   * The number of diagnosis items with the **Warning** severity level.
    * 
    * @example
    * 2
@@ -310,21 +325,21 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetails extends $dara.Model {
   /**
    * @remarks
-   * The list of items diagnosed.
+   * The list of detailed information about diagnosis items.
    */
   items?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItems[];
   /**
    * @remarks
-   * The information about items of each diagnosis level for the current diagnosis type.
+   * The statistics on the severity levels of diagnosis items under the current diagnosis type.
    */
   statistics?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsStatistics;
   /**
    * @remarks
-   * The type of the diagnosis. Valid values:
+   * The diagnosis type.
    * 
-   * *   **config**: SAG configuration
-   * *   **internet**: quality of connections to the Internet
-   * *   **biz**: service quality
+   * - **config**: SAG configuration.
+   * - **internet**: Internet quality.
+   * - **biz**: Service quality.
    * 
    * @example
    * config
@@ -364,7 +379,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultLevel extends $dara.Model {
   /**
    * @remarks
-   * The diagnosis level of the service quality.
+   * The diagnosis result level for service quality.
    * 
    * @example
    * warning
@@ -372,7 +387,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   biz?: string;
   /**
    * @remarks
-   * The diagnosis level of the SAG configuration.
+   * The diagnosis result level for SAG configuration.
    * 
    * @example
    * info
@@ -380,11 +395,11 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   configuration?: string;
   /**
    * @remarks
-   * The overall diagnosis level.
+   * The overall diagnosis result level.
    * 
-   * *   **error**: severe
-   * *   **warning**: warning
-   * *   **info**: normal
+   * - **error**: Critical.
+   * - **warning**: Warning.
+   * - **info**: Normal.
    * 
    * @example
    * error
@@ -418,7 +433,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultStatistics extends $dara.Model {
   /**
    * @remarks
-   * The number of items of the **ERROR** level.
+   * The total number of diagnosis items with the **Error** severity level.
    * 
    * @example
    * 2
@@ -426,7 +441,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   error?: number;
   /**
    * @remarks
-   * The number of items of the **INFO** level.
+   * The total number of diagnosis items with the **Info** severity level.
    * 
    * @example
    * 5
@@ -434,7 +449,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   info?: number;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of all diagnosis items.
    * 
    * @example
    * 10
@@ -442,7 +457,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   total?: number;
   /**
    * @remarks
-   * The number of items of the **WARNING** level.
+   * The total number of diagnosis items with the **Warning** severity level.
    * 
    * @example
    * 3
@@ -478,10 +493,10 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult extends $dara.Model {
   /**
    * @remarks
-   * The model of the SAG device.
+   * The type of the Smart Access Gateway device.
    * 
-   * *   **sag-1000**
-   * *   **sag-100WM**
+   * - **sag-1000**
+   * - **sag-100WM**
    * 
    * @example
    * sag-1000
@@ -489,7 +504,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   boxType?: string;
   /**
    * @remarks
-   * The version of the SAG device.
+   * The software version that runs on the Smart Access Gateway device.
    * 
    * @example
    * 2.1.0
@@ -497,12 +512,12 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   boxVersion?: string;
   /**
    * @remarks
-   * The list of diagnoses that are returned.
+   * The list of diagnosis results.
    */
   details?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetails[];
   /**
    * @remarks
-   * The ID of the diagnosis.
+   * The diagnosis ID.
    * 
    * @example
    * dia-sag42c3t703trh02olv5rf****
@@ -510,7 +525,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   diagnoseId?: string;
   /**
    * @remarks
-   * The timestamp when the system finishes diagnosing the item.
+   * The timestamp when the diagnosis ended.
    * 
    * @example
    * 160274157
@@ -518,7 +533,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   endTime?: number;
   /**
    * @remarks
-   * The number of items that are diagnosed.
+   * The number of completed diagnosis items.
    * 
    * @example
    * 15
@@ -526,7 +541,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   finishedNumber?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * @example
    * sag-0nnteglltw6z4b***
@@ -534,12 +549,12 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   instanceId?: string;
   /**
    * @remarks
-   * The diagnosis level.
+   * The diagnosis result level.
    */
   level?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultLevel;
   /**
    * @remarks
-   * The version of the monitoring feature that is used by the SAG device.
+   * The monitoring version used by the Smart Access Gateway device.
    * 
    * @example
    * 2.0.2.9
@@ -555,10 +570,10 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   percent?: number;
   /**
    * @remarks
-   * The status of the diagnosis report to be uploaded to Log Service.
+   * The status of uploading the diagnosis report to SLS.
    * 
-   * *   **0**: The system failed to upload the report.
-   * *   **1**: The system has uploaded the report to Log Service.
+   * - **0**: The upload failed.
+   * - **1**: The upload was successful.
    * 
    * @example
    * 0
@@ -566,7 +581,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   reportSLSSuccess?: number;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * @example
    * sag42c3****
@@ -574,7 +589,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   SN?: string;
   /**
    * @remarks
-   * The timestamp when the system starts to diagnose the item.
+   * The timestamp when the diagnosis started.
    * 
    * @example
    * 160274157
@@ -582,13 +597,13 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   startTime?: number;
   /**
    * @remarks
-   * The diagnosis status. Valid values:
+   * The diagnosis state.
    * 
-   * *   **processing**: The SAG device is being diagnosed.
-   * *   **finished**: The SAG device is diagnosed.
-   * *   **failed**: The system failed to diagnose the SAG device.
-   * *   **error**: A diagnostic error occurred.
-   * *   **upload_to_sls_fail**: The system failed to upload the diagnosis report.
+   * - **processing**: The diagnosis is in progress.
+   * - **finished**: The diagnosis is successful.
+   * - **failed**: The diagnosis failed.
+   * - **error**: An error occurred during the diagnosis.
+   * - **upload_to_sls_fail**: The diagnosis report failed to be uploaded.
    * 
    * @example
    * finished
@@ -596,14 +611,14 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   state?: string;
   /**
    * @remarks
-   * The overall diagnosis level.
+   * The overall statistics of diagnosis item results.
    */
   statistics?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultStatistics;
   /**
    * @remarks
    * The storage type.
    * 
-   * The value is set to **both**, which indicates that the data is stored in the SAG device and Log Service.
+   * Value: **both**, which indicates that the diagnosis report is stored on both the Smart Access Gateway device and in Log Service (SLS).
    * 
    * @example
    * both
@@ -611,7 +626,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   storeType?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of diagnosis result entries.
    * 
    * @example
    * 15
@@ -619,7 +634,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   totalNumber?: number;
   /**
    * @remarks
-   * The user ID (UID) of the Alibaba Cloud account to which the SAG instance belongs.
+   * The ID of the account to which the Smart Access Gateway instance belongs.
    * 
    * @example
    * 1688000000000000
@@ -627,7 +642,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   UId?: string;
   /**
    * @remarks
-   * The type of user that initiated the diagnostics. The value is set to **user**.
+   * The type of user who initiated the diagnosis. Value: **user**.
    * 
    * @example
    * user
@@ -702,12 +717,12 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
 export class DiscribeSmartAccessGatewayDiagnosisReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The diagnosis report of the SAG device.
+   * The diagnosis report of the Smart Access Gateway device.
    */
   diagnoseResult?: DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7D6E3AB-D41A-42E3-8D4E-97B145F4B7C3

@@ -7,9 +7,9 @@ export class DiscribeSmartAccessGatewayDiagnosisReportRequest extends $dara.Mode
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The ID of the region where the Smart Access Gateway instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * @example
    * cn-shanghai
@@ -19,7 +19,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportRequest extends $dara.Mode
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportRequest extends $dara.Mode
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

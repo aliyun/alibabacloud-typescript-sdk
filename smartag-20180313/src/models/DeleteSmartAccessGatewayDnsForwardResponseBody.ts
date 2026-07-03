@@ -21,7 +21,7 @@ export class DeleteSmartAccessGatewayDnsForwardResponseBody extends $dara.Model 
   httpStatusCode?: string;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
    * @example
    * Successful
@@ -29,7 +29,7 @@ export class DeleteSmartAccessGatewayDnsForwardResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 0BAAF2B9-88B8-4574-BDBE-102A90EE3FEE
@@ -37,7 +37,7 @@ export class DeleteSmartAccessGatewayDnsForwardResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

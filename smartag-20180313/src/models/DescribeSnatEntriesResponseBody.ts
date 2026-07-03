@@ -63,7 +63,7 @@ export class DescribeSnatEntriesResponseBodySnatEntries extends $dara.Model {
 export class DescribeSnatEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the instance status list.
    * 
    * @example
    * 12
@@ -71,7 +71,7 @@ export class DescribeSnatEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 5
@@ -79,7 +79,7 @@ export class DescribeSnatEntriesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 674BC3B2-5828-41D5-830E-148EE6CF86C2

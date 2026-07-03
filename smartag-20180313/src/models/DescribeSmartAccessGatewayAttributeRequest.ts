@@ -9,7 +9,7 @@ export class DescribeSmartAccessGatewayAttributeRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the SAG instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

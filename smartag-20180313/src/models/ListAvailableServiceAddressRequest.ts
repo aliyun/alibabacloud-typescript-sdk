@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvailableServiceAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of service address. Valid values:
+   * The type of the service address for the Smart Access Gateway instance. Valid values:
    * 
-   * *   **ProbeTask**: probes the source IP address.
-   * *   **RemoteWeb**: probes the IP address for remote logon.
+   * - **ProbeTask**: the source IP address for network probes.
    * 
-   * > If you do not specify a value, all service IP addresses are queried.
+   * - **RemoteWeb**: the IP address for remote logon.
+   * 
+   * > If you do not specify this parameter, all types of service addresses are queried.
    * 
    * @example
    * ProbeTask
@@ -18,9 +19,9 @@ export class ListAvailableServiceAddressRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The ID of the region where the Smart Access Gateway instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +31,7 @@ export class ListAvailableServiceAddressRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -40,7 +41,7 @@ export class ListAvailableServiceAddressRequest extends $dara.Model {
   sagId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 
