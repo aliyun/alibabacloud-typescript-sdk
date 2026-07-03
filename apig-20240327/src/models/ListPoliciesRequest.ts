@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The attachment point ID.
+   * The ID of the attachment point.
    * 
    * @example
    * api-cq7l5s5lhtgi6qasrdc0
@@ -13,21 +13,16 @@ export class ListPoliciesRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The types of attachment points supported by the policy. Valid values:
+   * The type of attachment point supported by the policy.
    * 
-   * - HttpApi
-   * 
-   * - Operation
-   * 
-   * - GatewayRoute
-   * 
-   * - GatewayService
-   * 
-   * - GatewayServicePort
-   * 
-   * - Domain
-   * 
-   * - Gateway
+   * Valid values:
+   * - HttpApi: HTTP API.
+   * - Operation: Operation of an HTTP API.
+   * - GatewayRoute: Gateway route.
+   * - GatewayService: Gateway service.
+   * - GatewayServicePort: Gateway service port.
+   * - Domain: Gateway domain name.
+   * - Gateway: Gateway.
    * 
    * @example
    * HttpApi
@@ -59,7 +54,7 @@ export class ListPoliciesRequest extends $dara.Model {
   withAttachments?: boolean;
   /**
    * @remarks
-   * Specifies whether it is a system policy.
+   * Specifies whether the policy is a system policy.
    * 
    * @example
    * true

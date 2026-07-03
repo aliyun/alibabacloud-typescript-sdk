@@ -27,7 +27,7 @@ export class GetServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 8FA9BB94-915B-5299-A694-49FCC7F5DD00

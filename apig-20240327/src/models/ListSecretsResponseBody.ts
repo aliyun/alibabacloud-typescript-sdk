@@ -6,7 +6,7 @@ import { KMSConfig } from "./Kmsconfig";
 export class ListSecretsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Unix timestamp when the secret was created
+   * The creation timestamp.
    * 
    * @example
    * 1725617840096
@@ -14,7 +14,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Gateway type associated with the secret
+   * The gateway type.
    * 
    * @example
    * API
@@ -22,12 +22,12 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * KMS configuration object
+   * The KMS configuration information.
    */
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * Name of the secret
+   * The key name.
    * 
    * @example
    * my_secret
@@ -35,7 +35,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of resources referencing this secret
+   * The resource count of resources that reference the current key.
    * 
    * @example
    * 3
@@ -43,7 +43,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   referenceCount?: number;
   /**
    * @remarks
-   * Source of the ID
+   * The key ID.
    * 
    * @example
    * sec-d5e6shmm1hkoxxxxxxxx
@@ -51,7 +51,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * Source of the secret
+   * The key source.
    * 
    * @example
    * KMS
@@ -59,7 +59,10 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   secretSource?: string;
   /**
    * @remarks
-   * Current status of the secret
+   * The key status. Valid values:
+   * - ENABLE: Enabled.
+   * - DISABLE: Disabled.
+   * - DELETED: Deleted.
    * 
    * @example
    * ENABLE
@@ -67,7 +70,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Unix timestamp when the secret was last updated
+   * The update timestamp. Unit: milliseconds.
    * 
    * @example
    * 1721116090326
@@ -116,12 +119,12 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
 export class ListSecretsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Array of secret details
+   * The list of key details.
    */
   items?: ListSecretsResponseBodyDataItems[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -129,7 +132,7 @@ export class ListSecretsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The page size.
    * 
    * @example
    * 10
@@ -137,7 +140,7 @@ export class ListSecretsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of records matching the query
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -176,7 +179,7 @@ export class ListSecretsResponseBodyData extends $dara.Model {
 export class ListSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Code of the request
+   * The response status code.
    * 
    * @example
    * Ok
@@ -184,12 +187,12 @@ export class ListSecretsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The list of key information.
    */
   data?: ListSecretsResponseBodyData;
   /**
    * @remarks
-   * message
+   * The response message.
    * 
    * @example
    * success

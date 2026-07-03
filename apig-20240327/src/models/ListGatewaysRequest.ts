@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewaysRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key.
    * 
    * @example
    * owner
@@ -13,7 +13,7 @@ export class ListGatewaysRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
    * @example
    * zhangsan
@@ -45,7 +45,7 @@ export class ListGatewaysRequestTag extends $dara.Model {
 export class ListGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * Retrieve the list of created cloud-native gateways
+   * The gateway ID for exact match query.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -53,7 +53,7 @@ export class ListGatewaysRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The search keyword. A full match is performed. The search is case-insensitive.
+   * The gateway type.
    * 
    * @example
    * API
@@ -61,7 +61,7 @@ export class ListGatewaysRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The instance name. If you specify a name, an exact search is performed.
+   * The keyword for full match search. Case-insensitive.
    * 
    * @example
    * dev
@@ -69,7 +69,7 @@ export class ListGatewaysRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The gateway name for exact match query.
    * 
    * @example
    * itemcenter-gateway
@@ -77,7 +77,7 @@ export class ListGatewaysRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The instance ID. If you specify an ID, an exact search is performed.
+   * The page number.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page size.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * rg-aekz3wes3hnre5a
+   * The resource group ID.
    * 
    * @example
    * rg-aekzq6bzz5uyg2q
@@ -101,7 +101,7 @@ export class ListGatewaysRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags that you want to use for the search.
+   * The list of tags.
    */
   tag?: ListGatewaysRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * Gateway type for filtering secrets of specific gateway type
+   * The gateway type used to filter results. Valid values: **AI** and **API**.
    * 
    * @example
    * AI
@@ -13,7 +13,7 @@ export class ListSecretsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Secret name for fuzzy matching, supports filtering secrets by name
+   * The key name. Fuzzy match is supported.
    * 
    * @example
    * my_secret
@@ -21,7 +21,7 @@ export class ListSecretsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSecretsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The page size. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

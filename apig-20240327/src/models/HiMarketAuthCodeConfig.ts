@@ -5,47 +5,74 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketAuthCodeConfig extends $dara.Model {
   /**
    * @remarks
-   * The URL of the identity provider\\"s authorization endpoint. Your application redirects users to this URL to sign in and grant consent.
+   * The OAuth2 authorization endpoint URL.
+   * 
+   * @example
+   * https://idp.example.com/oauth2/authorize
    */
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * The unique identifier for your application. The identity provider assigns this ID when you register your application.
+   * The OAuth2 client ID.
+   * 
+   * @example
+   * my-client-id
    */
   clientId?: string;
   /**
    * @remarks
-   * The secret key for your application. This secret authenticates your application with the identity provider.
+   * The OAuth2 client secret. The secret is AES-encrypted when stored.
+   * 
+   * @example
+   * my-client-secret
    */
   clientSecret?: string;
   /**
    * @remarks
-   * The URL of the identity provider that issues the tokens. This URL uniquely identifies the provider.
+   * The OIDC issuer URL.
+   * 
+   * @example
+   * https://idp.example.com
    */
   issuer?: string;
   /**
    * @remarks
-   * The URL of the identity provider\\"s JSON Web Key Set (JWKS) document. This document contains the public signing keys for token validation.
+   * The JWKS public key set URI, used for token signature verification.
+   * 
+   * @example
+   * https://idp.example.com/.well-known/jwks.json
    */
   jwkSetUri?: string;
   /**
    * @remarks
-   * The URL where the identity provider redirects the user after authorizing your application. This URL must be registered in your application settings with the identity provider.
+   * The OAuth2 callback URL.
+   * 
+   * @example
+   * https://gateway.example.com/callback
    */
   redirectUri?: string;
   /**
    * @remarks
-   * A space-separated list of requested permissions. For example: `openid profile`.
+   * The OAuth2 authorization scopes, separated by spaces.
+   * 
+   * @example
+   * openid profile email
    */
   scopes?: string;
   /**
    * @remarks
-   * The URL of the identity provider\\"s token endpoint. Your application uses this endpoint to exchange an authorization code for an access token.
+   * The OAuth2 token endpoint URL.
+   * 
+   * @example
+   * https://idp.example.com/oauth2/token
    */
   tokenEndpoint?: string;
   /**
    * @remarks
-   * The URL of the identity provider\\"s user info endpoint. Your application can use this endpoint to retrieve the authenticated user\\"s profile information.
+   * The OIDC UserInfo endpoint URL.
+   * 
+   * @example
+   * https://idp.example.com/userinfo
    */
   userInfoEndpoint?: string;
   static names(): { [key: string]: string } {

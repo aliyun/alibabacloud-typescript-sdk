@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The plug-in attachment ID.
+   * The plug-in mount ID.
    * 
    * @example
    * pa-cvs7jpmm1hkgihaqv4a0

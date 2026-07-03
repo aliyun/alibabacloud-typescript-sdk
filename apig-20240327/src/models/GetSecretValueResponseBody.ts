@@ -35,7 +35,7 @@ export class GetSecretValueResponseBodyData extends $dara.Model {
 export class GetSecretValueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -43,12 +43,12 @@ export class GetSecretValueResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: GetSecretValueResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 479AE38F-A574-52F7-87EA-E91199999F9E

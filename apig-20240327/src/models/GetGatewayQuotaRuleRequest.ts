@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGatewayQuotaRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the consumer list.
+   * 
    * @example
    * 1
    * 
@@ -11,12 +14,19 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
    */
   consumerPageNumber?: string;
   /**
+   * @remarks
+   * The page size of the consumer list.
+   * 
    * @example
    * 10
    * 
    * @deprecated
    */
   consumerPageSize?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the consumer list.
+   */
   withConsumers?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -135,7 +135,7 @@ export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $da
 export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The HTTP API ID.
+   * HTTP API ID。
    * 
    * @example
    * api-d2vv43em201hxxxxxxxx
@@ -185,17 +185,17 @@ export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $d
 export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The information about the plug-in that references the current key.
+   * The plug-in information that references the current secret.
    */
   pluginConfig?: ListSecretReferencesResponseBodyDataItemsPluginConfig;
   /**
    * @remarks
-   * The service information that references the current key.
+   * The service information that references the current secret.
    */
   serviceConfig?: ListSecretReferencesResponseBodyDataItemsServiceConfig;
   /**
    * @remarks
-   * The consumer information that references the current key.
+   * The consumer information that references the current secret.
    */
   consumerConfig?: ListSecretReferencesResponseBodyDataItemsConsumerConfig;
   /**
@@ -208,12 +208,12 @@ export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * MCP service information that references the current key.
+   * The MCP server information that references the current secret.
    */
   mcpServerConfig?: ListSecretReferencesResponseBodyDataItemsMcpServerConfig;
   /**
    * @remarks
-   * The type of resource.
+   * The resource type.
    * 
    * @example
    * Plugin
@@ -286,7 +286,7 @@ export class ListSecretReferencesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 25
@@ -325,7 +325,7 @@ export class ListSecretReferencesResponseBodyData extends $dara.Model {
 export class ListSecretReferencesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -333,7 +333,7 @@ export class ListSecretReferencesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListSecretReferencesResponseBodyData;
   /**

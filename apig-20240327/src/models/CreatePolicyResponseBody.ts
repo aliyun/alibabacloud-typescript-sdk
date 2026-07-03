@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * p-cq7l5s5lhtgi6qasr***
@@ -35,7 +35,7 @@ export class CreatePolicyResponseBodyData extends $dara.Model {
 export class CreatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -43,12 +43,12 @@ export class CreatePolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: CreatePolicyResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class CreatePolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E7406754***

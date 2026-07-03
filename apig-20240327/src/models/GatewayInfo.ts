@@ -45,13 +45,21 @@ export class GatewayInfoVpcInfo extends $dara.Model {
 export class GatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The gateway DPI engine database engine version.
+   * The gateway DPI engine version.
    * 
    * @example
    * 2.0.7
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The gateway instance edition. Valid values:
+   * 
+   * - Professional: standard instance.
+   * - Serverless: Serverless.
+   * - MultiTenantServerless: multi-tenant Serverless.
+   * - Unknown: unknown.
+   * 
    * @example
    * MultiTenantServerless
    */

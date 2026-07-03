@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The key value.
+   * The key pair value.
    * 
    * @example
    * apikey-xxxxxxxx

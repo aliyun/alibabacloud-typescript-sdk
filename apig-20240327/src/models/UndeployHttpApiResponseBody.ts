@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UndeployHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UndeployHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UndeployHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

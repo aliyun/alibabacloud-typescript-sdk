@@ -39,7 +39,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The Agent service configuration. This parameter is required when sourceType is set to AGENT.
+   * The Agent service configuration. This parameter is required when `sourceType` is set to `AGENT`.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
@@ -54,7 +54,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   dnsServers?: string[];
   /**
    * @remarks
-   * The service expression type that identifies the special type or mode of the service.
+   * The service expression type. Identifies the special type or mode of the service.
    * 
    * @example
    * Standard
@@ -68,6 +68,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * DEFAULT_GROUP
    */
   groupName?: string;
+  modelProviderId?: string;
   /**
    * @remarks
    * The service name.
@@ -78,7 +79,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the service.
+   * The namespace of the service:
    * 
    * - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
    * - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
@@ -107,7 +108,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The validation options for service verification configuration.
+   * The validation options. Configuration options related to service validation.
    */
   validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
@@ -118,6 +119,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
       dnsServers: 'dnsServers',
       expressType: 'expressType',
       groupName: 'groupName',
+      modelProviderId: 'modelProviderId',
       name: 'name',
       namespace: 'namespace',
       qualifier: 'qualifier',
@@ -134,6 +136,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
       dnsServers: { 'type': 'array', 'itemType': 'string' },
       expressType: 'string',
       groupName: 'string',
+      modelProviderId: 'string',
       name: 'string',
       namespace: 'string',
       qualifier: 'string',

@@ -6,7 +6,7 @@ import { HttpApiApiInfo } from "./HttpApiApiInfo";
 export class GetHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -19,7 +19,7 @@ export class GetHttpApiResponseBody extends $dara.Model {
   data?: HttpApiApiInfo;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -27,7 +27,7 @@ export class GetHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 8FA9BB94-915B-5299-A694-49FCC7F5DD00

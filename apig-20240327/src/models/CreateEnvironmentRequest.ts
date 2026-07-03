@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The environment alias.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The environment alias.
+   * The description of the environment. You can specify information such as the purpose and owner of the environment.
    * 
    * @example
    * 这是xxx的xx项目测试环境
@@ -23,7 +23,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment description, such as its purpose and owner.
+   * The gateway ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Create environment.
+   * The environment name.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Testing environment for xx project of xxx
+   * The resource group ID.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b

@@ -380,11 +380,11 @@ export class CreateMcpServerRequest extends $dara.Model {
    * @remarks
    * The creation source type. Valid values:
    * 
-   * ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-   * ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
-   * ApiGatewayAssembly: gateway MCP assembly.
-   * NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-   * NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
+   * - ApiGatewayAssembly: gateway MCP assembly.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -423,7 +423,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The canary release route configurations.
+   * The canary release routing configurations.
    */
   grayMcpServerConfigs?: CreateMcpServerRequestGrayMcpServerConfigs[];
   /**
@@ -466,7 +466,7 @@ export class CreateMcpServerRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * RealMCP: standard MCP service.
+   * - RealMCP: standard MCP service.
    * 
    * This parameter is required.
    * 

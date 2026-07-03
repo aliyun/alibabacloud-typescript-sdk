@@ -6,7 +6,7 @@ import { SubDomainInfo } from "./SubDomainInfo";
 export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
-   * The resource group ID.
+   * The port number.
    * 
    * @example
    * 443
@@ -14,7 +14,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
   port?: number;
   /**
    * @remarks
-   * vpc-xxxxx
+   * The protocol. Valid values:
+   * - TCP
+   * - UDP
    * 
    * @example
    * TCP
@@ -46,7 +48,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
 export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * vsw-xxxxx
+   * The load balancing address.
    * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
@@ -54,7 +56,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   address?: string;
   /**
    * @remarks
-   * The vSwitch information.
+   * The protocol version. Valid values:
+   * - ipv4: IPv4.
+   * - ipv6: IPv6.
    * 
    * @example
    * ipv4
@@ -62,7 +66,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   addressIpVersion?: string;
   /**
    * @remarks
-   * sg-xxxx
+   * The load balancing address type. Valid values:
+   * - Internet: public network.
+   * - Intranet: private network.
    * 
    * @example
    * Internet
@@ -70,7 +76,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   addressType?: string;
   /**
    * @remarks
-   * vsw-xxxxx
+   * Indicates whether this is the default entry address of the gateway.
    * 
    * @example
    * true
@@ -78,17 +84,17 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   gatewayDefault?: boolean;
   /**
    * @remarks
-   * The IPv4 addresses
+   * The list of IPv4 addresses.
    */
   ipv4Addresses?: string[];
   /**
    * @remarks
-   * The IPv6 addresses
+   * The list of IPv6 addresses.
    */
   ipv6Addresses?: string[];
   /**
    * @remarks
-   * The security group ID.
+   * The load balancing instance ID.
    * 
    * @example
    * nlb-xqwioje1c91r***
@@ -96,7 +102,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   loadBalancerId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The load balancing provisioning pattern of the gateway. Valid values:
+   * - Managed: Managed by Cloud-native API Gateway.
    * 
    * @example
    * Managed
@@ -104,12 +111,14 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   mode?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) information of the instance.
+   * The list of listening ports.
    */
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
    * @remarks
-   * The vSwitch ID.
+   * The load balancing status. Valid values:
+   * - Ready: Active.
+   * - NotCreate: No associated instance.
    * 
    * @example
    * Ready
@@ -117,7 +126,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The load balancing type of the gateway. Valid values:
+   * - NLB: Network load balancing.
+   * - CLB: Classic load balancing.
    * 
    * @example
    * NLB
@@ -176,7 +187,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
 export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The security group ID.
    * 
    * @example
    * sg-bp1apxihjdbt3***
@@ -206,7 +217,7 @@ export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $dara.Model 
 export class ListGatewaysResponseBodyDataItemsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key
+   * The tag key.
    * 
    * @example
    * owner
@@ -214,7 +225,7 @@ export class ListGatewaysResponseBodyDataItemsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value
+   * The tag value.
    * 
    * @example
    * zhangsan
@@ -246,7 +257,7 @@ export class ListGatewaysResponseBodyDataItemsTags extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsVSwitch extends $dara.Model {
   /**
    * @remarks
-   * List Gateways
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp14efv***
@@ -276,7 +287,7 @@ export class ListGatewaysResponseBodyDataItemsVSwitch extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsVpc extends $dara.Model {
   /**
    * @remarks
-   * The VPC ID
+   * The VPC ID.
    * 
    * @example
    * vpc-uf664ny***
@@ -306,7 +317,7 @@ export class ListGatewaysResponseBodyDataItemsVpc extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $dara.Model {
   /**
    * @remarks
-   * The second-level domain name.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp14efvkcfbrt4***
@@ -336,12 +347,12 @@ export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsZones extends $dara.Model {
   /**
    * @remarks
-   * The second-level domain names.
+   * The vSwitch.
    */
   vSwitch?: ListGatewaysResponseBodyDataItemsZonesVSwitch;
   /**
    * @remarks
-   * The tag value.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i
@@ -376,7 +387,10 @@ export class ListGatewaysResponseBodyDataItemsZones extends $dara.Model {
 export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The billing type. Valid values:
+   * 
+   * - POSTPAY: Pay-as-you-go.
+   * - PREPAY: Subscription.
    * 
    * @example
    * POSTPAY
@@ -384,7 +398,8 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Indicates whether the address is the default ingress address of the instance.
+   * The source from which the gateway was created. Valid values:
+   * - Console: The gateway was created from the console.
    * 
    * @example
    * Console
@@ -392,7 +407,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * The load balancer IP address.
+   * The creation timestamp, in milliseconds.
    * 
    * @example
    * 1719386834548
@@ -400,9 +415,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The mode in which the load balancer is provided. Valid values:
-   * 
-   * *   Managed: Cloud-native API Gateway manages and provides the load balancer.
+   * The subscription expiration timestamp, in milliseconds.
    * 
    * @example
    * 172086834548
@@ -410,7 +423,11 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The gateway edition
+   * The gateway instance edition. Valid values:
+   * 
+   * - Professional: Standard instance.
+   * 
+   * - Serverless: Serverless instance.
    * 
    * @example
    * Serverless
@@ -418,7 +435,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The information about a gateway.
+   * The gateway ID.
    * 
    * @example
    * gw-cpv54p5***
@@ -426,17 +443,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance state. Valid values:
-   * 
-   * *   Running: The instance is running.
-   * *   Creating: The instance is being created.
-   * *   CreateFailed: The instance fails to be created.
-   * *   Upgrading: The instance is being upgraded.
-   * *   UpgradeFailed: The instance fails to be upgraded.
-   * *   Restarting: The instance is being restarted.
-   * *   RestartFailed: The instance fails to be restarted.
-   * *   Deleting: The instance is being released.
-   * *   DeleteFailed: The instance failed to be released.
+   * The gateway type.
    * 
    * @example
    * API
@@ -444,7 +451,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Whether the gateway is a legacy instance
+   * Indicates whether the gateway instance was created before the AI gateway feature was launched.
    * 
    * @example
    * true
@@ -452,12 +459,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   legacy?: boolean;
   /**
    * @remarks
-   * The port number.
+   * The list of gateway entry addresses.
    */
   loadBalancers?: ListGatewaysResponseBodyDataItemsLoadBalancers[];
   /**
    * @remarks
-   * The instance ID.
+   * The gateway name.
    * 
    * @example
    * itemcenter-gateway
@@ -465,10 +472,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The load balancer status. Valid values:
-   * 
-   * *   Ready: The load balancer is available.
-   * *   NotCreate: The load balancer is not associated with the instance.
+   * The number of gateway instance nodes.
    * 
    * @example
    * 2
@@ -476,7 +480,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   replicas?: string;
   /**
    * @remarks
-   * The resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-xxxx
@@ -484,15 +488,13 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * rg-xxx
+   * The security group information of the gateway.
    */
   securityGroup?: ListGatewaysResponseBodyDataItemsSecurityGroup;
   /**
    * @remarks
-   * The load balancer type. Valid values:
-   * 
-   * *   NLB: Network Load Balancer
-   * *   CLB: Classic Load Balancer
+   * The gateway specification. Valid values:
+   * - apigw.small.x1: small specification.
    * 
    * @example
    * apigw.small.x1
@@ -500,7 +502,16 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The time when the instance was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The gateway status. Valid values:
+   * - Running: The gateway is running.
+   * - Creating: The gateway is being created.
+   * - CreateFailed: The gateway failed to be created.
+   * - Upgrading: The gateway is being upgraded.
+   * - UpgradeFailed: The gateway failed to be upgraded.
+   * - Restarting: The gateway is being restarted.
+   * - RestartFailed: The gateway failed to be restarted.
+   * - Deleting: The gateway is being released.
+   * - DeleteFailed: The gateway failed to be released.
    * 
    * @example
    * Running
@@ -508,20 +519,17 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The subdomain information
+   * The list of second-level domain names.
    */
   subDomainInfos?: SubDomainInfo[];
   /**
    * @remarks
-   * The tags
+   * The list of tags.
    */
   tags?: ListGatewaysResponseBodyDataItemsTags[];
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * *   TCP
-   * *   UDP
+   * The target version of the gateway. When this value differs from version, a version upgrade can be performed.
    * 
    * @example
    * 2.0.2
@@ -529,10 +537,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   targetVersion?: string;
   /**
    * @remarks
-   * The IP version of the address. Valid values:
-   * 
-   * *   ipv4: IPv4
-   * *   ipv6: IPv6
+   * The update timestamp, in milliseconds.
    * 
    * @example
    * 1719386834548
@@ -540,12 +545,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether the gateway instance was created before AI Gateway launch.
+   * The vSwitch information.
    */
   vSwitch?: ListGatewaysResponseBodyDataItemsVSwitch;
   /**
    * @remarks
-   * The information about the port.
+   * The gateway version.
    * 
    * @example
    * 2.0.2
@@ -553,12 +558,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPC information
+   * The VPC information of the gateway.
    */
   vpc?: ListGatewaysResponseBodyDataItemsVpc;
   /**
    * @remarks
-   * The tag.
+   * The zone information of the gateway.
    */
   zones?: ListGatewaysResponseBodyDataItemsZones[];
   static names(): { [key: string]: string } {
@@ -650,12 +655,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
 export class ListGatewaysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The gateway list.
    */
   items?: ListGatewaysResponseBodyDataItems[];
   /**
    * @remarks
-   * The gateway list query result.
+   * The page number.
    * 
    * @example
    * 1
@@ -663,7 +668,7 @@ export class ListGatewaysResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page size.
    * 
    * @example
    * 10
@@ -671,7 +676,7 @@ export class ListGatewaysResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The total number of gateways.
    * 
    * @example
    * 6
@@ -710,7 +715,7 @@ export class ListGatewaysResponseBodyData extends $dara.Model {
 export class ListGatewaysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -718,12 +723,12 @@ export class ListGatewaysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The query result of the gateway list.
    */
   data?: ListGatewaysResponseBodyData;
   /**
    * @remarks
-   * The status code.
+   * The response message.
    * 
    * @example
    * success
@@ -731,7 +736,7 @@ export class ListGatewaysResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Schema of Response
+   * The request ID.
    * 
    * @example
    * 5B626361-070A-56A7-B127-ADAC8F3655DB

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance type. Valid values: **AI** and **API**.
+   * Filters by gateway type. Valid values: **AI** and **API**.
    * 
    * @example
    * AI
@@ -13,7 +13,7 @@ export class ListConsumersRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The name used to perform a fuzzy search for operations.
+   * Fuzzy matches APIs by API name.
    * 
    * @example
    * UI-test
@@ -21,7 +21,7 @@ export class ListConsumersRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number to return. Pages start from 1. Default value: 1.
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Policy type, including RateLimit, ConcurrencyLimit, CircuitBreaker, HttpRewrite, HeaderModify, Cors, Authentication, FlowCopy, Timeout, Retry, IpAccessControl, DirectResponse, Redirect, Fallback, ServiceTls, ServiceLb, ServicePortTls, Waf, JWTAuth, OIDCAuth, ExternalZAuth, AiProxy, ModelRouter, AiStatistics, AiSecurityGuard, AiFallback, ModelMapper, AiTokenRateLimit, AiCache, DynamicRoute
+   * The policy type. Valid values: RateLimit, ConcurrencyLimit, CircuitBreaker, HttpRewrite, HeaderModify, Cors, Authentication, FlowCopy, Timeout, Retry, IpAccessControl, DirectResponse, Redirect, Fallback, ServiceTls, ServiceLb, ServicePortTls, Waf, JWTAuth, OIDCAuth, ExternalZAuth, AiProxy, ModelRouter, AiStatistics, AiSecurityGuard, AiFallback, ModelMapper, AiTokenRateLimit, AiCache, DynamicRoute.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePolicyRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * Policy configuration
+   * The policy configuration.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePolicyRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Policy description
+   * The description of the policy.
    * 
    * @example
    * 超时策略
@@ -33,7 +33,7 @@ export class CreatePolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * This parameter is required.
    * 

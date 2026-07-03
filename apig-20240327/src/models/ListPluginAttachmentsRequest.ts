@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource attachment ID.
+   * The mount resource ID.
    * 
    * @example
    * hr-cv2h58em1hkg7c6vt43g
@@ -13,7 +13,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The resource attachment type (not yet in use).
+   * The plug-in mount point type. This parameter is not yet enabled.
    * 
    * @example
    * GatewayRoute
@@ -21,7 +21,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The resource attachment types, separated by commas.
+   * The mount point types. Separate multiple types with commas.
    * 
    * @example
    * GatewayRoute
@@ -45,7 +45,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The page number to return. Pages start from 1. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to return parent resource attachments.
+   * Specifies whether to return parent resource mounts.
    * 
    * @example
    * false

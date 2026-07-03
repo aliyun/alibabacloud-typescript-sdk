@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdateServiceVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

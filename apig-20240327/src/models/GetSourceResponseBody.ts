@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceResponseBodyDataK8SSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The container service cluster ID.
+   * The Container Service cluster ID.
    * 
    * @example
    * c2d290b2d8b5d4935864cace5f0173f31
@@ -116,7 +116,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   k8SSourceInfo?: GetSourceResponseBodyDataK8SSourceInfo;
   /**
    * @remarks
-   * The Microservices Engine (MSE) Nacos source information.
+   * The MSE Nacos source information.
    */
   nacosSourceInfo?: GetSourceResponseBodyDataNacosSourceInfo;
   /**

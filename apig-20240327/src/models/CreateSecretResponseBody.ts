@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the key.
+   * The key ID.
    * 
    * @example
    * sec-d5e6shmm1hkoxxxxxxxx
@@ -35,7 +35,7 @@ export class CreateSecretResponseBodyData extends $dara.Model {
 export class CreateSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -43,12 +43,12 @@ export class CreateSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateSecretResponseBodyData;
   /**
    * @remarks
-   * The error message.
+   * The error details.
    * 
    * @example
    * Failed to upload data. Please try again

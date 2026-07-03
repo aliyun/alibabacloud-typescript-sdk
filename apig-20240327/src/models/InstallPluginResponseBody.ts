@@ -45,7 +45,7 @@ export class InstallPluginResponseBodyDataInstallPluginResults extends $dara.Mod
 export class InstallPluginResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The installation result.
+   * The installation results.
    */
   installPluginResults?: InstallPluginResponseBodyDataInstallPluginResults[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class InstallPluginResponseBodyData extends $dara.Model {
 export class InstallPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -83,12 +83,12 @@ export class InstallPluginResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: InstallPluginResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * Success
@@ -96,7 +96,7 @@ export class InstallPluginResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 201CFCA0-3AF5-52D0-A0F3-FBA697AF55CB

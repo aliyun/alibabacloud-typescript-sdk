@@ -6,12 +6,12 @@ import { HttpApiOperationInfo } from "./HttpApiOperationInfo";
 export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The operations.
+   * The list of API operations.
    */
   items?: HttpApiOperationInfo[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
 export class ListHttpApiOperationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListHttpApiOperationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The operations.
+   * The list of API operations.
    */
   data?: ListHttpApiOperationsResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class ListHttpApiOperationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

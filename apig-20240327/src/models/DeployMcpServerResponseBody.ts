@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeployMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeployMcpServerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeployMcpServerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

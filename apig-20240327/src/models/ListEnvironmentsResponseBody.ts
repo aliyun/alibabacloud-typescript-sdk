@@ -6,7 +6,7 @@ import { EnvironmentInfo } from "./EnvironmentInfo";
 export class ListEnvironmentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 环境信息列表。
+   * The list of environment contexts.
    */
   items?: EnvironmentInfo[];
   /**

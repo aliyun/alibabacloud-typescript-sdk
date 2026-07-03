@@ -13,7 +13,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The port range.
+   * The port ranges.
    */
   portRanges?: string[];
   /**

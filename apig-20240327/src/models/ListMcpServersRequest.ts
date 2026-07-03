@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of source to create from.
+   * The creation source type.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -21,7 +21,7 @@ export class ListMcpServersRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The gateway ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListMcpServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The name to perform a fuzzy search on the MCP server.
+   * The fuzzy match keyword for searching MCP servers by API name.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class ListMcpServersRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number to return. Pages start from 1. Default value: 1.
+   * The page number, starting from 1. Default value: 1.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListMcpServersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the MCP server.
+   * The MCP server type.
    * 
    * @example
    * RealMCP

@@ -273,7 +273,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   operationIds?: string[];
   /**
    * @remarks
-   * The historical version number. If this parameter is specified, the publish information is based on the historical version.
+   * The historical version number. If this field is specified, the publish information is based on the historical version.
    * 
    * @example
    * apr-xxx
@@ -329,12 +329,12 @@ export class DeployHttpApiRequest extends $dara.Model {
   httpApiConfig?: DeployHttpApiRequestHttpApiConfig;
   /**
    * @remarks
-   * The deployment configuration for the REST API. This parameter is required when the HTTP API to be published is a REST API.
+   * The REST API deployment configuration. Required when the HTTP API being published is a REST API.
    */
   restApiConfig?: DeployHttpApiRequestRestApiConfig;
   /**
    * @remarks
-   * The route ID. This parameter is required when you publish a route of an HTTP API.
+   * The route ID. Required when publishing a route of an HTTP API.
    * 
    * @example
    * hr-cr82undlhtgrl***

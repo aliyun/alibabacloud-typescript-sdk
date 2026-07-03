@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * prod
    */
@@ -37,12 +43,23 @@ export class TagResourcesRequestTag extends $dara.Model {
 }
 
 export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 subkeys.
+   */
   resourceId?: string[];
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * gateway
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of labels.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
+   * @remarks
+   * The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), or month (monthly period).
+   * 
    * @example
    * week
    */
   conflictPeriodType?: string;
   /**
+   * @remarks
+   * The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
+   * 
    * @example
    * calendar
    */
   conflictType?: string;
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-d82n1g6m1hkm3xxxxxxx
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The consumer name.
+   * 
    * @example
    * consumer-a
    */
@@ -52,12 +64,22 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
 
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
+   * @remarks
+   * The conflict hash.
+   * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
    */
   conflictHash?: string;
+  /**
+   * @remarks
+   * The list of conflicting entities (consumers).
+   */
   items?: ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems[];
   /**
+   * @remarks
+   * The total number of conflicts.
+   * 
    * @example
    * 20
    */
@@ -92,17 +114,30 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
 
 export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+   * 
    * @example
    * true
    */
   accepted?: boolean;
+  /**
+   * @remarks
+   * The conflict preview.
+   */
   conflictPreview?: ResetGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
+   * @remarks
+   * Indicates whether this is a dry run.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * qr-d8j7fpmm1hks65xxxx
    */
@@ -139,21 +174,33 @@ export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
 
 export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code or error code.
+   * 
    * @example
    * 200, 404, 500
    */
   code?: string;
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * {\\"key\\": \\"value\\"}
    */
   data?: ResetGatewayQuotaRuleResponseBodyData;
   /**
+   * @remarks
+   * The message content.
+   * 
    * @example
    * 你好，世界！
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * 1234567890
    */

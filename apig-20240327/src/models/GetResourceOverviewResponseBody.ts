@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceOverviewResponseBodyDataApi extends $dara.Model {
   /**
    * @remarks
-   * Number of published APIs.
+   * The number of published APIs.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetResourceOverviewResponseBodyDataApi extends $dara.Model {
   publishedCount?: number;
   /**
    * @remarks
-   * Number of APIs.
+   * The total number of APIs.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetResourceOverviewResponseBodyDataApi extends $dara.Model {
 export class GetResourceOverviewResponseBodyDataGateway extends $dara.Model {
   /**
    * @remarks
-   * Number of running gateways.
+   * The number of running gateways.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetResourceOverviewResponseBodyDataGateway extends $dara.Model {
   runningCount?: number;
   /**
    * @remarks
-   * Number of gateway instances.
+   * The total number of gateway instances.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails extends 
   riskLevel?: string;
   /**
    * @remarks
-   * The risk name list.
+   * The list of risk names.
    */
   riskNames?: string[];
   /**
@@ -155,7 +155,7 @@ export class GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails extends 
 export class GetResourceOverviewResponseBodyDataRiskOverview extends $dara.Model {
   /**
    * @remarks
-   * The number of instances at a risk level.
+   * The number of instances at this risk level.
    * 
    * @example
    * 1
@@ -163,7 +163,7 @@ export class GetResourceOverviewResponseBodyDataRiskOverview extends $dara.Model
   count?: string;
   /**
    * @remarks
-   * The risk details list.
+   * The list of risk details.
    */
   riskDetails?: GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails[];
   /**
@@ -205,12 +205,12 @@ export class GetResourceOverviewResponseBodyDataRiskOverview extends $dara.Model
 export class GetResourceOverviewResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * API information.
+   * The API information.
    */
   api?: GetResourceOverviewResponseBodyDataApi;
   /**
    * @remarks
-   * Gateway information.
+   * The gateway information.
    */
   gateway?: GetResourceOverviewResponseBodyDataGateway;
   /**
@@ -255,7 +255,7 @@ export class GetResourceOverviewResponseBodyData extends $dara.Model {
 export class GetResourceOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -268,7 +268,7 @@ export class GetResourceOverviewResponseBody extends $dara.Model {
   data?: GetResourceOverviewResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -276,7 +276,7 @@ export class GetResourceOverviewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DD19A442-93C5-5C97-AFA0-B9C57EBD781B

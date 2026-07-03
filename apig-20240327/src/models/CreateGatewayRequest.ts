@@ -65,7 +65,10 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The network access type.
+   * The network access type. Valid values:
+   * - InternetAndIntranet: public and internal network.
+   * - Intranet: internal network.
+   * - Internet: public network.
    * 
    * @example
    * Internet
@@ -175,7 +178,9 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
 export class CreateGatewayRequestZoneConfig extends $dara.Model {
   /**
    * @remarks
-   * The zone selection option.
+   * The zone selection option. Valid values:
+   * - Auto: automatic.
+   * - Manual: manual.
    * 
    * @example
    * Manual
@@ -225,7 +230,9 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
+   * The billing method. Valid values:
+   * - POSTPAY: subscription.
+   * - PREPAY: pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -235,13 +242,13 @@ export class CreateGatewayRequest extends $dara.Model {
    * @remarks
    * The gateway instance edition. Valid values:
    * 
-   * - Professional: Standard instance.
+   * - Professional: standard instance.
    * 
    * - Serverless: Serverless instance.
    * 
-   * - MultiTenantServerless: Multi-tenant Serverless instance.
+   * - MultiTenantServerless: multi-tenant Serverless instance.
    * 
-   * - Unknown: Unknown.
+   * - Unknown: unknown.
    * 
    * @example
    * Professional
@@ -249,7 +256,9 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The gateway type.
+   * The gateway type. Valid values:
+   * - AI: AI gateway.
+   * - API: cloud-native API gateway.
    * 
    * @example
    * API

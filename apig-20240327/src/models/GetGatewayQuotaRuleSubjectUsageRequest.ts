@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the detailed consumption (request) records of the consumer within the cycle.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of detailed consumption (request) records per page for the consumer within the cycle. Maximum value: 10.
+   * 
    * @example
    * 10
    */

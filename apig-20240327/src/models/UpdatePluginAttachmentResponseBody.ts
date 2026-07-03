@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePluginAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdatePluginAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdatePluginAttachmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * F330090D-80F8-557B-8610-7EC7E386B4A4

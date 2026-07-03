@@ -13,7 +13,7 @@ export class UndeployHttpApiRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Gateway ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cq7l5s5lhtg***
@@ -29,7 +29,7 @@ export class UndeployHttpApiRequest extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The route ID. You must specify this parameter when you unpublish the route of an HTTP API.
+   * The route ID. This parameter is required when you offline a route of an HTTP API.
    * 
    * @example
    * hr-cr82undlhtgrle***

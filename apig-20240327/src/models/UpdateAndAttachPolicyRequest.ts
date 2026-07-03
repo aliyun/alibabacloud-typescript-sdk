@@ -12,7 +12,9 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   attachResourceIds?: string[];
   /**
    * @remarks
-   * The type of mount point supported by the policy. Valid values:
+   * The type of mount point supported by the policy.
+   * 
+   * Valid values:
    * 
    * - HttpApi: HttpApi.
    * - Operation: Operation of HttpApi.

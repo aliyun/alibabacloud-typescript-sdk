@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource attachment ID.
+   * The ID of the attached resource.
    * 
    * @example
    * api-cuip2pum1hksng6oni3g
@@ -13,15 +13,15 @@ export class ListPluginsRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The resource attachment type.
+   * The type of the attachment point supported by the policy.
    * 
    * - HttpApi: HttpApi.
    * - Operation: Operation of HttpApi.
-   * - GatewayRoute: Gateway route.
-   * - GatewayService: Gateway service.
-   * - GatewayServicePort: Gateway service port.
-   * - Domain: Gateway domain.
-   * - Gateway: Gateway.
+   * - GatewayRoute: gateway route.
+   * - GatewayService: gateway service.
+   * - GatewayServicePort: gateway service port.
+   * - Domain: gateway domain name.
+   * - Gateway: gateway.
    * 
    * @example
    * HttpApi
@@ -29,7 +29,7 @@ export class ListPluginsRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The gateway instance ID for filtering.
+   * The ID of the gateway instance used to filter results.
    * 
    * @example
    * gw-csrhgn6m1hkt65qbxxgg
@@ -37,7 +37,7 @@ export class ListPluginsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance type. Valid values: **AI** and **API**.
+   * The gateway type used to filter results. Valid values: **AI** and **API**.
    * 
    * @example
    * AI
@@ -45,7 +45,7 @@ export class ListPluginsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether to include built-in AI plug-ins in the returned results. Default: false.
+   * Specifies whether the response includes built-in AI plugins installed by the system. Default value: false.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class ListPluginsRequest extends $dara.Model {
   includeBuiltinAiGateway?: boolean;
   /**
    * @remarks
-   * The page number to return. Pages start from 1. Default value: 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListPluginsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The page size.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListPluginsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plug-in type ID for filtering.
+   * The ID of the plugin type used to filter results.
    * 
    * @example
    * pls-dn82a9djd8z****
@@ -77,7 +77,7 @@ export class ListPluginsRequest extends $dara.Model {
   pluginClassId?: string;
   /**
    * @remarks
-   * The plug-in type name for filtering.
+   * The name of the plugin type used to filter results.
    * 
    * @example
    * key-auth
@@ -85,7 +85,7 @@ export class ListPluginsRequest extends $dara.Model {
   pluginClassName?: string;
   /**
    * @remarks
-   * Specifies whether the returned results should include plug-in attachment information corresponding to the attachResourceId.
+   * Specifies whether the response includes the plugin attachment information corresponding to attachResourceId.
    * 
    * @example
    * false

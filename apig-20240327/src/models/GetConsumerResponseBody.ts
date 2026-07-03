@@ -5,20 +5,69 @@ import { ApiKeyIdentityConfig } from "./ApiKeyIdentityConfig";
 import { JwtIdentityConfig } from "./JwtIdentityConfig";
 
 
+export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
+  /**
+   * @example
+   * csg-8c13d2b4f8a1
+   */
+  consumerGroupId?: string;
+  /**
+   * @example
+   * 用于线上 API 调用方分组
+   */
+  description?: string;
+  /**
+   * @example
+   * 1715769600000
+   */
+  joinTimestamp?: number;
+  /**
+   * @example
+   * api-consumer-group
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      description: 'description',
+      joinTimestamp: 'joinTimestamp',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      description: 'string',
+      joinTimestamp: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AK/SK identity authentication configurations.
+   * The AccessKey pair authentication configuration.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The API key identity authentication configuration.
+   * The API key authentication configuration.
    */
   apiKeyIdentityConfig?: ApiKeyIdentityConfig;
+  consumerGroups?: GetConsumerResponseBodyDataConsumerGroups[];
   /**
    * @remarks
-   * The consumer ID.
+   * The API consumer ID.
    * 
    * @example
    * cs-cvgbtk6m1hkji5sb8dr0
@@ -50,7 +99,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is enabled.
+   * Indicates whether the API consumer is enabled.
    * 
    * @example
    * true
@@ -58,12 +107,12 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The JWT identity authentication configuration.
+   * The JWT authentication configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
    * @remarks
-   * The consumer name.
+   * The API consumer name.
    * 
    * @example
    * consumer-1
@@ -81,6 +130,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
     return {
       akSkIdentityConfigs: 'akSkIdentityConfigs',
       apiKeyIdentityConfig: 'apiKeyIdentityConfig',
+      consumerGroups: 'consumerGroups',
       consumerId: 'consumerId',
       createTimestamp: 'createTimestamp',
       deployStatus: 'deployStatus',
@@ -96,6 +146,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
     return {
       akSkIdentityConfigs: { 'type': 'array', 'itemType': AkSkIdentityConfig },
       apiKeyIdentityConfig: ApiKeyIdentityConfig,
+      consumerGroups: { 'type': 'array', 'itemType': GetConsumerResponseBodyDataConsumerGroups },
       consumerId: 'string',
       createTimestamp: 'number',
       deployStatus: 'string',
@@ -113,6 +164,9 @@ export class GetConsumerResponseBodyData extends $dara.Model {
     }
     if(this.apiKeyIdentityConfig && typeof (this.apiKeyIdentityConfig as any).validate === 'function') {
       (this.apiKeyIdentityConfig as any).validate();
+    }
+    if(Array.isArray(this.consumerGroups)) {
+      $dara.Model.validateArray(this.consumerGroups);
     }
     if(this.jwtIdentityConfig && typeof (this.jwtIdentityConfig as any).validate === 'function') {
       (this.jwtIdentityConfig as any).validate();

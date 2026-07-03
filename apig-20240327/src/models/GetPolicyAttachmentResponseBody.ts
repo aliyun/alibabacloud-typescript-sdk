@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Attached Resource ID
+   * The ID of the attached resource.
    * 
    * @example
    * op-csbkd9llhtgqhqua***
@@ -13,7 +13,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * Attached resource type, HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, Domain
+   * The type of the attached resource. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
    * 
    * @example
    * Operation
@@ -21,7 +21,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Policy attachment configuration
+   * The configuration of the attached policy.
    * 
    * @example
    * {"unitNum":1,"timeUnit":"s","enable":true}
@@ -29,7 +29,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Environment ID
+   * The environment ID.
    * 
    * @example
    * env-cq7l5s5lhtgi6qa***
@@ -37,7 +37,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Gateway Instance ID
+   * The gateway instance ID.
    * 
    * @example
    * gw-cq2vundlhtg***
@@ -45,7 +45,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Policy Attachment ID
+   * The policy attachment ID.
    * 
    * @example
    * pr-cqoojualhtgquuj***
@@ -53,7 +53,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   policyAttachmentId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * p-cq7l5s5bblhtgi6qas***
@@ -95,7 +95,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
 export class GetPolicyAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * 200
@@ -103,12 +103,12 @@ export class GetPolicyAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: GetPolicyAttachmentResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -116,7 +116,7 @@ export class GetPolicyAttachmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 2C3B9A12-3868-5EB9-fBEA-F99E03DD1***

@@ -33,8 +33,11 @@ export class CreateDomainRequest extends $dara.Model {
    */
   clientCACert?: string;
   /**
+   * @remarks
+   * The domain name scope.
+   * 
    * @example
-   * Serverless
+   * Dedicated
    */
   domainScope?: string;
   /**
@@ -55,7 +58,7 @@ export class CreateDomainRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The HTTP/2 settings.
+   * The HTTP/2 setting.
    * 
    * @example
    * Open
@@ -78,10 +81,10 @@ export class CreateDomainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type supported by the domain name.
+   * The protocol type supported by the domain name. Valid values:
    * 
-   * - HTTP: supports only HTTP.
-   * - HTTPS: supports only HTTPS.
+   * - HTTP: Only HTTP is supported.
+   * - HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP

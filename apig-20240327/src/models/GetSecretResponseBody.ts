@@ -14,10 +14,9 @@ export class GetSecretResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The type of the gateway. Valid values:
-   * 
-   * *   API
-   * *   AI
+   * The gateway type. Valid values:
+   * - API: API gateway.
+   * - AI: AI gateway.
    * 
    * @example
    * API
@@ -46,7 +45,7 @@ export class GetSecretResponseBodyData extends $dara.Model {
   referenceCount?: number;
   /**
    * @remarks
-   * The ID of the key.
+   * The key ID.
    * 
    * @example
    * sec-d5e6shmm1hkoxxxxxxxx
@@ -54,7 +53,7 @@ export class GetSecretResponseBodyData extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The source of the key.
+   * The key source.
    * 
    * @example
    * KMS
@@ -62,11 +61,10 @@ export class GetSecretResponseBodyData extends $dara.Model {
   secretSource?: string;
   /**
    * @remarks
-   * The state of the key. Valid values:
-   * 
-   * *   ENALBE
-   * *   DISABLE
-   * *   DELETED
+   * The key status. Valid values:
+   * - ENALBE: Enabled.
+   * - DISABLE: Disabled.
+   * - DELETED: Deleted.
    * 
    * @example
    * ENALBE
@@ -123,7 +121,7 @@ export class GetSecretResponseBodyData extends $dara.Model {
 export class GetSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -136,7 +134,7 @@ export class GetSecretResponseBody extends $dara.Model {
   data?: GetSecretResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

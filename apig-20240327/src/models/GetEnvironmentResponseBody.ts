@@ -13,7 +13,7 @@ export class GetEnvironmentResponseBodyDataStatisticsInfo extends $dara.Model {
   resourceStatistics?: ResourceStatistic[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1

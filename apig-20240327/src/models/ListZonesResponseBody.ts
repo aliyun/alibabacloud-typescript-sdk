@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListZonesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Whether QAT (Quality Assurance Testing) is supported in this zone
+   * Indicates whether QuickAssist Technology (QAT) is supported.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListZonesResponseBodyDataItems extends $dara.Model {
   supportQat?: string;
   /**
    * @remarks
-   * The zone identifier
+   * The zone ID.
    * 
    * @example
    * cn-shenzhen-c
@@ -45,7 +45,7 @@ export class ListZonesResponseBodyDataItems extends $dara.Model {
 export class ListZonesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of queried zones.
+   * The list of zones.
    */
   items?: ListZonesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListZonesResponseBodyData extends $dara.Model {
 export class ListZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -83,12 +83,12 @@ export class ListZonesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListZonesResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -96,7 +96,7 @@ export class ListZonesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E8079207-B651-592A-A565-23E9EE5673B0

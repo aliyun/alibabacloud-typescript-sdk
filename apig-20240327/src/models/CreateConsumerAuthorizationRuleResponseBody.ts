@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAuthorizationRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The consumer authorization rule ID. When this ID is used to filter the API list, the response contains only the authorized APIs.
+   * The consumer authorization rule ID. When this ID is used to filter the API list, the response includes only the authorized APIs.
    * 
    * @example
    * car-d06p196m1hkg9ukum5pg

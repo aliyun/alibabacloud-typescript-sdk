@@ -57,18 +57,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增网关配额限流规则
+   * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
    * > 
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @param headers - map
@@ -145,18 +145,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增网关配额限流规则
+   * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
    * > 
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @returns AddGatewayQuotaRuleResponse
@@ -221,7 +221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes API consumer authorization rules in batches.
+   * Revokes consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -254,7 +254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes API consumer authorization rules in batches.
+   * Revokes consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @returns BatchDeleteConsumerAuthorizationRuleResponse
@@ -266,7 +266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource from one resource group to another.
+   * Transfers a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -311,7 +311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource from one resource group to another.
+   * Transfers a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -320,6 +320,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建AI模型供应商
+   * 
+   * @param request - CreateAiModelProviderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiModelProviderResponse
+   */
+  async createAiModelProviderWithOptions(request: $_model.CreateAiModelProviderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAiModelProviderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      body["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.serviceIds)) {
+      body["serviceIds"] = request.serviceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAiModelProvider",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-providers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAiModelProviderResponse>(await this.callApi(params, req, runtime), new $_model.CreateAiModelProviderResponse({}));
+  }
+
+  /**
+   * 创建AI模型供应商
+   * 
+   * @param request - CreateAiModelProviderRequest
+   * @returns CreateAiModelProviderResponse
+   */
+  async createAiModelProvider(request: $_model.CreateAiModelProviderRequest): Promise<$_model.CreateAiModelProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAiModelProviderWithOptions(request, headers, runtime);
   }
 
   /**
@@ -936,7 +993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an Operation for HTTP API
+   * Creates operations for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @param headers - map
@@ -969,7 +1026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an Operation for HTTP API
+   * Creates operations for an HTTP API.
    * 
    * @param request - CreateHttpApiOperationRequest
    * @returns CreateHttpApiOperationResponse
@@ -1224,6 +1281,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom plugin class.
+   * 
+   * @param request - CreatePluginClassRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePluginClassResponse
+   */
+  async createPluginClassWithOptions(request: $_model.CreatePluginClassRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePluginClassResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alias)) {
+      body["alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executePriority)) {
+      body["executePriority"] = request.executePriority;
+    }
+
+    if (!$dara.isNull(request.executeStage)) {
+      body["executeStage"] = request.executeStage;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.supportedMinGatewayVersion)) {
+      body["supportedMinGatewayVersion"] = request.supportedMinGatewayVersion;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.versionDescription)) {
+      body["versionDescription"] = request.versionDescription;
+    }
+
+    if (!$dara.isNull(request.wasmLanguage)) {
+      body["wasmLanguage"] = request.wasmLanguage;
+    }
+
+    if (!$dara.isNull(request.wasmUrl)) {
+      body["wasmUrl"] = request.wasmUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePluginClass",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-classes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePluginClassResponse>(await this.callApi(params, req, runtime), new $_model.CreatePluginClassResponse({}));
+  }
+
+  /**
+   * Creates a custom plugin class.
+   * 
+   * @param request - CreatePluginClassRequest
+   * @returns CreatePluginClassResponse
+   */
+  async createPluginClass(request: $_model.CreatePluginClassRequest): Promise<$_model.CreatePluginClassResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPluginClassWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a policy.
    * 
    * @param request - CreatePolicyRequest
@@ -1407,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service.
+   * Creates services.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -1461,7 +1599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service.
+   * Creates services.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -1766,10 +1904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关配额限流规则
+   * Deletes a quota throttling rule from a gateway.
    * 
    * @remarks
-   * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @param headers - map
@@ -1796,10 +1934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关配额限流规则
+   * Deletes a quota throttling rule from a gateway.
    * 
    * @remarks
-   * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @returns DeleteGatewayQuotaRuleResponse
@@ -1856,7 +1994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an HTTP API.
+   * Deletes a specified HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1881,7 +2019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an HTTP API.
+   * Deletes a specified HTTP API.
    * @returns DeleteHttpApiResponse
    */
   async deleteHttpApi(httpApiId: string): Promise<$_model.DeleteHttpApiResponse> {
@@ -1926,7 +2064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a route in an HTTP API.
+   * Deletes a route of an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1951,7 +2089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a route in an HTTP API.
+   * Deletes a route of an HTTP API.
    * @returns DeleteHttpApiRouteResponse
    */
   async deleteHttpApiRoute(httpApiId: string, routeId: string): Promise<$_model.DeleteHttpApiRouteResponse> {
@@ -2104,7 +2242,7 @@ export default class Client extends OpenApi {
    * Deletes a key value.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * The operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2132,7 +2270,7 @@ export default class Client extends OpenApi {
    * Deletes a key value.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * The operation supports creating multiple services.
    * @returns DeleteSecretResponse
    */
   async deleteSecret(secretId: string): Promise<$_model.DeleteSecretResponse> {
@@ -2300,7 +2438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an MCP server.
+   * Publishes an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2325,7 +2463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an MCP server.
+   * Publishes an MCP server.
    * @returns DeployMcpServerResponse
    */
   async deployMcpServer(mcpServerId: string): Promise<$_model.DeployMcpServerResponse> {
@@ -2335,7 +2473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前账号可见的云原生API网关开服地域
+   * Queries the regions where the cloud-native API gateway is available for the current account.
    * 
    * @param request - DescribeRegionsRequest
    * @param headers - map
@@ -2368,7 +2506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前账号可见的云原生API网关开服地域
+   * Queries the regions where the cloud-native API gateway is available for the current account.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -2720,10 +2858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关配额限流规则详情
+   * Queries the details of a gateway quota rate limiting rule.
    * 
    * @remarks
-   * 该接口用于查询 AI 网关上某条消费者配额规则。
+   * This operation queries a specific consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @param headers - map
@@ -2764,10 +2902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关配额限流规则详情
+   * Queries the details of a gateway quota rate limiting rule.
    * 
    * @remarks
-   * 该接口用于查询 AI 网关上某条消费者配额规则。
+   * This operation queries a specific consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @returns GetGatewayQuotaRuleResponse
@@ -2779,10 +2917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关配额限流规则主体用量详情
+   * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @param headers - map
@@ -2819,10 +2957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关配额限流规则主体用量详情
+   * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @returns GetGatewayQuotaRuleSubjectUsageResponse
@@ -2834,7 +2972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Read HttpApi
+   * Retrieves HTTP API information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2859,7 +2997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Read HttpApi
+   * Retrieves HTTP API information.
    * @returns GetHttpApiResponse
    */
   async getHttpApi(httpApiId: string): Promise<$_model.GetHttpApiResponse> {
@@ -2939,10 +3077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get MCP Server.
+   * Retrieves an MCP server.
    * 
    * @remarks
-   * The API supports creating multiple services.
+   * The operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2967,10 +3105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get MCP Server.
+   * Retrieves an MCP server.
    * 
    * @remarks
-   * The API supports creating multiple services.
+   * The operation supports creating multiple services.
    * @returns GetMcpServerResponse
    */
   async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
@@ -2980,7 +3118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plugin attachment.
+   * Queries a plugin mount.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3005,13 +3143,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plugin attachment.
+   * Queries a plugin mount.
    * @returns GetPluginAttachmentResponse
    */
   async getPluginAttachment(pluginAttachmentId: string): Promise<$_model.GetPluginAttachmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPluginAttachmentWithOptions(pluginAttachmentId, headers, runtime);
+  }
+
+  /**
+   * Retrieves a custom plugin class.
+   * 
+   * @param request - GetPluginClassRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPluginClassResponse
+   */
+  async getPluginClassWithOptions(pluginClassId: string, request: $_model.GetPluginClassRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPluginClassResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPluginClass",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-classes/${$dara.URL.percentEncode(pluginClassId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPluginClassResponse>(await this.callApi(params, req, runtime), new $_model.GetPluginClassResponse({}));
+  }
+
+  /**
+   * Retrieves a custom plugin class.
+   * 
+   * @param request - GetPluginClassRequest
+   * @returns GetPluginClassResponse
+   */
+  async getPluginClass(pluginClassId: string, request: $_model.GetPluginClassRequest): Promise<$_model.GetPluginClassResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPluginClassWithOptions(pluginClassId, request, headers, runtime);
   }
 
   /**
@@ -3050,7 +3227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a policy attachment.
+   * Queries the resource attachment of a policy.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3075,7 +3252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a policy attachment.
+   * Queries the resource attachment of a policy.
    * @returns GetPolicyAttachmentResponse
    */
   async getPolicyAttachment(policyAttachmentId: string): Promise<$_model.GetPolicyAttachmentResponse> {
@@ -3085,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get resource overview information
+   * Retrieves resource overview information.
    * 
    * @param request - GetResourceOverviewRequest
    * @param headers - map
@@ -3118,7 +3295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get resource overview information
+   * Retrieves resource overview information.
    * 
    * @param request - GetResourceOverviewRequest
    * @returns GetResourceOverviewResponse
@@ -3130,10 +3307,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the key.
+   * Retrieves a key.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3158,10 +3335,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the key.
+   * Retrieves a key.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * @returns GetSecretResponse
    */
   async getSecret(secretId: string): Promise<$_model.GetSecretResponse> {
@@ -3171,10 +3348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the key value.
+   * Retrieves the value of a key.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * The operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3199,10 +3376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the key value.
+   * Retrieves the value of a key.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * The operation supports creating multiple services.
    * @returns GetSecretValueResponse
    */
   async getSecretValue(name: string): Promise<$_model.GetSecretValueResponse> {
@@ -3212,7 +3389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets service details.
+   * Retrieves the details of a service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3237,7 +3414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets service details.
+   * Retrieves the details of a service.
    * @returns GetServiceResponse
    */
   async getService(serviceId: string): Promise<$_model.GetServiceResponse> {
@@ -3526,7 +3703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者配额限流规则列表
+   * Queries the list of quota rules configured for a specific consumer.
    * 
    * @param request - ListConsumerQuotaRulesRequest
    * @param headers - map
@@ -3571,7 +3748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者配额限流规则列表
+   * Queries the list of quota rules configured for a specific consumer.
    * 
    * @param request - ListConsumerQuotaRulesRequest
    * @returns ListConsumerQuotaRulesResponse
@@ -3583,7 +3760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumers.
+   * Retrieves a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @param headers - map
@@ -3628,7 +3805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumers.
+   * Retrieves a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @returns ListConsumersResponse
@@ -3709,7 +3886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of environments.
+   * Queries the list of environments.
    * 
    * @deprecated OpenAPI ListEnvironments is deprecated
    * 
@@ -3772,7 +3949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of environments.
+   * Queries the list of environments.
    * 
    * @deprecated OpenAPI ListEnvironments is deprecated
    * 
@@ -3787,10 +3964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关外的服务信息
+   * Retrieves the external service information of a gateway.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * This operation supports creating multiple services.
    * 
    * @param request - ListExternalServicesRequest
    * @param headers - map
@@ -3839,10 +4016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关外的服务信息
+   * Retrieves the external service information of a gateway.
    * 
    * @remarks
-   * 接口支持创建多个服务。
+   * This operation supports creating multiple services.
    * 
    * @param request - ListExternalServicesRequest
    * @returns ListExternalServicesResponse
@@ -3854,7 +4031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the feature parameter configurations of an instance.
+   * Queries the list of gateway attribute parameter settings.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3879,7 +4056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the feature parameter configurations of an instance.
+   * Queries the list of gateway attribute parameter settings.
    * @returns ListGatewayFeaturesResponse
    */
   async listGatewayFeatures(gatewayId: string): Promise<$_model.ListGatewayFeaturesResponse> {
@@ -3889,10 +4066,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关周期配额规则列表
+   * Queries the list of API consumer quota rules bound to a gateway.
    * 
    * @remarks
-   * 该接口用于查询网关上绑定的消费者配额规则列表
+   * Queries the list of API consumer quota rules bound to a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @param headers - map
@@ -3941,10 +4118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关周期配额规则列表
+   * Queries the list of API consumer quota rules bound to a gateway.
    * 
    * @remarks
-   * 该接口用于查询网关上绑定的消费者配额规则列表
+   * Queries the list of API consumer quota rules bound to a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @returns ListGatewayQuotaRulesResponse
@@ -3956,7 +4133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Queries a list of gateways.
    * 
    * @param tmpReq - ListGatewaysRequest
    * @param headers - map
@@ -4023,7 +4200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Queries a list of gateways.
    * 
    * @param request - ListGatewaysRequest
    * @returns ListGatewaysResponse
@@ -4035,7 +4212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Operations
+   * Retrieves a list of API operations.
    * 
    * @param request - ListHttpApiOperationsRequest
    * @param headers - map
@@ -4116,7 +4293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Operations
+   * Retrieves a list of API operations.
    * 
    * @param request - ListHttpApiOperationsRequest
    * @returns ListHttpApiOperationsResponse
@@ -4229,7 +4406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of HTTP APIs.
+   * Retrieves a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @param headers - map
@@ -4326,7 +4503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of HTTP APIs.
+   * Retrieves a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @returns ListHttpApisResponse
@@ -4341,7 +4518,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of MCP servers.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListMcpServersRequest
    * @param headers - map
@@ -4401,7 +4578,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of MCP servers.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListMcpServersRequest
    * @returns ListMcpServersResponse
@@ -4413,7 +4590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of plug-in attachments.
+   * Retrieves the list of plug-in mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -4478,7 +4655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of plug-in attachments.
+   * Retrieves the list of plug-in mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -4490,10 +4667,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a plugin.
+   * Retrieves plug-ins.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListPluginClassesRequest
    * @param headers - map
@@ -4566,10 +4743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a plugin.
+   * Retrieves plug-ins.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListPluginClassesRequest
    * @returns ListPluginClassesResponse
@@ -4581,7 +4758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries plug-ins.
+   * Retrieves a list of plugins.
    * 
    * @param request - ListPluginsRequest
    * @param headers - map
@@ -4650,7 +4827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries plug-ins.
+   * Retrieves a list of plugins.
    * 
    * @param request - ListPluginsRequest
    * @returns ListPluginsResponse
@@ -4662,7 +4839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policies.
+   * Queries a list of policies.
    * 
    * @param request - ListPoliciesRequest
    * @param headers - map
@@ -4715,7 +4892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policies.
+   * Queries a list of policies.
    * 
    * @param request - ListPoliciesRequest
    * @returns ListPoliciesResponse
@@ -4796,10 +4973,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists key references.
+   * Lists secret references.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListSecretReferencesRequest
    * @param headers - map
@@ -4836,10 +5013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists key references.
+   * Lists secret references.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListSecretReferencesRequest
    * @returns ListSecretReferencesResponse
@@ -4851,10 +5028,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List keys.
+   * Lists keys.
    * 
    * @remarks
-   * The API supports creating multiple services.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @param headers - map
@@ -4899,10 +5076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List keys.
+   * Lists keys.
    * 
    * @remarks
-   * The API supports creating multiple services.
+   * The operation supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @returns ListSecretsResponse
@@ -5040,7 +5217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Retrieves the list of resource labels.
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param headers - map
@@ -5095,7 +5272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Retrieves the list of resource labels.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -5107,7 +5284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the availability zones under a cloud-native API gateway region
+   * Retrieves the zones available for a cloud-native API gateway in a specified region.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5132,7 +5309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the availability zones under a cloud-native API gateway region
+   * Retrieves the zones available for a cloud-native API gateway in a specified region.
    * @returns ListZonesResponse
    */
   async listZones(): Promise<$_model.ListZonesResponse> {
@@ -5154,6 +5331,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.apiNameLike)) {
       query["apiNameLike"] = request.apiNameLike;
+    }
+
+    if (!$dara.isNull(request.consumerGroupId)) {
+      query["consumerGroupId"] = request.consumerGroupId;
     }
 
     if (!$dara.isNull(request.consumerId)) {
@@ -5182,6 +5363,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.parentResourceId)) {
       query["parentResourceId"] = request.parentResourceId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      query["principalType"] = request.principalType;
     }
 
     if (!$dara.isNull(request.resourceId)) {
@@ -5227,7 +5412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer authorization rule.
+   * Deletes an API consumer authorization rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5252,7 +5437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer authorization rule.
+   * Deletes an API consumer authorization rule.
    * @returns RemoveConsumerAuthorizationRuleResponse
    */
   async removeConsumerAuthorizationRule(consumerAuthorizationRuleId: string): Promise<$_model.RemoveConsumerAuthorizationRuleResponse> {
@@ -5262,18 +5447,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置网关配额限流规则
+   * Resets a quota rate limiting rule on a gateway.
    * 
    * @remarks
-   * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+   * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
    * > 
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @param headers - map
@@ -5334,18 +5519,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置网关配额限流规则
+   * Resets a quota rate limiting rule on a gateway.
    * 
    * @remarks
-   * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+   * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
    * > 
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @returns ResetGatewayQuotaRuleResponse
@@ -5357,7 +5542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an instance.
+   * Restarts a gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5382,7 +5567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an instance.
+   * Restarts a gateway.
    * @returns RestartGatewayResponse
    */
   async restartGateway(gatewayId: string): Promise<$_model.RestartGatewayResponse> {
@@ -5392,7 +5577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
+   * Syncs an external MCP server.
    * 
    * @param request - SyncMCPServersRequest
    * @param headers - map
@@ -5441,7 +5626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
+   * Syncs an external MCP server.
    * 
    * @param request - SyncMCPServersRequest
    * @returns SyncMCPServersResponse
@@ -5453,7 +5638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds labels to resources.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -5494,7 +5679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds labels to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -5506,7 +5691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Undeploys an MCP server.
+   * Cancels the publication of an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5531,7 +5716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Undeploys an MCP server.
+   * Cancels the publication of an MCP server.
    * @returns UnDeployMcpServerResponse
    */
   async unDeployMcpServer(mcpServerId: string): Promise<$_model.UnDeployMcpServerResponse> {
@@ -5541,7 +5726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes an HTTP API.
+   * Cancels the deployment of an HTTP API.
    * 
    * @param request - UndeployHttpApiRequest
    * @param headers - map
@@ -5586,7 +5771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unpublishes an HTTP API.
+   * Cancels the deployment of an HTTP API.
    * 
    * @param request - UndeployHttpApiRequest
    * @returns UndeployHttpApiResponse
@@ -5598,7 +5783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls a plug-in.
+   * Uninstalls a plugin.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5623,7 +5808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls a plug-in.
+   * Uninstalls a plugin.
    * @returns UninstallPluginResponse
    */
   async uninstallPlugin(pluginId: string): Promise<$_model.UninstallPluginResponse> {
@@ -5633,7 +5818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Removes tags from resources.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -5688,7 +5873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -5769,7 +5954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a consumer.
+   * Updates an API consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @param headers - map
@@ -5818,7 +6003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a consumer.
+   * Updates an API consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @returns UpdateConsumerResponse
@@ -5974,7 +6159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateEnvironment
+   * Updates an environment.
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -6013,7 +6198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateEnvironment
+   * Updates an environment.
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -6028,7 +6213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of an instance feature parameter.
+   * Updates the attribute parameters of a gateway.
    * 
    * @param request - UpdateGatewayFeatureRequest
    * @param headers - map
@@ -6061,7 +6246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of an instance feature parameter.
+   * Updates the attribute parameters of a gateway.
    * 
    * @param request - UpdateGatewayFeatureRequest
    * @returns UpdateGatewayFeatureResponse
@@ -6073,7 +6258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The response message returned.
+   * Modifies the name of a gateway.
    * 
    * @deprecated OpenAPI UpdateGatewayName is deprecated
    * 
@@ -6108,7 +6293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The response message returned.
+   * Modifies the name of a gateway.
    * 
    * @deprecated OpenAPI UpdateGatewayName is deprecated
    * 
@@ -6123,17 +6308,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关配额限流规则
+   * Edits a quota throttling rule on a gateway.
    * 
    * @remarks
-   * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+   * >  Recommended call logic:
+   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun to true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - Step 2: Submit the request after confirmation.
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @param headers - map
@@ -6194,17 +6379,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关配额限流规则
+   * Edits a quota throttling rule on a gateway.
    * 
    * @remarks
-   * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
-   * >  推荐调用逻辑：
-   * > - 一、先 dryRun 预检检验是否存在规则冲突
-   * > - - 传dryRun=true
-   * > - - 返回含conflictHash的冲突预览
-   * > - 二、确认后正式提交
-   * > - - 无冲突：dryRun=false,overwrite=false
-   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+   * >  Recommended call logic:
+   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun to true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - Step 2: Submit the request after confirmation.
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @returns UpdateGatewayQuotaRuleResponse
@@ -6216,10 +6401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启/停用网关配额限流规则
+   * Enables or disables a quota throttling rule for a gateway.
    * 
    * @remarks
-   * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
    * 
    * @param request - UpdateGatewayQuotaRuleStatusRequest
    * @param headers - map
@@ -6256,10 +6441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启/停用网关配额限流规则
+   * Enables or disables a quota throttling rule for a gateway.
    * 
    * @remarks
-   * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
    * 
    * @param request - UpdateGatewayQuotaRuleStatusRequest
    * @returns UpdateGatewayQuotaRuleStatusResponse
@@ -6409,7 +6594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HTTP API.
+   * Updates a route of an HttpApi.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -6466,7 +6651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HTTP API.
+   * Updates a route of an HttpApi.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse
@@ -6481,7 +6666,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * You can only update the listening Ingress configuration for sources of the **ACK** type.
+   * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @param headers - map
@@ -6561,7 +6746,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * You can only update the listening Ingress configuration for sources of the **ACK** type.
+   * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @returns UpdateMcpServerResponse
@@ -6573,7 +6758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a plug-in attachment.
+   * Updates a plugin mount.
    * 
    * @param request - UpdatePluginAttachmentRequest
    * @param headers - map
@@ -6614,7 +6799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a plug-in attachment.
+   * Updates a plugin mount.
    * 
    * @param request - UpdatePluginAttachmentRequest
    * @returns UpdatePluginAttachmentResponse
@@ -6679,10 +6864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the key.
+   * Updates a key pair.
    * 
    * @remarks
-   * You can only update the listening Ingress configuration for sources of the **ACK** type.
+   * Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
    * 
    * @param request - UpdateSecretRequest
    * @param headers - map
@@ -6715,10 +6900,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the key.
+   * Updates a key pair.
    * 
    * @remarks
-   * You can only update the listening Ingress configuration for sources of the **ACK** type.
+   * Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
    * 
    * @param request - UpdateSecretRequest
    * @returns UpdateSecretResponse
@@ -6730,7 +6915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
+   * Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -6764,6 +6949,10 @@ export default class Client extends OpenApi {
       body["healthyPanicThreshold"] = request.healthyPanicThreshold;
     }
 
+    if (!$dara.isNull(request.modelProviderId)) {
+      body["modelProviderId"] = request.modelProviderId;
+    }
+
     if (!$dara.isNull(request.outlierDetectionConfig)) {
       body["outlierDetectionConfig"] = request.outlierDetectionConfig;
     }
@@ -6795,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
+   * Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse
@@ -6852,7 +7041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of a Cloud-native API Gateway instance.
+   * Upgrades the gateway version.
    * 
    * @param request - UpgradeGatewayRequest
    * @param headers - map
@@ -6885,7 +7074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of a Cloud-native API Gateway instance.
+   * Upgrades the gateway version.
    * 
    * @param request - UpgradeGatewayRequest
    * @returns UpgradeGatewayResponse

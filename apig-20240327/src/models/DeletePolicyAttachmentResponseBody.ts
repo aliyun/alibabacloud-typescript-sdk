@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeletePolicyAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeletePolicyAttachmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * CE857A85-251D-5018-8103-A38957D71***

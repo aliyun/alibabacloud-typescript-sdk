@@ -19,7 +19,7 @@ export class ListPoliciesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListPoliciesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 18
@@ -66,7 +66,7 @@ export class ListPoliciesResponseBodyData extends $dara.Model {
 export class ListPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListPoliciesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListPoliciesResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class ListPoliciesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID for API call tracing.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

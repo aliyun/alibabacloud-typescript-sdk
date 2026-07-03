@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdatePolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdatePolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C67DED2B-F19B-5BEC-88C1-D6EB854C***

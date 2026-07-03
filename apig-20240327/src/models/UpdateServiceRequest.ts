@@ -7,7 +7,7 @@ import { AiServiceConfig } from "./AiServiceConfig";
 export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable health checks.
+   * Specifies whether to enable health checks for the service.
    * 
    * @example
    * true
@@ -15,12 +15,12 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The normal status codes to be returned. This parameter is required if the health check protocol is HTTP.
+   * The list of expected HTTP status codes that indicate a healthy response. This parameter is required when the protocol is HTTP.
    */
   expectedStatuses?: string[];
   /**
    * @remarks
-   * The healthy threshold.
+   * The healthy threshold for health checks.
    * 
    * @example
    * 2
@@ -28,7 +28,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The domain name that you want to use for health checks. Optional. This parameter is available if the health check protocol is HTTP.
+   * The domain name for health checks. This parameter is optional and can be configured when the protocol is HTTP.
    * 
    * @example
    * dev.itemcener.com
@@ -36,7 +36,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   httpHost?: string;
   /**
    * @remarks
-   * The request path of health checks. This parameter is required if the health check protocol is HTTP.
+   * The request path for health checks. This parameter is required when the protocol is HTTP.
    * 
    * @example
    * /healthz
@@ -44,7 +44,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   httpPath?: string;
   /**
    * @remarks
-   * The health check interval. Unit: seconds
+   * The health check interval. Unit: seconds.
    * 
    * @example
    * 2
@@ -52,12 +52,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The protocol over which the system performs health checks.
-   * 
-   * Valid values:
-   * 
-   * *   TCP
-   * *   HTTP
+   * The protocol used for health checks.
    * 
    * @example
    * HTTP
@@ -65,7 +60,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The timeout period for a health check response. Unit: seconds
+   * The response timeout period for health checks. Unit: seconds.
    * 
    * @example
    * 2
@@ -73,7 +68,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The unhealthy threshold.
+   * The unhealthy threshold for health checks.
    * 
    * @example
    * 22
@@ -122,7 +117,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
 export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The initial isolation duration after a node is isolated (e.g., 30 seconds). The isolation time is calculated as: k \\* base_ejection_time (with k initially set to 1). Each subsequent isolation increases the isolation time (k is incremented by 1), while consecutive healthy checks gradually decrease the isolation time (k is decremented by 1).
+   * The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time (the initial value of k is 1). Each ejection increases the isolation time (k is incremented by 1). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by 1).
    * 
    * @example
    * 30
@@ -140,7 +135,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
    * @remarks
    * The panic threshold.
    * 
-   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are only sent to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including those that have been ejected nodes.
+   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally. Requests are sent only to healthy nodes and not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
    * 
    * @example
    * 1
@@ -148,7 +143,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   failurePercentageMinimumHosts?: number;
   /**
    * @remarks
-   * When the request failure rate of a node reaches this threshold, the system triggers the isolation mechanism of the node.
+   * The failure percentage threshold. When the percentage of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for the node.
    * 
    * @example
    * 80
@@ -202,7 +197,7 @@ export class UpdateServiceRequestPorts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 80
@@ -249,22 +244,22 @@ export class UpdateServiceRequest extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The agent service configurations.
+   * The agent service configuration.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configurations.
+   * The AI service configuration.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * A DNS service address.
+   * The DNS server addresses.
    */
   dnsServers?: string[];
   /**
    * @remarks
-   * The health check configurations.
+   * The health check configuration of the service.
    */
   healthCheckConfig?: UpdateServiceRequestHealthCheckConfig;
   /**
@@ -275,9 +270,10 @@ export class UpdateServiceRequest extends $dara.Model {
    * 80
    */
   healthyPanicThreshold?: number;
+  modelProviderId?: string;
   /**
    * @remarks
-   * The passive health check configurations.
+   * The passive health check parameter settings.
    */
   outlierDetectionConfig?: UpdateServiceRequestOutlierDetectionConfig;
   /**
@@ -287,7 +283,7 @@ export class UpdateServiceRequest extends $dara.Model {
   ports?: UpdateServiceRequestPorts[];
   /**
    * @remarks
-   * The service protocol.
+   * The protocol of the service.
    * 
    * @example
    * HTTP
@@ -301,6 +297,7 @@ export class UpdateServiceRequest extends $dara.Model {
       dnsServers: 'dnsServers',
       healthCheckConfig: 'healthCheckConfig',
       healthyPanicThreshold: 'healthyPanicThreshold',
+      modelProviderId: 'modelProviderId',
       outlierDetectionConfig: 'outlierDetectionConfig',
       ports: 'ports',
       protocol: 'protocol',
@@ -315,6 +312,7 @@ export class UpdateServiceRequest extends $dara.Model {
       dnsServers: { 'type': 'array', 'itemType': 'string' },
       healthCheckConfig: UpdateServiceRequestHealthCheckConfig,
       healthyPanicThreshold: 'number',
+      modelProviderId: 'string',
       outlierDetectionConfig: UpdateServiceRequestOutlierDetectionConfig,
       ports: { 'type': 'array', 'itemType': UpdateServiceRequestPorts },
       protocol: 'string',

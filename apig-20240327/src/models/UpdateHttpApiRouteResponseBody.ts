@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the response.
+   * The response status code.
    * 
    * @example
    * Ok

@@ -9,17 +9,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The types of resource attachments.
-   * 
-   * - HttpApi
-   * 
-   * - Operation
-   * 
-   * - GatewayRoute
-   * 
-   * - GatewayDomain
-   * 
-   * - Gateway
+   * The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
    * 
    * @example
    * GatewayRoute
@@ -27,7 +17,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Indicates if enabled.
+   * Indicates whether the plug-in mount is enabled.
    * 
    * @example
    * true
@@ -35,17 +25,17 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The environment metadata.
+   * The environment context.
    */
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The parent resource metadata.
+   * The parent resource information.
    */
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The ID of the resource attachment.
+   * The plug-in mount ID.
    * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
@@ -53,12 +43,12 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plug-in type metadata.
+   * The plug-in type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
    * @remarks
-   * The plug-in configurations (Base64-encoded).
+   * The Base64-encoded content of the original plug-in configuration.
    * 
    * @example
    * bGltaXRfYnlfaGVhZGVyOiB4LWFwaS1rZXkKbGltaXRfa2V5czoKLSBrZXk6IGV4YW1wbGUta2V5LWEKICBxdWVyeV9wZXJfc2Vjb25kOiAxMAotIGtleTogZXhhbXBsZS1rZXktYgogIHF1ZXJ5X3Blcl9zZWNvbmQ6IDEK
@@ -74,7 +64,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The information of resource attachments.
+   * The mount resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {
@@ -129,7 +119,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
 export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of resource attachments.
+   * The item details.
    */
   items?: ListPluginAttachmentsResponseBodyDataItems[];
   /**
@@ -142,7 +132,7 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -150,7 +140,7 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -189,7 +179,7 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
 export class ListPluginAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -197,12 +187,12 @@ export class ListPluginAttachmentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListPluginAttachmentsResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -210,7 +200,7 @@ export class ListPluginAttachmentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9640D776-794A-5077-9184-A247CA4B45C1

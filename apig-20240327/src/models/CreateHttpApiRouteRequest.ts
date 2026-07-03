@@ -81,10 +81,10 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
    * The backend service scenario. Valid values:
-   * - SingleService: Single service.
-   * - MultiServiceByRatio: Multiple services with ratio-based canary release.
-   * - Mock: Mock service.
-   * - Redirect: Redirect service.
+   * - SingleService: single service.
+   * - MultiServiceByRatio: multiple services with ratio-based canary release.
+   * - Mock: mock service.
+   * - Redirect: redirect service.
    * 
    * @example
    * SingleService

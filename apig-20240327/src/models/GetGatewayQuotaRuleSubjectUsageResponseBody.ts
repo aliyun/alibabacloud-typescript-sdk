@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends $dara.Model {
   /**
+   * @remarks
+   * The cached token consumption.
+   * 
    * @example
    * 10
    */
   cachedAmount?: number;
   /**
+   * @remarks
+   * The input token consumption.
+   * 
    * @example
    * 120
    */
   inputAmount?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * qwen-plus
    */
   model?: string;
   /**
+   * @remarks
+   * The output token consumption.
+   * 
    * @example
    * 80
    */
   outputAmount?: number;
   /**
+   * @remarks
+   * The consumption (request) time.
+   * 
    * @example
    * 2026-06-05 13:16:31
    */
   startTime?: string;
   /**
+   * @remarks
+   * The total consumption.
+   * 
    * @example
    * 210
    */
@@ -66,21 +84,33 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
 
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dara.Model {
   /**
+   * @remarks
+   * The list of usage details.
+   * 
    * @example
    * [{"model":"qwen-plus",\\"usedAmount\\":210}]
    */
   items?: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The current page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -117,36 +147,57 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dar
 
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The total cached token consumption.
+   * 
    * @example
    * 20
    */
   cachedAmount?: number;
   /**
+   * @remarks
+   * The paginated consumption details.
+   * 
    * @example
    * {"totalSize":100}
    */
   details?: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails;
   /**
+   * @remarks
+   * The total input token consumption.
+   * 
    * @example
    * 300
    */
   inputAmount?: number;
   /**
+   * @remarks
+   * The total output token consumption.
+   * 
    * @example
    * 180
    */
   outputAmount?: number;
   /**
+   * @remarks
+   * Indicates whether the quota limit is exceeded.
+   * 
    * @example
    * false
    */
   overLimit?: boolean;
   /**
+   * @remarks
+   * The total quota of the subject.
+   * 
    * @example
    * 1000
    */
   totalQuota?: number;
   /**
+   * @remarks
+   * The total used amount of the subject.
+   * 
    * @example
    * 500
    */
@@ -189,21 +240,33 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
 
 export class GetGatewayQuotaRuleSubjectUsageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * {"usedAmount":500}
    */
   data?: GetGatewayQuotaRuleSubjectUsageResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1234567890
    */

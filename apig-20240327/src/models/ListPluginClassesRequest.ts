@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginClassesRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias keyword for a fuzzy search.
+   * The plug-in alias. Fuzzy match is supported.
    * 
    * @example
    * OAuth2 认证
@@ -13,11 +13,10 @@ export class ListPluginClassesRequest extends $dara.Model {
   aliasLike?: string;
   /**
    * @remarks
-   * The traffic direction. Valid values: 
-   * 
-   * *   OutBound
-   * *   InBound
-   * *   Both
+   * The inbound or outbound direction. Valid values:
+   * - OutBound: outbound.
+   * - InBound: inbound.
+   * - Both: both directions.
    * 
    * @example
    * InBound
@@ -25,7 +24,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Specifies whether to exclude built-in plugins.
+   * Specifies whether to exclude built-in plug-ins.
    * 
    * @example
    * true
@@ -41,7 +40,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance type. Valid values: **AI** and **API**.
+   * The gateway type filter. Currently, **AI** and **API** gateway types are supported.
    * 
    * @example
    * API
@@ -49,7 +48,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Indicates whether the plugin is installed.
+   * Specifies whether the plug-in is installed.
    * 
    * @example
    * false
@@ -57,7 +56,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   installed?: boolean;
   /**
    * @remarks
-   * The plugin name for a fuzzy search.
+   * The plug-in name. Fuzzy match is supported.
    * 
    * @example
    * oauth
@@ -81,11 +80,10 @@ export class ListPluginClassesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plugin source. Valid values: 
-   * 
-   * *   HigressOfficial
-   * *   HigressCommunity
-   * *   Custom
+   * The plug-in source. Valid values:
+   * - HigressOfficial: Higress official.
+   * - HigressCommunity: Higress community.
+   * - Custom: custom.
    * 
    * @example
    * HigressOfficial
@@ -93,7 +91,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the plugin.
+   * The plug-in type.
    * 
    * @example
    * Auth

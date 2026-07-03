@@ -8,12 +8,12 @@ import { GatewayInfo } from "./GatewayInfo";
 export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * API信息。
+   * The API information.
    */
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * 消费者授权规则ID。
+   * The consumer authorization rule ID.
    * 
    * @example
    * car-csgeka5lhtggrjcprok0
@@ -21,7 +21,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * 消费者ID。
+   * The consumer ID.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -29,7 +29,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   consumerId?: string;
   /**
    * @remarks
-   * 创建时间戳。
+   * The creation timestamp.
    * 
    * @example
    * 1719386834548
@@ -37,7 +37,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   createTimestamp?: number;
   /**
    * @remarks
-   * API在当前环境的发布状态
+   * The publish status of the API in the current environment.
    * 
    * @example
    * {}
@@ -45,12 +45,14 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   deployStatus?: string;
   /**
    * @remarks
-   * 环境信息。
+   * The environment context.
    */
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * 失效模式。LongTerm、ShortTerm，二选一。
+   * The expiration mode. Valid values:
+   * - LongTerm
+   * - ShortTerm
    * 
    * @example
    * ShortTerm
@@ -58,7 +60,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireMode?: string;
   /**
    * @remarks
-   * 失效状态。
+   * The expiration status.
    * 
    * @example
    * InEffect
@@ -66,7 +68,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireStatus?: string;
   /**
    * @remarks
-   * 到期时间。
+   * The expiration time.
    * 
    * @example
    * 172086834548
@@ -74,12 +76,12 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireTimestamp?: number;
   /**
    * @remarks
-   * 网关信息。
+   * The gateway information.
    */
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * 资源ID。
+   * The resource ID.
    * 
    * @example
    * 2351944
@@ -87,7 +89,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * 资源类型。
+   * The resource type.
    * 
    * @example
    * HttpApiRoute
@@ -95,7 +97,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * 更新时间戳。单位: 毫秒。
+   * The update timestamp. Unit: milliseconds.
    * 
    * @example
    * 1721116090326
@@ -158,7 +160,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
 export class ListConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 消费者授权信息列表。
+   * The list of consumer authorization information.
    */
   items?: ListConsumerAuthorizationRulesResponseBodyDataItems[];
   /**

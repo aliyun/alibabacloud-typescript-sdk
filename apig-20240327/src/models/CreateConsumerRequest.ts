@@ -8,12 +8,12 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class CreateConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of AK/SK identity configurations.
+   * The list of AK/SK identity configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The identity configuration for API key authentication.
+   * The API key authentication identity configuration.
    */
   apikeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
@@ -36,9 +36,8 @@ export class CreateConsumerRequest extends $dara.Model {
    * @remarks
    * The gateway type. Valid values:
    * 
-   * - API: For a cloud-native API gateway.
-   * 
-   * - AI: For an AI gateway.
+   * - API: a consumer of a cloud-native API gateway.
+   * - AI: a consumer of an AI gateway.
    * 
    * @example
    * API

@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class JwtIdentityConfigClaimsToHeadersConfigs extends $dara.Model {
   /**
    * @remarks
-   * The claim.
+   * The claim name in the JWT payload.
+   * 
+   * @example
+   * sub
    */
   claim?: string;
   /**
    * @remarks
-   * The header.
+   * The HTTP header name after conversion.
+   * 
+   * @example
+   * X-Consumer-Id
    */
   header?: string;
   /**
    * @remarks
-   * The override.
+   * Specifies whether to overwrite an existing header with the same name.
+   * 
+   * @example
+   * true
    */
   override?: boolean;
   static names(): { [key: string]: string } {
@@ -86,7 +95,7 @@ export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
 export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   /**
    * @remarks
-   * The JWT key configuration.
+   * The key configuration of the JWT.
    * 
    * @example
    * Authorization
@@ -94,7 +103,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Specifies whether to pass through.
+   * Indicates whether the request is passed through.
    * 
    * @example
    * true
@@ -102,7 +111,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   pass?: boolean;
   /**
    * @remarks
-   * The storage location of the JWT.
+   * The location where the JWT is stored.
    * 
    * @example
    * HEADER
@@ -146,7 +155,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
 export class JwtIdentityConfig extends $dara.Model {
   /**
    * @remarks
-   * The claims-to-headers configurations.
+   * The list of claim-to-header configurations.
    */
   claimsToHeadersConfigs?: JwtIdentityConfigClaimsToHeadersConfigs[];
   /**
@@ -169,7 +178,10 @@ export class JwtIdentityConfig extends $dara.Model {
   jwtTokenConfig?: JwtIdentityConfigJwtTokenConfig;
   /**
    * @remarks
-   * The remote JWKS.
+   * The remote JWKS configuration (JSON string).
+   * 
+   * @example
+   * {"uri":"https://example.com/.well-known/jwks.json"}
    */
   remoteJwks?: string;
   /**
@@ -182,7 +194,7 @@ export class JwtIdentityConfig extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * The type of authentication configuration.
+   * The authentication configuration type.
    * 
    * @example
    * Jwt

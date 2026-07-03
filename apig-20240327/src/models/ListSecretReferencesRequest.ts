@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretReferencesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The value starts from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1

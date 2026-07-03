@@ -6,7 +6,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * The MCP server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-afaefaefaf
@@ -14,7 +14,7 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -22,7 +22,7 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * The MCP tools.
+   * The list of MCP tools.
    */
   tools?: string[];
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
 export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service port (omit for dynamic ports).
+   * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
    * 8080
@@ -65,10 +65,9 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
    * The service protocol. Valid values:
-   * 
-   * *   TCP
-   * *   HTTP
-   * *   DUBBO
+   * - TCP
+   * - HTTP
+   * - DUBBO
    * 
    * @example
    * HTTP
@@ -92,7 +91,7 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The traffic weight percentage.
+   * The percentage value of the traffic ratio.
    * 
    * @example
    * 49
@@ -170,7 +169,7 @@ export class UpdateMcpServerRequestBackendConfig extends $dara.Model {
 export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service port
+   * The service port.
    * 
    * @example
    * 8080
@@ -178,7 +177,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   port?: number;
   /**
    * @remarks
-   * The service protocol
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -186,7 +185,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   protocol?: string;
   /**
    * @remarks
-   * The service ID
+   * The service ID.
    * 
    * @example
    * gray-svc-123
@@ -194,7 +193,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   serviceId?: string;
   /**
    * @remarks
-   * The service version
+   * The version number.
    * 
    * @example
    * v1
@@ -202,7 +201,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   version?: string;
   /**
    * @remarks
-   * The service weight
+   * The weight.
    * 
    * @example
    * 100
@@ -240,7 +239,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
 export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * The backend scene
+   * The backend scenario.
    * 
    * @example
    * SingleService
@@ -248,7 +247,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
   scene?: string;
   /**
    * @remarks
-   * The list of backend services
+   * The list of backend services.
    */
   services?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -280,17 +279,17 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
 export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   /**
    * @remarks
-   * The backend configuration
+   * The backend configuration.
    */
   backendConfig?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The route match rules
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The route ID
+   * The route ID.
    * 
    * @example
    * route-123
@@ -330,7 +329,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The converted mcp server spec yaml
+   * The MCP server configuration. This parameter is mutually exclusive with swaggerConfig.
    * 
    * @example
    * mcp-server-spec-yaml
@@ -338,7 +337,7 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   mcpServerSpec?: string;
   /**
    * @remarks
-   * The raw swagger/openapi document
+   * The Swagger document for HTTP-to-MCP conversion. The document must comply with the OpenAPI 3.0 specification.
    * 
    * @example
    * swagger-content
@@ -370,17 +369,22 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+   * The list of assembled sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: UpdateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * The backend service configurations for the route.
+   * The backend service configuration of the route.
    */
   backendConfig?: UpdateMcpServerRequestBackendConfig;
   /**
    * @remarks
-   * Specifies the type of source for MCP server creation.
+   * The creation source type. Valid values:
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayProxyMcpHosting: gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: gateway MCP assembly.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -396,12 +400,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain IDs.
+   * The domain name IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
+   * The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
    * 
    * @example
    * /sse
@@ -409,7 +413,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The gray MCP server configurations
+   * The list of canary release MCP server route configurations.
    */
   grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
@@ -419,12 +423,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The MCP server configuration
+   * The HTTP-to-MCP configuration.
    */
   mcpServerConfig?: UpdateMcpServerRequestMcpServerConfig;
   /**
    * @remarks
-   * Specifies if MCP observability is enabled. Default value: false.
+   * Specifies whether to enable MCP observability. Default value: false.
    * 
    * @example
    * false
@@ -432,7 +436,11 @@ export class UpdateMcpServerRequest extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The service protocol. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
+   * The protocol type. Valid values:
+   * - HTTP: HTTP protocol.
+   * - HTTPS: HTTPS protocol.
+   * - SSE: Server-Sent Events protocol.
+   * - StreamableHTTP: Streamable HTTP protocol.
    * 
    * This parameter is required.
    * 
@@ -442,7 +450,9 @@ export class UpdateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The MCP server type. Valid values: RealMCP and AssemblyMCP.
+   * The MCP server type filter. Valid values:
+   * - RealMCP
+   * - AssemblyMCP
    * 
    * This parameter is required.
    * 

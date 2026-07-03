@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The alias of the plugin.
+   * The plug-in alias.
    * 
    * @example
    * OAuth2 认证
@@ -13,7 +13,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The description of the plugin.
+   * The plug-in description.
    * 
    * @example
    * 基于 OAuth2 实现身份认证和鉴权。
@@ -21,7 +21,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the plugin is installed.
+   * Indicates whether the plug-in is installed.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   installed?: boolean;
   /**
    * @remarks
-   * The plugin name.
+   * The plug-in name.
    * 
    * @example
    * oauth
@@ -37,7 +37,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The plugin type ID.
+   * The plug-in type ID.
    * 
    * @example
    * pls-d4ghv6em1hkixxxxxxxx
@@ -45,7 +45,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   pluginClassId?: string;
   /**
    * @remarks
-   * The plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * pl-cvu6r4um1hkoxxxxxxxx
@@ -53,7 +53,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The publishing status.
+   * The publish status.
    * 
    * @example
    * Success
@@ -61,7 +61,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   publishStatus?: string;
   /**
    * @remarks
-   * The source of the plugin.
+   * The plug-in source.
    * 
    * @example
    * HigressOfficial
@@ -69,7 +69,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The minimum version of the gateway supported by the plugin.
+   * The minimum gateway version supported by the plug-in.
    * 
    * @example
    * 2.0.0
@@ -77,7 +77,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   supportedMinGatewayVersion?: string;
   /**
    * @remarks
-   * The type of the plugin.
+   * The plug-in type.
    * 
    * @example
    * Auth
@@ -85,7 +85,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version.
+   * The plug-in version.
    * 
    * @example
    * 1.0.0
@@ -135,7 +135,7 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
 export class ListPluginClassesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The plugin details.
+   * The result objects.
    */
   items?: ListPluginClassesResponseBodyDataItems[];
   /**
@@ -195,7 +195,7 @@ export class ListPluginClassesResponseBodyData extends $dara.Model {
 export class ListPluginClassesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -203,12 +203,12 @@ export class ListPluginClassesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response data.
    */
   data?: ListPluginClassesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * success
@@ -216,7 +216,7 @@ export class ListPluginClassesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request
+   * The request ID.
    * 
    * @example
    * 61EBF577-1601-51E1-B136-9CD6xxxxxxxx

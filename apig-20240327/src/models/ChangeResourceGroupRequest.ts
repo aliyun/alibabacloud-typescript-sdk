@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Target resource group ID.
+   * The ID of the destination resource group.
    * 
    * @example
    * rg-aekzdrfx2xdnaja
@@ -13,7 +13,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * gw-ct4i14um1hkn0tpqfae0
@@ -21,7 +21,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Resource type
+   * The resource type.
    * 
    * @example
    * gateway
@@ -29,7 +29,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service name, fixed value apig
+   * The service name. Set this parameter to apig.
    * 
    * @example
    * apig

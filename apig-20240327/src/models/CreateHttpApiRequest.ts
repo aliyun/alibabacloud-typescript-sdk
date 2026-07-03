@@ -96,7 +96,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
    * The AI API protocols. The following protocols are supported:
-   * - OpenAI/v1.
+   * - OpenAI/v1
    */
   aiProtocols?: string[];
   /**
@@ -127,7 +127,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
    * 测试专用API。
@@ -135,7 +135,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run without executing the operation.
+   * Specifies whether to perform a dry run without actually executing the operation.
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The HTTP Ingress API configuration.
+   * The configuration of the HTTP Ingress API.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
@@ -174,7 +174,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The API name.
+   * The name of the API.
    * 
    * This parameter is required.
    * 
@@ -219,7 +219,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * - WebSocket
    * - HttpIngress
    * - LLM
-   * - Agent.
+   * - Agent
    * 
    * @example
    * Http
@@ -227,7 +227,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The API versioning configuration.
+   * The versioning configuration of the API.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication configuration.
+   * The environment ID.
    * 
    * @example
    * env-cr6ql0tlhtgmc****
@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The Ingress Class to listen on.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * The returned message.
+   * Specifies whether to update the address in the Ingress Status.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   overrideIngressIp?: boolean;
   /**
    * @remarks
-   * json
+   * The source ID.
    * 
    * @example
    * src-crdddallhtgtr****
@@ -40,7 +40,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The namespace to listen on.
    * 
    * @example
    * default
@@ -78,22 +78,22 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
 export class UpdateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of agent protocols
+   * The list of Agent protocols.
    */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The status code.
+   * The list of AI protocols.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configuration
+   * The permission authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The list of API deployment configurations.
+   * The base path of the API. The value must start with a forward slash (/).
    * 
    * This parameter is required.
    * 
@@ -103,12 +103,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The deployment configurations
+   * The list of API deployment configurations.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The environment ID.
+   * The API description.
    * 
    * @example
    * 更新API描述
@@ -116,7 +116,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether authentication is enabled
+   * Specifies whether to enable permission authentication.
    * 
    * @example
    * true
@@ -124,7 +124,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The first byte timeout in nanoseconds
+   * The first byte timeout period.
    * 
    * @example
    * 30s
@@ -132,12 +132,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * The configuration of the HTTP Ingress API.
    */
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Whether to only change configuration without redeployment
+   * Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering redeployment.
    * 
    * @example
    * true
@@ -145,12 +145,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   onlyChangeConfig?: boolean;
   /**
    * @remarks
-   * The listened namespace.
+   * The list of API access protocols.
    */
   protocols?: string[];
   /**
    * @remarks
-   * Whether to remove base path when forwarding
+   * Specifies whether to remove the base path during forwarding.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * A deployment configuration.
+   * The API versioning configuration.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

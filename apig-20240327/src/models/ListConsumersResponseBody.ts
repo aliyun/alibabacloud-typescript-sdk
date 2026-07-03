@@ -21,7 +21,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The publish status of the API in the current environment.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates if enabled.
+   * Indicates whether the consumer is enabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The last update timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1721123855214
@@ -95,7 +95,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
 export class ListConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumer information.
+   * The list of consumers.
    */
   items?: ListConsumersResponseBodyDataItems[];
   /**
@@ -108,7 +108,7 @@ export class ListConsumersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -116,7 +116,7 @@ export class ListConsumersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 18
@@ -155,7 +155,7 @@ export class ListConsumersResponseBodyData extends $dara.Model {
 export class ListConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -163,12 +163,12 @@ export class ListConsumersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListConsumersResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -176,7 +176,7 @@ export class ListConsumersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9BDD6A7C-CBA7-504F-B8C5-51B9F16590F7

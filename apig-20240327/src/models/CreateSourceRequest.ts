@@ -60,7 +60,7 @@ export class CreateSourceRequestK8sSourceConfig extends $dara.Model {
   authorizeSecurityGroupRules?: CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules[];
   /**
    * @remarks
-   * The Container Service cluster ID.
+   * The container service cluster ID.
    * 
    * @example
    * c3fbe6caaaece4062b*****
@@ -133,12 +133,12 @@ export class CreateSourceRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The Container Service source configuration.
+   * The container service source configuration.
    */
   k8sSourceConfig?: CreateSourceRequestK8sSourceConfig;
   /**
    * @remarks
-   * The MSE Nacos source configuration.
+   * The configuration of the MSE Nacos source.
    */
   nacosSourceConfig?: CreateSourceRequestNacosSourceConfig;
   /**
@@ -153,7 +153,7 @@ export class CreateSourceRequest extends $dara.Model {
    * @remarks
    * The source type. Valid values:
    * - MSE_NACOS: MSE Nacos.
-   * - K8S: Container Service.
+   * - K8S: Container Service for Kubernetes (ACK).
    * 
    * @example
    * MSE_NACOS

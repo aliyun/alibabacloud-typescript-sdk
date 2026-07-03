@@ -64,6 +64,11 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
 
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $dara.Model {
   /**
+   * @example
+   * csg-8c13d2b4f8a1
+   */
+  consumerGroupId?: string;
+  /**
    * @remarks
    * The consumer ID.
    * 
@@ -88,6 +93,11 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
    */
   expireTimestamp?: number;
   /**
+   * @example
+   * ConsumerGroup
+   */
+  principalType?: string;
+  /**
    * @remarks
    * The resource identifier, which serves as a unique identifier for non-standard code sources for space reuse.
    */
@@ -102,9 +112,11 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      consumerGroupId: 'consumerGroupId',
       consumerId: 'consumerId',
       expireMode: 'expireMode',
       expireTimestamp: 'expireTimestamp',
+      principalType: 'principalType',
       resourceIdentifier: 'resourceIdentifier',
       resourceType: 'resourceType',
     };
@@ -112,9 +124,11 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
 
   static types(): { [key: string]: any } {
     return {
+      consumerGroupId: 'string',
       consumerId: 'string',
       expireMode: 'string',
       expireTimestamp: 'number',
+      principalType: 'string',
       resourceIdentifier: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier,
       resourceType: 'string',
     };

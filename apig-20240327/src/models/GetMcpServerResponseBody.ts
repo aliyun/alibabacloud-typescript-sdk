@@ -7,7 +7,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * MCP Server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-xdafeafzz
@@ -15,7 +15,7 @@ export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * MCP Server name.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -23,7 +23,7 @@ export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * MCP tool list.
+   * The list of MCP tools.
    */
   tools?: string[];
   static names(): { [key: string]: string } {
@@ -57,7 +57,7 @@ export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
 export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The domain name ID.
    * 
    * @example
    * www.abc.com
@@ -65,7 +65,7 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * verifyicket
@@ -73,7 +73,7 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Protocol.
+   * The protocol.
    * 
    * @example
    * HTTP,HTTPS
@@ -107,7 +107,7 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * Service port.
+   * The service port.
    * 
    * @example
    * 8080
@@ -115,7 +115,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
   port?: number;
   /**
    * @remarks
-   * Service protocol.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -123,7 +123,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
   protocol?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * @example
    * svc-xxx
@@ -131,7 +131,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
   serviceId?: string;
   /**
    * @remarks
-   * Service version.
+   * The service version.
    * 
    * @example
    * v2.0.0
@@ -139,7 +139,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
   version?: string;
   /**
    * @remarks
-   * Service weight.
+   * The service weight.
    * 
    * @example
    * 100
@@ -177,7 +177,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * Backend scenario.
+   * The backend scene.
    * 
    * @example
    * SingleService
@@ -185,7 +185,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig exten
   scene?: string;
   /**
    * @remarks
-   * Service configuration list.
+   * The list of service configurations.
    */
   services?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -217,17 +217,17 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig exten
 export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Model {
   /**
    * @remarks
-   * Canary route backend configuration.
+   * The canary release route backend configuration.
    */
   backendConfig?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * Canary route match rules.
+   * The canary release route match rule.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * Canary route ID.
+   * The canary release route ID.
    * 
    * @example
    * gray-route-xxx
@@ -267,7 +267,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Mode
 export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   /**
    * @remarks
-   * Nacos instance.
+   * The Nacos instance.
    * 
    * @example
    * mse-xxxxx
@@ -275,7 +275,7 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   importInstanceId?: string;
   /**
    * @remarks
-   * Synchronized MCP Server ID.
+   * The synced MCP server ID.
    * 
    * @example
    * test-mcp
@@ -283,7 +283,7 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   importMcpServerId?: string;
   /**
    * @remarks
-   * Nacos namespace.
+   * The Nacos namespace.
    * 
    * @example
    * test-ns
@@ -317,7 +317,7 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
 export class GetMcpServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * API ID.
+   * API ID。
    * 
    * @example
    * api-xxx
@@ -325,23 +325,23 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * Assembly source list. Required when type is AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: GetMcpServerResponseBodyDataAssembledSources[];
   /**
    * @remarks
-   * Backend service of the route.
+   * The backend service of the route.
    */
   backend?: Backend;
   /**
    * @remarks
-   * Creation source type.
+   * The creation source type. Valid values:
    * 
-   * ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP.
-   * ApiGatewayMcpHosting: Gateway-managed MCP direct proxy.
-   * ApiGatewayAssembly: Gateway MCP assembly.
-   * NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP.
-   * NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: gateway MCP assembly.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -349,7 +349,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   createFromType?: string;
   /**
    * @remarks
-   * Deployment status of the API in the current environment.
+   * The publish status of the API in the current environment.
    * 
    * @example
    * Deployed
@@ -357,7 +357,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   deployStatus?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 测试专用MCP Server
@@ -365,17 +365,17 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Domain ID list.
+   * The list of domain name IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * Domain information list.
+   * The list of domain name information.
    */
   domainInfos?: GetMcpServerResponseBodyDataDomainInfos[];
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -383,7 +383,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Exposed URI path. Required when protocol is SSE or StreamableHTTP and type is RealMCP.
+   * The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
    * 
    * @example
    * /sse
@@ -391,7 +391,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * Gateway instance ID.
+   * The gateway instance ID.
    * 
    * @example
    * gw-cq2vundlhtg***
@@ -399,12 +399,12 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Canary route configuration.
+   * The canary release route configurations.
    */
   grayMcpServerConfigs?: GetMcpServerResponseBodyDataGrayMcpServerConfigs[];
   /**
    * @remarks
-   * Route match rules.
+   * The route match rule.
    * 
    * @example
    * {\\"product_code\\":\\"apigw\\"}
@@ -412,7 +412,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * HTTP-to-MCP configuration.
+   * The HTTP-to-MCP configuration.
    * 
    * @example
    * MCP Server配置 base64
@@ -420,7 +420,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerConfig?: string;
   /**
    * @remarks
-   * MCP Server plugin configuration attachment ID.
+   * The MCP server plugin configuration attachment ID.
    * 
    * @example
    * pa-adfaefwaef
@@ -436,7 +436,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * MCP Server access path provided by the gateway.
+   * The MCP server access path provided by the gateway.
    * 
    * @example
    * /mcp-servers/test-mcp
@@ -444,7 +444,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerPath?: string;
   /**
    * @remarks
-   * Whether to enable MCP observability. Default is false.
+   * Specifies whether MCP observability is enabled. Default value: false.
    * 
    * @example
    * false
@@ -452,12 +452,12 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * Nacos synchronization managed MCP information.
+   * The Nacos-synced managed MCP information.
    */
   nacosMcpSyncInfo?: GetMcpServerResponseBodyDataNacosMcpSyncInfo;
   /**
    * @remarks
-   * MCP Server name.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -465,7 +465,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Service protocol.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -473,7 +473,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Route ID.
+   * The route ID.
    * 
    * @example
    * hr-cr82undlhtgrlej***
@@ -481,7 +481,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   routeId?: string;
   /**
    * @remarks
-   * MCP Server type.
+   * The MCP server type.
    * 
    * @example
    * RealMCP
@@ -576,7 +576,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
 export class GetMcpServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -584,12 +584,12 @@ export class GetMcpServerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: GetMcpServerResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * Success

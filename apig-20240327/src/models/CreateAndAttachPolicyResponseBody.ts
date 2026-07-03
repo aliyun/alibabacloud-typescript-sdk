@@ -6,15 +6,15 @@ import { Attachment } from "./Attachment";
 export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Attachment information.
+   * The attachment information.
    */
   attachment?: Attachment;
   /**
    * @remarks
-   * Policy ID.
+   * The ID of the newly created policy.
    * 
    * @example
-   * p-cq7l5s5lhtgi6qasrdc0
+   * plc-xxx
    */
   policyId?: string;
   static names(): { [key: string]: string } {
@@ -46,20 +46,20 @@ export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
 export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response status code.
    * 
    * @example
-   * Ok
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response struct.
    */
   data?: CreateAndAttachPolicyResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -67,7 +67,7 @@ export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * Request ID
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

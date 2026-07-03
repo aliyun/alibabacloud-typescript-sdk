@@ -6,22 +6,31 @@ import { HiMarketIcon } from "./HiMarketIcon";
 export class HiMarketProductCategory extends $dara.Model {
   /**
    * @remarks
-   * The unique category ID.
+   * The categorization ID.
+   * 
+   * @example
+   * cat-xxx
    */
   categoryId?: string;
   /**
    * @remarks
-   * The category description.
+   * The categorization description.
+   * 
+   * @example
+   * AI网关相关产品分类
    */
   description?: string;
   /**
    * @remarks
-   * The category icon.
+   * The icon configuration.
    */
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The category name.
+   * The categorization name.
+   * 
+   * @example
+   * AI网关
    */
   name?: string;
   static names(): { [key: string]: string } {

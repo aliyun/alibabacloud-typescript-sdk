@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions extends $dara.Model {
   /**
    * @remarks
-   * The key to pass the parameter.
+   * The pass parameter key.
    * 
    * @example
    * KEEP_UNCHANGED
@@ -45,7 +45,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions exte
 export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Model {
   /**
    * @remarks
-   * The default value of the parameter.
+   * The default value.
    * 
    * @example
    * "true"
@@ -69,10 +69,9 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   displayName?: string;
   /**
    * @remarks
-   * The parameter group to which the parameter belongs. Valid values:
-   * 
-   * *   Telemetry: an observability parameter
-   * *   Engine: an engine parameter
+   * The parameter group. Valid values:
+   * - Telemetry: observability parameter.
+   * - Engine: engine parameter.
    * 
    * @example
    * Engine
@@ -81,11 +80,10 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   /**
    * @remarks
    * The input type of the parameter. Valid values:
-   * 
-   * *   Trigger
-   * *   Input
-   * *   SingleSelect
-   * *   MultiSelect
+   * - Trigger: toggle.
+   * - Input: input.
+   * - SingleSelect: single-select.
+   * - MultiSelect: multi-select.
    * 
    * @example
    * Trigger
@@ -93,7 +91,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   inputType?: string;
   /**
    * @remarks
-   * The maximum length of the value. This parameter is valid when the value type is string.
+   * The maximum length supported by the parameter value. This is valid only when the value type is string.
    * 
    * @example
    * 64
@@ -101,7 +99,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   maxLength?: number;
   /**
    * @remarks
-   * The maximum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
+   * The maximum value supported by the parameter. This is valid only when the value type is int32, int64, or float.
    * 
    * @example
    * 65535
@@ -109,7 +107,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   maxValue?: string;
   /**
    * @remarks
-   * The minimum length of the value. This parameter is valid when the value type is string.
+   * The minimum length supported by the parameter value. This is valid only when the value type is string.
    * 
    * @example
    * 8
@@ -117,7 +115,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   minLength?: number;
   /**
    * @remarks
-   * The minimum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
+   * The minimum value supported by the parameter. This is valid only when the value type is int32, int64, or float.
    * 
    * @example
    * 100
@@ -141,7 +139,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   readOnly?: boolean;
   /**
    * @remarks
-   * The regular expression that the parameter value must fulfill. This parameter is valid when the value type is string.
+   * The regular expression that the parameter value must match. This is valid only when the parameter value type is string.
    * 
    * @example
    * [a-z].*
@@ -154,15 +152,14 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   valueOptions?: ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions[];
   /**
    * @remarks
-   * The value type of the parameter. Valid values:
-   * 
-   * *   bool: boolean
-   * *   string
-   * *   int32: integer
-   * *   int64: long integer
-   * *   json
-   * *   array: JSON array
-   * *   float: floating point
+   * The type supported by the parameter value. Valid values:
+   * - bool: Boolean.
+   * - string: String.
+   * - int32: Integer.
+   * - int64: Long integer.
+   * - json: JSON format.
+   * - array: JSON array format.
+   * - float: Float.
    * 
    * @example
    * bool
@@ -170,7 +167,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   valueType?: string;
   /**
    * @remarks
-   * The value unit.
+   * The unit.
    * 
    * @example
    * byte
@@ -271,7 +268,7 @@ export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
 export class ListGatewayFeaturesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of parameter configurations.
+   * The list of parameter settings.
    */
   items?: ListGatewayFeaturesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
@@ -301,7 +298,7 @@ export class ListGatewayFeaturesResponseBodyData extends $dara.Model {
 export class ListGatewayFeaturesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -309,12 +306,12 @@ export class ListGatewayFeaturesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListGatewayFeaturesResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

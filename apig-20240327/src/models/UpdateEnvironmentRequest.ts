@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * Schema of Response
+   * The alias of the environment.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateEnvironmentRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The status code returned.
+   * The description of the environment. You can specify information such as the purpose and owner of the environment.
    * 
    * @example
    * 这是xx的xx项目测试环境

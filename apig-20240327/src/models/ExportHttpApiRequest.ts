@@ -5,27 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ExportHttpApiRequestExtensionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to export consumer authorization configurations for operations or routes.
+   * Specifies whether to export the consumer authorization configuration for operations or routes.
    */
   withAuthConfig?: boolean;
   /**
    * @remarks
-   * Specifies whether to export authorized consumers.
+   * Specifies whether to export the authorized consumers.
    */
   withAuthConsumer?: boolean;
   /**
    * @remarks
-   * Specifies whether to export plug-in configurations.
+   * Specifies whether to export the plug-in configuration.
    */
   withPlugin?: boolean;
   /**
    * @remarks
-   * Specifies whether to export policy configurations.
+   * Specifies whether to export the policy configuration.
    */
   withPolicy?: boolean;
   /**
    * @remarks
-   * Specifies whether to export backend services.
+   * Specifies whether to export the backend service.
    */
   withService?: boolean;
   static names(): { [key: string]: string } {
@@ -60,7 +60,7 @@ export class ExportHttpApiRequestExtensionConfig extends $dara.Model {
 export class ExportHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to export plug-in configurations.
+   * Specifies whether to export the plug-in configuration.
    */
   extensionConfig?: ExportHttpApiRequestExtensionConfig;
   /**
@@ -73,7 +73,7 @@ export class ExportHttpApiRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The IDs of specific operations to export when you export a REST API.
+   * The IDs of specific operations to export when exporting a REST API.
    */
   operationIds?: string[];
   static names(): { [key: string]: string } {

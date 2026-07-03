@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class DeleteSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteSecretResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * DD4F1D33-7267-5596-8F5D-C593xxxxxxxx

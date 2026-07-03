@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
+   * The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
    * 
    * @example
    * /sse
@@ -21,7 +21,7 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-d3s8qo6m1hknegofa3bg
@@ -29,7 +29,7 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP Server name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   mcpServerName?: string;
   /**
    * @remarks
-   * The protocol.
+   * The protocols.
    */
   protocols?: string[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
 export class SyncMCPServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain ID.
+   * The domain name IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * gw-cq7l5s5lhtg***
@@ -88,7 +88,7 @@ export class SyncMCPServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The synchronized Nacos MCP server list. If the synchronized MCP server is included, add the mcpServerId parameter.
+   * The list of Nacos MCP Servers to sync. If the list contains MCP Servers that have already been synced, include the mcpServerId.
    */
   nacosMcpServers?: SyncMCPServersRequestNacosMcpServers[];
   /**

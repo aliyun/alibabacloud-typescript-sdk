@@ -7,7 +7,7 @@ import { HttpApiPolicyConfigs } from "./HttpApiPolicyConfigs";
 export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service port. This parameter is not required for dynamic ports.
+   * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
    * 8080
@@ -16,9 +16,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * 
    * - HTTP
-   * 
    * - HTTPS
    * 
    * @example
@@ -43,7 +41,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The percentage of traffic.
+   * The percentage value of the traffic ratio.
    * 
    * @example
    * 49
@@ -89,7 +87,7 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * A list of backend services.
+   * The list of backend services.
    */
   services?: UpdateHttpApiRouteRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -119,8 +117,29 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
 }
 
 export class UpdateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The exposed URI path.
+   * 
+   * @example
+   * /mcp/chat
+   */
   exposedUriPath?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable MCP statistics.
+   * 
+   * @example
+   * true
+   */
   mcpStatisticsEnable?: boolean;
+  /**
+   * @remarks
+   * The MCP protocol.
+   * 
+   * @example
+   * SSE
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,12 +169,12 @@ export class UpdateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
 export class UpdateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the backend service for the route.
+   * The backend service configuration of the route.
    */
   backendConfig?: UpdateHttpApiRouteRequestBackendConfig;
   /**
    * @remarks
-   * The description of the route.
+   * The route description.
    * 
    * @example
    * 商品中心服务路由
@@ -163,7 +182,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A list of domain name IDs.
+   * The list of domain name IDs.
    */
   domainIds?: string[];
   /**
@@ -176,10 +195,18 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The route matching rule.
+   * The route match rule.
    */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * The MCP route configuration.
+   */
   mcpRouteConfig?: UpdateHttpApiRouteRequestMcpRouteConfig;
+  /**
+   * @remarks
+   * The route-level policy configurations.
+   */
   policyConfigs?: HttpApiPolicyConfigs[];
   static names(): { [key: string]: string } {
     return {

@@ -8,7 +8,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class ListMcpServersResponseBodyDataItemsAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * The MCP server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-adfef2334fa
@@ -16,7 +16,7 @@ export class ListMcpServersResponseBodyDataItemsAssembledSources extends $dara.M
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -66,7 +66,7 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
   importInstanceId?: string;
   /**
    * @remarks
-   * The synchronized MCP server ID.
+   * The synced MCP server ID.
    * 
    * @example
    * 同步的MCP Server ID
@@ -108,7 +108,7 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
 export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The API ID.
+   * API ID。
    * 
    * @example
    * api-xxx
@@ -116,7 +116,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: ListMcpServersResponseBodyDataItemsAssembledSources[];
   /**
@@ -126,13 +126,13 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * The type of source for MCP server creation. Valid values: 
+   * The creation source type. Valid values:
    * 
-   * ApiGatewayHttpToMCP 
-   * ApiGatewayMcpHosting 
-   * ApiGatewayAssembly 
-   * NacosHttpToMCP 
-   * NacosMcpHosting
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: gateway MCP assembly.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -140,7 +140,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   createFromType?: string;
   /**
    * @remarks
-   * The publishing status of the API in the current environment.
+   * The deployment status of the API in the current environment.
    * 
    * @example
    * Deployed
@@ -156,12 +156,12 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain name IDs.
+   * The list of domain name IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The list of domain information.
+   * The list of domain name information.
    */
   domainInfos?: HttpApiDomainInfo[];
   /**
@@ -174,7 +174,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
+   * The exposed URI path. This parameter is required when protocol is SSE or StreamableHTTP and type is RealMCP.
    * 
    * @example
    * /sse
@@ -195,7 +195,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The HTTP-to-MCP configurations.
+   * The HTTP-to-MCP configuration.
    * 
    * @example
    * HTTP转MCP Config base64值
@@ -203,7 +203,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpServerConfig?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * MCP Server ID
    * 
    * @example
    * mcp-feaff34va
@@ -227,12 +227,12 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The MCP information synchronized and managed by Nacos.
+   * The Nacos-synced managed MCP information.
    */
   nacosMcpSyncInfo?: ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * itemcenter-dev-cluster
@@ -248,7 +248,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the MCP server associated route.
+   * The route ID associated with the MCP server.
    * 
    * @example
    * hr-d11cj86m1hkvop6mp42g
@@ -256,7 +256,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   routeId?: string;
   /**
    * @remarks
-   * The type of the MCP server. Valid values: RealMCP and AssemblyMCP.
+   * The MCP server type.
    * 
    * @example
    * 可选值：RealMCP、AssemblyMCP
@@ -365,7 +365,7 @@ export class ListMcpServersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 25
@@ -404,7 +404,7 @@ export class ListMcpServersResponseBodyData extends $dara.Model {
 export class ListMcpServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -412,12 +412,12 @@ export class ListMcpServersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListMcpServersResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success
@@ -425,7 +425,7 @@ export class ListMcpServersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

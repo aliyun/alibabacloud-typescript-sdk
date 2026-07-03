@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
+  /**
+   * @remarks
+   * The principal (consumer) ID.
+   * 
+   * @example
+   * c-aaa
+   */
   id?: string;
+  /**
+   * @remarks
+   * The principal (consumer) name.
+   * 
+   * @example
+   * consumer-a
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,52 +44,86 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
 
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The base timestamp of the period.
+   * 
    * @example
    * 1745846400000
    */
   baseTimestamp?: number;
   /**
+   * @remarks
+   * The number of consumers associated with the rule.
+   * 
    * @example
    * 20
    */
   consumerCount?: number;
+  /**
+   * @remarks
+   * The list of principals (consumers) bound to this rule.
+   */
   consumers?: GetGatewayQuotaRuleResponseBodyDataConsumers[];
   /**
+   * @remarks
+   * The quota period type.
+   * 
    * @example
    * day
    */
   periodType?: string;
   /**
+   * @remarks
+   * The quota dimension.
+   * 
    * @example
    * token
    */
   quotaDimension?: string;
   /**
+   * @remarks
+   * The quota limit.
+   * 
    * @example
    * 1000
    */
   quotaLimit?: number;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * qr-d8j7fpmm1hks65xxxxxx
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * daily-token-limit
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The rule status.
+   * 
    * @example
    * enabled
    */
   ruleStatus?: string;
   /**
+   * @remarks
+   * The time zone corresponding to the calendar period, in UTC+x format.
+   * 
    * @example
    * GMT+8
    */
   timezone?: string;
   /**
+   * @remarks
+   * The reset period type. Currently, only calendar period is supported, which means windowAlignment="calendar".
+   * 
    * @example
    * calendar
    */
@@ -126,21 +174,33 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
 
 export class GetGatewayQuotaRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * {"ruleId":1001}
    */
   data?: GetGatewayQuotaRuleResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1234567890
    */

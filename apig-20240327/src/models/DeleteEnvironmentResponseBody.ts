@@ -21,7 +21,7 @@ export class DeleteEnvironmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the request chain.
+   * The request ID, which is used to trace the request.
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129

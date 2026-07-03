@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketApiKeyConfigCredentials extends $dara.Model {
   /**
    * @remarks
-   * The value of the API key.
+   * The API key value.
+   * 
+   * @example
+   * my-api-key-123
    */
   apiKey?: string;
   /**
    * @remarks
-   * The operational mode for the key, such as `test` or `production`.
+   * The generation mode.
+   * 
+   * @example
+   * Custom
    */
   mode?: string;
   static names(): { [key: string]: string } {
@@ -39,17 +45,23 @@ export class HiMarketApiKeyConfigCredentials extends $dara.Model {
 export class HiMarketApiKeyConfig extends $dara.Model {
   /**
    * @remarks
-   * An array of objects, each containing a valid API key and its associated mode.
+   * The list of credentials.
    */
   credentials?: HiMarketApiKeyConfigCredentials[];
   /**
    * @remarks
-   * The name of the parameter that holds the API key. For example, if `source` is `HEADER`, this is the request header name, such as `X-API-Key`.
+   * The name of the location from which the API key is extracted.
+   * 
+   * @example
+   * Apikey
    */
   key?: string;
   /**
    * @remarks
-   * The location of the API key in the request. Valid values are `HEADER` and `QUERY`.
+   * The source type of the API key.
+   * 
+   * @example
+   * Header
    */
   source?: string;
   static names(): { [key: string]: string } {

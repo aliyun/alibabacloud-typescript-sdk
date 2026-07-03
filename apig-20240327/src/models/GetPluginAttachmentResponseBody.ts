@@ -10,7 +10,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the plugin attachment is enabled.
+   * Indicates whether the plugin mount is enabled.
    * 
    * @example
    * true
@@ -28,12 +28,12 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The parent attachment resource information.
+   * The parent mount resource information.
    */
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The plugin attachment ID.
+   * The plugin mount ID.
    * 
    * @example
    * pa-d05f1tmm1hku195dd8j0
@@ -62,7 +62,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The list of attachment resource information.
+   * The list of mount resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {

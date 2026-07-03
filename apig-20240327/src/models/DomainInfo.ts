@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The China Security certificate identity.
+   * The SSL Certificates Service certificate identity.
    * 
    * @example
    * 235556-cn-hangzhou
@@ -25,7 +25,7 @@ export class DomainInfo extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The source from which the domain name was created.
+   * The source from which the domain name is created.
    * 
    * @example
    * Console
@@ -47,6 +47,13 @@ export class DomainInfo extends $dara.Model {
    * d-cq1lthllhtgja4dk54eg
    */
   domainId?: string;
+  /**
+   * @remarks
+   * domainScope
+   * 
+   * @example
+   * Dedicated
+   */
   domainScope?: string;
   /**
    * @remarks
@@ -58,7 +65,7 @@ export class DomainInfo extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable mTLS mutual authentication.
+   * Indicates whether MTLS mutual authentication is enabled.
    * 
    * @example
    * true
@@ -74,10 +81,10 @@ export class DomainInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type supported by the domain name. Valid values:
+   * The protocol type supported by the domain name.
    * 
-   * - HTTP: Only HTTP is supported.
-   * - HTTPS: Only HTTPS is supported.
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTP: Only the HTTPS protocol is supported.
    * 
    * @example
    * HTTP

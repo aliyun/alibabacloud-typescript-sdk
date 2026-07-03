@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdateSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

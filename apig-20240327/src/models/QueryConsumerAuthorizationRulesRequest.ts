@@ -12,6 +12,11 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    */
   apiNameLike?: string;
   /**
+   * @example
+   * csg-8c13d2b4f8a1
+   */
+  consumerGroupId?: string;
+  /**
    * @remarks
    * The consumer ID.
    * 
@@ -68,6 +73,11 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    */
   parentResourceId?: string;
   /**
+   * @example
+   * ConsumerGroup
+   */
+  principalType?: string;
+  /**
    * @remarks
    * The resource ID.
    * 
@@ -94,6 +104,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiNameLike: 'apiNameLike',
+      consumerGroupId: 'consumerGroupId',
       consumerId: 'consumerId',
       consumerNameLike: 'consumerNameLike',
       environmentId: 'environmentId',
@@ -101,6 +112,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       parentResourceId: 'parentResourceId',
+      principalType: 'principalType',
       resourceId: 'resourceId',
       resourceType: 'resourceType',
       resourceTypes: 'resourceTypes',
@@ -110,6 +122,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiNameLike: 'string',
+      consumerGroupId: 'string',
       consumerId: 'string',
       consumerNameLike: 'string',
       environmentId: 'string',
@@ -117,6 +130,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       parentResourceId: 'string',
+      principalType: 'string',
       resourceId: 'string',
       resourceType: 'string',
       resourceTypes: 'string',

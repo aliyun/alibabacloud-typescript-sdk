@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { HttpApiApiInfo } from "./HttpApiApiInfo";
+import { ConsumerGroupInfo } from "./ConsumerGroupInfo";
 import { ConsumerInfo } from "./ConsumerInfo";
 import { EnvironmentInfo } from "./EnvironmentInfo";
 import { GatewayInfo } from "./GatewayInfo";
@@ -11,12 +12,12 @@ import { HttpRoute } from "./HttpRoute";
 export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * 接口信息。
+   * The operation information.
    */
   operationInfo?: HttpApiOperationInfo;
   /**
    * @remarks
-   * 路由规则。
+   * The routing rule.
    */
   route?: HttpRoute;
   static names(): { [key: string]: string } {
@@ -51,20 +52,26 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo ex
 export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * API信息详情。
+   * The API information.
    */
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * 消费者授权规则ID。
+   * The consumer authorization rule ID.
    * 
    * @example
    * car-csgeka5lhtggrjcprok0
    */
   consumerAuthorizationRuleId?: string;
   /**
+   * @example
+   * csg-8c13d2b4f8a1
+   */
+  consumerGroupId?: string;
+  consumerGroupInfo?: ConsumerGroupInfo;
+  /**
    * @remarks
-   * 消费者ID。
+   * The consumer ID.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -72,12 +79,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerId?: string;
   /**
    * @remarks
-   * 消费者信息详情。
+   * The consumer information.
    */
   consumerInfo?: ConsumerInfo;
   /**
    * @remarks
-   * 创建时间戳。单位: 毫秒。
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -85,7 +92,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   createTimestamp?: number;
   /**
    * @remarks
-   * API在当前环境的发布状态
+   * The publish status of the API in the current environment.
    * 
    * @example
    * {}
@@ -93,12 +100,14 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   deployStatus?: string;
   /**
    * @remarks
-   * 环境信息。
+   * The environment context.
    */
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * 失效模式。LongTerm、ShortTerm，二选一。
+   * The expiration mode. Valid values:
+   * - LongTerm
+   * - ShortTerm
    * 
    * @example
    * ShortTerm
@@ -106,7 +115,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireMode?: string;
   /**
    * @remarks
-   * 失效状态。
+   * The expiration status.
    * 
    * @example
    * InEffect
@@ -114,7 +123,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireStatus?: string;
   /**
    * @remarks
-   * 到期时间。
+   * The expiration time.
    * 
    * @example
    * 172086834548
@@ -122,12 +131,17 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireTimestamp?: number;
   /**
    * @remarks
-   * 网关信息。
+   * The gateway information.
    */
   gatewayInfo?: GatewayInfo;
   /**
+   * @example
+   * ConsumerGroup
+   */
+  principalType?: string;
+  /**
    * @remarks
-   * 资源ID。
+   * The resource ID.
    * 
    * @example
    * 2351944
@@ -135,12 +149,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * 资源信息详情。
+   * The resource information.
    */
   resourceInfo?: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo;
   /**
    * @remarks
-   * 资源类型。
+   * The resource type.
    * 
    * @example
    * HttpApiRoute
@@ -148,7 +162,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceType?: string;
   /**
    * @remarks
-   * 更新时间戳。单位: 毫秒。
+   * The update timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -158,6 +172,8 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
     return {
       apiInfo: 'apiInfo',
       consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
+      consumerGroupId: 'consumerGroupId',
+      consumerGroupInfo: 'consumerGroupInfo',
       consumerId: 'consumerId',
       consumerInfo: 'consumerInfo',
       createTimestamp: 'createTimestamp',
@@ -167,6 +183,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
       expireStatus: 'expireStatus',
       expireTimestamp: 'expireTimestamp',
       gatewayInfo: 'gatewayInfo',
+      principalType: 'principalType',
       resourceId: 'resourceId',
       resourceInfo: 'resourceInfo',
       resourceType: 'resourceType',
@@ -178,6 +195,8 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
     return {
       apiInfo: HttpApiApiInfo,
       consumerAuthorizationRuleId: 'string',
+      consumerGroupId: 'string',
+      consumerGroupInfo: ConsumerGroupInfo,
       consumerId: 'string',
       consumerInfo: ConsumerInfo,
       createTimestamp: 'number',
@@ -187,6 +206,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
       expireStatus: 'string',
       expireTimestamp: 'number',
       gatewayInfo: GatewayInfo,
+      principalType: 'string',
       resourceId: 'string',
       resourceInfo: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo,
       resourceType: 'string',
@@ -197,6 +217,9 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   validate() {
     if(this.apiInfo && typeof (this.apiInfo as any).validate === 'function') {
       (this.apiInfo as any).validate();
+    }
+    if(this.consumerGroupInfo && typeof (this.consumerGroupInfo as any).validate === 'function') {
+      (this.consumerGroupInfo as any).validate();
     }
     if(this.consumerInfo && typeof (this.consumerInfo as any).validate === 'function') {
       (this.consumerInfo as any).validate();
@@ -221,7 +244,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
 export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 消费者规则列表。
+   * The list of consumer rules.
    */
   items?: QueryConsumerAuthorizationRulesResponseBodyDataItems[];
   /**

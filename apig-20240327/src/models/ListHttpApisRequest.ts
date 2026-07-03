@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpApisRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include policy configurations.
+   * The ID of the cloud-native API gateway.
    * 
    * @example
    * gw-cq2avtllh****
@@ -13,7 +13,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The API information.
+   * The gateway type filter. Valid values: **AI** and **API**.
    * 
    * @example
    * API
@@ -21,7 +21,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The consumer authentication policy in the specified environment in each returned API.
+   * The search keyword. Supports fuzzy match by API name or exact search by API ID.
    * 
    * @example
    * test-
@@ -29,7 +29,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Specifies whether authentication is enabled.
+   * The exact name to search for.
    * 
    * @example
    * login
@@ -37,7 +37,7 @@ export class ListHttpApisRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The environment information.
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned message.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -61,7 +61,11 @@ export class ListHttpApisRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Ingress information.
+   * The type of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+   * - Http
+   * - Rest
+   * - WebSocket
+   * - HttpIngress
    * 
    * @example
    * Http,Rest
@@ -69,7 +73,7 @@ export class ListHttpApisRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * Whether to return all APIs published to a specific environment
+   * Specifies whether to return information about APIs published to the specified environment.
    * 
    * @example
    * true
@@ -77,7 +81,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * The gateway type to filter. Valid values: **AI** and **API**.
+   * The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
    * 
    * @example
    * env-xxx
@@ -85,7 +89,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyInEnvironmentId?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * Specifies whether authentication policies are enabled.
    * 
    * @example
    * true
@@ -93,7 +97,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * The response body.
+   * The consumer ID. If specified, the response includes the authorization rule list for the specified consumer for each API.
    * 
    * @example
    * cs-xxx
@@ -101,7 +105,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The request ID.
+   * The environment context.
    * 
    * @example
    * true
@@ -109,7 +113,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfo?: boolean;
   /**
    * @remarks
-   * The APIs.
+   * The environment ID.
    * 
    * @example
    * env-ctovu5mm1hksb4q8ln40
@@ -117,7 +121,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfoById?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * Specifies whether to include ingress information.
    * 
    * @example
    * false
@@ -125,7 +129,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The status code.
+   * The plug-in ID. If specified, the response includes the plug-in publishing information for the specified plug-in.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0
@@ -133,7 +137,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withPluginAttachmentByPluginId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * Specifies whether to include policy information.
    * 
    * @example
    * false

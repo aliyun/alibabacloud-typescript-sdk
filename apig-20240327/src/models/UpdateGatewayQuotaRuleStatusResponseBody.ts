@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayQuotaRuleStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code or error code.
+   * 
    * @example
    * 200, 404, 500
    */
   code?: string;
   /**
+   * @remarks
+   * The message content.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 1234567890
    */

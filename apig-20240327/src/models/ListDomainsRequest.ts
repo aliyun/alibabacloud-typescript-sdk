@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDomainsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The domain name scope.
+   * 
    * @example
    * Serverless
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListExternalServicesResponseBodyDataItemsServices extends $dara.Model {
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * enable-slash-merge
    */
   name?: string;
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * public
    */
@@ -38,15 +44,25 @@ export class ListExternalServicesResponseBodyDataItemsServices extends $dara.Mod
 
 export class ListExternalServicesResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * PUBLIC
    */
   namespace?: string;
   /**
+   * @remarks
+   * The display name of the namespace.
+   * 
    * @example
    * PUBLIC
    */
   namespaceShowName?: string;
+  /**
+   * @remarks
+   * The backend services.
+   */
   services?: ListExternalServicesResponseBodyDataItemsServices[];
   static names(): { [key: string]: string } {
     return {
@@ -77,6 +93,10 @@ export class ListExternalServicesResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListExternalServicesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The service information.
+   */
   items?: ListExternalServicesResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
@@ -104,12 +124,22 @@ export class ListExternalServicesResponseBodyData extends $dara.Model {
 
 export class ListExternalServicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of APIs.
+   */
   data?: ListExternalServicesResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Failed to upload data. Please try again
    */

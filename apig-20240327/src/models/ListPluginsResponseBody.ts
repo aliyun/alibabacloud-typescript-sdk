@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginsResponseBodyDataItemsAttachmentInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates if enabled.
+   * Indicates whether the plugin is enabled.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ListPluginsResponseBodyDataItemsAttachmentInfo extends $dara.Model 
   enable?: string;
   /**
    * @remarks
-   * The attachment ID.
+   * The plugin attachment ID.
    * 
    * @example
    * pa-ct2irn6m1hkreaen0t40
@@ -45,7 +45,7 @@ export class ListPluginsResponseBodyDataItemsAttachmentInfo extends $dara.Model 
 export class ListPluginsResponseBodyDataItemsGatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cq7og15lhtxx6qasrj60
@@ -53,7 +53,7 @@ export class ListPluginsResponseBodyDataItemsGatewayInfo extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The gateway name.
    * 
    * @example
    * apitest-gw
@@ -109,7 +109,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   executeStage?: string;
   /**
    * @remarks
-   * The name of the plug-in.
+   * The plugin name.
    * 
    * @example
    * key-rate-limit
@@ -117,7 +117,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The plug-in type ID.
+   * The plugin type ID.
    * 
    * @example
    * pls-cqebrgh46ppatmpri
@@ -125,7 +125,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   pluginClassId?: string;
   /**
    * @remarks
-   * The source of the plug-in.
+   * The plugin source.
    * 
    * @example
    * HigressOfficial
@@ -141,7 +141,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
   version?: string;
   /**
    * @remarks
-   * The description of the version.
+   * The version description.
    * 
    * @example
    * 版本描述
@@ -185,22 +185,22 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
 export class ListPluginsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The attachment information.
+   * The plugin attachment information.
    */
   attachmentInfo?: ListPluginsResponseBodyDataItemsAttachmentInfo;
   /**
    * @remarks
-   * The gateway instance information.
+   * The gateway information.
    */
   gatewayInfo?: ListPluginsResponseBodyDataItemsGatewayInfo;
   /**
    * @remarks
-   * The plug-in type information.
+   * The plugin type information.
    */
   pluginClassInfo?: ListPluginsResponseBodyDataItemsPluginClassInfo;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-cvu6r4um1hko3b3ti0a0
@@ -245,7 +245,7 @@ export class ListPluginsResponseBodyDataItems extends $dara.Model {
 export class ListPluginsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of plug-in information.
+   * The plugin list.
    */
   items?: ListPluginsResponseBodyDataItems[];
   /**
@@ -266,7 +266,7 @@ export class ListPluginsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -305,7 +305,7 @@ export class ListPluginsResponseBodyData extends $dara.Model {
 export class ListPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -313,12 +313,12 @@ export class ListPluginsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The returned data.
    */
   data?: ListPluginsResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success

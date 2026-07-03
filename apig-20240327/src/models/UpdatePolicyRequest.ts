@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Policy configuration
+   * The policy configuration.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdatePolicyRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Description
+   * The description of the policy.
    * 
    * @example
    * 这是一条网关超时策略
@@ -23,7 +23,7 @@ export class UpdatePolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Policy name
+   * The Policy Name.
    * 
    * This parameter is required.
    * 

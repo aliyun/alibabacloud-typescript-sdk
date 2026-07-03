@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEnvironmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdateEnvironmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdateEnvironmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trace the API call chain.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 52FB803B-3CD8-5FF8-AAE9-C2B841F6A483
