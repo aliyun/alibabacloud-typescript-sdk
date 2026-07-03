@@ -38,7 +38,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The page size. Valid values:
    * 
    * - 30
    * - 50

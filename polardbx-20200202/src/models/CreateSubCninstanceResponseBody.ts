@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSubCNInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,15 @@ export class CreateSubCNInstanceResponseBodyData extends $dara.Model {
 }
 
 export class CreateSubCNInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateSubCNInstanceResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
    */

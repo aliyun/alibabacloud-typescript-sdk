@@ -521,6 +521,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a service health check.
+   * 
+   * @param request - CheckHealthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckHealthResponse
+   */
+  async checkHealthWithOptions(request: $_model.CheckHealthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckHealthResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckHealth",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckHealthResponse>(await this.callApi(params, req, runtime), new $_model.CheckHealthResponse({}));
+  }
+
+  /**
+   * Performs a service health check.
+   * 
+   * @param request - CheckHealthRequest
+   * @returns CheckHealthResponse
+   */
+  async checkHealth(request: $_model.CheckHealthRequest): Promise<$_model.CheckHealthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkHealthWithOptions(request, runtime);
+  }
+
+  /**
    * Checks whether SQL audit logs of a specified database instance have been successfully connected to Simple Log Service (SLS).
    * After the call, the system returns the connection status between the SQL audit feature and SLS for the current instance, the project and Logstore configuration information, and whether synchronization is normal.
    * 
@@ -1531,6 +1566,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreatePolardbxSupabaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolardbxSupabaseInstanceResponse
+   */
+  async createPolardbxSupabaseInstanceWithOptions(request: $_model.CreatePolardbxSupabaseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolardbxSupabaseInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dashboardPassword)) {
+      query["DashboardPassword"] = request.dashboardPassword;
+    }
+
+    if (!$dara.isNull(request.dbInstanceDescription)) {
+      query["DbInstanceDescription"] = request.dbInstanceDescription;
+    }
+
+    if (!$dara.isNull(request.dbPassword)) {
+      query["DbPassword"] = request.dbPassword;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tenantMode)) {
+      query["TenantMode"] = request.tenantMode;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePolardbxSupabaseInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePolardbxSupabaseInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolardbxSupabaseInstanceResponse({}));
+  }
+
+  /**
+   * Creates a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreatePolardbxSupabaseInstanceRequest
+   * @returns CreatePolardbxSupabaseInstanceResponse
+   */
+  async createPolardbxSupabaseInstance(request: $_model.CreatePolardbxSupabaseInstanceRequest): Promise<$_model.CreatePolardbxSupabaseInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPolardbxSupabaseInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Performs a health check on the replication task during data migration.
    * 
    * @remarks
@@ -1811,7 +1946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义地址
+   * Creates a custom endpoint.
    * 
    * @remarks
    * ***
@@ -1857,7 +1992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义地址
+   * Creates a custom endpoint.
    * 
    * @remarks
    * ***
@@ -1868,6 +2003,62 @@ export default class Client extends OpenApi {
   async createSubCNInstance(request: $_model.CreateSubCNInstanceRequest): Promise<$_model.CreateSubCNInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSubCNInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables the public endpoint for a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreateSupabaseNetTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSupabaseNetTypeResponse
+   */
+  async createSupabaseNetTypeWithOptions(request: $_model.CreateSupabaseNetTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSupabaseNetTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSupabaseNetType",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSupabaseNetTypeResponse>(await this.callApi(params, req, runtime), new $_model.CreateSupabaseNetTypeResponse({}));
+  }
+
+  /**
+   * Enables the public endpoint for a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreateSupabaseNetTypeRequest
+   * @returns CreateSupabaseNetTypeResponse
+   */
+  async createSupabaseNetType(request: $_model.CreateSupabaseNetTypeRequest): Promise<$_model.CreateSupabaseNetTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSupabaseNetTypeWithOptions(request, runtime);
   }
 
   /**
@@ -2339,6 +2530,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeletePolardbxSupabaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolardbxSupabaseInstanceResponse
+   */
+  async deletePolardbxSupabaseInstanceWithOptions(request: $_model.DeletePolardbxSupabaseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolardbxSupabaseInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolardbxSupabaseInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolardbxSupabaseInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolardbxSupabaseInstanceResponse({}));
+  }
+
+  /**
+   * Deletes a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeletePolardbxSupabaseInstanceRequest
+   * @returns DeletePolardbxSupabaseInstanceResponse
+   */
+  async deletePolardbxSupabaseInstance(request: $_model.DeletePolardbxSupabaseInstanceRequest): Promise<$_model.DeletePolardbxSupabaseInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 删除自定义地址
    * 
    * @remarks
@@ -2392,6 +2635,58 @@ export default class Client extends OpenApi {
   async deleteSubCNInstance(request: $_model.DeleteSubCNInstanceRequest): Promise<$_model.DeleteSubCNInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSubCNInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases the public endpoint of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteSupabaseNetTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSupabaseNetTypeResponse
+   */
+  async deleteSupabaseNetTypeWithOptions(request: $_model.DeleteSupabaseNetTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSupabaseNetTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSupabaseNetType",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSupabaseNetTypeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSupabaseNetTypeResponse({}));
+  }
+
+  /**
+   * Releases the public endpoint of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteSupabaseNetTypeRequest
+   * @returns DeleteSupabaseNetTypeResponse
+   */
+  async deleteSupabaseNetType(request: $_model.DeleteSupabaseNetTypeRequest): Promise<$_model.DeleteSupabaseNetTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSupabaseNetTypeWithOptions(request, runtime);
   }
 
   /**
@@ -5380,6 +5675,246 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the Supabase API key.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeSupabaseApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupabaseApiKeyResponse
+   */
+  async describeSupabaseApiKeyWithOptions(request: $_model.DescribeSupabaseApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupabaseApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSupabaseApiKey",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSupabaseApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupabaseApiKeyResponse({}));
+  }
+
+  /**
+   * Queries the Supabase API key.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeSupabaseApiKeyRequest
+   * @returns DescribeSupabaseApiKeyResponse
+   */
+  async describeSupabaseApiKey(request: $_model.DescribeSupabaseApiKeyRequest): Promise<$_model.DescribeSupabaseApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSupabaseApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeSupabaseInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupabaseInstanceAttributeResponse
+   */
+  async describeSupabaseInstanceAttributeWithOptions(request: $_model.DescribeSupabaseInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupabaseInstanceAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSupabaseInstanceAttribute",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSupabaseInstanceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupabaseInstanceAttributeResponse({}));
+  }
+
+  /**
+   * Queries the details of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeSupabaseInstanceAttributeRequest
+   * @returns DescribeSupabaseInstanceAttributeResponse
+   */
+  async describeSupabaseInstanceAttribute(request: $_model.DescribeSupabaseInstanceAttributeRequest): Promise<$_model.DescribeSupabaseInstanceAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSupabaseInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of Supabase instances.
+   * 
+   * @remarks
+   * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+   * 
+   * @param request - DescribeSupabaseInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupabaseInstancesResponse
+   */
+  async describeSupabaseInstancesWithOptions(request: $_model.DescribeSupabaseInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupabaseInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSupabaseInstances",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSupabaseInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupabaseInstancesResponse({}));
+  }
+
+  /**
+   * Queries a list of Supabase instances.
+   * 
+   * @remarks
+   * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+   * 
+   * @param request - DescribeSupabaseInstancesRequest
+   * @returns DescribeSupabaseInstancesResponse
+   */
+  async describeSupabaseInstances(request: $_model.DescribeSupabaseInstancesRequest): Promise<$_model.DescribeSupabaseInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSupabaseInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the IP whitelist of a Supabase instance.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeSupabaseIpWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupabaseIpWhitelistResponse
+   */
+  async describeSupabaseIpWhitelistWithOptions(request: $_model.DescribeSupabaseIpWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSupabaseIpWhitelistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSupabaseIpWhitelist",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSupabaseIpWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSupabaseIpWhitelistResponse({}));
+  }
+
+  /**
+   * Queries the IP whitelist of a Supabase instance.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+   * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeSupabaseIpWhitelistRequest
+   * @returns DescribeSupabaseIpWhitelistResponse
+   */
+  async describeSupabaseIpWhitelist(request: $_model.DescribeSupabaseIpWhitelistRequest): Promise<$_model.DescribeSupabaseIpWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSupabaseIpWhitelistWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves tag information.
    * 
    * @param request - DescribeTagsRequest
@@ -7142,6 +7677,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the Supabase Dashboard password.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifySupabaseDashboardPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseDashboardPasswordResponse
+   */
+  async modifySupabaseDashboardPasswordWithOptions(request: $_model.ModifySupabaseDashboardPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseDashboardPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.newPassword)) {
+      query["NewPassword"] = request.newPassword;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseDashboardPassword",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseDashboardPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseDashboardPasswordResponse({}));
+  }
+
+  /**
+   * Modifies the Supabase Dashboard password.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifySupabaseDashboardPasswordRequest
+   * @returns ModifySupabaseDashboardPasswordResponse
+   */
+  async modifySupabaseDashboardPassword(request: $_model.ModifySupabaseDashboardPasswordRequest): Promise<$_model.ModifySupabaseDashboardPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseDashboardPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the IP whitelist of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifySupabaseSecurityIPListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseSecurityIPListResponse
+   */
+  async modifySupabaseSecurityIPListWithOptions(request: $_model.ModifySupabaseSecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseSecurityIPListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseSecurityIPList",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseSecurityIPListResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseSecurityIPListResponse({}));
+  }
+
+  /**
+   * Modifies the IP whitelist of a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifySupabaseSecurityIPListRequest
+   * @returns ModifySupabaseSecurityIPListResponse
+   */
+  async modifySupabaseSecurityIPList(request: $_model.ModifySupabaseSecurityIPListRequest): Promise<$_model.ModifySupabaseSecurityIPListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseSecurityIPListWithOptions(request, runtime);
+  }
+
+  /**
    * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
    * 
    * @param request - PreCheckSqlFlashbackTaskRequest
@@ -7685,6 +8340,58 @@ export default class Client extends OpenApi {
   async restartDataImportTask(request: $_model.RestartDataImportTaskRequest): Promise<$_model.RestartDataImportTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDataImportTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Restarts a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestartSupabaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartSupabaseInstanceResponse
+   */
+  async restartSupabaseInstanceWithOptions(request: $_model.RestartSupabaseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartSupabaseInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartSupabaseInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartSupabaseInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RestartSupabaseInstanceResponse({}));
+  }
+
+  /**
+   * Restarts a Supabase instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestartSupabaseInstanceRequest
+   * @returns RestartSupabaseInstanceResponse
+   */
+  async restartSupabaseInstance(request: $_model.RestartSupabaseInstanceRequest): Promise<$_model.RestartSupabaseInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartSupabaseInstanceWithOptions(request, runtime);
   }
 
   /**

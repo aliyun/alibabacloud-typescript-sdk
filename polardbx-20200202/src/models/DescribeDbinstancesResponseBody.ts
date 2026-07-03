@@ -122,17 +122,17 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
    * @remarks
    * The CN node specifications. Valid values:
    * 
-   * - **polarx.x4.medium.2e**: 2 cores, 8 GB memory
-   * - **polarx.x4.large.2e**: 4 cores, 16 GB memory
-   * - **polarx.x8.large.2e**: 4 cores, 32 GB memory
-   * - **polarx.x4.xlarge.2e**: 8 cores, 32 GB memory
-   * - **polarx.x8.xlarge.2e**: 8 cores, 64 GB memory
-   * - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB memory
-   * - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB memory
-   * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB memory
-   * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB memory
-   * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB memory
-   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB memory.
+   * - **polarx.x4.medium.2e**: 2 cores, 8 GB
+   * - **polarx.x4.large.2e**: 4 cores, 16 GB
+   * - **polarx.x8.large.2e**: 4 cores, 32 GB
+   * - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
+   * - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
+   * - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
+   * - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
+   * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
+   * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
+   * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
+   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
    * 
    * @example
    * polarx.x4.large.2e
@@ -189,7 +189,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the database instance.
+   * The database instance name.
    * 
    * @example
    * pxc-xxxxx
@@ -222,21 +222,21 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
    * The DN node specifications. Valid values:
-   * - **mysql.n2.medium.25**: 2 cores, 4 GB memory
-   * - **mysql.n4.medium.25**: 2 cores, 8 GB memory
-   * - **mysql.x8.medium.25**: 2 cores, 16 GB memory
-   * - **mysql.n2.large.25**: 4 cores, 8 GB memory
-   * - **mysql.n4.large.25**: 4 cores, 16 GB memory
-   * - **mysql.x8.large.25**: 4 cores, 32 GB memory
-   * - **mysql.n2.xlarge.25**: 8 cores, 16 GB memory
-   * - **mysql.n4.xlarge.25**: 8 cores, 32 GB memory
-   * - **mysql.x8.xlarge.25**: 8 cores, 64 GB memory
-   * - **mysql.n4.2xlarge.25**: 16 cores, 64 GB memory
-   * - **mysql.x8.2xlarge.25**: 16 cores, 128 GB memory
-   * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB memory
-   * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB memory
-   * - **mysql.st.8xlarge.25**: 60 cores, 470 GB memory
-   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB memory.
+   * - **mysql.n2.medium.25**: 2 cores, 4 GB
+   * - **mysql.n4.medium.25**: 2 cores, 8 GB
+   * - **mysql.x8.medium.25**: 2 cores, 16 GB
+   * - **mysql.n2.large.25**: 4 cores, 8 GB
+   * - **mysql.n4.large.25**: 4 cores, 16 GB
+   * - **mysql.x8.large.25**: 4 cores, 32 GB
+   * - **mysql.n2.xlarge.25**: 8 cores, 16 GB
+   * - **mysql.n4.xlarge.25**: 8 cores, 32 GB
+   * - **mysql.x8.xlarge.25**: 8 cores, 64 GB
+   * - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
+   * - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
+   * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
+   * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
+   * - **mysql.st.8xlarge.25**: 60 cores, 470 GB
+   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
    * 
    * @example
    * mysql.n4.medium.25
@@ -293,7 +293,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The reason why the instance is locked.
+   * The lock reason.
    * 
    * @example
    * 欠费
