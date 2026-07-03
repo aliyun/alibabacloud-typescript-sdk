@@ -2745,6 +2745,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+   * 
+   * @param tmpReq - CreateWorkFlowByJsonRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkFlowByJsonResponse
+   */
+  async createWorkFlowByJsonWithOptions(tmpReq: $_model.CreateWorkFlowByJsonRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkFlowByJsonResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWorkFlowByJsonShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkFlowByJson",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkFlowByJsonResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkFlowByJsonResponse({}));
+  }
+
+  /**
+   * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+   * 
+   * @param request - CreateWorkFlowByJsonRequest
+   * @returns CreateWorkFlowByJsonResponse
+   */
+  async createWorkFlowByJson(request: $_model.CreateWorkFlowByJsonRequest): Promise<$_model.CreateWorkFlowByJsonResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkFlowByJsonWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an ad hoc query file from the menu tree.
    * 
    * @param request - DeleteAdHocFileRequest
