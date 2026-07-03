@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVendorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The vendor ID.
+   * 
    * @example
-   * vd-qlsw5eocx94w9。
+   * vd-qlsw5eocx94w9
    */
   vendorId?: string;
   static names(): { [key: string]: string } {

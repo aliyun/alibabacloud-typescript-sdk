@@ -4,55 +4,101 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether to automatically discover new users. Valid values:
+   * 
+   * - enabled: enabled.
+   * 
+   * - disabled: disabled.
+   * 
    * @example
-   * enabled。
+   * enabled
    */
   autoScanNew?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
    * @example
-   * custom。
+   * custom
    */
   dataSourceFrom?: string;
   /**
+   * @remarks
+   * Indicates whether to automatically discover new data sources.
+   * 
    * @example
-   * true。
+   * true
    */
   dataSourceRecognizeEnabled?: boolean;
   /**
+   * @remarks
+   * The data source recognizer.
+   * 
    * @example
-   * alibaba_cloud_actiontrail_event_ingestion。
+   * alibaba_cloud_actiontrail_event_ingestion
    */
   dataSourceRecognizer?: string;
   /**
+   * @remarks
+   * The ID of the data source template.
+   * 
    * @example
-   * alibaba_cloud_actiontrail_event_ingestion。
+   * alibaba_cloud_actiontrail_event_ingestion
    */
   dataSourceTemplateId?: string;
   /**
+   * @remarks
+   * The name of the data source template.
+   * 
    * @example
-   * alibaba_cloud_actiontrail_event_ingestion。
+   * alibaba_cloud_actiontrail_event_ingestion
    */
   dataSourceTemplateName?: string;
   /**
+   * @remarks
+   * The rule for matching the name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******。
+   * aliyun-cloudsiem-data-173326*******
    */
   logProjectPattern?: string;
+  /**
+   * @remarks
+   * The list of log storage region IDs.
+   */
   logRegionIds?: string[];
   /**
+   * @remarks
+   * The rule for matching the name of the Simple Log Service Logstore.
+   * 
    * @example
-   * audit-activity。
+   * audit-activity
    */
   logStorePattern?: string;
+  /**
+   * @remarks
+   * The list of user IDs for batch data ingestion.
+   */
   logUserIds?: string[];
   /**
+   * @remarks
+   * The time when the template was updated.
+   * 
    * @example
-   * 2025-01-08 10:28:31
+   * 1733269771123
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -105,20 +151,33 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
 }
 
 export class ListDataSourceTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data source templates.
+   */
   dataSourceTemplates?: ListDataSourceTemplatesResponseBodyDataSourceTemplates[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 10。
+   * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

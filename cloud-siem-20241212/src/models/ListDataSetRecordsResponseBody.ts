@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1658974643000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * dataset-t8ha6p7k61rmniqw****
    */
   dataSetId?: string;
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * lmftest
    */
   dataSetName?: string;
   /**
+   * @remarks
+   * The dataset record ID.
+   * 
    * @example
    * 124566
    */
   dataSetRecordId?: string;
+  /**
+   * @remarks
+   * The dataset record value.
+   */
   dataSetRecordValues?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1658974643000
    */
@@ -61,33 +80,55 @@ export class ListDataSetRecordsResponseBodyDataSetRecords extends $dara.Model {
 }
 
 export class ListDataSetRecordsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of dataset records.
+   */
   dataSetRecords?: ListDataSetRecordsResponseBodyDataSetRecords[];
   /**
+   * @remarks
+   * The maximum number of results to return per page for token-based pagination. Valid values: 1 to 100. Default: 50.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results.
+   * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
    * @example
    * 57
    */

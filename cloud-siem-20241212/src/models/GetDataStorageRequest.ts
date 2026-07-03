@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataStorageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The region where the threat analysis data management center is located. Specify the management center region based on the region of your assets. Valid values:
+   * - cn-hangzhou: the asset is in the Chinese mainland.
+   * - ap-southeast-1: the asset is outside China.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the member to which the administrator switches the view.
+   * 
    * @example
    * 113091674488****
    */

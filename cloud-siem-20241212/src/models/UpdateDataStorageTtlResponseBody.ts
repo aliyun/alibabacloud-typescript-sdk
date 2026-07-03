@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataStorageTtlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D92E4FCF-4584-5E50-9C02-26B79A9C****
    */

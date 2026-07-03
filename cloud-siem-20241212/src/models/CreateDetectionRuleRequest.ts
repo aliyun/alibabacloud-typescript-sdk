@@ -4,14 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDetectionRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ATT\\&CK stage of the alert.
+   * 
    * @example
    * Discovery
    */
   alertAttCk?: string;
   alertAttCkMapping?: string;
+  /**
+   * @remarks
+   * The alert description. You can use $$ to reference fields from the query output.
+   * 
+   * @example
+   * Alert from: $product_code$, detected network attack from $src_ip$, affected assets include: $dst_ip$
+   */
   alertDescription?: string;
   /**
    * @remarks
+   * The threat level of the alert. Valid values:
+   * 
+   * - 5: critical.
+   * 
+   * - 4: important.
+   * 
+   * - 3: medium.
+   * 
+   * - 2: low.
+   * 
+   * - 1: informational.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,9 +41,26 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   alertLevel?: string;
   alertLevelMapping?: string;
+  /**
+   * @remarks
+   * The alert name. You can use $$ to reference fields from the query output.
+   * 
+   * @example
+   * Detected high-frequency multi-type network attacks from $src_ip$
+   */
   alertName?: string;
   /**
    * @remarks
+   * The ID of the alert template for the detection rule. Valid values:
+   * 
+   * - ALERT_ACTIVITY: other alerts.
+   * 
+   * - EDR_ALERT_ACTIVITY: Endpoint Detection and Response (EDR) alerts.
+   * 
+   * - FIREWALL_ALERT_ACTIVITY: firewall alerts.
+   * 
+   * - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,27 +68,41 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   alertSchemaId?: string;
   /**
+   * @remarks
+   * The tactic phase of the alert.
+   * 
    * @example
    * TA0042
    */
   alertTacticId?: string;
   /**
+   * @remarks
+   * The count for the alert threshold.
+   * 
    * @example
    * 10
    */
   alertThresholdCount?: number;
   /**
+   * @remarks
+   * The list of fields for the alert threshold. Separate multiple fields with commas.
+   * 
    * @example
    * alert_type,ip
    */
   alertThresholdGroup?: string;
   /**
+   * @remarks
+   * The length of the alert threshold period.
+   * 
    * @example
    * 5m
    */
   alertThresholdPeriod?: string;
   /**
    * @remarks
+   * The alert type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +111,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertType?: string;
   alertTypeMapping?: string;
   /**
+   * @remarks
+   * The content of the detection rule expression.
+   * 
    * @example
    * *|set session mode=scan;SELECT * FROM log
    * WHERE schema = \\"PROCESS_START_ACTIVITY\\"
@@ -76,17 +132,29 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   detectionExpressionContent?: string;
   /**
+   * @remarks
+   * The type of the detection rule expression. Valid values:
+   * 
+   * - sql: SQL.
+   * 
+   * - playbook: playbook.
+   * 
    * @example
    * sql
    */
   detectionExpressionType?: string;
   /**
+   * @remarks
+   * The description of the detection rule.
+   * 
    * @example
    * dr-123
    */
   detectionRuleDescription?: string;
   /**
    * @remarks
+   * The name of the detection rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -94,22 +162,39 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   detectionRuleName?: string;
   /**
+   * @remarks
+   * The status of the detection rule.
+   * 
    * @example
    * 0
    */
   detectionRuleStatus?: string;
   /**
+   * @remarks
+   * The ID of the detection rule template.
+   * 
    * @example
    * cfw-out-ip_aegis-netstat
    */
   detectionRuleTemplateId?: string;
   /**
+   * @remarks
+   * The version of the detection rule template.
+   * 
    * @example
    * v1.0.0
    */
   detectionRuleTemplateVersion?: string;
   /**
    * @remarks
+   * The type of the detection rule. Valid values:
+   * 
+   * - preset: predefined detection rule.
+   * 
+   * - custom: custom detection rule.
+   * 
+   * - custom_template: rule template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -117,32 +202,63 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   detectionRuleType?: string;
   /**
+   * @remarks
+   * The entity mapping configuration.
+   * 
    * @example
    * [{\\"NormalizationSchemaId\\":\\"host\\",\\"NormalizationFieldMappings\\":[{\\"NormalizationFieldName\\":\\"uuid\\",\\"MappingFieldName\\":\\"host\\",\\"NormalizationFieldType\\":\\"varchar\\"}]}]
    */
   entityMappings?: string;
   /**
+   * @remarks
+   * The configuration of the event aggregation period.
+   * 
    * @example
    * 5m
    */
   incidentAggregationExpression?: string;
   /**
+   * @remarks
+   * The event aggregation type. Valid values:
+   * 
+   * - none: Events are not generated.
+   * 
+   * - graph_compute: graph computing (supported by predefined rules).
+   * 
+   * - expert: expert rules.
+   * 
+   * - passthrough: Alerts are passed through (one-to-one).
+   * 
+   * - window: Similar alerts are aggregated (window).
+   * 
    * @example
    * window
    */
   incidentAggregationType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the log normalization category.
+   * 
    * @example
    * NETWORK_CATEGORY
    */
   logCategoryId?: string;
   /**
    * @remarks
+   * The ID of the log normalization schema.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -150,6 +266,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   logSchemaId?: string;
   /**
+   * @remarks
+   * The custom parameters for the playbook.
+   * 
    * @example
    * {
    *     "ip": {
@@ -159,46 +278,81 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   playbookParameters?: string;
   /**
+   * @remarks
+   * The UUID of the playbook.
+   * 
    * @example
    * system_aliyun_clb_process_book
    */
   playbookUuid?: string;
   /**
+   * @remarks
+   * The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets are located. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID that an administrator uses to switch to the perspective of another member.
+   * 
    * @example
    * 113091674488****
    */
   roleFor?: number;
   /**
+   * @remarks
+   * The start time for scheduling. This is a 13-digit UNIX timestamp.
+   * 
    * @example
    * 1733269771123
    */
   scheduleBeginTime?: number;
   /**
+   * @remarks
+   * The cron expression for scheduling. This parameter is required if you set ScheduleType to cron.
+   * 
    * @example
    * 0/5 * * * *
    */
   scheduleExpression?: string;
   /**
+   * @remarks
+   * The maximum number of retries after a timeout. Valid values: 1 to 100.
+   * 
    * @example
    * 1
    */
   scheduleMaxRetries?: number;
   /**
+   * @remarks
+   * The maximum timeout period in seconds. Valid values: 60 to 1800.
+   * 
    * @example
    * 60
    */
   scheduleMaxTimeout?: number;
   /**
+   * @remarks
+   * The scheduling type. Valid values:
+   * 
+   * - fixed_rate: fixed interval.
+   * 
+   * - cron: cron expression.
+   * 
    * @example
    * fixed_rate
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * The length of the scheduling window.
+   * 
    * @example
    * 5m
    */

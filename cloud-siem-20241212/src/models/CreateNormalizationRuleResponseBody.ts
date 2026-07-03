@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNormalizationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The normalization rule ID.
+   * 
    * @example
-   * nr-z0b2ssjteut85uoh9nzp。
+   * nr-z0b2ssjteut85uoh9nzp
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

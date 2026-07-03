@@ -3,25 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLogProjectsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Simple Log Service projects.
+   */
   logProjects?: string[];
   /**
+   * @remarks
+   * The maximum number of entries returned on this call.
+   * 
    * @example
-   * 50。
+   * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. If this parameter is not returned, no more results are available.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
-   * 57。
+   * 57
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

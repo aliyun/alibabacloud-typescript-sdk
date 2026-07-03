@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLogRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of log storage region IDs.
+   */
   logRegions?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

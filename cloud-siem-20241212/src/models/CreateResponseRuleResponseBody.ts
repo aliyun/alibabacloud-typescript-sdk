@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResponseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the automatic response rule.
+   * 
    * @example
    * 399827
    */

@@ -4,35 +4,77 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataBatchIngestionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically discover new users.
+   * 
+   * - enabled: Enables the feature.
+   * 
+   * - disabled: Disables the feature.
+   * 
    * @example
-   * enabled。
+   * enabled
    */
   autoScanNew?: string;
   /**
+   * @remarks
+   * The mode for batch data ingestion. Valid values:
+   * 
+   * - full
+   * 
+   * - increment
+   * 
    * @example
-   * full。
+   * full
    */
   dataBatchIngestionMode?: string;
+  /**
+   * @remarks
+   * The list of ingestion policy IDs.
+   */
   dataIngestionIdsShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to automatically discover new Logstores.
+   * 
    * @example
-   * true。
+   * true
    */
   dataSourceRecognizeEnabled?: boolean;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The list of user IDs for batch data ingestion.
+   */
   logUserIdsShrink?: string;
   /**
+   * @remarks
+   * The region of the Data Management hub for threat analysis. Select a region for the management hub based on the region of your assets. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of the member whose perspective the administrator wants to switch to.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   static names(): { [key: string]: string } {

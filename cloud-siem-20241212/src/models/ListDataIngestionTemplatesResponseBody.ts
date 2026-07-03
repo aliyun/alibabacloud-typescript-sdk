@@ -4,58 +4,107 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The number of associated security capabilities.
+   * 
    * @example
-   * 3。
+   * 3
    */
   capacityCount?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The data ingestion mode. Valid values:
+   * 
+   * - realtime
+   * 
+   * - scan
+   * 
    * @example
-   * realtime。
+   * realtime
    */
   dataIngestionMode?: string;
   /**
+   * @remarks
+   * The data ingestion status. Valid values:
+   * 
+   * - enabled: enabled.
+   * 
+   * - disabled: disabled.
+   * 
    * @example
-   * enabled。
+   * enabled
    */
   dataIngestionStatus?: string;
   /**
+   * @remarks
+   * The ID of the data ingestion template.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot_log。
+   * alibaba_cloud_sas_account_snapshot_log
    */
   dataIngestionTemplateId?: string;
   /**
+   * @remarks
+   * The name of the data ingestion template.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot_log。
+   * alibaba_cloud_sas_account_snapshot_log
    */
   dataIngestionTemplateName?: string;
   /**
+   * @remarks
+   * The status of the data ingestion template. Valid values:
+   * 
+   * - pending
+   * 
+   * - running
+   * 
+   * - success
+   * 
+   * - failed
+   * 
    * @example
-   * running。
+   * running
    */
   dataIngestionTemplateStatus?: string;
   /**
+   * @remarks
+   * The ID of the data source template.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot_log_173326*******。
+   * alibaba_cloud_sas_account_snapshot_log_173326*******
    */
   dataSourceTemplateId?: string;
   /**
+   * @remarks
+   * The ID of the normalization rule.
+   * 
    * @example
-   * alibaba_cloud_actiontrail_event_rule。
+   * alibaba_cloud_actiontrail_event_rule
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The name of the normalization rule.
+   * 
    * @example
-   * normalization_rule_ke1RN。
+   * normalization_rule_ke1RN
    */
   normalizationRuleName?: string;
   /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -100,20 +149,33 @@ export class ListDataIngestionTemplatesResponseBodyDataIngestionTemplates extend
 }
 
 export class ListDataIngestionTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data ingestion templates.
+   */
   dataIngestionTemplates?: ListDataIngestionTemplatesResponseBodyDataIngestionTemplates[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 10。
+   * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

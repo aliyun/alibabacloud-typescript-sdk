@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticData extends $dara.Model {
   /**
+   * @remarks
+   * The statistic time.
+   * 
    * @example
-   * 20250815。
+   * 20250815
    */
   trafficStatisticTime?: number;
   /**
+   * @remarks
+   * The statistic value.
+   * 
    * @example
-   * 1.699814。
+   * 1.699814
    */
   trafficStatisticValue?: number;
   static names(): { [key: string]: string } {
@@ -37,10 +43,17 @@ export class ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticD
 }
 
 export class ListTrafficStatisticsResponseBodyTrafficStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics information.
+   */
   trafficStatisticData?: ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticData[];
   /**
+   * @remarks
+   * The statistic target.
+   * 
    * @example
-   * all。
+   * all
    */
   trafficStatisticTarget?: string;
   static names(): { [key: string]: string } {
@@ -71,10 +84,17 @@ export class ListTrafficStatisticsResponseBodyTrafficStatistics extends $dara.Mo
 
 export class ListTrafficStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of traffic statistics.
+   */
   trafficStatistics?: ListTrafficStatisticsResponseBodyTrafficStatistics[];
   static names(): { [key: string]: string } {
     return {

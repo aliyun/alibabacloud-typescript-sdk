@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExportTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The parameters for the export task. The value is a JSON string that is generated based on the query conditions.
+   * 
    * @example
    * {
    *     "IncidentName": "name",
@@ -14,21 +17,43 @@ export class CreateExportTaskRequest extends $dara.Model {
    */
   exportTaskParameter?: string;
   /**
+   * @remarks
+   * The type of data to export. Valid values:
+   * 
+   * - incident_list: event list.
+   * 
    * @example
    * incident_list
    */
   exportTaskType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The region of the Data Management center. Select a region based on where your assets are located. Valid values:
+   * 
+   * - cn-hangzhou: The Chinese mainland.
+   * 
+   * - ap-southeast-1: Regions outside China.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of a member. An administrator can use this parameter to switch to the perspective of a member.
+   * 
    * @example
    * 113091674488****
    */

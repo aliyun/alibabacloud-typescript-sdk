@@ -6,16 +6,25 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CheckUpgradeItemResponseBodyUpgradeItem extends $dara.Model {
   /**
+   * @remarks
+   * The name of the module.
+   * 
    * @example
    * OK
    */
   checkResult?: string;
   /**
+   * @remarks
+   * The check status.
+   * 
    * @example
    * success
    */
   checkStatus?: string;
   /**
+   * @remarks
+   * The ID of the upgrade item.
+   * 
    * @example
    * incident_upgrade
    */
@@ -47,10 +56,17 @@ export class CheckUpgradeItemResponseBodyUpgradeItem extends $dara.Model {
 
 export class CheckUpgradeItemResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The upgrade item.
+   */
   upgradeItem?: CheckUpgradeItemResponseBodyUpgradeItem;
   static names(): { [key: string]: string } {
     return {

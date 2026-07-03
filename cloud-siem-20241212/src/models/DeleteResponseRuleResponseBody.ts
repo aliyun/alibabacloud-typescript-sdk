@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResponseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9BCE0BF1-4F0C-5860-87D2-C391799AF4F2

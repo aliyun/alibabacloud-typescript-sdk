@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAutoDisposeRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

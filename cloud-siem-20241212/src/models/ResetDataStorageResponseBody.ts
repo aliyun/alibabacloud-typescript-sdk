@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetDataStorageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
    */

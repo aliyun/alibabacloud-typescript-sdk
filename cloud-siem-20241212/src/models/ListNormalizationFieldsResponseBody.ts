@@ -4,39 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1736386610000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the JSON-type normalization field key.
+   * 
    * @example
-   * 告警等级
+   * alert_level
    */
   normalizationFieldDescription?: string;
   /**
+   * @remarks
+   * The example value of the JSON-type normalization field key.
+   * 
    * @example
-   * 枚举值：1、2、3、4、5
+   * 1
    */
   normalizationFieldExample?: string;
   /**
+   * @remarks
+   * The source of the normalization field key of the JSON type.
+   * 
    * @example
    * preset
    */
   normalizationFieldFrom?: string;
   /**
+   * @remarks
+   * The name of the JSON-type normalization field key.
+   * 
    * @example
-   * alert_name
+   * alert_level
    */
   normalizationFieldName?: string;
+  /**
+   * @remarks
+   * Indicates whether the JSON-type normalization field key is required.
+   */
   normalizationFieldRequired?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the normalization field key is a built-in system field key.
+   */
   normalizationFieldReserved?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the JSON-type normalization field key is tokenized.
+   */
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * The type of the JSON-type normalization field key.
+   * 
    * @example
    * text
    */
   normalizationFieldType?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1736386610000
    */
@@ -82,60 +115,117 @@ export class ListNormalizationFieldsResponseBodyNormalizationFieldsNormalization
 
 export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1736386610000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the normalization category.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The description of the normalization field.
+   * 
    * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldDescription?: string;
   /**
+   * @remarks
+   * The example value of the normalization field.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   normalizationFieldExample?: string;
   /**
+   * @remarks
+   * The source of the normalization field key of the JSON type.
+   * 
    * @example
    * preset
    */
   normalizationFieldFrom?: string;
+  /**
+   * @remarks
+   * Indicates whether indexes are created for all keys of the JSON-type normalization field.
+   */
   normalizationFieldJsonIndexAll?: boolean;
+  /**
+   * @remarks
+   * The list of keys for the JSON-type normalization field.
+   */
   normalizationFieldJsonKeys?: ListNormalizationFieldsResponseBodyNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
+   * @remarks
+   * The name of the normalization field.
+   * 
    * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldName?: string;
+  /**
+   * @remarks
+   * Indicates whether the normalization field key is required.
+   */
   normalizationFieldRequired?: boolean;
   /**
+   * @remarks
+   * Indicates whether the normalization field is required.
+   * 
    * @example
-   * true。
+   * true
    */
   normalizationFieldRequirement?: boolean;
   /**
+   * @remarks
+   * Indicates whether the normalization field is reserved.
+   * 
    * @example
-   * true。
+   * true
    */
   normalizationFieldReserved?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the normalization field is tokenized.
+   */
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * The type of the normalization field. Valid values:
+   * - varchar
+   * - bigint
+   * - double.
+   * 
    * @example
-   * varchar。
+   * varchar
    */
   normalizationFieldType?: string;
   /**
+   * @remarks
+   * The ID of the normalization schema.
+   * 
    * @example
-   * NETWORK_SESSION_ACTIVITY。
+   * NETWORK_SESSION_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
+   * @example
+   * NETWORK_AND_WEB_SECURITY
+   */
+  normalizationSecurityDomainId?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1736386610000
    */
@@ -156,6 +246,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
       normalizationFieldTokenize: 'NormalizationFieldTokenize',
       normalizationFieldType: 'NormalizationFieldType',
       normalizationSchemaId: 'NormalizationSchemaId',
+      normalizationSecurityDomainId: 'NormalizationSecurityDomainId',
       updateTime: 'UpdateTime',
     };
   }
@@ -176,6 +267,7 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
       normalizationFieldTokenize: 'boolean',
       normalizationFieldType: 'string',
       normalizationSchemaId: 'string',
+      normalizationSecurityDomainId: 'string',
       updateTime: 'number',
     };
   }
@@ -194,24 +286,40 @@ export class ListNormalizationFieldsResponseBodyNormalizationFields extends $dar
 
 export class ListNormalizationFieldsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return in this request.
+   * 
    * @example
-   * 50。
+   * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Specifies whether a next query token exists. You do not need to specify this parameter for the first query or if no next query exists. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of normalization fields.
+   */
   normalizationFields?: ListNormalizationFieldsResponseBodyNormalizationFields[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
-   * 57。
+   * 57
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

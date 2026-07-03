@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAutoDisposeConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable auto decision. Valid values:
+   * 
+   * - `enabled`: Enables auto decision.
+   * 
+   * - `disabled`: Disables auto decision.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,12 @@ export class UpdateAutoDisposeConfigRequest extends $dara.Model {
   autoDecisionStatus?: string;
   /**
    * @remarks
+   * The language of the response message. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +33,8 @@ export class UpdateAutoDisposeConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
+   * The code for the cloud product.
+   * 
    * This parameter is required.
    * 
    * @example

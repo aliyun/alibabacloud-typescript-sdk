@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAutoDisposeRecordsRequestSelectedEntityList extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the investigation record.
+   * 
    * @example
    * 0000089b040b8935fed2e24ca2ec8335
    */
   autoDisposeRecordId?: string;
   /**
+   * @remarks
+   * The UUID of the entity.
+   * 
    * @example
    * 9938fc2708ddc7b7651f3a19e4f09962
    */
@@ -38,11 +44,17 @@ export class ExecuteAutoDisposeRecordsRequestSelectedEntityList extends $dara.Mo
 
 export class ExecuteAutoDisposeRecordsRequestUnSelectedEntityList extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the investigation record.
+   * 
    * @example
    * 0000089b040b8935fed2e24ca2ec8335
    */
   autoDisposeRecordId?: string;
   /**
+   * @remarks
+   * The UUID of the entity.
+   * 
    * @example
    * ae6ac3e1c9ada174eb8dadd029a2e9d1
    */
@@ -73,13 +85,25 @@ export class ExecuteAutoDisposeRecordsRequestUnSelectedEntityList extends $dara.
 export class ExecuteAutoDisposeRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The language of the response. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
+   * 
    * This parameter is required.
    * 
    * @example
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The list of entities selected for manual handling.
+   */
   selectedEntityList?: ExecuteAutoDisposeRecordsRequestSelectedEntityList[];
+  /**
+   * @remarks
+   * The list of entities not selected for manual handling.
+   */
   unSelectedEntityList?: ExecuteAutoDisposeRecordsRequestUnSelectedEntityList[];
   static names(): { [key: string]: string } {
     return {

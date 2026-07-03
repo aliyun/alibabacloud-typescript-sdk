@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAutoDisposeEntitiesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of automated disposal records.
+   */
   autoDisposeRecordIdsShrink?: string;
   /**
    * @remarks
+   * The page number. The value must be 1 or greater.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ListAutoDisposeEntitiesShrinkRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
+   * The type of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,22 +29,37 @@ export class ListAutoDisposeEntitiesShrinkRequest extends $dara.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. You can obtain this token from the response to a previous call.
+   * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +67,9 @@ export class ListAutoDisposeEntitiesShrinkRequest extends $dara.Model {
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The unique identifier of the playbook.
+   * 
    * @example
    * b2491e39-ddf2-478a-8c07-*****
    */

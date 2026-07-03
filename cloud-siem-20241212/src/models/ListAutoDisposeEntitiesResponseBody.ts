@@ -4,41 +4,79 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $dara.Model {
   /**
+   * @remarks
+   * The alert rule ID.
+   * 
    * @example
    * 20403189
    */
   alertId?: string;
   /**
+   * @remarks
+   * The disposal method. Valid values:
+   * 
+   * - `ignore`: Ignore.
+   * 
+   * - `dispose`: Playbook-based disposal.
+   * 
    * @example
    * dispose
    */
   disposalMethod?: string;
   /**
+   * @remarks
+   * The disposal ID.
+   * 
    * @example
    * 1ec121479b341a61886dbd2c4ccd*****
    */
   disposeRecordId?: string;
   /**
+   * @remarks
+   * The entity name.
+   * 
    * @example
    * /apps/ext/ka****
    */
   entityName?: string;
   /**
+   * @remarks
+   * The entity type. Valid values:
+   * 
+   * - `ip`: An IP address.
+   * 
+   * - `domain`: A domain.
+   * 
+   * - `process`: A process.
+   * 
+   * - `file`: A file.
+   * 
+   * - `host`: A host.
+   * 
    * @example
    * process
    */
   entityType?: string;
   /**
+   * @remarks
+   * The entity UUID.
+   * 
    * @example
    * 022ed6c601514a370cc9e3acd37a****
    */
   entityUuid?: string;
   /**
+   * @remarks
+   * The playbook UUID.
+   * 
    * @example
    * 6fd2b143-e420-4c1b-a118-e764*****
    */
   playbookUuid?: string;
   /**
+   * @remarks
+   * The unique identifier (UUID) of the entry.
+   * 
    * @example
    * 0d23f133-22d7-4388-b738-ab******
    */
@@ -79,36 +117,55 @@ export class ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities extends $da
 }
 
 export class ListAutoDisposeEntitiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of AI-powered automated analysis entities.
+   */
   autoDecisionEntities?: ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities[];
   /**
+   * @remarks
+   * The current page number. The value must be greater than or equal to 1.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The maximum number of entries returned in this request.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token used to retrieve the next page of results. An empty value indicates that all results have been returned.
+   * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of entries.
+   * 
    * @example
    * 57
    */

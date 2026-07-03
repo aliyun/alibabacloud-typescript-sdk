@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSourcesResponseBodyDataSourcesDataSourceReferences extends $dara.Model {
   /**
+   * @remarks
+   * The data ingestion ID.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot_log_173326*******。
+   * alibaba_cloud_sas_account_snapshot_log_173326*******
    */
   dataIngestionId?: string;
   static names(): { [key: string]: string } {
@@ -30,50 +33,92 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceReferences extends 
 }
 
 export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the check was performed.
+   * 
+   * @example
+   * 1733269771123
+   */
   checkTime?: number;
   /**
+   * @remarks
+   * The time when the log storage was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
    * @example
-   * center。
+   * center
    */
   dataSourceStoreFrom?: string;
   /**
+   * @remarks
+   * The ID of the log storage.
+   * 
    * @example
-   * di_xxxx_source_1。
+   * di_xxxx_source_1
    */
   dataSourceStoreId?: string;
   /**
+   * @remarks
+   * The status of the log storage. Valid values:
+   * 
+   * - normal
+   * 
+   * - abnormal
+   * 
    * @example
-   * normal。
+   * normal
    */
   dataSourceStoreStatus?: string;
   /**
+   * @remarks
+   * The status code of the log storage.
+   * 
    * @example
    * LogStoreNotExist
    */
   dataSourceStoreStatusCode?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
    */
   logProjectName?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
-   * audit-activity。
+   * audit-activity
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * The time when the log storage was last updated.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -117,71 +162,139 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
 
 export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data source was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
    * @example
-   * center。
+   * center
    */
   dataSourceFrom?: string;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
-   * ds-scpfegri73oyoknbc90c。
+   * ds-scpfegri73oyoknbc90c
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
-   * AD_LOG。
+   * AD_LOG
    */
   dataSourceName?: string;
   /**
+   * @remarks
+   * Indicates whether new Logstores are automatically discovered.
+   * 
    * @example
-   * true。
+   * true
    */
   dataSourceRecognizeEnabled?: boolean;
   /**
+   * @remarks
+   * The data source recognizer.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot。
+   * alibaba_cloud_sas_account_snapshot
    */
   dataSourceRecognizer?: string;
+  /**
+   * @remarks
+   * The list of data ingestion IDs that are associated with the data source.
+   */
   dataSourceReferences?: ListDataSourcesResponseBodyDataSourcesDataSourceReferences[];
+  /**
+   * @remarks
+   * The status of the data source. Valid values:
+   * 
+   * - unconfigured
+   * 
+   * - normal
+   * 
+   * - abnormal
+   * 
+   * @example
+   * unconfigured
+   */
   dataSourceStatus?: string;
+  /**
+   * @remarks
+   * The list of Logstores.
+   */
   dataSourceStores?: ListDataSourcesResponseBodyDataSourcesDataSourceStores[];
   /**
+   * @remarks
+   * The ID of the data source template.
+   * 
    * @example
-   * alibaba_cloud_sas_account_snapshot_log_173326*******。
+   * alibaba_cloud_sas_account_snapshot_log_173326*******
    */
   dataSourceTemplateId?: string;
   /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * - preset
+   * 
+   * - custom
+   * 
    * @example
-   * custom。
+   * custom
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
    */
   logProjectName?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
-   * audit-activity。
+   * audit-activity
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * The ID of the user who can access the data.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   logUserId?: number;
   /**
+   * @remarks
+   * The time when the data source was last updated.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -242,40 +355,65 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
 }
 
 export class ListDataSourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data sources.
+   */
   dataSources?: ListDataSourcesResponseBodyDataSources[];
   /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
    * @example
-   * 50。
+   * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. If a value is returned, it indicates that not all results have been returned. You can use this token in the next query to continue retrieving results.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
-   * 2。
+   * 2
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
-   * 1。
+   * 1
    */
   totalPage?: number;
   static names(): { [key: string]: string } {

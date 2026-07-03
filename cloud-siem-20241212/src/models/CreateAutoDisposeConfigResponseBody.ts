@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoDisposeConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6D7B26AD-2EDD-5A96-B9D2-CDEABFC55690

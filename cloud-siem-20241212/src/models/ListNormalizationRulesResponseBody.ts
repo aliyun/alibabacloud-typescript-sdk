@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences extends $dara.Model {
   /**
+   * @remarks
+   * The data ingestion ID.
+   * 
    * @example
-   * alibaba_cloud_bot_flow_ingestion_173326*******。
+   * alibaba_cloud_bot_flow_ingestion_173326*******
    */
   dataIngestionId?: string;
   static names(): { [key: string]: string } {
@@ -31,85 +34,161 @@ export class ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRu
 
 export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Specifies whether non-standard fields are packed into the extend_content field. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
+   * 
+   * @example
+   * enabled
+   */
   extendContentPacked?: string;
   /**
+   * @remarks
+   * The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
+   * 
    * @example
    * flat
    */
   extendFieldStoreMode?: string;
   /**
+   * @remarks
+   * The category ID of the normalization rule.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
    * @example
-   * normalization_rule_Z57np。
+   * normalized
+   */
+  normalizationFieldSource?: string;
+  /**
+   * @remarks
+   * The description of the normalization rule.
+   * 
+   * @example
+   * normalization_rule_Z57np
    */
   normalizationRuleDescription?: string;
   /**
+   * @remarks
+   * The expression of the normalization rule.
+   * 
    * @example
-   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content。
+   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
    */
   normalizationRuleExpression?: string;
   /**
+   * @remarks
+   * The format of the normalization rule.
+   * 
    * @example
-   * SPL。
+   * SPL
    */
   normalizationRuleFormat?: string;
   /**
+   * @remarks
+   * The normalization rule ID.
+   * 
    * @example
-   * nr-z0b2ssjteut85uoh9nzp。
+   * nr-z0b2ssjteut85uoh9nzp
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The mode of the normalization rule. Valid values:
+   * - both
+   * - scan
+   * - realtime.
+   * 
    * @example
-   * both。
+   * both
    */
   normalizationRuleMode?: string;
   /**
+   * @remarks
+   * The name of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleName?: string;
+  /**
+   * @remarks
+   * The list of associated ingestion policies.
+   */
   normalizationRuleReferences?: ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleReferences[];
   /**
+   * @remarks
+   * The status of the normalization rule.
+   * 
    * @example
-   * started。
+   * started
    */
   normalizationRuleStatus?: string;
   /**
+   * @remarks
+   * The type of the normalization rule. Valid values:
+   * - predefined: predefined normalization rule.
+   * - custom: custom normalization rule.
+   * 
    * @example
-   * predefined。
+   * predefined
    */
   normalizationRuleType?: string;
   /**
+   * @remarks
+   * The current version of the normalization rule.
+   * 
    * @example
-   * V1。
+   * V1
    */
   normalizationRuleVersion?: string;
   /**
+   * @remarks
+   * The normalization schema ID.
+   * 
    * @example
-   * HTTP_ACTIVITY。
+   * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
    * @example
-   * alibaba_cloud_sas。
+   * NETWORK_AND_WEB_SECURITY
+   */
+  normalizationSecurityDomainId?: string;
+  /**
+   * @remarks
+   * The product ID.
+   * 
+   * @example
+   * alibaba_cloud_sas
    */
   productId?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   /**
+   * @remarks
+   * The vendor ID associated with the normalization rule.
+   * 
    * @example
-   * alibaba_cloud。
+   * alibaba_cloud
    */
   vendorId?: string;
   static names(): { [key: string]: string } {
@@ -118,6 +197,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
       extendContentPacked: 'ExtendContentPacked',
       extendFieldStoreMode: 'ExtendFieldStoreMode',
       normalizationCategoryId: 'NormalizationCategoryId',
+      normalizationFieldSource: 'NormalizationFieldSource',
       normalizationRuleDescription: 'NormalizationRuleDescription',
       normalizationRuleExpression: 'NormalizationRuleExpression',
       normalizationRuleFormat: 'NormalizationRuleFormat',
@@ -129,6 +209,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
       normalizationRuleType: 'NormalizationRuleType',
       normalizationRuleVersion: 'NormalizationRuleVersion',
       normalizationSchemaId: 'NormalizationSchemaId',
+      normalizationSecurityDomainId: 'NormalizationSecurityDomainId',
       productId: 'ProductId',
       updateTime: 'UpdateTime',
       vendorId: 'VendorId',
@@ -141,6 +222,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
       extendContentPacked: 'string',
       extendFieldStoreMode: 'string',
       normalizationCategoryId: 'string',
+      normalizationFieldSource: 'string',
       normalizationRuleDescription: 'string',
       normalizationRuleExpression: 'string',
       normalizationRuleFormat: 'string',
@@ -152,6 +234,7 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
       normalizationRuleType: 'string',
       normalizationRuleVersion: 'string',
       normalizationSchemaId: 'string',
+      normalizationSecurityDomainId: 'string',
       productId: 'string',
       updateTime: 'number',
       vendorId: 'string',
@@ -172,39 +255,64 @@ export class ListNormalizationRulesResponseBodyNormalizationRules extends $dara.
 
 export class ListNormalizationRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return in this request.
+   * 
    * @example
-   * 50。
+   * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of normalization rules.
+   */
   normalizationRules?: ListNormalizationRulesResponseBodyNormalizationRules[];
   /**
+   * @remarks
+   * The page number of the current page.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 2。
+   * 2
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
-   * 5。
+   * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
-   * 1。
+   * 1
    */
   totalPage?: number;
   static names(): { [key: string]: string } {

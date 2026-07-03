@@ -4,75 +4,139 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion extends $dara.Model {
   /**
+   * @remarks
+   * The time when the rule version was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the normalization rule category.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The description of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleDescription?: string;
   /**
+   * @remarks
+   * The expression for the normalization rule.
+   * 
    * @example
-   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content。
+   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
    */
   normalizationRuleExpression?: string;
   /**
+   * @remarks
+   * The format of the normalization rule.
+   * 
    * @example
-   * SPL。
+   * SPL
    */
   normalizationRuleFormat?: string;
   /**
+   * @remarks
+   * The ID of the normalization rule.
+   * 
    * @example
-   * nr-z0b2ssjteut85uoh9nzp。
+   * nr-z0b2ssjteut85uoh9nzp
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The name of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleName?: string;
   /**
+   * @remarks
+   * The status of the normalization rule.
+   * 
    * @example
-   * started。
+   * started
    */
   normalizationRuleStatus?: string;
   /**
+   * @remarks
+   * The type of the normalization rule. Valid values:
+   * 
+   * - predefined: a predefined rule.
+   * 
+   * - custom: a custom rule.
+   * 
    * @example
-   * predefined。
+   * predefined
    */
   normalizationRuleType?: string;
   /**
+   * @remarks
+   * The version of the normalization rule.
+   * 
    * @example
-   * V1。
+   * V1
    */
   normalizationRuleVersion?: number;
+  /**
+   * @remarks
+   * The name of the normalization rule version.
+   * 
+   * @example
+   * v1
+   */
   normalizationRuleVersionName?: string;
   /**
+   * @remarks
+   * The ID of the normalization schema.
+   * 
    * @example
-   * HTTP_ACTIVITY。
+   * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The product ID.
+   * 
    * @example
-   * alibaba_cloud_sas。
+   * alibaba_cloud_sas
    */
   productId?: string;
+  /**
+   * @remarks
+   * The region where the Data Management center for Threat Analysis is located. Select a region for the management center based on the region where your assets are located. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
+   * @remarks
+   * The time when the rule version was last updated.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   /**
+   * @remarks
+   * The ID of the vendor for the normalization rule.
+   * 
    * @example
-   * alibaba_cloud。
+   * alibaba_cloud
    */
   vendorId?: string;
   static names(): { [key: string]: string } {
@@ -127,10 +191,17 @@ export class GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion ext
 }
 
 export class GetNormalizationRuleVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The version of the normalization rule.
+   */
   normalizationRuleVersion?: GetNormalizationRuleVersionResponseBodyNormalizationRuleVersion;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

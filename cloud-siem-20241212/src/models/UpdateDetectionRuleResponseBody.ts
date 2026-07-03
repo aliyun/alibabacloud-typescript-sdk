@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDetectionRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * B88A2D41-87B8-537E-A7D3-3416A39F****
    */

@@ -3,74 +3,163 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to pack non-standard fields into the extension field extend_content. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
+   * 
+   * @example
+   * enabled
+   */
   extendContentPacked?: string;
   /**
+   * @remarks
+   * The storage mode for extension fields. Valid values: flat, pack, and reject.
+   * 
    * @example
    * flat
    */
   extendFieldStoreMode?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The category ID of the normalization rule.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
+   * @remarks
+   * The description of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleDescription?: string;
   /**
+   * @remarks
+   * The expression of the normalization rule.
+   * 
    * @example
-   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content。
+   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
    */
   normalizationRuleExpression?: string;
   /**
+   * @remarks
+   * The format of the normalization rule.
+   * 
    * @example
-   * SPL。
+   * SPL
    */
   normalizationRuleFormat?: string;
+  /**
+   * @remarks
+   * The list of normalization rule IDs.
+   */
   normalizationRuleIdsShrink?: string;
   /**
+   * @remarks
+   * The mode of the normalization rule. Valid values:
+   * - both
+   * - scan
+   * - realtime.
+   * 
    * @example
-   * both。
+   * both
    */
   normalizationRuleMode?: string;
   /**
+   * @remarks
+   * The name of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleName?: string;
+  /**
+   * @remarks
+   * The type of the normalization rule. Valid values:
+   * - predefined: predefined normalization rule.
+   * - custom: custom normalization rule.
+   * 
+   * @example
+   * custom
+   */
   normalizationRuleType?: string;
+  /**
+   * @remarks
+   * The version of the normalization rule.
+   * 
+   * @example
+   * 1
+   */
   normalizationRuleVersion?: number;
   /**
+   * @remarks
+   * The normalization schema ID.
+   * 
    * @example
-   * HTTP_ACTIVITY。
+   * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
-  orderField?: string;
   /**
    * @example
-   * alibaba_cloud_sas。
+   * NETWORK_AND_WEB_SECURITY
+   */
+  normalizationSecurityDomainId?: string;
+  /**
+   * @remarks
+   * The field used to sort the rule list. Valid values:
+   * - GmtModified: sorted by modification time.
+   * - Id: sorted by rule ID (default).
+   * 
+   * @example
+   * Id
+   */
+  orderField?: string;
+  /**
+   * @remarks
+   * The product ID.
+   * 
+   * @example
+   * alibaba_cloud_sas
    */
   productId?: string;
   /**
+   * @remarks
+   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the member accounts in the resource directory.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   /**
+   * @remarks
+   * The vendor ID associated with the normalization rule.
+   * 
    * @example
-   * alibaba_cloud。
+   * alibaba_cloud
    */
   vendorId?: string;
   static names(): { [key: string]: string } {
@@ -88,6 +177,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
       normalizationRuleType: 'NormalizationRuleType',
       normalizationRuleVersion: 'NormalizationRuleVersion',
       normalizationSchemaId: 'NormalizationSchemaId',
+      normalizationSecurityDomainId: 'NormalizationSecurityDomainId',
       orderField: 'OrderField',
       productId: 'ProductId',
       regionId: 'RegionId',
@@ -111,6 +201,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
       normalizationRuleType: 'string',
       normalizationRuleVersion: 'number',
       normalizationSchemaId: 'string',
+      normalizationSecurityDomainId: 'string',
       orderField: 'string',
       productId: 'string',
       regionId: 'string',

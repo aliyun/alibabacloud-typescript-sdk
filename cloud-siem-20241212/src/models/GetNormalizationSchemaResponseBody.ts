@@ -4,39 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFieldsNormalizationFieldJsonKeys extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1736386610000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The key description of the JSON-type standard field.
+   * 
    * @example
-   * 云code，枚举值：\\n<br>● alibaba_cloud\\n<br>● huawei_cloud\\n<br>● tencent_cloud
+   * Cloud Provider Code
    */
   normalizationFieldDescription?: string;
   /**
+   * @remarks
+   * The key example of the JSON-type standard field.
+   * 
    * @example
    * alibaba_cloud
    */
   normalizationFieldExample?: string;
   /**
+   * @remarks
+   * The key source of the JSON-type standard field.
+   * 
    * @example
    * preset
    */
   normalizationFieldFrom?: string;
   /**
+   * @remarks
+   * The key name of the JSON-type standard field.
+   * 
    * @example
    * cloud_code
    */
   normalizationFieldName?: string;
+  /**
+   * @remarks
+   * Indicates whether the key of the JSON-type standard field is required.
+   */
   normalizationFieldRequired?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the field is a system built-in standard field name.
+   */
   normalizationFieldReserved?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the key of the JSON-type standard field is tokenized.
+   */
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * The key type of the JSON-type standard field.
+   * 
    * @example
    * varchar
    */
   normalizationFieldType?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1736386610000
    */
@@ -82,50 +115,98 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
 
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1736386610000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The normalization field description.
+   * 
    * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldDescription?: string;
   /**
+   * @remarks
+   * The normalization field example.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   normalizationFieldExample?: string;
   /**
+   * @remarks
+   * The source of the standard field. Valid values:
+   * - preset: built-in.
+   * - custom: custom.
+   * 
    * @example
    * preset
    */
   normalizationFieldFrom?: string;
+  /**
+   * @remarks
+   * Indicates whether indexes are created for all keys of the JSON-type standard field.
+   */
   normalizationFieldJsonIndexAll?: boolean;
+  /**
+   * @remarks
+   * The key list of the JSON-type standard field.
+   */
   normalizationFieldJsonKeys?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFieldsNormalizationFieldJsonKeys[];
   /**
+   * @remarks
+   * The normalization field name.
+   * 
    * @example
-   * cloud_user。
+   * cloud_user
    */
   normalizationFieldName?: string;
+  /**
+   * @remarks
+   * Indicates whether the field is required.
+   */
   normalizationFieldRequired?: boolean;
   /**
+   * @remarks
+   * Indicates whether the normalization field is required.
+   * 
    * @example
-   * true。
+   * true
    */
   normalizationFieldRequirement?: boolean;
   /**
+   * @remarks
+   * Indicates whether the normalization field is reserved.
+   * 
    * @example
-   * true。
+   * true
    */
   normalizationFieldReserved?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the standard field is tokenized.
+   */
   normalizationFieldTokenize?: boolean;
   /**
+   * @remarks
+   * The normalization field type. Valid values:
+   * - varchar
+   * - bigint
+   * - double
+   * 
    * @example
-   * varchar。
+   * varchar
    */
   normalizationFieldType?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1736386610000
    */
@@ -180,6 +261,9 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationF
 
 export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences extends $dara.Model {
   /**
+   * @remarks
+   * The normalization rule ID.
+   * 
    * @example
    * alibaba_cloud_cfw_flow_rule
    */
@@ -207,61 +291,126 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationS
 
 export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the normalization rule category.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
-  normalizationFields?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields[];
   /**
    * @example
-   * 网络五元组日志
+   * native
+   */
+  normalizationFieldSource?: string;
+  /**
+   * @remarks
+   * The list of normalization fields.
+   */
+  normalizationFields?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields[];
+  /**
+   * @remarks
+   * The normalization schema description.
+   * 
+   * @example
+   * Network 5-Tuple Logs
    */
   normalizationSchemaDescription?: string;
   /**
+   * @remarks
+   * The source of the normalization schema. Valid values:
+   * - preset: predefined.
+   * - custom: custom.
+   * 
    * @example
    * preset
    */
   normalizationSchemaFrom?: string;
   /**
+   * @remarks
+   * The normalization schema ID.
+   * 
    * @example
-   * HTTP_ACTIVITY。
+   * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
   /**
+   * @remarks
+   * The normalization schema name.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationSchemaName?: string;
+  /**
+   * @remarks
+   * The list of normalization schema references.
+   */
   normalizationSchemaReferences?: GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences[];
   /**
+   * @remarks
+   * The normalization schema type. Valid values:
+   * - log
+   * - entity
+   * - incident
+   * 
    * @example
-   * preset
+   * log
    */
   normalizationSchemaType?: string;
   /**
    * @example
-   * network-activity。
+   * DATA_SECURITY
+   */
+  normalizationSecurityDomainId?: string;
+  /**
+   * @example
+   * alibaba_cloud_bastionhost
+   */
+  productId?: string;
+  recommendEntities?: string[];
+  /**
+   * @remarks
+   * The Simple Log Service LogStore.
+   * 
+   * @example
+   * network-activity
    */
   targetLogStore?: string;
   /**
+   * @remarks
+   * The Simple Log Service StoreView.
+   * 
    * @example
-   * network_activity。
+   * network_activity
    */
   targetStoreView?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1733269771123
    */
   updateTime?: number;
+  /**
+   * @example
+   * alibaba_cloud
+   */
+  vendorId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       normalizationCategoryId: 'NormalizationCategoryId',
+      normalizationFieldSource: 'NormalizationFieldSource',
       normalizationFields: 'NormalizationFields',
       normalizationSchemaDescription: 'NormalizationSchemaDescription',
       normalizationSchemaFrom: 'NormalizationSchemaFrom',
@@ -269,9 +418,13 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
       normalizationSchemaName: 'NormalizationSchemaName',
       normalizationSchemaReferences: 'NormalizationSchemaReferences',
       normalizationSchemaType: 'NormalizationSchemaType',
+      normalizationSecurityDomainId: 'NormalizationSecurityDomainId',
+      productId: 'ProductId',
+      recommendEntities: 'RecommendEntities',
       targetLogStore: 'TargetLogStore',
       targetStoreView: 'TargetStoreView',
       updateTime: 'UpdateTime',
+      vendorId: 'VendorId',
     };
   }
 
@@ -279,6 +432,7 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
     return {
       createTime: 'number',
       normalizationCategoryId: 'string',
+      normalizationFieldSource: 'string',
       normalizationFields: { 'type': 'array', 'itemType': GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationFields },
       normalizationSchemaDescription: 'string',
       normalizationSchemaFrom: 'string',
@@ -286,9 +440,13 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
       normalizationSchemaName: 'string',
       normalizationSchemaReferences: { 'type': 'array', 'itemType': GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchemaReferences },
       normalizationSchemaType: 'string',
+      normalizationSecurityDomainId: 'string',
+      productId: 'string',
+      recommendEntities: { 'type': 'array', 'itemType': 'string' },
       targetLogStore: 'string',
       targetStoreView: 'string',
       updateTime: 'number',
+      vendorId: 'string',
     };
   }
 
@@ -299,6 +457,9 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
     if(Array.isArray(this.normalizationSchemaReferences)) {
       $dara.Model.validateArray(this.normalizationSchemaReferences);
     }
+    if(Array.isArray(this.recommendEntities)) {
+      $dara.Model.validateArray(this.recommendEntities);
+    }
     super.validate();
   }
 
@@ -308,10 +469,17 @@ export class GetNormalizationSchemaResponseBodyNormalizationSchema extends $dara
 }
 
 export class GetNormalizationSchemaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The normalization schema.
+   */
   normalizationSchema?: GetNormalizationSchemaResponseBodyNormalizationSchema;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

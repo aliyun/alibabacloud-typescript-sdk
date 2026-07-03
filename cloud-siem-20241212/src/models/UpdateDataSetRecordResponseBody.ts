@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataSetRecordResponseBodyDataSetRecordStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The number of new dataset records.
+   * 
    * @example
    * 12
    */
   newDataSetRecordCount?: number;
   /**
+   * @remarks
+   * The number of updated dataset records.
+   * 
    * @example
    * 4
    */
@@ -37,8 +43,15 @@ export class UpdateDataSetRecordResponseBodyDataSetRecordStatistic extends $dara
 }
 
 export class UpdateDataSetRecordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the dataset update.
+   */
   dataSetRecordStatistic?: UpdateDataSetRecordResponseBodyDataSetRecordStatistic;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
    */

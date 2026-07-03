@@ -4,98 +4,173 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data ingestion was enabled.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   activeTime?: number;
   /**
+   * @remarks
+   * The number of associated security capabilities.
+   * 
    * @example
-   * 3。
+   * 3
    */
   capacityCount?: number;
   /**
+   * @remarks
+   * The time when the data ingestion was created.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the data ingestion.
+   * 
    * @example
-   * alibaba_cloud_sas_netstat_ingestion_173326*******。
+   * alibaba_cloud_sas_netstat_ingestion_173326*******
    */
   dataIngestionId?: string;
   /**
+   * @remarks
+   * The mode of the data ingestion. Valid values:
+   * 
+   * - realtime
+   * 
+   * - scan
+   * 
    * @example
-   * realtime。
+   * realtime
    */
   dataIngestionMode?: string;
   /**
+   * @remarks
+   * Indicates whether the data ingestion mode is editable.
+   * 
    * @example
-   * true。
+   * true
    */
   dataIngestionModeEditable?: boolean;
   /**
+   * @remarks
+   * The state of the data ingestion. Valid values:
+   * 
+   * - ingested
+   * 
+   * - uningested
+   * 
+   * - abnormal
+   * 
    * @example
-   * ingested。
+   * ingested
    */
   dataIngestionState?: string;
   /**
+   * @remarks
+   * The error code for the data ingestion anomaly.
+   * 
    * @example
-   * UserUnauthorized。
+   * UserUnauthorized
    */
   dataIngestionStateCode?: string;
   /**
+   * @remarks
+   * The status of the data ingestion. Valid values:
+   * 
+   * - enabled: The data ingestion is enabled.
+   * 
+   * - disabled: The data ingestion is disabled.
+   * 
    * @example
-   * enabled。
+   * enabled
    */
   dataIngestionStatus?: string;
   /**
+   * @remarks
+   * The ID of the data ingestion template.
+   * 
    * @example
-   * alibaba_cloud_sas_netstat_ingestion。
+   * alibaba_cloud_sas_netstat_ingestion
    */
   dataIngestionTemplateId?: string;
   /**
+   * @remarks
+   * The type of the data ingestion. Valid values:
+   * 
+   * - preset
+   * 
+   * - custom
+   * 
    * @example
-   * preset。
+   * preset
    */
   dataIngestionType?: string;
   /**
+   * @remarks
+   * Indicates whether the data source is editable.
+   * 
    * @example
-   * true。
+   * true
    */
   dataSourceEditable?: boolean;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
-   * ds-scpfegri73oyoknbc90c。
+   * ds-scpfegri73oyoknbc90c
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * Indicates whether the normalization rule is editable.
+   * 
    * @example
-   * true。
+   * true
    */
   normalizationRuleEditable?: boolean;
   /**
+   * @remarks
+   * The ID of the normalization rule.
+   * 
    * @example
-   * nr-0aywiqdtaqdvwac7xkbjsf3a。
+   * nr-0aywiqdtaqdvwac7xkbjsf3a
    */
   normalizationRuleId?: string;
   /**
+   * @remarks
+   * The ID of the data source for real-time ingestion.
+   * 
    * @example
-   * ds-scpfegri73oyoknbc90c。
+   * ds-scpfegri73oyoknbc90c
    */
   realtimeDataSourceId?: string;
   /**
+   * @remarks
+   * The ID of the data source for scan-based ingestion.
+   * 
    * @example
-   * ds-scpfegri73oyoknbc90c。
+   * ds-scpfegri73oyoknbc90c
    */
   scanDataSourceId?: string;
   /**
+   * @remarks
+   * The job ID of the stream processing task.
+   * 
    * @example
-   * 73a78aa245e3b1299d6ceed093de7bd8。
+   * 73a78aa245e3b1299d6ceed093de7bd8
    */
   streamJobId?: string;
   /**
+   * @remarks
+   * The time when the data ingestion was last updated.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -156,10 +231,17 @@ export class ListDataIngestionsResponseBodyDataIngestions extends $dara.Model {
 }
 
 export class ListDataIngestionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data ingestions.
+   */
   dataIngestions?: ListDataIngestionsResponseBodyDataIngestions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

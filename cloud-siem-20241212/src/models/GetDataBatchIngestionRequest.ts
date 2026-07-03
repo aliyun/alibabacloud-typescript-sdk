@@ -4,18 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataBatchIngestionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The region where the Data Management Center for threat analysis is located. Select the region of the Management Center based on the region where your assets are located. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of a member. An administrator can use this parameter to switch to the member\\"s perspective.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   static names(): { [key: string]: string } {

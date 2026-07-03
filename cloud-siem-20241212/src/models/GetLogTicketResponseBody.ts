@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLogTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ticket for Simple Log Service.
+   * 
    * @example
-   * *******。
+   * *******
    */
   logTicket?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

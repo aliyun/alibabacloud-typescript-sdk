@@ -4,21 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserConfigResponseBodyUser extends $dara.Model {
   /**
+   * @remarks
+   * The current CTDR version.
+   * 
    * @example
    * v2
    */
   ctdrVersion?: string;
   /**
+   * @remarks
+   * The upgrade status. Valid values:
+   * 
+   * - pending: The upgrade is pending.
+   * 
+   * - upgrading: The upgrade is in progress.
+   * 
+   * - success: The upgrade is successful.
+   * 
+   * - failed: The upgrade failed.
+   * 
    * @example
    * pending
    */
   dataStorageVersion?: string;
   /**
+   * @remarks
+   * The version of Log Management.
+   * 
    * @example
    * v2
    */
   upgradeCtdrVersion?: string;
   /**
+   * @remarks
+   * The target CTDR version for the upgrade.
+   * 
    * @example
    * v2
    */
@@ -52,10 +72,17 @@ export class GetUserConfigResponseBodyUser extends $dara.Model {
 
 export class GetUserConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The user.
+   */
   user?: GetUserConfigResponseBodyUser;
   static names(): { [key: string]: string } {
     return {

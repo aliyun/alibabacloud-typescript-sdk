@@ -4,41 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLogProjectsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response messages. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The user ID for data access.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   logUserId?: number;
   /**
+   * @remarks
+   * The maximum number of entries to return on this call.
+   * 
    * @example
-   * 50。
+   * 50
    * 
    * **if can be null:**
    * true
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first call. To retrieve the next page of results, set this parameter to the NextToken value that was returned from the previous call.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The region where the Data Management hub for threat analysis is located. Select the region of the Data Management hub based on the region of your assets. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the member account in the resource directory.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   static names(): { [key: string]: string } {

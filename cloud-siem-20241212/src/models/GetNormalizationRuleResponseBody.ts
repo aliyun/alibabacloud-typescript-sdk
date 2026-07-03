@@ -4,86 +4,174 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to pack non-standard fields into the extend_content field. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
+   * 
+   * @example
+   * enabled
+   */
   extendContentPacked?: string;
   /**
+   * @remarks
+   * The storage mode for extended fields. Valid values:
+   * - flat: ingested as-is.
+   * - reject: not ingested.
+   * - pack: packed into the extend_content field.
+   * 
    * @example
    * flat
    */
   extendFieldStoreMode?: string;
   /**
+   * @remarks
+   * The category ID of the normalization rule.
+   * 
    * @example
-   * NETWORK_CATEGORY。
+   * NETWORK_CATEGORY
    */
   normalizationCategoryId?: string;
   /**
    * @example
-   * normalization_rule_Z57np。
+   * normalized
+   */
+  normalizationFieldSource?: string;
+  /**
+   * @remarks
+   * The description of the normalization rule.
+   * 
+   * @example
+   * normalization_rule_Z57np
    */
   normalizationRuleDescription?: string;
   /**
+   * @remarks
+   * The expression of the normalization rule.
+   * 
    * @example
-   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content。
+   * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
    */
   normalizationRuleExpression?: string;
   /**
+   * @remarks
+   * The format of the normalization rule.
+   * 
    * @example
-   * SPL。
+   * SPL
    */
   normalizationRuleFormat?: string;
   /**
+   * @remarks
+   * The normalization rule ID.
+   * 
    * @example
-   * nr-z0b2ssjteut85uoh9nzp。
+   * nr-z0b2ssjteut85uoh9nzp
    */
   normalizationRuleId?: string;
+  /**
+   * @remarks
+   * The list of normalization rule IDs.
+   */
   normalizationRuleIds?: string[];
   /**
+   * @remarks
+   * The mode of the normalization rule. Valid values:
+   * - both
+   * - scan
+   * - realtime.
+   * 
    * @example
-   * both。
+   * both
    */
   normalizationRuleMode?: string;
   /**
+   * @remarks
+   * The name of the normalization rule.
+   * 
    * @example
-   * normalization_rule_Z57np。
+   * normalization_rule_Z57np
    */
   normalizationRuleName?: string;
   /**
+   * @remarks
+   * The status of the normalization rule.
+   * 
    * @example
-   * started。
+   * started
    */
   normalizationRuleStatus?: string;
   /**
+   * @remarks
+   * The type of the normalization rule. Valid values:
+   * - predefined: predefined normalization rule.
+   * - custom: custom normalization rule.
+   * 
    * @example
-   * predefined。
+   * predefined
    */
   normalizationRuleType?: string;
   /**
+   * @remarks
+   * The version of the normalization rule.
+   * 
    * @example
-   * V1。
+   * V1
    */
   normalizationRuleVersion?: number;
   /**
+   * @remarks
+   * The normalization schema ID.
+   * 
    * @example
-   * HTTP_ACTIVITY。
+   * HTTP_ACTIVITY
    */
   normalizationSchemaId?: string;
-  orderField?: string;
   /**
    * @example
-   * alibaba_cloud_sas。
+   * NETWORK_AND_WEB_SECURITY
+   */
+  normalizationSecurityDomainId?: string;
+  /**
+   * @remarks
+   * The field used to sort the rule list. Valid values:
+   * - GmtModified: sorted by modification time.
+   * - Id: sorted by rule ID (default).
+   * 
+   * @example
+   * GmtModified
+   */
+  orderField?: string;
+  /**
+   * @remarks
+   * The product ID.
+   * 
+   * @example
+   * alibaba_cloud_sas
    */
   productId?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
-   * 1733269771123。
+   * 1733269771123
    */
   updateTime?: number;
   /**
+   * @remarks
+   * The vendor ID associated with the normalization rule.
+   * 
    * @example
-   * alibaba_cloud。
+   * alibaba_cloud
    */
   vendorId?: string;
   static names(): { [key: string]: string } {
@@ -92,6 +180,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
       extendContentPacked: 'ExtendContentPacked',
       extendFieldStoreMode: 'ExtendFieldStoreMode',
       normalizationCategoryId: 'NormalizationCategoryId',
+      normalizationFieldSource: 'NormalizationFieldSource',
       normalizationRuleDescription: 'NormalizationRuleDescription',
       normalizationRuleExpression: 'NormalizationRuleExpression',
       normalizationRuleFormat: 'NormalizationRuleFormat',
@@ -103,6 +192,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
       normalizationRuleType: 'NormalizationRuleType',
       normalizationRuleVersion: 'NormalizationRuleVersion',
       normalizationSchemaId: 'NormalizationSchemaId',
+      normalizationSecurityDomainId: 'NormalizationSecurityDomainId',
       orderField: 'OrderField',
       productId: 'ProductId',
       updateTime: 'UpdateTime',
@@ -116,6 +206,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
       extendContentPacked: 'string',
       extendFieldStoreMode: 'string',
       normalizationCategoryId: 'string',
+      normalizationFieldSource: 'string',
       normalizationRuleDescription: 'string',
       normalizationRuleExpression: 'string',
       normalizationRuleFormat: 'string',
@@ -127,6 +218,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
       normalizationRuleType: 'string',
       normalizationRuleVersion: 'number',
       normalizationSchemaId: 'string',
+      normalizationSecurityDomainId: 'string',
       orderField: 'string',
       productId: 'string',
       updateTime: 'number',
@@ -147,10 +239,17 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
 }
 
 export class GetNormalizationRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The normalization rule.
+   */
   normalizationRule?: GetNormalizationRuleResponseBodyNormalizationRule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****。
+   * 6276D891-*****-55B2-87B9-74D413F7****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

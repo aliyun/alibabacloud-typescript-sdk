@@ -4,23 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVendorRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response messages. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * en。
+   * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The region of the Data Management center. Select a region based on the location of your assets. Valid values:
+   * 
+   * - cn-hangzhou: The assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: The assets are in a region outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of a member. An administrator can use this parameter to switch to the member\\"s view.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   /**
+   * @remarks
+   * The name of the vendor.
+   * 
    * @example
-   * 111。
+   * 111
    */
   vendorName?: string;
   static names(): { [key: string]: string } {

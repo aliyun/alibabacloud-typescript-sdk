@@ -4,51 +4,102 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDetectionRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ATT\\&CK tactic of the alert.
+   * 
    * @example
    * Discovery
    */
   alertAttCk?: string;
   alertAttCkMapping?: string;
+  /**
+   * @remarks
+   * The description of the alert. You can use $$ to reference fields from the query output.
+   * 
+   * @example
+   * Alert from: $product_code$, detected network attack from $src_ip$, affected assets include: $dst_ip$
+   */
   alertDescription?: string;
   /**
+   * @remarks
+   * The threat level of the alert. Valid values:
+   * 
+   * - 5: Critical.
+   * 
+   * - 4: Important.
+   * 
+   * - 3: Medium.
+   * 
+   * - 2: Low.
+   * 
+   * - 1: Informational.
+   * 
    * @example
    * 1
    */
   alertLevel?: string;
   alertLevelMapping?: string;
+  /**
+   * @remarks
+   * The name of the alert. You can use $$ to reference fields from the query output.
+   * 
+   * @example
+   * Detected high-frequency multi-type network attacks from $src_ip$
+   */
   alertName?: string;
   /**
+   * @remarks
+   * The ID of the alert template for the detection rule.
+   * 
    * @example
    * ALERT_ACTIVITY
    */
   alertSchemaId?: string;
   /**
+   * @remarks
+   * The ATT\\&CK tactic ID of the alert.
+   * 
    * @example
    * TA0042
    */
   alertTacticId?: string;
   /**
+   * @remarks
+   * The number of alerts for the alert threshold.
+   * 
    * @example
    * 10
    */
   alertThresholdCount?: number;
   /**
+   * @remarks
+   * The fields for the alert threshold. Separate multiple fields with commas.
+   * 
    * @example
    * alert_type,ip
    */
   alertThresholdGroup?: string;
   /**
+   * @remarks
+   * The period for the alert threshold.
+   * 
    * @example
    * 5m
    */
   alertThresholdPeriod?: string;
   /**
+   * @remarks
+   * The type of the alert.
+   * 
    * @example
    * siem_rule_type_alert_storm
    */
   alertType?: string;
   alertTypeMapping?: string;
   /**
+   * @remarks
+   * The content of the detection expression.
+   * 
    * @example
    * *|set session mode=scan;SELECT * FROM log
    * WHERE schema = \\"PROCESS_START_ACTIVITY\\"
@@ -67,17 +118,25 @@ export class UpdateDetectionRuleRequest extends $dara.Model {
    */
   detectionExpressionContent?: string;
   /**
+   * @remarks
+   * The type of the detection expression.
+   * 
    * @example
    * sql
    */
   detectionExpressionType?: string;
   /**
+   * @remarks
+   * The description of the detection rule.
+   * 
    * @example
    * Check the enumeration behavior of local system groups. An attacker may attempt to find the Local Systems group and its permission settings.
    */
   detectionRuleDescription?: string;
   /**
    * @remarks
+   * The ID of the detection rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,17 +144,31 @@ export class UpdateDetectionRuleRequest extends $dara.Model {
    */
   detectionRuleId?: string;
   /**
+   * @remarks
+   * The name of the detection rule.
+   * 
    * @example
    * CTDR Port Scan Behavior
    */
   detectionRuleName?: string;
   /**
+   * @remarks
+   * The status of the detection rule.
+   * 
    * @example
    * enabled
    */
   detectionRuleStatus?: string;
   /**
    * @remarks
+   * The type of the detection rule. Valid values:
+   * 
+   * - preset: a preset detection rule.
+   * 
+   * - custom: a custom detection rule.
+   * 
+   * - custom_template: a rule template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,36 +176,71 @@ export class UpdateDetectionRuleRequest extends $dara.Model {
    */
   detectionRuleType?: string;
   /**
+   * @remarks
+   * The entity mapping configuration.
+   * 
    * @example
    * [{\\"NormalizationSchemaId\\":\\"host\\",\\"NormalizationFieldMappings\\":[{\\"NormalizationFieldName\\":\\"uuid\\",\\"MappingFieldName\\":\\"host\\",\\"NormalizationFieldType\\":\\"varchar\\"}]}]
    */
   entityMappings?: string;
   /**
+   * @remarks
+   * The configuration of the event aggregation period.
+   * 
    * @example
    * 60m
    */
   incidentAggregationExpression?: string;
   /**
+   * @remarks
+   * The type of event aggregation. Valid values:
+   * 
+   * - none: Events are not generated.
+   * 
+   * - graph_compute: graph computing (supported by predefined rules).
+   * 
+   * - expert: expert rule.
+   * 
+   * - passthrough: pass-through (one-to-one mapping with alerts).
+   * 
+   * - window: window-based aggregation of similar events.
+   * 
    * @example
    * window
    */
   incidentAggregationType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the log normalization category.
+   * 
    * @example
    * NETWORK_CATEGORY
    */
   logCategoryId?: string;
   /**
+   * @remarks
+   * The ID of the log normalization schema.
+   * 
    * @example
    * API_RISK_ACTIVITY
    */
   logSchemaId?: string;
   /**
+   * @remarks
+   * The custom parameters for the playbook.
+   * 
    * @example
    * {
    *     "ip": {
@@ -142,41 +250,73 @@ export class UpdateDetectionRuleRequest extends $dara.Model {
    */
   playbookParameters?: string;
   /**
+   * @remarks
+   * The unique ID of the playbook.
+   * 
    * @example
    * 31568394-7a86-487c-b8ec-b3f42b59****
    */
   playbookUuid?: string;
   /**
+   * @remarks
+   * The region of the Data Management center for Threat Analysis. Select the region where your assets are located. Valid values:
+   * 
+   * - cn-hangzhou: The Chinese mainland.
+   * 
+   * - ap-southeast-1: Regions outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The start time for scheduling. This is a 13-digit UNIX timestamp.
+   * 
    * @example
    * 1733269771123
    */
   scheduleBeginTime?: number;
   /**
+   * @remarks
+   * The cron expression for scheduling. This parameter is required when you set ScheduleType to cron.
+   * 
    * @example
    * 1h
    */
   scheduleExpression?: string;
   /**
+   * @remarks
+   * The maximum number of retries after a timeout. The value must be between 1 and 100.
+   * 
    * @example
    * 1
    */
   scheduleMaxRetries?: number;
   /**
+   * @remarks
+   * The maximum timeout period. Unit: seconds. The value must be between 60 and 1800.
+   * 
    * @example
    * 60
    */
   scheduleMaxTimeout?: number;
   /**
+   * @remarks
+   * The scheduling type. Valid values:
+   * 
+   * - fixed_rate: fixed interval.
+   * 
+   * - cron: cron expression.
+   * 
    * @example
    * fixed_rate
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * The length of the scheduling window.
+   * 
    * @example
    * 5m
    */

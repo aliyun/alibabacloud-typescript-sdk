@@ -4,47 +4,98 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTrafficStatisticsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response messages. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * A list of user IDs for batch data ingestion.
+   */
   logUserIdsShrink?: string;
   /**
+   * @remarks
+   * The product ID.
+   * 
    * @example
-   * alibaba_cloud_sas。
+   * alibaba_cloud_sas
    */
   productId?: string;
   /**
+   * @remarks
+   * The region of the Data Management center for threat analysis. Select a region based on the location of your asset. Valid values:
+   * 
+   * - cn-hangzhou: Your asset is in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your asset is outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
-   * 1。
+   * 1
    */
   regionTag?: number;
   /**
+   * @remarks
+   * The user ID of a member. This parameter is used by an administrator to switch to the perspective of the member.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   /**
+   * @remarks
+   * The statistical period.
+   * 
    * @example
-   * 30。
+   * 30
    */
   trafficStatisticPeriod?: string;
   /**
+   * @remarks
+   * The statistic granularity. Valid values:
+   * 
+   * - day: day. This is the default value.
+   * 
+   * - hour: hour.
+   * 
    * @example
-   * day。
+   * day
    */
   trafficStatisticPeriodType?: string;
   /**
+   * @remarks
+   * The statistic dimension. Valid values:
+   * 
+   * - Region
+   * 
+   * - Product
+   * 
+   * - DataIngetion
+   * 
+   * - logUserId
+   * 
    * @example
-   * Region。
+   * Region
    */
   trafficStatisticType?: string;
   /**
+   * @remarks
+   * The type of the log traffic.
+   * 
    * @example
    * agentAnalysisLogTraffic
    */

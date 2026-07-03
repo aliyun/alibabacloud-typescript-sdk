@@ -4,86 +4,187 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataSourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
    * @example
-   * center。
+   * center
    */
   dataSourceFrom?: string;
+  /**
+   * @remarks
+   * The IDs of the data sources.
+   */
   dataSourceIds?: string[];
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
-   * alibaba_cloud_waf_alert_log。
+   * alibaba_cloud_waf_alert_log
    */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The status of the data source. Valid values:
+   * 
+   * - unconfigured
+   * 
+   * - normal
+   * 
+   * - abnormal
+   * 
+   * @example
+   * unconfigured
+   */
   dataSourceStatus?: string;
+  /**
+   * @remarks
+   * The status of the Logstore. Valid values:
+   * 
+   * - normal
+   * 
+   * - abnormal
+   * 
+   * @example
+   * normal
+   */
   dataSourceStoreStatus?: string;
+  /**
+   * @remarks
+   * The IDs of the data source templates.
+   */
   dataSourceTemplateIds?: string[];
   /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * - preset
+   * 
+   * - custom
+   * 
    * @example
-   * custom。
+   * custom
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
    */
   logProjectName?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
-   * audit-activity。
+   * audit-activity
    */
   logStoreName?: string;
+  /**
+   * @remarks
+   * The IDs of the users who can access the data.
+   */
   logUserIds?: number[];
   /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
    * @example
-   * 50。
+   * 50
    * 
    * **if can be null:**
    * true
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the response to the previous query. Leave this parameter empty for the first query.
+   * 
    * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****。
+   * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * - desc
+   * 
+   * - asc
+   * 
    * @example
-   * desc。
+   * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The sorting field.
+   * 
    * @example
-   * UpdateTime。
+   * UpdateTime
    */
   orderField?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 1。
+   * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 5。
+   * 5
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The region where the Data Management Center of your threat analysis feature is located. Select a region based on the location of your assets. Valid values:
+   * 
+   * - cn-hangzhou: Your assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Your assets are in a region outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of the member. You can use this parameter to switch the perspective to a member.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   static names(): { [key: string]: string } {

@@ -3,22 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
+  /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
+   * @example
+   * center
+   */
   dataSourceStoreFrom?: string;
+  /**
+   * @remarks
+   * The ID of the log storage.
+   * 
+   * @example
+   * 1
+   */
   dataSourceStoreId?: string;
+  /**
+   * @remarks
+   * The status of the log storage. Valid values:
+   * 
+   * - normal
+   * 
+   * - abnormal
+   * 
+   * @example
+   * normal
+   */
   dataSourceStoreStatus?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
    */
   logProjectName?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
-   * actiontrail_management-events。
+   * actiontrail_management-events
    */
   logStoreName?: string;
   static names(): { [key: string]: string } {
@@ -54,60 +92,150 @@ export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
 
 export class CreateDataSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The source of the data. Valid values:
+   * 
+   * - center
+   * 
+   * - custom
+   * 
    * @example
-   * center。
+   * center
    */
   dataSourceFrom?: string;
+  /**
+   * @remarks
+   * A list of data source IDs.
+   */
   dataSourceIds?: string[];
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
-   * AD_LOG。
+   * AD_LOG
    */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically discover new data sources.
+   * 
+   * @example
+   * true
+   */
   dataSourceRecognizeEnabled?: boolean;
+  /**
+   * @remarks
+   * The data source recognizer.
+   * 
+   * @example
+   * alibaba_cloud_waf_flow_log_1766185894104675
+   */
   dataSourceRecognizer?: string;
+  /**
+   * @remarks
+   * The IDs of associated data access instances.
+   */
   dataSourceReferences?: string[];
+  /**
+   * @remarks
+   * The list of Simple Log Service projects.
+   */
   dataSourceStores?: CreateDataSourceRequestDataSourceStores[];
+  /**
+   * @remarks
+   * The ID of the data source template.
+   * 
+   * @example
+   * dst_alibaba_cloud_nas_audit_log_1358117679873357
+   */
   dataSourceTemplateId?: string;
   /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * - preset
+   * 
+   * - custom
+   * 
    * @example
-   * preset。
+   * preset
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
-   * zh。
+   * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * aliyun-cloudsiem-data-173326*******-cn-hangzhou。
+   * aliyun-cloudsiem-data-173326*******-cn-hangzhou
    */
   logProjectName?: string;
   /**
+   * @remarks
+   * The ID of the log storage region.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   logRegionId?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
-   * mde_raw。
+   * mde_raw
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * The user ID for data ingestion.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   logUserId?: number;
+  /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - desc: descending.
+   * 
+   * - asc: ascending.
+   * 
+   * @example
+   * desc
+   */
   order?: string;
   /**
+   * @remarks
+   * The region of the Management Hub. Select a region based on the location of your assets. Valid values:
+   * 
+   * - cn-hangzhou: Assets are in the Chinese mainland.
+   * 
+   * - ap-southeast-1: Assets are outside China.
+   * 
    * @example
-   * cn-hangzhou。
+   * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID of the member whose perspective the administrator assumes.
+   * 
    * @example
-   * 173326*******。
+   * 173326*******
    */
   roleFor?: number;
   static names(): { [key: string]: string } {
