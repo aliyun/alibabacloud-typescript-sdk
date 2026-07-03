@@ -2,34 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
+export class IdnAuthorityVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
+   * The detailed verification results from the data source are described as follows (using the Indonesian data source as an example):
+   * - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
+   * - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+   * - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
+   * - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
    * 
    * @example
    * {
-   *   "ocrIdInfo": {
-   *     "id_number": "*****719******",
-   *     "address": "xxxxxx,
-   *     "ethnicity": "汉",
-   *     "date_of_birth": "1990年06月02日",
-   *     "sex": "女",
-   *     "name": "何**"
-   *   },
-   *   "ocrStandardData": {
-   *     "given_name_s": "**",
-   *     "surname_s": "HE",
-   *     "date_of_birth_s": "1990-06-02",
-   *     "sex_s": "F"
-   *   }
+   *   "govId": 1.0,
+   *   "fullName": 1.0,
+   *   "dob": 0.9,
+   *   "selfiePhoto": 0.8777,
+   *   "liveness": 0.1152,
+   *   "imgManipulationScore": 0.2253
    * }
    */
-  extIdInfo?: string;
+  extSourceInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification passed. Valid values:
-   * 
+   * Indicates whether the verification is passed. Valid values:
    * - Y: passed.
    * - N: not passed.
    * 
@@ -47,15 +42,15 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
-   * 08573be80f944d95ac812e019e3655a8
+   * hk573be80f944d95ac812e0*******a8
    */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
-      extIdInfo: 'ExtIdInfo',
+      extSourceInfo: 'ExtSourceInfo',
       passed: 'Passed',
       subCode: 'SubCode',
       transactionId: 'TransactionId',
@@ -64,7 +59,7 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      extIdInfo: 'string',
+      extSourceInfo: 'string',
       passed: 'string',
       subCode: 'string',
       transactionId: 'string',
@@ -80,7 +75,7 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   }
 }
 
-export class DocOcrMaxV2ResponseBody extends $dara.Model {
+export class IdnAuthorityVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -109,7 +104,7 @@ export class DocOcrMaxV2ResponseBody extends $dara.Model {
    * @remarks
    * The returned result.
    */
-  result?: DocOcrMaxV2ResponseBodyResult;
+  result?: IdnAuthorityVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -124,7 +119,7 @@ export class DocOcrMaxV2ResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: DocOcrMaxV2ResponseBodyResult,
+      result: IdnAuthorityVerifyIntlResponseBodyResult,
     };
   }
 

@@ -1646,7 +1646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全球证件ocr识别接口
+   * Recognizes identity documents worldwide through OCR.
    * 
    * @param request - DocOcrMaxV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1731,7 +1731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全球证件ocr识别接口
+   * Recognizes identity documents worldwide through OCR.
    * 
    * @param request - DocOcrMaxV2Request
    * @returns DocOcrMaxV2Response
@@ -2093,6 +2093,10 @@ export default class Client extends OpenApi {
       query["FacePictureUrl"] = request.facePictureUrl;
     }
 
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      query["FaceQualityCheck"] = request.faceQualityCheck;
+    }
+
     if (!$dara.isNull(request.idOcrPictureUrl)) {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
@@ -2152,7 +2156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Server-side-only eKYC API
+   * The eKYC solution server-side API.
    * 
    * @param request - EkycVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2183,6 +2187,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.facePictureUrl)) {
       query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      query["FaceQualityCheck"] = request.faceQualityCheck;
     }
 
     if (!$dara.isNull(request.idOcrPictureUrl)) {
@@ -2241,7 +2249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Server-side-only eKYC API
+   * The eKYC solution server-side API.
    * 
    * @param request - EkycVerifyV2Request
    * @returns EkycVerifyV2Response
@@ -2361,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+   * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2418,7 +2426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+   * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @returns FaceCompareResponse
@@ -2698,7 +2706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2795,7 +2803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @returns FaceDuplicationCheckIntlResponse
@@ -2864,7 +2872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the server-side API for passive liveness detection.
+   * Provides the server-side passive liveness detection API.
    * 
    * @param request - FaceLivenessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2929,7 +2937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the server-side API for passive liveness detection.
+   * Provides the server-side passive liveness detection API.
    * 
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
@@ -2940,10 +2948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸活体验证
+   * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
    * 
    * @remarks
-   * 调用FaceLivenessV2接口对人脸图片进行活体检测。
+   * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
    * 
    * @param request - FaceLivenessV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3000,10 +3008,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸活体验证
+   * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
    * 
    * @remarks
-   * 调用FaceLivenessV2接口对人脸图片进行活体检测。
+   * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
    * 
    * @param request - FaceLivenessV2Request
    * @returns FaceLivenessV2Response
@@ -3100,10 +3108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸活体验证
+   * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
-   * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+   * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
    * 
    * @param request - FaceVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3192,10 +3200,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸活体验证
+   * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
-   * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+   * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
    * 
    * @param request - FaceVerifyIntlRequest
    * @returns FaceVerifyIntlResponse
@@ -3502,6 +3510,184 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+   * 
+   * @param request - IdnAuthorityVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IdnAuthorityVerifyIntlResponse
+   */
+  async idnAuthorityVerifyIntlWithOptions(request: $_model.IdnAuthorityVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.IdnAuthorityVerifyIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.birthDate)) {
+      query["BirthDate"] = request.birthDate;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.fullName)) {
+      query["FullName"] = request.fullName;
+    }
+
+    if (!$dara.isNull(request.idNumber)) {
+      query["IdNumber"] = request.idNumber;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!$dara.isNull(request.sourceFacePictureFile)) {
+      query["SourceFacePictureFile"] = request.sourceFacePictureFile;
+    }
+
+    if (!$dara.isNull(request.sourceFacePictureUrl)) {
+      query["SourceFacePictureUrl"] = request.sourceFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.timestamp)) {
+      query["Timestamp"] = request.timestamp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceFacePicture)) {
+      body["SourceFacePicture"] = request.sourceFacePicture;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IdnAuthorityVerifyIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IdnAuthorityVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.IdnAuthorityVerifyIntlResponse({}));
+  }
+
+  /**
+   * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+   * 
+   * @param request - IdnAuthorityVerifyIntlRequest
+   * @returns IdnAuthorityVerifyIntlResponse
+   */
+  async idnAuthorityVerifyIntl(request: $_model.IdnAuthorityVerifyIntlRequest): Promise<$_model.IdnAuthorityVerifyIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.idnAuthorityVerifyIntlWithOptions(request, runtime);
+  }
+
+  async idnAuthorityVerifyIntlAdvance(request: $_model.IdnAuthorityVerifyIntlAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.IdnAuthorityVerifyIntlResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let idnAuthorityVerifyIntlReq = new $_model.IdnAuthorityVerifyIntlRequest({ });
+    OpenApiUtil.convert(request, idnAuthorityVerifyIntlReq);
+    if (!$dara.isNull(request.sourceFacePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.sourceFacePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      idnAuthorityVerifyIntlReq.sourceFacePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let idnAuthorityVerifyIntlResp = await this.idnAuthorityVerifyIntlWithOptions(idnAuthorityVerifyIntlReq, runtime);
+    return idnAuthorityVerifyIntlResp;
+  }
+
+  /**
    * Initializes an authentication session.
    * 
    * @param tmpReq - InitializeRequest
@@ -3772,7 +3958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证初始化
+   * Initializes an authentication session.
    * 
    * @param tmpReq - InitializeV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4039,7 +4225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证初始化
+   * Initializes an authentication session.
    * 
    * @param request - InitializeV2Request
    * @returns InitializeV2Response

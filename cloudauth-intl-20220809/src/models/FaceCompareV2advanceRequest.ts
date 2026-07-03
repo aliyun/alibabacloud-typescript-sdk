@@ -7,7 +7,7 @@ export class FaceCompareV2AdvanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable quality check for the input face images.
-   * >Danger: Deprecated.
+   * >Danger: Deprecated.</danger>.
    * 
    * @example
    * N

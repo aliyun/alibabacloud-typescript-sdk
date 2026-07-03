@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Face detection result information
+   * The face verification result information.
    * 
    * @example
    * {
@@ -18,7 +18,7 @@ export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   extFaceInfo?: string;
   /**
    * @remarks
-   * Certificate Classification Result. Returned only when the API response Succeeded.
+   * The document recognition result. This parameter is returned only when the API response is successful.
    * 
    * @example
    * {
@@ -39,7 +39,7 @@ export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification passed. The value is Y if passed, or N if Failed.
+   * Indicates whether the verification is passed. Valid values: Y (passed) and N (not passed).
    * 
    * @example
    * Y
@@ -47,7 +47,7 @@ export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Sub-result code
+   * The sub-result code.
    * 
    * @example
    * 205
@@ -55,7 +55,7 @@ export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique id of the request
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 4ab0b***cbde97
@@ -93,7 +93,7 @@ export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
 export class EkycVerifyV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The response code.
    * 
    * @example
    * Success
@@ -101,7 +101,7 @@ export class EkycVerifyV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The response message.
    * 
    * @example
    * success
@@ -117,7 +117,7 @@ export class EkycVerifyV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return Result
+   * The response result.
    */
   result?: EkycVerifyV2ResponseBodyResult;
   static names(): { [key: string]: string } {

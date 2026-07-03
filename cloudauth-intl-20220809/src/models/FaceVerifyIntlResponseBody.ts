@@ -3,48 +3,81 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
+  faceAttributeInfo?: string;
   /**
+   * @remarks
+   * The liveness face quality score. Value range: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 39.04
    */
   faceQualityScore?: number;
   /**
+   * @remarks
+   * The algorithm score for illumination, a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 97.43
    */
   illuminationScore?: number;
   /**
+   * @remarks
+   * The algorithm score for key area occlusion, a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 100
    */
   kaOcclusionScore?: number;
   /**
+   * @remarks
+   * The algorithm score for occlusion, a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 50.26
    */
   occlusionScore?: number;
   /**
+   * @remarks
+   * The image sharpness score, a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 86.47
    */
   sharpnessScore?: number;
+  targetFaceQualityScore?: number;
+  targetIlluminationScore?: number;
+  targetKaOcclusionScore?: number;
+  targetOcclusionScore?: number;
+  targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
+      faceAttributeInfo: 'FaceAttributeInfo',
       faceQualityScore: 'FaceQualityScore',
       illuminationScore: 'IlluminationScore',
       kaOcclusionScore: 'KaOcclusionScore',
       occlusionScore: 'OcclusionScore',
       sharpnessScore: 'SharpnessScore',
+      targetFaceQualityScore: 'TargetFaceQualityScore',
+      targetIlluminationScore: 'TargetIlluminationScore',
+      targetKaOcclusionScore: 'TargetKaOcclusionScore',
+      targetOcclusionScore: 'TargetOcclusionScore',
+      targetSharpnessScore: 'TargetSharpnessScore',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceAttributeInfo: 'string',
       faceQualityScore: 'number',
       illuminationScore: 'number',
       kaOcclusionScore: 'number',
       occlusionScore: 'number',
       sharpnessScore: 'number',
+      targetFaceQualityScore: 'number',
+      targetIlluminationScore: 'number',
+      targetKaOcclusionScore: 'number',
+      targetOcclusionScore: 'number',
+      targetSharpnessScore: 'number',
     };
   }
 
@@ -59,6 +92,9 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
 
 export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The face ID, user ID, and comparison score of the corresponding face in the face library when a duplicate face is found during retrieval.
+   * 
    * @example
    * [
    *     {
@@ -69,53 +105,97 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
    * ]
    */
   duplicateFace?: string;
+  /**
+   * @remarks
+   * The additional face result information.
+   */
   extFaceInfo?: FaceVerifyIntlResponseBodyResultExtFaceInfo;
   /**
+   * @remarks
+   * The predicted reference age of the face. Prediction may fail and the value may not be returned.
+   * 
    * @example
    * 30
    */
   faceAge?: number;
   /**
+   * @remarks
+   * Indicates whether the captured face involves a liveness attack. Valid values:
+   * - Y: attack detected.
+   * - N: no attack detected.
+   * 
+   * This field is returned only when passive liveness detection is enabled.
+   * 
    * @example
    * N
    */
   faceAttack?: string;
   /**
+   * @remarks
+   * The probability of a passive liveness detection attack on the face. Value range: 0 to 100. This field is returned only when passive liveness detection is enabled.
+   * 
    * @example
    * 99
    */
   faceAttackScore?: number;
   /**
+   * @remarks
+   * The comparison score between the face image submitted during verification and the reference face image. Value range: 0 to 100.
+   * 
    * @example
    * 95.0
    */
   faceComparisonScore?: number;
   /**
+   * @remarks
+   * The predicted gender of the face image. Prediction may fail and the value may not be returned. Valid values:
+   * - M: male.
+   * - F: female.
+   * 
    * @example
    * M
    */
   faceGender?: string;
   /**
+   * @remarks
+   * The final verification result. Valid values:
+   * - Y: passed.
+   * - N: not passed.
+   * 
    * @example
    * Y
    */
   facePassed?: string;
   /**
+   * @remarks
+   * The corresponding face ID returned only when the customer has enabled automatic registration and the face is registered successfully.
+   * 
    * @example
    * 9e792ec84c8f0ca592a
    */
   faceRegistrationId?: string;
   /**
+   * @remarks
+   * The face registration result. Valid values: 
+   * - 0: failed. 
+   * - 1: succeeded.
+   * 
    * @example
    * 0
    */
   faceRegistrationResult?: number;
   /**
+   * @remarks
+   * The sub-result code.
+   * 
    * @example
    * 200
    */
   subCode?: string;
   /**
+   * @remarks
+   * The unique identifier of the verification request.
+   * 
    * @example
    * 4ab0b***cbde97
    */
@@ -168,20 +248,33 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
 
 export class FaceVerifyIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: FaceVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

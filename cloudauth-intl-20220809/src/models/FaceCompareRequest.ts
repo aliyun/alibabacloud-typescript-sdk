@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCompareRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable face image quality check.<danger>Deprecated.</danger>.
+   * Whether to enable quality detection for the input face image>Danger: Deprecated
    * 
    * @example
    * N
@@ -13,7 +13,7 @@ export class FaceCompareRequest extends $dara.Model {
   facePictureQualityCheck?: string;
   /**
    * @remarks
-   * The face quality check.
+   * Face quality check
    * 
    * @example
    * Y
@@ -21,7 +21,7 @@ export class FaceCompareRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+   * A unique business identifier customized by the merchant, used for subsequent troubleshooting. Supports a combination of letters and numbers with a maximum length of 32 characters. Ensure it is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -29,11 +29,11 @@ export class FaceCompareRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The Base64-encoded source face image.
+   * Base64-encoded face photo.
    * 
-   * > **Note**
-   * > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-   * > - Specify either SourceFacePicture or SourceFacePictureUrl.
+   * Note
+   * - If you choose this method to pass in the photo, check the photo size and do not pass in an oversized photo.
+   * - Either SourceFacePicture or SourceFacePictureUrl must be specified.
    * 
    * @example
    * base64
@@ -41,7 +41,7 @@ export class FaceCompareRequest extends $dara.Model {
   sourceFacePicture?: string;
   /**
    * @remarks
-   * The HTTPS or HTTP URL of the source face image.
+   * The HTTPS or HTTP URL of the face image.
    * 
    * @example
    * https://***face1.jpeg
@@ -49,11 +49,11 @@ export class FaceCompareRequest extends $dara.Model {
   sourceFacePictureUrl?: string;
   /**
    * @remarks
-   * The Base64-encoded reference face image.
+   * Base64-encoded reference photo.
    * 
-   * > **Note**
-   * > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-   * > - Specify either TargetFacePicture or TargetFacePictureUrl.
+   * Note
+   * - If you choose this method to pass in the photo, check the photo size and do not pass in an oversized photo.
+   * - Either TargetFacePicture or TargetFacePictureUrl must be specified.
    * 
    * @example
    * base64

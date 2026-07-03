@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * The overall quality score.
+   * Overall quality score
    * 
    * @example
    * 39.04
@@ -13,7 +13,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   faceQualityScore?: number;
   /**
    * @remarks
-   * The illumination score.
+   * Illumination score
    * 
    * @example
    * 0.02
@@ -21,7 +21,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   illuminationScore?: number;
   /**
    * @remarks
-   * The key area occlusion score.
+   * Key area occlusion score
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * The occlusion score.
+   * Occlusion score
    * 
    * @example
    * 50.26
@@ -37,12 +37,17 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   occlusionScore?: number;
   /**
    * @remarks
-   * The sharpness score.
+   * Sharpness score
    * 
    * @example
    * 86.47
    */
   sharpnessScore?: number;
+  targetFaceQualityScore?: number;
+  targetIlluminationScore?: number;
+  targetKaOcclusionScore?: number;
+  targetOcclusionScore?: number;
+  targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
       faceQualityScore: 'FaceQualityScore',
@@ -50,6 +55,11 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
       kaOcclusionScore: 'KaOcclusionScore',
       occlusionScore: 'OcclusionScore',
       sharpnessScore: 'SharpnessScore',
+      targetFaceQualityScore: 'TargetFaceQualityScore',
+      targetIlluminationScore: 'TargetIlluminationScore',
+      targetKaOcclusionScore: 'TargetKaOcclusionScore',
+      targetOcclusionScore: 'TargetOcclusionScore',
+      targetSharpnessScore: 'TargetSharpnessScore',
     };
   }
 
@@ -60,6 +70,11 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
       kaOcclusionScore: 'number',
       occlusionScore: 'number',
       sharpnessScore: 'number',
+      targetFaceQualityScore: 'number',
+      targetIlluminationScore: 'number',
+      targetKaOcclusionScore: 'number',
+      targetOcclusionScore: 'number',
+      targetSharpnessScore: 'number',
     };
   }
 
@@ -75,12 +90,12 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
 export class FaceCompareResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The additional result information.
+   * Related result information
    */
   extFaceInfo?: FaceCompareResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The comparison score between the submitted face image and the reference face image during verification. Value range: **0** to **100**.
+   * The comparison score between the submitted face photo and the reference face image during the authentication process. Value range: **0** to **100**.
    * 
    * @example
    * 98
@@ -88,7 +103,7 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * Indicates whether the verification passed.
+   * Whether the authentication passed.
    * 
    * - Y: Passed.
    * - N: Not passed.
@@ -99,7 +114,7 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The unique ID of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -138,10 +153,10 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
 export class FaceCompareResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * Response code.
    * 
-   * 200: The request was successful.
-   * Other values: An error occurred. For more information, see error codes.
+   * 200: Success.
+   * Other: Error code. For error code details, see Error Codes.
    * 
    * @example
    * 200
@@ -149,7 +164,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * Response message.
    * 
    * @example
    * success
@@ -165,7 +180,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Response result.
    */
   result?: FaceCompareResponseBodyResult;
   static names(): { [key: string]: string } {

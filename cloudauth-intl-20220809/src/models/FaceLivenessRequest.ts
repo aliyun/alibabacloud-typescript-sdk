@@ -7,8 +7,8 @@ export class FaceLivenessRequest extends $dara.Model {
    * @remarks
    * Specifies whether to allow cropping. Default value: F. Valid values:
    * 
-   * - T: enabled.
-   * - F: disabled. (Default).
+   * - T: Allow cropping.
+   * - F: Do not allow cropping.
    * 
    * @example
    * T
@@ -19,7 +19,7 @@ export class FaceLivenessRequest extends $dara.Model {
    * The Base64-encoded face photo.
    * 
    * Note:
-   * - If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
+   * - If you use FacePictureBase64 (Base64-encoded photo) to pass in the face photo, check the photo size and do not pass in an excessively large photo.
    * 
    * @example
    * Base64
@@ -35,9 +35,9 @@ export class FaceLivenessRequest extends $dara.Model {
   facePictureUrl?: string;
   /**
    * @remarks
-   * Specifies whether to return the face quality score. Default value: F. Valid values:
-   * - T: enabled.
-   * - F: disabled. (Default).
+   * Specifies whether to output the face quality score. Default value: F. Valid values:
+   * - T: Output the face quality score.
+   * - F: Do not output the face quality score.
    * 
    * @example
    * T
@@ -45,7 +45,7 @@ export class FaceLivenessRequest extends $dara.Model {
   faceQuality?: string;
   /**
    * @remarks
-   * The face quality check.
+   * Specifies whether to perform a face quality check.
    * 
    * @example
    * Y
@@ -53,7 +53,7 @@ export class FaceLivenessRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+   * The merchant-defined unique business ID for subsequent troubleshooting. The value supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -61,7 +61,7 @@ export class FaceLivenessRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of the userId field before passing it in, for example, by hashing the value.
+   * The merchant user ID or other identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you pre-desensitize the value of the userId field, such as by hashing the value.
    * 
    * @example
    * 123456789
@@ -71,8 +71,8 @@ export class FaceLivenessRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform occlusion detection. Default value: F. Valid values:
    * 
-   * - T: enabled.
-   * - F: disabled. (Default).
+   * - T: Perform occlusion detection.
+   * - F: Do not perform occlusion detection.
    * 
    * @example
    * T

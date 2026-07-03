@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically register the face in the specified face database when no duplicate face is found during the search. Valid values:
-   * - 0: automatic registration
-   * - 1: no registration (default).
+   * Specifies whether to automatically register the face in the specified face library when no duplicate face is found during the search. Valid values:
+   * - 0: Automatic registration.
+   * - 1: No registration (default).
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   autoRegistration?: string;
   /**
    * @remarks
-   * The face database codes created in the console. A maximum of 10 face databases can be queried at a time. Separate multiple face database codes with commas (,).
+   * The face library codes created by the customer in the console. A maximum of 10 face libraries can be queried at the same time. Separate multiple face library codes with commas (,).
    * 
    * @example
    * 1232344，23444
@@ -31,7 +31,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The face database for registration.
+   * The face library for registration.
    * 
    * @example
    * 0e0c34a77f
@@ -39,7 +39,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   faceRegisterGroupCode?: string;
   /**
    * @remarks
-   * The face matching threshold. >Warning: This is a reserved field and is not currently enabled.</warning>.
+   * The face matching threshold. >Warning: This is a reserved field and is not currently enabled.</warning>
    * 
    * @example
    * 0.5
@@ -48,8 +48,8 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable passive liveness detection. Valid values:
-   * - 0: disabled
-   * - 1: enabled.
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 0
@@ -57,7 +57,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   liveness?: string;
   /**
    * @remarks
-   * The custom unique business identifier, which is used for subsequent troubleshooting. The value is a combination of letters and digits up to 32 characters in length. Ensure that the value is unique.
+   * The custom unique business identifier, used for subsequent troubleshooting. The value is a combination of letters and digits up to 32 characters in length. Ensure that the value is unique.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The custom user ID or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
+   * The custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The number of faces to return when multiple faces above the matching threshold are found.
+   * Specifies the number of faces to return when multiple faces above the matching threshold exist.
    * - Default value: 1.
    * - Maximum value: 5.
    * 
@@ -100,7 +100,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
    * Specifies the type of face data to save. Valid values:
    * - 0: face image (default)
    * - 1: feature
-   * >Warning: This is a reserved field and is not currently enabled.</warning>.
+   * >Warning: This is a reserved field and is not currently enabled.</warning>
    * 
    * @example
    * 0
@@ -116,7 +116,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * The Base64-encoded facial image.
+   * The Base64-encoded face image.
    * 
    * @example
    * base64
@@ -124,7 +124,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sourceFacePicture?: string;
   /**
    * @remarks
-   * The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The URL of the face image. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://***face1.jpeg
@@ -132,7 +132,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sourceFacePictureUrl?: string;
   /**
    * @remarks
-   * The Base64-encoded facial image.
+   * The Base64-encoded face image.
    * 
    * @example
    * base64
@@ -140,7 +140,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The URL of the face image. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://***face2.jpeg
@@ -148,18 +148,18 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   /**
    * @remarks
-   * The verification type. Valid values:
-   * - 0: retrieve pattern
-   * > - Feature: Submits a face database and a user facial image (sourceFacePicture). The system automatically retrieves the face database to check whether the specified facial image (sourceFacePicture) already exists. Passive liveness detection can be enabled for the facial image (sourceFacePicture).
-   * > - Recommended scenario: Real-person create an account where duplicate registration is not allowed.
+   * The authentication type. Valid values:
+   * - 0: retrieval pattern
+   * > - Feature: Submits a face library and a user face image (sourceFacePicture). The system automatically retrieves faces from the face library to determine whether the specified face image (sourceFacePicture) already exists. Passive liveness detection can be enabled for the face image (sourceFacePicture).
+   * > - Recommended scenario: Real-person scenarios where you want to create an account and duplicate registration is not allowed.
    * 
-   * - 1 (default): authenticate pattern
-   * > - Feature: Submits a specified facial image (sourceFacePicture) and a stored facial image (TargetFacePicture). The system automatically authenticates whether the two faces match. Passive liveness detection can be enabled for the specified facial image (sourceFacePicture).
-   * > - Recommended scenario: Authenticating whether the operation is performed by the account owner when logon credentials or account information is modified.
+   * - 1 (default): authentication pattern
+   * > - Feature: Submits a specified face image (sourceFacePicture) and a retained face image (TargetFacePicture). The system automatically authenticates whether the faces match. Passive liveness detection can be enabled for the specified face image (sourceFacePicture).
+   * > - Recommended scenario: Authenticating the identity of the operator when logon credentials or account information is modified.
    * 
    * - 2: comprehensive pattern
-   * > - Feature: Submits a face database, a specified facial image (sourceFacePicture), and a stored facial image (TargetFacePicture). The system automatically retrieves the face database to check whether the specified facial image (sourceFacePicture) exists and whether it matches the stored face. Passive liveness detection can be enabled for the specified facial image (sourceFacePicture).
-   * > - Recommended scenario: Authenticating that the user is new and the operation is performed by the user.
+   * > - Feature: Submits a face library, a specified face image (sourceFacePicture), and a retained face image (TargetFacePicture). The system automatically retrieves faces from the face library to determine whether the specified face image (sourceFacePicture) exists and whether it matches the retained face image. Passive liveness detection can be enabled for the specified face image (sourceFacePicture).
+   * > - Recommended scenario: Authenticating that the user is new and the operation is performed by the user in person.
    * 
    * This parameter is required.
    * 

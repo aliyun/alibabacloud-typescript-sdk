@@ -36,6 +36,7 @@ export { FaceVerifyIntlResponseBodyResultExtFaceInfo } from './FaceVerifyIntlRes
 export { FaceVerifyIntlResponseBodyResult } from './FaceVerifyIntlResponseBody';
 export { Id2MetaPeriodVerifyIntlResponseBodyResult } from './Id2metaPeriodVerifyIntlResponseBody';
 export { Id2MetaVerifyIntlResponseBodyResult } from './Id2metaVerifyIntlResponseBody';
+export { IdnAuthorityVerifyIntlResponseBodyResult } from './IdnAuthorityVerifyIntlResponseBody';
 export { InitializeResponseBodyResult } from './InitializeResponseBody';
 export { InitializeV2ResponseBodyResult } from './InitializeV2responseBody';
 export { KeepaliveIntlResponseBodyResult } from './KeepaliveIntlResponseBody';
@@ -159,6 +160,10 @@ export { Id2MetaPeriodVerifyIntlResponse } from './Id2metaPeriodVerifyIntlRespon
 export { Id2MetaVerifyIntlRequest } from './Id2metaVerifyIntlRequest';
 export { Id2MetaVerifyIntlResponseBody } from './Id2metaVerifyIntlResponseBody';
 export { Id2MetaVerifyIntlResponse } from './Id2metaVerifyIntlResponse';
+export { IdnAuthorityVerifyIntlRequest } from './IdnAuthorityVerifyIntlRequest';
+export { IdnAuthorityVerifyIntlAdvanceRequest } from './IdnAuthorityVerifyIntlAdvanceRequest';
+export { IdnAuthorityVerifyIntlResponseBody } from './IdnAuthorityVerifyIntlResponseBody';
+export { IdnAuthorityVerifyIntlResponse } from './IdnAuthorityVerifyIntlResponse';
 export { InitializeRequest } from './InitializeRequest';
 export { InitializeShrinkRequest } from './InitializeShrinkRequest';
 export { InitializeResponseBody } from './InitializeResponseBody';

@@ -4,46 +4,77 @@ import * as $dara from '@darabonba/typescript';
 
 export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The predicted reference age of the face. The prediction may fail and return no value.
+   * 
    * @example
    * 18
    */
   faceAge?: number;
   /**
+   * @remarks
+   * The liveness detection result. Valid values: Y (attack detected) and N (Normal).
+   * 
    * @example
    * Y
    */
   faceAttack?: string;
+  faceAttributeInfo?: string;
   /**
+   * @remarks
+   * The predicted gender of the face image. The prediction may fail and return no value. Valid values:
+   * 
+   * - M: male.
+   * - F: female.
+   * 
    * @example
    * M
    */
   faceGender?: string;
   /**
+   * @remarks
+   * The quality score of the liveness face. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 79.04
    */
   faceQualityScore?: number;
   /**
+   * @remarks
+   * The algorithm score for illumination as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 97.43
    */
   illuminationScore?: number;
   /**
+   * @remarks
+   * The algorithm score for key area occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 100
    */
   kaOcclusionScore?: number;
   /**
+   * @remarks
+   * Indicates whether facial occlusion is detected. A value of Y indicates occlusion is detected. A value of N indicates no occlusion is detected.
+   * 
    * @example
    * Y
    */
   occlusionResult?: string;
   /**
+   * @remarks
+   * The algorithm score for occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 50.26
    */
   occlusionScore?: number;
   /**
+   * @remarks
+   * The algorithm score for image sharpness as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
    * @example
    * 60.78
    */
@@ -52,6 +83,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
     return {
       faceAge: 'FaceAge',
       faceAttack: 'FaceAttack',
+      faceAttributeInfo: 'FaceAttributeInfo',
       faceGender: 'FaceGender',
       faceQualityScore: 'FaceQualityScore',
       illuminationScore: 'IlluminationScore',
@@ -66,6 +98,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
     return {
       faceAge: 'number',
       faceAttack: 'string',
+      faceAttributeInfo: 'string',
       faceGender: 'string',
       faceQualityScore: 'number',
       illuminationScore: 'number',
@@ -86,18 +119,34 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
 }
 
 export class FaceLivenessV2ResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The face result information.
+   */
   extFaceInfo?: FaceLivenessV2ResponseBodyResultExtFaceInfo;
   /**
+   * @remarks
+   * Indicates whether the authentication is passed. Valid values:
+   * 
+   * - Y: passed.
+   * - N: not passed.
+   * 
    * @example
    * Y
    */
   passed?: string;
   /**
+   * @remarks
+   * The sub-result code.
+   * 
    * @example
    * 200
    */
   subCode?: string;
   /**
+   * @remarks
+   * The unique ID of the authentication request.
+   * 
    * @example
    * hksb7ba1b28130d24e015d694361****
    */
@@ -134,20 +183,33 @@ export class FaceLivenessV2ResponseBodyResult extends $dara.Model {
 
 export class FaceLivenessV2ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: FaceLivenessV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

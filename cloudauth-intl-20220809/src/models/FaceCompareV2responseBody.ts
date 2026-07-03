@@ -43,6 +43,11 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
    * 86.47
    */
   sharpnessScore?: number;
+  targetFaceQualityScore?: number;
+  targetIlluminationScore?: number;
+  targetKaOcclusionScore?: number;
+  targetOcclusionScore?: number;
+  targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
       faceQualityScore: 'FaceQualityScore',
@@ -50,6 +55,11 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
       kaOcclusionScore: 'KaOcclusionScore',
       occlusionScore: 'OcclusionScore',
       sharpnessScore: 'SharpnessScore',
+      targetFaceQualityScore: 'TargetFaceQualityScore',
+      targetIlluminationScore: 'TargetIlluminationScore',
+      targetKaOcclusionScore: 'TargetKaOcclusionScore',
+      targetOcclusionScore: 'TargetOcclusionScore',
+      targetSharpnessScore: 'TargetSharpnessScore',
     };
   }
 
@@ -60,6 +70,11 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
       kaOcclusionScore: 'number',
       occlusionScore: 'number',
       sharpnessScore: 'number',
+      targetFaceQualityScore: 'number',
+      targetIlluminationScore: 'number',
+      targetKaOcclusionScore: 'number',
+      targetOcclusionScore: 'number',
+      targetSharpnessScore: 'number',
     };
   }
 
@@ -80,7 +95,7 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceCompareV2ResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The comparison score between the submitted face image and the reference face image during verification. Value range: 0 to 100.
+   * The comparison score between the submitted face image and the reference face image during the verification process. Valid values: 0 to 100.
    * 
    * @example
    * 98
@@ -88,10 +103,10 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * Indicates whether the verification passed. Valid values:
+   * Indicates whether the verification is passed. Valid values:
    * 
-   * - Y: passed.
-   * - N: not passed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -138,9 +153,9 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
 export class FaceCompareV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
-   * 200: succeeded. Other values: error codes. For more information, see error codes.
+   * 200: success. Other values: error codes. For more information, see error codes.
    * 
    * @example
    * 200
@@ -148,7 +163,7 @@ export class FaceCompareV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The response message.
    * 
    * @example
    * success

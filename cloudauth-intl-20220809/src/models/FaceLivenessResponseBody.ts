@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * The predicted reference age based on the face. The prediction may fail and return no value.
+   * The predicted reference age of the face. The prediction may fail and return no value.
    * 
    * @example
    * 18
@@ -19,12 +19,13 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
    * Y
    */
   faceAttack?: string;
+  faceAttributeInfo?: string;
   /**
    * @remarks
-   * The predicted gender based on the face photo. The prediction may fail and return no value. Valid values:
+   * The predicted gender of the face in the photo. The prediction may fail and return no value. Valid values:
    * 
-   * - M: male.
-   * - F: female.
+   * - M: Male.
+   * - F: Female.
    * 
    * @example
    * M
@@ -32,7 +33,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * The face quality score (0 to 100). This value is returned only when the face quality score switch is enabled in the request parameters.
+   * The face quality score (0 to 100). This parameter is returned only when the face quality score switch is enabled.
    * 
    * @example
    * 87.19
@@ -56,7 +57,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This value is returned only when the occlusion detection switch is enabled.
+   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This parameter is returned only when the occlusion detection switch is enabled.
    * 
    * @example
    * Y
@@ -82,6 +83,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
     return {
       faceAge: 'FaceAge',
       faceAttack: 'FaceAttack',
+      faceAttributeInfo: 'FaceAttributeInfo',
       faceGender: 'FaceGender',
       faceQualityScore: 'FaceQualityScore',
       illuminationScore: 'IlluminationScore',
@@ -96,6 +98,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
     return {
       faceAge: 'number',
       faceAttack: 'string',
+      faceAttributeInfo: 'string',
       faceGender: 'string',
       faceQualityScore: 'number',
       illuminationScore: 'number',
@@ -123,10 +126,10 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * Indicates whether the authentication passed. Valid values:
+   * Indicates whether the authentication is passed. Valid values:
    * 
-   * - Y: passed.
-   * - N: not passed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * N
