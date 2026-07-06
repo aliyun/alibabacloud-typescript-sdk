@@ -62,6 +62,11 @@ export class GetArtifactBuildRuleResponseBody extends $dara.Model {
    */
   buildRuleId?: string;
   /**
+   * @remarks
+   * The API return code:
+   * - **200**: Indicates success.
+   * - Others: Indicate error codes.
+   * 
    * @example
    * success
    */

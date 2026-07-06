@@ -92,7 +92,7 @@ export class ListArtifactLifecycleRuleResponseBodyRulesPolicies extends $dara.Mo
 export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the lifecycle management rule is automatically executed.
+   * Indicates whether the rule runs automatically.
    * 
    * @example
    * false
@@ -100,7 +100,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   auto?: boolean;
   /**
    * @remarks
-   * The time when the lifecycle management rule was created.
+   * The creation time of the rule.
    * 
    * @example
    * 1638187989000
@@ -108,7 +108,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether lifecycle management is enabled for the artifact.
+   * Indicates whether the rule is configured to delete tags.
    * 
    * @example
    * true
@@ -124,7 +124,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the lifecycle management rule was last modified.
+   * The last modification time of the rule.
    * 
    * @example
    * 1678341923385
@@ -132,7 +132,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-ns
@@ -140,7 +140,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The time when the lifecycle management rule is next executed.
+   * The next execution time.
    * 
    * @example
    * 1638187989000
@@ -149,7 +149,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   policies?: ListArtifactLifecycleRuleResponseBodyRulesPolicies[];
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * test_1
@@ -157,7 +157,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The number of retained images.
+   * The number of image tags to retain.
    * 
    * @example
    * 30
@@ -173,7 +173,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The execution cycle of the lifecycle management rule.
+   * The execution schedule.
    * 
    * @example
    * WEEK
@@ -181,7 +181,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The deletion scope of artifacts.
+   * The scope of the rule.
    * 
    * @example
    * INSTANCE
@@ -189,7 +189,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The regular expression that indicates which image tags are retained.
+   * The regular expression that matches image tags to retain.
    * 
    * @example
    * .*-alpine
@@ -248,7 +248,7 @@ export class ListArtifactLifecycleRuleResponseBodyRules extends $dara.Model {
 export class ListArtifactLifecycleRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -256,10 +256,11 @@ export class ListArtifactLifecycleRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The request succeeded.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -275,7 +276,7 @@ export class ListArtifactLifecycleRuleResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -291,7 +292,7 @@ export class ListArtifactLifecycleRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * _
+   * The list of lifecycle management rules.
    */
   rules?: ListArtifactLifecycleRuleResponseBodyRules[];
   /**

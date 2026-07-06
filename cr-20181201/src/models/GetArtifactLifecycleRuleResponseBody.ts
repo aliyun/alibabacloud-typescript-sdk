@@ -92,7 +92,7 @@ export class GetArtifactLifecycleRuleResponseBodyPolicies extends $dara.Model {
 export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the lifecycle management rule is automatically executed.
+   * Specifies if the rule is executed automatically.
    * 
    * @example
    * true
@@ -100,7 +100,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   auto?: boolean;
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -108,7 +108,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the lifecycle management rule was created.
+   * The creation time.
    * 
    * @example
    * 1571926439000
@@ -116,7 +116,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether lifecycle management is enabled for the artifact.
+   * Specifies if lifecycle management is enabled.
    * 
    * @example
    * true
@@ -132,10 +132,11 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The request succeeded.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -143,7 +144,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The time when the lifecycle management rule was last modified.
+   * The last modified time.
    * 
    * @example
    * 1638259914000
@@ -151,7 +152,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-namespace
@@ -159,7 +160,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The time when the lifecycle management rule is next executed.
+   * The timestamp of the next scheduled execution.
    * 
    * @example
    * 1701878400000
@@ -168,7 +169,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   policies?: GetArtifactLifecycleRuleResponseBodyPolicies[];
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * test-repo
@@ -184,7 +185,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of retained images.
+   * The number of image versions to retain.
    * 
    * @example
    * 30
@@ -200,7 +201,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The execution cycle of the lifecycle management rule.
+   * The execution schedule.
    * 
    * @example
    * WEEK
@@ -208,7 +209,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The deletion scope of artifacts.
+   * The scope of the rule.
    * 
    * @example
    * INSTANCE
@@ -216,7 +217,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The regular expression that indicates which image tags are retained.
+   * The regular expression that matches image tags to select versions for retention.
    * 
    * @example
    * .*-alpine

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteChainResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DB1809A8-E1C8-5707-BAF8-D4FC1C11****

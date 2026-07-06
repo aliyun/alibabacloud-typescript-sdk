@@ -6,7 +6,7 @@ import { RepoConfiguration } from "./RepoConfiguration";
 export class GetNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a repository is automatically created when an image is pushed to the namespace.
+   * Indicates whether automatic repository creation is enabled.
    * 
    * @example
    * true
@@ -14,7 +14,7 @@ export class GetNamespaceResponseBody extends $dara.Model {
   autoCreateRepo?: boolean;
   /**
    * @remarks
-   * The return value.
+   * The response code.
    * 
    * @example
    * success
@@ -23,10 +23,11 @@ export class GetNamespaceResponseBody extends $dara.Model {
   defaultRepoConfiguration?: RepoConfiguration;
   /**
    * @remarks
-   * The default type of repositories in the namespace. Valid values:
+   * The default repository type. Valid values:
    * 
-   * *   PUBLIC: public repositories.
-   * *   PRIVATE: private repositories.
+   * - `PUBLIC`: a public repository
+   * 
+   * - `PRIVATE`: a private repository
    * 
    * @example
    * PUBLIC
@@ -36,7 +37,7 @@ export class GetNamespaceResponseBody extends $dara.Model {
   defaultRepoType?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The ID of the instance.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -44,7 +45,7 @@ export class GetNamespaceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true
@@ -68,10 +69,11 @@ export class GetNamespaceResponseBody extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The status of the namespace.
+   * The status of the namespace. Valid values:
    * 
-   * *   NORMAL
-   * *   DELETING
+   * - `NORMAL`: The namespace is running as expected.
+   * 
+   * - `DELETING`: The namespace is being deleted.
    * 
    * @example
    * NORMAL
@@ -87,7 +89,7 @@ export class GetNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the namespace belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmv36i4is****

@@ -1,19 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AccessControlEntry } from "./AccessControlEntry";
 
 
-export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * test
-   * 
-   * @deprecated
-   */
-  comment?: string;
+export class DeleteInstanceEndpointAclPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The endpoint type. Only Internet is supported.
@@ -24,13 +13,13 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
    * internet
    */
   endpointType?: string;
-  entries?: AccessControlEntry[];
+  entriesShrink?: string;
   /**
    * @remarks
-   * The IP address range that is allowed to access the instance.
+   * The IP CIDR block.
    * 
    * @example
-   * 192.168.1.1/32
+   * 127.0.0.1/32
    * 
    * @deprecated
    */
@@ -47,21 +36,20 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The module for which you want to set the access policy. Valid values:
+   * The module for which the access policy is set. Valid values:
    * 
-   * - `Registry`: access the image repository
+   * - `Registry`: access to the image repository
    * 
-   * - `Chart`: access Helm Chart
+   * - `Chart`: access to Helm Chart
    * 
    * @example
-   * Registry
+   * Chart
    */
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      comment: 'Comment',
       endpointType: 'EndpointType',
-      entries: 'Entries',
+      entriesShrink: 'Entries',
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
@@ -70,9 +58,8 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      comment: 'string',
       endpointType: 'string',
-      entries: { 'type': 'array', 'itemType': AccessControlEntry },
+      entriesShrink: 'string',
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
@@ -80,9 +67,6 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.entries)) {
-      $dara.Model.validateArray(this.entries);
-    }
     super.validate();
   }
 

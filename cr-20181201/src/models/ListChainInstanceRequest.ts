@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChainInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set this parameter to **ListChainInstance**.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListChainInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the delivery chain started.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListChainInstanceRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The name of the image repository.
+   * The page size.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class ListChainInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The time when the delivery chain is completed.
+   * The image repository name.
    * 
    * @example
    * test-repo
@@ -39,7 +39,7 @@ export class ListChainInstanceRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the delivery chain.
+   * The namespace name.
    * 
    * @example
    * test-namespace

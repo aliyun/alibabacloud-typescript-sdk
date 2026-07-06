@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return value
+   * The return value.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class GetInstanceCountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Number of instances
+   * The number of instances.
    * 
    * @example
    * 5
@@ -21,9 +21,11 @@ export class GetInstanceCountResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Values:
-   * - `true`: The API call was successful. 
-   * - `false`: The API call failed.
+   * Indicates whether the API call is successful. Valid values:
+   * 
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call fails.
    * 
    * @example
    * true
@@ -31,7 +33,7 @@ export class GetInstanceCountResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BC648259-91A7-4502-BED3-EDF64361FA83

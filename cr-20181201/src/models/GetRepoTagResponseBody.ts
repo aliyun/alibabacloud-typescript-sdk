@@ -28,6 +28,9 @@ export class GetRepoTagResponseBody extends $dara.Model {
    */
   imageCreate?: number;
   /**
+   * @remarks
+   * Image ID
+   * 
    * @example
    * 45023655bf39c382e26a8607d057c27871dee163c1ecf48cc1ebf2a1****
    */

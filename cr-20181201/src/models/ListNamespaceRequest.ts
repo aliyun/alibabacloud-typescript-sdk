@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the Container Registry (ACR) instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * @example
    * test-namespace
@@ -25,8 +25,9 @@ export class ListNamespaceRequest extends $dara.Model {
    * @remarks
    * The status of the namespace. Valid values:
    * 
-   * *   `NORMAL`
-   * *   `DELETING`
+   * - `NORMAL`: The namespace is normal.
+   * 
+   * - `DELETING`: The namespace is being deleted.
    * 
    * @example
    * NORMAL
@@ -42,7 +43,7 @@ export class ListNamespaceRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 30

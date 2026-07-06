@@ -23,7 +23,7 @@ export class ListRepoSyncTaskRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -39,7 +39,7 @@ export class ListRepoSyncTaskRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The name of the repository namespace.
    * 
    * @example
    * ns
@@ -47,12 +47,12 @@ export class ListRepoSyncTaskRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The ID of the synchronization task record, which is the same as SyncBatchTaskId in the response.
+   * The ID of the sync task. This ID is also the `SyncBatchTaskId` returned in the response, which identifies the image\\"s sync batch task.
    * 
-   * >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.
+   * > An image that matches multiple sync rules generates multiple sync tasks, each with the same `SyncBatchTaskId`.
    * 
    * @example
-   * crsr-7lph66uloi6h****
+   * 9d8ac4f6-8138-4c15-a2e3-60624ad3****
    */
   syncRecordId?: string;
   /**

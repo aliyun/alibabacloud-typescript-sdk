@@ -13,10 +13,11 @@ export class CreateInstanceEndpointAclPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call is successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class CreateInstanceEndpointAclPolicyResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D735C5EC-4206-4F48-A090-307BF56BEB99

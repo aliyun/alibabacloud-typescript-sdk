@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AccessControlEntry } from "./AccessControlEntry";
 
 
-export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
+export class CreateInstanceEndpointAclPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -24,7 +23,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
    * internet
    */
   endpointType?: string;
-  entries?: AccessControlEntry[];
+  entriesShrink?: string;
   /**
    * @remarks
    * The IP address range that is allowed to access the instance.
@@ -61,7 +60,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
     return {
       comment: 'Comment',
       endpointType: 'EndpointType',
-      entries: 'Entries',
+      entriesShrink: 'Entries',
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
@@ -72,7 +71,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
     return {
       comment: 'string',
       endpointType: 'string',
-      entries: { 'type': 'array', 'itemType': AccessControlEntry },
+      entriesShrink: 'string',
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
@@ -80,9 +79,6 @@ export class CreateInstanceEndpointAclPolicyRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.entries)) {
-      $dara.Model.validateArray(this.entries);
-    }
     super.validate();
   }
 

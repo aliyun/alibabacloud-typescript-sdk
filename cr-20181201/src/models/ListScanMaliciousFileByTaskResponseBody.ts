@@ -48,7 +48,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
    * The type of the malicious file.
    * 
    * @example
-   * Suspected to contain Webshell code
+   * 疑似含有Webshell代码
    */
   maliciousName?: string;
   /**

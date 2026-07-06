@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChartRepositoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -13,10 +13,11 @@ export class DeleteChartRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DeleteChartRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 12589EF7-96E2-4554-AAD7-F7209E88CAD3

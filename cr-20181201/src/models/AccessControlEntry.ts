@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListInstanceRegionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The language used for response parameters. Set this parameter to `zh-CN`.
-   * 
-   * @example
-   * zh_CN
-   */
-  lang?: string;
+export class AccessControlEntry extends $dara.Model {
+  comment?: string;
+  entry?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
+      comment: 'Comment',
+      entry: 'Entry',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
+      comment: 'string',
+      entry: 'string',
     };
   }
 

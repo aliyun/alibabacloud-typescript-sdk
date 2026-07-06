@@ -6,7 +6,7 @@ import { RepoConfiguration } from "./RepoConfiguration";
 export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the automatically creating repositories feature is enabled for the namespace.
+   * Indicates whether a repository is automatically created when an image is pushed to the namespace.
    * 
    * @example
    * true
@@ -15,10 +15,11 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   defaultRepoConfiguration?: RepoConfiguration;
   /**
    * @remarks
-   * The default type of repositories in the namespace. Valid values:
+   * The default type of the repository. Valid values:
    * 
-   * *   `PUBLIC`: public repositories.
-   * *   `PRIVATE`: private repositories.
+   * - `PUBLIC`: public
+   * 
+   * - `PRIVATE`: private
    * 
    * @example
    * PUBLIC
@@ -28,7 +29,7 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   defaultRepoType?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * cri-94klsruryslx****
@@ -36,7 +37,7 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the namespace.
    * 
    * @example
    * crn-tiw8t3f8i5lt****
@@ -44,7 +45,7 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * @example
    * test
@@ -54,8 +55,9 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
    * @remarks
    * The status of the namespace. Valid values:
    * 
-   * *   `NORMAL`: The namespace is normal.
-   * *   `DELETING`: The namespace is being deleted.
+   * - `NORMAL`: The namespace is normal.
+   * 
+   * - `DELETING`: The namespace is being deleted.
    * 
    * @example
    * NORMAL
@@ -63,7 +65,7 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
   namespaceStatus?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm4n5kzyf2fbi
@@ -110,7 +112,7 @@ export class ListNamespaceResponseBodyNamespaces extends $dara.Model {
 export class ListNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * success
@@ -120,8 +122,9 @@ export class ListNamespaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The request is successful.
+   * 
+   * - `false`: The request fails.
    * 
    * @example
    * true
@@ -129,7 +132,7 @@ export class ListNamespaceResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The queried namespaces.
+   * The list of namespaces.
    */
   namespaces?: ListNamespaceResponseBodyNamespaces[];
   /**
@@ -142,7 +145,7 @@ export class ListNamespaceResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30
@@ -150,7 +153,7 @@ export class ListNamespaceResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B7E5FCA5-55ED-451C-9649-0BB2B93387D0
@@ -158,7 +161,7 @@ export class ListNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the queried namespaces.
+   * The total number of entries.
    * 
    * @example
    * 1

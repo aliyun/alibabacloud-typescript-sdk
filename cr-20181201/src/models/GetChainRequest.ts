@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetChainRequest extends $dara.Model {
   /**
    * @remarks
+   * Delivery chain ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetChainRequest extends $dara.Model {
   chainId?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example

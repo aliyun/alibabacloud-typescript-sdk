@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password that you use to log on to the registry.
+   * The password used to log on to the Registry.
    * 
    * @example
    * shaunadadakks:uuczxnjcyeyhdjadkkajsjdjadhyucb
@@ -13,7 +13,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   authorizationToken?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The timestamp when the temporary token expired. Unit: milliseconds.
+   * The expiration timestamp of the temporary token, in milliseconds.
    * 
    * @example
    * 1571242083000
@@ -37,7 +37,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The request ID
+   * The request ID.
    * 
    * @example
    * E069EB86-E6AD-4A98-ADDE-0E993390239A
@@ -45,7 +45,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The username that you use to log on to the registry.
+   * The username used to log on to the Registry.
    * 
    * @example
    * temp_user_cr

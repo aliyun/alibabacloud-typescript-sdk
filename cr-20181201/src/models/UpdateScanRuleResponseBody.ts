@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScanRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * success

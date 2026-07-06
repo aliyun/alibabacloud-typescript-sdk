@@ -13,7 +13,7 @@ export class GetRepoTagScanStatusRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetRepoTagScanStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The ID of the repository.
    * 
    * @example
    * crr-uf082u9dg8do****

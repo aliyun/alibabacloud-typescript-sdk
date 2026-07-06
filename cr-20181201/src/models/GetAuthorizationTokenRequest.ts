@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The repository instance ID.
    * 
    * This parameter is required.
    * 

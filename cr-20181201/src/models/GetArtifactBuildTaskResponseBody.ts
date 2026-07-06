@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact that is built in the task. The value can only be IMAGE.
+   * The artifact type. Currently, only `IMAGE` is supported.
    * 
    * @example
    * IMAGE
@@ -13,7 +13,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   artifactType?: string;
   /**
    * @remarks
-   * The ID of the repository to which the source artifact belongs. The repository can only be an image repository.
+   * The repository ID. Currently, only image repositories are supported.
    * 
    * @example
    * cri-shac42yvqzvq****
@@ -21,7 +21,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   repoId?: string;
   /**
    * @remarks
-   * The version of the artifact. The artifact can only be an image.
+   * The artifact version. Currently, only image versions are supported.
    * 
    * @example
    * latest
@@ -55,7 +55,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
 export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact that is built in the task. The value can only be IMAGE.
+   * The artifact type. Currently, only `IMAGE` is supported.
    * 
    * @example
    * IMAGE
@@ -63,7 +63,7 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   artifactType?: string;
   /**
    * @remarks
-   * The ID of the repository to which the artifact that is built in the task belongs. The repository can only be an image repository. The value is the same as the ID of the repository to which the source artifact belongs.
+   * The repository ID. It must be the same as the repository ID of the source artifact. Only image repositories are supported.
    * 
    * @example
    * crr-1234567
@@ -71,7 +71,7 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   repoId?: string;
   /**
    * @remarks
-   * The version of the artifact that is built in the task. The artifact can only be an image.
+   * The artifact version. Currently, only image versions are supported.
    * 
    * @example
    * latest_accelerated
@@ -105,10 +105,11 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
 export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact building task. Valid values:
+   * The artifact build type. Valid values:
    * 
-   * *   `IMAGE_TO_ACCELERATED_IMAGE`: builds accelerated images for Container Service for Kubernetes (ACK) clusters.
-   * *   `IMAGE_TO_ECI_ACCELERATED_IMAGE`: builds accelerated images for elastic container instances.
+   * - `IMAGE_TO_ACCELERATED_IMAGE`: an accelerated image for ACK.
+   * 
+   * - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: an accelerated image for ECI.
    * 
    * @example
    * IMAGE_TO_ACCELERATED_IMAGE
@@ -116,7 +117,7 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   artifactBuildType?: string;
   /**
    * @remarks
-   * The ID of the artifact building task.
+   * The ID of the artifact build task.
    * 
    * @example
    * i2a-1yu****
@@ -124,7 +125,7 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   buildTaskId?: string;
   /**
    * @remarks
-   * The return value.
+   * The response code.
    * 
    * @example
    * success
@@ -132,16 +133,16 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the artifact building task ends.
+   * The Unix timestamp in seconds when the task ended.
    * 
    * @example
-   * 156871880
+   * 1685415871
    */
   endTime?: number;
   instructions?: string[];
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -157,30 +158,33 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the source artifact.
+   * The source artifact.
    */
   sourceArtifact?: GetArtifactBuildTaskResponseBodySourceArtifact;
   /**
    * @remarks
-   * The time when the artifact building task starts.
+   * The Unix timestamp in seconds when the task started.
    * 
    * @example
-   * 156871881
+   * 1685437471
    */
   startTime?: number;
   /**
    * @remarks
-   * The artifact that is built in the task.
+   * The target artifact.
    */
   targetArtifact?: GetArtifactBuildTaskResponseBodyTargetArtifact;
   /**
    * @remarks
-   * The status of the artifact that is built in the task. Valid values:
+   * The status of the artifact build task. Valid values:
    * 
-   * *   `PENDING`: The artifact is being scheduled.
-   * *   `BUILDING`: The artifact is being built.
-   * *   `SUCCESS`: The artifact is built.
-   * *   `FAILED`: The artifact fails to be built.
+   * - `PENDING`: The task is being scheduled.
+   * 
+   * - `BUILDING`: The task is in progress.
+   * 
+   * - `SUCCESS`: The task is successful.
+   * 
+   * - `FAILED`: The task failed.
    * 
    * @example
    * BUILDING

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChainRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery pipeline.
+   * The delivery chain ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteChainRequest extends $dara.Model {
   chainId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

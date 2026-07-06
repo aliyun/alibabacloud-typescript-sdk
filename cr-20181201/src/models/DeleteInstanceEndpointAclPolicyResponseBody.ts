@@ -13,10 +13,11 @@ export class DeleteInstanceEndpointAclPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call is successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DeleteInstanceEndpointAclPolicyResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BDB1F145-F0FF-44E9-AADF-A678642A7C7D

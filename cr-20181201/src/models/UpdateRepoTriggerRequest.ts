@@ -60,7 +60,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
    * *   `TAG_REG_EXP`: a regular expression-based trigger.
    * 
    * @example
-   * TAG_LIST
+   * ALL
    */
   triggerType?: string;
   /**

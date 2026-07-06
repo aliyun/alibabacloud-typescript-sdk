@@ -21,17 +21,17 @@ export class GetScanRuleResponseBodyScanRule extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Names of namespaces where the event is effective.
+   * The namespace names for which the event takes effect.
    */
   namespaces?: string[];
   /**
    * @remarks
-   * Names of repositories where the event is effective.
+   * The repository names for which the event takes effect.
    */
   repoNames?: string[];
   /**
    * @remarks
-   * Tag filter pattern for event triggering.
+   * The tag filtering rule that triggers the event.
    * 
    * @example
    * .*
@@ -39,7 +39,7 @@ export class GetScanRuleResponseBodyScanRule extends $dara.Model {
   repoTagFilterPattern?: string;
   /**
    * @remarks
-   * The event rule name.
+   * The name of the event rule.
    * 
    * @example
    * protection
@@ -63,11 +63,11 @@ export class GetScanRuleResponseBodyScanRule extends $dara.Model {
   scanScope?: string;
   /**
    * @remarks
-   * The vulnerability type: 
+   * The vulnerability type. Valid values:
    * 
-   * - `cve`: System vulnerability
+   * - `cve`: system vulnerability
    * 
-   * - `sca`: Application vulnerability
+   * - `sca`: application vulnerability
    * 
    * @example
    * SBOM
@@ -75,13 +75,13 @@ export class GetScanRuleResponseBodyScanRule extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The trigger type, valid values:
+   * The trigger type. Valid values:
    * 
-   * - `ALL`: All triggers
+   * - `ALL`: all triggers
    * 
-   * - `TAG_LISTTAG`: Trigger
+   * - `TAG_LISTTAG`: tag trigger
    * 
-   * - `TAG_REG_EXP`: Expression trigger
+   * - `TAG_REG_EXP`: expression trigger
    * 
    * @example
    * AUTO
@@ -145,7 +145,7 @@ export class GetScanRuleResponseBodyScanRule extends $dara.Model {
 export class GetScanRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return value
+   * The return code.
    * 
    * @example
    * success
@@ -153,11 +153,11 @@ export class GetScanRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful, valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * - `true`: The API call was successful
+   * - `true`: The API call is successful.
    * 
-   * - `false`: The API call failed
+   * - `false`: The API call failed.
    * 
    * @example
    * true

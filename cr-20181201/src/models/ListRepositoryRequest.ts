@@ -46,6 +46,17 @@ export class ListRepositoryRequest extends $dara.Model {
    */
   repoNamespaceName?: string;
   /**
+   * @remarks
+   * Repository status. Valid values:
+   * 
+   * - `NORMAL`: Normal.
+   * 
+   * - `DELETING`: Deleting.
+   * 
+   * - `DELETED`: Deleted.
+   * 
+   * - `ALL`: All repository statuses.
+   * 
    * @example
    * ALL
    */

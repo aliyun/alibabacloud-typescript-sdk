@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactLifecycleRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable lifecycle management for the artifact.
+   * Indicates whether automatic tag deletion is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListArtifactLifecycleRuleRequest extends $dara.Model {
   enableDeleteTag?: boolean;
   /**
    * @remarks
-   * The ID of the Container Registry Enterprise Edition instance.
+   * The ID of the Enterprise Edition instance.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListArtifactLifecycleRuleRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. If you specify a value greater than 100 for this parameter, the system reports a parameter error or uses 100 as the maximum value.
+   * The number of entries to return per page. The maximum value is 100. If you specify a value greater than 100, the system may return a parameter error or use a page size of 100.
    * 
    * @example
    * 10

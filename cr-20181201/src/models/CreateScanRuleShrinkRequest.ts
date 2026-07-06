@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScanRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of namespaces.
-   * 
-   * *   When the scan scope is NAMESPACE, this parameter cannot be empty.
-   * *   If the scan scope is REPO, you must specify a unique Namespace for this parameter.
+   * The collection of namespaces.
+   * - If the scan scope is set to NAMESPACE, this parameter cannot be empty.
+   * - If the scan scope is set to REPO, this parameter must contain exactly one namespace.
    * 
    * **if can be null:**
    * true
@@ -27,9 +26,8 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of repositories.
-   * 
-   * *   When the scan scope is NAMESPACE, this parameter must be empty.
-   * *   When the scan scope is REPO, this parameter cannot be empty.
+   * - If the scan scope is set to NAMESPACE, this parameter must be empty.
+   * - If the scan scope is set to REPO, this parameter cannot be empty.
    * 
    * **if can be null:**
    * true
@@ -37,7 +35,7 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   repoNamesShrink?: string;
   /**
    * @remarks
-   * The tag that triggers the scan matches the regular expression
+   * The regular expression used to match tags that trigger a scan.
    * 
    * This parameter is required.
    * 
@@ -47,7 +45,7 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   repoTagFilterPattern?: string;
   /**
    * @remarks
-   * The rule name
+   * The rule name.
    * 
    * This parameter is required.
    * 
@@ -57,12 +55,7 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The scan scope
-   * 
-   * Valid values:
-   * 
-   * *   NAMESPACE: namespace.
-   * *   REPO: repository.
+   * The scan scope.
    * 
    * This parameter is required.
    * 
@@ -74,10 +67,10 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The scan type. Valid values:
    * 
-   * *   `VUL`: Products Cloud Security Scanner
-   * *   `SBOM`: Product Content Analysis
+   * - `VUL`: cloud native artifact vulnerability scanning.
+   * - `SBOM`: cloud native artifact content analysis.
    * 
-   * Default value: `VUL`
+   * Default value: `VUL`.
    * 
    * @example
    * VUL
@@ -85,12 +78,7 @@ export class CreateScanRuleShrinkRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * Trigger type
-   * 
-   * Valid values:
-   * 
-   * *   AUTO: automatically trigger.
-   * *   MANUAL: manually trigger.
+   * The trigger type.
    * 
    * This parameter is required.
    * 

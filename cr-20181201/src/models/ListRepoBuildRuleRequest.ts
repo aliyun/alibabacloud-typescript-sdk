@@ -15,7 +15,7 @@ export class ListRepoBuildRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListRepoBuildRuleRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries to return per page.
    * 
    * @example
    * 30

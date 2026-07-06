@@ -54,7 +54,7 @@ export class ListChartRepositoryRequest extends $dara.Model {
    * *   `DELETING`: query repositories that are being deleted.
    * 
    * @example
-   * ALL
+   * NORMAL
    */
   repoStatus?: string;
   static names(): { [key: string]: string } {

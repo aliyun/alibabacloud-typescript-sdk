@@ -6,7 +6,7 @@ import { RouteItem } from "./RouteItem";
 export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -51,7 +51,7 @@ export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * The request status identifier.
    * 
    * @example
    * True

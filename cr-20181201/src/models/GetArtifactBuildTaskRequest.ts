@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactBuildTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the artifact building task.
+   * The ID of the artifact build task.
    * 
    * This parameter is required.
    * 

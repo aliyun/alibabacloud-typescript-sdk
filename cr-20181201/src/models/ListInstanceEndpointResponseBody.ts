@@ -8,7 +8,7 @@ export class ListInstanceEndpointResponseBodyEndpointsAclEntries extends $dara.M
    * The information about the ACL.
    * 
    * @example
-   * null
+   * 127.0.0.1
    */
   entry?: string;
   static names(): { [key: string]: string } {
@@ -81,7 +81,7 @@ export class ListInstanceEndpointResponseBodyEndpointsLinkedVpcs extends $dara.M
    * VPC ID
    * 
    * @example
-   * null
+   * vpc-bp1b1xjllp3ve5yze****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

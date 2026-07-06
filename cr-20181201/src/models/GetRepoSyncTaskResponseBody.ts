@@ -353,7 +353,7 @@ export class GetRepoSyncTaskResponseBody extends $dara.Model {
    * The policy that is used to trigger the synchronization task.
    * 
    * @example
-   * null
+   * PASSIVE
    */
   taskTrigger?: string;
   static names(): { [key: string]: string } {

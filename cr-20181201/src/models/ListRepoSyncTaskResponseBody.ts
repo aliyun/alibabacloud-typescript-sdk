@@ -13,7 +13,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model 
   imageTag?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -21,7 +21,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model 
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the repository belongs.
+   * The repository namespace.
    * 
    * @example
    * test
@@ -83,7 +83,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * cri-k77rd2eo9zttneqo
@@ -91,7 +91,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-shenzhen
@@ -107,7 +107,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the repository belongs.
+   * The repository namespace.
    * 
    * @example
    * test
@@ -145,7 +145,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
 export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the synchronization task was created.
+   * The creation time of the task.
    * 
    * @example
    * 1572839126000
@@ -153,12 +153,13 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether the synchronization task is performed across Alibaba Cloud accounts. Valid values:
+   * Whether the image is synchronized across accounts. Valid values:
    * 
-   * *   `true`: The image synchronization task is performed across accounts.
-   * *   `false`: The image synchronization task is performed within the same account.
+   * - `true`: The image is synchronized across accounts.
    * 
-   * Default value: `false`.
+   * - `false`: The image is synchronized within the same account.
+   * 
+   * Default value: `false`
    * 
    * @example
    * true
@@ -166,7 +167,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   crossUser?: boolean;
   /**
    * @remarks
-   * Indicates whether a custom synchronization link is used.
+   * Whether a custom sync link is used.
    * 
    * @example
    * true
@@ -174,18 +175,22 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   customLink?: boolean;
   /**
    * @remarks
-   * The information about the source image.
+   * The source image.
    */
   imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
   /**
    * @remarks
-   * The information about the destination image.
+   * The destination image.
    */
   imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
+  /**
+   * @remarks
+   * The ID of the custom sync link.
+   */
   linkId?: string;
   /**
    * @remarks
-   * The time when the synchronization task was last modified.
+   * This parameter is deprecated due to a typo. Use `ModifiedTime` instead.
    * 
    * @example
    * 1572839133000
@@ -193,20 +198,24 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * @deprecated
    */
   modifedTime?: number;
+  /**
+   * @remarks
+   * The modification time of the task.
+   */
   modifiedTime?: number;
   /**
    * @remarks
-   * The ID of the image synchronization batch tasks, which is the same as the value of SyncRecordId in the request.
+   * The ID of the batch sync task. This ID is the same as the sync record ID (`SyncRecordId`).
    * 
-   * >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.
+   * > If an image matches multiple sync rules, multiple sync tasks are generated. These tasks share the same `SyncBatchTaskId`.
    * 
    * @example
-   * 15DEEB56-9271-4FDD-AC4D-C3A5CC2C****
+   * 9d8ac4f6-8138-4c15-a2e3-60624ad3****
    */
   syncBatchTaskId?: string;
   /**
    * @remarks
-   * The ID of the synchronization rule.
+   * The ID of the sync rule.
    * 
    * @example
    * crsr-7lph66uloi6h****
@@ -214,7 +223,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncRuleId?: string;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The ID of the sync task.
    * 
    * @example
    * rst-4kfd7fk6pohk****
@@ -222,7 +231,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncTaskId?: string;
   /**
    * @remarks
-   * Indicates whether the synchronization transfer acceleration feature is enabled for the synchronization task.
+   * Whether transfer acceleration is enabled for the sync task.
    * 
    * @example
    * true
@@ -230,18 +239,9 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   syncTransAccelerate?: boolean;
   /**
    * @remarks
-   * The error message that is returned if the synchronization task fails.
+   * The task failure information.
    * 
-   * >  The system uses this parameter to return an error message if the synchronization task fails.
-   * 
-   * Valid value:
-   * 
-   * *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to access Object Storage Service (OSS).
-   * *   TAG_CONFLICT: The destination repository contains an image that has the same tag as the source image, and image tag immutability is enabled for the destination repository.
-   * *   UNSUPPORTED_FORMAT: The manifest or config format of the image to be synchronized is not supported.
-   * *   INTERNAL_ERROR: The synchronization task failed due to internal issues on the server.
-   * *   NETWORK_ERROR: The synchronization task failed due to unstable network connection.
-   * *   DATA_LENGTH_EXCEEDED: The manifest or config of the image is oversized.
+   * > If the sync task fails, this field returns details about the failure.
    * 
    * @example
    * NETWORK_ERROR
@@ -249,20 +249,21 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   taskIssue?: string;
   /**
    * @remarks
-   * The status of the synchronization task.
+   * The task status.
    * 
    * @example
-   * SUCCESS
+   * ERROR
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The policy that is configured to trigger the synchronization task. Valid values:
+   * The trigger policy. Valid values:
    * 
-   * *   `PASSIVE`: automatically triggers the synchronization task.
-   * *   `INITIATIVE`: manually triggers the synchronization task.
+   * - `PASSIVE`: The sync task is automatically triggered.
    * 
-   * Default value: `PASSIVE`.
+   * - `INITIATIVE`: The sync task is manually triggered.
+   * 
+   * Default value: `PASSIVE`
    * 
    * @example
    * PASSIVE
@@ -326,7 +327,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
 export class ListRepoSyncTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * success
@@ -334,7 +335,7 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Whether the request was successful.
    * 
    * @example
    * true
@@ -350,7 +351,7 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -366,12 +367,12 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried synchronization tasks.
+   * A list of sync tasks.
    */
   syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
   /**
    * @remarks
-   * The total number of the queried synchronization tasks.
+   * The total number of entries.
    * 
    * @example
    * 1

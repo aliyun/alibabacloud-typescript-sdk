@@ -6,16 +6,25 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   /**
    * @remarks
    * The category to which the baseline risk belongs.
+   * 
+   * @example
+   * 服务配置
    */
   baselineClassAlias?: string;
   /**
    * @remarks
    * Suggestions about how to fix the baseline risk.
+   * 
+   * @example
+   * 建议对ak混淆加密，避免被利用
    */
   baselineDetailAdvice?: string;
   /**
    * @remarks
    * The description of the baseline risk.
+   * 
+   * @example
+   * Access Key明文存储
    */
   baselineDetailDescription?: string;
   /**
@@ -37,6 +46,9 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   /**
    * @remarks
    * The name of the baseline risk.
+   * 
+   * @example
+   * 服务配置
    */
   baselineNameAlias?: string;
   /**

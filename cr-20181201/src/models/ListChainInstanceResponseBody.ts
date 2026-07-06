@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChainInstanceResponseBodyChainInstancesChain extends $dara.Model {
   /**
    * @remarks
-   * The name of the namespace.
+   * The delivery chain ID.
    * 
    * @example
    * chi-m42gbku0****
@@ -13,7 +13,7 @@ export class ListChainInstanceResponseBodyChainInstancesChain extends $dara.Mode
   chainId?: string;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The delivery chain name.
    * 
    * @example
    * test-chain
@@ -21,7 +21,7 @@ export class ListChainInstanceResponseBodyChainInstancesChain extends $dara.Mode
   chainName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The delivery chain version.
    * 
    * @example
    * 1
@@ -55,12 +55,12 @@ export class ListChainInstanceResponseBodyChainInstancesChain extends $dara.Mode
 export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   /**
    * @remarks
-   * The name of the namespace.
+   * The delivery chain execution record.
    */
   chain?: ListChainInstanceResponseBodyChainInstancesChain;
   /**
    * @remarks
-   * 1
+   * The delivery chain instance ID.
    * 
    * @example
    * F4CF4DDB-BEF2-5575-****-*******
@@ -68,7 +68,7 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   chainInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The end time.
    * 
    * @example
    * 1636685856000
@@ -76,7 +76,7 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the delivery chain.
+   * The repository name.
    * 
    * @example
    * test-repo
@@ -84,12 +84,7 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The execution result of the delivery chain. Valid values:
-   * 
-   * *   `SUCCESS`
-   * *   `FAILED`
-   * *   `CANCELED`
-   * *   `DENIED`
+   * The namespace.
    * 
    * @example
    * test-ns
@@ -97,7 +92,12 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The list of the execution records of delivery chains.
+   * The execution result of the delivery chain. Valid values:
+   * 
+   * - `SUCCESS`: Succeeded.
+   * - `FAILED`: Failed.
+   * - `CANCELED`: Canceled.
+   * - `DENIED`: Denied.
    * 
    * @example
    * SUCCESS
@@ -105,7 +105,7 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * test-repo
+   * The start time.
    * 
    * @example
    * 1636685776000
@@ -113,12 +113,12 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the delivery chain. Valid values:
+   * The execution status of the delivery chain. Valid values:
    * 
-   * *   `RUNNING`
-   * *   `COMPLETE`
-   * *   `CANCELING`
-   * *   `CANCELED`
+   * - `RUNNING`: Running.
+   * - `COMPLETE`: Complete.
+   * - `CANCELING`: Canceling.
+   * - `CANCELED`: Canceled.
    * 
    * @example
    * COMPLETE
@@ -165,12 +165,12 @@ export class ListChainInstanceResponseBodyChainInstances extends $dara.Model {
 export class ListChainInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The list of delivery chain execution records.
    */
   chainInstances?: ListChainInstanceResponseBodyChainInstances[];
   /**
    * @remarks
-   * The version of the delivery chain.
+   * The return value.
    * 
    * @example
    * success
@@ -178,7 +178,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The instance ID.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -186,7 +186,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The execution record of the delivery chain.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -194,7 +194,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * 30
+   * The page number.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * The page size.
    * 
    * @example
    * 30
@@ -210,7 +210,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The request ID.
    * 
    * @example
    * 838D1602-6D8F-47FB-B60A-656645D2****
@@ -218,7 +218,7 @@ export class ListChainInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The total number of entries.
    * 
    * @example
    * 1

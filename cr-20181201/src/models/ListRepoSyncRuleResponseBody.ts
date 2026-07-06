@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
-   * The time when the synchronization rule was created.
+   * The time when the synchronization rule was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1572604642000
@@ -13,10 +13,11 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether the synchronization is performed across Alibaba Cloud accounts. Valid values:
+   * Indicates whether images are synchronized across different Alibaba Cloud accounts. Valid values:
    * 
-   * *   `true`: Images are synchronized across Alibaba Cloud accounts.
-   * *   `false`: Images are synchronized within the same Alibaba Cloud account.
+   * - `true`
+   * 
+   * - `false`
    * 
    * Default value: `false`.
    * 
@@ -59,7 +60,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   localRepoName?: string;
   /**
    * @remarks
-   * The time when the synchronization rule was last modified.
+   * The time when the synchronization rule was last modified. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1572604642000
@@ -69,7 +70,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
    * @remarks
    * The regular expression that is used to filter repositories.
    * 
-   * >  This parameter is valid only when SyncScope is set to `NAMESPACE`.
+   * > This parameter is valid only when `SyncScope` is set to `NAMESPACE`.
    * 
    * @example
    * .*
@@ -79,8 +80,9 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * *   `FROM`: Images are synchronized from the source instance to the destination instance.
-   * *   `TO`: Images are synchronized from the destination instance to the source instance.
+   * - `FROM`: from the source instance to the target instance.
+   * 
+   * - `TO`: from the target instance to the source instance.
    * 
    * @example
    * FROM
@@ -106,8 +108,9 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
    * @remarks
    * The synchronization scope. Valid values:
    * 
-   * *   `NAMESPACE`: synchronizes the image tags in a namespace that meet the synchronization rule.
-   * *   `REPO`: synchronizes the image tags in an image repository that meet the synchronization rule.
+   * - `NAMESPACE`: Synchronizes resources by namespace.
+   * 
+   * - `REPO`: Synchronizes resources by repository.
    * 
    * @example
    * NAMESPACE
@@ -115,10 +118,11 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   syncScope?: string;
   /**
    * @remarks
-   * The policy that is applied to trigger the synchronization rule. Valid values:
+   * The trigger policy. Valid values:
    * 
-   * *   `INITIATIVE`: The synchronization rule is positively triggered.
-   * *   `PASSIVE`: The synchronization rule is passively triggered.
+   * - `INITIATIVE`: The synchronization is actively triggered.
+   * 
+   * - `PASSIVE`: The synchronization is passively triggered.
    * 
    * @example
    * PASSIVE
@@ -126,7 +130,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   syncTrigger?: string;
   /**
    * @remarks
-   * The regular expression that is used to filter image tags.
+   * The regular expression that is used to filter tags.
    * 
    * @example
    * .*
@@ -134,7 +138,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   tagFilter?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * The ID of the target instance.
    * 
    * @example
    * cri-k77rd2eo9ztt****
@@ -142,7 +146,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace in the destination instance.
+   * The name of the namespace in the target instance.
    * 
    * @example
    * test
@@ -150,7 +154,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   targetNamespaceName?: string;
   /**
    * @remarks
-   * The region ID of the destination instance.
+   * The region ID of the target instance.
    * 
    * @example
    * cn-shenzhen
@@ -158,7 +162,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   targetRegionId?: string;
   /**
    * @remarks
-   * The name of the repository in the destination instance.
+   * The name of the repository in the target instance.
    * 
    * @example
    * test-repo-target
@@ -224,7 +228,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
 export class ListRepoSyncRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The response code.
    * 
    * @example
    * success
@@ -264,12 +268,12 @@ export class ListRepoSyncRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried synchronization rules.
+   * The list of synchronization rules.
    */
   syncRules?: ListRepoSyncRuleResponseBodySyncRules[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -28,6 +28,9 @@ export class GetRepoTagScanSummaryResponseBody extends $dara.Model {
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * Number of low-severity vulnerabilities
+   * 
    * @example
    * 89
    */

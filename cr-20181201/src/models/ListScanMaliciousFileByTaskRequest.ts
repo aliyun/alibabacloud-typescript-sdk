@@ -24,7 +24,7 @@ export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
    * The severity of the malicious file.
    * 
    * @example
-   * High
+   * serious、suspicious、remind
    */
   level?: string;
   /**

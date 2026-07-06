@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an acceleration link is enabled for image subscription. The subscription acceleration feature is in public preview. The feature is optimized based on scheduling policies and network links to accelerate image subscription.
+   * Indicates whether to enable the accelerated subscription channel. This feature is in public preview. Based on an optimized scheduling policy and network link, the speed of image subscription is improved.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   accelerate?: boolean;
   /**
    * @remarks
-   * The time when the subscription rule was created.
+   * The time when the rule was created.
    * 
    * @example
    * 1638187989000
@@ -29,7 +29,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the subscription rule was modified.
+   * The time when the rule was last modified.
    * 
    * @example
    * 1678341923385
@@ -37,7 +37,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The name of the source namespace.
+   * The name of the namespace.
    * 
    * @example
    * test-ns
@@ -45,7 +45,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * Indicates whether the original image is overwritten.
+   * Indicates whether to overwrite the image.
    * 
    * @example
    * true
@@ -53,12 +53,12 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   override?: boolean;
   /**
    * @remarks
-   * The operating system and architecture. If the source repository contains a multi-arch image, only the images with the specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
+   * The operating system and architecture. If the source repository contains a multi-architecture image, only images that have a specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
    */
   platform?: string[];
   /**
    * @remarks
-   * The name of the source repository.
+   * The name of the repository.
    * 
    * @example
    * test-repo
@@ -83,13 +83,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   sourceNamespaceName?: string;
   /**
    * @remarks
-   * The source of the artifact.
-   * 
-   * Valid values:
-   * 
-   * *   DOCKER_HUB: Docker Hub
-   * *   GCR: GCR
-   * *   QUAY: Quay.io
+   * The source of the artifact. Valid values:
    * 
    * @example
    * DOCKER_HUB
@@ -113,7 +107,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   tagCount?: number;
   /**
    * @remarks
-   * The image tag in the subscription source repository. Regular expressions are supported.
+   * The regular expression that is used to subscribe to the source repository.
    * 
    * @example
    * release.*
@@ -174,7 +168,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
 export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The response code.
    * 
    * @example
    * success
@@ -182,10 +176,11 @@ export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -201,7 +196,7 @@ export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30
@@ -217,12 +212,12 @@ export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried artifact subscription rules.
+   * The subscription rules.
    */
   rules?: ListArtifactSubscriptionRuleResponseBodyRules[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 13

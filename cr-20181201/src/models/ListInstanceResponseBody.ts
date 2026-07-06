@@ -45,7 +45,7 @@ export class ListInstanceResponseBodyInstancesTags extends $dara.Model {
 export class ListInstanceResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 1562849679000
@@ -61,15 +61,22 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The issue occurs on the instance.
+   * The instance issue.
    * 
    * @example
-   * oss bucket already exists
+   * 实例问题，取值：
+   * OSS_TOO_MANY_BUCKETS：OSS Bucket 数量超限
+   * 
+   * OSS_BUCKET_ALREADY_EXISTS：同名 OSS Bucket 已存在
+   * 
+   * OSS_SERVICE_ROLE_UNAUTHORIZED：OSS 权限未授权
+   * 
+   * USER_NOT_REGISTERED_BY_REAL_NAME：国际站账号在购买中国站 OSS Bucket 时未进行实名认证
    */
   instanceIssue?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * test
@@ -77,7 +84,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The edition of the Container Registry Enterprise Edition instance.
+   * The Enterprise Edition specification.
    * 
    * @example
    * Enterprise_Basic
@@ -85,7 +92,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceSpecification?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * RUNNING
@@ -93,7 +100,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The last modification time.
    * 
    * @example
    * 1562849760000
@@ -101,7 +108,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -109,7 +116,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2h3aexpy****
@@ -173,12 +180,12 @@ export class ListInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The queried instances.
+   * The instance information.
    */
   instances?: ListInstanceResponseBodyInstances[];
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -194,7 +201,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 30.
+   * The page size. Default value: 30.
    * 
    * @example
    * 30
@@ -210,7 +217,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 12121

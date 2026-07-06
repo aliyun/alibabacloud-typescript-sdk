@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChainRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the delivery chain in the JSON format.
+   * The JSON-serialized entity object that describes the delivery chain.
    * 
    * @example
    * chainconfig
@@ -21,7 +21,7 @@ export class CreateChainRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateChainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * repo1
@@ -49,7 +49,7 @@ export class CreateChainRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * ns1
@@ -57,7 +57,7 @@ export class CreateChainRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * Repositories in which the delivery chain does not take effect.
+   * The collection of repositories excluded from the delivery chain execution.
    */
   scopeExclude?: string[];
   static names(): { [key: string]: string } {

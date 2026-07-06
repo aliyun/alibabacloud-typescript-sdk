@@ -9,9 +9,6 @@ export class RouteItem extends $dara.Model {
    * 
    * This parameter is required.
    * 
-   * @example
-   * Internet
-   * 
    * **if can be null:**
    * false
    */
@@ -21,9 +18,6 @@ export class RouteItem extends $dara.Model {
    * Instance Domain
    * 
    * This parameter is required.
-   * 
-   * @example
-   * test-instance-registry-vpc.cn-hangzhou.cr.aliyuncs.com
    */
   instanceDomain?: string;
   /**
@@ -31,9 +25,6 @@ export class RouteItem extends $dara.Model {
    * OSS Domain
    * 
    * This parameter is required.
-   * 
-   * @example
-   * https://cri-cfafawer***-registry.oss-cn-hangzhou.aliyuncs.com
    */
   storageDomain?: string;
   static names(): { [key: string]: string } {

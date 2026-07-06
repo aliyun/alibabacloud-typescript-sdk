@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRepositoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * The repository description.
+   * 
    * @example
    * repo-for-test
    */
   detail?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,22 +22,37 @@ export class UpdateRepositoryRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The repository ID.
+   * 
    * @example
    * crr-tquyps22md8p****
    */
   repoId?: string;
   /**
+   * @remarks
+   * The repository name.
+   * 
    * @example
    * dsp/domain-microapp
    */
   repoName?: string;
   /**
+   * @remarks
+   * The name of the repository namespace.
+   * 
    * @example
    * ejiayou-other
    */
   repoNamespaceName?: string;
   /**
    * @remarks
+   * The repository type. Valid values:
+   * 
+   * - `PUBLIC`: public repository
+   * 
+   * - `PRIVATE`: private repository.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +61,8 @@ export class UpdateRepositoryRequest extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
+   * The summary.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +70,13 @@ export class UpdateRepositoryRequest extends $dara.Model {
    */
   summary?: string;
   /**
+   * @remarks
+   * Specifies whether image tag immutability is enabled. Valid values:
+   * 
+   * - `true`: enabled
+   * 
+   * - `false`: disabled.
+   * 
    * @example
    * true
    */

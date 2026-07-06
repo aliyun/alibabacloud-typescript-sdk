@@ -6,7 +6,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   buildArgs?: string[];
   /**
    * @remarks
-   * The ID of the image building rule.
+   * The ID of the build rule.
    * 
    * @example
    * crbr-khys0nd3asbe****
@@ -23,7 +23,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   dockerfileLocation?: string;
   /**
    * @remarks
-   * The name of the Dockerfile.
+   * Dockerfile name
    * 
    * @example
    * Dockerfile
@@ -31,16 +31,20 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   dockerfileName?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * Image Tag
    * 
    * @example
    * v0.1
    */
   imageTag?: string;
+  /**
+   * @remarks
+   * Image operating system and platform
+   */
   platforms?: string[];
   /**
    * @remarks
-   * The name of the push that triggers the building rule.
+   * Code push-triggered build name
    * 
    * @example
    * v0.1
@@ -48,10 +52,11 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   pushName?: string;
   /**
    * @remarks
-   * The type of the push that triggers the image building rule. Valid values:
+   * The type of the event that triggers the build rule. Valid values:
    * 
-   * *   GIT_BRANCH: branch push
-   * *   GIT_TAG: tag push
+   * - `GIT_BRANCH`: A code branch is pushed.
+   * 
+   * - GIT_TAG: Push source code from a tag.
    * 
    * @example
    * GIT_BRANCH
@@ -103,12 +108,12 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
 export class ListRepoBuildRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of image building rules.
+   * The build rules.
    */
   buildRules?: ListRepoBuildRuleResponseBodyBuildRules[];
   /**
    * @remarks
-   * The return value.
+   * The response code. A value of `success` indicates that the request was successful.
    * 
    * @example
    * success
@@ -116,10 +121,11 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -127,7 +133,7 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -143,7 +149,7 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 42D782C8-E8F6-4A32-BEA0-6A6AC854C22A
@@ -151,7 +157,7 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of build rules.
    * 
    * @example
    * 1

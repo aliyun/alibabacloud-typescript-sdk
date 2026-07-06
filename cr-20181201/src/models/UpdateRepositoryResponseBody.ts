@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRepositoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CC43EC6B-0DD4-40AE-8811-B0519617051A
    */

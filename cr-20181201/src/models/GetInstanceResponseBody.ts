@@ -44,6 +44,9 @@ export class GetInstanceResponseBodyTags extends $dara.Model {
 
 export class GetInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return value
+   * 
    * @example
    * success
    */
@@ -69,7 +72,14 @@ export class GetInstanceResponseBody extends $dara.Model {
    * The issue occurs on the instance.
    * 
    * @example
-   * The issue occurs on the instance. Valid values: OSS_TOO_MANY_BUCKETS: The number of Object Storage Service (OSS) buckets exceeds the upper limit. OSS_BUCKET_ALREADY_EXISTS: An OSS bucket that has the duplicate name already exists. OSS_SERVICE_ROLE_UNAUTHORIZED: The OSS service-linked role is not granted permissions. USER_NOT_REGISTERED_BY_REAL_NAME: The Alibaba Cloud account has not passed a real name verification.
+   * 实例问题，取值：
+   * OSS_TOO_MANY_BUCKETS：OSS Bucket 数量超限
+   * 
+   * OSS_BUCKET_ALREADY_EXISTS：同名 OSS Bucket 已存在
+   * 
+   * OSS_SERVICE_ROLE_UNAUTHORIZED：OSS 权限未授权
+   * 
+   * USER_NOT_REGISTERED_BY_REAL_NAME：国际站账号在购买中国站 OSS Bucket 时未进行实名认证
    */
   instanceIssue?: string;
   /**

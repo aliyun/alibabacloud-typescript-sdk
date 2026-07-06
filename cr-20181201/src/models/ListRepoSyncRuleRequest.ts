@@ -47,7 +47,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * The ID of the target instance.
    * 
    * @example
    * cri-k77rd2eo9ztt****
@@ -55,7 +55,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the destination instance.
+   * The ID of the target region.
    * 
    * @example
    * cn-shenzhen

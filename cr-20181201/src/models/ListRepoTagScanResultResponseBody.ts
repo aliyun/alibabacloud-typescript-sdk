@@ -16,7 +16,7 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $dara.Mode
    * The name of the vulnerability.
    * 
    * @example
-   * Vulnerability
+   * 漏洞
    * 
    * @deprecated
    */
