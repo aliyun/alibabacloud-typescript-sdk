@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReopenInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. If the request is successful, 200 is returned.
+   * The return code. A return code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ReopenInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTopicRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * *   If you do not specify this parameter, the keys of all tags are matched.
-   * *   The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * - N specifies the number of the tag. The value of N must be an integer from 1 to 20.
+   * 
+   * - If this parameter is left empty, all tag keys are matched.
+   * 
+   * - The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -18,10 +21,13 @@ export class CreateTopicRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * *   You can leave this parameter empty.
-   * *   The tag value must be 1 to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with aliyun or acs:.
+   * - N specifies the number of the tag. The value of N must be an integer from 1 to 20.
+   * 
+   * - The tag value can be empty.
+   * 
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http\\:// or https\\://.
    * 
    * @example
    * FinanceJoshua
@@ -53,10 +59,11 @@ export class CreateTopicRequestTag extends $dara.Model {
 export class CreateTopicRequest extends $dara.Model {
   /**
    * @remarks
-   * The log cleanup policy that is used for the topic. This parameter is available only when LocalTopic is set to true. Valid values:
+   * The cleanup policy for the topic. This parameter is available only if the storage engine of the topic is local storage. Valid values:
    * 
-   * *   false: The topic uses the default log cleanup policy.
-   * *   true: The topic uses the log compaction policy.
+   * - false: The delete cleanup policy.
+   * 
+   * - true: The compact cleanup policy.
    * 
    * @example
    * false
@@ -64,16 +71,30 @@ export class CreateTopicRequest extends $dara.Model {
   compactTopic?: boolean;
   /**
    * @remarks
-   * The additional configuration.
+   * The advanced configurations of the topic.
    * 
-   * *   The value must be in JSON format.
-   * *   Set Key to **replications**. This value specifies the number of replicas of the topic. The value must be an integer that ranges from 1 to 3.
-   * *   You can configure this parameter only if you set **LocalTopic** to **true** or specify **Open Source Edition (Local Disk)** as the instance edition.****
+   * - Configure this parameter in the JSON format.
    * 
-   * >  If you specify replications in this parameter, **ReplicationFactor** does not take effect.
+   * - This parameter is available only if **LocalTopic** is set to **true**.
+   * 
+   * - The following configurations are supported for reserved instances:
+   * 
+   *   - **retention.ms**: The message retention period. The value must be an integer from 3,600,000 to 31,536,000,000. Unit: milliseconds.
+   * 
+   *   - **max.message.bytes**: The maximum size of a message that can be sent. The value must be an integer from 1,048,576 to 10,485,760. Unit: bytes.
+   * 
+   *   - message.timestamp.type: The timestamp type of a message. Valid values: CreateTime or LogAppendTime. CreateTime indicates that the message timestamp is the time when the producer creates the message. If you do not specify a timestamp, the client time is used. LogAppendTime indicates that the message timestamp is the time when the server stores the message. The default value is CreateTime. We recommend that you set this parameter to **LogAppendTime**.
+   * 
+   * - The following configurations are supported for Serverless instances:
+   * 
+   *   - **retention.hours**: The message retention period. The value is of the string type. The value must be an integer from 24 to 8,760.
+   * 
+   *   - **max.message.bytes**: The maximum size of a message that can be sent. The value is of the string type. The value must be an integer from 1,048,576 to 10,485,760.
+   * 
+   *   - message.timestamp.type: The timestamp type of a message. Valid values: CreateTime or LogAppendTime. CreateTime indicates that the message timestamp is the time when the producer creates the message. If you do not specify a timestamp, the client time is used. LogAppendTime indicates that the message timestamp is the time when the server stores the message. The default value is CreateTime. We recommend that you set this parameter to **LogAppendTime**.
    * 
    * @example
-   * {"replications": 3}
+   * {"retention.ms": "3600000"}
    * 
    * **if can be null:**
    * true
@@ -81,7 +102,7 @@ export class CreateTopicRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -91,10 +112,11 @@ export class CreateTopicRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of storage that the topic uses. Valid values:
+   * The storage engine of the topic. Valid values:
    * 
-   * *   false: The topic uses cloud storage.
-   * *   true: The topic uses local storage.
+   * - false: cloud storage.
+   * 
+   * - true: local storage.
    * 
    * @example
    * false
@@ -104,9 +126,11 @@ export class CreateTopicRequest extends $dara.Model {
    * @remarks
    * The minimum number of in-sync replicas (ISRs).
    * 
-   * *   This parameter is available only when **LocalTopic** is set to **true**, or the instance is of the **Open Source Edition (Local Disk)**.****
-   * *   The value of this parameter must be smaller than the value of ReplicationFactor.
-   * *   Valid values: 1 to 3.
+   * - This parameter is available only if **LocalTopic** is set to **true**.
+   * 
+   * - The value of this parameter must be smaller than the number of replicas for the topic.
+   * 
+   * - The value must be an integer from 1 to 3.
    * 
    * @example
    * 1
@@ -119,13 +143,15 @@ export class CreateTopicRequest extends $dara.Model {
    * @remarks
    * The number of partitions in the topic.
    * 
-   * *   Valid values: 1 to 360.
-   * *   In the ApsaraMQ for Kafka console, you can view the number of partitions that the system recommends based on the specifications of the instance. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
+   * - The value must be an integer from 1 to 360.
    * 
-   * Default values:
+   * - The console suggests a number of partitions based on the instance type. Follow the suggestion to reduce the risk of data skew.
    * 
-   * *   ApsaraMQ for Kafka V2 instance: 12
-   * *   ApsaraMQ for Kafka V3 instance: 3
+   * Default value:
+   * 
+   * - Reserved instance: 12
+   * 
+   * - Serverless instance: 3
    * 
    * @example
    * 12
@@ -133,7 +159,7 @@ export class CreateTopicRequest extends $dara.Model {
   partitionNum?: string;
   /**
    * @remarks
-   * The region ID of the instance in which you want to create a topic.
+   * The ID of the region where the instance that contains the topic is located.
    * 
    * This parameter is required.
    * 
@@ -143,10 +169,11 @@ export class CreateTopicRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of the topic.
+   * The remarks on the topic.
    * 
-   * *   The description can contain only letters, digits, hyphens (-), and underscores (_).
-   * *   The description must be 3 to 64 characters in length.
+   * - The remarks can contain only letters, digits, underscores (_), and hyphens (-).
+   * 
+   * - The remarks must be 3 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -158,10 +185,11 @@ export class CreateTopicRequest extends $dara.Model {
    * @remarks
    * The number of replicas for the topic.
    * 
-   * *   This parameter is available only when **LocalTopic** is set to **true**, or the instance is of the **Open Source Edition (Local Disk)**.****
-   * *   Valid values: 1 to 3.
+   * - This parameter is available only if **LocalTopic** is set to **true**.
    * 
-   * > If you set this parameter to **1**, data loss may occur. Exercise caution when you configure this parameter.
+   * - The value must be an integer from 1 to 3.
+   * 
+   * > If you set the number of replicas to **1**, you may lose data. Set this parameter with caution.
    * 
    * @example
    * 3
@@ -172,16 +200,16 @@ export class CreateTopicRequest extends $dara.Model {
   replicationFactor?: number;
   /**
    * @remarks
-   * The tags that you want to add to the topic.
+   * The list of tags.
    */
   tag?: CreateTopicRequestTag[];
   /**
    * @remarks
-   * The topic name.
+   * The name of the topic.
    * 
-   * *   The name can contain only letters, digits, hyphens (-), and underscores (_).
-   * *   The name must be 3 to 64 characters in length. If the name that you specify contains more than 64 characters, the system automatically truncates the name.
-   * *   After a topic is created, you cannot change the name of the topic.
+   * - Reserved instance: The name can contain uppercase letters, lowercase letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 3 to 64 characters in length.
+   * 
+   * - Serverless instance: The name can contain uppercase letters, lowercase letters, digits, underscores (_), hyphens (-), and periods (.). The name must be 1 to 249 characters in length.
    * 
    * This parameter is required.
    * 

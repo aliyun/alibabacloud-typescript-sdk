@@ -5,19 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.Model {
   /**
    * @remarks
-   * The group to which the IP address whitelist belongs.
+   * The Internet IP address allowlist group.
    */
   allowedIpGroup?: { [key: string]: string };
   /**
    * @remarks
-   * The information about the IP address whitelist.
+   * The Internet IP address allowlists.
    */
   allowedIpList?: string[];
+  /**
+   * @remarks
+   * The Internet IP address blocklists.
+   */
   blackIPList?: string[];
+  /**
+   * @remarks
+   * The Internet IP address blocklist group.
+   */
   blackIPMap?: { [key: string]: string };
   /**
    * @remarks
-   * The port range. Valid value:
+   * The port range. Valid values:
    * 
    * **9093/9093**.
    * 
@@ -25,7 +33,21 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
    * 9093/9093
    */
   portRange?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2zea4atm7fvj**********
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether it is a shared security group.
+   * 
+   * @example
+   * false
+   */
   userDefinedSharedSecurityGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -75,19 +97,27 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
 export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model {
   /**
    * @remarks
-   * The group to which the IP address whitelist belongs.
+   * The IP address allowlist group.
    */
   allowedIpGroup?: { [key: string]: string };
   /**
    * @remarks
-   * The information about the IP address whitelist.
+   * The IP address allowlists.
    */
   allowedIpList?: string[];
+  /**
+   * @remarks
+   * The IP address blocklists.
+   */
   blackIPList?: string[];
+  /**
+   * @remarks
+   * The IP address blocklist group.
+   */
   blackIPMap?: { [key: string]: string };
   /**
    * @remarks
-   * The port range. Valid value:
+   * The port range. Valid values:
    * 
    * **9092/9092**.
    * 
@@ -95,7 +125,21 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
    * 9092/9092
    */
   portRange?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2zea4atm7fvj**********
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether it is a shared security group.
+   * 
+   * @example
+   * false
+   */
   userDefinedSharedSecurityGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -145,12 +189,13 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
 export class GetAllowedIpListResponseBodyAllowedList extends $dara.Model {
   /**
    * @remarks
-   * The deployment mode of the instance. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   **4**: allows access from the Internet and a virtual private cloud (VPC).
-   * *   **5**: allows access from a VPC.
+   * - **4**: Internet/VPC
    * 
-   * >  Only integrators need to concern themselves with the value of this parameter.
+   * - **5**: VPC
+   * 
+   * > This field is not relevant for regular users and is intended for integration partners.
    * 
    * @example
    * 4
@@ -158,12 +203,12 @@ export class GetAllowedIpListResponseBodyAllowedList extends $dara.Model {
   deployType?: number;
   /**
    * @remarks
-   * The whitelist for access from the Internet.
+   * The Internet allowlists.
    */
   internetList?: GetAllowedIpListResponseBodyAllowedListInternetList[];
   /**
    * @remarks
-   * The whitelist for access from a virtual private cloud (VPC).
+   * The VPC allowlists.
    */
   vpcList?: GetAllowedIpListResponseBodyAllowedListVpcList[];
   static names(): { [key: string]: string } {
@@ -200,12 +245,12 @@ export class GetAllowedIpListResponseBodyAllowedList extends $dara.Model {
 export class GetAllowedIpListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist.
+   * The allowlist.
    */
   allowedList?: GetAllowedIpListResponseBodyAllowedList;
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -213,7 +258,7 @@ export class GetAllowedIpListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The return message.
    * 
    * @example
    * operation success.
@@ -221,7 +266,7 @@ export class GetAllowedIpListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A421CCD7-5BC5-4B32-8DD8-64668A8FCB56

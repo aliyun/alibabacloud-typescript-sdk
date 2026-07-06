@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMessageResponseBodyMessageList extends $dara.Model {
   /**
    * @remarks
-   * The check value of the chaincode.
+   * The chaincode checksum.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   keyTruncated?: boolean;
   /**
    * @remarks
-   * The consumer offset of the partition.
+   * The partition offset.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   partition?: number;
   /**
    * @remarks
-   * The size of the key after serialization. Unit: bytes.
+   * The size of the serialized key. Unit: bytes.
    * 
    * @example
    * 11
@@ -53,7 +53,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   serializedKeySize?: number;
   /**
    * @remarks
-   * The size of the value after serialization. Unit: bytes.
+   * The size of the serialized value. Unit: bytes.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   serializedValueSize?: number;
   /**
    * @remarks
-   * The time when the message was created. The value of this parameter is a UNIX timestamp in milliseconds.
+   * The message creation time. Represented as a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1705482172640
@@ -69,7 +69,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The time type.
+   * The timestamp type.
    * 
    * @example
    * CreateTime
@@ -85,9 +85,9 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * The truncated size of the message key. Unit: bytes.
+   * The size of the truncated key message. Value: bytes.
    * 
-   * >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
+   * > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -95,9 +95,9 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   truncatedKeySize?: number;
   /**
    * @remarks
-   * The truncated size of the message value. Unit: bytes.
+   * The size of the truncated value message. Unit: bytes.
    * 
-   * >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
+   * > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -169,7 +169,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
 export class QueryMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. If the request is successful, 200 is returned.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -177,7 +177,7 @@ export class QueryMessageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The return message.
    * 
    * @example
    * operation success.
@@ -185,7 +185,7 @@ export class QueryMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The messages.
+   * The query message results.
    */
   messageList?: QueryMessageResponseBodyMessageList[];
   /**
@@ -198,10 +198,11 @@ export class QueryMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

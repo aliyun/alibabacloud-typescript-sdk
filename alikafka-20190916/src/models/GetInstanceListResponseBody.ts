@@ -525,7 +525,7 @@ export class GetInstanceListResponseBodyInstanceList extends $dara.Model {
 export class GetInstanceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -534,7 +534,7 @@ export class GetInstanceListResponseBody extends $dara.Model {
   instanceList?: GetInstanceListResponseBodyInstanceList;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success.
@@ -542,7 +542,7 @@ export class GetInstanceListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The request ID.
    * 
    * @example
    * 4B6D821D-7F67-4CAA-9E13-A5A997C3****
@@ -550,7 +550,7 @@ export class GetInstanceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates if the request was successful.
    * 
    * @example
    * true

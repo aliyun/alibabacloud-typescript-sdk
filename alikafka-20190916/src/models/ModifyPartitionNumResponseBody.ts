@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPartitionNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * Return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyPartitionNumResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * Return message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class ModifyPartitionNumResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * B7A39AE5-0B36-4442-A304-E088526****
@@ -29,7 +29,7 @@ export class ModifyPartitionNumResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

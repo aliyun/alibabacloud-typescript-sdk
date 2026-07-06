@@ -127,7 +127,7 @@ export class GetConsumerListResponseBodyConsumerList extends $dara.Model {
 export class GetConsumerListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   consumerList?: GetConsumerListResponseBodyConsumerList;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1.
+   * The page number of the returned page. The minimum value is 1.
    * 
    * @example
    * 1
@@ -160,7 +160,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 808F042B-CB9A-4FBC-9009-00E7DDB6****
@@ -168,7 +168,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -176,7 +176,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 12

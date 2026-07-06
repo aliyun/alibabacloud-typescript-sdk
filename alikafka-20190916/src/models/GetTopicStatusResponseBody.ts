@@ -66,7 +66,7 @@ export class GetTopicStatusResponseBodyTopicStatusOffsetTable extends $dara.Mode
 export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
   /**
    * @remarks
-   * The time when the last consumed message was generated.
+   * Generation time of the last consumed message. Unit: ms.
    * 
    * @example
    * 1566470063575
@@ -75,7 +75,7 @@ export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
   offsetTable?: GetTopicStatusResponseBodyTopicStatusOffsetTable;
   /**
    * @remarks
-   * The number of messages in the topic.
+   * Total number of messages.
    * 
    * @example
    * 423
@@ -112,7 +112,7 @@ export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
 export class GetTopicStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * Status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -120,7 +120,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * Response message.
    * 
    * @example
    * operation success.
@@ -128,7 +128,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * E475C7E2-8C35-46EF-BE7D-5D2A9F5D****
@@ -136,7 +136,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -144,7 +144,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The status information about messages in the topic.
+   * Topic status.
    */
   topicStatus?: GetTopicStatusResponseBodyTopicStatus;
   static names(): { [key: string]: string } {

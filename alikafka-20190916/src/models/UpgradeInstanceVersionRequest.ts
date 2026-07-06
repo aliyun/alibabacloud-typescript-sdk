@@ -15,7 +15,7 @@ export class UpgradeInstanceVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,13 @@ export class UpgradeInstanceVersionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The major version to be upgraded to. Valid values:
+   * The target open source version. Valid values:
    * 
-   * *   **0.10.2**
-   * *   **2.2.0**
+   * - **0.10.2**
    * 
-   * If you set this parameter to the current major version, the system upgrades the instance to the latest minor version.
+   * - **2.2.0**
+   * 
+   * If the value is the same as the current version, a minor version update will be triggered.
    * 
    * This parameter is required.
    * 

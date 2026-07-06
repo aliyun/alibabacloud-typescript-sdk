@@ -30,22 +30,38 @@ export class DescribeAclResourceNameResponseBodyData extends $dara.Model {
 
 export class DescribeAclResourceNameResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: number;
   data?: DescribeAclResourceNameResponseBodyData;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABA4A7FD-E10F-45C7-9774-A5236015A***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

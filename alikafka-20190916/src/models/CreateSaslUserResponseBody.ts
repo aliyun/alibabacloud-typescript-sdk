@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSaslUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The HTTP status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateSaslUserResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C5CA600C-7D5A-45B5-B6DB-44FAC2C****

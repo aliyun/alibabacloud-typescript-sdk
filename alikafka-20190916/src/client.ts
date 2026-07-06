@@ -12,6 +12,38 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "alikafka.us-west-1.aliyuncs.com",
+      'us-east-1': "alikafka.us-east-1.aliyuncs.com",
+      'na-south-1': "alikafka.na-south-1.aliyuncs.com",
+      'me-east-1': "alikafka.me-east-1.aliyuncs.com",
+      'me-central-1': "alikafka.me-central-1.aliyuncs.com",
+      'eu-west-1': "alikafka.eu-west-1.aliyuncs.com",
+      'eu-central-1': "alikafka.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "alikafka.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "alikafka.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen-finance-1': "alikafka.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "alikafka.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "alikafka.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "alikafka.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "alikafka.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "alikafka.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "alikafka.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "alikafka.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou-finance': "alikafka.cn-hangzhou-finance.aliyuncs.com",
+      'cn-hangzhou': "alikafka.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "alikafka.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "alikafka.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "alikafka.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "alikafka.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "alikafka.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-5': "alikafka.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "alikafka.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "alikafka.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "alikafka.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "alikafka.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "alikafka.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alikafka", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -86,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of an ApsaraMQ for Kafka instance.
+   * Moves a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -125,7 +157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of an ApsaraMQ for Kafka instance.
+   * Moves a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -136,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+   * Converts a pay-as-you-go instance to a subscription instance.
    * 
    * @param request - ConvertPostPayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -179,7 +211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+   * Converts a pay-as-you-go instance to a subscription instance.
    * 
    * @param request - ConvertPostPayOrderRequest
    * @returns ConvertPostPayOrderResponse
@@ -190,7 +222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL).
+   * This operation is used to create an access control list (ACL).
    * 
    * @param request - CreateAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -257,7 +289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL).
+   * This operation is used to create an access control list (ACL).
    * 
    * @param request - CreateAclRequest
    * @returns CreateAclResponse
@@ -268,7 +300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group.
+   * You can call CreateConsumerGroup to create a consumer group.
    * 
    * @param request - CreateConsumerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group.
+   * You can call CreateConsumerGroup to create a consumer group.
    * 
    * @param request - CreateConsumerGroupRequest
    * @returns CreateConsumerGroupResponse
@@ -326,7 +358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go instance and returns the instance ID and order ID.
+   * This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
    * 
    * @param tmpReq - CreatePostPayInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -407,7 +439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go instance and returns the instance ID and order ID.
+   * This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
    * 
    * @param request - CreatePostPayInstanceRequest
    * @returns CreatePostPayInstanceResponse
@@ -418,10 +450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+   * Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param tmpReq - CreatePostPayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -510,10 +542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+   * Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param request - CreatePostPayOrderRequest
    * @returns CreatePostPayOrderResponse
@@ -525,6 +557,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a subscription instance and returns the instance ID and order ID.
+   * 
+   * @remarks
+   * - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param tmpReq - CreatePrePayInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -611,6 +647,10 @@ export default class Client extends OpenApi {
   /**
    * Creates a subscription instance and returns the instance ID and order ID.
    * 
+   * @remarks
+   * - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+   * 
    * @param request - CreatePrePayInstanceRequest
    * @returns CreatePrePayInstanceResponse
    */
@@ -620,11 +660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+   * Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+   * - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param tmpReq - CreatePrePayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -717,11 +757,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+   * Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+   * - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param request - CreatePrePayOrderRequest
    * @returns CreatePrePayOrderResponse
@@ -732,7 +772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Simple Authentication and Security Layer (SASL) user.
+   * This operation creates a SASL user.
    * 
    * @param request - CreateSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -783,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Simple Authentication and Security Layer (SASL) user.
+   * This operation creates a SASL user.
    * 
    * @param request - CreateSaslUserRequest
    * @returns CreateSaslUserResponse
@@ -794,10 +834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+   * After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### This operation supports only serverless instances.
    * 
    * @param tmpReq - CreateScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -878,10 +918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+   * After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
    * 
    * @remarks
-   * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+   * ###### This operation supports only serverless instances.
    * 
    * @param request - CreateScheduledScalingRuleRequest
    * @returns CreateScheduledScalingRuleResponse
@@ -895,8 +935,8 @@ export default class Client extends OpenApi {
    * Creates a topic.
    * 
    * @remarks
-   *   Each Alibaba Cloud account can call this operation up to once per second.
-   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+   * - Each user can send up to 20 queries per second (QPS).
+   * - The maximum number of topics for an instance depends on its instance type.
    * 
    * @param request - CreateTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -970,8 +1010,8 @@ export default class Client extends OpenApi {
    * Creates a topic.
    * 
    * @remarks
-   *   Each Alibaba Cloud account can call this operation up to once per second.
-   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+   * - Each user can send up to 20 queries per second (QPS).
+   * - The maximum number of topics for an instance depends on its instance type.
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -1060,7 +1100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+   * Deletes a Group.
    * 
    * @param request - DeleteConsumerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1099,7 +1139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+   * Deletes a Group.
    * 
    * @param request - DeleteConsumerGroupRequest
    * @returns DeleteConsumerGroupResponse
@@ -1110,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+   * The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
    * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1145,7 +1185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+   * The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -1156,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Simple Authentication and Security Layer (SASL) user.
+   * You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
    * 
    * @param request - DeleteSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1203,7 +1243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Simple Authentication and Security Layer (SASL) user.
+   * You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
    * 
    * @param request - DeleteSaslUserRequest
    * @returns DeleteSaslUserResponse
@@ -1214,10 +1254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
    * 
    * @remarks
-   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### This operation applies only to Serverless instances.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1256,10 +1296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
    * 
    * @remarks
-   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### This operation applies only to Serverless instances.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @returns DeleteScheduledScalingRuleResponse
@@ -1376,7 +1416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name of the resource with which an access control list (ACL) is associated.
+   * Queries access control list (ACL) resource names.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1419,7 +1459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name of the resource with which an access control list (ACL) is associated.
+   * Queries access control list (ACL) resource names.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @returns DescribeAclResourceNameResponse
@@ -1504,7 +1544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Simple Authentication and Security Layer (SASL) users.
+   * You can call DescribeSaslUsers to query SASL users.
    * 
    * @param request - DescribeSaslUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,7 +1579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Simple Authentication and Security Layer (SASL) users.
+   * You can call DescribeSaslUsers to query SASL users.
    * 
    * @param request - DescribeSaslUsersRequest
    * @returns DescribeSaslUsersResponse
@@ -1730,7 +1770,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables and disables the flexible group creation feature.
+   * This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+   * 
+   * @remarks
+   * Currently, only reserved instances support this API.
+   * Serverless instances are not supported at this time.
    * 
    * @param request - EnableAutoGroupCreationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1769,7 +1813,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables and disables the flexible group creation feature.
+   * This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+   * 
+   * @remarks
+   * Currently, only reserved instances support this API.
+   * Serverless instances are not supported at this time.
    * 
    * @param request - EnableAutoGroupCreationRequest
    * @returns EnableAutoGroupCreationResponse
@@ -1780,7 +1828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+   * This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
    * 
    * @param request - EnableAutoTopicCreationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1827,7 +1875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+   * This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
    * 
    * @param request - EnableAutoTopicCreationRequest
    * @returns EnableAutoTopicCreationResponse
@@ -1950,7 +1998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelist.
+   * The GetAllowedIpList operation retrieves the IP address allowlist.
    * 
    * @param request - GetAllowedIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1985,7 +2033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelist.
+   * The GetAllowedIpList operation retrieves the IP address allowlist.
    * 
    * @param request - GetAllowedIpListRequest
    * @returns GetAllowedIpListResponse
@@ -1996,10 +2044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
    * 
    * @remarks
-   * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### **This operation applies only to Serverless instances.**
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2034,10 +2082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
    * 
    * @remarks
-   * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### **This operation applies only to Serverless instances.**
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @returns GetAutoScalingConfigurationResponse
@@ -2048,7 +2096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+   * Retrieves a list of consumer groups.
    * 
    * @param request - GetConsumerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2095,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+   * Retrieves a list of consumer groups.
    * 
    * @param request - GetConsumerListRequest
    * @returns GetConsumerListResponse
@@ -2106,7 +2154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the consumer progress of a consumer group.
+   * Queries the consumption status of a consumer group.
    * 
    * @param request - GetConsumerProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2149,7 +2197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the consumer progress of a consumer group.
+   * Queries the consumption status of a consumer group.
    * 
    * @param request - GetConsumerProgressRequest
    * @returns GetConsumerProgressResponse
@@ -2160,7 +2208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about instances in a specified region.
+   * Queries information about instances in a specified region.
    * 
    * @param request - GetInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2211,7 +2259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about instances in a specified region.
+   * Queries information about instances in a specified region.
    * 
    * @param request - GetInstanceListRequest
    * @returns GetInstanceListResponse
@@ -2222,12 +2270,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+   * Retrieves the IP addresses of Kafka clients.
    * 
    * @remarks
-   *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
-   * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
-   * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
+   * - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
+   * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
+   * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
    * 
    * @param request - GetKafkaClientIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2282,12 +2330,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+   * Retrieves the IP addresses of Kafka clients.
    * 
    * @remarks
-   *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
-   * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
-   * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
+   * - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
+   * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
+   * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
    * 
    * @param request - GetKafkaClientIpRequest
    * @returns GetKafkaClientIpResponse
@@ -2298,7 +2346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the used quota of topics and partitions.
+   * Retrieves the usage quotas for topics and partitions.
    * 
    * @param request - GetQuotaTipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2333,7 +2381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the used quota of topics and partitions.
+   * Retrieves the usage quotas for topics and partitions.
    * 
    * @param request - GetQuotaTipRequest
    * @returns GetQuotaTipResponse
@@ -2344,7 +2392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例风险列表
+   * Queries the list of threats on an instance.
    * 
    * @param request - GetRiskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2387,7 +2435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例风险列表
+   * Queries the list of threats on an instance.
    * 
    * @param request - GetRiskListRequest
    * @returns GetRiskListResponse
@@ -2398,7 +2446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a topic.
+   * Retrieves information about topics.
    * 
    * @param request - GetTopicListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2445,7 +2493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a topic.
+   * Retrieves information about topics.
    * 
    * @param request - GetTopicListRequest
    * @returns GetTopicListResponse
@@ -2456,7 +2504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the messaging status of a topic.
+   * Retrieves the message sending and receiving status of a topic.
    * 
    * @param request - GetTopicStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the messaging status of a topic.
+   * Retrieves the message sending and receiving status of a topic.
    * 
    * @param request - GetTopicStatusRequest
    * @returns GetTopicStatusResponse
@@ -2506,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the groups that subscribe to a topic.
+   * Retrieves the subscription status of Groups for a topic.
    * 
    * @param request - GetTopicSubscribeStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2545,7 +2593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the groups that subscribe to a topic.
+   * Retrieves the subscription status of Groups for a topic.
    * 
    * @param request - GetTopicSubscribeStatusRequest
    * @returns GetTopicSubscribeStatusResponse
@@ -2556,7 +2604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rebalance details of a consumer group.
+   * Queries the details of rebalancing tasks.
    * 
    * @param request - ListRebalanceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2595,7 +2643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rebalance details of a consumer group.
+   * Queries the details of rebalancing tasks.
    * 
    * @param request - ListRebalanceInfoRequest
    * @returns ListRebalanceInfoResponse
@@ -2606,7 +2654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are attached to a specified resource.
+   * Queries the list of tags that are attached to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2653,7 +2701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are attached to a specified resource.
+   * Queries the list of tags that are attached to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2664,7 +2712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+   * You can modify the name of an ApsaraMQ for Kafka instance after it is deployed. This topic describes how to call the ModifyInstanceName operation.
    * 
    * @param request - ModifyInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2703,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+   * You can modify the name of an ApsaraMQ for Kafka instance after it is deployed. This topic describes how to call the ModifyInstanceName operation.
    * 
    * @param request - ModifyInstanceNameRequest
    * @returns ModifyInstanceNameResponse
@@ -2714,7 +2762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the number of partitions in a topic.
+   * This operation modifies the number of partitions in a topic.
    * 
    * @param request - ModifyPartitionNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2757,7 +2805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the number of partitions in a topic.
+   * This operation modifies the number of partitions in a topic.
    * 
    * @param request - ModifyPartitionNumRequest
    * @returns ModifyPartitionNumResponse
@@ -2768,10 +2816,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
    * 
    * @remarks
-   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### This operation applies only to Serverless instances.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2814,10 +2862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+   * After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
    * 
    * @remarks
-   * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+   * ###### This operation applies only to Serverless instances.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @returns ModifyScheduledScalingRuleResponse
@@ -2828,7 +2876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a topic.
+   * Modifies the remark of a topic.
    * 
    * @param request - ModifyTopicRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2871,7 +2919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a topic.
+   * Modifies the remark of a topic.
    * 
    * @param request - ModifyTopicRemarkRequest
    * @returns ModifyTopicRemarkResponse
@@ -2938,7 +2986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries messages stored in a topic. You can query messages by creation time or offset.
+   * This operation queries messages stored in a topic by message creation time or offset.
    * 
    * @param request - QueryMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2965,7 +3013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries messages stored in a topic. You can query messages by creation time or offset.
+   * This operation queries messages stored in a topic by message creation time or offset.
    * 
    * @param request - QueryMessageRequest
    * @returns QueryMessageResponse
@@ -2979,7 +3027,7 @@ export default class Client extends OpenApi {
    * Releases a pay-as-you-go instance.
    * 
    * @remarks
-   * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+   * You cannot use this operation to release subscription instances.
    * 
    * @param request - ReleaseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3021,7 +3069,7 @@ export default class Client extends OpenApi {
    * Releases a pay-as-you-go instance.
    * 
    * @remarks
-   * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+   * You cannot use this operation to release subscription instances.
    * 
    * @param request - ReleaseInstanceRequest
    * @returns ReleaseInstanceResponse
@@ -3032,10 +3080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables an ApsaraMQ for Kafka instance.
+   * Starts an instance.
    * 
    * @remarks
-   * You can call this operation only if your instance is in the Stopped state.
+   * You can call this operation only when the instance is in the Stopped state.
    * 
    * @param request - ReopenInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3070,10 +3118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables an ApsaraMQ for Kafka instance.
+   * Starts an instance.
    * 
    * @remarks
-   * You can call this operation only if your instance is in the Stopped state.
+   * You can call this operation only when the instance is in the Stopped state.
    * 
    * @param request - ReopenInstanceRequest
    * @returns ReopenInstanceResponse
@@ -3084,10 +3132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+   * You must purchase and deploy an ApsaraMQ for Kafka instance before you can send and receive messages. This topic describes how to deploy an instance by calling the StartInstance operation.
    * 
    * @remarks
-   * >  You can call this operation up to twice per second.
+   * > The request frequency is limited to 2 queries per second (QPS) for each user.
    * 
    * @param request - StartInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3198,10 +3246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+   * You must purchase and deploy an ApsaraMQ for Kafka instance before you can send and receive messages. This topic describes how to deploy an instance by calling the StartInstance operation.
    * 
    * @remarks
-   * >  You can call this operation up to twice per second.
+   * > The request frequency is limited to 2 queries per second (QPS) for each user.
    * 
    * @param request - StartInstanceRequest
    * @returns StartInstanceResponse
@@ -3212,10 +3260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an ApsaraMQ for Kafka instance.
+   * Stops an instance.
    * 
    * @remarks
-   * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+   * Stopping subscription instances is not currently supported. To stop a subscription instance, submit a ticket.
    * 
    * @param request - StopInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3250,10 +3298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an ApsaraMQ for Kafka instance.
+   * Stops an instance.
    * 
    * @remarks
-   * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+   * Stopping subscription instances is not currently supported. To stop a subscription instance, submit a ticket.
    * 
    * @param request - StopInstanceRequest
    * @returns StopInstanceResponse
@@ -3264,7 +3312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a tag to a resource.
+   * You can call the TagResources operation to attach tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3311,7 +3359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a tag to a resource.
+   * You can call the TagResources operation to attach tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -3322,7 +3370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches tags from a specified resource.
+   * You can call UntagResources to detach tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3369,7 +3417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches tags from a specified resource.
+   * You can call UntagResources to detach tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -3380,7 +3428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+   * You can call the UpdateAllowedIp operation to edit the IP whitelist for an ApsaraMQ for Kafka instance. The whitelist specifies the IP addresses and ports that are allowed to access the instance.
    * 
    * @param request - UpdateAllowedIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3435,7 +3483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+   * You can call the UpdateAllowedIp operation to edit the IP whitelist for an ApsaraMQ for Kafka instance. The whitelist specifies the IP addresses and ports that are allowed to access the instance.
    * 
    * @param request - UpdateAllowedIpRequest
    * @returns UpdateAllowedIpResponse
@@ -3446,13 +3494,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the consumer offsets of the subscribed topics of a consumer group.
+   * The UpdateConsumerOffset operation resets the consumer offset of a consumer group.
    * 
    * @remarks
-   * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+   * This operation resets the consumer offset of a specified consumer group. You can reset the consumer offset by timestamp or by a specific offset value. Using different parameter combinations, you can perform the following tasks:
+   * - Consume messages from the latest offset by setting the consumer offset to the latest position. This is supported for a single topic or all topics.
+   * - Consume messages from the offset of a specified time point by providing a timestamp. This is supported for a single topic or all topics.
+   * - Reset the consumer offset for a specific partition by providing the target partition ID and consumer offset. This is supported only for a single topic.
    * 
    * @param tmpReq - UpdateConsumerOffsetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3513,13 +3561,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the consumer offsets of the subscribed topics of a consumer group.
+   * The UpdateConsumerOffset operation resets the consumer offset of a consumer group.
    * 
    * @remarks
-   * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+   * This operation resets the consumer offset of a specified consumer group. You can reset the consumer offset by timestamp or by a specific offset value. Using different parameter combinations, you can perform the following tasks:
+   * - Consume messages from the latest offset by setting the consumer offset to the latest position. This is supported for a single topic or all topics.
+   * - Consume messages from the offset of a specified time point by providing a timestamp. This is supported for a single topic or all topics.
+   * - Reset the consumer offset for a specific partition by providing the target partition ID and consumer offset. This is supported only for a single topic.
    * 
    * @param request - UpdateConsumerOffsetRequest
    * @returns UpdateConsumerOffsetResponse
@@ -3530,14 +3578,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+   * After an instance is deployed, you can modify configurations such as enabling Access Control List (ACL) and SSL, the message retention period, and the maximum message size. This topic describes how to call the UpdateInstanceConfig operation to modify the configuration of an instance.
    * 
    * @remarks
-   * ## **Permissions**
-   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-   * |API|Action|Resource|
-   * |---|---|---|
-   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **Permission information**
+   * RAM users must obtain authorization before they can call the **UpdateInstanceConfig** operation. For more information, see [RAM access policies](https://help.aliyun.com/document_detail/185815.html).
+   * | API                  | Action                   | Resource                      |
+   * | -------------------- | ------------------------ | ----------------------------- |
+   * | UpdateInstanceConfig | alikafka: UpdateInstance | acs:alikafka:*:*:{instanceId} |
    * 
    * @param request - UpdateInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3576,14 +3624,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+   * After an instance is deployed, you can modify configurations such as enabling Access Control List (ACL) and SSL, the message retention period, and the maximum message size. This topic describes how to call the UpdateInstanceConfig operation to modify the configuration of an instance.
    * 
    * @remarks
-   * ## **Permissions**
-   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-   * |API|Action|Resource|
-   * |---|---|---|
-   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **Permission information**
+   * RAM users must obtain authorization before they can call the **UpdateInstanceConfig** operation. For more information, see [RAM access policies](https://help.aliyun.com/document_detail/185815.html).
+   * | API                  | Action                   | Resource                      |
+   * | -------------------- | ------------------------ | ----------------------------- |
+   * | UpdateInstanceConfig | alikafka: UpdateInstance | acs:alikafka:*:*:{instanceId} |
    * 
    * @param request - UpdateInstanceConfigRequest
    * @returns UpdateInstanceConfigResponse
@@ -3594,7 +3642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+   * After a topic is created, you can modify its configurations, such as the message retention period and maximum message size. This topic describes how to call this API operation to modify topic configurations.
    * 
    * @param request - UpdateTopicConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3641,7 +3689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+   * After a topic is created, you can modify its configurations, such as the message retention period and maximum message size. This topic describes how to call this API operation to modify topic configurations.
    * 
    * @param request - UpdateTopicConfigRequest
    * @returns UpdateTopicConfigResponse
@@ -3652,16 +3700,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of an instance.
+   * Upgrades the version of an instance.
    * 
    * @remarks
-   * ## **Permissions**
-   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-   * |API|Action|Resource|
-   * |---|---|---|
-   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **Permission description**
+   * RAM users must be authorized before they can call the **UpgradeInstanceVersion** API. For more information about authorization, see [RAM access policy](https://help.aliyun.com/document_detail/185815.html).
+   * | API                    | Action         | Resource                      |
+   * | ---------------------- | -------------- | ----------------------------- |
+   * | UpgradeInstanceVersion | UpdateInstance | acs:alikafka:*:*:{instanceId} |
    * ## **QPS limits**
-   * You can send a maximum of two queries per second (QPS).
+   * The request frequency is limited to 2 queries per second (QPS) for a single user.
    * 
    * @param request - UpgradeInstanceVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3700,16 +3748,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of an instance.
+   * Upgrades the version of an instance.
    * 
    * @remarks
-   * ## **Permissions**
-   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-   * |API|Action|Resource|
-   * |---|---|---|
-   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **Permission description**
+   * RAM users must be authorized before they can call the **UpgradeInstanceVersion** API. For more information about authorization, see [RAM access policy](https://help.aliyun.com/document_detail/185815.html).
+   * | API                    | Action         | Resource                      |
+   * | ---------------------- | -------------- | ----------------------------- |
+   * | UpgradeInstanceVersion | UpdateInstance | acs:alikafka:*:*:{instanceId} |
    * ## **QPS limits**
-   * You can send a maximum of two queries per second (QPS).
+   * The request frequency is limited to 2 queries per second (QPS) for a single user.
    * 
    * @param request - UpgradeInstanceVersionRequest
    * @returns UpgradeInstanceVersionResponse
@@ -3720,10 +3768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+   * Upgrades a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param tmpReq - UpgradePostPayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3800,10 +3848,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+   * Upgrades a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param request - UpgradePostPayOrderRequest
    * @returns UpgradePostPayOrderResponse
@@ -3814,10 +3862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrade Prepaid Instance
+   * Upgrades a subscription instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param tmpReq - UpgradePrePayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3898,10 +3946,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrade Prepaid Instance
+   * Upgrades a subscription instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param request - UpgradePrePayOrderRequest
    * @returns UpgradePrePayOrderResponse

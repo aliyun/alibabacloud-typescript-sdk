@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A return code of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ModifyInstanceNameResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****
@@ -29,7 +29,7 @@ export class ModifyInstanceNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

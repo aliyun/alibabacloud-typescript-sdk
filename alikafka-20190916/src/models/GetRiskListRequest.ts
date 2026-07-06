@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRiskListRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class GetRiskListRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class GetRiskListRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The start index for paging.
+   * 
    * @example
    * 0
    */

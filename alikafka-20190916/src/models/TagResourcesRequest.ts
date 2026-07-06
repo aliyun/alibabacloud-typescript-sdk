@@ -7,8 +7,9 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * *   You must specify this parameter.
-   * *   The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * - The tag key cannot be an empty string.
+   * 
+   * - The tag key can be up to 128 characters long. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -20,8 +21,9 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * *   You can leave this parameter empty.
-   * *   The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs: or aliyun.
+   * - The tag value can be an empty string.
+   * 
+   * - The tag value can be up to 128 characters long. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
    * 
    * @example
    * FinanceJoshua
@@ -53,7 +55,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Message Queue for Apache RocketMQ instance which contains the resource to which you want to attach tags.
+   * The ID of the instance that contains the specified resources.
    * 
    * @example
    * alikafka_post-cn-v0h1fgs2****
@@ -61,7 +63,7 @@ export class TagResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region in which the resource is deployed.
+   * The region ID of the resources.
    * 
    * This parameter is required.
    * 
@@ -71,7 +73,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * A list of resource IDs.
    * 
    * This parameter is required.
    * 
@@ -81,13 +83,15 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resources. The value is an enumerated value. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   **INSTANCE**
-   * *   **TOPIC**
-   * *   **CONSUMERGROUP**
+   * - **INSTANCE**
    * 
-   * >  The value of this parameter is not case-sensitive.
+   * - **TOPIC**
+   * 
+   * - **CONSUMERGROUP**
+   * 
+   * > The value is case-insensitive.
    * 
    * This parameter is required.
    * 
@@ -97,7 +101,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    * 
    * This parameter is required.
    */

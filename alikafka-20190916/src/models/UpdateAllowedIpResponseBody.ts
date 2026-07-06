@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAllowedIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateAllowedIpResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The return message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class UpdateAllowedIpResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17D425C2-4EA3-4AB8-928D-E10511ECF***
@@ -29,7 +29,7 @@ export class UpdateAllowedIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

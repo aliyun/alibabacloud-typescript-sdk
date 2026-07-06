@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQuotaTipRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetQuotaTipRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * Region ID.
    * 
    * This parameter is required.
    * 

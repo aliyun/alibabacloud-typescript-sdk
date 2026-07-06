@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePrePayOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * A return code of 200 indicates that the request succeeded.
    * 
    * @example
    * 200
@@ -13,16 +13,23 @@ export class UpgradePrePayOrderResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The response message.
    * 
    * @example
    * operation success.
    */
   message?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 20497346575****
+   */
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABA4A7FD-E10F-45C7-9774-A5236015***
@@ -30,7 +37,7 @@ export class UpgradePrePayOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true

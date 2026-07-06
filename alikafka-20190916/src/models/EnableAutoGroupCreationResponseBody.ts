@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoGroupCreationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The return code.
    * 
-   * If the value **200** is returned, the request is successful.
+   * A value of **200** indicates success.
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class EnableAutoGroupCreationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

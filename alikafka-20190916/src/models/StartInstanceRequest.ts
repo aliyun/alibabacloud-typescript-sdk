@@ -5,26 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class StartInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The initial configurations of the ApsaraMQ for Kafka instance. The values must be valid JSON strings. If you do not specify this parameter, it is left empty.
+   * The initial configurations of the ApsaraMQ for Kafka instance. The value must be a valid JSON string. If you do not specify this parameter, the default value is empty.
    * 
-   * > - You cannot configure this parameter when you deploy an ApsaraMQ for Confluent instance.
-   * > - You cannot configure enable.acl for instances whose versions are earlier than 2.2.0.
+   * > - You cannot specify the Config parameter when you deploy a Confluent instance.
+   * >
+   * > - The enable.acl configuration is not supported for instances of versions earlier than 2.2.0. Only Professional Edition and Serverless instances support access control lists (ACLs).
    * 
-   * The **Config** parameter supports the following parameters:
+   * The following parameters of **Config** are supported for reserved instances:
    * 
-   * *   **enable.vpc_sasl_ssl**: specifies whether to enable VPC transmission encryption. Valid values:
+   * - **enable.vpc_sasl_ssl**
    * 
-   *     *   **true**: enables VPC transmission encryption. If you enable VPC transmission encryption, you must also enable access control list (ACL).
-   *     *   **false**: disables VPC transmission encryption. This is the default value.
+   * - **enable.acl**
    * 
-   * *   **enable.acl**: specifies whether to enable ACL. Valid values:
+   * - **kafka.log.retention.hours**
    * 
-   *     *   **true**: enables ACL.
-   *     *   **false**: disables the ACL feature. This is the default value.
+   * - **kafka.message.max.bytes**
    * 
-   * *   **kafka.log.retention.hours**: the maximum message retention period when the disk capacity is sufficient. Unit: hours. Valid values: 24 to 480. Default value: **72**. When the disk usage reaches 85%, the disk capacity is insufficient. In this case, the system deletes the earliest stored messages to ensure service availability.
+   * The following parameters of **Config** are supported for Serverless instances:
    * 
-   * *   **kafka.message.max.bytes**: the maximum size of a message that can be sent and received by ApsaraMQ for Kafka. Unit: bytes. Valid values: 1048576 to 10485760. Default value: **1048576**. Before you change the maximum message size to a new value, make sure that the new value matches the configurations of the producers and consumers.
+   * - **enable.vpc_sasl_ssl**
+   * 
+   * - **enable.acl**
+   * 
+   * - **log.retention.hours**
+   * 
+   * - **offsets.retention.minutes**
+   * 
+   * - **message.max.bytes**
+   * 
+   * - **auto.create.topics.enable**
+   * 
+   * - **num.partitions**
+   * 
+   * <props="china">
+   * 
+   * For more information, see [UpdateInstanceConfig](https://help.aliyun.com/zh/apsaramq-for-kafka/cloud-message-queue-for-kafka/developer-reference/api-alikafka-2019-09-16-updateinstanceconfig?spm=a2c4g.11186623.0.0.3e9e2a04vLr5nF).
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * For more information, see [UpdateInstanceConfig](https://www.alibabacloud.com/help/zh/apsaramq-for-kafka/cloud-message-queue-for-kafka/developer-reference/api-alikafka-2019-09-16-updateinstanceconfig?spm=a2c63.p38356.0.i1).
    * 
    * @example
    * {"kafka.log.retention.hours":"33"}
@@ -32,10 +53,11 @@ export class StartInstanceRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Specifies whether cross-zone deployment is required. Valid values:
+   * Specifies whether to deploy the instance across zones.
    * 
-   * *   true
-   * *   false
+   * - true: Deploy the instance across zones.
+   * 
+   * - false: Do not deploy the instance across zones.
    * 
    * Default value: true.
    * 
@@ -45,12 +67,13 @@ export class StartInstanceRequest extends $dara.Model {
   crossZone?: boolean;
   /**
    * @remarks
-   * The deployment mode. If the instance is an ApsaraMQ for Kafka V2 instance, this parameter is required. If the instance is an ApsaraMQ for Kafka V3 instance or an ApsaraMQ for Confluent instance, this parameter is optional. Valid values:
+   * The deployment mode of the instance. This parameter is required for provisioned instances. This parameter is not required for Serverless and Confluent instances. Valid values:
    * 
-   * *   **vpc**: deploys the instance in a virtual private cloud (VPC).
-   * *   **eip**: deploys the instance over the Internet and in the VPC.
+   * - **vpc**: VPC instance
    * 
-   * The deployment mode of the ApsaraMQ for Kafka instance must be consistent with the instance type. If the instance is a VPC-connected instance, set this parameter to **vpc**. If the instance is an Internet- and VPC-connected instance, set this parameter to **eip**.
+   * - **eip**: Internet/VPC instance
+   * 
+   * The deployment mode of the instance must be consistent with the instance type. If the instance is a VPC instance, set this parameter to **vpc**. If the instance is an Internet/VPC instance, set this parameter to **eip**.
    * 
    * @example
    * vpc
@@ -68,12 +91,13 @@ export class StartInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the instance supports elastic IP addresses (EIPs). Valid values:
+   * Specifies whether to enable elastic IP addresses (EIPs). Valid values:
    * 
-   * *   **true**: supports EIPs and allows access from the Internet and a VPC.
-   * *   **false**: does not support EIPs and allows access only from a VPC.
+   * - **true**: The instance is an Internet/VPC instance.
    * 
-   * The value of this parameter must match the type of the instance. For example, if the instance allows access only from a VPC, set this parameter to **false**.
+   * - **false**: The instance is a VPC instance.
+   * 
+   * The value of this parameter must be consistent with the instance type. For example, if the instance is a VPC instance, you must set this parameter to **false**.
    * 
    * @example
    * false
@@ -91,10 +115,11 @@ export class StartInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to set a new username and password. Valid values:
    * 
-   * *   **true**: sets a new username and password.
-   * *   **false**: does not set a new username or password.
+   * - **true**: Set a new username and password.
    * 
-   * This parameter is available only if you deploy an instance that allows access from the Internet and a VPC.
+   * - **false**: Do not set a new username and password.
+   * 
+   * This parameter is supported only for Internet/VPC instances.
    * 
    * @example
    * false
@@ -102,11 +127,11 @@ export class StartInstanceRequest extends $dara.Model {
   isSetUserAndPassword?: boolean;
   /**
    * @remarks
-   * The ID of the key that is used for disk encryption in the region where the instance is deployed. You can obtain the ID of the key in the [Key Management Service (KMS) console](https://kms.console.aliyun.com/?spm=a2c4g.11186623.2.5.336745b8hfiU21) or create a key. For more information, see [Manage CMKs](https://help.aliyun.com/document_detail/181610.html).
+   * The ID of the key that is used for disk encryption in the same region. You can view the key ID in the [Key Management Service (KMS) console](https://kms.console.aliyun.com/?spm=a2c4g.11186623.2.5.336745b8hfiU21) or create a key. For more information, see [Manage keys](https://help.aliyun.com/document_detail/181610.html).
    * 
-   * If this parameter is configured, disk encryption is enabled for the instance. You cannot disable disk encryption after disk encryption is enabled. When you call this operation, the system checks whether the AliyunServiceRoleForAlikafkaInstanceEncryption service-linked role is created. If the role is not created, the system automatically creates the role. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/190460.html).
+   * If you specify this parameter, disk encryption is enabled. You cannot disable disk encryption after it is enabled. When you call this operation, the system checks whether the AliyunServiceRoleForAlikafkaInstanceEncryption service-linked role is created. If the role is not created, the system automatically creates the role. For more information, see [Service-linked Role](https://help.aliyun.com/document_detail/190460.html).
    * 
-   * > When you deploy a serverless ApsaraMQ for Kafka V3 instance, you cannot configure this parameter.
+   * > - You cannot specify the KMSKeyId parameter when you deploy a Serverless instance.
    * 
    * @example
    * 0d24xxxx-da7b-4786-b981-9a164dxxxxxx
@@ -116,7 +141,9 @@ export class StartInstanceRequest extends $dara.Model {
    * @remarks
    * The name of the instance.
    * 
-   * >  If you specify a value for this parameter, make sure that the specified value is unique in the region of the instance.
+   * This parameter is not supported for Serverless and Confluent instances.
+   * 
+   * > If you specify this parameter, make sure that the value is unique in the same region.
    * 
    * @example
    * newInstanceName
@@ -132,10 +159,11 @@ export class StartInstanceRequest extends $dara.Model {
   notifier?: string;
   /**
    * @remarks
-   * The instance password.
+   * The password.
    * 
-   * *   This parameter is available only for Internet- and VPC- connected ApsaraMQ for Kafka V2 and V3 instances.
-   * *   If the instance is an ApsaraMQ for Confluent instance, this parameter is required. The value of this parameter must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: ! @ # $ % ^ & \\* () _ + - =
+   * - For provisioned and Serverless instances, this parameter is supported only for Internet/VPC instances.
+   * 
+   * - This parameter is required for Confluent instances. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters are !@#$%^&\\*()_+-=.
    * 
    * @example
    * password
@@ -155,7 +183,7 @@ export class StartInstanceRequest extends $dara.Model {
    * @remarks
    * The security group of the instance.
    * 
-   * If you do not specify this parameter, ApsaraMQ for Kafka automatically configures a security group for your instance. If you specify this parameter, you must create a security group in advance. For more information, see [Create a security group](https://help.aliyun.com/document_detail/25468.html).
+   * If you do not specify this parameter, ApsaraMQ for Kafka automatically configures a security group for your instance. If you want to specify this parameter, you must create a security group for the instance in advance. For more information, see [Create a security group](https://help.aliyun.com/document_detail/25468.html).
    * 
    * @example
    * sg-bp13wfx7kz9pko****
@@ -163,13 +191,17 @@ export class StartInstanceRequest extends $dara.Model {
   securityGroup?: string;
   /**
    * @remarks
-   * The two-dimensional arrays that consist of the candidate set for primary zones and the candidate set for secondary zones. Custom code in the `zone {zone}` format and standard code in the `cn-RegionID-{zone}` format are supported.
+   * A two-dimensional array that consists of the candidate set of the primary zone and the candidate set of the secondary zone. The values can be custom codes (`zone{zone}`) or standard codes (`cn-RegionID-{zone}`).
    * 
-   * *   If you set CrossZone to true and specify Zone H and Zone F as the candidate set for primary zones and Zone K as the candidate set for secondary zones, set this parameter to `[["zoneh","zonef"],["zonek"]]`.
+   * - If you want to deploy the instance across zones (isCrossZone=true), the candidate set of the primary zone is Zone H or Zone F, and the candidate set of the secondary zone is Zone K, set this parameter to `[[\\"zoneh\\",\\"zonef\\"],[\\"zonek\\"]]`. This example uses custom codes.
    * 
-   * > If you specify multiple zones as the primary or secondary zones, the system deploys the instance in one of the zones without prioritizing them. For example, if you set this parameter to `[["zoneh","zonef"],["zonek"]]`, the primary zone in which the instance is deployed can be Zone H or Zone F, and the secondary zone is Zone K.
+   *   > If you specify multiple zones for the primary or secondary zone, the system selects one of the zones for deployment without a priority. For example, if you set the parameter to `[[\\"zoneh\\",\\"zonef\\"],[\\"zonek\\"]]`, the primary zone of the deployed instance is Zone H or Zone F, and the secondary zone is Zone K.
    * 
-   * *   If you set CrossZone to false and want to deploy the instance in Zone K, set this parameter to `[["zonek"],[]]`. In this case, the value of this parameter must still be two-dimensional arrays, but the array that specifies the candidate for secondary zones is left empty.
+   * - If you do not want to deploy the instance across zones (isCrossZone=false) and want to deploy the instance in Zone K, set this parameter to `[[\\"zonek\\"],[]]`. This example uses a custom code. Note that you must still specify two arrays. The second array, which represents the candidate set of the secondary zone, can be empty [].
+   * 
+   * > Relationship between the SelectedZones and VSwitchIds parameters for provisioned instances
+   * >
+   * > - If you specify only VSwitchIds and do not specify SelectedZones, the system preferentially selects the zones that correspond to the vSwitches in VSwitchIds.
    * 
    * @example
    * [[\\"zonel\\"],[\\"zonek\\"]]
@@ -177,22 +209,26 @@ export class StartInstanceRequest extends $dara.Model {
   selectedZones?: string;
   /**
    * @remarks
-   * The version of the ApsaraMQ for Kafka instance. Valid values:
+   * The version of the ApsaraMQ for Kafka instance that you want to deploy.
    * 
-   * *   ApsaraMQ for Kafka V2 instances: 2.2.0 and 2.6.2.
-   * *   ApsaraMQ for Kafka V3 instances: 3.3.1.
-   * *   ApsaraMQ for Confluent instances: 7.4.0.
+   * - For provisioned instances, valid values are 2.2.0 and 2.6.2.
+   * 
+   * - For Serverless instances, the valid value is 3.3.1.
+   * 
+   * - For Confluent instances, the valid value is 7.4.0.
    * 
    * Default value:
    * 
-   * *   ApsaraMQ for Kafka V2 instances: 2.2.0.
-   * *   ApsaraMQ for Kafka V3 instances: 3.3.1.
-   * *   ApsaraMQ for Confluent instances: 7.4.0.
+   * - Provisioned instances: 2.2.0
+   * 
+   * - Serverless instances: 3.3.1
+   * 
+   * - Confluent instances: 7.4.0
    * 
    * @example
-   * ApsaraMQ for Kafka V2 instances: 2.2.0
-   * ApsaraMQ for Kafka V3 instances: 3.3.1
-   * ApsaraMQ for Confluent instances: 7.4.0
+   * Reserved Instance Series: 2.2.0
+   * Serverless Instance Series: 3.3.1
+   * Confluent Series: 7.4.0
    */
   serviceVersion?: string;
   /**
@@ -205,12 +241,13 @@ export class StartInstanceRequest extends $dara.Model {
   userPhoneNum?: string;
   /**
    * @remarks
-   * The instance username.
+   * The username.
    * 
-   * *   This parameter is available only for Internet- and VPC- connected ApsaraMQ for Kafka V2 and V3 instances.
-   * *   If the instance is an ApsaraMQ for Confluent instance, set this parameter to root or leave this parameter empty.
+   * - For provisioned and Serverless instances, this parameter is supported only for Internet/VPC instances.
    * 
-   * Default value for ApsaraMQ for Kafka V2 and V3 instances: username. Default value for ApsaraMQ for Confluent instances: root.
+   * - For Confluent instances, you can set this parameter only to root or leave it empty.
+   * 
+   * Default value: For provisioned and Serverless instances, the default value is username. For Confluent instances, the default value is root.
    * 
    * @example
    * username
@@ -218,7 +255,7 @@ export class StartInstanceRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which you want to connect the instance.
+   * The ID of the vSwitch to which the instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -228,12 +265,12 @@ export class StartInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches with which the instance is associated. If the instance is an ApsaraMQ for Kafka V2 or V3 instance, this parameter is required. If the instance is an ApsaraMQ for Confluent instance, you must configure one of VSwitchIds and VSwitchId. If you configure both of the parameters, the value of VSwitchIds takes effect.
+   * The list of vSwitch IDs. This parameter is required for provisioned and Serverless instances. This parameter is supported for Confluent instances. You must specify at least one of VSwitchIds and VSwitchId. If you specify both, VSwitchIds takes precedence.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which you want to deploy the instance.
+   * The ID of the VPC in which the instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -243,12 +280,13 @@ export class StartInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone where you want to deploy the ApsaraMQ for Kafka instance.
+   * The ID of the zone in which the instance is deployed.
    * 
-   * *   The zone ID of the ApsaraMQ for Kafka instance must be the same as that of the vSwitch.
-   * *   The value must be in the zoneX or Region ID-X format. Examples: zonea and cn-hangzhou-k.
+   * - The value must be the zone ID of the vSwitch.
    * 
-   * >  If resources in the specified zone is insufficient, the instance may be deployed in another zone.
+   * - The value can be in the zoneX or RegionId-X format. For example, you can set the value to zonea or cn-hangzhou-k.
+   * 
+   * > If resources in the specified zone are insufficient, the instance may be deployed in another zone.
    * 
    * @example
    * cn-hangzhou-k

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePrePayInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * alikafka_post-cn-xxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The unique ID of the order.
+   * 
    * @example
    * 236972661xxxx
    */
@@ -38,22 +44,38 @@ export class CreatePrePayInstanceResponseBodyData extends $dara.Model {
 
 export class CreatePrePayInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 indicates a successful request.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreatePrePayInstanceResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * operation success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * E57A8862-DF68-4055-8E55-B80CB4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

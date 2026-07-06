@@ -68,22 +68,34 @@ export class ListRebalanceInfoResponseBodyData extends $dara.Model {
 
 export class ListRebalanceInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code. A return code of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   data?: ListRebalanceInfoResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

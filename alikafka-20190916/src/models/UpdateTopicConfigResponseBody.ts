@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTopicConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. If the request is successful, 200 is returned.
+   * The status code. A value of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdateTopicConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0178A3A7-E87B-5E50-A16F-3E62F534****
@@ -37,7 +37,7 @@ export class UpdateTopicConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

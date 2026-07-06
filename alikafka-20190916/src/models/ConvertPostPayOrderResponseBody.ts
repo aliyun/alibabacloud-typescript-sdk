@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertPostPayOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ConvertPostPayOrderResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
    * operation success.
@@ -37,7 +37,7 @@ export class ConvertPostPayOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

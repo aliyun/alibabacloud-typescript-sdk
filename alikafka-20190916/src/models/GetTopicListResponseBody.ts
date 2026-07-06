@@ -145,7 +145,7 @@ export class GetTopicListResponseBodyTopicList extends $dara.Model {
 export class GetTopicListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -153,7 +153,7 @@ export class GetTopicListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The number of the page returned.
    * 
    * @example
    * 1
@@ -161,7 +161,7 @@ export class GetTopicListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success.
@@ -169,7 +169,7 @@ export class GetTopicListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -185,7 +185,7 @@ export class GetTopicListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -194,7 +194,7 @@ export class GetTopicListResponseBody extends $dara.Model {
   topicList?: GetTopicListResponseBodyTopicList;
   /**
    * @remarks
-   * The number of topics.
+   * The total number of topics.
    * 
    * @example
    * 1

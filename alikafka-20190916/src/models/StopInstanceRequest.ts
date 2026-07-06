@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * Region ID of the instance.
    * 
    * This parameter is required.
    * 

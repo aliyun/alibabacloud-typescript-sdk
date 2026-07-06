@@ -15,7 +15,7 @@ export class ReopenInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

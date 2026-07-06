@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTopicStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class GetTopicStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * Topic name.
    * 
    * This parameter is required.
    * 

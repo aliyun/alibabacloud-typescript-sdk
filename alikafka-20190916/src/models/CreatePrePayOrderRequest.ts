@@ -38,9 +38,10 @@ export class CreatePrePayOrderRequestConfluentConfigKsqlList extends $dara.Model
 }
 
 export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
+  confluentVersion?: string;
   /**
    * @remarks
-   * The number of CPU cores of Connect.
+   * The number of CPU cores for Connect component.
    * 
    * @example
    * 4
@@ -48,7 +49,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   connectCU?: number;
   /**
    * @remarks
-   * The number of replicas of Connect.
+   * The number of replicas for Connect component.
    * 
    * @example
    * 2
@@ -56,7 +57,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   connectReplica?: number;
   /**
    * @remarks
-   * The number of CPU cores of Control Center.
+   * The number of CPU cores for ControlCenter component.
    * 
    * @example
    * 4
@@ -64,7 +65,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   controlCenterCU?: number;
   /**
    * @remarks
-   * The number of replicas of Control Center.
+   * The number of replicas for ControlCenter component.
    * 
    * @example
    * 1
@@ -72,7 +73,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   controlCenterReplica?: number;
   /**
    * @remarks
-   * The disk capacity of Control Center. Unit: GB
+   * The disk capacity of ControlCenter component. Unit: GB.
    * 
    * @example
    * 300
@@ -80,7 +81,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   controlCenterStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores of the Kafka broker.
+   * The number of CPU cores for Kafka broker.
    * 
    * @example
    * 4
@@ -88,7 +89,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   kafkaCU?: number;
   /**
    * @remarks
-   * The number of replicas of the Kafka broker.
+   * The number of replicas for Kafka broker.
    * 
    * @example
    * 3
@@ -96,7 +97,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   kafkaReplica?: number;
   /**
    * @remarks
-   * The number of CPU cores of Kafka Rest Proxy.
+   * The number of CPU cores for KafkaRestProxy component.
    * 
    * @example
    * 4
@@ -104,7 +105,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   kafkaRestProxyCU?: number;
   /**
    * @remarks
-   * The number of replicas of Kafka Rest Proxy.
+   * The number of replicas for KafkaRestProxy component.
    * 
    * @example
    * 2
@@ -112,15 +113,18 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   kafkaRestProxyReplica?: number;
   /**
    * @remarks
-   * The disk capacity of the Kafka broker. Unit: GB
+   * The disk capacity of Kafka broker. Unit: GB.
    * 
    * @example
    * 800
    */
   kafkaStorage?: number;
+  kraftControllerCU?: number;
+  kraftControllerReplica?: number;
+  kraftControllerStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores of ksqIDB.
+   * The number of CPU cores for KsqlDB component.
    * 
    * @example
    * 4
@@ -129,7 +133,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   ksqlList?: CreatePrePayOrderRequestConfluentConfigKsqlList[];
   /**
    * @remarks
-   * The number of replicas of ksqlDB.
+   * The number of replicas for KsqlDB component.
    * 
    * @example
    * 2
@@ -137,7 +141,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   ksqlReplica?: number;
   /**
    * @remarks
-   * The disk capacity of ksqlDB. Unit: GB
+   * The disk capacity of KsqlDB component. Unit: GB.
    * 
    * @example
    * 100
@@ -145,7 +149,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   ksqlStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores of Schema Registry.
+   * The number of CPU cores for SchemaRegistry component.
    * 
    * @example
    * 1
@@ -153,7 +157,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   schemaRegistryCU?: number;
   /**
    * @remarks
-   * The number of replicas of Schema Registry.
+   * The number of replicas for SchemaRegistry component.
    * 
    * @example
    * 2
@@ -161,7 +165,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   schemaRegistryReplica?: number;
   /**
    * @remarks
-   * The number of CPU cores of ZooKeeper.
+   * The number of CPU cores for ZooKeeper component.
    * 
    * @example
    * 2
@@ -169,7 +173,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   zooKeeperCU?: number;
   /**
    * @remarks
-   * The number of replicas of ZooKeeper.
+   * The number of replicas for ZooKeeper component.
    * 
    * @example
    * 3
@@ -177,7 +181,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   zooKeeperReplica?: number;
   /**
    * @remarks
-   * The disk capacity of ZooKeeper. Unit: GB
+   * The disk capacity of ZooKeeper component. Unit: GB.
    * 
    * @example
    * 100
@@ -185,6 +189,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   zooKeeperStorage?: number;
   static names(): { [key: string]: string } {
     return {
+      confluentVersion: 'ConfluentVersion',
       connectCU: 'ConnectCU',
       connectReplica: 'ConnectReplica',
       controlCenterCU: 'ControlCenterCU',
@@ -195,6 +200,9 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyCU: 'KafkaRestProxyCU',
       kafkaRestProxyReplica: 'KafkaRestProxyReplica',
       kafkaStorage: 'KafkaStorage',
+      kraftControllerCU: 'KraftControllerCU',
+      kraftControllerReplica: 'KraftControllerReplica',
+      kraftControllerStorage: 'KraftControllerStorage',
       ksqlCU: 'KsqlCU',
       ksqlList: 'KsqlList',
       ksqlReplica: 'KsqlReplica',
@@ -209,6 +217,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      confluentVersion: 'string',
       connectCU: 'number',
       connectReplica: 'number',
       controlCenterCU: 'number',
@@ -219,6 +228,9 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyCU: 'number',
       kafkaRestProxyReplica: 'number',
       kafkaStorage: 'number',
+      kraftControllerCU: 'number',
+      kraftControllerReplica: 'number',
+      kraftControllerStorage: 'number',
       ksqlCU: 'number',
       ksqlList: { 'type': 'array', 'itemType': CreatePrePayOrderRequestConfluentConfigKsqlList },
       ksqlReplica: 'number',
@@ -246,11 +258,13 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
 export class CreatePrePayOrderRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key of the resource.
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   If this parameter is left empty, the keys of all tags are matched.
-   * *   The tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * - N ranges from 1 to 20.
+   * 
+   * - If this parameter is empty, all tag keys are matched.
+   * 
+   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
    * 
    * This parameter is required.
    * 
@@ -260,11 +274,13 @@ export class CreatePrePayOrderRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value of the resource.
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   This parameter can be left empty.
-   * *   The tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * - N ranges from 1 to 20.
+   * 
+   * - This parameter can be empty.
+   * 
+   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
    * 
    * @example
    * FinanceJoshua
@@ -296,19 +312,20 @@ export class CreatePrePayOrderRequestTag extends $dara.Model {
 export class CreatePrePayOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of Confluent.
+   * The configuration of Confluent components.
    * 
-   * >  When you create an ApsaraMQ for Confluent instance, you must configure this parameter.
+   * > This parameter is required when you create a Confluent series instance.
    */
   confluentConfig?: CreatePrePayOrderRequestConfluentConfig;
   /**
    * @remarks
-   * The type of the network in which the instance is deployed. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   **4**: Internet and virtual private cloud (VPC)
-   * *   **5**: VPC
+   * - **4**: Internet/VPC instance
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, set the value to 5. After the instance is created, you can specify whether to enable each component.
+   * - **5**: VPC instance
+   * 
+   * > If you are creating a Confluent series instance, you cannot select the deployment type. You can only set the value to 5. After the purchase, you can adjust whether each component is open to the Internet.
    * 
    * @example
    * 5
@@ -316,11 +333,11 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   deployType?: number;
   /**
    * @remarks
-   * The disk size. Unit: GB
+   * The disk capacity. Unit: GB.
    * 
-   * For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 500
@@ -330,10 +347,11 @@ export class CreatePrePayOrderRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * *   **0**: ultra disk
-   * *   **1**: standard SSD
+   * - **0**: ultra disk
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - **1**: SSD
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 0
@@ -341,9 +359,11 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The subscription duration. Unit: months. Default value: 1. Valid values:
+   * The subscription duration. Unit: month. Default value: 1. Valid values:
    * 
-   * *   **1 to 12**
+   * - **Confluent instances: 1 or 12**
+   * 
+   * - **Kafka instances: 1**
    * 
    * @example
    * 1
@@ -351,12 +371,13 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The maximum Internet traffic in the instance.
+   * The Internet traffic.
    * 
-   * *   If you set **DeployType** to **4**, you must configure this parameter.
-   * *   For information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+   * - If **DeployType** is set to **4**, you must specify this parameter.
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - For the valid values, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 0
@@ -364,12 +385,13 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The maximum traffic in the instance. We recommend that you do not configure this parameter.
+   * The traffic peak (not recommended).
    * 
-   * *   You must set one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 20
@@ -377,12 +399,13 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   ioMax?: number;
   /**
    * @remarks
-   * The traffic specification of the instance. We recommend that you configure this parameter.
+   * The traffic specification (recommended).
    * 
-   * *   You must configure one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
-   * *   For more information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -390,24 +413,27 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **0**: the subscription billing method
-   * *   **4**: the subscription billing method for ApsaraMQ for Confluent instances
+   * - **0**: subscription
+   * 
+   * - **4**: Confluent series subscription
    * 
    * @example
-   * 1
+   * 0
    */
   paidType?: number;
   /**
    * @remarks
-   * The number of partitions. We recommend that you configure this parameter.
+   * The number of partitions (recommended).
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
-   * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+   * 
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 50
@@ -425,9 +451,9 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
-   * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
+   * If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
    * 
    * @example
    * rg-ac***********7q
@@ -435,15 +461,23 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance edition. Valid values:
+   * The specification type.
    * 
-   * *   **normal**: Standard Edition (High Write)
-   * *   **professional**: Professional Edition (High Write)
-   * *   **professionalForHighRead**: Professional Edition (High Read)
+   * Valid values for Kafka instances:
+   * 
+   * - **normal**: Standard Edition (high write)
+   * 
+   * - **professional**: Professional Edition (high write)
+   * 
+   * - **professionalForHighRead**: Professional Edition (high read)
+   * 
+   * Valid values for Confluent instances:
+   * 
+   * - **professional**: Professional Edition
+   * 
+   * - **enterprise**: Enterprise Edition
    * 
    * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
    * 
    * @example
    * normal
@@ -451,19 +485,22 @@ export class CreatePrePayOrderRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreatePrePayOrderRequestTag[];
   /**
    * @remarks
-   * The number of topics. We recommend that you do not configure this parameter.
+   * The number of topics (not recommended).
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
-   * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you use exceeds the default value, you are charged additional fees.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+   * - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+   * 
+   * - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
+   * 
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > If you are creating a Confluent series instance, you do not need to pass this parameter.
    * 
    * @example
    * 50

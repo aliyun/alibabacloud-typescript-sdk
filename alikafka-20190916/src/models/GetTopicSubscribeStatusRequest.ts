@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicSubscribeStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * You can call the [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) operation to query the list of instances.
+   * You can call [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) to obtain it.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetTopicSubscribeStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class GetTopicSubscribeStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The topic name.
+   * Topic name.
    * 
-   * You can call the [GetTopicList](https://help.aliyun.com/document_detail/437677.html) operation to query the list of topics.
+   * You can call [GetTopicList](https://help.aliyun.com/document_detail/437677.html) to obtain it.
    * 
    * This parameter is required.
    * 

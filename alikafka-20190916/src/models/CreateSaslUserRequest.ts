@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSaslUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class CreateSaslUserRequest extends $dara.Model {
    * @remarks
    * The encryption method. Valid values:
    * 
-   * *   SCRAM-SHA-512 (default)
-   * *   SCRAM-SHA-256
+   * - SCRAM-SHA-512 (default)
    * 
-   * >  This parameter is available only for ApsaraMQ for Kafka serverless instances.
+   * - SCRAM-SHA-256
+   * 
+   * > This parameter is supported only for Serverless instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -28,7 +29,7 @@ export class CreateSaslUserRequest extends $dara.Model {
   mechanism?: string;
   /**
    * @remarks
-   * The password of the SASL user.
+   * The password.
    * 
    * This parameter is required.
    * 
@@ -38,7 +39,7 @@ export class CreateSaslUserRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -48,13 +49,15 @@ export class CreateSaslUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the Simple Authentication and Security Layer (SASL) user. Valid values:
+   * The SASL mechanism. Valid values:
    * 
-   * *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
-   * *   **SCRAM**: a mechanism that uses usernames and passwords to verify user identities. Compared with the PLAIN mechanism, this mechanism provides better security protection. ApsaraMQ for Kafka uses the SCRAM-SHA-256 algorithm.
-   * *   **LDAP**: This value is available only for the SASL users of ApsaraMQ for Confluent instances.
+   * - plain: a simple username and password authentication mechanism. Message Queue for Apache Kafka optimizes the PLAIN mechanism to support the dynamic creation of SASL users without the need to restart the instance.
    * 
-   * Default value: **plain**.
+   * - scram: a username and password authentication mechanism that provides higher security than the PLAIN mechanism. Message Queue for Apache Kafka uses Salted Challenge Response Authentication Mechanism (SCRAM)-SHA-256.
+   * 
+   * - LDAP: This value is applicable only when you create users for Confluent instances.
+   * 
+   * Default value: plain.
    * 
    * @example
    * plain
@@ -62,7 +65,7 @@ export class CreateSaslUserRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The name of the SASL user.
+   * The username.
    * 
    * This parameter is required.
    * 

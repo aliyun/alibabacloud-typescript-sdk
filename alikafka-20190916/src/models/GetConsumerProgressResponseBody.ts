@@ -200,22 +200,45 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicList extends $d
 export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model {
   /**
    * @remarks
-   * The time when the last message consumed by the consumer group was generated.
+   * The latest time when a message was stored. This time is calculated based on the consumer offsets of all topics in the consumer group.
+   * 
+   * > - This parameter is not supported for topics on Serverless instances or topics that use local storage on provisioned instances. In these cases, -1 is returned.
+   * >
+   * > - For topics that use cloud storage on provisioned instances, this parameter returns the message creation timestamp. This happens only after you submit the consumer offset for a consumer group that was created in the console or by an API call. If the message has no creation timestamp, -1 is returned.
    * 
    * @example
-   * 1566874931671
+   * 1566874931649
    */
   lastTimestamp?: number;
   rebalanceInfoList?: GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList;
   topicList?: GetConsumerProgressResponseBodyConsumerProgressTopicList;
   /**
    * @remarks
-   * The total number of unconsumed messages in all topics to which the consumer group subscribes.
+   * The total number of unconsumed messages in all topics. This value is the message accumulation.
    * 
    * @example
    * 0
    */
   totalDiff?: number;
+  /**
+   * @remarks
+   * The status of the consumer group:
+   * 
+   * - UNKNOWN
+   * 
+   * - PREPARING_REBALANCE
+   * 
+   * - COMPLETING_REBALANCE
+   * 
+   * - STABLE
+   * 
+   * - DEAD
+   * 
+   * - EMPTY
+   * 
+   * @example
+   * STABLE
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,7 +278,7 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model
 export class GetConsumerProgressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. If the request is successful, 200 is returned.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -263,7 +286,7 @@ export class GetConsumerProgressResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The consumer progress of the consumer group.
+   * The consumption status.
    */
   consumerProgress?: GetConsumerProgressResponseBodyConsumerProgress;
   /**
@@ -284,7 +307,7 @@ export class GetConsumerProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

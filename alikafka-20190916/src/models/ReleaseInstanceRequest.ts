@@ -7,8 +7,9 @@ export class ReleaseInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to immediately release the physical resources of the instance. Valid values:
    * 
-   * *   **true**: The physical resources of the instance are immediately released.
-   * *   **false**: The physical resources of the instance are retained for a period of time before they are released.
+   * - **true**: Immediately releases the physical resources of the instance.
+   * 
+   * - **false**: The physical resources of the instance are retained for a period of time before they are released.
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class ReleaseInstanceRequest extends $dara.Model {
   forceDeleteInstance?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

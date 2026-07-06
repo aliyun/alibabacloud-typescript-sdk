@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSaslUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSaslUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * Region ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+   * The start timestamp of the query range. Unit: milliseconds.
    * 
    * @example
    * 1672410180000
@@ -23,7 +23,7 @@ export class QueryMessageRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The consumer offset of the partition.
+   * The partition offset.
    * 
    * @example
    * 100
@@ -41,8 +41,9 @@ export class QueryMessageRequest extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   byOffset: queries messages by offset. If you select this value, you must configure Partition and Offset.
-   * *   byTimestamp: queries messages by time. If you select this value, you must configure BeginTime.
+   * - byOffset: Query by offset. When selecting offset query, you need to fill in the partition ID and partition offset parameters.
+   * 
+   * - byTimestamp: Query by time. When selecting time query, you need to fill in the BeginTime parameter.
    * 
    * This parameter is required.
    * 
@@ -52,7 +53,7 @@ export class QueryMessageRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * This parameter is required.
    * 

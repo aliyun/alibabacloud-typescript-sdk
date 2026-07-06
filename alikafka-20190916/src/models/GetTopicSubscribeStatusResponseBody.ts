@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus extends $dara.Model {
   /**
    * @remarks
-   * The groups that subscribe to the topic.
+   * List of Groups that subscribe to this topic.
    */
   consumerGroups?: string[];
   /**
    * @remarks
-   * The topic name.
+   * Topic name.
    * 
    * @example
    * topic_api_1681624879908
@@ -45,7 +45,7 @@ export class GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus extends $da
 export class GetTopicSubscribeStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP return code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class GetTopicSubscribeStatusResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * Return message.
    * 
    * @example
    * operation success
@@ -61,7 +61,7 @@ export class GetTopicSubscribeStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****
@@ -77,7 +77,7 @@ export class GetTopicSubscribeStatusResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The subscription details.
+   * Subscription details
    */
   topicSubscribeStatus?: GetTopicSubscribeStatusResponseBodyTopicSubscribeStatus;
   static names(): { [key: string]: string } {

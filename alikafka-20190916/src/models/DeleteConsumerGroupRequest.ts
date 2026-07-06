@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the consumer group.
+   * Group name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteConsumerGroupRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteConsumerGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID of the instance.
    * 
    * This parameter is required.
    * 

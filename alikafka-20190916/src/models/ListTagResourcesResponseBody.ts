@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the next query.
+   * The token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -71,7 +71,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE65F6B7-7566-4802-9007-96F2494A****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned status code. If the request is successful, 200 is returned.
+   * Status code. A return value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * Return message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 17D425C2-4EA3-4AB8-928D-E10511ECF***
@@ -29,7 +29,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

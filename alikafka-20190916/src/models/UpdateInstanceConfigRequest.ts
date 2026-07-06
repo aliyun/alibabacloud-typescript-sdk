@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations that you want to update for the ApsaraMQ for Kafka instance. The value must be a valid JSON string.
+   * The configuration of ApsaraMQ for Kafka that needs to be updated. The configuration information must be a valid JSON string.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateInstanceConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

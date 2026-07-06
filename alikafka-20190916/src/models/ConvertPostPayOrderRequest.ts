@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertPostPayOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The subscription duration. Unit: months. Valid values:
+   * The subscription duration in months. The default value is 1. Valid values:
    * 
-   * *   **1~12**
-   * *   **24**
-   * *   **36**
+   * - 1 to **12**
+   * 
+   * - **24**
+   * 
+   * - **36**
    * 
    * @example
    * 1
@@ -25,6 +27,17 @@ export class ConvertPostPayOrderRequest extends $dara.Model {
    * alikafka_post-cn-v0h1fgs2****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * - **0**: subscription
+   * 
+   * - **4**: Confluent series subscription
+   * 
+   * @example
+   * 1
+   */
   paidType?: number;
   /**
    * @remarks

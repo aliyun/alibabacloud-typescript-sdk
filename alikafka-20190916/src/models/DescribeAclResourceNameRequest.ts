@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclResourceNameRequest extends $dara.Model {
   /**
    * @remarks
+   * Matching pattern. Valid values:
+   * 
+   * - LITERAL: exact match
+   * 
+   * - PREFIXED: prefix match
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,16 @@ export class DescribeAclResourceNameRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
+   * Resource type.
+   * 
+   * - **Topic**: message topic.
+   * 
+   * - **Group**: consumer group.
+   * 
+   * - **Cluster**: instance.
+   * 
+   * - **TransactionalId**: transaction ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +37,8 @@ export class DescribeAclResourceNameRequest extends $dara.Model {
   aclResourceType?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +47,8 @@ export class DescribeAclResourceNameRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example

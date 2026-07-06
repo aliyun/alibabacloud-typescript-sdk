@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclsRequest extends $dara.Model {
   /**
    * @remarks
-   * The types of operations allowed by the ACL. Separate multiple operation types with commas (,).
-   * - Valid values:
-   * - Write
-   * - Read
-   * - Describe: reads of transactional IDs.
-   * - IdempotentWrite: idempotent data writes to clusters.
-   * - IDEMPOTENT_WRITE: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * - DESCRIBE_CONFIGS: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
-   * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * The operation type. Valid values:
+   * 
+   * - **Write**
+   * 
+   * - **Read**
+   * 
+   * - **Describe**: reads a transactional ID.
+   * 
+   * - **IdempotentWrite**: performs an idempotent write to a cluster. This value is not supported by Serverless instances. For Serverless instances, use IDEMPOTENT_WRITE.
+   * 
+   * - **IDEMPOTENT_WRITE**: performs an idempotent write to a cluster. This value is available only for Serverless instances.
+   * 
+   * - **DESCRIBE_CONFIGS**: queries configurations. This value is available only for Serverless instances.
    * 
    * @example
    * Write
@@ -22,9 +26,12 @@ export class DescribeAclsRequest extends $dara.Model {
   /**
    * @remarks
    * The authorization method. Valid values:
+   * 
    * - DENY
+   * 
    * - ALLOW
-   * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * 
+   * > This parameter is available only for Serverless instances.
    * 
    * @example
    * DENY
@@ -32,12 +39,13 @@ export class DescribeAclsRequest extends $dara.Model {
   aclPermissionType?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
-   * *   The value can be the name of a topic or consumer group.
-   * *   You can use an asterisk (\\*) to specify the names of all topics or consumer groups.
+   * - The name can be a topic name or a group name.
    * 
-   * > You can query the resources on which permissions are granted only after you grant the user the required permissions on all resources.
+   * - You can use an asterisk (\\*) to represent all topic names or group names.
+   * 
+   * > * You can use an asterisk (\\*) only after you grant permissions to all resources.
    * 
    * This parameter is required.
    * 
@@ -49,8 +57,9 @@ export class DescribeAclsRequest extends $dara.Model {
    * @remarks
    * The match mode. Valid values:
    * 
-   * *   LITERAL: full-name match
-   * *   PREFIXED: prefix match
+   * - LITERAL: an exact match
+   * 
+   * - PREFIXED: a prefix match
    * 
    * @example
    * LITERAL
@@ -58,10 +67,15 @@ export class DescribeAclsRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The type of the resource. Valid values:
    * 
-   * *   **Topic**
-   * *   **Group**
+   * - **Topic**
+   * 
+   * - **Group**
+   * 
+   * - **Cluster**
+   * 
+   * - **TransactionalId**
    * 
    * This parameter is required.
    * 
@@ -72,8 +86,10 @@ export class DescribeAclsRequest extends $dara.Model {
   /**
    * @remarks
    * The source IP address.
-   * >-  You can specify only a specific IP address or use the asterisk (*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
-   * > - This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+   * 
+   * > - You can set this parameter to a specific IP address or an asterisk (\\*). An asterisk (\\*) indicates all IP addresses. CIDR blocks are not supported.
+   * >
+   * > - This parameter is available only for Serverless instances.
    * 
    * @example
    * *
@@ -103,9 +119,9 @@ export class DescribeAclsRequest extends $dara.Model {
    * @remarks
    * The username.
    * 
-   * *   You can use an asterisk (\\*) to specify all users.
+   * - An asterisk (\\*) can be used to represent all users.
    * 
-   * > You can use an asterisk (\\*) to query the authorized users only after you grant the required permissions to all users.
+   * > * A query with an asterisk (\\*) returns authorizations only if authorization has been granted to all users.
    * 
    * This parameter is required.
    * 

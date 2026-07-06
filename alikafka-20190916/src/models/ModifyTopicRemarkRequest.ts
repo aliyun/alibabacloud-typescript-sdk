@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTopicRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyTopicRemarkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of the topic.
+   * Remark.
    * 
    * @example
    * testremark

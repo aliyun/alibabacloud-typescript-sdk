@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRebalanceInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the consumer group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListRebalanceInfoRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListRebalanceInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePostPayOrderShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key.
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   If this parameter is left empty, the keys of all tags are matched.
-   * *   The tag key must be up to 128 characters in length. It cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * - N can be an integer from 1 to 20.
+   * 
+   * - If this parameter is empty, all tag keys are matched.
+   * 
+   * - The tag key can be up to 128 characters in length. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
    * 
    * This parameter is required.
    * 
@@ -19,11 +21,13 @@ export class CreatePostPayOrderShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   If you do not specify a tag key, you cannot specify a tag value. If this parameter is not configured, all tag values are matched.
-   * *   The tag value must be 1 to 128 characters in length. It cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * - N can be an integer from 1 to 20.
+   * 
+   * - This parameter must be empty if the tag key is empty. If this parameter is empty, all tag values are matched.
+   * 
+   * - The tag value can be up to 128 characters in length. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * FinanceJoshua
@@ -55,10 +59,11 @@ export class CreatePostPayOrderShrinkRequestTag extends $dara.Model {
 export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The deployment mode of the instance. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   **4**: deploys the instance that allows access from the Internet and a VPC.
-   * *   **5**: deploys the instance that allows access only from a VPC.
+   * - **4**: An instance that is accessible from the Internet and a VPC.
+   * 
+   * - **5**: An instance that is accessible only from a VPC.
    * 
    * This parameter is required.
    * 
@@ -68,11 +73,11 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   deployType?: number;
   /**
    * @remarks
-   * The disk size.
+   * The disk capacity.
    * 
-   * For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 500
@@ -80,12 +85,13 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The disk type of the instance. Valid values:
+   * The disk type. Valid values:
    * 
-   * *   **0**: ultra disk
-   * *   **1**: standard SSD
+   * - **0**: Ultra disk
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - **1**: SSD
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 0
@@ -95,10 +101,11 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The Internet traffic.
    * 
-   * *   If you set **DeployType** to **4**, you must configure this parameter.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - This parameter is required if you set **DeployType** to **4**.
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 0
@@ -106,12 +113,13 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The maximum traffic in the instance. We recommend that you do not configure this parameter.
+   * The peak traffic. This parameter is not recommended.
    * 
-   * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify this parameter or \\`IoMaxSpec\\`. If you specify both parameters, the value of \\`IoMaxSpec\\` takes precedence. We recommend that you specify only \\`IoMaxSpec\\`.
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 20
@@ -119,12 +127,13 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   ioMax?: number;
   /**
    * @remarks
-   * The traffic specification of the instance. We recommend that you configure this parameter.
+   * The traffic specification. This parameter is recommended.
    * 
-   * *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify this parameter or \\`IoMax\\`. If you specify both parameters, the value of this parameter takes precedence. We recommend that you specify only this parameter.
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -132,10 +141,11 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   1: pay-as-you-go (reserved capacity).
-   * *   3: pay-as-you-go (reserved capacity) + pay-as-you-go (on-demand capacity)
+   * - 1 (default): Pay-as-you-go for a reserved instance.
+   * 
+   * - 3: Pay-as-you-go for a reserved Serverless instance and pay-as-you-go for elastic scaling of a Serverless instance.
    * 
    * @example
    * 1
@@ -143,13 +153,15 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   paidType?: number;
   /**
    * @remarks
-   * The number of partitions. We recommend that you configure this parameter.
+   * The number of partitions. This parameter is recommended.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
-   * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify this parameter or \\`TopicQuota\\`. We recommend that you specify only this parameter.
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - If you specify both this parameter and \\`TopicQuota\\`, the system verifies whether the values of the two parameters are equivalent based on the previous topic-based sales model. If the values are not equivalent, the system returns a failure. If the values are equivalent, the purchase is made based on the number of partitions.
+   * 
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 50
@@ -169,7 +181,7 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group.
    * 
-   * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
+   * If you do not set this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
    * 
    * @example
    * rg-ac***********7q
@@ -177,24 +189,30 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The parameters configured for the serverless ApsaraMQ for Kafka instance. These parameters are required only when you create a serverless instance.
+   * The settings of the Serverless instance. This parameter is required if you create a Serverless instance.
    */
   serverlessConfigShrink?: string;
   /**
    * @remarks
-   * The instance edition.
+   * The specification type.
    * 
-   * Valid values if you set PaidType to 1:
+   * If you set \\`PaidType\\` to 1 (pay-as-you-go for a reserved instance), valid values are:
    * 
-   * *   normal: Standard Edition (High Write)
-   * *   professional: Professional Edition (High Write)
-   * *   professionalForHighRead: Professional Edition (High Read)
+   * - normal: Standard Edition (High-write)
    * 
-   * Valid values if you set PaidType to 3:
+   * - professional: Professional Edition (High-write)
    * 
-   * *   normal: Serverless Standard Edition
+   * - professionalForHighRead: Professional Edition (High-read)
    * 
-   * For more information about the instance editions, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * If you set \\`PaidType\\` to 3 (pay-as-you-go for a reserved Serverless instance and pay-as-you-go for elastic scaling of a Serverless instance), valid values are:
+   * 
+   * - basic: Serverless Basic Edition
+   * 
+   * - normal: Serverless Standard Edition
+   * 
+   * - professional: Serverless Professional Edition
+   * 
+   * For more information about these specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * normal
@@ -207,14 +225,17 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   tag?: CreatePostPayOrderShrinkRequestTag[];
   /**
    * @remarks
-   * The number of topics. We recommend that you do not configure this parameter.
+   * The number of topics. This parameter is not recommended.
    * 
-   * *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
-   * *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-   * *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-   * *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - You must specify this parameter or \\`PartitionNum\\`. We recommend that you specify only \\`PartitionNum\\`.
    * 
-   * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
+   * - If you specify both this parameter and \\`PartitionNum\\`, the system verifies whether the values of the two parameters are equivalent based on the previous topic-based sales model. If the values are not equivalent, the system returns a failure. If the values are equivalent, the purchase is made based on the number of partitions.
+   * 
+   * - The default value of this parameter varies based on the traffic specification. You are charged for the extra topics that exceed the default value.
+   * 
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * 
+   * > Do not specify this parameter if you create a Serverless instance.
    * 
    * @example
    * 50

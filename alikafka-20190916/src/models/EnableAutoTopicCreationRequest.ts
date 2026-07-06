@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoTopicCreationRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,13 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Valid values:
+   * Currently only these three request parameters are supported:
    * 
-   * *   enable: enables the automatic topic creation feature.
-   * *   disable: disables the automatic topic creation feature.
-   * *   updatePartition: changes the number of partitions in topics that are automatically created.
+   * - enable: Enable automatic topic creation.
+   * 
+   * - disable: Disable automatic topic creation.
+   * 
+   * - updatePartition: Modify the number of partitions for automatic creation.
    * 
    * @example
    * enable
@@ -27,9 +29,9 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   operate?: string;
   /**
    * @remarks
-   * The changed number of partitions in topics that are automatically created.
+   * Adjust the default number of partitions for automatically created topics.
    * 
-   * This parameter takes effect only if you set Operate to updatePartition.
+   * > This value is passed only when the Operate value is updatePartition, or when UpdatePartition is true.
    * 
    * @example
    * 12
@@ -37,7 +39,7 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   partitionNum?: number;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -45,6 +47,15 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Modify the number of partitions for automatic creation.
+   * 
+   * > If this parameter is set to true, the Operate parameter must be updatePartition or left empty.
+   * 
+   * @example
+   * true
+   */
   updatePartition?: boolean;
   static names(): { [key: string]: string } {
     return {

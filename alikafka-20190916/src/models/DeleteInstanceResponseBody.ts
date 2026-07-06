@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The return message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABA4A7FD-E10F-45C7-9774-A5236015****
@@ -29,7 +29,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

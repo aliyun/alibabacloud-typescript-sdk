@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConsumerOffsetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned. The status code **200** indicates that the request is successful.
+   * Return code. A return value of **200** indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateConsumerOffsetResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * Return message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class UpdateConsumerOffsetResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 56729737-C428-4E1B-AC68-7A8C2D5****

@@ -145,7 +145,7 @@ export class GetAutoScalingConfigurationResponseBodyData extends $dara.Model {
 export class GetAutoScalingConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value 200 indicates that the request was successful.
+   * Status code. A return value of 200 indicates success.
    * 
    * @example
    * 200
@@ -153,12 +153,12 @@ export class GetAutoScalingConfigurationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * Return result.
    */
   data?: GetAutoScalingConfigurationResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * Return message.
    * 
    * @example
    * operation success.
@@ -166,7 +166,7 @@ export class GetAutoScalingConfigurationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * B7A39AE5-0B36-4442-A304-E0885265***
@@ -174,7 +174,7 @@ export class GetAutoScalingConfigurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Whether the call was successful.
    * 
    * @example
    * true
