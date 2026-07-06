@@ -4064,6 +4064,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 卸载 SysOM Agent
+   * 
+   * @remarks
+   * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - UninstallAgentWithTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallAgentWithTypeResponse
+   */
+  async uninstallAgentWithTypeWithOptions(request: $_model.UninstallAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAgentWithTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      body["agentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      body["instanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallAgentWithType",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/agent/uninstallAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallAgentWithTypeResponse>(await this.callApi(params, req, runtime), new $_model.UninstallAgentWithTypeResponse({}));
+  }
+
+  /**
+   * 卸载 SysOM Agent
+   * 
+   * @remarks
+   * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - UninstallAgentWithTypeRequest
+   * @returns UninstallAgentWithTypeResponse
+   */
+  async uninstallAgentWithType(request: $_model.UninstallAgentWithTypeRequest): Promise<$_model.UninstallAgentWithTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uninstallAgentWithTypeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Updates an alert contact.
    * 
    * @remarks
@@ -4470,6 +4533,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upgradeAgentForClusterWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新 SysOM Agent
+   * 
+   * @remarks
+   * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - UpgradeAgentWithTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeAgentWithTypeResponse
+   */
+  async upgradeAgentWithTypeWithOptions(request: $_model.UpgradeAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeAgentWithTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      body["agentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      body["instanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeAgentWithType",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/agent/upgradeAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeAgentWithTypeResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeAgentWithTypeResponse({}));
+  }
+
+  /**
+   * 更新 SysOM Agent
+   * 
+   * @remarks
+   * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+   * 
+   * @param request - UpgradeAgentWithTypeRequest
+   * @returns UpgradeAgentWithTypeResponse
+   */
+  async upgradeAgentWithType(request: $_model.UpgradeAgentWithTypeRequest): Promise<$_model.UpgradeAgentWithTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeAgentWithTypeWithOptions(request, headers, runtime);
   }
 
 }

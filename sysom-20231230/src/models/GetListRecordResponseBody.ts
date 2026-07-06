@@ -29,7 +29,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   arguments?: string;
   /**
    * @remarks
-   * The analysis failure log.
+   * The failure log of the analysis.
    * 
    * @example
    * 机器i-wz9dej066kii4goqpnze分析失败, 失败原因: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
