@@ -1,5 +1,8 @@
 export { ApiKey } from './ApiKey';
+export { CertConfig } from './CertConfig';
 export { CreateApiKeyInput } from './CreateApiKeyInput';
+export { CreateCustomDomainInput } from './CreateCustomDomainInput';
+export { CustomDomainResp } from './CustomDomainResp';
 export { E2BLifecycle } from './E2blifecycle';
 export { E2BListedSandbox } from './E2blistedSandbox';
 export { E2BListedTemplate } from './E2blistedTemplate';
@@ -11,7 +14,9 @@ export { E2BTemplateTag } from './E2btemplateTag';
 export { E2BVolumeMount } from './E2bvolumeMount';
 export { LogConfiguration } from './LogConfiguration';
 export { Quota } from './Quota';
+export { TLSConfig } from './Tlsconfig';
 export { UpdateApiKeyInput } from './UpdateApiKeyInput';
+export { UpdateCustomDomainInput } from './UpdateCustomDomainInput';
 export { UpdateTemplateInput } from './UpdateTemplateInput';
 export { DeleteQuotaRequest } from './DeleteQuotaRequest';
 export { DeleteQuotaResponseBody } from './DeleteQuotaResponseBody';
