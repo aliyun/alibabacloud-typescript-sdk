@@ -1412,6 +1412,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a face record.
+   * 
+   * @param request - DeleteFaceRecordV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceRecordV2Response
+   */
+  async deleteFaceRecordV2WithOptions(request: $_model.DeleteFaceRecordV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceRecordV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.faceGroupCode)) {
+      query["FaceGroupCode"] = request.faceGroupCode;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFaceRecordV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFaceRecordV2Response>(await this.callApi(params, req, runtime), new $_model.DeleteFaceRecordV2Response({}));
+  }
+
+  /**
+   * Deletes a face record.
+   * 
+   * @param request - DeleteFaceRecordV2Request
+   * @returns DeleteFaceRecordV2Response
+   */
+  async deleteFaceRecordV2(request: $_model.DeleteFaceRecordV2Request): Promise<$_model.DeleteFaceRecordV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFaceRecordV2WithOptions(request, runtime);
+  }
+
+  /**
    * Deletes data related to a user authentication record.
    * 
    * @param request - DeleteVerifyResultRequest

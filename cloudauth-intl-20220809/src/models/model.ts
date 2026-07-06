@@ -12,6 +12,7 @@ export { CredentialSubmitIntlResponseBodyResult } from './CredentialSubmitIntlRe
 export { CredentialVerifyIntlResponseBodyResultObject } from './CredentialVerifyIntlResponseBody';
 export { DeepfakeDetectIntlResponseBodyResultObject } from './DeepfakeDetectIntlResponseBody';
 export { DeepfakeDetectIntlStreamResponseBodyResultObject } from './DeepfakeDetectIntlStreamResponseBody';
+export { DeleteFaceRecordV2ResponseBodyResult } from './DeleteFaceRecordV2responseBody';
 export { DeleteVerifyResultResponseBodyResult } from './DeleteVerifyResultResponseBody';
 export { DocOcrResponseBodyResult } from './DocOcrResponseBody';
 export { DocOcrMaxResponseBodyResult } from './DocOcrMaxResponseBody';
@@ -97,6 +98,9 @@ export { DeleteFaceGroupResponse } from './DeleteFaceGroupResponse';
 export { DeleteFaceRecordRequest } from './DeleteFaceRecordRequest';
 export { DeleteFaceRecordResponseBody } from './DeleteFaceRecordResponseBody';
 export { DeleteFaceRecordResponse } from './DeleteFaceRecordResponse';
+export { DeleteFaceRecordV2Request } from './DeleteFaceRecordV2request';
+export { DeleteFaceRecordV2ResponseBody } from './DeleteFaceRecordV2responseBody';
+export { DeleteFaceRecordV2Response } from './DeleteFaceRecordV2response';
 export { DeleteVerifyResultRequest } from './DeleteVerifyResultRequest';
 export { DeleteVerifyResultResponseBody } from './DeleteVerifyResultResponseBody';
 export { DeleteVerifyResultResponse } from './DeleteVerifyResultResponse';
