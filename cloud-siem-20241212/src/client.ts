@@ -3175,6 +3175,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries collectors by paging.
+   * 
+   * @param tmpReq - ListDataConnectorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataConnectorsResponse
+   */
+  async listDataConnectorsWithOptions(tmpReq: $_model.ListDataConnectorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataConnectorsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataConnectorsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataConnectorIds)) {
+      request.dataConnectorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataConnectorIds, "DataConnectorIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataConnectorIdsShrink)) {
+      body["DataConnectorIds"] = request.dataConnectorIdsShrink;
+    }
+
+    if (!$dara.isNull(request.dataConnectorName)) {
+      body["DataConnectorName"] = request.dataConnectorName;
+    }
+
+    if (!$dara.isNull(request.dataConnectorStatus)) {
+      body["DataConnectorStatus"] = request.dataConnectorStatus;
+    }
+
+    if (!$dara.isNull(request.dataConnectorType)) {
+      body["DataConnectorType"] = request.dataConnectorType;
+    }
+
+    if (!$dara.isNull(request.destDataSourceId)) {
+      body["DestDataSourceId"] = request.destDataSourceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderField)) {
+      body["OrderField"] = request.orderField;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      body["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.slsIngestionJobName)) {
+      body["SlsIngestionJobName"] = request.slsIngestionJobName;
+    }
+
+    if (!$dara.isNull(request.srcDataType)) {
+      body["SrcDataType"] = request.srcDataType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataConnectors",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataConnectorsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataConnectorsResponse({}));
+  }
+
+  /**
+   * Queries collectors by paging.
+   * 
+   * @param request - ListDataConnectorsRequest
+   * @returns ListDataConnectorsResponse
+   */
+  async listDataConnectors(request: $_model.ListDataConnectorsRequest): Promise<$_model.ListDataConnectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataConnectorsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries data ingestion templates.
    * 
    * @remarks
@@ -5584,6 +5692,76 @@ export default class Client extends OpenApi {
   async setDefaultNormalizationRuleVersion(request: $_model.SetDefaultNormalizationRuleVersionRequest): Promise<$_model.SetDefaultNormalizationRuleVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setDefaultNormalizationRuleVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates an alert.
+   * 
+   * @remarks
+   * Notifications are subject to frequency and time restrictions.
+   * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+   * 
+   * @param request - UpdateAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertResponse
+   */
+  async updateAlertWithOptions(request: $_model.UpdateAlertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertStatus)) {
+      body["AlertStatus"] = request.alertStatus;
+    }
+
+    if (!$dara.isNull(request.alertUuid)) {
+      body["AlertUuid"] = request.alertUuid;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlert",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertResponse({}));
+  }
+
+  /**
+   * Updates an alert.
+   * 
+   * @remarks
+   * Notifications are subject to frequency and time restrictions.
+   * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+   * 
+   * @param request - UpdateAlertRequest
+   * @returns UpdateAlertResponse
+   */
+  async updateAlert(request: $_model.UpdateAlertRequest): Promise<$_model.UpdateAlertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAlertWithOptions(request, runtime);
   }
 
   /**

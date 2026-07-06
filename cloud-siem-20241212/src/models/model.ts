@@ -29,6 +29,7 @@ export { GetResponseRuleStatisticResponseBodyResponseStatistic } from './GetResp
 export { GetUserConfigResponseBodyUser } from './GetUserConfigResponseBody';
 export { ListAlertsResponseBodyAlerts } from './ListAlertsResponseBody';
 export { ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities } from './ListAutoDisposeEntitiesResponseBody';
+export { ListDataConnectorsResponseBodyDataConnector } from './ListDataConnectorsResponseBody';
 export { ListDataIngestionTemplatesResponseBodyDataIngestionTemplates } from './ListDataIngestionTemplatesResponseBody';
 export { ListDataIngestionsResponseBodyDataIngestions } from './ListDataIngestionsResponseBody';
 export { ListDataSetRecordsResponseBodyDataSetRecords } from './ListDataSetRecordsResponseBody';
@@ -206,6 +207,10 @@ export { ListAutoDisposeEntitiesRequest } from './ListAutoDisposeEntitiesRequest
 export { ListAutoDisposeEntitiesShrinkRequest } from './ListAutoDisposeEntitiesShrinkRequest';
 export { ListAutoDisposeEntitiesResponseBody } from './ListAutoDisposeEntitiesResponseBody';
 export { ListAutoDisposeEntitiesResponse } from './ListAutoDisposeEntitiesResponse';
+export { ListDataConnectorsRequest } from './ListDataConnectorsRequest';
+export { ListDataConnectorsShrinkRequest } from './ListDataConnectorsShrinkRequest';
+export { ListDataConnectorsResponseBody } from './ListDataConnectorsResponseBody';
+export { ListDataConnectorsResponse } from './ListDataConnectorsResponse';
 export { ListDataIngestionTemplatesRequest } from './ListDataIngestionTemplatesRequest';
 export { ListDataIngestionTemplatesResponseBody } from './ListDataIngestionTemplatesResponseBody';
 export { ListDataIngestionTemplatesResponse } from './ListDataIngestionTemplatesResponse';
@@ -304,6 +309,9 @@ export { ResetDataStorageResponse } from './ResetDataStorageResponse';
 export { SetDefaultNormalizationRuleVersionRequest } from './SetDefaultNormalizationRuleVersionRequest';
 export { SetDefaultNormalizationRuleVersionResponseBody } from './SetDefaultNormalizationRuleVersionResponseBody';
 export { SetDefaultNormalizationRuleVersionResponse } from './SetDefaultNormalizationRuleVersionResponse';
+export { UpdateAlertRequest } from './UpdateAlertRequest';
+export { UpdateAlertResponseBody } from './UpdateAlertResponseBody';
+export { UpdateAlertResponse } from './UpdateAlertResponse';
 export { UpdateAutoDisposeConfigRequest } from './UpdateAutoDisposeConfigRequest';
 export { UpdateAutoDisposeConfigResponseBody } from './UpdateAutoDisposeConfigResponseBody';
 export { UpdateAutoDisposeConfigResponse } from './UpdateAutoDisposeConfigResponse';
