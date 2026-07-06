@@ -15,8 +15,9 @@ export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Mo
    * @remarks
    * The status of the email. Valid values:
    * 
-   * *   active: The email is activated.
-   * *   pending: The email is pending for activation.
+   * - active: The email is activated.
+   * 
+   * - pending: The email is pending for activation.
    * 
    * @example
    * active
@@ -66,8 +67,9 @@ export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Mo
    * @remarks
    * The status of the mobile phone. Valid values:
    * 
-   * *   active: The mobile phone is activated.
-   * *   pending: The mobile phone is pending for activation.
+   * - active: The mobile phone is activated.
+   * 
+   * - pending: The mobile phone is pending for activation.
    * 
    * @example
    * active

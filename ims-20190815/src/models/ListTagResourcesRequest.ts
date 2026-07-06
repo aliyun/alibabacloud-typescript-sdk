@@ -85,7 +85,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid value:
    * 
-   * *   user: a RAM user
+   * - user: a RAM user
    * 
    * @example
    * user

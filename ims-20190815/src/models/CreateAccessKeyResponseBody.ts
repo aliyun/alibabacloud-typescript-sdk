@@ -31,8 +31,9 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
    * @remarks
    * The status of the AccessKey pair. Valid values:
    * 
-   * *   Active
-   * *   Inactive
+   * - Active
+   * 
+   * - Inactive
    * 
    * @example
    * Active

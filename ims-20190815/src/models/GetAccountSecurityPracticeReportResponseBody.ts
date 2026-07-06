@@ -7,8 +7,9 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
    * @remarks
    * Indicates whether multi-factor authentication (MFA) is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -50,9 +51,11 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
    * @remarks
    * The complexity level of the password for the RAM user. Valid values:
    * 
-   * *   low
-   * *   mid
-   * *   high
+   * - low
+   * 
+   * - mid
+   * 
+   * - high
    * 
    * @example
    * low

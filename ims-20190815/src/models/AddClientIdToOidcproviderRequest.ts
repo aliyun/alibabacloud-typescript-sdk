@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddClientIdToOIDCProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The client ID that you want to add.
+   * The specified client ID.
    * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+   * Format: letters, digits, and the special characters `.-_:/` are allowed. The value cannot start with the special characters `.-_:/`.
    * 
-   * The client ID can be up to 128 characters in length.
+   * Length: up to 128 characters.
    * 
    * @example
    * 598469743454717****

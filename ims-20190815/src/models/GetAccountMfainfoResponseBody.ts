@@ -7,8 +7,9 @@ export class GetAccountMFAInfoResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether MFA devices are enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false

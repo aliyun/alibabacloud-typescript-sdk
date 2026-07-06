@@ -15,9 +15,11 @@ export class GenerateGovernanceReportResponseBody extends $dara.Model {
    * @remarks
    * The report generation status. Valid values:
    * 
-   * *   Started: The system starts to generate a governance report.
-   * *   Progressing: The system is generating a governance report.
-   * *   Completed: A governance report is generated.
+   * - Started: The system starts to generate a governance report.
+   * 
+   * - Progressing: The system is generating a governance report.
+   * 
+   * - Completed: A governance report is generated.
    * 
    * @example
    * Started

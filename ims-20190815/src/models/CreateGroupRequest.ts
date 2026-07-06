@@ -10,7 +10,7 @@ export class CreateGroupRequest extends $dara.Model {
    * The description can be up to 128 characters in length.
    * 
    * @example
-   * Dev-Team
+   * 开发团队
    */
   comments?: string;
   /**

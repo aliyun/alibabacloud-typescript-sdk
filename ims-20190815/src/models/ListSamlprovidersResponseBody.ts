@@ -68,8 +68,9 @@ export class ListSAMLProvidersResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -77,7 +78,7 @@ export class ListSAMLProvidersResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
+   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.\\`\\`
    * 
    * @example
    * EXAMPLE

@@ -65,8 +65,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

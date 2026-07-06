@@ -72,7 +72,7 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
    * The URL of the issuer.
    * 
    * @example
-   * https://dev-xxxxxx.okta.com
+   * https://xxxxxx.example.com
    */
   issuerUrl?: string;
   /**

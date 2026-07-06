@@ -7,7 +7,7 @@ export class CreateOIDCProviderRequest extends $dara.Model {
    * @remarks
    * The ID of the client, which is provided by the external IdP. If you want to specify multiple client IDs, separate the client IDs with commas (,).
    * 
-   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.``
+   * The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.\\`\\`
    * 
    * The client ID can be up to 128 characters in length.
    * 
@@ -54,14 +54,14 @@ export class CreateOIDCProviderRequest extends $dara.Model {
    * The URL can be up to 255 characters in length.
    * 
    * @example
-   * https://dev-xxxxxx.okta.com
+   * https://xxxxxx.example.com
    */
   issuerUrl?: string;
   /**
    * @remarks
    * The name of the OIDC IdP.
    * 
-   * The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.``
+   * The name can contain letters, digits, and special characters and cannot start or end with the special characters. The special characters are `periods, (.), hyphens (-), and underscores (_)`.\\`\\`
    * 
    * The name can be up to 128 characters in length.
    * 

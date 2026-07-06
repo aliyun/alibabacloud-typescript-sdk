@@ -10,7 +10,7 @@ export class DeprovisionApplicationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 452392483381546****
+   * 407342493648015****
    */
   appId?: string;
   static names(): { [key: string]: string } {

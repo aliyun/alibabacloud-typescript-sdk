@@ -5,17 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to disable logon after the password expires.
+   * Indicates whether logon is blocked after a password expires.
    * 
    * @example
    * false
    */
   hardExpire?: boolean;
+  /**
+   * @remarks
+   * The validity period for initial passwords.
+   * 
+   * @example
+   * 14
+   */
   initialPasswordAge?: number;
+  /**
+   * @remarks
+   * Indicates whether threat passwords are blocked when set using APIs.
+   * 
+   * @example
+   * false
+   */
   interceptRiskPasswordOnApi?: boolean;
   /**
    * @remarks
-   * The maximum number of password retries.
+   * Maximum number of failed password attempts.
    * 
    * @example
    * 0
@@ -23,7 +37,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   maxLoginAttemps?: number;
   /**
    * @remarks
-   * The validity period of the password.
+   * The password validity period.
    * 
    * @example
    * 0
@@ -31,7 +45,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   maxPasswordAge?: number;
   /**
    * @remarks
-   * The minimum number of unique characters in the password.
+   * Minimum number of unique characters in a password.
    * 
    * @example
    * 0
@@ -39,7 +53,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordDifferentCharacter?: number;
   /**
    * @remarks
-   * The minimum number of characters in the password.
+   * Minimum password length.
    * 
    * @example
    * 8
@@ -47,7 +61,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordLength?: number;
   /**
    * @remarks
-   * Indicates whether to exclude the username from the password.
+   * Indicates whether passwords must not contain the user name.
    * 
    * @example
    * false
@@ -55,7 +69,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   passwordNotContainUserName?: boolean;
   /**
    * @remarks
-   * The policy for password history check.
+   * Prevents reuse of previous passwords.
    * 
    * @example
    * 0
@@ -63,7 +77,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   passwordReusePrevention?: number;
   /**
    * @remarks
-   * Indicates whether the password must contain lowercase letters.
+   * Indicates whether passwords must contain lowercase letters.
    * 
    * @example
    * false
@@ -71,7 +85,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireLowercaseCharacters?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain digits.
+   * Indicates whether passwords must contain numbers.
    * 
    * @example
    * false
@@ -79,7 +93,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireNumbers?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain special characters.
+   * Indicates whether passwords must contain special characters.
    * 
    * @example
    * false
@@ -87,7 +101,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireSymbols?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain uppercase letters.
+   * Indicates whether passwords must contain uppercase letters.
    * 
    * @example
    * false
@@ -141,7 +155,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
 export class SetPasswordPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the password policy.
+   * Details of the password policy.
    */
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
   /**

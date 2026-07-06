@@ -8,7 +8,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
    * The description.
    * 
    * @example
-   * Dev-Team
+   * 开发团队
    */
   comments?: string;
   /**

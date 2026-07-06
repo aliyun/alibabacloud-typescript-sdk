@@ -58,6 +58,10 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
 }
 
 export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the permissions that are granted on the application.
+   */
   predefinedScopes?: UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -128,7 +132,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 472457090344041****
@@ -152,7 +156,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the application was created.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -179,7 +183,22 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   isMultiTenant?: boolean;
+  /**
+   * @remarks
+   * The OAuth protocol version of the application. Valid values:
+   * 
+   * - `2.0`: OAuth 2.0
+   * 
+   * - `2.1`: OAuth 2.1
+   * 
+   * @example
+   * 2.0
+   */
   protocolVersion?: string;
+  /**
+   * @remarks
+   * The redirect URLs.
+   */
   redirectUris?: UpdateApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -199,7 +218,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The update time.
+   * The time when the application was updated.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -261,7 +280,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
 export class UpdateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application.
+   * The application information.
    */
   application?: UpdateApplicationResponseBodyApplication;
   /**

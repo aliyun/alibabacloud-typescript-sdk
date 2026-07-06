@@ -7,8 +7,9 @@ export class UpdateAccessKeyRequest extends $dara.Model {
    * @remarks
    * The status of the AccessKey pair. Valid values:
    * 
-   * *   Active
-   * *   Inactive
+   * - Active
+   * 
+   * - Inactive
    * 
    * This parameter is required.
    * 

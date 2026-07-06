@@ -7,7 +7,7 @@ export class UnbindVerificationRequest extends $dara.Model {
    * @remarks
    * The email address.
    * 
-   * >  If you set `VerifyType` to `email`, you must specify this parameter.
+   * > If you set `VerifyType` to `email`, you must specify this parameter.
    * 
    * @example
    * username@example.com
@@ -17,7 +17,7 @@ export class UnbindVerificationRequest extends $dara.Model {
    * @remarks
    * The mobile phone number.
    * 
-   * >  If you set `VerifyType` to `sms`, you must specify this parameter.
+   * > If you set `VerifyType` to `sms`, you must specify this parameter.
    * 
    * @example
    * 86-13900001234
@@ -35,8 +35,9 @@ export class UnbindVerificationRequest extends $dara.Model {
    * @remarks
    * The multi-factor authentication (MFA) method. Valid values:
    * 
-   * *   sms: mobile phone.
-   * *   email: email.
+   * - sms: mobile phone.
+   * 
+   * - email: email.
    * 
    * @example
    * sms

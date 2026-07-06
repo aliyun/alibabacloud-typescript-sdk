@@ -5,16 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the IdP.
+   * The Alibaba Cloud Resource Name (ARN) of the identity provider.
    * 
    * @example
    * acs:ram::177242285274****:saml-provider/test-provider
    */
   arn?: string;
+  /**
+   * @remarks
+   * The signature algorithm supported by the Alibaba Cloud SP. Valid values:
+   * 
+   * - rsa-sha256
+   * 
+   * - rsa-sha1
+   * 
+   * @example
+   * rsa-sha1
+   */
   authnSignAlgo?: string;
   /**
    * @remarks
-   * The point in time at which the IdP was created. The time is displayed in UTC.
+   * The time when the identity provider was created. The time is in UTC.
    * 
    * @example
    * 2020-10-22T02:37:05Z
@@ -22,7 +33,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The description of the IdP.
+   * The description.
    * 
    * @example
    * This is a new provider.
@@ -30,7 +41,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the IdP.
+   * The name of the identity provider.
    * 
    * @example
    * test-provider
@@ -38,7 +49,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The point in time at which the information about the IdP was modified. The time is displayed in UTC.
+   * The time when the identity provider was last updated. The time is in Coordinated Universal Time (UTC).
    * 
    * @example
    * 2020-10-22T02:51:20Z
@@ -86,7 +97,7 @@ export class UpdateSAMLProviderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the IdP.
+   * The information about the identity provider.
    */
   SAMLProvider?: UpdateSAMLProviderResponseBodySAMLProvider;
   static names(): { [key: string]: string } {

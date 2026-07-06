@@ -53,7 +53,7 @@ export class TagResourcesRequest extends $dara.Model {
    * 
    * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
    * 
-   * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
+   * > You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
    */
   resourceId?: string[];
   /**
@@ -62,7 +62,7 @@ export class TagResourcesRequest extends $dara.Model {
    * 
    * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
    * 
-   * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
+   * > You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
    * 
    * @example
    * TagResources
@@ -72,7 +72,7 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid value:
    * 
-   * *   user: a Resource Access Management (RAM) user.
+   * - user: a Resource Access Management (RAM) user.
    * 
    * @example
    * user

@@ -107,7 +107,7 @@ export class CreateUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test@example.onaliyun.com
+   * Test@example.onaliyun.com
    */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {

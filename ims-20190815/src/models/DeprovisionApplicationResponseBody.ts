@@ -8,7 +8,7 @@ export class DeprovisionApplicationResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 85836703-8D4F-485F-9726-4D1C730F957E
+   * 4507D1CD-526A-4E2B-A1E2-3AB045D1AE0B
    */
   requestId?: string;
   static names(): { [key: string]: string } {

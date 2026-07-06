@@ -7,7 +7,7 @@ export class DeleteUserRequest extends $dara.Model {
    * @remarks
    * The ID of the RAM user.
    * 
-   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
    * 
    * @example
    * 20732900249392****
@@ -17,7 +17,7 @@ export class DeleteUserRequest extends $dara.Model {
    * @remarks
    * The logon name of the RAM user.
    * 
-   * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+   * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
    * 
    * @example
    * test@example.onaliyun.com

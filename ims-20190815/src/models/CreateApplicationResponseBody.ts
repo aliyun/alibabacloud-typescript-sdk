@@ -58,6 +58,10 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
 }
 
 export class CreateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the permissions that are granted on the application.
+   */
   predefinedScopes?: CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -128,7 +132,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 472457090344041****
@@ -152,7 +156,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the application was created.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -179,7 +183,22 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   isMultiTenant?: boolean;
+  /**
+   * @remarks
+   * The OAuth protocol version of the application. Valid values:
+   * 
+   * - `2.0`: OAuth 2.0
+   * 
+   * - `2.1`: OAuth 2.1
+   * 
+   * @example
+   * 2.0
+   */
   protocolVersion?: string;
+  /**
+   * @remarks
+   * The redirect URLs.
+   */
   redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -199,7 +218,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The update time.
+   * The time when the application information was last updated.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -261,7 +280,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application.
+   * The application information.
    */
   application?: CreateApplicationResponseBodyApplication;
   /**

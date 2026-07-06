@@ -15,8 +15,9 @@ export class GetUserMFAInfoResponseBodyMFADevice extends $dara.Model {
    * @remarks
    * The type of the MFA device. Valid values:
    * 
-   * *   VMFA: virtual MFA device.
-   * *   U2F: Universal 2nd Factor (U2F) security key.
+   * - VMFA: virtual MFA device.
+   * 
+   * - U2F: Universal 2nd Factor (U2F) security key.
    * 
    * @example
    * VMFA
@@ -50,8 +51,9 @@ export class GetUserMFAInfoResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the MFA device is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

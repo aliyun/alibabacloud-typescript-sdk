@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hangzhou': "ims.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ims", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+   * Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+   * 
+   * @remarks
+   * ### Usage notes
+   * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - AddClientIdToOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +72,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+   * Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+   * 
+   * @remarks
+   * ### Usage notes
+   * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - AddClientIdToOIDCProviderRequest
    * @returns AddClientIdToOIDCProviderResponse
@@ -233,7 +244,7 @@ export default class Client extends OpenApi {
    * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+   * > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -271,7 +282,7 @@ export default class Client extends OpenApi {
    * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+   * > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @returns ChangePasswordResponse
@@ -498,7 +509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables logon to the console for a Resource Access Management (RAM) user.
+   * Creates a logon configuration for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -545,7 +556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables logon to the console for a Resource Access Management (RAM) user.
+   * Creates a logon configuration for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @returns CreateLoginProfileResponse
@@ -562,9 +573,9 @@ export default class Client extends OpenApi {
    * ### [](#)Prerequisites
    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
    * ### [](#)Limits
-   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-   * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+   * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+   * - You can add a maximum of 50 client IDs to an OIDC IdP.
+   * - You can add a maximum of five fingerprints to an OIDC IdP.
    * ### [](#)Operation description
    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
    * 
@@ -623,9 +634,9 @@ export default class Client extends OpenApi {
    * ### [](#)Prerequisites
    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
    * ### [](#)Limits
-   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-   * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+   * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+   * - You can add a maximum of 50 client IDs to an OIDC IdP.
+   * - You can add a maximum of five fingerprints to an OIDC IdP.
    * ### [](#)Operation description
    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
    * 
@@ -689,6 +700,60 @@ export default class Client extends OpenApi {
   async createSAMLProvider(request: $_model.CreateSAMLProviderRequest): Promise<$_model.CreateSAMLProviderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSAMLProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+   * 
+   * @param request - CreateServiceCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceCredentialResponse
+   */
+  async createServiceCredentialWithOptions(request: $_model.CreateServiceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialAgeDays)) {
+      query["CredentialAgeDays"] = request.credentialAgeDays;
+    }
+
+    if (!$dara.isNull(request.serviceCredentialName)) {
+      query["ServiceCredentialName"] = request.serviceCredentialName;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceCredential",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceCredentialResponse({}));
+  }
+
+  /**
+   * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+   * 
+   * @param request - CreateServiceCredentialRequest
+   * @returns CreateServiceCredentialResponse
+   */
+  async createServiceCredential(request: $_model.CreateServiceCredentialRequest): Promise<$_model.CreateServiceCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServiceCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -1210,6 +1275,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service credential of a Resource Access Management (RAM) user.
+   * 
+   * @param request - DeleteServiceCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceCredentialResponse
+   */
+  async deleteServiceCredentialWithOptions(request: $_model.DeleteServiceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceCredentialId)) {
+      query["ServiceCredentialId"] = request.serviceCredentialId;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceCredential",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceCredentialResponse({}));
+  }
+
+  /**
+   * Deletes a service credential of a Resource Access Management (RAM) user.
+   * 
+   * @param request - DeleteServiceCredentialRequest
+   * @returns DeleteServiceCredentialResponse
+   */
+  async deleteServiceCredential(request: $_model.DeleteServiceCredentialRequest): Promise<$_model.DeleteServiceCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteServiceCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteUserRequest
@@ -1344,7 +1455,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-   * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+   * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1379,7 +1490,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-   * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+   * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @returns DeprovisionApplicationResponse
@@ -1624,6 +1735,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * 
+   * @param request - GetAccessKeyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyPolicyResponse
+   */
+  async getAccessKeyPolicyWithOptions(request: $_model.GetAccessKeyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAccessKeyPolicy",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAccessKeyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyPolicyResponse({}));
+  }
+
+  /**
+   * Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * 
+   * @param request - GetAccessKeyPolicyRequest
+   * @returns GetAccessKeyPolicyResponse
+   */
+  async getAccessKeyPolicy(request: $_model.GetAccessKeyPolicyRequest): Promise<$_model.GetAccessKeyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAccessKeyPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1686,7 +1843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview information about an Alibaba Cloud account.
+   * Retrieves the overview for an Alibaba Cloud account (root account).
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSummaryResponse
@@ -1708,7 +1865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview information about an Alibaba Cloud account.
+   * Retrieves the overview for an Alibaba Cloud account (root account).
    * @returns GetAccountSummaryResponse
    */
   async getAccountSummary(): Promise<$_model.GetAccountSummaryResponse> {
@@ -1763,10 +1920,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about an application.
+   * Queries the configuration information of an application.
    * 
    * @remarks
-   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1797,10 +1954,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about an application.
+   * Queries the configuration information of an application.
    * 
    * @remarks
-   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -1972,7 +2129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的单项ram治理报告
+   * Queries the details of a specific check item in an identity and access governance report.
    * 
    * @param request - GetGovernanceItemReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2011,7 +2168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的单项ram治理报告
+   * Queries the details of a specific check item in an identity and access governance report.
    * 
    * @param request - GetGovernanceItemReportRequest
    * @returns GetGovernanceItemReportResponse
@@ -2022,7 +2179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询成熟度报告状态
+   * Retrieves the current generation status of an identity and access governance report.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGovernanceReportStatusResponse
@@ -2044,7 +2201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询成熟度报告状态
+   * Retrieves the current generation status of an identity and access governance report.
    * @returns GetGovernanceReportStatusResponse
    */
   async getGovernanceReportStatus(): Promise<$_model.GetGovernanceReportStatusResponse> {
@@ -2095,7 +2252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logon configurations of a Resource Access Management (RAM) user.
+   * Queries the console logon settings for a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2126,7 +2283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logon configurations of a Resource Access Management (RAM) user.
+   * Queries the console logon settings for a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -2187,7 +2344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the password policy for RAM users.
+   * Queries the password policy for Resource Access Management (RAM) users.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPasswordPolicyResponse
@@ -2209,7 +2366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the password policy for RAM users.
+   * Queries the password policy for Resource Access Management (RAM) users.
    * @returns GetPasswordPolicyResponse
    */
   async getPasswordPolicy(): Promise<$_model.GetPasswordPolicyResponse> {
@@ -2260,7 +2417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security preferences for RAM users.
+   * Use `GetSecurityPreference` to query the global security preferences of a RAM user.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecurityPreferenceResponse
@@ -2282,12 +2439,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security preferences for RAM users.
+   * Use `GetSecurityPreference` to query the global security preferences of a RAM user.
    * @returns GetSecurityPreferenceResponse
    */
   async getSecurityPreference(): Promise<$_model.GetSecurityPreferenceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecurityPreferenceWithOptions(runtime);
+  }
+
+  /**
+   * Retrieves a specific service credential of a Resource Access Management (RAM) user.
+   * 
+   * @param request - GetServiceCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceCredentialResponse
+   */
+  async getServiceCredentialWithOptions(request: $_model.GetServiceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceCredentialId)) {
+      query["ServiceCredentialId"] = request.serviceCredentialId;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceCredential",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceCredentialResponse({}));
+  }
+
+  /**
+   * Retrieves a specific service credential of a Resource Access Management (RAM) user.
+   * 
+   * @param request - GetServiceCredentialRequest
+   * @returns GetServiceCredentialResponse
+   */
+  async getServiceCredential(request: $_model.GetServiceCredentialRequest): Promise<$_model.GetServiceCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -2670,10 +2873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the created applications.
+   * Lists the applications that you have created.
    * 
    * @remarks
-   * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsResponse
@@ -2695,10 +2898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the created applications.
+   * Lists the applications that you have created.
    * 
    * @remarks
-   * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
    * @returns ListApplicationsResponse
    */
   async listApplications(): Promise<$_model.ListApplicationsResponse> {
@@ -3041,14 +3244,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+   * 
+   * @param request - ListServiceCredentialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceCredentialsResponse
+   */
+  async listServiceCredentialsWithOptions(request: $_model.ListServiceCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceCredentialsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allUsers)) {
+      query["AllUsers"] = request.allUsers;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceCredentials",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceCredentialsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+   * 
+   * @param request - ListServiceCredentialsRequest
+   * @returns ListServiceCredentialsResponse
+   */
+  async listServiceCredentials(request: $_model.ListServiceCredentialsRequest): Promise<$_model.ListServiceCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceCredentialsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags that are added resources.
    * 
    * @remarks
    * ###
    * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-   * *   `ResourceId.N`
-   * *   `Tag.N.Key`
-   * *   `Tag.N.Key` and `Tag.N.Value`
+   * - `ResourceId.N`
+   * - `Tag.N.Key`
+   * - `Tag.N.Key` and `Tag.N.Value`
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3104,9 +3365,9 @@ export default class Client extends OpenApi {
    * @remarks
    * ###
    * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-   * *   `ResourceId.N`
-   * *   `Tag.N.Key`
-   * *   `Tag.N.Key` and `Tag.N.Value`
+   * - `ResourceId.N`
+   * - `Tag.N.Key`
+   * - `Tag.N.Key` and `Tag.N.Value`
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3121,8 +3382,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call the following API operations to query information about all RAM users:
-   * *   ListUsers: queries the details of all RAM users.
-   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * - ListUsers: queries the details of all RAM users.
+   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUserBasicInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3169,8 +3430,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call the following API operations to query information about all RAM users:
-   * *   ListUsers: queries the details of all RAM users.
-   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * - ListUsers: queries the details of all RAM users.
+   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUserBasicInfosRequest
    * @returns ListUserBasicInfosResponse
@@ -3186,8 +3447,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)
    * You can call the following API operations to query the details of all RAM users:
-   * *   ListUsers: queries the details of all RAM users.
-   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * - ListUsers: queries the details of all RAM users.
+   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3235,8 +3496,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)
    * You can call the following API operations to query the details of all RAM users:
-   * *   ListUsers: queries the details of all RAM users.
-   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * - ListUsers: queries the details of all RAM users.
+   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -3727,6 +3988,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * 
+   * @param request - SetAccessKeyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAccessKeyPolicyResponse
+   */
+  async setAccessKeyPolicyWithOptions(request: $_model.SetAccessKeyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAccessKeyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessKeyPolicy)) {
+      query["AccessKeyPolicy"] = request.accessKeyPolicy;
+    }
+
+    if (!$dara.isNull(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAccessKeyPolicy",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAccessKeyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.SetAccessKeyPolicyResponse({}));
+  }
+
+  /**
+   * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * 
+   * @param request - SetAccessKeyPolicyRequest
+   * @returns SetAccessKeyPolicyResponse
+   */
+  async setAccessKeyPolicy(request: $_model.SetAccessKeyPolicyRequest): Promise<$_model.SetAccessKeyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAccessKeyPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the default domain name for an Alibaba Cloud account.
    * 
    * @param request - SetDefaultDomainRequest
@@ -3769,7 +4080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the password policy for Resource Access Management (RAM) users.
+   * Set the password policy for Resource Access Management (RAM) users.
    * 
    * @param request - SetPasswordPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3848,7 +4159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the password policy for Resource Access Management (RAM) users.
+   * Set the password policy for Resource Access Management (RAM) users.
    * 
    * @param request - SetPasswordPolicyRequest
    * @returns SetPasswordPolicyResponse
@@ -3859,11 +4170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures security preferences for a RAM user.
-   * 
-   * @remarks
-   * ###
-   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+   * Configure the global security preferences for a RAM user.
    * 
    * @param tmpReq - SetSecurityPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3952,11 +4259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures security preferences for a RAM user.
-   * 
-   * @remarks
-   * ###
-   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+   * Configure the global security preferences for a RAM user.
    * 
    * @param request - SetSecurityPreferenceRequest
    * @returns SetSecurityPreferenceResponse
@@ -4337,7 +4640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a specified application.
+   * Modifies the configuration information of an application.
    * 
    * @param request - UpdateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4400,7 +4703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a specified application.
+   * Modifies the configuration information of an application.
    * 
    * @param request - UpdateApplicationRequest
    * @returns UpdateApplicationResponse
@@ -4465,7 +4768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+   * Modifies the console logon settings for a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4512,7 +4815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+   * Modifies the console logon settings for a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @returns UpdateLoginProfileResponse
@@ -4635,10 +4938,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+   * Updates the information about a specified identity provider for role-based single sign-on (SSO).
    * 
    * @remarks
-   * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+   * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
    * 
    * @param request - UpdateSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4681,10 +4984,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+   * Updates the information about a specified identity provider for role-based single sign-on (SSO).
    * 
    * @remarks
-   * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+   * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
    * 
    * @param request - UpdateSAMLProviderRequest
    * @returns UpdateSAMLProviderResponse
@@ -4692,6 +4995,60 @@ export default class Client extends OpenApi {
   async updateSAMLProvider(request: $_model.UpdateSAMLProviderRequest): Promise<$_model.UpdateSAMLProviderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSAMLProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+   * 
+   * @param request - UpdateServiceCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceCredentialResponse
+   */
+  async updateServiceCredentialWithOptions(request: $_model.UpdateServiceCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceCredentialId)) {
+      query["ServiceCredentialId"] = request.serviceCredentialId;
+    }
+
+    if (!$dara.isNull(request.serviceCredentialName)) {
+      query["ServiceCredentialName"] = request.serviceCredentialName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceCredential",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceCredentialResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceCredentialResponse({}));
+  }
+
+  /**
+   * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+   * 
+   * @param request - UpdateServiceCredentialRequest
+   * @returns UpdateServiceCredentialResponse
+   */
+  async updateServiceCredential(request: $_model.UpdateServiceCredentialRequest): Promise<$_model.UpdateServiceCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateServiceCredentialWithOptions(request, runtime);
   }
 
   /**

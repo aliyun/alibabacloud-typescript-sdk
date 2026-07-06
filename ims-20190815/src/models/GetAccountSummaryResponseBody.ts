@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of AccessKey pairs that a Resource Access Management (RAM) user can have.
+   * The maximum number of access keys that a RAM user can have.
    * 
    * @example
    * 2
    */
   accessKeysPerUserQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of access keys that an Alibaba Cloud account can have.
+   * 
+   * @example
+   * 2
+   */
   accountAccessKeysPerAccountQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM user group.
+   * The maximum number of custom policies that can be attached to a user group.
    * 
    * @example
    * 5
@@ -22,7 +29,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM role.
+   * The maximum number of custom policies that can be attached to a RAM role.
    * 
    * @example
    * 5
@@ -30,7 +37,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of custom policies that can be added to a RAM user.
+   * The maximum number of custom policies that can be attached to a RAM user.
    * 
    * @example
    * 10
@@ -38,7 +45,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedPoliciesPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM user group.
+   * The maximum number of system policies that can be attached to a user group.
    * 
    * @example
    * 20
@@ -46,7 +53,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerGroupQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM role.
+   * The maximum number of system policies that can be attached to a RAM role.
    * 
    * @example
    * 20
@@ -54,7 +61,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   attachedSystemPoliciesPerRoleQuota?: number;
   /**
    * @remarks
-   * The maximum number of system policies that can be added to a RAM user.
+   * The maximum number of system policies that can be attached to a RAM user.
    * 
    * @example
    * 20
@@ -63,7 +70,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   authorizedClientPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of network access control policies that can be configured for an Alibaba Cloud account or AccessKey pair.
+   * The maximum number of conditions allowed in a network access control policy for an account or an access key.
    * 
    * @example
    * 8
@@ -71,7 +78,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   conditionsPerAKPolicyQuota?: number;
   /**
    * @remarks
-   * The number of RAM user groups.
+   * The number of user groups.
    * 
    * @example
    * 7
@@ -79,7 +86,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groups?: number;
   /**
    * @remarks
-   * The maximum number of RAM user groups to which a RAM user can be added.
+   * The maximum number of user groups to which a RAM user can be added.
    * 
    * @example
    * 5
@@ -87,7 +94,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groupsPerUserQuota?: number;
   /**
    * @remarks
-   * The maximum number of RAM user groups that can be created.
+   * The maximum number of user groups that can be created.
    * 
    * @example
    * 50
@@ -95,7 +102,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   groupsQuota?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be specified in an account-level AccessKey pair-based or AccessKey pair-level policy for network access control.
+   * The maximum number of IP addresses or CIDR blocks allowed in a network access control policy for an account or an access key.
    * 
    * @example
    * 50
@@ -103,7 +110,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   IPItemsPerAKPolicyQuota?: number;
   /**
    * @remarks
-   * The number of virtual multi-factor authentication (MFA) devices.
+   * The number of virtual MFA devices.
    * 
    * @example
    * 13
@@ -135,7 +142,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   policiesQuota?: number;
   /**
    * @remarks
-   * The maximum length of the policy content.
+   * The maximum character length of a policy document.
    * 
    * @example
    * 2048
@@ -157,6 +164,13 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
    * 1000
    */
   rolesQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of service-specific credentials that a RAM user can create for each service.
+   * 
+   * @example
+   * 2
+   */
   serviceCredentialsPerUserPerServiceQuota?: number;
   /**
    * @remarks
@@ -176,7 +190,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   usersQuota?: number;
   /**
    * @remarks
-   * The maximum number of policy versions.
+   * The maximum number of versions that can be created for a policy.
    * 
    * @example
    * 5
@@ -264,7 +278,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
 export class GetAccountSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 81313F5E-3C85-478F-BCC9-E1B70E4556DB
@@ -272,7 +286,7 @@ export class GetAccountSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The overview information about the Alibaba Cloud account.
+   * An overview of the Alibaba Cloud account.
    */
   summaryMap?: GetAccountSummaryResponseBodySummaryMap;
   static names(): { [key: string]: string } {

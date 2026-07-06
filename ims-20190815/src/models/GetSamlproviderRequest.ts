@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSAMLProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the IdP.
+   * The name of the IdP whose information you want to query.
    * 
    * This parameter is required.
    * 

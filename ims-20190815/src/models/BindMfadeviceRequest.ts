@@ -7,7 +7,7 @@ export class BindMFADeviceRequest extends $dara.Model {
    * @remarks
    * The first verification code.
    * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+   * > You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
    * 
    * @example
    * 123456
@@ -17,7 +17,7 @@ export class BindMFADeviceRequest extends $dara.Model {
    * @remarks
    * The second verification code.
    * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
+   * > You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
    * 
    * @example
    * 654321
@@ -27,7 +27,7 @@ export class BindMFADeviceRequest extends $dara.Model {
    * @remarks
    * The serial number of the MFA device.
    * 
-   * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
+   * > You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
    * 
    * @example
    * acs:ram::177242285274****:mfa/device001

@@ -58,6 +58,10 @@ export class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes
 }
 
 export class GetApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the permissions that are granted on the application.
+   */
   predefinedScopes?: GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -128,7 +132,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 472457090344041****
@@ -136,7 +140,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * myapp
@@ -144,11 +148,13 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The type of the application. Valid values:
+   * The application type. Valid values:
    * 
-   * *   WebApp: a web application.
-   * *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-   * *   ServerApp: an application that can access Alibaba Cloud services without the need for user logon. Only applications that synchronize user information based on the System for Cross-domain Identity Management (SCIM) protocol are supported.
+   * - WebApp: a web application that is based on browser interaction.
+   * 
+   * - NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
+   * 
+   * - ServerApp: an application that directly accesses Alibaba Cloud services without user logon. Currently, only applications that use the System for Cross-domain Identity Management (SCIM) protocol for user synchronization are supported.
    * 
    * @example
    * WebApp
@@ -156,7 +162,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the application was created.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -183,7 +189,22 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   isMultiTenant?: boolean;
+  /**
+   * @remarks
+   * The OAuth protocol version of the application. Valid values:
+   * 
+   * - `2.0`: OAuth 2.0
+   * 
+   * - `2.1`: OAuth 2.1
+   * 
+   * @example
+   * 2.0
+   */
   protocolVersion?: string;
+  /**
+   * @remarks
+   * The redirect URLs.
+   */
   redirectUris?: GetApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -203,7 +224,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The update time.
+   * The time when the application was last updated.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -270,7 +291,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6616F09B-2768-4C11-8866-A8EE4C4A583E

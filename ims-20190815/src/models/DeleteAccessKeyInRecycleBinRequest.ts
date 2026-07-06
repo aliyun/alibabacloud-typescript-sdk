@@ -16,6 +16,7 @@ export class DeleteAccessKeyInRecycleBinRequest extends $dara.Model {
    * The ID of the RAM user.
    * 
    * > - If you use an Alibaba Cloud account to call the operation, you must specify the parameter.
+   * >
    * > - If you use a RAM user to call the operation, you can leave the parameter empty. In this case, the ID of the RAM user is used by default.
    * 
    * @example

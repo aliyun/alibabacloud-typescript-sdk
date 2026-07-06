@@ -5,12 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether RAM users can manage their AccessKey pairs.
+   * Specifies whether RAM users can manage their own AccessKeys.
    * 
    * @example
    * false
    */
   allowUserToManageAccessKeys?: boolean;
+  /**
+   * @remarks
+   * Specifies whether RAM users can manage their own API keys. Valid values:
+   * 
+   * - true: RAM users can manage their own API keys.
+   * 
+   * - false: RAM users cannot manage their own API keys.
+   * 
+   * @example
+   * false
+   */
   allowUserToManageServiceCredentials?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,7 +49,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
 export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether RAM users can change their passwords.
+   * Specifies whether RAM users can manage their own passwords.
    * 
    * @example
    * true
@@ -46,7 +57,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   allowUserToChangePassword?: boolean;
   /**
    * @remarks
-   * Indicates whether a RAM user can use a passkey for logon.
+   * Specifies whether RAM users can sign in with a passkey.
    * 
    * @example
    * false
@@ -54,7 +65,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   allowUserToLoginWithPasskey?: boolean;
   /**
    * @remarks
-   * Indicates whether RAM users can remember the MFA devices for seven days.
+   * Specifies whether to save the verification status for seven days after a RAM user completes multi-factor authentication (MFA) during sign-in.
    * 
    * @example
    * false
@@ -62,7 +73,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   enableSaveMFATicket?: boolean;
   /**
    * @remarks
-   * The subnet mask.
+   * The login network mask.
    * 
    * @example
    * 10.0.0.0/8
@@ -70,7 +81,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   loginNetworkMasks?: string;
   /**
    * @remarks
-   * The validity period of the logon session of RAM users.
+   * The duration of the login session for a RAM user, in hours.
    * 
    * @example
    * 6
@@ -78,7 +89,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   loginSessionDuration?: number;
   /**
    * @remarks
-   * Indicates whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console.
+   * The MFA policy for user sign-in. This parameter is the recommended replacement for `EnforceMFAForLogin`, which is still supported.
    * 
    * @example
    * adaptive
@@ -86,7 +97,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
   MFAOperationForLogin?: string;
   /**
    * @remarks
-   * Indicates whether to enable MFA for RAM users who initiated unusual logons.
+   * This parameter is deprecated.
    * 
    * @example
    * autonomous
@@ -130,7 +141,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
 export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether RAM users can manage their MFA devices.
+   * Specifies whether RAM users can manage their own MFA devices.
    * 
    * @example
    * false
@@ -160,7 +171,9 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of days that the AccessKey pair of a RAM user can stay unused. If an AccessKey pair is not used in the previous specified number of days, the AccessKey pair is automatically disabled on the next day. The default value is 730. You cannot change the value.
+   * The maximum idle period, in days, for an AccessKey of a RAM user. If an AccessKey is not used within the specified period, the system automatically disables it the next day.
+   * 
+   * Default value: 730.
    * 
    * @example
    * 730
@@ -168,7 +181,9 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays exte
   maxIdleDaysForAccessKeys?: number;
   /**
    * @remarks
-   * The maximum number of days that a RAM user can stay idle. If a RAM user for whom console logon is enabled does not log on to the console in the previous specified number of days, console logon is automatically disabled for the RAM user on the next day. SSO is not involved. The default value is 730. You cannot change the value.
+   * The maximum idle period, in days, for a RAM user. If a RAM user with console sign-in enabled does not sign in within this period, the system automatically disables their console sign-in the next day. This setting does not apply to single sign-on (SSO).
+   * 
+   * Default value: 730.
    * 
    * @example
    * 730
@@ -200,7 +215,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays exte
 export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts.
+   * Specifies whether RAM users can attach or detach their personal DingTalk accounts.
    * 
    * @example
    * true
@@ -230,7 +245,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPref
 export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $dara.Model {
   /**
    * @remarks
-   * The MFA methods.
+   * The allowed MFA methods.
    */
   verificationTypes?: string[];
   static names(): { [key: string]: string } {
@@ -260,32 +275,32 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPref
 export class SetSecurityPreferenceResponseBodySecurityPreference extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey pair preference.
+   * The AccessKey preferences.
    */
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   /**
    * @remarks
-   * The logon preference.
+   * The login preferences.
    */
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   /**
    * @remarks
-   * The MFA preference.
+   * The MFA (multi-factor authentication) preferences.
    */
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   /**
    * @remarks
-   * The maximum idle periods. Unit: days.
+   * Settings for the maximum idle period in days.
    */
   maxIdleDays?: SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays;
   /**
    * @remarks
-   * The personal information preference.
+   * The personal information preferences.
    */
   personalInfoPreference?: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference;
   /**
    * @remarks
-   * The MFA method preference.
+   * The preferences for MFA methods.
    */
   verificationPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
   static names(): { [key: string]: string } {
@@ -348,7 +363,7 @@ export class SetSecurityPreferenceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of security preferences.
+   * The security preferences.
    */
   securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {

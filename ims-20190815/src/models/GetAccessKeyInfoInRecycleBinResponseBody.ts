@@ -55,8 +55,9 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
    * @remarks
    * Indicates whether the RAM user to which the AccessKey pair belongs is in the recycle bin. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
