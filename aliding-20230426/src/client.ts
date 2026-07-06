@@ -20351,6 +20351,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 强制登出企业账号
+   * 
+   * @param tmpReq - SignOutOrgAccountRequest
+   * @param tmpHeader - SignOutOrgAccountHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SignOutOrgAccountResponse
+   */
+  async signOutOrgAccountWithOptions(tmpReq: $_model.SignOutOrgAccountRequest, tmpHeader: $_model.SignOutOrgAccountHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.SignOutOrgAccountResponse> {
+    tmpReq.validate();
+    let request = new $_model.SignOutOrgAccountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.SignOutOrgAccountShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.reasonI18nForEmployee)) {
+      request.reasonI18nForEmployeeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reasonI18nForEmployee, "ReasonI18nForEmployee", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.reasonI18nForEmployeeShrink)) {
+      body["ReasonI18nForEmployee"] = request.reasonI18nForEmployeeShrink;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SignOutOrgAccount",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/contact/signOutOrgAccount`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SignOutOrgAccountResponse>(await this.callApi(params, req, runtime), new $_model.SignOutOrgAccountResponse({}));
+  }
+
+  /**
+   * 强制登出企业账号
+   * 
+   * @param request - SignOutOrgAccountRequest
+   * @returns SignOutOrgAccountResponse
+   */
+  async signOutOrgAccount(request: $_model.SignOutOrgAccountRequest): Promise<$_model.SignOutOrgAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.SignOutOrgAccountHeaders({ });
+    return await this.signOutOrgAccountWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取用户发送日志的概要信息
    * 
    * @param tmpReq - SimpleListReportRequest
