@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The column comment. Supports fuzzy match.
+   * The comment. Fuzzy match is supported.
    * 
    * @example
    * test comment
    */
   comment?: string;
+  includeExtendedProperties?: boolean;
   /**
    * @remarks
-   * The column name. Supports fuzzy match.
+   * The name. Fuzzy match is supported.
    * 
    * @example
    * test_table
@@ -21,11 +22,9 @@ export class ListColumnsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order. Default: Asc. Valid values:
-   * 
-   * - Asc
-   * 
-   * - Desc
+   * The sort order. Default value: Asc. Valid values:
+   * - Asc: ascending order
+   * - Desc: descending order
    * 
    * @example
    * Asc
@@ -33,7 +32,7 @@ export class ListColumnsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +40,7 @@ export class ListColumnsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default: 10. Maximum: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -49,11 +48,9 @@ export class ListColumnsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. Default: Position. Valid values:
-   * 
-   * - Name
-   * 
-   * - Position
+   * The sort field. Default value: Position. Valid values:
+   * - Name: name
+   * - Position: position
    * 
    * @example
    * Position
@@ -61,7 +58,7 @@ export class ListColumnsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The table ID. Call the ListTables operation or refer to [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html) to obtain this value.
+   * The ID of the data table. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
    * This parameter is required.
    * 
@@ -72,6 +69,7 @@ export class ListColumnsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
+      includeExtendedProperties: 'IncludeExtendedProperties',
       name: 'Name',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -84,6 +82,7 @@ export class ListColumnsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       comment: 'string',
+      includeExtendedProperties: 'boolean',
       name: 'string',
       order: 'string',
       pageNumber: 'number',

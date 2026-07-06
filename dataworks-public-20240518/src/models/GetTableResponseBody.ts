@@ -14,7 +14,7 @@ export class GetTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -22,7 +22,7 @@ export class GetTableResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Detailed information about the table.
+   * The details of the data table.
    */
   table?: Table;
   static names(): { [key: string]: string } {

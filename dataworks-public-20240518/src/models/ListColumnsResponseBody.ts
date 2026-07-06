@@ -6,7 +6,7 @@ import { Column } from "./Column";
 export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The table columns.
+   * The list of columns.
    */
   columns?: Column[];
   /**
@@ -19,7 +19,7 @@ export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
 export class ListColumnsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paging result.
    */
   pagingInfo?: ListColumnsResponseBodyPagingInfo;
   /**

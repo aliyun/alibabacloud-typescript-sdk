@@ -6,7 +6,7 @@ import { Column } from "./Column";
 export class GetColumnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The columns in the table.
+   * The column list.
    */
   column?: Column;
   /**
@@ -19,7 +19,7 @@ export class GetColumnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

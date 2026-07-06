@@ -13,7 +13,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
   completed?: boolean;
   /**
    * @remarks
-   * The time when the asynchronous task was created. This value is a UNIX timestamp.
+   * The timestamp when the asynchronous task was created.
    * 
    * @example
    * 1706581425000
@@ -21,7 +21,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The error message returned if the asynchronous task fails.
+   * The error message returned when the asynchronous task fails.
    * 
    * @example
    * target folder already exists: XXXX
@@ -45,9 +45,9 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The response.
+   * The content that the asynchronous task is expected to return.
    * 
-   * > The workflow ID is returned.
+   * > This field currently contains the ID of the workflow created by the asynchronous task.
    * 
    * @example
    * 632647691239009XXXX
@@ -59,13 +59,10 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Running: The asynchronous task is running.
-   * 
-   * - Success: The asynchronous task is complete.
-   * 
-   * - Fail: The asynchronous task fails.
-   * 
-   * - Cancel: The asynchronous task is canceled.
+   * - Running: The task is running.
+   * - Success: The task succeeded.
+   * - Fail: The task failed.
+   * - Cancel: The task was canceled.
    * 
    * @example
    * Running
@@ -73,13 +70,12 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the asynchronous task.
+   * The operation type of the asynchronous task.
    * 
    * Valid values:
    * 
-   * - Create: The asynchronous task is used to create an object.
-   * 
-   * - Cancel: The asynchronous task is used to cancel an operation.
+   * - Create: creates a resource. 
+   * - Cancel: cancels a creation job.
    * 
    * @example
    * Create
@@ -123,12 +119,12 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
 export class ImportWorkflowDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status information of the asynchronous task.
+   * The asynchronous task status information.
    */
   asyncJob?: ImportWorkflowDefinitionResponseBodyAsyncJob;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F

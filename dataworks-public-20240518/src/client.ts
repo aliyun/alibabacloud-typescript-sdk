@@ -3446,11 +3446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a deployment process for entities in the Data Studio (new version).
+   * Creates a publish process for an entity in the new-version DataStudio.
    * 
    * @remarks
-   * >Notice: This API does not support batch operations. If you specify multiple entities to be published, all entities except the first one are ignored.
-   * >Notice: This API may not be available in earlier versions of the SDK. In that case, use the CreateDeployment API, which accepts the same parameters.
+   * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+   * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
    * 
    * @param tmpReq - CreatePipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3465,6 +3465,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRunUntilStage)) {
+      body["AutoRunUntilStage"] = request.autoRunUntilStage;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
@@ -3475,6 +3479,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.projectId)) {
       body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      body["RunMode"] = request.runMode;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -3499,11 +3507,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a deployment process for entities in the Data Studio (new version).
+   * Creates a publish process for an entity in the new-version DataStudio.
    * 
    * @remarks
-   * >Notice: This API does not support batch operations. If you specify multiple entities to be published, all entities except the first one are ignored.
-   * >Notice: This API may not be available in earlier versions of the SDK. In that case, use the CreateDeployment API, which accepts the same parameters.
+   * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+   * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
    * 
    * @param request - CreatePipelineRunRequest
    * @returns CreatePipelineRunResponse
@@ -7877,10 +7885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specific field of a table in Data Map.
+   * Retrieves the details of a specified column in a Data Map table.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - GetColumnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7907,10 +7915,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specific field of a table in Data Map.
+   * Retrieves the details of a specified column in a Data Map table.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - GetColumnRequest
    * @returns GetColumnResponse
@@ -10235,10 +10243,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specific table in Data Map.
+   * Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10265,10 +10273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specific table in Data Map.
+   * Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -10741,12 +10749,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+   * Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
    * 
    * @remarks
    * >Notice: 
-   * - This API does not support importing multiple workflow definitions. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored.
-   * - This is an asynchronous API. Calling this API returns an asynchronous task object. You must call the GetJobStatus API to query the execution status of the task.
+   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
+   * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10755,6 +10763,10 @@ export default class Client extends OpenApi {
   async importWorkflowDefinitionWithOptions(request: $_model.ImportWorkflowDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportWorkflowDefinitionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       body["ProjectId"] = request.projectId;
     }
@@ -10781,12 +10793,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+   * Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
    * 
    * @remarks
    * >Notice: 
-   * - This API does not support importing multiple workflow definitions. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored.
-   * - This is an asynchronous API. Calling this API returns an asynchronous task object. You must call the GetJobStatus API to query the execution status of the task.
+   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
+   * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @returns ImportWorkflowDefinitionResponse
@@ -11233,10 +11245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column list of a specified table in Data Map.
+   * Queries the column list of a specified data table in DataWorks Data Map.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11263,10 +11275,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column list of a specified table in Data Map.
+   * Queries the column list of a specified data table in DataWorks Data Map.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListColumnsRequest
    * @returns ListColumnsResponse
@@ -15407,10 +15419,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables in the data map. For data source types that do not support schemas, this operation queries tables within a specified database. For data source types that support schemas, you can query tables within a specified database, MaxCompute project, or schema. The response includes basic table information, technical metadata, and business metadata.
+   * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 1. DataWorks Basic Edition or a higher edition is required.
    * 
    * @param tmpReq - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15443,10 +15455,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables in the data map. For data source types that do not support schemas, this operation queries tables within a specified database. For data source types that support schemas, you can query tables within a specified database, MaxCompute project, or schema. The response includes basic table information, technical metadata, and business metadata.
+   * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 1. DataWorks Basic Edition or a higher edition is required.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse

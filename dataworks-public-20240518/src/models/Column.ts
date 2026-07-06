@@ -7,12 +7,12 @@ import * as $dara from '@darabonba/typescript';
 export class ColumnBusinessMetadata extends $dara.Model {
   /**
    * @remarks
-   * Custom attribute values. The key is the custom attribute identifier, and the value is a list of attribute values.
+   * The custom attribute values, where key is the custom attribute identifier and value is the attribute value list.
    */
   customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
-   * The business description of the field. Supported only for MaxCompute, HMS (EMR cluster), and DLF types.
+   * The business description of the field. Currently, only MaxCompute, HMS (EMR cluster), and DLF types are supported.
    * 
    * @example
    * 字段1的业务描述
@@ -47,7 +47,7 @@ export class ColumnBusinessMetadata extends $dara.Model {
 export class Column extends $dara.Model {
   /**
    * @remarks
-   * Business metadata.
+   * The business metadata.
    */
   businessMetadata?: ColumnBusinessMetadata;
   /**
@@ -60,7 +60,7 @@ export class Column extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Indicates whether the field is a foreign key. Only MaxCompute supports this property.
+   * Indicates whether the column is a foreign key. Currently, only MaxCompute is supported.
    * 
    * @example
    * false
@@ -70,13 +70,13 @@ export class Column extends $dara.Model {
    * @remarks
    * The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
-   * The format is `${EntityType}:${instance ID or URL-encoded connection string}:${data catalog identifier}:${database name}:${schema name}:${table name}:${field name}`. Use an empty string for any level that does not exist.
+   * The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentity}:${DatabaseName}:${PatternName}:${TableName}:${ColumnName}`. Use an empty character as a placeholder for levels that do not exist.
    * 
-   * > For MaxCompute and DLF types, use an empty string for the instance ID. For MaxCompute, the database name is the MaxCompute project name. If the project uses the three-layer model, provide the schema name. Otherwise, use an empty string for the schema name.
+   * > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For MaxCompute, the database name is the MaxCompute project name. Projects with the three-layer model enabled must include the schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
    * 
-   * > For StarRocks, the data catalog identifier is the catalog name. For DLF, it is the catalog ID. Other types do not support the catalog level, so use an empty string.
+   * > For StarRocks, the data catalog identifier is the catalog name. For DLF, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and you can use an empty string as a placeholder.
    * 
-   * Examples of common ID formats:
+   * The following examples show the ID formats for several common types:
    * 
    * `maxcompute-column:::project_name:[schema_name]:table_name:column_name`
    * 
@@ -88,15 +88,15 @@ export class Column extends $dara.Model {
    * 
    * `mysql-column:(instance_id|encoded_jdbc_url)::database_name::table_name:column_name`
    * 
-   * > Where:<br>
-   * > `instance_id`: The instance ID, required when the data source is registered in instance mode.<br>
-   * > `encoded_jdbc_url`: The URL-encoded JDBC connection string, required when the data source is registered using a connection string.<br>
-   * > `catalog_id`: The DLF catalog ID.<br>
-   * > `project_name`: The MaxCompute project name.<br>
-   * > `database_name`: The database name.<br>
-   * > `schema_name`: The schema name. For MaxCompute, provide this only if the project uses the three-layer model. Otherwise, use an empty string.<br>
-   * > `table_name`: The table name.<br>
-   * > `column_name`: The field name.<br><br><br><br><br><br><br><br>
+   * > Where   
+   * `instance_id`: The instance ID. This is required when the data source is registered in instance mode.   
+   * `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.   
+   * `catalog_id`: The DLF catalog ID.   
+   * `project_name`: The MaxCompute project name.   
+   * `database_name`: The database name.   
+   * `schema_name`: The schema name. For MaxCompute, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.    
+   * `table_name`: The table name.   
+   * `column_name`: The column name.
    * 
    * @example
    * maxcompute-column:::project_name:[schema_name]:table_name:column_name
@@ -112,7 +112,7 @@ export class Column extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a partition key.
+   * Indicates whether the column is a partition key.
    * 
    * @example
    * false
@@ -128,15 +128,16 @@ export class Column extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * Indicates whether the field is a primary key. Only MaxCompute supports this property.
+   * Indicates whether the column is a primary key. Currently, only MaxCompute is supported.
    * 
    * @example
    * false
    */
   primaryKey?: boolean;
+  statisticsInfos?: { [key: string]: string };
   /**
    * @remarks
-   * The table ID. For details, see the `Table` object.
+   * The table ID. For more information, see the `Table` object.
    * 
    * @example
    * maxcompute-table:::project_name:[schema_name]:table_name
@@ -160,6 +161,7 @@ export class Column extends $dara.Model {
       partitionKey: 'PartitionKey',
       position: 'Position',
       primaryKey: 'PrimaryKey',
+      statisticsInfos: 'StatisticsInfos',
       tableId: 'TableId',
       type: 'Type',
     };
@@ -175,6 +177,7 @@ export class Column extends $dara.Model {
       partitionKey: 'boolean',
       position: 'number',
       primaryKey: 'boolean',
+      statisticsInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tableId: 'string',
       type: 'string',
     };
@@ -183,6 +186,9 @@ export class Column extends $dara.Model {
   validate() {
     if(this.businessMetadata && typeof (this.businessMetadata as any).validate === 'function') {
       (this.businessMetadata as any).validate();
+    }
+    if(this.statisticsInfos) {
+      $dara.Model.validateMap(this.statisticsInfos);
     }
     super.validate();
   }

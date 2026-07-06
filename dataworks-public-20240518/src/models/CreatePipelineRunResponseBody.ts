@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the process.
+   * The unique identifier of the publish process.
    * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX
@@ -13,7 +13,7 @@ export class CreatePipelineRunResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF02XXXX

@@ -4,10 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportWorkflowDefinitionRequest extends $dara.Model {
   /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. You can logon to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
    * 
-   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * This parameter specifies the DataWorks workspace for this API invoke.
    * 
    * This parameter is required.
    * 
@@ -17,13 +22,12 @@ export class ImportWorkflowDefinitionRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * The FlowSpec information that describes the workflow. For the specification details, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
    * 
-   * > How to quickly obtain a FlowSpec template?
+   * > How do I quickly obtain a FlowSpec template?
+   * > - Open a workflow in DataStudio, and then click **Show Spec** in the upper-right corner to obtain the FlowSpec description of the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
    * 
-   * - Open a workflow in Data Studio, then click "Show Spec" in the top-right corner to retrieve the FlowSpec description for the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
-   * 
-   * > This interface supports creating both the workflow and its internal nodes simultaneously. Therefore, please pay close attention to the ID specified in the FlowSpec. If the provided ID already exists, the operation will be treated as an update. A create operation is performed only if the ID is omitted or does not exist.
+   * >Notice: This operation supports creating a workflow and its internal nodes at the same time. Pay attention to the IDs specified in the FlowSpec. If an ID already exists, the operation becomes an update. The operation becomes a create only when no ID is specified or the ID does not exist.
    * 
    * This parameter is required.
    * 
@@ -163,6 +167,7 @@ export class ImportWorkflowDefinitionRequest extends $dara.Model {
   spec?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       projectId: 'ProjectId',
       spec: 'Spec',
     };
@@ -170,6 +175,7 @@ export class ImportWorkflowDefinitionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       projectId: 'number',
       spec: 'string',
     };
