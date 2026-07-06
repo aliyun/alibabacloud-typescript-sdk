@@ -2,43 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAgentStorageResponseBody extends $dara.Model {
+export class BindAgentStorage2VpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The domain name.
    * 
    * @example
-   * 200
+   * remua-agent-test.cn-beijing.vpc.ots.aliyuncs.com
    */
-  code?: string;
+  domain?: string;
   /**
    * @remarks
-   * The response message.
+   * The endpoint of the instance.
    * 
    * @example
-   * success
+   * 172.**.***.34
    */
-  message?: string;
+  endpoint?: string;
   /**
    * @remarks
-   * The request ID, which can be used for troubleshooting.
+   * The request ID, which can be used to troubleshoot and locate issues.
    * 
    * @example
-   * 18DD77BF-F967-576D-80D1-79121399AB53
+   * 39871ED2-62C0-578F-A32E-B88072D5582F
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
+      domain: 'Domain',
+      endpoint: 'Endpoint',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
+      domain: 'string',
+      endpoint: 'string',
       requestId: 'string',
     };
   }

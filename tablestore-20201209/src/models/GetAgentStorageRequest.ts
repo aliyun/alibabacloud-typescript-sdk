@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * agent storage name
+   * The name of the agent storage.
    * 
    * This parameter is required.
    * 

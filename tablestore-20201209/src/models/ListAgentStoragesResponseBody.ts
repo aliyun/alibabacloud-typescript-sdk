@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentStoragesResponseBodyAgentStorages extends $dara.Model {
   /**
    * @remarks
-   * agent storage description
+   * The description of the agent storage.
    * 
    * @example
    * description for agent storage
@@ -13,7 +13,7 @@ export class ListAgentStoragesResponseBodyAgentStorages extends $dara.Model {
   agentStorageDescription?: string;
   /**
    * @remarks
-   * The agent storage name, which is a unique key.
+   * The name of the agent storage, which is a unique key.
    * 
    * @example
    * agent-test
@@ -21,7 +21,7 @@ export class ListAgentStoragesResponseBodyAgentStorages extends $dara.Model {
   agentStorageName?: string;
   /**
    * @remarks
-   * The specifications of the agent storage.
+   * The specification of the agent storage.
    * 
    * @example
    * SSD
@@ -48,7 +48,7 @@ export class ListAgentStoragesResponseBodyAgentStorages extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The creation time of the agent storage.
+   * The time when the agent storage was created.
    * 
    * @example
    * 2025-04-16T06:02:59Z
@@ -123,7 +123,7 @@ export class ListAgentStoragesResponseBody extends $dara.Model {
   agentStorages?: ListAgentStoragesResponseBodyAgentStorages[];
   /**
    * @remarks
-   * The token used to retrieve the next page of results when the total number of tag resources exceeds the value of MaxResults. This parameter has a value only when not all tag resources are returned.
+   * The pagination token for querying subsequent pages. This parameter has a value only when not all tag resources are returned. If the total number of expected tag resources exceeds the MaxResults value, use this token to retrieve the next page.
    * 
    * @example
    * CAESCG15aC1xxxxx
@@ -131,7 +131,7 @@ export class ListAgentStoragesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which can be used for troubleshooting.
    * 
    * @example
    * 39871ED2-62C0-578F-A32E-B88072D5582F

@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAgentStorageRequest extends $dara.Model {
+export class ListVpcInfoByAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent storage.
+   * The agent storage name.
    * 
    * This parameter is required.
    * 
@@ -13,15 +13,35 @@ export class DeleteAgentStorageRequest extends $dara.Model {
    * agent-test
    */
   agentStorageName?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @remarks
+   * The number of VPCs per page for the query.
+   * 
+   * @example
+   * 8
+   */
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       agentStorageName: 'AgentStorageName',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentStorageName: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 

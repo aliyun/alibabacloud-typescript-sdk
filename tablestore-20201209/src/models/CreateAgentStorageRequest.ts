@@ -7,8 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentStorageRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
-   * The key can be up to 64 characters in length.
+   * The key of the tag. The key can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -18,8 +17,7 @@ export class CreateAgentStorageRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
-   * The value can be up to 64 characters in length.
+   * The value of the tag. The value can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -53,7 +51,7 @@ export class CreateAgentStorageRequestTags extends $dara.Model {
 export class CreateAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * agent storage description
+   * The description of the agent storage. The description must be 3 to 256 characters in length.
    * 
    * @example
    * description for agent storage
@@ -61,17 +59,23 @@ export class CreateAgentStorageRequest extends $dara.Model {
   agentStorageDescription?: string;
   /**
    * @remarks
-   * agent storage name
+   * The name of the agent storage. The naming conventions are as follows:
+   * - The name can contain only letters, digits, and hyphens (-).
+   * - The name must start with a letter.
+   * - The name cannot end with a hyphen (-).
+   * - The name is case-insensitive.
+   * - The name must be 3 to 16 characters in length.
+   * - The name cannot contain the following words: ali, ay, ots, taobao, or admin.
    * 
    * This parameter is required.
    * 
    * @example
-   * first-ins
+   * first-agent
    */
   agentStorageName?: string;
   /**
    * @remarks
-   * （已弃用）智能体存储网络类型。NORMAL, VPC_CONSOLE。默认为NORMAL。
+   * (Deprecated) The network type of the agent storage. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
    * 
    * @example
    * VPC
@@ -79,17 +83,21 @@ export class CreateAgentStorageRequest extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The list of network sources allowed for the agent storage instance. By default, all network sources are allowed. Valid values: TRUST_PROXY: console.
+   * The list of allowed network sources for the agent storage. All sources are allowed by default. Valid values:
+   * - TRUST_PROXY: console.
    */
   networkSourceACL?: string[];
   /**
    * @remarks
-   * The list of network types allowed for the agent storage instance. By default, all network types are allowed. Valid values: CLASSIC: classic network. INTERNET: Internet. VPC: VPC.
+   * The list of allowed network types for the agent storage. All types are allowed by default. Valid values:
+   * - CLASSIC: classic network.
+   * - INTERNET: public network.
+   * - VPC: VPC network.
    */
   networkTypeACL?: string[];
   /**
    * @remarks
-   * The access control policy of the agent storage instance in JSON format. For the policy syntax, see https://www.alibabacloud.com/help/en/ram/user-guide/policy-structure-and-syntax.
+   * The access control policy for the agent storage in JSON format. For the syntax, see https://www.alibabacloud.com/help/en/ram/user-guide/policy-structure-and-syntax.
    * 
    * @example
    * {
@@ -126,7 +134,7 @@ export class CreateAgentStorageRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * resource group id
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxh4em5jnbcd
@@ -134,7 +142,7 @@ export class CreateAgentStorageRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * tag
+   * The list of tags.
    */
   tags?: CreateAgentStorageRequestTags[];
   static names(): { [key: string]: string } {

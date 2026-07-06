@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * agent storage description
+   * The description of the agent storage.
    * 
    * @example
    * description for agent storage
@@ -13,7 +13,7 @@ export class UpdateAgentStorageRequest extends $dara.Model {
   agentStorageDescription?: string;
   /**
    * @remarks
-   * agent storage name
+   * The name of the agent storage.
    * 
    * This parameter is required.
    * 
@@ -39,13 +39,12 @@ export class UpdateAgentStorageRequest extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The list of network sources allowed for the agent storage. All sources are allowed by default. Valid values:
-   * - TRUST_PROXY: console.
+   * The list of allowed network sources for the agent storage. All sources are allowed by default. Must be used with TRUST_PROXY (console).
    */
   networkSourceACL?: string[];
   /**
    * @remarks
-   * The list of network types allowed for the agent storage. All types are allowed by default. Valid values:
+   * The list of allowed network types for the agent storage. All types are allowed by default. Valid values:
    * - CLASSIC: classic network.
    * - INTERNET: public network.
    * - VPC: VPC network.

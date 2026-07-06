@@ -58,6 +58,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Binds agent storage to a VPC.
+   * 
+   * @param request - BindAgentStorage2VpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindAgentStorage2VpcResponse
+   */
+  async bindAgentStorage2VpcWithOptions(request: $_model.BindAgentStorage2VpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BindAgentStorage2VpcResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.agentStorageVpcName)) {
+      body["AgentStorageVpcName"] = request.agentStorageVpcName;
+    }
+
+    if (!$dara.isNull(request.virtualSwitchId)) {
+      body["VirtualSwitchId"] = request.virtualSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindAgentStorage2Vpc",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/bindagentstorage2vpc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindAgentStorage2VpcResponse>(await this.callApi(params, req, runtime), new $_model.BindAgentStorage2VpcResponse({}));
+  }
+
+  /**
+   * Binds agent storage to a VPC.
+   * 
+   * @param request - BindAgentStorage2VpcRequest
+   * @returns BindAgentStorage2VpcResponse
+   */
+  async bindAgentStorage2Vpc(request: $_model.BindAgentStorage2VpcRequest): Promise<$_model.BindAgentStorage2VpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.bindAgentStorage2VpcWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Binds an instance to a VPC.
    * 
    * @param request - BindInstance2VpcRequest
@@ -164,6 +221,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks the validity of an agent storage access control policy.
+   * 
+   * @param request - CheckAgentStoragePolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAgentStoragePolicyResponse
+   */
+  async checkAgentStoragePolicyWithOptions(request: $_model.CheckAgentStoragePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAgentStoragePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAgentStoragePolicy",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/checkagentstoragepolicy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckAgentStoragePolicyResponse>(await this.callApi(params, req, runtime), new $_model.CheckAgentStoragePolicyResponse({}));
+  }
+
+  /**
+   * Checks the validity of an agent storage access control policy.
+   * 
+   * @param request - CheckAgentStoragePolicyRequest
+   * @returns CheckAgentStoragePolicyResponse
+   */
+  async checkAgentStoragePolicy(request: $_model.CheckAgentStoragePolicyRequest): Promise<$_model.CheckAgentStoragePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkAgentStoragePolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Checks the validity of a Resource Access Management (RAM) policy for an instance.
    * 
    * @param request - CheckInstancePolicyRequest
@@ -213,13 +319,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an agent storage instance.
+   * Creates an agent storage.
    * 
    * @remarks
-   * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-   * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-   * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-   * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
    * 
    * @param request - CreateAgentStorageRequest
    * @param headers - map
@@ -280,13 +384,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an agent storage instance.
+   * Creates an agent storage.
    * 
    * @remarks
-   * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-   * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-   * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-   * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+   * - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+   * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
    * 
    * @param request - CreateAgentStorageRequest
    * @returns CreateAgentStorageResponse
@@ -484,11 +586,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an agent store.
+   * Deletes an agent storage.
    * 
    * @remarks
-   * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-   * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+   * - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+   * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteAgentStorageRequest
    * @param headers - map
@@ -521,11 +623,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an agent store.
+   * Deletes an agent storage.
    * 
    * @remarks
-   * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-   * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+   * - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+   * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteAgentStorageRequest
    * @returns DeleteAgentStorageResponse
@@ -534,6 +636,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAgentStorageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes an access control policy for agent storage.
+   * 
+   * @remarks
+   * - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+   * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+   * 
+   * @param request - DeleteAgentStoragePolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentStoragePolicyResponse
+   */
+  async deleteAgentStoragePolicyWithOptions(request: $_model.DeleteAgentStoragePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentStoragePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.policyVersion)) {
+      body["PolicyVersion"] = request.policyVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentStoragePolicy",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/deleteagentstoragepolicy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentStoragePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentStoragePolicyResponse({}));
+  }
+
+  /**
+   * Deletes an access control policy for agent storage.
+   * 
+   * @remarks
+   * - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+   * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+   * 
+   * @param request - DeleteAgentStoragePolicyRequest
+   * @returns DeleteAgentStoragePolicyResponse
+   */
+  async deleteAgentStoragePolicy(request: $_model.DeleteAgentStoragePolicyRequest): Promise<$_model.DeleteAgentStoragePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentStoragePolicyWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1093,6 +1252,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of VPC information stored in an agent storage.
+   * 
+   * @param request - ListVpcInfoByAgentStorageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpcInfoByAgentStorageResponse
+   */
+  async listVpcInfoByAgentStorageWithOptions(request: $_model.ListVpcInfoByAgentStorageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVpcInfoByAgentStorageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      query["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVpcInfoByAgentStorage",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/listvpcinfobyagentstorage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVpcInfoByAgentStorageResponse>(await this.callApi(params, req, runtime), new $_model.ListVpcInfoByAgentStorageResponse({}));
+  }
+
+  /**
+   * Retrieves the list of VPC information stored in an agent storage.
+   * 
+   * @param request - ListVpcInfoByAgentStorageRequest
+   * @returns ListVpcInfoByAgentStorageResponse
+   */
+  async listVpcInfoByAgentStorage(request: $_model.ListVpcInfoByAgentStorageRequest): Promise<$_model.ListVpcInfoByAgentStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVpcInfoByAgentStorageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of VPC information for an instance.
    * 
    * @param request - ListVpcInfoByInstanceRequest
@@ -1249,6 +1461,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disassociates agent storage from a VPC.
+   * 
+   * @param request - UnbindAgentStorage2VpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindAgentStorage2VpcResponse
+   */
+  async unbindAgentStorage2VpcWithOptions(request: $_model.UnbindAgentStorage2VpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindAgentStorage2VpcResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.agentStorageVpcName)) {
+      body["AgentStorageVpcName"] = request.agentStorageVpcName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindAgentStorage2Vpc",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/unbindagentstorage2vpc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindAgentStorage2VpcResponse>(await this.callApi(params, req, runtime), new $_model.UnbindAgentStorage2VpcResponse({}));
+  }
+
+  /**
+   * Disassociates agent storage from a VPC.
+   * 
+   * @param request - UnbindAgentStorage2VpcRequest
+   * @returns UnbindAgentStorage2VpcResponse
+   */
+  async unbindAgentStorage2Vpc(request: $_model.UnbindAgentStorage2VpcRequest): Promise<$_model.UnbindAgentStorage2VpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unbindAgentStorage2VpcWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1426,6 +1687,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAgentStorageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Modifies the access control policy of agent storage.
+   * 
+   * @param request - UpdateAgentStoragePolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentStoragePolicyResponse
+   */
+  async updateAgentStoragePolicyWithOptions(request: $_model.UpdateAgentStoragePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentStoragePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentStorageName)) {
+      body["AgentStorageName"] = request.agentStorageName;
+    }
+
+    if (!$dara.isNull(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    if (!$dara.isNull(request.policyVersion)) {
+      body["PolicyVersion"] = request.policyVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgentStoragePolicy",
+      version: "2020-12-09",
+      protocol: "HTTPS",
+      pathname: `/v2/openapi/updateagentstoragepolicy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentStoragePolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentStoragePolicyResponse({}));
+  }
+
+  /**
+   * Modifies the access control policy of agent storage.
+   * 
+   * @param request - UpdateAgentStoragePolicyRequest
+   * @returns UpdateAgentStoragePolicyResponse
+   */
+  async updateAgentStoragePolicy(request: $_model.UpdateAgentStoragePolicyRequest): Promise<$_model.UpdateAgentStoragePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentStoragePolicyWithOptions(request, headers, runtime);
   }
 
   /**

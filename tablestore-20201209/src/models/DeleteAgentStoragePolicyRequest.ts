@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAgentStorageRequest extends $dara.Model {
+export class DeleteAgentStoragePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the agent storage.
@@ -10,18 +10,30 @@ export class DeleteAgentStorageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * agent-test
+   * first-agent
    */
   agentStorageName?: string;
+  /**
+   * @remarks
+   * The version of the access control policy for agent storage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  policyVersion?: number;
   static names(): { [key: string]: string } {
     return {
       agentStorageName: 'AgentStorageName',
+      policyVersion: 'PolicyVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentStorageName: 'string',
+      policyVersion: 'number',
     };
   }
 

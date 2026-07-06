@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAgentStorageResponseBody extends $dara.Model {
+export class UpdateAgentStoragePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response status code.
@@ -24,14 +24,14 @@ export class CreateAgentStorageResponseBody extends $dara.Model {
    * The request ID, which can be used for troubleshooting.
    * 
    * @example
-   * 18DD77BF-F967-576D-80D1-79121399AB53
+   * B37BBA04-D827-55C8-B901-5264B904E8C6
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       message: 'Message',
-      requestId: 'RequestId',
+      requestId: 'requestId',
     };
   }
 

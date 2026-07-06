@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentStoragesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * agent storage name
+   * The name of the agent storage.
    * 
    * @example
    * agent-test
@@ -13,7 +13,7 @@ export class ListAgentStoragesShrinkRequest extends $dara.Model {
   agentStorageName?: string;
   /**
    * @remarks
-   * The list of agent storage names, used to query multiple specified agent storages in a batch.
+   * The list of agent storage names. Use this parameter to query multiple specified agent storages in a batch.
    */
   agentStorageNameListShrink?: string;
   /**
@@ -26,7 +26,7 @@ export class ListAgentStoragesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results when the total number of tag resources exceeds the value of MaxResults. This parameter has a value only when not all tag resources are returned.
+   * The pagination token for querying subsequent pages. This parameter has a value only when not all tag resources are returned. If the total number of expected tag resources exceeds the MaxResults value, use this token to retrieve the next page.
    * 
    * @example
    * CAESCG15aC1xxxxx
@@ -34,7 +34,7 @@ export class ListAgentStoragesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID. You can query this ID in the resource group console.
+   * The ID of the resource group. You can query the ID in the Resource Group console.
    * 
    * @example
    * rg-acfmxh4em5jncda

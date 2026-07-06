@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which can be used to troubleshoot and locate issues.
    * 
    * @example
    * E734979F-5A44-5993-9CE5-C23103576923

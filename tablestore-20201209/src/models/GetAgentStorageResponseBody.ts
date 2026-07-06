@@ -65,7 +65,7 @@ export class GetAgentStorageResponseBodyTags extends $dara.Model {
 export class GetAgentStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * agent storage description
+   * The description of the agent storage.
    * 
    * @example
    * description for agent storage
@@ -73,7 +73,7 @@ export class GetAgentStorageResponseBody extends $dara.Model {
   agentStorageDescription?: string;
   /**
    * @remarks
-   * agent storage name
+   * The name of the agent storage.
    * 
    * @example
    * agent-test
@@ -81,7 +81,7 @@ export class GetAgentStorageResponseBody extends $dara.Model {
   agentStorageName?: string;
   /**
    * @remarks
-   * The specification of the agent storage.
+   * The specifications of the agent storage.
    * 
    * @example
    * SSD
@@ -121,7 +121,7 @@ export class GetAgentStorageResponseBody extends $dara.Model {
   networkSourceACL?: string[];
   /**
    * @remarks
-   * The list of network types allowed for the agent storage. CLASSIC: classic network. INTERNET: Internet. VPC: VPC network.
+   * The list of network types allowed for the agent storage. CLASSIC: classic network. INTERNET: public network. VPC: VPC network.
    */
   networkTypeACL?: string[];
   /**
@@ -134,7 +134,7 @@ export class GetAgentStorageResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The version of the agent storage policy.
+   * The version of the access control policy for the agent storage.
    * 
    * @example
    * 1
@@ -145,12 +145,12 @@ export class GetAgentStorageResponseBody extends $dara.Model {
    * The region ID of the agent storage.
    * 
    * @example
-   * cn-chengdu
+   * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which can be used for troubleshooting.
    * 
    * @example
    * 3104C83E-6E82-57FB-BB88-8C64CCFDEF89

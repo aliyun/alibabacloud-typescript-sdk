@@ -2,26 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAgentStorageResponseBody extends $dara.Model {
+export class UnbindAgentStorage2VpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID, which can be used for troubleshooting.
+   * The request ID, which can be used to troubleshoot and locate issues.
    * 
    * @example
    * 18DD77BF-F967-576D-80D1-79121399AB53
@@ -29,16 +13,12 @@ export class CreateAgentStorageResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }
