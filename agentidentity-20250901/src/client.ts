@@ -329,6 +329,10 @@ export default class Client extends OpenApi {
       body["OAuth2ProviderConfig"] = request.OAuth2ProviderConfigShrink;
     }
 
+    if (!$dara.isNull(request.OAuthType)) {
+      body["OAuthType"] = request.OAuthType;
+    }
+
     if (!$dara.isNull(request.tokenVaultName)) {
       body["TokenVaultName"] = request.tokenVaultName;
     }
@@ -2119,8 +2123,16 @@ export default class Client extends OpenApi {
   async getUserWithOptions(request: $_model.GetUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     if (!$dara.isNull(request.userName)) {
       body["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.userPoolId)) {
+      body["UserPoolId"] = request.userPoolId;
     }
 
     if (!$dara.isNull(request.userPoolName)) {

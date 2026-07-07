@@ -9,6 +9,7 @@ export class CreateOAuth2CredentialProviderRequest extends $dara.Model {
   description?: string;
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfig?: OAuth2ProviderConfig;
+  OAuthType?: string;
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17,6 +18,7 @@ export class CreateOAuth2CredentialProviderRequest extends $dara.Model {
       description: 'Description',
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
       OAuth2ProviderConfig: 'OAuth2ProviderConfig',
+      OAuthType: 'OAuthType',
       tokenVaultName: 'TokenVaultName',
     };
   }
@@ -28,6 +30,7 @@ export class CreateOAuth2CredentialProviderRequest extends $dara.Model {
       description: 'string',
       OAuth2CredentialProviderName: 'string',
       OAuth2ProviderConfig: OAuth2ProviderConfig,
+      OAuthType: 'string',
       tokenVaultName: 'string',
     };
   }
