@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SelectionGroupRemoveProductRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of IDs for the products to be removed from stock.
+   * 
+   * > - A single call supports a maximum of 30 products.
+   * 
    * This parameter is required.
    */
   productIds?: string[];
   /**
    * @remarks
+   * The ID of the purchaser.
+   * 
    * This parameter is required.
    * 
    * @example

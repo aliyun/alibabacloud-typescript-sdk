@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ProductSpecValue extends $dara.Model {
+  /**
+   * @remarks
+   * Specification value
+   * 
+   * @example
+   * 白色
+   */
   value?: string;
   /**
+   * @remarks
+   * Specification value alias
+   * 
    * @example
    * 秘色
    */
   valueAlias?: string;
   /**
+   * @remarks
+   * Rule value ID
+   * 
    * @example
    * 1000
    */

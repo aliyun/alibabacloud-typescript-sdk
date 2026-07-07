@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class LogisticsDetail extends $dara.Model {
   /**
+   * @remarks
+   * Time when the logistics event occurred
+   * 
    * @example
-   * 2023-09-01 00:00:00
+   * 2023-09-11T12:22:24.000+08:00
    */
   ocurrTimeStr?: string;
+  /**
+   * @remarks
+   * Description of the logistics event
+   * 
+   * @example
+   * 已签收
+   */
   standerdDesc?: string;
   static names(): { [key: string]: string } {
     return {

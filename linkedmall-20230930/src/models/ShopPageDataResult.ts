@@ -5,37 +5,65 @@ import { CooperationShop } from "./CooperationShop";
 
 export class ShopPageDataResult extends $dara.Model {
   /**
+   * @remarks
+   * Partner shops
+   * 
    * @example
    * 12****01
    */
   cooperationShops?: CooperationShop[];
   /**
+   * @remarks
+   * End time
+   * 
    * @example
-   * 2023-09-01 00:00:00
+   * 2023-09-11T12:22:24.000+08:00
    */
   endDate?: string;
   /**
+   * @remarks
+   * Purchaser ID
+   * 
    * @example
-   * 56****2304
+   * PID56****2304
    */
   purchaserId?: string;
   /**
+   * @remarks
+   * Shop ID
+   * 
    * @example
    * 22****09
    */
   shopId?: string;
+  /**
+   * @remarks
+   * Shop name
+   * 
+   * @example
+   * 儿童座椅分销店铺
+   */
   shopName?: string;
   /**
+   * @remarks
+   * Shop type
+   * 
    * @example
-   * Distribution
+   * DistributorQYG
    */
   shopType?: string;
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
-   * 2023-09-01 00:00:00
+   * 2023-09-11T12:22:24.000+08:00
    */
   startDate?: string;
   /**
+   * @remarks
+   * Shop status
+   * 
    * @example
    * Working
    */

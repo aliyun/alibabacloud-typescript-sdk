@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LeavePictureList extends $dara.Model {
+  /**
+   * @remarks
+   * Description>Notice: If the after-sales order rendering API returns that a message description is required, this field is mandatory.</notice>
+   * 
+   * @example
+   * 外观破损了。
+   */
   desc?: string;
   /**
-   * @example
-   * https://
+   * @remarks
+   * Image of the after-sales Credential>Notice: If the after-sales order rendering API returns that an after-sales image is required, this field is mandatory.</notice>
    */
   picture?: string;
   static names(): { [key: string]: string } {

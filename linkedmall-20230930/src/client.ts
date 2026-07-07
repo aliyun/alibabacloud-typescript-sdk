@@ -86,7 +86,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消逆向单
+   * Cancels a refund order.
+   * 
+   * @remarks
+   * Cancel a refund order.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111,7 +114,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消逆向单
+   * Cancels a refund order.
+   * 
+   * @remarks
+   * Cancel a refund order.
    * @returns CancelRefundOrderResponse
    */
   async cancelRefundOrder(disputeId: string): Promise<$_model.CancelRefundOrderResponse> {
@@ -121,7 +127,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认收货（订单）
+   * Confirms the receipt of goods.
+   * 
+   * @remarks
+   * Confirms the receipt of goods.
    * 
    * @param request - ConfirmDisburseRequest
    * @param headers - map
@@ -149,7 +158,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认收货（订单）
+   * Confirms the receipt of goods.
+   * 
+   * @remarks
+   * Confirms the receipt of goods.
    * 
    * @param request - ConfirmDisburseRequest
    * @returns ConfirmDisburseResponse
@@ -161,7 +173,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交运单信息
+   * Backfill shipping notice information.
+   * 
+   * @remarks
+   * Backfill shipping notice information.
    * 
    * @param request - CreateGoodsShippingNoticeRequest
    * @param headers - map
@@ -189,7 +204,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交运单信息
+   * Backfill shipping notice information.
+   * 
+   * @remarks
+   * Backfill shipping notice information.
    * 
    * @param request - CreateGoodsShippingNoticeRequest
    * @returns CreateGoodsShippingNoticeResponse
@@ -201,7 +219,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建采购单
+   * Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+   * 
+   * @remarks
+   * Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
+   * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
+   * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
    * 
    * @param request - CreatePurchaseOrderRequest
    * @param headers - map
@@ -229,7 +252,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建采购单
+   * Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+   * 
+   * @remarks
+   * Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
+   * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
+   * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
    * 
    * @param request - CreatePurchaseOrderRequest
    * @returns CreatePurchaseOrderResponse
@@ -241,7 +269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建逆向单
+   * Create a support ticket.
+   * 
+   * @remarks
+   * Creates a refund order.
    * 
    * @param request - CreateRefundOrderRequest
    * @param headers - map
@@ -269,7 +300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建逆向单
+   * Create a support ticket.
+   * 
+   * @remarks
+   * Creates a refund order.
    * 
    * @param request - CreateRefundOrderRequest
    * @returns CreateRefundOrderResponse
@@ -281,7 +315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主单详情
+   * Queries the details of an order.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -306,7 +340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主单详情
+   * Queries the details of an order.
    * @returns GetOrderResponse
    */
   async getOrder(orderId: string): Promise<$_model.GetOrderResponse> {
@@ -316,7 +350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询采购单状态
+   * Retrieve the purchase order status.
+   * 
+   * @remarks
+   * Retrieve the transaction order status.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -341,7 +378,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询采购单状态
+   * Retrieve the purchase order status.
+   * 
+   * @remarks
+   * Retrieve the transaction order status.
    * @returns GetPurchaseOrderStatusResponse
    */
   async getPurchaseOrderStatus(purchaseOrderId: string): Promise<$_model.GetPurchaseOrderStatusResponse> {
@@ -351,7 +391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分销商店铺
+   * Retrieves the purchaser\\"s shop.
+   * 
+   * @remarks
+   * Retrieves the purchaser\\"s shop.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -376,7 +419,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分销商店铺
+   * Retrieves the purchaser\\"s shop.
+   * 
+   * @remarks
+   * Retrieves the purchaser\\"s shop.
    * @returns GetPurchaserShopResponse
    */
   async getPurchaserShop(purchaserId: string): Promise<$_model.GetPurchaserShopResponse> {
@@ -386,7 +432,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询逆向单详情
+   * Retrieve details of an after-sales order.
+   * 
+   * @remarks
+   * Retrieve after-sales order details
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -411,7 +460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询逆向单详情
+   * Retrieve details of an after-sales order.
+   * 
+   * @remarks
+   * Retrieve after-sales order details
    * @returns GetRefundOrderResponse
    */
   async getRefundOrder(disputeId: string): Promise<$_model.GetRefundOrderResponse> {
@@ -421,7 +473,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询选品池商品详情
+   * Query the details of a product in the selection pool.
+   * 
+   * @remarks
+   * Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
    * 
    * @param request - GetSelectionProductRequest
    * @param headers - map
@@ -458,7 +513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询选品池商品详情
+   * Query the details of a product in the selection pool.
+   * 
+   * @remarks
+   * Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
    * 
    * @param request - GetSelectionProductRequest
    * @returns GetSelectionProductResponse
@@ -470,7 +528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询选品池商品库存
+   * Queries sales information for products in the selection pool.
+   * 
+   * @remarks
+   * Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
    * 
    * @param request - GetSelectionProductSaleInfoRequest
    * @param headers - map
@@ -507,7 +568,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询选品池商品库存
+   * Queries sales information for products in the selection pool.
+   * 
+   * @remarks
+   * Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
    * 
    * @param request - GetSelectionProductSaleInfoRequest
    * @returns GetSelectionProductSaleInfoResponse
@@ -519,7 +583,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询类目
+   * Lists categories.
+   * 
+   * @remarks
+   * Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
+   * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
    * 
    * @param request - ListCategoriesRequest
    * @param headers - map
@@ -547,7 +615,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询类目
+   * Lists categories.
+   * 
+   * @remarks
+   * Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
+   * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
    * 
    * @param request - ListCategoriesRequest
    * @returns ListCategoriesResponse
@@ -559,7 +631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询物流信息（订单）
+   * Query logistics information for an order.
+   * 
+   * @remarks
+   * Retrieves logistics information for an order.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -584,7 +659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询物流信息（订单）
+   * Query logistics information for an order.
+   * 
+   * @remarks
+   * Retrieves logistics information for an order.
    * @returns ListLogisticsOrdersResponse
    */
   async listLogisticsOrders(orderId: string): Promise<$_model.ListLogisticsOrdersResponse> {
@@ -594,7 +672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 采购方店铺列表查询
+   * Lists purchaser shops.
+   * 
+   * @remarks
+   * Lists purchaser shops.
    * 
    * @param request - ListPurchaserShopsRequest
    * @param headers - map
@@ -631,7 +712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 采购方店铺列表查询
+   * Lists purchaser shops.
+   * 
+   * @remarks
+   * Lists purchaser shops.
    * 
    * @param request - ListPurchaserShopsRequest
    * @returns ListPurchaserShopsResponse
@@ -643,7 +727,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询选品池商品库存
+   * Query product sales information for the selection pool in batches.
+   * 
+   * @remarks
+   * You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
    * 
    * @param request - ListSelectionProductSaleInfosRequest
    * @param headers - map
@@ -671,7 +758,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询选品池商品库存
+   * Query product sales information for the selection pool in batches.
+   * 
+   * @remarks
+   * You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
    * 
    * @param request - ListSelectionProductSaleInfosRequest
    * @returns ListSelectionProductSaleInfosResponse
@@ -683,7 +773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询商品列表
+   * Retrieves a list of products from a product selection pool.
    * 
    * @param request - ListSelectionProductsRequest
    * @param headers - map
@@ -724,7 +814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询商品列表
+   * Retrieves a list of products from a product selection pool.
    * 
    * @param request - ListSelectionProductsRequest
    * @returns ListSelectionProductsResponse
@@ -736,7 +826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询选品池商品SKU库存
+   * Query SKU sales information for items in the selection pool in batch.
+   * 
+   * @remarks
+   * Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
    * 
    * @param request - ListSelectionSkuSaleInfosRequest
    * @param headers - map
@@ -764,7 +857,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询选品池商品SKU库存
+   * Query SKU sales information for items in the selection pool in batch.
+   * 
+   * @remarks
+   * Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
    * 
    * @param request - ListSelectionSkuSaleInfosRequest
    * @returns ListSelectionSkuSaleInfosResponse
@@ -776,7 +872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地址divisionCode
+   * Queries child division codes.
+   * 
+   * @remarks
+   * Queries child division codes.
    * 
    * @param request - QueryChildDivisionCodeRequest
    * @param headers - map
@@ -804,7 +903,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地址divisionCode
+   * Queries child division codes.
+   * 
+   * @remarks
+   * Queries child division codes.
    * 
    * @param request - QueryChildDivisionCodeRequest
    * @returns QueryChildDivisionCodeResponse
@@ -816,7 +918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主单列表
+   * Queries a list of orders.
+   * 
+   * @remarks
+   * Queries a list of orders.
    * 
    * @param request - QueryOrdersRequest
    * @param headers - map
@@ -844,7 +949,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主单列表
+   * Queries a list of orders.
+   * 
+   * @remarks
+   * Queries a list of orders.
    * 
    * @param request - QueryOrdersRequest
    * @returns QueryOrdersResponse
@@ -856,7 +964,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渲染采购单
+   * Renders a purchase order and returns both sellable and unsellable products. Customers can then select the sellable products to place their orders.
+   * 
+   * @remarks
+   * >Warning: 
+   * This API will be offline soon. For purchase order rendering, use the SplitPurchaseOrder API, which supports both purchase order rendering and splitting.
    * 
    * @param request - RenderPurchaseOrderRequest
    * @param headers - map
@@ -884,7 +996,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渲染采购单
+   * Renders a purchase order and returns both sellable and unsellable products. Customers can then select the sellable products to place their orders.
+   * 
+   * @remarks
+   * >Warning: 
+   * This API will be offline soon. For purchase order rendering, use the SplitPurchaseOrder API, which supports both purchase order rendering and splitting.
    * 
    * @param request - RenderPurchaseOrderRequest
    * @returns RenderPurchaseOrderResponse
@@ -896,7 +1012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 逆向单渲染
+   * Reverse Single Rendering
+   * 
+   * @remarks
+   * Renders a refund order.
    * 
    * @param request - RenderRefundOrderRequest
    * @param headers - map
@@ -924,7 +1043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 逆向单渲染
+   * Reverse Single Rendering
+   * 
+   * @remarks
+   * Renders a refund order.
    * 
    * @param request - RenderRefundOrderRequest
    * @returns RenderRefundOrderResponse
@@ -936,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索商品
+   * The product search API is a paginated interface for searching products based on various criteria.
    * 
    * @param request - SearchProductsRequest
    * @param headers - map
@@ -1085,7 +1207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索商品
+   * The product search API is a paginated interface for searching products based on various criteria.
    * 
    * @param request - SearchProductsRequest
    * @returns SearchProductsResponse
@@ -1097,7 +1219,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 入库操作
+   * The distributor takes delivery of goods.
+   * 
+   * @remarks
+   * Distributors use this API to add products to their selection group.
+   * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
    * 
    * @param request - SelectionGroupAddProductRequest
    * @param headers - map
@@ -1134,7 +1260,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 入库操作
+   * The distributor takes delivery of goods.
+   * 
+   * @remarks
+   * Distributors use this API to add products to their selection group.
+   * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
    * 
    * @param request - SelectionGroupAddProductRequest
    * @returns SelectionGroupAddProductResponse
@@ -1146,7 +1276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 出库操作
+   * Removes products from a distributor\\"s stock.
+   * 
+   * @remarks
+   * Distributors use this API to remove products from their stock.
    * 
    * @param request - SelectionGroupRemoveProductRequest
    * @param headers - map
@@ -1183,7 +1316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 出库操作
+   * Removes products from a distributor\\"s stock.
+   * 
+   * @remarks
+   * Distributors use this API to remove products from their stock.
    * 
    * @param request - SelectionGroupRemoveProductRequest
    * @returns SelectionGroupRemoveProductResponse
@@ -1195,7 +1331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渲染拆分采购单
+   * Splits a purchase order and renders the resulting parent-child order structure. This API returns a list of items based on the final parent-child order structure. Distributors can use this response to render the final parent-child order layout, which simplifies receiving the purchase order creation success message and backfilling parent-child order information later.
+   * 
+   * @remarks
+   * Call this API before creating a purchase order. It returns two lists: one for sellable items and one for unsellable items. The sellable items list follows the final parent-child order split structure.
    * 
    * @param request - SplitPurchaseOrderRequest
    * @param headers - map
@@ -1223,7 +1362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渲染拆分采购单
+   * Splits a purchase order and renders the resulting parent-child order structure. This API returns a list of items based on the final parent-child order structure. Distributors can use this response to render the final parent-child order layout, which simplifies receiving the purchase order creation success message and backfilling parent-child order information later.
+   * 
+   * @remarks
+   * Call this API before creating a purchase order. It returns two lists: one for sellable items and one for unsellable items. The sellable items list follows the final parent-child order split structure.
    * 
    * @param request - SplitPurchaseOrderRequest
    * @returns SplitPurchaseOrderResponse

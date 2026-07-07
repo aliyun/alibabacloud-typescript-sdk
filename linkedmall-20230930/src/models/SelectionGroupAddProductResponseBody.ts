@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelectionGroupAddProductResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of product IDs successfully added
+   */
   productIds?: string[];
   static names(): { [key: string]: string } {
     return {

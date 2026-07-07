@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ProductPrice extends $dara.Model {
   /**
+   * @remarks
+   * Amount payable
+   * 
    * @example
    * 120
    */

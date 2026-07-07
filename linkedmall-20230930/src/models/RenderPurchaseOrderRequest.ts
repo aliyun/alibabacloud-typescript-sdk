@@ -6,6 +6,8 @@ import { PurchaseOrderRenderQuery } from "./PurchaseOrderRenderQuery";
 export class RenderPurchaseOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * Render purchase order
+   * 
    * This parameter is required.
    */
   body?: PurchaseOrderRenderQuery;

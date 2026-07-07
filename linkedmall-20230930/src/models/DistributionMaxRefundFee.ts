@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DistributionMaxRefundFee extends $dara.Model {
   /**
+   * @remarks
+   * Maximum refundable amount for this order
+   * 
    * @example
    * 100
    */
   maxRefundFee?: number;
   /**
+   * @remarks
+   * Minimum refundable amount for this order
+   * 
    * @example
    * 1
    */

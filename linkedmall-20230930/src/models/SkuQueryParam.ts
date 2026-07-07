@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SkuQueryParam extends $dara.Model {
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 1
    */
   buyAmount?: number;
   /**
    * @remarks
+   * Product ID
+   * 
    * This parameter is required.
    * 
    * @example

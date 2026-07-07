@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeliveryInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Display name
+   * 
+   * @example
+   * 快递 免邮
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Unique ID
+   * 
    * @example
    * 20
    */
   id?: string;
   /**
+   * @remarks
+   * Shipping fee amount
+   * 
    * @example
    * 0
    */

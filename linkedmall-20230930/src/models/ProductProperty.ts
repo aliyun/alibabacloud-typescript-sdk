@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ProductProperty extends $dara.Model {
+  /**
+   * @remarks
+   * The text of the property.
+   * 
+   * @example
+   * 颜色
+   */
   text?: string;
+  /**
+   * @remarks
+   * A collection of property values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

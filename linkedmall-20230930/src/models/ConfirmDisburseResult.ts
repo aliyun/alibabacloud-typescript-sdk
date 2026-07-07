@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfirmDisburseResult extends $dara.Model {
   /**
+   * @remarks
+   * API Request requestId
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return Result of Confirm Delivery
+   * 
    * @example
    * success
    */

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelectionGroupRemoveProductResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of IDs for the products that were successfully removed.
+   */
   productIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ProductQuery extends $dara.Model {
   /**
    * @remarks
+   * Distributor shop ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ProductQuery extends $dara.Model {
    */
   distributorShopId?: string;
   /**
+   * @remarks
+   * Area code
+   * 
    * @example
    * 110000
    */

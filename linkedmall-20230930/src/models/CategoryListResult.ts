@@ -4,7 +4,15 @@ import { Category } from "./Category";
 
 
 export class CategoryListResult extends $dara.Model {
+  /**
+   * @remarks
+   * category collection
+   */
   categories?: Category[];
+  /**
+   * @remarks
+   * request ID
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

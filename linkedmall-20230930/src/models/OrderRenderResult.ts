@@ -6,13 +6,35 @@ import { OrderProductResult } from "./OrderProductResult";
 
 export class OrderRenderResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the item can be sold.
+   * 
    * @example
    * true
    */
   canSell?: boolean;
+  /**
+   * @remarks
+   * The fulfillment information.
+   */
   deliveryInfoList?: DeliveryInfo[];
+  /**
+   * @remarks
+   * The extension information.
+   */
   extInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * The reason why the item is unavailable.
+   * 
+   * @example
+   * 库存为0
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of products.
+   */
   productList?: OrderProductResult[];
   static names(): { [key: string]: string } {
     return {

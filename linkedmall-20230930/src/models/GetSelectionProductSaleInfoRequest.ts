@@ -4,16 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSelectionProductSaleInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Administrative division code. We recommend using a five-level code (township or subdistrict level).
+   * 
    * @example
-   * 110000
+   * 330106109
    */
   divisionCode?: string;
   /**
    * @remarks
+   * Purchaser ID
+   * 
    * This parameter is required.
    * 
    * @example
-   * 56****2304
+   * PID22000009
    */
   purchaserId?: string;
   static names(): { [key: string]: string } {

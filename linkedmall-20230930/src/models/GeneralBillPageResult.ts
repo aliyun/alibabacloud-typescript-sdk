@@ -4,15 +4,33 @@ import { GeneralBill } from "./GeneralBill";
 
 
 export class GeneralBillPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of bills.
+   */
   generalBills?: GeneralBill[];
+  /**
+   * @remarks
+   * Current page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size.
+   */
   pageSize?: number;
   /**
+   * @remarks
+   * API request ID.
+   * 
    * @example
    * 3239281273464326823
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 24
    */

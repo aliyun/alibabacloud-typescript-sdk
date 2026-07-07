@@ -6,6 +6,8 @@ import { Product } from "./Product";
 export class ProductPageResult extends $dara.Model {
   /**
    * @remarks
+   * Current page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,20 +16,31 @@ export class ProductPageResult extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size
+   * 
    * This parameter is required.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Collection of products
+   */
   products?: Product[];
   /**
+   * @remarks
+   * Request ID for the API call
+   * 
    * @example
    * 3239281273464326823
    */
   requestId?: string;
   /**
    * @remarks
+   * Total count
+   * 
    * This parameter is required.
    * 
    * @example

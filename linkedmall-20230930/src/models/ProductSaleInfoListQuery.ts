@@ -4,17 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ProductSaleInfoListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Area code (recommended to use a five-level township/street-level address code)
+   * 
    * @example
-   * 110000
+   * 330106109
    */
   divisionCode?: string;
   /**
    * @remarks
+   * Collection of product IDs to query, supporting batch queries of 1 to 10 items
+   * 
    * This parameter is required.
    */
   productIds?: string[];
   /**
    * @remarks
+   * Purchaser ID
+   * 
    * This parameter is required.
    * 
    * @example

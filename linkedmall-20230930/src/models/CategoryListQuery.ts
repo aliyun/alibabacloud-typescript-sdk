@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CategoryListQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of category IDs
+   */
   categoryIds?: number[];
   /**
+   * @remarks
+   * Parent category ID
+   * 
    * @example
    * 5200001
    */

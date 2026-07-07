@@ -4,6 +4,10 @@ import { PurchaseOrderRenderQuery } from "./PurchaseOrderRenderQuery";
 
 
 export class SplitPurchaseOrderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Input parameters for splitting and rendering a purchase order
+   */
   body?: PurchaseOrderRenderQuery;
   static names(): { [key: string]: string } {
     return {

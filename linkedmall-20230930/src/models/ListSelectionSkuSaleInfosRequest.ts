@@ -6,6 +6,8 @@ import { SkuSaleInfoListQuery } from "./SkuSaleInfoListQuery";
 export class ListSelectionSkuSaleInfosRequest extends $dara.Model {
   /**
    * @remarks
+   * Parameters for querying SKU sales information in batch
+   * 
    * This parameter is required.
    */
   body?: SkuSaleInfoListQuery;

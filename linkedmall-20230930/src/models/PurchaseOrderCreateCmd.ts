@@ -7,17 +7,34 @@ import { ProductDTO } from "./ProductDto";
 export class PurchaseOrderCreateCmd extends $dara.Model {
   /**
    * @remarks
+   * User ID in the distributor\\"s business, customized by the distributor.
+   * 
+   * >Notice: 
+   * 
+   * Allocate different buyer IDs for different buyers.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * buyer123456
    */
   buyerId?: string;
   /**
    * @remarks
+   * Address information.
+   * 
    * This parameter is required.
    */
   deliveryAddress?: AddressInfo;
+  /**
+   * @remarks
+   * Extension information.
+   */
   extInfo?: { [key: string]: any };
   /**
    * @remarks
+   * Order ID in the distributor\\"s business, customized by the distributor.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +43,10 @@ export class PurchaseOrderCreateCmd extends $dara.Model {
   outerPurchaseOrderId?: string;
   /**
    * @remarks
+   * Product collection.
+   * 
+   * > Maximum number of SKUs per purchase order: 20.
+   * 
    * This parameter is required.
    */
   productList?: ProductDTO[];

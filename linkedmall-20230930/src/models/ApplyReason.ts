@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyReason extends $dara.Model {
   /**
+   * @remarks
+   * The reason ID.
+   * 
    * @example
    * 403769
    */
   reasonTextId?: number;
+  /**
+   * @remarks
+   * The reason text.
+   * 
+   * @example
+   * 不想要了
+   */
   reasonTips?: string;
   static names(): { [key: string]: string } {
     return {

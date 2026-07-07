@@ -4,12 +4,26 @@ import { ProductSpecValue } from "./ProductSpecValue";
 
 
 export class ProductSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the specification key.
+   * 
+   * @example
+   * 颜色分类
+   */
   key?: string;
   /**
+   * @remarks
+   * Specification
+   * 
    * @example
    * 1000
    */
   keyId?: number;
+  /**
+   * @remarks
+   * The values of the rule key.
+   */
   values?: ProductSpecValue[];
   static names(): { [key: string]: string } {
     return {

@@ -6,6 +6,8 @@ import { PurchaseOrderCreateCmd } from "./PurchaseOrderCreateCmd";
 export class CreatePurchaseOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * Creates a purchase order.
+   * 
    * This parameter is required.
    */
   body?: PurchaseOrderCreateCmd;

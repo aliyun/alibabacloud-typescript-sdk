@@ -5,12 +5,17 @@ import { SkuQueryParam } from "./SkuQueryParam";
 
 export class SkuSaleInfoListQuery extends $dara.Model {
   /**
+   * @remarks
+   * Region code. Use a five-level administrative division code, such as a town or subdistrict code.
+   * 
    * @example
-   * 110000
+   * 330106109
    */
   divisionCode?: string;
   /**
    * @remarks
+   * Purchaser ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +24,10 @@ export class SkuSaleInfoListQuery extends $dara.Model {
   purchaserId?: string;
   /**
    * @remarks
+   * Product query parameters
+   * 
+   * > You can query up to 20 SKUs per request.
+   * 
    * This parameter is required.
    */
   skuQueryParams?: SkuQueryParam[];

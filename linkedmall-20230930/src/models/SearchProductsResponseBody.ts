@@ -4,18 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model {
   /**
+   * @remarks
+   * Category ID
+   * 
    * @example
    * 201792301
    */
   categoryId?: number;
+  /**
+   * @remarks
+   * Is leaf node
+   * 
+   * @example
+   * false
+   */
   isLeaf?: boolean;
   /**
+   * @remarks
+   * Level
+   * 
    * @example
    * 1
    */
   level?: number;
+  /**
+   * @remarks
+   * Category name
+   * 
+   * @example
+   * 名称测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Parent class ID
+   * 
    * @example
    * 0
    */
@@ -50,111 +73,210 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
 }
 
 export class SearchProductsResponseBodyProducts extends $dara.Model {
+  /**
+   * @remarks
+   * Brand name
+   * 
+   * @example
+   * 绿植
+   */
   bandName?: string;
+  /**
+   * @remarks
+   * Reason for unsellable status
+   * 
+   * @example
+   * 库存不足
+   */
   canNotSellReason?: string;
   /**
+   * @remarks
+   * Whether the product is sellable (calculated value)
+   * 
    * @example
    * true
    */
   canSell?: boolean;
+  /**
+   * @remarks
+   * Category
+   */
   categoryChain?: SearchProductsResponseBodyProductsCategoryChain[];
+  /**
+   * @remarks
+   * Billing cycle
+   */
   credit?: string[];
   /**
+   * @remarks
+   * Price difference range
+   * 
    * @example
    * ￥-9998.95 ~ ￥-9977.90
    */
   diffPrice?: string;
   /**
+   * @remarks
+   * Distribution purchase price range
+   * 
    * @example
    * ￥0.05 ~ ￥21.10
    */
   distributionPrice?: string;
   /**
+   * @remarks
+   * Distribution premium rate range
+   * 
    * @example
    * -100.00% ~ -99.79%
    */
   distributionPriceRatio?: string;
   /**
+   * @remarks
+   * Source platform
+   * 
    * @example
-   * Taobao
+   * Taobao（来源淘宝）
+   * Tmall（来源天猫）
+   * Cbu（来源1688分销货盘）
    */
   externalPlatformType?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2025-01-02 12:23:34
    * (yyyy-MM-dd HH:mm:ss)
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Last modified time.
+   * 
    * @example
    * 2025-01-02 12:23:34
    * (yyyy-MM-dd HH:mm:ss)
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Whether the product is in inventory
+   * 
    * @example
    * true
    */
   inGroup?: boolean;
   /**
+   * @remarks
+   * Inventory time
+   * 
    * @example
    * 2025-01-02 12:23:34
    * (yyyy-MM-dd HH:mm:ss)
    */
   inGroupTime?: string;
   /**
+   * @remarks
+   * Inventory risk level
+   * 
    * @example
    * Low
    */
   inventoryRiskLevel?: string;
   /**
+   * @remarks
+   * Invoice type
+   * 
    * @example
    * HasInvoice
    */
   invoiceType?: string;
   /**
+   * @remarks
+   * LM product ID
+   * 
    * @example
    * xxx-xxxxx
    */
   lmItemId?: string;
   /**
+   * @remarks
+   * Product main image URL
+   * 
    * @example
    * https://img.alicdn.com/xxx.jpg
    */
   picUrl?: string;
   /**
+   * @remarks
+   * Suggested retail price range
+   * 
    * @example
    * ￥9999.00 ~ ￥9999.00
    */
   platformPrice?: string;
   /**
+   * @remarks
+   * Strikethrough price range
+   * 
    * @example
    * ￥9999.00 ~ ￥9999.00
    */
   platformReservePrice?: string;
   /**
+   * @remarks
+   * Product ID
+   * 
    * @example
    * xxxxx
    */
   productId?: string;
+  /**
+   * @remarks
+   * Product name
+   * 
+   * @example
+   * 绿植
+   */
   productName?: string;
   /**
+   * @remarks
+   * Channel store name
+   * 
    * @example
    * xxx
    */
   shopName?: string;
   /**
+   * @remarks
+   * Accumulated sales volume
+   * 
    * @example
    * 100
    */
   soldQuantity?: string;
   /**
+   * @remarks
+   * Tax code
+   * 
    * @example
    * 3040203000000000000
    */
   taxCode?: string;
+  /**
+   * @remarks
+   * Tax rate
+   * 
+   * @example
+   * 600（6%）
+   * -100（免税）
+   */
   taxRate?: number;
   /**
+   * @remarks
+   * Sales pattern
+   * 
    * @example
    * JingXiao
    */
@@ -237,8 +359,15 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
 }
 
 export class SearchProductsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Product collection
+   */
   products?: SearchProductsResponseBodyProducts[];
   /**
+   * @remarks
+   * Total quantity
+   * 
    * @example
    * 3
    */

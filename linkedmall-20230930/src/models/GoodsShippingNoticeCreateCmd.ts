@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GoodsShippingNoticeCreateCmd extends $dara.Model {
   /**
    * @remarks
+   * Company code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GoodsShippingNoticeCreateCmd extends $dara.Model {
   cpCode?: string;
   /**
    * @remarks
+   * Dispute ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,10 +25,12 @@ export class GoodsShippingNoticeCreateCmd extends $dara.Model {
   disputeId?: string;
   /**
    * @remarks
+   * Logistics tracking number
+   * 
    * This parameter is required.
    * 
    * @example
-   * SF145****4351
+   * SF145****4353
    */
   logisticsNo?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RefundRenderCmd extends $dara.Model {
   /**
    * @remarks
+   * Refund Type: 1 for refund only, 3 for return and refund
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RefundRenderCmd extends $dara.Model {
   bizClaimType?: number;
   /**
    * @remarks
+   * Goods Status: 4 for not shipped, 1 for not received, 2 for received
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RefundRenderCmd extends $dara.Model {
   goodsStatus?: number;
   /**
    * @remarks
+   * Sub-distribution order ID
+   * 
    * This parameter is required.
    * 
    * @example

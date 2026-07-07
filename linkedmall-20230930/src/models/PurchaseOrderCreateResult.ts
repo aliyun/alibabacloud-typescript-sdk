@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class PurchaseOrderCreateResult extends $dara.Model {
   /**
+   * @remarks
+   * Purchase Order ID
+   * 
    * @example
    * 6692****5696
    */
   purchaseOrderId?: string;
   /**
+   * @remarks
+   * API Request requestId
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
   static names(): { [key: string]: string } {

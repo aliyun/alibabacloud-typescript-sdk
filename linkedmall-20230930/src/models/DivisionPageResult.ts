@@ -4,10 +4,17 @@ import { Division } from "./Division";
 
 
 export class DivisionPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of regions
+   */
   divisionList?: Division[];
   /**
+   * @remarks
+   * API request ID
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -4,34 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class OrderProductResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the product is available for sale
+   * 
    * @example
    * true
    */
   canSell?: boolean;
+  /**
+   * @remarks
+   * Additional product information
+   */
   features?: { [key: string]: any };
+  /**
+   * @remarks
+   * Reason for unavailability
+   * 
+   * @example
+   * 库存为0
+   */
   message?: string;
   /**
+   * @remarks
+   * Product price (unit: cent)
+   * 
    * @example
    * 100
    */
   price?: number;
   /**
+   * @remarks
+   * Product ID
+   * 
    * @example
    * 6600****6736
    */
   productId?: string;
   /**
+   * @remarks
+   * Product image link
+   * 
    * @example
    * //img.alicdn.com/imgextra/i4/2216003305543/O1CN01bip3Un1qokG0
    */
   productPicUrl?: string;
+  /**
+   * @remarks
+   * Product title
+   * 
+   * @example
+   * 儿童学习桌
+   */
   productTitle?: string;
   /**
+   * @remarks
+   * Purchaser ID
+   * 
    * @example
-   * 56****2304
+   * PID56****2304
    */
   purchaserId?: string;
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 1
    */
@@ -44,6 +80,13 @@ export class OrderProductResult extends $dara.Model {
    * 6600****6737
    */
   skuId?: string;
+  /**
+   * @remarks
+   * SKU title
+   * 
+   * @example
+   * 浅绿色
+   */
   skuTitle?: string;
   static names(): { [key: string]: string } {
     return {

@@ -7,6 +7,8 @@ import { OrderRenderProductDTO } from "./OrderRenderProductDto";
 export class PurchaseOrderRenderQuery extends $dara.Model {
   /**
    * @remarks
+   * The ID of the end buyer.>Notice: Assign a unique ID to each buyer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,16 +17,25 @@ export class PurchaseOrderRenderQuery extends $dara.Model {
   buyerId?: string;
   /**
    * @remarks
+   * Delivery address information.
+   * 
    * This parameter is required.
    */
   deliveryAddress?: AddressInfo;
   /**
+   * @remarks
+   * Extended information.
+   * 
    * @example
    * {}
    */
   extInfo?: { [key: string]: any };
   /**
    * @remarks
+   * A collection of products.
+   * 
+   * > A single purchase order can contain a maximum of 20 SKUs.
+   * 
    * This parameter is required.
    */
   productList?: OrderRenderProductDTO[];

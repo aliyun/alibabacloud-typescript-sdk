@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ProductDTO extends $dara.Model {
   /**
+   * @remarks
+   * Product price (unit: cent)>Notice: It is recommended to include this field.</notice>
+   * 
    * @example
    * 100
    */
   price?: number;
   /**
    * @remarks
+   * Product ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ProductDTO extends $dara.Model {
   productId?: string;
   /**
    * @remarks
+   * Purchaser ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ProductDTO extends $dara.Model {
   purchaserId?: string;
   /**
    * @remarks
+   * Quantity
+   * 
    * This parameter is required.
    * 
    * @example

@@ -6,6 +6,8 @@ import { ConfirmDisburseCmd } from "./ConfirmDisburseCmd";
 export class ConfirmDisburseRequest extends $dara.Model {
   /**
    * @remarks
+   * The request body for confirming the receipt of goods.
+   * 
    * This parameter is required.
    */
   body?: ConfirmDisburseCmd;

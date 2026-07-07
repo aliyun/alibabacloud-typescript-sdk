@@ -6,6 +6,8 @@ import { RefundRenderCmd } from "./RefundRenderCmd";
 export class RenderRefundOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * Refund order rendering
+   * 
    * This parameter is required.
    */
   body?: RefundRenderCmd;

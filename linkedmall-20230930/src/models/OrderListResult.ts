@@ -4,13 +4,23 @@ import { OrderResult } from "./OrderResult";
 
 
 export class OrderListResult extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of orders
+   */
   orderList?: OrderResult[];
   /**
+   * @remarks
+   * The request ID for the API call
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of orders
+   * 
    * @example
    * 24
    */

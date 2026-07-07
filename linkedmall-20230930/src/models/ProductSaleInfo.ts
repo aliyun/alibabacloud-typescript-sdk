@@ -6,48 +6,94 @@ import { SkuSaleInfo } from "./SkuSaleInfo";
 
 export class ProductSaleInfo extends $dara.Model {
   /**
+   * @remarks
+   * Is sellable, calculated value
+   * 
    * @example
    * true
    */
   canSell?: boolean;
   /**
+   * @remarks
+   * Region code
+   * 
    * @example
-   * 110000
+   * 330106109
    */
   divisionCode?: string;
+  /**
+   * @remarks
+   * Fuzzy inventory quantity.
+   * 
+   * @example
+   * 有货
+   */
   fuzzyQuantity?: string;
+  /**
+   * @remarks
+   * Purchase limit configuration
+   */
   limitRules?: LimitRule[];
   /**
+   * @remarks
+   * LM product ID
+   * 
    * @example
    * 21000017-4580902812
    */
   lmItemId?: string;
   /**
+   * @remarks
+   * Product ID
+   * 
    * @example
    * 660460842235822080
    */
   productId?: string;
   /**
+   * @remarks
+   * Product status
+   * 
    * @example
    * Online
    */
   productStatus?: string;
   /**
+   * @remarks
+   * Inventory
+   * 
    * @example
    * 10
    */
   quantity?: number;
   /**
+   * @remarks
+   * API request ID
+   * 
    * @example
    * 3239281273464326823
    */
   requestId?: string;
   /**
+   * @remarks
+   * Channel shop ID
+   * 
    * @example
    * 21000017
    */
   shopId?: string;
+  /**
+   * @remarks
+   * SKU collection
+   */
   skus?: SkuSaleInfo[];
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * 发财树
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

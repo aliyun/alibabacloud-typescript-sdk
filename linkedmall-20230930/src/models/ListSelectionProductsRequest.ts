@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListSelectionProductsRequest extends $dara.Model {
   /**
    * @remarks
+   * The page number. The value must be 1 or greater.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListSelectionProductsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,10 +25,12 @@ export class ListSelectionProductsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the purchaser.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 56****2304
+   * PID22000009
    */
   purchaserId?: string;
   static names(): { [key: string]: string } {

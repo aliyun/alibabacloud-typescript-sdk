@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPurchaserShopsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Page number of the request.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */

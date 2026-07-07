@@ -5,12 +5,22 @@ import { ShopPageDataResult } from "./ShopPageDataResult";
 
 export class ShopPageResult extends $dara.Model {
   /**
+   * @remarks
+   * API request ID
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Shop collection
+   */
   shopList?: ShopPageDataResult[];
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 24
    */

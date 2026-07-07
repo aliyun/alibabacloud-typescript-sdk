@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class Division extends $dara.Model {
   /**
+   * @remarks
+   * Address encoding
+   * 
    * @example
    * 310000
    */
   divisionCode?: number;
   /**
+   * @remarks
+   * Address Level
+   * 
    * @example
    * 2
    */
   divisionLevel?: number;
+  /**
+   * @remarks
+   * Address Name
+   * 
+   * @example
+   * 上海
+   */
   divisionName?: string;
   /**
+   * @remarks
+   * Parent ID
+   * 
    * @example
    * 1
    */
   parentId?: number;
   /**
+   * @remarks
+   * Address pinyin
+   * 
    * @example
    * shang hai
    */

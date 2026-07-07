@@ -5,20 +5,49 @@ import { OrderRenderResult } from "./OrderRenderResult";
 
 
 export class PurchaseOrderRenderResult extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of addresses.
+   */
   addressList?: AddressInfo[];
   /**
+   * @remarks
+   * Indicates whether the item can be sold.
+   * 
    * @example
    * true
    */
   canSell?: boolean;
+  /**
+   * @remarks
+   * Extended information.
+   */
   extInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * The reason why the item cannot be sold.
+   * 
+   * @example
+   * 库存为0
+   */
   message?: string;
+  /**
+   * @remarks
+   * A collection of sellable main orders.
+   */
   orderList?: OrderRenderResult[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
-   * 3239281273464326823
+   * 841471F6-5D61-1331-8C38-2****B55
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A collection of unsellable main orders.
+   */
   unsellableOrderList?: OrderRenderResult[];
   static names(): { [key: string]: string } {
     return {

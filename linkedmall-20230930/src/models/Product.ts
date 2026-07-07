@@ -10,111 +10,198 @@ import { Sku } from "./Sku";
 
 export class Product extends $dara.Model {
   /**
+   * @remarks
+   * The brand name.
+   * 
    * @example
    * Apple/苹果
    */
   brandName?: string;
   /**
+   * @remarks
+   * Indicates whether the product is available for sale. This is a calculated value.
+   * 
    * @example
    * true
    */
   canSell?: boolean;
+  /**
+   * @remarks
+   * The category chain.
+   */
   categoryChain?: Category[];
   /**
+   * @remarks
+   * The leaf category ID.
+   * 
    * @example
-   * 201856501
+   * 201****501
    */
   categoryLeafId?: number;
   /**
+   * @remarks
+   * The product description URL.
+   * 
    * @example
-   * https://img.alicdn.com/descpath/O1CN01wciRDp22AEU14435dsf34
+   * https://img.alicdn.com/descpath/O1CN01wciRDp22AEU1*******f34
    */
   descPath?: string;
   /**
+   * @remarks
+   * The region code.
+   * 
    * @example
    * 110000
    */
   divisionCode?: string;
+  /**
+   * @remarks
+   * The product\\"s extended properties.
+   */
   extendProperties?: ProductExtendProperty[];
   /**
+   * @remarks
+   * The stock status.
+   * 
    * @example
-   * 100+
+   * 有货
    */
   fuzzyQuantity?: string;
   /**
    * @remarks
-   * images
+   * The product images.
    */
   images?: string[];
+  /**
+   * @remarks
+   * The warehousing status.
+   * 
+   * @example
+   * True
+   */
   inGroup?: boolean;
+  /**
+   * @remarks
+   * The purchase limit rules.
+   */
   limitRules?: LimitRule[];
   /**
+   * @remarks
+   * The LM product ID.
+   * 
    * @example
-   * 21000017-4580902812
+   * 2100****7-458****812
    */
   lmItemId?: string;
   /**
+   * @remarks
+   * The main product image URL.
+   * 
    * @example
-   * https://img.alicdn.com/imgextra/i3/2214281521988/O1CN01w4vomR1QYYEx6nyr5_!!2214281521988.jpg
+   * https://img.alicdn.com/imgextra/i3/221*******988/O1CN01w4vomR1QYYEx6nyr5_!!221******988.jpg
    */
   picUrl?: string;
   /**
+   * @remarks
+   * The product ID.
+   * 
    * @example
-   * 660460842235822080
+   * 660460842******080
    */
   productId?: string;
   /**
    * @remarks
-   * productSpecs
+   * The product specifications.
    */
   productSpecs?: ProductSpec[];
   /**
+   * @remarks
+   * The product status.
+   * 
    * @example
    * Online
    */
   productStatus?: string;
   /**
+   * @remarks
+   * The product type.
+   * 
    * @example
    * Normal
    */
   productType?: string;
+  /**
+   * @remarks
+   * The product attributes.
+   */
   properties?: ProductProperty[];
   /**
+   * @remarks
+   * The inventory.
+   * 
+   * > - This parameter is fixed at -1 and can be ignored.
+   * 
    * @example
    * -1
    */
   quantity?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 3239281273464326823
+   * 3239281273******823
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The service promises.>Notice:  Suppliers maintain all service promises. If a supplier fails to update this information in a timely manner, the service promise labels for some products may be inaccurate. Distributors should display this information to their customers with caution.
+   */
   servicePromises?: string[];
   /**
+   * @remarks
+   * The channel shop ID.
+   * 
    * @example
-   * 21000017
+   * 210*****7
    */
   shopId?: string;
   /**
    * @remarks
-   * skus
+   * The product SKUs.
    */
   skus?: Sku[];
   /**
+   * @remarks
+   * The quantity sold.
+   * 
    * @example
    * 100+
    */
   soldQuantity?: string;
   /**
+   * @remarks
+   * The tax code.
+   * 
    * @example
-   * 3040203000000000000
+   * 3040203000*******000
    */
   taxCode?: string;
   /**
+   * @remarks
+   * The tax rate.
+   * 
    * @example
    * 600
    */
   taxRate?: number;
+  /**
+   * @remarks
+   * The product title.
+   * 
+   * @example
+   * 发财树
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

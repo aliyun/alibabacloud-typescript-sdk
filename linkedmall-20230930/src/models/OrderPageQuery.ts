@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OrderPageQuery extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of primary order IDs
+   */
   orderIdList?: string[];
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class OrderPageQuery extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Quantity per page
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,9 @@ export class OrderPageQuery extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Purchase order ID
+   * 
    * @example
    * 6692****5696
    */

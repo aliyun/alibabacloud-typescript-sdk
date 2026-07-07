@@ -6,6 +6,8 @@ import { GoodsShippingNoticeCreateCmd } from "./GoodsShippingNoticeCreateCmd";
 export class CreateGoodsShippingNoticeRequest extends $dara.Model {
   /**
    * @remarks
+   * Submit shipping notice information.
+   * 
    * This parameter is required.
    */
   body?: GoodsShippingNoticeCreateCmd;

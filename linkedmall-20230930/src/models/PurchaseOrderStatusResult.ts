@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PurchaseOrderStatusResult extends $dara.Model {
   /**
+   * @remarks
+   * API request requestId
+   * 
    * @example
    * 3239281273464326823
    */
   requestId?: string;
   /**
+   * @remarks
+   * Purchase order status
+   * 
    * @example
    * 10
    */
