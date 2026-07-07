@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBodyData extends $dara.Model {
+export class CreateContactResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * 新建联系人的 id，后续 Update/Delete 时使用
    * 
    * @example
-   * 74
+   * 5000
    */
-  jobId?: number;
+  contactId?: number;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      contactId: 'ContactId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'number',
+      contactId: 'number',
     };
   }
 
@@ -32,42 +32,24 @@ export class CreateJobResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateJobResponseBody extends $dara.Model {
+export class CreateContactResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response code.
-   * 
    * @example
    * 200
    */
   code?: number;
+  data?: CreateContactResponseBodyData;
   /**
-   * @remarks
-   * -
-   */
-  data?: CreateJobResponseBodyData;
-  /**
-   * @remarks
-   * The error message.
-   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
-   * 
    * @example
-   * 3835AA29-2298-5434-BC53-9CC377CDFD2C
+   * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
-   * 
    * @example
    * true
    */
@@ -85,7 +67,7 @@ export class CreateJobResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: CreateJobResponseBodyData,
+      data: CreateContactResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

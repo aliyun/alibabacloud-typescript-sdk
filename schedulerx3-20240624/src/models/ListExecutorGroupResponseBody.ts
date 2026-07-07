@@ -50,12 +50,14 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
   autoScale?: boolean;
   citeList?: ListExecutorGroupResponseBodyDataRecordsCiteList[];
   cmsWorkspaceId?: string;
+  currentJobs?: number;
   /**
    * @example
    * my first workflow
    */
   description?: string;
   integrationType?: string;
+  maxJobs?: number;
   /**
    * @example
    * job01
@@ -95,8 +97,10 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
       autoScale: 'AutoScale',
       citeList: 'CiteList',
       cmsWorkspaceId: 'CmsWorkspaceId',
+      currentJobs: 'CurrentJobs',
       description: 'Description',
       integrationType: 'IntegrationType',
+      maxJobs: 'MaxJobs',
       name: 'Name',
       network: 'Network',
       protocol: 'Protocol',
@@ -115,8 +119,10 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
       autoScale: 'boolean',
       citeList: { 'type': 'array', 'itemType': ListExecutorGroupResponseBodyDataRecordsCiteList },
       cmsWorkspaceId: 'string',
+      currentJobs: 'number',
       description: 'string',
       integrationType: 'string',
+      maxJobs: 'number',
       name: 'string',
       network: 'string',
       protocol: 'string',

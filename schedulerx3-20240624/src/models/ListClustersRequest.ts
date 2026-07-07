@@ -60,7 +60,7 @@ export class ListClustersRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page for paginated queries.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10

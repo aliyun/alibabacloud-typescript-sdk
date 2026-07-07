@@ -2,37 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateJobResponseBody extends $dara.Model {
+export class DeleteContactResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response code.
-   * 
    * @example
    * 200
    */
   code?: number;
   /**
-   * @remarks
-   * The error message.
-   * 
    * @example
-   * Parameter error: content is null.
+   * Parameter check error
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
-   * 
    * @example
-   * 3808cf26-dde2-4286-8503-b0a2cd4065a7
+   * 2ECA6FC9-7557-5576-AF5F-FC3E7BCC9C21
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
-   * 
    * @example
    * true
    */

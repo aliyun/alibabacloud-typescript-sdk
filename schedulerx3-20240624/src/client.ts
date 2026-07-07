@@ -268,6 +268,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建通知联系人
+   * 
+   * @remarks
+   * 创建自定义联系人
+   * 
+   * @param request - CreateContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContactResponse
+   */
+  async createContactWithOptions(request: $_model.CreateContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContact",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContactResponse>(await this.callApi(params, req, runtime), new $_model.CreateContactResponse({}));
+  }
+
+  /**
+   * 创建通知联系人
+   * 
+   * @remarks
+   * 创建自定义联系人
+   * 
+   * @param request - CreateContactRequest
+   * @returns CreateContactResponse
+   */
+  async createContact(request: $_model.CreateContactRequest): Promise<$_model.CreateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContactWithOptions(request, runtime);
+  }
+
+  /**
    * Create a data source
    * 
    * @param request - CreateDatasourceRequest
@@ -867,6 +923,54 @@ export default class Client extends OpenApi {
   async deleteCluster(request: $_model.DeleteClusterRequest): Promise<$_model.DeleteClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除通知联系人
+   * 
+   * @remarks
+   * 删除自定义联系人
+   * 
+   * @param request - DeleteContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactResponse
+   */
+  async deleteContactWithOptions(request: $_model.DeleteContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContact",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactResponse({}));
+  }
+
+  /**
+   * 删除通知联系人
+   * 
+   * @remarks
+   * 删除自定义联系人
+   * 
+   * @param request - DeleteContactRequest
+   * @returns DeleteContactResponse
+   */
+  async deleteContact(request: $_model.DeleteContactRequest): Promise<$_model.DeleteContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContactWithOptions(request, runtime);
   }
 
   /**
@@ -2386,7 +2490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of instances.
+   * Queries a list of instances.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2413,7 +2517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of instances.
+   * Queries a list of instances.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -2421,6 +2525,62 @@ export default class Client extends OpenApi {
   async listClusters(request: $_model.ListClustersRequest): Promise<$_model.ListClustersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询通知联系人列表
+   * 
+   * @remarks
+   * 查看联系人
+   * 
+   * @param request - ListContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContactsResponse
+   */
+  async listContactsWithOptions(request: $_model.ListContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContactsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContacts",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContactsResponse>(await this.callApi(params, req, runtime), new $_model.ListContactsResponse({}));
+  }
+
+  /**
+   * 查询通知联系人列表
+   * 
+   * @remarks
+   * 查看联系人
+   * 
+   * @param request - ListContactsRequest
+   * @returns ListContactsResponse
+   */
+  async listContacts(request: $_model.ListContactsRequest): Promise<$_model.ListContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContactsWithOptions(request, runtime);
   }
 
   /**
@@ -4756,6 +4916,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新通知联系人
+   * 
+   * @remarks
+   * 更新通知联系人
+   * 
+   * @param request - UpdateContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactResponse
+   */
+  async updateContactWithOptions(request: $_model.UpdateContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContact",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactResponse({}));
+  }
+
+  /**
+   * 更新通知联系人
+   * 
+   * @remarks
+   * 更新通知联系人
+   * 
+   * @param request - UpdateContactRequest
+   * @returns UpdateContactResponse
+   */
+  async updateContact(request: $_model.UpdateContactRequest): Promise<$_model.UpdateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContactWithOptions(request, runtime);
+  }
+
+  /**
    * Update data source
    * 
    * @param request - UpdateDatasourceRequest
@@ -4986,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update task details.
+   * Updates node information.
    * 
    * @param tmpReq - UpdateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5127,7 +5347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update task details.
+   * Updates node information.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse

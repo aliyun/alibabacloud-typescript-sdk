@@ -73,8 +73,8 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable failure alerting. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Failure alerting is enabled.
+   * - **false**: Failure alerting is disabled.
    * 
    * @example
    * true
@@ -92,8 +92,8 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable alerting when no workers are available. Valid values:
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Alerting for no available workers is enabled.
+   * - **false**: Alerting for no available workers is disabled.
    * 
    * @example
    * true
@@ -102,7 +102,7 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @remarks
    * The notification channel. Valid values:
-   * - sms: SMS
+   * - sms: text message
    * - phone: phone call
    * - mail: email
    * - webhook: webhook
@@ -147,8 +147,8 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable timeout termination. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Timeout termination is enabled.
+   * - **false**: Timeout termination is disabled.
    * 
    * @example
    * true
@@ -196,11 +196,11 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
 export class CreateJobRequestNoticeContacts extends $dara.Model {
   /**
    * @remarks
-   * The object type of the notification recipient. Valid values:
+   * The Notification Recipient type. Valid values:
    * 
    * - 1: alert contact
    * 
-   * - 2: alert contact group.
+   * - 2: alert contact group
    * 
    * @example
    * 1
@@ -250,7 +250,7 @@ export class CreateJobRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval on failure. Unit: seconds. Default value: 30.
+   * The retry interval upon failure. Unit: seconds. Default value: 30.
    * 
    * @example
    * 3
@@ -258,7 +258,7 @@ export class CreateJobRequest extends $dara.Model {
   attemptInterval?: number;
   /**
    * @remarks
-   * The custom calendar. This parameter is optional for the cron time type.
+   * The custom calendar. This parameter is available only for the cron time type.
    * 
    * @example
    * workday
@@ -266,7 +266,7 @@ export class CreateJobRequest extends $dara.Model {
   calendar?: string;
   /**
    * @remarks
-   * The child node IDs, separated by commas.
+   * The child node IDs. Separate multiple IDs with commas.
    * 
    * @example
    * 1,2
@@ -305,10 +305,10 @@ export class CreateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The client blocking strategy. Valid values:
+   * The client-side blocking strategy. Valid values:
    * - 1: serial execution on a single machine
-   * - 2: ignore subsequent schedules
-   * - 3: override previous schedules.
+   * - 2: ignore subsequent scheduling
+   * - 3: override previous scheduling
    * 
    * @example
    * 1
@@ -334,7 +334,7 @@ export class CreateJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The maximum number of retries on failure. Set this parameter based on your business requirements.
+   * The maximum number of retry attempts upon failure. Set this parameter based on your business requirements.
    * 
    * @example
    * 3
@@ -385,7 +385,7 @@ export class CreateJobRequest extends $dara.Model {
    * - 1: low
    * - 5: medium
    * - 10: high
-   * - 15: very high.
+   * - 15: very high
    * 
    * @example
    * 5
@@ -401,7 +401,7 @@ export class CreateJobRequest extends $dara.Model {
    * - 5: least frequently used
    * - 6: least recently used
    * - 7: consistent hashing
-   * - 8: shard broadcast.
+   * - 8: shard broadcast
    * 
    * @example
    * 1
@@ -435,7 +435,7 @@ export class CreateJobRequest extends $dara.Model {
    * @remarks
    * The node status. Default value: enabled. Valid values:
    * - 0: disabled
-   * - 1: enabled.
+   * - 1: enabled
    * 
    * @example
    * 1
@@ -444,11 +444,11 @@ export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The time expression. Set this parameter based on the selected time type.
-   * - **none**: No value is required.
-   * - **cron**: Specify a standard cron expression. Online validation is supported.
-   * - **api**: No value is required.
-   * - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
-   * - **one_time**: Specify a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - **none**: no value required.
+   * - **cron**: a standard cron expression. Online verification is supported.
+   * - **api**: no value required.
+   * - **fixed_rate**: a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
+   * - **one_time**: a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0 4 ? * Mon/1
@@ -461,7 +461,7 @@ export class CreateJobRequest extends $dara.Model {
    * - 1: cron<br/>
    * - 3: fix_rate<br/>
    * - 5: one_time<br/>
-   * - 100: api.
+   * - 100: api
    * 
    * This parameter is required.
    * 
@@ -489,7 +489,7 @@ export class CreateJobRequest extends $dara.Model {
    * @remarks
    * The extended attributes. This parameter is required for K8s node types.
    * Job node: {"resource":"job"}
-   * Shell node: {"image":"busybox","resource":"shell"}.
+   * Shell node: {"image":"busybox","resource":"shell"}
    * 
    * @example
    * {"resource":"job"}

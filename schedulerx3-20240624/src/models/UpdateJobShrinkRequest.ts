@@ -15,7 +15,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The interval in seconds between retry attempts.
+   * The retry interval upon node failure.
    * 
    * @example
    * 3
@@ -31,13 +31,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   calendar?: string;
   /**
    * @remarks
-   * The client blocking strategy.
-   * 
-   * - 1: Serial execution
-   * 
-   * - 2: Ignore later schedules
-   * 
-   * - 3: Overwrite earlier schedules
+   * The child node IDs, separated by commas.
    * 
    * @example
    * 1,2
@@ -54,13 +48,16 @@ export class UpdateJobShrinkRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The dependency strategy.
+   * 
    * @example
    * 1
    */
   dependentStrategy?: number;
   /**
    * @remarks
-   * The job description.
+   * The node description.
    * 
    * @example
    * test
@@ -68,7 +65,10 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Notification contact configuration
+   * The client blocking strategy. Valid values:
+   * - 1: serial execution on a single machine
+   * - 2: ignore subsequent scheduling
+   * - 3: override previous scheduling
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   executorBlockStrategy?: number;
   /**
    * @remarks
-   * The job handler name.
+   * The JobHandler name.
    * 
    * @example
    * testJobVoidHandler
@@ -84,7 +84,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   jobHandler?: string;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -94,7 +94,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The maximum number of retries for a failed job.
+   * The maximum number of retry attempts upon node failure.
    * 
    * @example
    * 3
@@ -102,9 +102,8 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrent job instances.
-   * 
-   * > This parameter defines the maximum number of instances for a single job that can run concurrently. A value of `1` prevents duplicate execution. If this limit is exceeded, the scheduler skips the current job.
+   * The maximum number of concurrent instances of the node.
+   * >The maximum number of instances that can run at the same time for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
    * 
    * @example
    * 1
@@ -112,7 +111,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   maxConcurrency?: number;
   /**
    * @remarks
-   * The job name.
+   * The node name.
    * 
    * @example
    * test-job
@@ -120,19 +119,17 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Time zone
-   * 
-   * > The default is the time zone of the SchedulerX server.
+   * The notification configuration.
    */
   noticeConfigShrink?: string;
   /**
    * @remarks
-   * Notification configuration
+   * The notification contact configuration.
    */
   noticeContactsShrink?: string;
   /**
    * @remarks
-   * The job parameters.
+   * The node parameters.
    * 
    * @example
    * test
@@ -140,15 +137,12 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The job execution priority. Valid values:
+   * The execution priority of the node. Valid values:
    * 
-   * - `1`: Low
-   * 
-   * - `5`: Medium
-   * 
-   * - `10`: High
-   * 
-   * - `15`: Very High
+   * - 1: low
+   * - 5: medium
+   * - 10: high
+   * - 15: very high
    * 
    * @example
    * 10
@@ -156,23 +150,16 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The routing strategy. Valid values:
+   * The routing policy. Valid values:
    * 
-   * - `1`: round-robin
-   * 
-   * - `2`: random
-   * 
-   * - `3`: first
-   * 
-   * - `4`: last
-   * 
-   * - `5`: least frequently used
-   * 
-   * - `6`: least recently used
-   * 
-   * - `7`: consistent hashing
-   * 
-   * - `8`: sharded broadcast
+   * - 1: round robin
+   * - 2: random
+   * - 3: first
+   * - 4: last
+   * - 5: least frequently used
+   * - 6: least recently used
+   * - 7: consistent hashing
+   * - 8: shard broadcast
    * 
    * @example
    * 1
@@ -180,7 +167,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   routeStrategy?: number;
   /**
    * @remarks
-   * The script content for non-BEAN jobs.
+   * The script for non-BEAN nodes. Use this field to configure the script.
    * 
    * @example
    * echo "hello world"
@@ -188,7 +175,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   script?: string;
   /**
    * @remarks
-   * The type of the start time.
+   * The scheduling start time.
    * 
    * @example
    * 1716902187
@@ -196,15 +183,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task execution priority. The following values are supported:
-   * 
-   * - 1: Low
-   * 
-   * - 5: Medium
-   * 
-   * - 10: High
-   * 
-   * - 15: Very High
+   * The start time type.
    * 
    * @example
    * 1
@@ -212,17 +191,13 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   startTimeType?: string;
   /**
    * @remarks
-   * The time expression. The expression format depends on the `TimeType`.
+   * The time expression. Set the time expression based on the selected time type.
    * 
-   * - `none`: Leave this parameter empty.
-   * 
-   * - `cron`: Specify a standard cron expression. Online validation is supported.
-   * 
-   * - `api`: Leave this parameter empty.
-   * 
-   * - `fixed_rate`: An integer that represents a fixed interval in seconds. For example, `30` triggers the job every 30 seconds.
-   * 
-   * - `one_time`: A single execution time, specified in the `yyyy-MM-dd HH:mm:ss` format or as a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - none: No value is required.
+   * - cron: Specify a standard cron expression. Online verification is supported.
+   * - api: No value is required.
+   * - fixed_rate: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+   * - one_time: Specify a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0 4 ? * Mon/1
@@ -232,15 +207,11 @@ export class UpdateJobShrinkRequest extends $dara.Model {
    * @remarks
    * The time type. Valid values:
    * 
-   * - `-1`: none
-   * 
-   * - `1`: cron
-   * 
-   * - `3`: fixed_rate
-   * 
-   * - `5`: one_time
-   * 
-   * - `100`: api
+   * - -1: none
+   * - 1: cron
+   * - 3: fix_rate
+   * - 5: one_time
+   * - 100: api
    * 
    * @example
    * 1
@@ -248,7 +219,8 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   timeType?: number;
   /**
    * @remarks
-   * The start time of the schedule.
+   * The time zone.
+   * > By default, the time zone of the SchedulerX server is used.
    * 
    * @example
    * Hongkong
@@ -256,7 +228,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The ID of the child job. Separate multiple IDs with a comma.
+   * The node weight.
    * 
    * @example
    * 1
