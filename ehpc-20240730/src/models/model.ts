@@ -66,6 +66,7 @@ export { ListClustersResponseBodyClustersManager } from './ListClustersResponseB
 export { ListClustersResponseBodyClustersNodes } from './ListClustersResponseBody';
 export { ListClustersResponseBodyClustersUsers } from './ListClustersResponseBody';
 export { ListClustersResponseBodyClusters } from './ListClustersResponseBody';
+export { ListClustersResponseBodyEhpcVersionStatistics } from './ListClustersResponseBody';
 export { ListCommonLogsResponseBodyLogs } from './ListCommonLogsResponseBody';
 export { ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos } from './ListInstalledSoftwaresResponseBody';
 export { ListInstalledSoftwaresResponseBodyAdditionalPackages } from './ListInstalledSoftwaresResponseBody';

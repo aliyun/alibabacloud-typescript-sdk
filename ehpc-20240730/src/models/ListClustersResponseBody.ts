@@ -45,7 +45,7 @@ export class ListClustersResponseBodyClustersAdditionalPackages extends $dara.Mo
 export class ListClustersResponseBodyClustersAddonsResourcesSpec extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The component instance ID.
    * 
    * @example
    * i-bp1bg85d2q6laic8****
@@ -53,7 +53,7 @@ export class ListClustersResponseBodyClustersAddonsResourcesSpec extends $dara.M
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The Elastic IP Address (EIP) ID.
+   * The elastic IP address (EIP) ID.
    * 
    * @example
    * eip-bp1vi9124tbx1g3kr****
@@ -137,7 +137,7 @@ export class ListClustersResponseBodyClustersAddonsServicesSpec extends $dara.Mo
 export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   /**
    * @remarks
-   * The addon ID.
+   * The ID of the custom service component.
    * 
    * @example
    * Login-1.0-W2g****
@@ -145,7 +145,7 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   addonId?: string;
   /**
    * @remarks
-   * The addon description.
+   * The description of the custom service component.
    * 
    * @example
    * Logon node, mainly used for connecting to the E-HPC cluster environment and submitting user tasks.
@@ -153,7 +153,7 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The addon label.
+   * The label of the custom service component.
    * 
    * @example
    * Logon node
@@ -161,7 +161,7 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The addon name.
+   * The name of the custom service component.
    * 
    * This parameter is required.
    * 
@@ -171,17 +171,17 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource configurations of the addon.
+   * The resource configuration of the component.
    */
   resourcesSpec?: ListClustersResponseBodyClustersAddonsResourcesSpec;
   /**
    * @remarks
-   * The information about the addon services.
+   * The service configuration of the component.
    */
   servicesSpec?: ListClustersResponseBodyClustersAddonsServicesSpec[];
   /**
    * @remarks
-   * The addon state.
+   * The status of the custom service component.
    * 
    * @example
    * Running
@@ -189,7 +189,7 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The addon version.
+   * The version of the custom service component.
    * 
    * This parameter is required.
    * 
@@ -241,7 +241,7 @@ export class ListClustersResponseBodyClustersAddons extends $dara.Model {
 export class ListClustersResponseBodyClustersClusterCustomConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the post-processing script.
+   * The parameters of the cluster post-processing script.
    * 
    * @example
    * demo
@@ -249,7 +249,7 @@ export class ListClustersResponseBodyClustersClusterCustomConfiguration extends 
   args?: string;
   /**
    * @remarks
-   * The link to the post-processing script.
+   * The URL of the cluster post-processing script.
    * 
    * @example
    * https://xxxxx
@@ -281,7 +281,7 @@ export class ListClustersResponseBodyClustersClusterCustomConfiguration extends 
 export class ListClustersResponseBodyClustersManagerDNS extends $dara.Model {
   /**
    * @remarks
-   * The resolution type.
+   * The domain name resolution type.
    * 
    * @example
    * NIS
@@ -289,7 +289,7 @@ export class ListClustersResponseBodyClustersManagerDNS extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version of the domain name resolution service.
+   * The domain name resolution version.
    * 
    * @example
    * 2.31
@@ -321,7 +321,7 @@ export class ListClustersResponseBodyClustersManagerDNS extends $dara.Model {
 export class ListClustersResponseBodyClustersManagerDirectoryService extends $dara.Model {
   /**
    * @remarks
-   * The type of the domain account.
+   * The domain account type.
    * 
    * @example
    * NIS
@@ -329,7 +329,7 @@ export class ListClustersResponseBodyClustersManagerDirectoryService extends $da
   type?: string;
   /**
    * @remarks
-   * The version of the domain account service.
+   * The domain account version.
    * 
    * @example
    * 2.31
@@ -401,17 +401,17 @@ export class ListClustersResponseBodyClustersManagerScheduler extends $dara.Mode
 export class ListClustersResponseBodyClustersManager extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the domain name resolution service.
+   * The domain name resolution service configuration.
    */
   DNS?: ListClustersResponseBodyClustersManagerDNS;
   /**
    * @remarks
-   * The configurations of the directory service.
+   * The domain account service configuration.
    */
   directoryService?: ListClustersResponseBodyClustersManagerDirectoryService;
   /**
    * @remarks
-   * The configurations of the scheduler service.
+   * The scheduler service configuration.
    */
   scheduler?: ListClustersResponseBodyClustersManagerScheduler;
   static names(): { [key: string]: string } {
@@ -451,7 +451,7 @@ export class ListClustersResponseBodyClustersManager extends $dara.Model {
 export class ListClustersResponseBodyClustersNodes extends $dara.Model {
   /**
    * @remarks
-   * The number of malfunctioning compute nodes.
+   * The number of abnormal compute nodes.
    * 
    * @example
    * 0
@@ -459,7 +459,7 @@ export class ListClustersResponseBodyClustersNodes extends $dara.Model {
   abnormalCounts?: number;
   /**
    * @remarks
-   * The number of compute nodes that are being created.
+   * The number of compute nodes being created.
    * 
    * @example
    * 0
@@ -501,7 +501,7 @@ export class ListClustersResponseBodyClustersNodes extends $dara.Model {
 export class ListClustersResponseBodyClustersUsers extends $dara.Model {
   /**
    * @remarks
-   * The number of ordinary users.
+   * The number of regular users.
    * 
    * @example
    * 2
@@ -509,7 +509,7 @@ export class ListClustersResponseBodyClustersUsers extends $dara.Model {
   normalCounts?: number;
   /**
    * @remarks
-   * The number of administrators.
+   * The number of sudo users.
    * 
    * @example
    * 2
@@ -541,20 +541,20 @@ export class ListClustersResponseBodyClustersUsers extends $dara.Model {
 export class ListClustersResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
-   * The information about installed software in the cluster.
+   * The software installed on the cluster.
    */
   additionalPackages?: ListClustersResponseBodyClustersAdditionalPackages[];
   /**
    * @remarks
-   * The information about the addons in the cluster.
+   * The custom service component information of the cluster.
    */
   addons?: ListClustersResponseBodyClustersAddons[];
   /**
    * @remarks
-   * The cluster type. Valid values:
+   * The cluster edition. Valid values:
+   * - Standard
    * 
-   * *   Standard
-   * *   Serverless
+   * - Serverless
    * 
    * @example
    * Standard
@@ -562,7 +562,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterCategory?: string;
   /**
    * @remarks
-   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The time when the cluster was created. The time is displayed in UTC+0 in the ISO 8601 standard format of yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2024-08-06T12:43:01.000Z
@@ -570,10 +570,10 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterCreateTime?: string;
   /**
    * @remarks
-   * The logon credential type of the cluster. Valid values:
+   * The logon credential types of the cluster. Valid values:
    * 
-   * *   password: requires passwords for logons.
-   * *   keypair: requires key pairs for logons.
+   * - password: uses a password to log on to the cluster.
+   * - keypair: uses a key pair to log on to the cluster.
    */
   clusterCredentials?: string[];
   /**
@@ -600,10 +600,9 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
    * The deployment type of the cluster. Valid values:
-   * 
-   * *   Integrated: public cloud
-   * *   Hybrid: hybrid cloud
-   * *   Custom: a custom cluster
+   * - Integrated: public cloud
+   * - Hybrid: hybrid cloud
+   * - Custom: custom cluster
    * 
    * @example
    * Integrated
@@ -611,7 +610,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterMode?: string;
   /**
    * @remarks
-   * The time when the cluster was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The time when the cluster was last modified. The time is displayed in UTC+0 in the ISO 8601 standard format of yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2024-08-06T12:43:01.000Z
@@ -627,17 +626,17 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster state. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   uninit: The cluster is being installed.
-   * *   creating: The cluster is being created.
-   * *   initing: The cluster is being initialized.
-   * *   running: The cluster is running.
-   * *   Releasing: The cluster is being released.
-   * *   stopping: The cluster is being stopped.
-   * *   stopped: The cluster is stopped.
-   * *   exception: The cluster has run into an exception.
-   * *   pending: The cluster is waiting to be configured.
+   * - uninit: installing.
+   * - creating: being created.
+   * - initing: being initialized.
+   * - running: running.
+   * - releasing: being released.
+   * - stopping: being stopped.
+   * - stopped: stopped.
+   * - exception: abnormal.
+   * - pending: pending configuration.
    * 
    * @example
    * running
@@ -645,7 +644,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * The vCPU-hour usage of the cluster.
+   * The core-hours consumed by the cluster.
    * 
    * @example
    * 1000
@@ -653,7 +652,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterUsedCoreTime?: number;
   /**
    * @remarks
-   * The ID of the vSwitch used by the cluster.
+   * The vSwitch ID used by the cluster.
    * 
    * @example
    * vsw-f8za5p0mwzgdu3wgx****
@@ -661,7 +660,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) used by the cluster.
+   * The VPC ID used by the cluster.
    * 
    * @example
    * vpc-m5efjevmclc0xdmys****
@@ -671,8 +670,8 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
    * @remarks
    * Indicates whether deletion protection is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Deletion protection is enabled.
+   * - false: Deletion protection is not enabled.
    * 
    * @example
    * true
@@ -680,7 +679,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The Elastic High Performance Computing (E-HPC) version.
+   * The version of the E-HPC cluster.
    * 
    * @example
    * 2.0.0
@@ -688,12 +687,12 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   ehpcVersion?: string;
   /**
    * @remarks
-   * The configurations of the cluster management node.
+   * The management node configuration of the cluster.
    */
   manager?: ListClustersResponseBodyClustersManager;
   /**
    * @remarks
-   * The maximum total number of vCPUs used by the compute nodes that can be managed by the cluster.
+   * The maximum total number of vCPUs of compute nodes that the cluster can manage.
    * 
    * @example
    * 10000
@@ -701,7 +700,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   maxCoreCount?: number;
   /**
    * @remarks
-   * The maximum number of compute nodes that can be managed by the cluster.
+   * The maximum number of compute nodes that the cluster can manage.
    * 
    * @example
    * 500
@@ -709,7 +708,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   maxCount?: number;
   /**
    * @remarks
-   * The node statistics of the cluster.
+   * The node count information of the cluster.
    */
   nodes?: ListClustersResponseBodyClustersNodes;
   /**
@@ -722,7 +721,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the security group used by the cluster.
+   * The security group ID used by the cluster.
    * 
    * @example
    * sg-bp13n61xsydodfyg****
@@ -821,15 +820,42 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   }
 }
 
+export class ListClustersResponseBodyEhpcVersionStatistics extends $dara.Model {
+  v1Count?: number;
+  v2Count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      v1Count: 'V1Count',
+      v2Count: 'V2Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      v1Count: 'number',
+      v2Count: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of clusters.
+   * The cluster details.
    */
   clusters?: ListClustersResponseBodyClusters[];
+  ehpcVersionStatistics?: ListClustersResponseBodyEhpcVersionStatistics;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -837,7 +863,7 @@ export class ListClustersResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -853,7 +879,7 @@ export class ListClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 2
@@ -862,6 +888,7 @@ export class ListClustersResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusters: 'Clusters',
+      ehpcVersionStatistics: 'EhpcVersionStatistics',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -872,6 +899,7 @@ export class ListClustersResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusters: { 'type': 'array', 'itemType': ListClustersResponseBodyClusters },
+      ehpcVersionStatistics: ListClustersResponseBodyEhpcVersionStatistics,
       pageNumber: 'string',
       pageSize: 'number',
       requestId: 'string',
@@ -882,6 +910,9 @@ export class ListClustersResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.clusters)) {
       $dara.Model.validateArray(this.clusters);
+    }
+    if(this.ehpcVersionStatistics && typeof (this.ehpcVersionStatistics as any).validate === 'function') {
+      (this.ehpcVersionStatistics as any).validate();
     }
     super.validate();
   }

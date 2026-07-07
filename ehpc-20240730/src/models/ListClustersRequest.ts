@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster IDs. You can specify up to 20 IDs.
+   * The IDs of the clusters to query. Valid values of N: 0 to 20.
    */
   clusterIds?: string[];
   /**
    * @remarks
-   * The cluster names. You can specify up to 20 names.
+   * The names of the clusters to query. Valid values of N: 0 to 20.
    */
   clusterNames?: string[];
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number of the list. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 10 to 100. Default value: 10
+   * The number of entries per page in a paged query. Settings the number of rows per page for paging. Valid values: 10 to 100. Default value: 10.
    * 
    * @example
    * 10

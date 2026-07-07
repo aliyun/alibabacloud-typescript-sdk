@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
   /**
    * @remarks
-   * The number of vCPUs that were used to run the job.
+   * The number of CPU cores used to run the job.
    * 
    * @example
    * 6
@@ -13,7 +13,7 @@ export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
   cores?: string;
   /**
    * @remarks
-   * The number of GPUs that were used to run the job.
+   * The number of GPUs used to run the job.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
   gpus?: string;
   /**
    * @remarks
-   * The size of memory that was used to run the job.
+   * The memory size used to run the job.
    * 
    * @example
    * 1536MB
@@ -29,7 +29,7 @@ export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The number of compute nodes that were used to run the job.
+   * The number of compute nodes that run the job.
    * 
    * @example
    * 3
@@ -65,7 +65,7 @@ export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
 export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $dara.Model {
   /**
    * @remarks
-   * Number of CPU cores.
+   * The number of CPU cores.
    * 
    * @example
    * 4
@@ -73,7 +73,7 @@ export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $dar
   cores?: string;
   /**
    * @remarks
-   * Number of CPUs
+   * The number of GPUs.
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $dar
   gpus?: string;
   /**
    * @remarks
-   * Number of memory.
+   * The memory size.
    * 
    * @example
    * 982MB
@@ -89,7 +89,7 @@ export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $dar
   memory?: string;
   /**
    * @remarks
-   * Number of compute nodes.
+   * The number of compute nodes.
    * 
    * @example
    * 2
@@ -133,7 +133,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   arrayJobId?: string;
   /**
    * @remarks
-   * The ID of the job in the array.
+   * The array sub-job ID.
    * 
    * @example
    * 1
@@ -141,10 +141,9 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   arrayJobSubId?: string;
   /**
    * @remarks
-   * The queue format of the job.
-   * 
-   * *   If the job is not in a queue, the output is empty.
-   * *   The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
+   * The array job format.
+   * - If the job is not an array job, the output is empty.
+   * - The format is X-Y:Z, where X is the first index, Y is the last index, and Z is the step size. For example, 2-7:2 indicates that the array job contains three sub-jobs numbered 2, 4, and 6.
    * 
    * @example
    * 1-5:2
@@ -168,7 +167,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue that runs the job.
    * 
    * @example
    * comp
@@ -176,7 +175,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   jobQueue?: string;
   /**
    * @remarks
-   * The time when the job was last updated.
+   * The last update time of the job.
    * 
    * @example
    * 1724123085
@@ -184,7 +183,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * The compute nodes that were used to run the job.
+   * The list of compute nodes that run the job.
    * 
    * @example
    * compute[002,005,003]
@@ -192,7 +191,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   nodeList?: string;
   /**
    * @remarks
-   * The job priority. Valid values: 0 to 9. A larger value indicates a higher priority.
+   * The priority of the job. Valid values: 0 to 9. A larger value indicates a higher priority.
    * 
    * @example
    * 0
@@ -200,17 +199,17 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The information about the resources required to run the job.
+   * The resource information required to run the job.
    */
   resources?: ListJobsResponseBodyJobsJobSpecResources;
   /**
    * @remarks
-   * Actual resource usage of the job program
+   * The resources actually occupied by the job.
    */
   resourcesActualOccupied?: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied;
   /**
    * @remarks
-   * The user that ran the job.
+   * The username of the user who runs the job.
    * 
    * @example
    * testuser1
@@ -218,7 +217,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   runasUser?: string;
   /**
    * @remarks
-   * Job start time.
+   * The start time of the job.
    * 
    * @example
    * 1724122486
@@ -226,12 +225,11 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The job state. Valid values: (PBS cluster and Slurm cluster)
-   * 
-   * *   FINISHED/Completed
-   * *   RUNNING/Running
-   * *   QUEUED/Pending
-   * *   FAILED/Failed
+   * The job status. Valid values: (PBS cluster/Slurm cluster)
+   * - FINISHED/Completed: completed.
+   * - RUNNING/Running: running.
+   * - QUEUED/Pending: queued and waiting.
+   * - FAILED/Failed: failed.
    * 
    * @example
    * Running
@@ -239,7 +237,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The error output path.
+   * The standard error output path.
    * 
    * @example
    * ./Temp
@@ -255,7 +253,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   stdoutPath?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The submission time of the job.
    * 
    * @example
    * 1724122486
@@ -263,7 +261,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The variables of the job.
+   * The list of job variables.
    * 
    * @example
    * {"PBS_O_SHELL":"/bin/bash", 	"PBS_O_HOST":"manager", 	"PBS_O_SYSTEM":"Linux", 	"PBS_O_LANG":"en_US.UTF-8", 	"PBS_O_QUEUE":"workq"}
@@ -341,7 +339,7 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The job configurations.
+   * The job configuration.
    */
   jobSpec?: ListJobsResponseBodyJobsJobSpec;
   static names(): { [key: string]: string } {
@@ -373,12 +371,12 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
 export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The jobs.
+   * The job list.
    */
   jobs?: ListJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The page number. Default value: 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -386,7 +384,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10
+   * The number of entries per page set for the paged query. Paging settings apply. Default value: 10.
    * 
    * @example
    * 20
@@ -402,10 +400,9 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Indicates whether the command was run and the result was obtained. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

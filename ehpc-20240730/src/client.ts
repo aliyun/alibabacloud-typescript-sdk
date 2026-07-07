@@ -12,6 +12,26 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'eu-central-1': "ehpc.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "ehpc.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "ehpc.cn-wulanchabu.aliyuncs.com",
+      'cn-wuhan-lr': "ehpc.cn-wuhan-lr.aliyuncs.com",
+      'cn-shenzhen': "ehpc.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "ehpc.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "ehpc.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "ehpc.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "ehpc.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "ehpc.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou': "ehpc.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "ehpc.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "ehpc.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "ehpc.cn-beijing.aliyuncs.com",
+      'ap-southeast-5': "ehpc.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-2': "ehpc.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "ehpc.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "ehpc.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ehpc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -406,7 +426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a batch of compute nodes for an E-HPC cluster.
+   * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster in a batch.
    * 
    * @param tmpReq - CreateNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -499,7 +519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a batch of compute nodes for an E-HPC cluster.
+   * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster in a batch.
    * 
    * @param request - CreateNodesRequest
    * @returns CreateNodesResponse
@@ -1698,7 +1718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all clusters of a user in each region.
+   * Queries the list of all clusters in each region under your account.
    * 
    * @param tmpReq - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1751,7 +1771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all clusters of a user in each region.
+   * Queries the list of all clusters in each region under your account.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -1892,7 +1912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the jobs in a cluster.
+   * Queries the list of jobs in a specified cluster.
    * 
    * @param tmpReq - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1941,7 +1961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the jobs in a cluster.
+   * Queries the list of jobs in a specified cluster.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
