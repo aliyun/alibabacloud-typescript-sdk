@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTraceDiagnoseReportRequest extends $dara.Model {
   /**
    * @remarks
-   * Diagnostic task ID.
+   * The diagnostic task ID. You must specify at least one of TraceId and TaskId. If neither is specified, the API returns an error.
    * 
    * @example
    * xxxxxxxxx-x-x-xxxxxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class DescribeTraceDiagnoseReportRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Diagnostic trace ID.
+   * The diagnostic trace ID. You must specify at least one of TraceId and TaskId. If neither is specified, the API returns an error.
    * 
    * @example
    * 0000xxxxxxxxxxxxxxxxxxxxxx75e

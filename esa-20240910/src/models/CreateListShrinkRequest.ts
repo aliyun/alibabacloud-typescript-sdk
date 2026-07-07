@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the list that you want to create.
+   * The description of the custom list. This parameter provides detailed information about the custom list.
    * 
    * @example
    * a custom list
@@ -13,7 +13,7 @@ export class CreateListShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The items in the list that you want to create.
+   * The list items. This parameter provides the specific item data for the list.
    * 
    * @example
    * a custom list
@@ -21,7 +21,7 @@ export class CreateListShrinkRequest extends $dara.Model {
   itemsShrink?: string;
   /**
    * @remarks
-   * The type of the list that you want to create.
+   * The kind of the custom list. This parameter specifies the type of the custom list.
    * 
    * @example
    * ip
@@ -29,7 +29,9 @@ export class CreateListShrinkRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The name of the list that you want to create.
+   * The name of the custom list.
+   * 
+   * **Naming rules**: Only letters, digits, and underscores are supported (`^\\w{1,64}$`). The name must be 1 to 64 characters in length.
    * 
    * This parameter is required.
    * 

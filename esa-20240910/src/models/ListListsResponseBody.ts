@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListsResponseBodyLists extends $dara.Model {
   /**
    * @remarks
-   * The description of the list.
+   * The list description.
    * 
    * @example
    * a custom list
@@ -13,7 +13,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom list. To get this ID, call the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * The ID of the custom list. You can obtain the ID by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
    * 
    * @example
    * 40000001
@@ -29,7 +29,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The number of items in the list.
+   * The length of the list content array, which indicates the number of items in the list.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   length?: number;
   /**
    * @remarks
-   * The name of the list.
+   * The list name.
    * 
    * @example
    * example
@@ -45,7 +45,11 @@ export class ListListsResponseBodyLists extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the list was last updated.
+   * The time when the list was last modified.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2026-06-10T14:23:45Z
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -85,7 +89,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
 export class ListListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of items across all lists.
+   * The total item usage.
    * 
    * @example
    * 5000
@@ -93,7 +97,7 @@ export class ListListsResponseBody extends $dara.Model {
   itemsUsage?: number;
   /**
    * @remarks
-   * A paginated array of lists.
+   * The array of list information, which contains the paginated list data.
    */
   lists?: ListListsResponseBodyLists[];
   /**
@@ -106,7 +110,7 @@ export class ListListsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -122,7 +126,7 @@ export class ListListsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of filtered records.
+   * The total number of records after filtering.
    * 
    * @example
    * 5
@@ -130,7 +134,7 @@ export class ListListsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of lists used by the account.
+   * The amount of usage consumed by the user.
    * 
    * @example
    * 10

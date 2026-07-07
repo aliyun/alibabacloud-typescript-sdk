@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PurchaseCacheReserveRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to automatically pay. The default value is false.
-   * - true: Automatically pay.
-   * - false: Do not automatically pay.
+   * Specifies whether to enable automatic payment. Default value: false. Valid values:
+   * - true: Enables automatic payment.
+   * - false: Disables automatic payment.
    * 
    * @example
    * true
@@ -15,9 +15,9 @@ export class PurchaseCacheReserveRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Whether to auto-renew:
-   * - true: Auto-renew.
-   * - false: Do not auto-renew.
+   * Specifies whether to enable auto-renewal. Valid values:
+   * - true: Enables auto-renewal.
+   * - false: Disables auto-renewal.
    * 
    * @example
    * true
@@ -25,9 +25,8 @@ export class PurchaseCacheReserveRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * Billing type
-   * - PREPAY: Prepaid.
-   * - POSTPAY: Postpaid.
+   * The billing type. Valid values:
+   * - PREPAY: upfront.
    * 
    * @example
    * PREPAY
@@ -35,9 +34,9 @@ export class PurchaseCacheReserveRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Cache retention region
-   * - HK: Hong Kong, China
-   * - CN-beijing: Mainland China - Beijing
+   * The cache reserve region.
+   * - HK: Hong Kong (China)
+   * - CN-beijing: Chinese mainland - Beijing
    * 
    * @example
    * HK
@@ -45,7 +44,7 @@ export class PurchaseCacheReserveRequest extends $dara.Model {
   crRegion?: string;
   /**
    * @remarks
-   * Purchase period (unit: month).
+   * The purchase period. Unit: months.
    * 
    * @example
    * 3
@@ -53,7 +52,7 @@ export class PurchaseCacheReserveRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * Cache retention specification (unit: GB).
+   * The cache reserve specification. Unit: GB.
    * 
    * @example
    * 512000

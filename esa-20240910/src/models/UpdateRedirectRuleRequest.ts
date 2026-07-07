@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. To get this ID, call the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) operation.
+   * The configuration ID. You can call the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to preserve the query string of the original request. Valid values:
-   * 
-   * - `on`: Preserves the query string.
-   * 
-   * - `off`: Does not preserve the query string.
+   * Specifies whether to preserve the query string. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -27,11 +25,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * The conditional expression that matches user requests. This parameter is not required for a global configuration. Two scenarios are supported:
-   * 
-   * - To match all requests, set the value to `true`.
-   * 
-   * - To match specific requests, use a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content. A conditional expression is used to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -39,11 +35,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required for a global configuration. Valid values:
-   * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -51,7 +45,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required for a global configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -59,7 +53,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. A lower value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -67,7 +61,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The ID of the site. To get this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -77,16 +71,12 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The response status code that the edge node returns to the client for the redirect. Valid values:
+   * The HTTP status code used when the node responds to the client with the redirect address. Valid values:
    * 
    * - 301
-   * 
    * - 302
-   * 
    * - 303
-   * 
    * - 307
-   * 
    * - 308
    * 
    * @example
@@ -95,7 +85,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The URL to which requests are redirected.
+   * The target URL after the redirect.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -103,11 +93,10 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * The redirection type. Valid values:
+   * The redirect type. Valid values:
    * 
-   * - `static`: Static mode.
-   * 
-   * - `dynamic`: Dynamic mode.
+   * - static: static pattern.
+   * - dynamic: dynamic pattern.
    * 
    * @example
    * static

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRewriteUrlRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,11 +13,11 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
-   * - global: Query global configuration;
-   * - rule: Query rule configuration;
+   * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
-   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations. This parameter only takes effect when the functionName parameter is provided.
+   * This parameter is optional. If you do not specify this parameter, both global and rule configurations are returned. This parameter takes effect only when the functionName parameter is specified.
    * 
    * @example
    * global
@@ -25,7 +25,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Range: **1~500**, default is **500**.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 10
@@ -41,7 +41,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name. Not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -49,7 +49,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 0

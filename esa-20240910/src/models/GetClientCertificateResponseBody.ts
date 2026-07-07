@@ -13,7 +13,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   CACertificateId?: string;
   /**
    * @remarks
-   * The certificate\\"s common name.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -21,7 +21,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time the certificate was created.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -29,7 +29,10 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The certificate\\"s SHA-256 fingerprint.
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
    */
   fingerprintSha256?: string;
   /**
@@ -42,7 +45,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The certificate\\"s issuer.
+   * The certification authority that issued the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -58,7 +61,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time the certificate expires.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -66,7 +69,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time the certificate becomes valid.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -74,7 +77,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
-   * The certificate\\"s public key algorithm.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -82,7 +85,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The certificate\\"s subject alternative name.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -90,12 +93,15 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * The certificate\\"s serial number.
+   * The certificate serial number.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
    */
   serialNumber?: string;
   /**
    * @remarks
-   * The certificate\\"s signature algorithm.
+   * The signature algorithm of the certificate.
    * 
    * @example
    * SHA256-RSA
@@ -119,7 +125,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time the certificate was last updated.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-09-22 05:33:13
@@ -195,7 +201,7 @@ export class GetClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Detailed certificate information.
+   * The certificate information.
    */
   result?: GetClientCertificateResponseBodyResult;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. Call the [ListSiteRoutes](https://help.aliyun.com/document_detail/2879631.html) operation to get the ID.
+   * The configuration ID. You can call the [ListSiteRoutes](https://help.aliyun.com/document_detail/2879631.html) operation to obtain the ConfigId.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRoutineRouteRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get the ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

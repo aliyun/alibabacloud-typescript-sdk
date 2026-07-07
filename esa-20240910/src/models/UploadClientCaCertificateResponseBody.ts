@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadClientCaCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -29,7 +29,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The CA that issued the certificate.
+   * The certification authority.
    * 
    * @example
    * GlobalSign nv-sa
@@ -37,7 +37,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 2024-12-01T02:13:07Z
@@ -45,7 +45,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 2023-12-01T02:13:07Z
@@ -61,7 +61,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
@@ -77,7 +77,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -85,7 +85,7 @@ export class UploadClientCaCertificateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity period of the certificate. Unit: day.
+   * The number of days the certificate is valid.
    * 
    * @example
    * 300

@@ -8,12 +8,12 @@ import { QuotaListItemsValue } from "./QuotaListItemsValue";
 export class GetWafQuotaResponseBodyQuotaCaptcha extends $dara.Model {
   /**
    * @remarks
-   * Whether captcha rules are enabled.
+   * Indicates whether CAPTCHA rules are enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The maximum number of captcha rules allowed.
+   * The total quantity quota for CAPTCHA rules.
    */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -45,27 +45,27 @@ export class GetWafQuotaResponseBodyQuotaCaptcha extends $dara.Model {
 export class GetWafQuotaResponseBodyQuotaList extends $dara.Model {
   /**
    * @remarks
-   * Whether the custom list feature is enabled.
+   * Indicates whether custom lists are enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The quota for each item type in a custom list.
+   * The object that contains quota information for each item type in custom lists.
    */
   items?: { [key: string]: QuotaListItemsValue };
   /**
    * @remarks
-   * The maximum number of items allowed per custom list.
+   * The quantity quota for items in each custom list.
    */
   numberItemsPerList?: WafQuotaInteger;
   /**
    * @remarks
-   * The maximum number of items allowed across all custom lists.
+   * The total quantity quota for items across all custom lists.
    */
   numberItemsTotal?: WafQuotaInteger;
   /**
    * @remarks
-   * The maximum number of custom lists allowed.
+   * The total quantity quota for custom lists.
    */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -112,12 +112,12 @@ export class GetWafQuotaResponseBodyQuotaList extends $dara.Model {
 export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $dara.Model {
   /**
    * @remarks
-   * Whether the WAF managed rule group feature is enabled.
+   * Indicates whether WAF managed rule groups are enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The maximum number of WAF managed rule groups allowed.
+   * The total quantity quota for WAF managed rule groups.
    */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -149,17 +149,17 @@ export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $dara.Model {
 export class GetWafQuotaResponseBodyQuotaPage extends $dara.Model {
   /**
    * @remarks
-   * The quota for each Content-Type in a custom response page.
+   * The object that contains quota information for each Content-Type in custom response pages.
    */
   contentTypes?: { [key: string]: QuotaPageContentTypesValue };
   /**
    * @remarks
-   * Whether the custom response page feature is enabled.
+   * Indicates whether custom response pages are enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The maximum number of custom response pages allowed.
+   * The total quantity quota for custom response pages.
    */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -196,12 +196,12 @@ export class GetWafQuotaResponseBodyQuotaPage extends $dara.Model {
 export class GetWafQuotaResponseBodyQuotaScenePolicy extends $dara.Model {
   /**
    * @remarks
-   * Whether the scenario protection feature is enabled.
+   * Indicates whether the scenario-specific protection feature is enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The maximum number of scenario protection rules allowed.
+   * The total quantity quota for scenario-specific protection rules.
    */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -233,9 +233,13 @@ export class GetWafQuotaResponseBodyQuotaScenePolicy extends $dara.Model {
 export class GetWafQuotaResponseBodyQuotaSliderCaptchaPage extends $dara.Model {
   /**
    * @remarks
-   * Whether slider captcha pages are enabled.
+   * Indicates whether slider CAPTCHA pages are enabled.
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The quantity quota for slider CAPTCHA pages.
+   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -266,32 +270,32 @@ export class GetWafQuotaResponseBodyQuotaSliderCaptchaPage extends $dara.Model {
 export class GetWafQuotaResponseBodyQuota extends $dara.Model {
   /**
    * @remarks
-   * The quota for captcha rules.
+   * The quota information for CAPTCHA rules.
    */
   captcha?: GetWafQuotaResponseBodyQuotaCaptcha;
   /**
    * @remarks
-   * The quota for custom lists.
+   * The quota information for custom lists.
    */
   list?: GetWafQuotaResponseBodyQuotaList;
   /**
    * @remarks
-   * The quota for WAF managed rule groups.
+   * The quota information for WAF managed rule groups.
    */
   managedRulesGroup?: GetWafQuotaResponseBodyQuotaManagedRulesGroup;
   /**
    * @remarks
-   * The quota for custom response pages.
+   * The quota information for custom response pages.
    */
   page?: GetWafQuotaResponseBodyQuotaPage;
   /**
    * @remarks
-   * The quota for scenario protection.
+   * The quota information for scenario-specific protection rules.
    */
   scenePolicy?: GetWafQuotaResponseBodyQuotaScenePolicy;
   /**
    * @remarks
-   * The quota for slider captcha pages.
+   * The quota information for slider CAPTCHA pages.
    */
   sliderCaptchaPage?: GetWafQuotaResponseBodyQuotaSliderCaptchaPage;
   static names(): { [key: string]: string } {
@@ -346,7 +350,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
 export class GetWafQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quota details.
+   * The returned quota information.
    */
   quota?: GetWafQuotaResponseBodyQuota;
   /**

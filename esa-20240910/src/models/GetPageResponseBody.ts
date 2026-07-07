@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded content of the custom response page.
+   * The Base64-encoded response page content corresponding to the Content-Type.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetPageResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The value for the page\\"s Content-Type HTTP header.
+   * The Content-Type field in the HTTP header.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetPageResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom response page.
+   * The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
    * 
    * @example
    * 50000001
@@ -67,12 +67,16 @@ export class GetPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sites to which the page is applied.
+   * The list of associated site IDs.
    */
   siteIds?: number[];
   /**
    * @remarks
-   * The time the custom response page was last modified.
+   * The last modification time of the custom response page.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2026-06-10T14:23:45Z
    * 
    * @example
    * 2024-01-01T00:00:00Z

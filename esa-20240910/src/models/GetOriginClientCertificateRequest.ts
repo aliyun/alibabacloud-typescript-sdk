@@ -15,7 +15,7 @@ export class GetOriginClientCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the site. You can retrieve it by calling the [ListSites](~~ListSites~~) API.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

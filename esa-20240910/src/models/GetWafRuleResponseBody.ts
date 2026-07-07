@@ -11,7 +11,7 @@ export class GetWafRuleResponseBody extends $dara.Model {
   config?: WafRuleConfig;
   /**
    * @remarks
-   * The ID of the WAF rule. You can get this ID by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation.
+   * The ID of the WAF rule. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the ID.
    * 
    * @example
    * 2000001
@@ -19,7 +19,7 @@ export class GetWafRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * This parameter is required.
    * 
@@ -29,23 +29,15 @@ export class GetWafRuleResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The execution phase of the WAF rule.
-   * 
-   * - `http_whitelist`: A whitelist rule
-   * 
-   * - `http_custom`: A custom rule
-   * 
-   * - `http_managed`: A managed rule
-   * 
-   * - `http_anti_scan`: A scan protection rule
-   * 
-   * - `http_ratelimit`: A rate limiting rule
-   * 
-   * - `ip_access_rule`: An IP access rule
-   * 
-   * - `http_bot`: A bot management rule
-   * 
-   * - `http_security_level_rule`: A security rule
+   * The phase in which the WAF rule runs. Valid values:
+   * - http_whitelist: whitelist rule
+   * - http_custom: custom rule
+   * - http_managed: managed rule
+   * - http_anti_scan: scan protection rule
+   * - http_ratelimit: frequency control rule
+   * - ip_access_rule: IP access rule
+   * - http_bot: advanced mode bots
+   * - http_security_level_rule: security rule
    * 
    * This parameter is required.
    * 
@@ -71,12 +63,12 @@ export class GetWafRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset. You can get this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ID.
    */
   rulesetId?: number;
   /**
    * @remarks
-   * The status of the rule.
+   * The rule status.
    * 
    * @example
    * on
@@ -84,7 +76,11 @@ export class GetWafRuleResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time the rule was last updated.
+   * The time when the rule was last modified.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2026-06-10T14:23:45Z
    * 
    * @example
    * 2024-01-01T00:00:00Z

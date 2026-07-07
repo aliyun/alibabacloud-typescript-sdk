@@ -13,7 +13,7 @@ export class ListKeylessServersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListKeylessServersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

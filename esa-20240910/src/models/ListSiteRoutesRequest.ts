@@ -13,7 +13,7 @@ export class ListSiteRoutesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Use this parameter to query global or feature-specific configurations. This parameter takes effect only if the `functionName` parameter is also specified.
+   * The configuration type. You can use this parameter to query global or feature configurations. This parameter takes effect only when functionName is specified.
    * 
    * @example
    * global
@@ -21,7 +21,7 @@ export class ListSiteRoutesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number. The default is 1.
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSiteRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page, with a maximum of 500. The default is 500.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -37,7 +37,7 @@ export class ListSiteRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The route name. Use this parameter to find a route by its name. This parameter takes effect only if the `functionName` parameter is also specified.
+   * The route name. You can use this parameter to query the rule whose name matches the specified value. This parameter takes effect only when functionName is specified.
    * 
    * @example
    * test_route
@@ -45,7 +45,7 @@ export class ListSiteRoutesRequest extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

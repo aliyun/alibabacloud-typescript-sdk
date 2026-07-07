@@ -13,7 +13,7 @@ export class ListCertificatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the data to return.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The site ID. To get this ID, call the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class ListCertificatesRequest extends $dara.Model {
    * Specifies whether to return only valid certificates.
    * 
    * @example
-   * 1
+   * true
    */
   validOnly?: boolean;
   static names(): { [key: string]: string } {

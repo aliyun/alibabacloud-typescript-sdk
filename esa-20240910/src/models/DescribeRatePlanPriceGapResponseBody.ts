@@ -68,7 +68,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   currency?: string;
   /**
    * @remarks
-   * The order discount amount.
+   * The discount amount of the order.
    * 
    * @example
    * 1

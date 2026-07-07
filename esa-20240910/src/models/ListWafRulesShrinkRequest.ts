@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number for pagination.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items to return per page.
+   * The page size for pagination.
    * 
    * @example
    * 20
@@ -21,23 +21,15 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The WAF rule execution phase. Valid values are:
-   * 
-   * - `http_whitelist`: whitelist rule
-   * 
-   * - `http_custom`: custom rule
-   * 
-   * - `http_managed`: managed rule
-   * 
-   * - `http_anti_scan`: scan protection rule
-   * 
-   * - `http_ratelimit`: rate limiting rule
-   * 
-   * - `ip_access_rule`: IP access rule
-   * 
-   * - `http_bot`: Advanced bots
-   * 
-   * - `http_security_level_rule`: security rule
+   * The WAF rule execution phase. Valid values:
+   * - http_whitelist: whitelist rule
+   * - http_custom: custom rule
+   * - http_managed: managed rule
+   * - http_anti_scan: scan protection rule
+   * - http_ratelimit: frequency control rule
+   * - ip_access_rule: IP access rule
+   * - http_bot: advanced mode bots
+   * - http_security_level_rule: security rule
    * 
    * This parameter is required.
    * 
@@ -47,7 +39,7 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Query filters.
+   * The query filter conditions.
    * 
    * @example
    * http_custom
@@ -55,7 +47,7 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   queryArgsShrink?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
    * 
    * @example
    * 10000001
@@ -63,7 +55,7 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -73,7 +65,7 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site configuration version. For sites with configuration version management enabled, this parameter specifies the version to use. Defaults to 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is 0.
    * 
    * @example
    * 0

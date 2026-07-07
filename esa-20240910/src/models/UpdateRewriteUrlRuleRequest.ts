@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID. You can get this ID by calling the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) API.
+   * The configuration ID. You can call the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The query string after the rewrite.
+   * The query string after rewriting.
    * 
    * @example
    * example=123
@@ -23,11 +23,9 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The query string rewrite type. Valid values:
-   * 
-   * - static: Static Mode.
-   * 
-   * - dynamic: Dynamic Mode.
+   * The query character string rewrite type. Valid values:
+   * - static: static pattern.
+   * - dynamic: dynamic pattern.
    * 
    * @example
    * static
@@ -35,11 +33,9 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * The URI rewrite type. Valid values:
-   * 
-   * - static: Static Mode.
-   * 
-   * - dynamic: Dynamic Mode.
+   * The path rewrite type. Valid values:
+   * - static: static pattern.
+   * - dynamic: dynamic pattern.
    * 
    * @example
    * static
@@ -50,11 +46,9 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * The content of the rule, a conditional expression that matches user requests. This parameter is not required for a Global Configuration. Two use cases are supported:
-   * 
-   * - To match all incoming requests, set the value to true.
-   * 
-   * - To match specific requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
+   * The rule content. A conditional expression is used to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -62,11 +56,9 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the rule is enabled. This parameter is not required for a Global Configuration. Valid values:
-   * 
-   * - on: The rule is enabled.
-   * 
-   * - off: The rule is disabled.
+   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -74,7 +66,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required for a Global Configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * example=123
@@ -82,7 +74,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution priority of the rule. A smaller value indicates a higher priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -90,7 +82,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -100,7 +92,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The destination URI after the rewrite.
+   * The target URI after rewriting.
    * 
    * @example
    * /image/example.jpg

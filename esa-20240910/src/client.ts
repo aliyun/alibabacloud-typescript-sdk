@@ -358,7 +358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation creates multiple WAF rules and configures their shared settings in a single request.
+   * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
    * 
    * @param tmpReq - BatchCreateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation creates multiple WAF rules and configures their shared settings in a single request.
+   * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
    * 
    * @param request - BatchCreateWafRulesRequest
    * @returns BatchCreateWafRulesResponse
@@ -1046,7 +1046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of multiple rules in a specified WAF ruleset.
+   * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
    * 
    * @param tmpReq - BatchUpdateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1109,7 +1109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of multiple rules in a specified WAF ruleset.
+   * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
    * 
    * @param request - BatchUpdateWafRulesRequest
    * @returns BatchUpdateWafRulesResponse
@@ -1329,7 +1329,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the test version (unstable) code of an Edge Routine and generates a production version.
+   * Submits the staging (unstable) code of an Edge Routine and generates a production version.
+   * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1368,7 +1369,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the test version (unstable) code of an Edge Routine and generates a production version.
+   * Submits the staging (unstable) code of an Edge Routine and generates a production version.
+   * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @returns CommitRoutineStagingCodeResponse
@@ -1533,7 +1535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses the ESA-managed certificate authority (CA) to issue client certificates.
+   * Issues a client certificate by using the ESA certificate authority (CA).
    * 
    * @param request - CreateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1578,7 +1580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses the ESA-managed certificate authority (CA) to issue client certificates.
+   * Issues a client certificate by using the ESA certificate authority (CA).
    * 
    * @param request - CreateClientCertificateRequest
    * @returns CreateClientCertificateResponse
@@ -2761,7 +2763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+   * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
    * 
    * @param tmpReq - CreateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2810,7 +2812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+   * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
    * 
    * @param request - CreateListRequest
    * @returns CreateListResponse
@@ -2821,10 +2823,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+   * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
    * 
    * @remarks
-   * Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+   * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+   * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
    * 
    * @param tmpReq - CreateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2933,10 +2936,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+   * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
    * 
    * @remarks
-   * Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+   * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+   * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
    * 
    * @param request - CreateLoadBalancerRequest
    * @returns CreateLoadBalancerResponse
@@ -3273,7 +3277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+   * Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
    * 
    * @param tmpReq - CreatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3326,7 +3330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+   * Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
    * 
    * @param request - CreatePageRequest
    * @returns CreatePageResponse
@@ -4572,18 +4576,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+   * Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
    * 
    * @remarks
-   * ## Description
-   * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
-   * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
-   * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
-   * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
-   * - The optional `Description` parameter describes the purpose of the ruleset.
-   * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
-   * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
-   * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+   * ## Operation description
+   * - This API operation allows you to create a WAF ruleset for a specified instance.
+   * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+   * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+   * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+   * - The optional Description parameter provides a text description of the ruleset function or purpose.
+   * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+   * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+   * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
    * 
    * @param tmpReq - CreateUserWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4654,18 +4658,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+   * Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
    * 
    * @remarks
-   * ## Description
-   * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
-   * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
-   * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
-   * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
-   * - The optional `Description` parameter describes the purpose of the ruleset.
-   * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
-   * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
-   * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+   * ## Operation description
+   * - This API operation allows you to create a WAF ruleset for a specified instance.
+   * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+   * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+   * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+   * - The optional Description parameter provides a text description of the ruleset function or purpose.
+   * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+   * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+   * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
    * 
    * @param request - CreateUserWafRulesetRequest
    * @returns CreateUserWafRulesetResponse
@@ -4762,7 +4766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+   * Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
    * 
    * @param tmpReq - CreateWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4817,7 +4821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+   * Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
    * 
    * @param request - CreateWafRuleRequest
    * @returns CreateWafRuleResponse
@@ -8533,7 +8537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status of a refresh task.
+   * Queries the execution status of refresh tasks.
    * 
    * @param request - DescribePurgeTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8560,7 +8564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status of a refresh task.
+   * Queries the execution status of refresh tasks.
    * 
    * @param request - DescribePurgeTasksRequest
    * @returns DescribePurgeTasksResponse
@@ -8678,7 +8682,7 @@ export default class Client extends OpenApi {
    * Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
    * 
    * @remarks
-   * The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+   * The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
    * 
    * @param request - DescribeRatePlanPriceGapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8724,7 +8728,7 @@ export default class Client extends OpenApi {
    * Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
    * 
    * @remarks
-   * The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+   * The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
    * 
    * @param request - DescribeRatePlanPriceGapRequest
    * @returns DescribeRatePlanPriceGapResponse
@@ -8965,10 +8969,170 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+   * Retrieves time series data for WAF event analysis of a website.
    * 
    * @remarks
-   * >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+   * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+   * 
+   * @param tmpReq - DescribeSiteWafTimeSeriesDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSiteWafTimeSeriesDataResponse
+   */
+  async describeSiteWafTimeSeriesDataWithOptions(tmpReq: $_model.DescribeSiteWafTimeSeriesDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSiteWafTimeSeriesDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSiteWafTimeSeriesDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fields)) {
+      request.fieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fields, "Fields", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fieldsShrink)) {
+      query["Fields"] = request.fieldsShrink;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSiteWafTimeSeriesData",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSiteWafTimeSeriesDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSiteWafTimeSeriesDataResponse({}));
+  }
+
+  /**
+   * Retrieves time series data for WAF event analysis of a website.
+   * 
+   * @remarks
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+   * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+   * 
+   * @param request - DescribeSiteWafTimeSeriesDataRequest
+   * @returns DescribeSiteWafTimeSeriesDataResponse
+   */
+  async describeSiteWafTimeSeriesData(request: $_model.DescribeSiteWafTimeSeriesDataRequest): Promise<$_model.DescribeSiteWafTimeSeriesDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSiteWafTimeSeriesDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the top data from WAF event analysis for a website.
+   * 
+   * @remarks
+   * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+   * 
+   * @param tmpReq - DescribeSiteWafTopDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSiteWafTopDataResponse
+   */
+  async describeSiteWafTopDataWithOptions(tmpReq: $_model.DescribeSiteWafTopDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSiteWafTopDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSiteWafTopDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fields)) {
+      request.fieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fields, "Fields", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fieldsShrink)) {
+      query["Fields"] = request.fieldsShrink;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSiteWafTopData",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSiteWafTopDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSiteWafTopDataResponse({}));
+  }
+
+  /**
+   * Retrieves the top data from WAF event analysis for a website.
+   * 
+   * @remarks
+   * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+   * 
+   * @param request - DescribeSiteWafTopDataRequest
+   * @returns DescribeSiteWafTopDataResponse
+   */
+  async describeSiteWafTopData(request: $_model.DescribeSiteWafTopDataRequest): Promise<$_model.DescribeSiteWafTopDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSiteWafTopDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+   * 
+   * @remarks
+   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
    * 
    * @param request - DescribeTraceDiagnoseReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9003,10 +9167,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+   * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
    * 
    * @remarks
-   * >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+   * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
    * 
    * @param request - DescribeTraceDiagnoseReportRequest
    * @returns DescribeTraceDiagnoseReportResponse
@@ -9076,6 +9240,80 @@ export default class Client extends OpenApi {
   async describeUrlObservationData(request: $_model.DescribeUrlObservationDataRequest): Promise<$_model.DescribeUrlObservationDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUrlObservationDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the usage data of WAF by calling DescribeWafUsageData.
+   * 
+   * @remarks
+   * Maximum storage duration: 93 days.
+   * * Maximum query time range: 31 days.
+   * * Default time range: 24 hours.
+   * All times are expressed in UTC+0.
+   * 
+   * @param request - DescribeWafUsageDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWafUsageDataResponse
+   */
+  async describeWafUsageDataWithOptions(request: $_model.DescribeWafUsageDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWafUsageDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.recordName)) {
+      query["RecordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.splitBy)) {
+      query["SplitBy"] = request.splitBy;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWafUsageData",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWafUsageDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWafUsageDataResponse({}));
+  }
+
+  /**
+   * Queries the usage data of WAF by calling DescribeWafUsageData.
+   * 
+   * @remarks
+   * Maximum storage duration: 93 days.
+   * * Maximum query time range: 31 days.
+   * * Default time range: 24 hours.
+   * All times are expressed in UTC+0.
+   * 
+   * @param request - DescribeWafUsageDataRequest
+   * @returns DescribeWafUsageDataResponse
+   */
+  async describeWafUsageData(request: $_model.DescribeWafUsageDataRequest): Promise<$_model.DescribeWafUsageDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeWafUsageDataWithOptions(request, runtime);
   }
 
   /**
@@ -9504,7 +9742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a specified certificate for a site.
+   * Retrieves information about a specified certificate for a site.
    * 
    * @param request - GetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9539,7 +9777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a specified certificate for a site.
+   * Retrieves information about a specified certificate for a site.
    * 
    * @param request - GetCertificateRequest
    * @returns GetCertificateResponse
@@ -9588,7 +9826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the specified client CA certificate.
+   * Retrieves a specified client CA certificate.
    * 
    * @param request - GetClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9615,7 +9853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the specified client CA certificate.
+   * Retrieves a specified client CA certificate.
    * 
    * @param request - GetClientCaCertificateRequest
    * @returns GetClientCaCertificateResponse
@@ -9672,7 +9910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified client certificate.
+   * Retrieves information about a specified client certificate.
    * 
    * @param request - GetClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9699,7 +9937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified client certificate.
+   * Retrieves information about a specified client certificate.
    * 
    * @param request - GetClientCertificateRequest
    * @returns GetClientCertificateResponse
@@ -10552,7 +10790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads a failed file.
+   * Downloads the failed file for a specified upload task.
    * 
    * @param request - GetFailFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10579,7 +10817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads a failed file.
+   * Downloads the failed file for a specified upload task.
    * 
    * @param request - GetFailFileRequest
    * @returns GetFailFileResponse
@@ -10894,7 +11132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a keyless server.
+   * Retrieves the configuration of a Keyless server.
    * 
    * @param request - GetKeylessServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10929,7 +11167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a keyless server.
+   * Retrieves the configuration of a Keyless server.
    * 
    * @param request - GetKeylessServerRequest
    * @returns GetKeylessServerResponse
@@ -11093,7 +11331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a custom list, such as the name, description, type, and content.
+   * Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
    * 
    * @param request - GetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11124,7 +11362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a custom list, such as the name, description, type, and content.
+   * Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
    * 
    * @param request - GetListRequest
    * @returns GetListResponse
@@ -11135,10 +11373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a load balancer by its site ID and load balancer ID.
+   * Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
    * 
    * @remarks
-   * Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+   * This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
    * 
    * @param request - GetLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11165,10 +11403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a load balancer by its site ID and load balancer ID.
+   * Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
    * 
    * @remarks
-   * Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+   * This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
    * 
    * @param request - GetLoadBalancerRequest
    * @returns GetLoadBalancerResponse
@@ -11255,7 +11493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the CA certificate of the source server.
+   * Retrieves the CA certificate information of an origin server.
    * 
    * @param request - GetOriginCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11282,7 +11520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the CA certificate of the source server.
+   * Retrieves the CA certificate information of an origin server.
    * 
    * @param request - GetOriginCaCertificateRequest
    * @returns GetOriginCaCertificateResponse
@@ -11293,7 +11531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves origin-pull client certificate information for a domain.
+   * Retrieves the back-to-origin client certificate information at the domain name granularity.
    * 
    * @param request - GetOriginClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11320,7 +11558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves origin-pull client certificate information for a domain.
+   * Retrieves the back-to-origin client certificate information at the domain name granularity.
    * 
    * @param request - GetOriginClientCertificateRequest
    * @returns GetOriginClientCertificateResponse
@@ -11483,7 +11721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a custom response page by its ID.
+   * Retrieves the details of a custom response page by its ID.
    * 
    * @param request - GetPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11514,7 +11752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a custom response page by its ID.
+   * Retrieves the details of a custom response page by its ID.
    * 
    * @param request - GetPageRequest
    * @returns GetPageResponse
@@ -11895,11 +12133,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and other information of a specific code version of a specified Edge Routine.
+   * Queries the status and other information of a specific code version of a specified Routine.
    * 
    * @remarks
    * ## Operation description
-   * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+   * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
    * 
    * @param request - GetRoutineCodeVersionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11934,11 +12172,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and other information of a specific code version of a specified Edge Routine.
+   * Queries the status and other information of a specific code version of a specified Routine.
    * 
    * @remarks
    * ## Operation description
-   * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+   * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
    * 
    * @param request - GetRoutineCodeVersionInfoRequest
    * @returns GetRoutineCodeVersionInfoResponse
@@ -11949,7 +12187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a specific edge function route configuration.
+   * Queries the configuration of a single Edge Routine route.
    * 
    * @param request - GetRoutineRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11984,7 +12222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a specific edge function route configuration.
+   * Queries the configuration of a single Edge Routine route.
    * 
    * @param request - GetRoutineRouteRequest
    * @returns GetRoutineRouteResponse
@@ -12443,7 +12681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves origin-pull client certificate information at the site level.
+   * Retrieves the back-to-origin client certificate information at the site level.
    * 
    * @param request - GetSiteOriginClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12470,7 +12708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves origin-pull client certificate information at the site level.
+   * Retrieves the back-to-origin client certificate information at the site level.
    * 
    * @param request - GetSiteOriginClientCertificateRequest
    * @returns GetSiteOriginClientCertificateResponse
@@ -12779,11 +13017,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the details of the WAF rule set for a specified instance.
+   * Queries the details of a WAF ruleset for a specified instance.
    * 
    * @remarks
-   * ## Request
-   * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+   * ## Operation description
+   * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
    * 
    * @param request - GetUserWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12818,11 +13056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the details of the WAF rule set for a specified instance.
+   * Queries the details of a WAF ruleset for a specified instance.
    * 
    * @remarks
-   * ## Request
-   * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+   * ## Operation description
+   * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
    * 
    * @param request - GetUserWafRulesetRequest
    * @returns GetUserWafRulesetResponse
@@ -12964,7 +13202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+   * Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
    * 
    * @param request - GetWafQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12995,7 +13233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+   * Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
    * 
    * @param request - GetWafQuotaRequest
    * @returns GetWafQuotaResponse
@@ -13006,7 +13244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific WAF rule, including its configuration and status.
+   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
    * 
    * @param request - GetWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13041,7 +13279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific WAF rule, including its configuration and status.
+   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
    * 
    * @param request - GetWafRuleRequest
    * @returns GetWafRuleResponse
@@ -13052,7 +13290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified WAF ruleset, including its configuration and status.
+   * Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
    * 
    * @param request - GetWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13091,7 +13329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified WAF ruleset, including its configuration and status.
+   * Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
    * 
    * @param request - GetWafRulesetRequest
    * @returns GetWafRulesetResponse
@@ -13232,7 +13470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the certificates for a given site.
+   * Queries the certificate list for a specific site.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13279,7 +13517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the certificates for a given site.
+   * Queries the certificate list for a specific site.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -13290,7 +13528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves site certificates for multiple matching records.
+   * Queries the list of site certificates that match records. Batch record matching is supported.
    * 
    * @param request - ListCertificatesByRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13333,7 +13571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves site certificates for multiple matching records.
+   * Queries the list of site certificates that match records. Batch record matching is supported.
    * 
    * @param request - ListCertificatesByRecordRequest
    * @returns ListCertificatesByRecordResponse
@@ -13382,7 +13620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the client CA certificates for a specified site.
+   * Retrieves the list of client CA certificates for a specified site.
    * 
    * @param request - ListClientCaCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13409,7 +13647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the client CA certificates for a specified site.
+   * Retrieves the list of client CA certificates for a specified site.
    * 
    * @param request - ListClientCaCertificatesRequest
    * @returns ListClientCaCertificatesResponse
@@ -13420,7 +13658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of client certificates for a specified site.
+   * Retrieves the list of client certificates for a specified site.
    * 
    * @param request - ListClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13447,7 +13685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of client certificates for a specified site.
+   * Retrieves the list of client certificates for a specified site.
    * 
    * @param request - ListClientCertificatesRequest
    * @returns ListClientCertificatesResponse
@@ -14373,7 +14611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves keyless server configurations for a site.
+   * Retrieves the list of Keyless server configurations for a site.
    * 
    * @param request - ListKeylessServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14412,7 +14650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves keyless server configurations for a site.
+   * Retrieves the list of Keyless server configurations for a site.
    * 
    * @param request - ListKeylessServersRequest
    * @returns ListKeylessServersResponse
@@ -14461,7 +14699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+   * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
    * 
    * @param tmpReq - ListListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14506,7 +14744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+   * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
    * 
    * @param request - ListListsRequest
    * @returns ListListsResponse
@@ -14613,7 +14851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+   * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14640,7 +14878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+   * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -14735,7 +14973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the CA certificates for the source server.
+   * Queries the list of origin server CA certificates.
    * 
    * @param request - ListOriginCaCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14762,7 +15000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the CA certificates for the source server.
+   * Queries the list of origin server CA certificates.
    * 
    * @param request - ListOriginCaCertificatesRequest
    * @returns ListOriginCaCertificatesResponse
@@ -14773,7 +15011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists back-to-source client certificates for a domain name.
+   * Queries the list of back-to-origin client certificates at the domain name granularity.
    * 
    * @param request - ListOriginClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14800,7 +15038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists back-to-source client certificates for a domain name.
+   * Queries the list of back-to-origin client certificates at the domain name granularity.
    * 
    * @param request - ListOriginClientCertificatesRequest
    * @returns ListOriginClientCertificatesResponse
@@ -14887,7 +15125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
    * 
    * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14932,7 +15170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -15069,7 +15307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Rewrite URL Rules
+   * Queries the list of URL rewrite configurations for a site.
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15096,7 +15334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Rewrite URL Rules
+   * Queries the list of URL rewrite configurations for a site.
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @returns ListRewriteUrlRulesResponse
@@ -15424,7 +15662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the back-to-origin client certificates for a site.
+   * Queries the list of back-to-origin client certificates at the site level.
    * 
    * @param request - ListSiteOriginClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15451,7 +15689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the back-to-origin client certificates for a site.
+   * Queries the list of back-to-origin client certificates at the site level.
    * 
    * @param request - ListSiteOriginClientCertificatesRequest
    * @returns ListSiteOriginClientCertificatesResponse
@@ -15462,7 +15700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the function routes for a site.
+   * Queries the list of Edge Routine routes for a site.
    * 
    * @param request - ListSiteRoutesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15513,7 +15751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the function routes for a site.
+   * Queries the list of Edge Routine routes for a site.
    * 
    * @param request - ListSiteRoutesRequest
    * @returns ListSiteRoutesResponse
@@ -15784,7 +16022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of page monitoring configurations.
+   * Queries the list of web page observation configurations.
    * 
    * @param request - ListUrlObservationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15827,7 +16065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of page monitoring configurations.
+   * Queries the list of web page observation configurations.
    * 
    * @param request - ListUrlObservationsRequest
    * @returns ListUrlObservationsResponse
@@ -16250,7 +16488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+   * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
    * 
    * @param tmpReq - ListWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16311,7 +16549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+   * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
    * 
    * @param request - ListWafRulesRequest
    * @returns ListWafRulesResponse
@@ -16322,7 +16560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+   * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
    * 
    * @param tmpReq - ListWafRulesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16379,7 +16617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+   * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
    * 
    * @param request - ListWafRulesetsRequest
    * @returns ListWafRulesetsResponse
@@ -16908,7 +17146,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * New Purchase of Cache Retention
+   * Purchases a new bot instance.
+   * 
+   * @param request - PurchaseBotInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurchaseBotInstanceResponse
+   */
+  async purchaseBotInstanceWithOptions(request: $_model.PurchaseBotInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PurchaseBotInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.botInstanceLevel)) {
+      query["BotInstanceLevel"] = request.botInstanceLevel;
+    }
+
+    if (!$dara.isNull(request.siteInstanceId)) {
+      query["SiteInstanceId"] = request.siteInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PurchaseBotInstance",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PurchaseBotInstanceResponse>(await this.callApi(params, req, runtime), new $_model.PurchaseBotInstanceResponse({}));
+  }
+
+  /**
+   * Purchases a new bot instance.
+   * 
+   * @param request - PurchaseBotInstanceRequest
+   * @returns PurchaseBotInstanceResponse
+   */
+  async purchaseBotInstance(request: $_model.PurchaseBotInstanceRequest): Promise<$_model.PurchaseBotInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.purchaseBotInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Purchases a cache reserve instance.
    * 
    * @param request - PurchaseCacheReserveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16959,7 +17243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * New Purchase of Cache Retention
+   * Purchases a cache reserve instance.
    * 
    * @param request - PurchaseCacheReserveRequest
    * @returns PurchaseCacheReserveResponse
@@ -17824,7 +18108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+   * Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
    * 
    * @param tmpReq - SetClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17871,7 +18155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+   * Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
    * 
    * @param request - SetClientCertificateHostnamesRequest
    * @returns SetClientCertificateHostnamesResponse
@@ -20536,7 +20820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+   * Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
    * 
    * @param tmpReq - UpdatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20593,7 +20877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+   * Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
    * 
    * @param request - UpdatePageRequest
    * @returns UpdatePageResponse
@@ -20826,7 +21110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the redirection configuration of a site.
+   * Modifies the redirect configuration of a site.
    * 
    * @param request - UpdateRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20893,7 +21177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the redirection configuration of a site.
+   * Modifies the redirect configuration of a site.
    * 
    * @param request - UpdateRedirectRuleRequest
    * @returns UpdateRedirectRuleResponse
@@ -20904,7 +21188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Site\\"s URL Rewrite Configuration
+   * Modifies the URL rewrite configuration of a site.
    * 
    * @param request - UpdateRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20971,7 +21255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Site\\"s URL Rewrite Configuration
+   * Modifies the URL rewrite configuration of a site.
    * 
    * @param request - UpdateRewriteUrlRuleRequest
    * @returns UpdateRewriteUrlRuleResponse
@@ -21762,7 +22046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webpage monitoring configuration.
+   * Updates the URL observation configuration.
    * 
    * @param request - UpdateUrlObservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21801,7 +22085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webpage monitoring configuration.
+   * Updates the URL observation configuration.
    * 
    * @param request - UpdateUrlObservationRequest
    * @returns UpdateUrlObservationResponse
@@ -22528,7 +22812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a client certificate authority (CA) certificate.
+   * Uploads a client CA certificate.
    * 
    * @param request - UploadClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22569,7 +22853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a client certificate authority (CA) certificate.
+   * Uploads a client CA certificate.
    * 
    * @param request - UploadClientCaCertificateRequest
    * @returns UploadClientCaCertificateResponse

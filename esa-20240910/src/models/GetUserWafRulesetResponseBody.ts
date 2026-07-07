@@ -7,15 +7,11 @@ import { WafRuleConfig } from "./WafRuleConfig";
 export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   /**
    * @remarks
-   * The action for the rule. Valid values:
-   * 
-   * - `deny`: Blocks the request.
-   * 
-   * - `monitor`: Monitors the request.
-   * 
-   * - `js`: Triggers a JS challenge.
-   * 
-   * - `captcha`: Triggers a CAPTCHA challenge.
+   * The action of the rule. Valid values:
+   * - deny: Block.
+   * - monitor: Monitor.
+   * - js: JavaScript Challenge.
+   * - captcha: Slider challenge.
    * 
    * @example
    * deny
@@ -23,7 +19,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * A list of WAF rule statistics fields.
+   * The list of statistics fields for the WAF rule.
    * 
    * @example
    * ["http.host"]
@@ -31,7 +27,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   characteristicsFields?: string[];
   /**
    * @remarks
-   * The WAF rule configuration.
+   * The configuration of the WAF rule.
    * 
    * @example
    * {
@@ -44,7 +40,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   config?: WafRuleConfig;
   /**
    * @remarks
-   * A list of WAF rule match fields.
+   * The list of match fields for the WAF rule.
    * 
    * @example
    * ["ip.src"]
@@ -52,7 +48,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   fields?: string[];
   /**
    * @remarks
-   * The ID of the WAF rule.
+   * The WAF rule ID.
    * 
    * @example
    * 20000001
@@ -68,23 +64,12 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The evaluation phase of the WAF rule. Valid values:
-   * 
-   * - `http_whitelist`: A whitelist rule.
-   * 
-   * - `http_custom`: A custom rule.
-   * 
-   * - `http_managed`: A managed rule.
-   * 
-   * - `http_anti_scan`: A scan protection rule.
-   * 
-   * - `http_ratelimit`: A rate limiting rule.
-   * 
-   * - `ip_access_rule`: An IP access rule.
-   * 
-   * - `http_bot`: A bot management rule.
-   * 
-   * - `http_security_level_rule`: A security level rule.
+   * The phase in which the WAF rule runs. Valid values:
+   * - http_whitelist: whitelist rule
+   * - http_custom: custom rule
+   * - http_managed: managed rule
+   * - http_anti_scan: scan protection rule
+   * - http_ratelimit: frequency control rule
    * 
    * @example
    * http_custom
@@ -100,7 +85,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * The ID of the WAF rule set.
+   * The WAF ruleset ID.
    * 
    * @example
    * 10000001
@@ -108,7 +93,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * The skip mode for the WAF rule.
+   * The skip mode of the WAF rule.
    * 
    * @example
    * all
@@ -124,7 +109,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The phases that the rule skips.
+   * The list of phases to skip for the WAF rule.
    * 
    * @example
    * ["http_custom"]
@@ -140,7 +125,11 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time the WAF rule was last updated.
+   * The time when the WAF rule was last updated.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2025-07-07T15:00:00Z
    * 
    * @example
    * 2025-07-07T15:00:00Z
@@ -208,7 +197,7 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
 export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   /**
    * @remarks
-   * The description of the WAF rule set.
+   * The description of the WAF ruleset.
    * 
    * @example
    * example
@@ -216,7 +205,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expression of the WAF rule set.
+   * The expression of the WAF ruleset.
    * 
    * @example
    * ip.src == 1.1.1.1
@@ -224,7 +213,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The ID of the WAF rule set.
+   * The WAF ruleset ID.
    * 
    * @example
    * 10000001
@@ -232,7 +221,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the WAF rule set.
+   * The name of the WAF ruleset.
    * 
    * @example
    * example
@@ -240,23 +229,12 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The evaluation phase of the WAF rule set. Valid values:
-   * 
-   * - `http_whitelist`: A whitelist rule.
-   * 
-   * - `http_custom`: A custom rule.
-   * 
-   * - `http_managed`: A managed rule.
-   * 
-   * - `http_anti_scan`: A scan protection rule.
-   * 
-   * - `http_ratelimit`: A rate limiting rule.
-   * 
-   * - `ip_access_rule`: An IP access rule.
-   * 
-   * - `http_bot`: A bot management rule.
-   * 
-   * - `http_security_level_rule`: A security level rule.
+   * The phase in which the WAF rule runs. Valid values:
+   * - http_whitelist: whitelist rule
+   * - http_custom: custom rule
+   * - http_managed: managed rule
+   * - http_anti_scan: scan protection rule
+   * - http_ratelimit: frequency control rule
    * 
    * @example
    * http_custom
@@ -264,7 +242,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The position of the WAF rule set.
+   * The position of the WAF ruleset.
    * 
    * @example
    * 1
@@ -272,7 +250,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * A list of rules in the WAF rule set.
+   * The list of rule configurations in the WAF ruleset.
    * 
    * @example
    * [{}]
@@ -280,7 +258,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   rules?: GetUserWafRulesetResponseBodyRulesetRules[];
   /**
    * @remarks
-   * The shared configuration of the WAF rule set.
+   * The shared configuration of the WAF ruleset.
    * 
    * @example
    * {}
@@ -288,7 +266,7 @@ export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
   shared?: WafBatchRuleShared;
   /**
    * @remarks
-   * The status of the WAF rule set.
+   * The status of the WAF ruleset.
    * 
    * @example
    * on
@@ -348,7 +326,7 @@ export class GetUserWafRulesetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The WAF rule set.
+   * The WAF ruleset.
    * 
    * @example
    * {}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesByRecordResponseBodyResultCertificates extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud certificate.
+   * The cloud certificate ID.
    * 
    * @example
    * 30000137
@@ -21,7 +21,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate was created.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -37,7 +37,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * babab022c5e9b27bf9c64d7f4b1667f4
@@ -45,7 +45,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certificate issuer.
    * 
    * @example
    * GlobalSign nv-sa
@@ -61,7 +61,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   issuerCN?: string;
   /**
    * @remarks
-   * The Keyless server ID. This parameter is valid only when `Type` is set to `keyless`.
+   * The Keyless server ID. This parameter is valid only when Type is set to keyless.
    * 
    * @example
    * baba39055622c008b90285a8838e****
@@ -69,7 +69,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   keyServerId?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * yourCertName
@@ -77,7 +77,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   name?: string;
   /**
    * @remarks
-   * The date and time when the certificate expires.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-02-28 06:17:11
@@ -85,7 +85,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   notAfter?: string;
   /**
    * @remarks
-   * The date and time when the certificate becomes valid.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -101,7 +101,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   pubAlg?: string;
   /**
    * @remarks
-   * The region where the certificate is stored.
+   * The certificate store area.
    * 
    * @example
    * cn-hangzhou
@@ -109,7 +109,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   region?: string;
   /**
    * @remarks
-   * The Subject Alternative Names (SANs) of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -117,7 +117,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * baba39055622c008b90285a8838ed09a
@@ -133,7 +133,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   sigAlg?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -141,7 +141,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   status?: string;
   /**
    * @remarks
-   * The type of the certificate. Valid values:
+   * The certificate type.
    * 
    * @example
    * free
@@ -149,7 +149,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was last updated.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -215,7 +215,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
 export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The number of certificate requests in progress.
+   * The number of certificates being applied for.
    * 
    * @example
    * 1
@@ -223,12 +223,12 @@ export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   applylingCount?: number;
   /**
    * @remarks
-   * A list of certificates matching the record.
+   * The list of certificates that match the record.
    */
   certificates?: ListCertificatesByRecordResponseBodyResultCertificates[];
   /**
    * @remarks
-   * The number of certificates matching the record.
+   * The number of certificates that match the record.
    * 
    * @example
    * 3
@@ -244,7 +244,11 @@ export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The certificate configuration status for the record. Valid values:
+   * The certificate configuration status of the record. Valid values:
+   * - none: Not configured.
+   * - configured: Configured.
+   * - applying: Being applied for.
+   * - failed: Application failed.
    * 
    * @example
    * none
@@ -293,7 +297,7 @@ export class ListCertificatesByRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of record details.
+   * The result array.
    */
   result?: ListCertificatesByRecordResponseBodyResult[];
   /**
@@ -314,7 +318,7 @@ export class ListCertificatesByRecordResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries, which is the same as the number of records.
    * 
    * @example
    * 12

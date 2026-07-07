@@ -23,12 +23,10 @@ export class DescribeRatePlanPriceGapRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The specification change type. Valid values:
-   * - DOWNGRADE: downgrade.
-   * - UPGRADE: upgrade.
+   * The code of the target plan for the specification change.
    * 
    * @example
-   * UPGRADE
+   * standardplan
    */
   targetPlanCode?: string;
   /**

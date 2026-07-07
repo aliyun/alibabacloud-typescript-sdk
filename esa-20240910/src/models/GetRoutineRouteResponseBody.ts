@@ -6,10 +6,8 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   /**
    * @remarks
    * The bypass mode. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -25,11 +23,10 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - `global`: Queries the global configuration.
-   * 
-   * - `rule`: Queries the rule configuration.
+   * - global: queries global configurations.
+   * - rule: queries rule configurations.
    * 
    * @example
    * global
@@ -37,11 +34,9 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Specifies whether to enable fallback to origin. If this feature is enabled, requests are sent to the origin server when the function encounters an exception, such as exceeding its CPU limit. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * The back-to-origin on exception switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -50,10 +45,8 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   /**
    * @remarks
    * The configuration mode. Valid values:
-   * 
-   * - `simple`: simple mode.
-   * 
-   * - `custom`: custom mode.
+   * - simple: simple mode.
+   * - custom: custom mode.
    * 
    * @example
    * simple
@@ -69,11 +62,9 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The route status. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * The route switch. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -89,7 +80,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The name of the edge function routine.
+   * The Edge Routine name.
    * 
    * @example
    * test-routine1
@@ -97,7 +88,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The rule expression.
+   * The rule content.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -120,6 +111,9 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
    */
   siteVersion?: number;
   /**
+   * @remarks
+   * The Edge Routine timeout period. Valid values: 5 to 60. Unit: seconds.
+   * 
    * @example
    * 5
    */

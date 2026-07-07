@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The common name.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -13,7 +13,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate was added.
+   * The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -21,7 +21,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The SHA-256 fingerprint.
+   * The SHA-256 fingerprint of the certificate.
    * 
    * @example
    * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
@@ -37,7 +37,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The authority that issued the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -53,7 +53,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The date and time when the certificate expires.
+   * The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The date and time when the certificate becomes valid.
+   * The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -69,7 +69,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
-   * The algorithm of the certificate\\"s public key.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -77,7 +77,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The subject alternative names (SANs) of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -85,7 +85,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * The unique serial number assigned by the issuer.
+   * The certificate sequence number.
    * 
    * @example
    * babab022c5e9b27bf9c64d7f4b16****
@@ -93,7 +93,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The algorithm used to sign the certificate.
+   * The signature algorithm of the certificate.
    * 
    * @example
    * SHA256-RSA
@@ -117,7 +117,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was last updated.
+   * The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-07-20 06:18:42
@@ -175,7 +175,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
 export class ListClientCaCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -199,7 +199,7 @@ export class ListClientCaCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of client CA certificates.
+   * The list of client CA certificates.
    */
   result?: ListClientCaCertificatesResponseBodyResult[];
   /**

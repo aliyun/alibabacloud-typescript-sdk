@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * A keyword for a fuzzy search on the ID or name of a ruleset or rule.
+   * The fuzzy match string for the ruleset ID, ruleset name, rule ID, or rule name.
    * 
    * @example
    * example
@@ -13,12 +13,12 @@ export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
   anyLike?: string;
   /**
    * @remarks
-   * Specifies whether to sort in descending order.
+   * Specifies whether to sort the results in descending order.
    */
   desc?: boolean;
   /**
    * @remarks
-   * A keyword for a fuzzy search on ruleset names.
+   * The fuzzy match string for the ruleset name.
    * 
    * @example
    * example
@@ -26,7 +26,7 @@ export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Specifies the field for sorting the results.
+   * The column by which to sort the results.
    * 
    * @example
    * id
@@ -62,7 +62,7 @@ export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
 export class ListWafRulesetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for pagination.
+   * The page number. Specifies the current page number for paging queries.
    * 
    * @example
    * 1
@@ -70,7 +70,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size. Specifies the number of records per page for paging queries.
    * 
    * @example
    * 20
@@ -78,23 +78,15 @@ export class ListWafRulesetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The execution phase for WAF rules.
-   * 
-   * - `http_whitelist`: whitelist rule
-   * 
-   * - `http_custom`: custom rule
-   * 
-   * - `http_managed`: managed rule
-   * 
-   * - `http_anti_scan`: scan protection rule
-   * 
-   * - `http_ratelimit`: rate-limiting rule
-   * 
-   * - `ip_access_rule`: IP access rule
-   * 
-   * - `http_bot`: bot rule
-   * 
-   * - `http_security_level_rule`: security rule
+   * The WAF rule execution phase. Valid values:
+   * - http_whitelist: whitelist rules
+   * - http_custom: custom rules
+   * - http_managed: managed rules
+   * - http_anti_scan: scan protection rules
+   * - http_ratelimit: frequency control rules
+   * - ip_access_rule: IP access rules
+   * - http_bot: advanced mode bots
+   * - http_security_level_rule: security rules
    * 
    * @example
    * http_bot
@@ -102,7 +94,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * A JSON object containing query parameters for filtering.
+   * The query parameters, passed in JSON format, including various filter conditions.
    * 
    * @example
    * http_bot
@@ -110,7 +102,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   queryArgs?: ListWafRulesetsRequestQueryArgs;
   /**
    * @remarks
-   * The ID of the site. Get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * @example
    * 1
@@ -118,7 +110,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site\\"s configuration version. For sites with configuration version management enabled, use this parameter to specify the version. The default is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

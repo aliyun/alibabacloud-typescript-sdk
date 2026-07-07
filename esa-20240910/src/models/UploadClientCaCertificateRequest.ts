@@ -23,7 +23,7 @@ export class UploadClientCaCertificateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

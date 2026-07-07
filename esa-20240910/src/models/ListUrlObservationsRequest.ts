@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUrlObservationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID,
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,7 +13,7 @@ export class ListUrlObservationsRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The page number. Page starts from page 1. Default value: 1
+   * The page number for a paged query. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListUrlObservationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
+   * The number of entries per page for a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListUrlObservationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

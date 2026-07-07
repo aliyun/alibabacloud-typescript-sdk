@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSiteOriginClientCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The default value is **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListSiteOriginClientCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

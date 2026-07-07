@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 39538644977****
@@ -13,9 +13,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Value range:
-   * - global: Global configuration;
-   * - rule: Rule configuration;
+   * The configuration type. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * global
@@ -23,7 +23,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The rewritten query string.
+   * The query string after rewriting.
    * 
    * @example
    * example=123
@@ -31,9 +31,10 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * Query string rewrite type. Value range:
-   * - static: Static mode.
-   * - dynamic: Dynamic mode.
+   * The query string rewrite type. Valid values:
+   * 
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -41,9 +42,10 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * URI rewrite type. Value range:
-   * - static: Static mode.
-   * - dynamic: Dynamic mode.
+   * The path rewrite type. Valid values:
+   * 
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -51,9 +53,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. Not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specified requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -61,9 +63,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Not required when adding a global configuration. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -71,7 +73,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. Not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -79,7 +81,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -87,7 +89,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 0
@@ -95,7 +97,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Target URI after rewriting.
+   * The target URI after rewriting.
    * 
    * @example
    * /image.example.com/index.html
@@ -145,12 +147,12 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
 export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of rewrite URL configurations.
+   * The list of URL rewrite configurations.
    */
   configs?: ListRewriteUrlRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The current page number.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -158,7 +160,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of the page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -166,7 +168,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -174,7 +176,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries.
    * 
    * @example
    * 8
@@ -182,7 +184,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

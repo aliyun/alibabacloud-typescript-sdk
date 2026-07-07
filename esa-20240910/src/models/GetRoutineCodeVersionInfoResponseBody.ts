@@ -64,7 +64,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   confOptions?: GetRoutineCodeVersionInfoResponseBodyConfOptions;
   /**
    * @remarks
-   * The time when the code version was created.
+   * The time when the code version was created. The time follows the RFC 3339 standard in the UTC time zone.
    * 
    * @example
    * 2025-08-04T01:54:19Z
@@ -72,7 +72,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The additional information about the code version. The value is in JSON string format.
+   * The extra information of the code version. The value is in JSON string format.
    * 
    * @example
    * {}
@@ -80,7 +80,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   extraInfo?: string;
   /**
    * @remarks
-   * Indicates whether the code version contains asset files.
+   * Indicates whether the code version contains Assets files.
    * 
    * @example
    * true

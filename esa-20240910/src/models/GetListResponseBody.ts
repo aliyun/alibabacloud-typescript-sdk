@@ -13,7 +13,7 @@ export class GetListResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom list.[](~~2850217~~)
+   * The ID of the custom list. You can obtain the ID by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
    * 
    * @example
    * 40000001
@@ -21,12 +21,12 @@ export class GetListResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The items in the custom list, which are displayed as an array.
+   * The items of the custom list, displayed as an array.
    */
   items?: string[];
   /**
    * @remarks
-   * The type of the custom list.
+   * The kind of the custom list.
    * 
    * @example
    * ip
@@ -52,7 +52,11 @@ export class GetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the custom list was last modified.
+   * The last update time of the custom list.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2026-06-10T14:23:45Z
    * 
    * @example
    * 2024-01-01T00:00:00Z

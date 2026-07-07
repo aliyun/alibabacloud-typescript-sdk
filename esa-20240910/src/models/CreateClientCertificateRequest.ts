@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate signing request (CSR).
+   * The certificate signing request (CSR) content.
    * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----
@@ -13,7 +13,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
   CSR?: string;
   /**
    * @remarks
-   * The type of the private key algorithm.
+   * The private key algorithm type. This parameter is required if CSR is not provided.
    * 
    * @example
    * RSA
@@ -21,7 +21,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
   pkeyType?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The validity period of the certificate. Unit: day.
+   * The validity period of the certificate. Unit: days.
    * 
    * This parameter is required.
    * 

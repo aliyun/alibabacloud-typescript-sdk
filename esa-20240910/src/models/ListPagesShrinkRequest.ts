@@ -21,7 +21,7 @@ export class ListPagesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query filters, specified as a JSON object.
+   * The query parameters passed in JSON format, which contain various filter conditions.
    */
   queryArgsShrink?: string;
   static names(): { [key: string]: string } {

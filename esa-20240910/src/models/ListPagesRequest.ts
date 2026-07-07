@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPagesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * Filters the custom response pages by content type.
+   * The Content-Type field in the HTTP header. Example values:
+   * * text/html
+   * * application/json
    * 
    * @example
    * application/json
@@ -13,7 +15,7 @@ export class ListPagesRequestQueryArgs extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * A keyword for a fuzzy search on the name or description of custom response pages.
+   * The keyword used for fuzzy matching against the name or description of custom pages.
    * 
    * @example
    * example
@@ -61,7 +63,7 @@ export class ListPagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query filters, specified as a JSON object.
+   * The query parameters passed in JSON format, which contain various filter conditions.
    */
   queryArgs?: ListPagesRequestQueryArgs;
   static names(): { [key: string]: string } {

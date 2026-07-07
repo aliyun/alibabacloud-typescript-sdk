@@ -6,12 +6,12 @@ import { WafQuotaString } from "./WafQuotaString";
 export class QuotaListItemsValue extends $dara.Model {
   /**
    * @remarks
-   * Whether the item type is enabled.
+   * Indicates whether the corresponding custom list item type is enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The format constraints for the item type.
+   * The format restriction for the corresponding item type in custom lists.
    */
   value?: WafQuotaString;
   static names(): { [key: string]: string } {

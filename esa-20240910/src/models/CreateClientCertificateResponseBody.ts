@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CA certificate.
+   * The CA certificate ID.
    * 
    * @example
    * babaded901474b9693acf530e0fb1dbb
@@ -21,7 +21,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -37,7 +37,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The certificate ID on ESA.
+   * The certificate ID.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d95
@@ -45,7 +45,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The CA that issued the certificate.
+   * The certification authority that issued the certificate.
    * 
    * @example
    * ESA CA
@@ -53,7 +53,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 2024-12-01T02:12:49Z
@@ -61,7 +61,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 2023-12-01T02:12:49Z
@@ -85,7 +85,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1daa
@@ -101,7 +101,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * active
@@ -109,7 +109,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity period of the certificate. Unit: day.
+   * The validity period of the certificate.
    * 
    * @example
    * 365

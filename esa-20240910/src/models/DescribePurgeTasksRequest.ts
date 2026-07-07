@@ -13,7 +13,7 @@ export class DescribePurgeTasksRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * 
    * > The end time must be later than the start time.
@@ -41,6 +41,7 @@ export class DescribePurgeTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * >Notice: You must always specify SiteId. An error is reported if SiteId is not specified.</notice>
    * 
    * @example
    * 123456789****
@@ -48,7 +49,7 @@ export class DescribePurgeTasksRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2022-11-16T05:33:00Z
@@ -58,9 +59,9 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * @remarks
    * The task execution status. Valid values:
    * 
-   * - **Complete**: The task is complete.
-   * - **Refreshing**: The task is in progress.
-   * - **Failed**: The task failed.
+   * - **Complete**: Completed.
+   * - **Refreshing**: Refreshing.
+   * - **Failed**: Refresh failed.
    * 
    * @example
    * Complete
@@ -72,9 +73,9 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * - **file** (default): file refresh.
    * - **cachetag**: cache tag refresh.
    * - **directory**: directory refresh.
-   * - **ignoreParams**: parameter-stripped refresh.
+   * - **ignoreParams**: ignore parameters refresh.
    * - **hostname**: hostname refresh.
-   * - **purgeall**: refresh all cached content of the site.
+   * - **purgeall**: purge all cache under the site.
    * 
    * @example
    * file

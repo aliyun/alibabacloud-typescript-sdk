@@ -13,7 +13,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+   * The creation time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2023-07-26T01:56:15Z
@@ -37,13 +37,13 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   process?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status. Valid values:
    * 
-   * - **Complete**: The task is complete.
+   * - **Complete**: Completed.
    * 
-   * - **Refreshing**: The task is in progress.
+   * - **Refreshing**: Refreshing.
    * 
-   * - **Failed**: The task failed.
+   * - **Failed**: Refresh failed.
    * 
    * @example
    * Complete
@@ -63,9 +63,9 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
    * - **file** (default): file refresh.
    * - **cachetag**: cache tag refresh.
    * - **directory**: directory refresh.
-   * - **ignoreParams**: parameter-stripped refresh.
+   * - **ignoreParams**: ignore parameters refresh.
    * - **hostname**: hostname refresh.
-   * - **purgeall**: refresh all cached content of the site.
+   * - **purgeall**: purge all cache under the site.
    * 
    * @example
    * file

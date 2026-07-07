@@ -13,7 +13,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate was created.
+   * The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -53,7 +53,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The end time of the certificate validity period.
+   * The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   notAfter?: string;
   /**
    * @remarks
-   * The start time of the certificate validity period.
+   * The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -69,7 +69,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   notBefore?: string;
   /**
    * @remarks
-   * The public-key algorithm of the certificate.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -77,7 +77,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -85,7 +85,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   SAN?: string;
   /**
    * @remarks
-   * The certificate serial number.
+   * The sequence number of the certificate.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d**
@@ -117,7 +117,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was last updated.
+   * The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2022-09-22 05:33:13
@@ -175,7 +175,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
 export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -183,7 +183,7 @@ export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 1024

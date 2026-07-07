@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The common name (CN) of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -13,7 +13,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time of the certificate\\"s creation.
+   * The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-05 18:24:04
@@ -22,6 +22,9 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
    */
   fingerprintSha256?: string;
   /**
@@ -34,7 +37,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certificate issuer.
    * 
    * @example
    * GlobalSign nv-sa
@@ -50,7 +53,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -58,7 +61,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The start of the certificate\\"s validity period.
+   * The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -82,7 +85,10 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
    */
   serialNumber?: string;
   /**
@@ -111,7 +117,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time of the certificate\\"s last update.
+   * The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-05 18:24:04

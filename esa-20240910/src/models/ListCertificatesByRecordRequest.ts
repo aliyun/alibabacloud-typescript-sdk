@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesByRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return certificate details. A value of `1` includes certificate details, whereas a value of `0` excludes them.
+   * Specifies whether to return certificate details.
    * 
    * @example
-   * 1
+   * true
    */
   detail?: boolean;
   /**
@@ -23,7 +23,7 @@ export class ListCertificatesByRecordRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -33,10 +33,10 @@ export class ListCertificatesByRecordRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Specifies whether to return only valid certificates. A value of `1` returns only valid certificates, whereas `0` returns all matching certificates.
+   * Specifies whether to return only valid certificates.
    * 
    * @example
-   * 1
+   * true
    */
   validOnly?: boolean;
   static names(): { [key: string]: string } {

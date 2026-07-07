@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUrlObservationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. You can call the [ListUrlObservations](~~ListUrlObservations~~) operation to obtain the ID.
+   * The configuration ID. You can call the [ListUrlObservations](~~ListUrlObservations~~) operation to obtain the configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class UpdateUrlObservationRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * SDK integration. Valid values:
+   * The SDK integration method. Valid values:
    * 
-   * *   **automatic** (Recommended)
-   * *   **manual**
+   * - **automatic**: automatic integration.
+   * - **manual**: manual integration.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class UpdateUrlObservationRequest extends $dara.Model {
   sdkType?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

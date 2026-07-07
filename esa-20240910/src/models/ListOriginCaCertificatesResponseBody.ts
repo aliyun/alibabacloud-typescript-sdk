@@ -13,7 +13,7 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate was created.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -37,7 +37,7 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certification authority.
    * 
    * @example
    * GlobalSign nv-sa
@@ -53,7 +53,7 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,10 +61,10 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The validity start date of the certificate.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
-   * 2023-11-26T16:00:00Z
+   * 2023-11-26 16:00:00
    */
   notBefore?: string;
   /**
@@ -85,7 +85,7 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d**
@@ -117,7 +117,7 @@ export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was last updated.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-07-20 06:18:42
@@ -199,7 +199,7 @@ export class ListOriginCaCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of certificate objects that match the query.
+   * The result.
    */
   result?: ListOriginCaCertificatesResponseBodyResult[];
   /**
@@ -220,7 +220,7 @@ export class ListOriginCaCertificatesResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of certificates that match the query.
+   * The total number of entries.
    * 
    * @example
    * 20

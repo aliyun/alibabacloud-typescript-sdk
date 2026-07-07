@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKeylessServersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
+   * The CA certificate used to verify the Keyless server certificate. This parameter takes effect only when Verify is set to true.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----****
@@ -13,7 +13,7 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   caCertificate?: string;
   /**
    * @remarks
-   * The client certificate. This parameter must be provided with `ClientPrivateKey`.
+   * The client certificate. This parameter must be used together with the client private key.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----****
@@ -21,7 +21,7 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   clientCertificate?: string;
   /**
    * @remarks
-   * The client private key. This parameter must be provided with `ClientCertificate`.
+   * The client private key. This parameter must be used together with the client certificate.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY-----****
@@ -29,15 +29,15 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   clientPrivateKey?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the format YYYY-MM-DDTHH:MM:SS+08:00 in the UTC/GMT time zone.
    * 
    * @example
-   * 2024-06-24 07:48:51
+   * 2025-07-18T20:33:31+08:00
    */
   createTime?: string;
   /**
    * @remarks
-   * The keyless server host name.
+   * The Keyless server hostname.
    * 
    * @example
    * example.com
@@ -45,7 +45,7 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The keyless server ID.
+   * Keyless server ID。
    * 
    * @example
    * babab9db65ee5efcca9f3d41d4b5****
@@ -53,7 +53,7 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The keyless server name.
+   * The Keyless server name.
    * 
    * @example
    * example
@@ -61,7 +61,7 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The keyless server port. Valid values: 1 to 65535.
+   * The Keyless server port. Valid values: 1 to 65535.
    * 
    * @example
    * 443
@@ -69,15 +69,15 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time follows the format YYYY-MM-DDTHH:MM:SS+08:00 in the UTC/GMT time zone.
    * 
    * @example
-   * 2024-07-20 06:18:42
+   * 2025-07-18T20:33:31+08:00
    */
   updateTime?: string;
   /**
    * @remarks
-   * Specifies whether to verify the server certificate of the keyless server. Defaults to false.
+   * Indicates whether to verify the Keyless server certificate. Default value: false.
    * 
    * @example
    * true
@@ -149,7 +149,7 @@ export class ListKeylessServersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of keyless server configurations.
+   * The result array.
    */
   result?: ListKeylessServersResponseBodyResult[];
   /**
@@ -170,7 +170,7 @@ export class ListKeylessServersResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of records.
    * 
    * @example
    * 90

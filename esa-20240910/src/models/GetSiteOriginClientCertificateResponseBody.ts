@@ -13,7 +13,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate record was created.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -37,7 +37,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certification authority that issued the certificate.
    * 
    * @example
    * DigiCert
@@ -53,7 +53,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The time after which the certificate is not valid.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   notAfter?: string;
   /**
    * @remarks
-   * The time before which the certificate is not valid.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -77,7 +77,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -85,7 +85,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babab022c5e9b27bf9c64d7f4b16****
@@ -117,7 +117,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The time when the certificate record was last updated.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-07-20 06:18:42
@@ -191,7 +191,7 @@ export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The certificate details.
+   * The certificate information.
    */
   result?: GetSiteOriginClientCertificateResponseBodyResult;
   /**

@@ -13,7 +13,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The date and time when the certificate was created.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2020-05-12 02:00:53
@@ -29,12 +29,12 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * A list of bound hostnames.
+   * The list of associated domain names.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * babaabcd****
@@ -42,7 +42,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certificate issue authority.
    * 
    * @example
    * DigiCert
@@ -50,7 +50,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * yourCertName
@@ -58,7 +58,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The date and time when the certificate expires.
+   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -66,7 +66,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The date and time when the certificate becomes valid.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -82,7 +82,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Names (SANs) of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -90,7 +90,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d**
@@ -106,7 +106,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -114,7 +114,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * upload
@@ -122,7 +122,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The date and time when the certificate was last updated.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-05 18:24:04
@@ -185,7 +185,7 @@ export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
 export class GetOriginClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate.
+   * The certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -193,7 +193,7 @@ export class GetOriginClientCertificateResponseBody extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The unique ID for the request.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -201,12 +201,12 @@ export class GetOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the certificate.
+   * The certificate information.
    */
   result?: GetOriginClientCertificateResponseBodyResult;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](~~ListSites~~) operation to obtain this ID.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 123456789****
@@ -214,7 +214,7 @@ export class GetOriginClientCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the site.
+   * The site name.
    * 
    * @example
    * example.com
@@ -222,7 +222,7 @@ export class GetOriginClientCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK

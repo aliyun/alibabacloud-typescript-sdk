@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * Performs a partial-match search for a value in an IP access control rule.
+   * The value in IP access control for fuzzy match.
    * 
    * @example
    * 10.0.0.1
@@ -13,7 +13,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   configValueLike?: string;
   /**
    * @remarks
-   * Specifies whether to sort the results in descending order.
+   * Specifies whether to reverse the sort order.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * Filters results by the exact WAF rule ID.
+   * The WAF rule ID for exact match.
    * 
    * @example
    * 20000001
@@ -29,7 +29,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Performs a partial-match search on the WAF rule ID or name.
+   * The WAF rule ID or name for fuzzy match.
    * 
    * @example
    * example
@@ -37,7 +37,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * Performs a partial-match search on the WAF rule name.
+   * The WAF rule name for fuzzy match.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Sorts the results by the specified field.
+   * Sorts the returned list by a specified column.
    * 
    * @example
    * position
@@ -53,7 +53,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Filters results by the exact WAF rule status.
+   * The WAF rule status for exact match.
    * 
    * @example
    * on
@@ -95,7 +95,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
 export class ListWafRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number for pagination.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class ListWafRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items to return per page.
+   * The page size for pagination.
    * 
    * @example
    * 20
@@ -111,23 +111,15 @@ export class ListWafRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The WAF rule execution phase. Valid values are:
-   * 
-   * - `http_whitelist`: whitelist rule
-   * 
-   * - `http_custom`: custom rule
-   * 
-   * - `http_managed`: managed rule
-   * 
-   * - `http_anti_scan`: scan protection rule
-   * 
-   * - `http_ratelimit`: rate limiting rule
-   * 
-   * - `ip_access_rule`: IP access rule
-   * 
-   * - `http_bot`: Advanced bots
-   * 
-   * - `http_security_level_rule`: security rule
+   * The WAF rule execution phase. Valid values:
+   * - http_whitelist: whitelist rule
+   * - http_custom: custom rule
+   * - http_managed: managed rule
+   * - http_anti_scan: scan protection rule
+   * - http_ratelimit: frequency control rule
+   * - ip_access_rule: IP access rule
+   * - http_bot: advanced mode bots
+   * - http_security_level_rule: security rule
    * 
    * This parameter is required.
    * 
@@ -137,7 +129,7 @@ export class ListWafRulesRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Query filters.
+   * The query filter conditions.
    * 
    * @example
    * http_custom
@@ -145,7 +137,7 @@ export class ListWafRulesRequest extends $dara.Model {
   queryArgs?: ListWafRulesRequestQueryArgs;
   /**
    * @remarks
-   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
    * 
    * @example
    * 10000001
@@ -153,7 +145,7 @@ export class ListWafRulesRequest extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -163,7 +155,7 @@ export class ListWafRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site configuration version. For sites with configuration version management enabled, this parameter specifies the version to use. Defaults to 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is 0.
    * 
    * @example
    * 0

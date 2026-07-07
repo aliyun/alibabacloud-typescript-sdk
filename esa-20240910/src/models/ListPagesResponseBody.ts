@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPagesResponseBodyPages extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded content of the custom response page.
+   * The Base64-encoded response page content corresponding to the Content-Type.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The value of the Content-Type header in the HTTP response.
+   * The Content-Type field in the HTTP header.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * A custom description for the response page.
+   * The description of the custom response page.
    * 
    * @example
    * a custom deny page
@@ -33,7 +33,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom response page.[](~~2850223~~)
+   * The ID of the custom response page. You can call the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation to obtain the ID.
    * 
    * @example
    * 50000001
@@ -57,7 +57,11 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time the custom response page was last updated.
+   * The time when the custom response page was last modified.
+   * 
+   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * 
+   * Example: 2026-06-10T14:23:45Z
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -107,7 +111,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -115,7 +119,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of custom response pages.
+   * The array of custom response pages. Each object in the array contains the details of a page.
    */
   pages?: ListPagesResponseBodyPages[];
   /**
@@ -128,7 +132,7 @@ export class ListPagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of custom response pages that match the filter criteria.
+   * The number of custom response pages after filtering.
    * 
    * @example
    * 10
@@ -136,7 +140,7 @@ export class ListPagesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of custom response pages that you have created.
+   * The number of custom response pages created by the user.
    * 
    * @example
    * 10

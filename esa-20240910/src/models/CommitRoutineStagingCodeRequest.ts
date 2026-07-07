@@ -13,7 +13,7 @@ export class CommitRoutineStagingCodeRequest extends $dara.Model {
   codeDescription?: string;
   /**
    * @remarks
-   * The deployment environment whose environment variable configuration is used. If you do not specify this parameter, environment variables are not used.
+   * The deployment environment. The environment variable configuration of the specified environment is used. If you do not specify this parameter, environment variables are not used.
    * 
    * @example
    * production

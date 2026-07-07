@@ -13,10 +13,10 @@ export class ListUrlObservationsResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * SDK integration. Valid values:
+   * The SDK integration method. Valid values:
    * 
-   * *   **automatic**
-   * *   **manual**
+   * - **automatic**: Automatic integration.
+   * - **manual**: Manual integration.
    * 
    * @example
    * manual
@@ -58,12 +58,12 @@ export class ListUrlObservationsResponseBodyConfigs extends $dara.Model {
 export class ListUrlObservationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the feature.
+   * The configuration data.
    */
   configs?: ListUrlObservationsResponseBodyConfigs[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class ListUrlObservationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -87,7 +87,7 @@ export class ListUrlObservationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class ListUrlObservationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1
