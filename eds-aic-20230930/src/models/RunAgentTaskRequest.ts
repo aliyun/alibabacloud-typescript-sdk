@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunAgentTaskRequestTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The Mobile node ID, such as acp-xxx.
+   * 
+   * @example
+   * acp-5hh4a31emkt6u****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The session ID. Tasks with the same session ID share context, such as ses-260702-21b****.
+   * 
+   * @example
+   * ses-260702-21bh****。
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,18 +58,36 @@ export class RunAgentTaskRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The maximum number of execution steps for the task to prevent infinite loops. Valid values: 30 to 1000. Default value: 1000.
+   * The maximum number of execution steps for the task. This prevents infinite loops. Valid values: 30 to 1000. Default value: 1000.
    * 
    * @example
    * 30
    */
   maxSteps?: number;
+  /**
+   * @remarks
+   * The scheduling plan ID. When specified, execution records are associated with the corresponding scheduled node, which facilitates aggregation query by scheduling dimension.
+   * 
+   * @example
+   * sch-260625-pbj2****
+   */
   scheduleId?: string;
+  /**
+   * @remarks
+   * The array of target objects. Each element contains an InstanceId and a SessionId.
+   */
   targets?: RunAgentTaskRequestTargets[];
+  /**
+   * @remarks
+   * The task configuration ID used to trigger a task with the specified configuration.
+   * 
+   * @example
+   * tsk-260625-49be****
+   */
   taskConfigId?: string;
   /**
    * @remarks
-   * The task timeout period in seconds. Valid values: 300 to 3600. Default value: 3600.
+   * The timeout period of the task, in seconds. Valid values: 300 to 3600. Default value: 3600.
    * 
    * @example
    * 3600
@@ -66,7 +98,7 @@ export class RunAgentTaskRequest extends $dara.Model {
    * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
-   * Download DingTalk from App Store
+   * 去应用宝下载钉钉
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

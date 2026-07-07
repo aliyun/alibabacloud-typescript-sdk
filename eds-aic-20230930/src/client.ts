@@ -34,6 +34,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Activates an edge agent device.
+   * 
+   * @param request - ActivateEdgeMobileAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateEdgeMobileAgentResponse
+   */
+  async activateEdgeMobileAgentWithOptions(request: $_model.ActivateEdgeMobileAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateEdgeMobileAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceClass)) {
+      query["DeviceClass"] = request.deviceClass;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.deviceMeta)) {
+      query["DeviceMeta"] = request.deviceMeta;
+    }
+
+    if (!$dara.isNull(request.licenseKey)) {
+      query["LicenseKey"] = request.licenseKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActivateEdgeMobileAgent",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActivateEdgeMobileAgentResponse>(await this.callApi(params, req, runtime), new $_model.ActivateEdgeMobileAgentResponse({}));
+  }
+
+  /**
+   * Activates an edge agent device.
+   * 
+   * @param request - ActivateEdgeMobileAgentRequest
+   * @returns ActivateEdgeMobileAgentResponse
+   */
+  async activateEdgeMobileAgent(request: $_model.ActivateEdgeMobileAgentRequest): Promise<$_model.ActivateEdgeMobileAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.activateEdgeMobileAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
    * 
    * @remarks
@@ -1205,6 +1259,86 @@ export default class Client extends OpenApi {
   async createCustomImage(request: $_model.CreateCustomImageRequest): Promise<$_model.CreateCustomImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCustomImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Places an order to purchase an edge smart gateway agent package.
+   * 
+   * @remarks
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+   * 
+   * @param request - CreateEdgeMobileAgentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEdgeMobileAgentPackageResponse
+   */
+  async createEdgeMobileAgentPackageWithOptions(request: $_model.CreateEdgeMobileAgentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEdgeMobileAgentPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deviceClass)) {
+      query["DeviceClass"] = request.deviceClass;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEdgeMobileAgentPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEdgeMobileAgentPackageResponse>(await this.callApi(params, req, runtime), new $_model.CreateEdgeMobileAgentPackageResponse({}));
+  }
+
+  /**
+   * Places an order to purchase an edge smart gateway agent package.
+   * 
+   * @remarks
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+   * 
+   * @param request - CreateEdgeMobileAgentPackageRequest
+   * @returns CreateEdgeMobileAgentPackageResponse
+   */
+  async createEdgeMobileAgentPackage(request: $_model.CreateEdgeMobileAgentPackageRequest): Promise<$_model.CreateEdgeMobileAgentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEdgeMobileAgentPackageWithOptions(request, runtime);
   }
 
   /**
@@ -2705,6 +2839,68 @@ export default class Client extends OpenApi {
   async describeDisplayConfig(request: $_model.DescribeDisplayConfigRequest): Promise<$_model.DescribeDisplayConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDisplayConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of edge agent packages.
+   * 
+   * @param request - DescribeEdgeMobileAgentPackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEdgeMobileAgentPackagesResponse
+   */
+  async describeEdgeMobileAgentPackagesWithOptions(request: $_model.DescribeEdgeMobileAgentPackagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeMobileAgentPackagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceClass)) {
+      query["DeviceClass"] = request.deviceClass;
+    }
+
+    if (!$dara.isNull(request.licenseKeys)) {
+      query["LicenseKeys"] = request.licenseKeys;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.packageIds)) {
+      query["PackageIds"] = request.packageIds;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEdgeMobileAgentPackages",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEdgeMobileAgentPackagesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEdgeMobileAgentPackagesResponse({}));
+  }
+
+  /**
+   * Queries the details of edge agent packages.
+   * 
+   * @param request - DescribeEdgeMobileAgentPackagesRequest
+   * @returns DescribeEdgeMobileAgentPackagesResponse
+   */
+  async describeEdgeMobileAgentPackages(request: $_model.DescribeEdgeMobileAgentPackagesRequest): Promise<$_model.DescribeEdgeMobileAgentPackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEdgeMobileAgentPackagesWithOptions(request, runtime);
   }
 
   /**
@@ -5534,6 +5730,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Refreshes model authentication tokens.
+   * 
+   * @param request - RefreshAuthTokensRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshAuthTokensResponse
+   */
+  async refreshAuthTokensWithOptions(request: $_model.RefreshAuthTokensRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshAuthTokensResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.expireSeconds)) {
+      query["ExpireSeconds"] = request.expireSeconds;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.licenseKeys)) {
+      query["LicenseKeys"] = request.licenseKeys;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshAuthTokens",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshAuthTokensResponse>(await this.callApi(params, req, runtime), new $_model.RefreshAuthTokensResponse({}));
+  }
+
+  /**
+   * Refreshes model authentication tokens.
+   * 
+   * @param request - RefreshAuthTokensRequest
+   * @returns RefreshAuthTokensResponse
+   */
+  async refreshAuthTokens(request: $_model.RefreshAuthTokensRequest): Promise<$_model.RefreshAuthTokensResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refreshAuthTokensWithOptions(request, runtime);
+  }
+
+  /**
    * Renews subscription Cloud Phone instance groups. If a subscription instance group expires, the system automatically deletes the instance group and its instances after 15 days. You cannot recover deleted resources. Renew your instance groups promptly to prevent resource loss.
    * 
    * @param request - RenewAndroidInstanceGroupsRequest
@@ -5836,7 +6082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on Mobile nodes to execute an AI automation task.
+   * Triggers an Agent to execute an AI automation task on Mobile nodes.
    * 
    * @param request - RunAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5895,7 +6141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent on Mobile nodes to execute an AI automation task.
+   * Triggers an Agent to execute an AI automation task on Mobile nodes.
    * 
    * @param request - RunAgentTaskRequest
    * @returns RunAgentTaskResponse
