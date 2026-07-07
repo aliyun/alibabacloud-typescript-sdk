@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $dara.Model {
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * 2024
@@ -13,7 +13,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The certificate status.
+   * The status of the certificate.
    * 
    * @example
    * ACTIVE
@@ -21,7 +21,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The certificate type.
+   * The type of the certificate.
    * 
    * @example
    * self-signed
@@ -50,6 +50,99 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
       certificateStatus: 'string',
       certificateType: 'string',
       endTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords extends $dara.Model {
+  host?: string;
+  recordType?: string;
+  status?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      recordType: 'RecordType',
+      status: 'Status',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      recordType: 'string',
+      status: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleDataDnsConflict extends $dara.Model {
+  canAutoResolve?: boolean;
+  hasConflict?: boolean;
+  message?: string;
+  records?: ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      canAutoResolve: 'CanAutoResolve',
+      hasConflict: 'HasConflict',
+      message: 'Message',
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canAutoResolve: 'boolean',
+      hasConflict: 'boolean',
+      message: 'string',
+      records: { 'type': 'array', 'itemType': ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleDataMigration extends $dara.Model {
+  migrationStatus?: string;
+  previousDomain?: any;
+  static names(): { [key: string]: string } {
+    return {
+      migrationStatus: 'MigrationStatus',
+      previousDomain: 'PreviousDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      migrationStatus: 'string',
+      previousDomain: 'any',
     };
   }
 
@@ -366,17 +459,18 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The SSL certificate information of the domain name.
+   * The domain name SSL certificate information.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleDataCertificate;
   /**
    * @remarks
-   * The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
+   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1683256054000
    */
   createTime?: string;
+  dnsConflict?: ListAppInstanceDomainsResponseBodyModuleDataDnsConflict;
   /**
    * @remarks
    * The domain name.
@@ -385,6 +479,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
    * kaibaidu.com
    */
   domainName?: string;
+  migration?: ListAppInstanceDomainsResponseBodyModuleDataMigration;
   /**
    * @remarks
    * The overall binding status.
@@ -417,7 +512,9 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
     return {
       certificate: 'Certificate',
       createTime: 'CreateTime',
+      dnsConflict: 'DnsConflict',
       domainName: 'DomainName',
+      migration: 'Migration',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
       qualification: 'Qualification',
@@ -430,7 +527,9 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
     return {
       certificate: ListAppInstanceDomainsResponseBodyModuleDataCertificate,
       createTime: 'string',
+      dnsConflict: ListAppInstanceDomainsResponseBodyModuleDataDnsConflict,
       domainName: 'string',
+      migration: ListAppInstanceDomainsResponseBodyModuleDataMigration,
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleDataOwnership,
       qualification: ListAppInstanceDomainsResponseBodyModuleDataQualification,
@@ -442,6 +541,12 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   validate() {
     if(this.certificate && typeof (this.certificate as any).validate === 'function') {
       (this.certificate as any).validate();
+    }
+    if(this.dnsConflict && typeof (this.dnsConflict as any).validate === 'function') {
+      (this.dnsConflict as any).validate();
+    }
+    if(this.migration && typeof (this.migration as any).validate === 'function') {
+      (this.migration as any).validate();
     }
     if(this.ownership && typeof (this.ownership as any).validate === 'function') {
       (this.ownership as any).validate();
@@ -466,7 +571,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
 export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $dara.Model {
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * jfztkg202502
@@ -474,7 +579,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The certificate status.
+   * The status of the certificate.
    * 
    * @example
    * ACTIVE
@@ -482,7 +587,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The certificate type.
+   * The type of the certificate.
    * 
    * @example
    * Server
@@ -523,6 +628,96 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   }
 }
 
+export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords extends $dara.Model {
+  host?: string;
+  recordType?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      recordType: 'RecordType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      recordType: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleNextDnsConflict extends $dara.Model {
+  canAutoResolve?: boolean;
+  hasConflict?: boolean;
+  message?: string;
+  records?: ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      canAutoResolve: 'CanAutoResolve',
+      hasConflict: 'HasConflict',
+      message: 'Message',
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canAutoResolve: 'boolean',
+      hasConflict: 'boolean',
+      message: 'string',
+      records: { 'type': 'array', 'itemType': ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceDomainsResponseBodyModuleNextMigration extends $dara.Model {
+  migrationStatus?: string;
+  previousDomain?: any;
+  static names(): { [key: string]: string } {
+    return {
+      migrationStatus: 'MigrationStatus',
+      previousDomain: 'PreviousDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      migrationStatus: 'string',
+      previousDomain: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara.Model {
   /**
    * @remarks
@@ -540,10 +735,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
    * pai
    */
   provider?: string;
+  rootDomain?: string;
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
       provider: 'Provider',
+      rootDomain: 'RootDomain',
     };
   }
 
@@ -551,6 +748,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
     return {
       account: 'string',
       provider: 'string',
+      rootDomain: 'string',
     };
   }
 
@@ -776,11 +974,13 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
    * SUCCESSFUL
    */
   verificationStatus?: string;
+  verificationStatusCode?: string;
   static names(): { [key: string]: string } {
     return {
       dnsRecord: 'DnsRecord',
       errorMsg: 'ErrorMsg',
       verificationStatus: 'VerificationStatus',
+      verificationStatusCode: 'VerificationStatusCode',
     };
   }
 
@@ -789,6 +989,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
       dnsRecord: ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord,
       errorMsg: 'string',
       verificationStatus: 'string',
+      verificationStatusCode: 'string',
     };
   }
 
@@ -807,17 +1008,18 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The SSL certificate information of the domain name.
+   * The domain name SSL certificate information.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleNextCertificate;
   /**
    * @remarks
-   * The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
+   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1741572465000
    */
   createTime?: string;
+  dnsConflict?: ListAppInstanceDomainsResponseBodyModuleNextDnsConflict;
   /**
    * @remarks
    * The domain name.
@@ -826,6 +1028,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
    * usdcoin.xin
    */
   domainName?: string;
+  migration?: ListAppInstanceDomainsResponseBodyModuleNextMigration;
   /**
    * @remarks
    * The overall binding status.
@@ -858,7 +1061,9 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
     return {
       certificate: 'Certificate',
       createTime: 'CreateTime',
+      dnsConflict: 'DnsConflict',
       domainName: 'DomainName',
+      migration: 'Migration',
       overallStatus: 'OverallStatus',
       ownership: 'Ownership',
       qualification: 'Qualification',
@@ -871,7 +1076,9 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
     return {
       certificate: ListAppInstanceDomainsResponseBodyModuleNextCertificate,
       createTime: 'string',
+      dnsConflict: ListAppInstanceDomainsResponseBodyModuleNextDnsConflict,
       domainName: 'string',
+      migration: ListAppInstanceDomainsResponseBodyModuleNextMigration,
       overallStatus: 'string',
       ownership: ListAppInstanceDomainsResponseBodyModuleNextOwnership,
       qualification: ListAppInstanceDomainsResponseBodyModuleNextQualification,
@@ -883,6 +1090,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   validate() {
     if(this.certificate && typeof (this.certificate as any).validate === 'function') {
       (this.certificate as any).validate();
+    }
+    if(this.dnsConflict && typeof (this.dnsConflict as any).validate === 'function') {
+      (this.dnsConflict as any).validate();
+    }
+    if(this.migration && typeof (this.migration as any).validate === 'function') {
+      (this.migration as any).validate();
     }
     if(this.ownership && typeof (this.ownership as any).validate === 'function') {
       (this.ownership as any).validate();
@@ -915,7 +1128,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request results.
    */
   data?: ListAppInstanceDomainsResponseBodyModuleData[];
   /**
@@ -943,7 +1156,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes up to 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * The server processes up to 1000 recent records beyond the pagination limit. If the results exceed 1000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -1008,7 +1221,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
 export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -1016,7 +1229,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -1040,8 +1253,8 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -1049,12 +1262,12 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries to return per query.
+   * The maximum number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -1069,7 +1282,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   module?: ListAppInstanceDomainsResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if there are no more results.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -1093,7 +1306,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * 系统异常

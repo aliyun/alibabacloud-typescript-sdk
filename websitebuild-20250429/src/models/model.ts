@@ -14,6 +14,8 @@ export { ModuleDataComponentsValuePropertiesValueValues } from './ModuleDataComp
 export { ModuleNextComponentsValuePropertiesValueValues } from './ModuleNextComponentsValuePropertiesValue';
 export { AllocateSupabaseForAdminResponseBodyModule } from './AllocateSupabaseForAdminResponseBody';
 export { BatchCheckResourceMeasureResponseBodyModule } from './BatchCheckResourceMeasureResponseBody';
+export { BindAppDomainResponseBodyModuleDnsConflictRecords } from './BindAppDomainResponseBody';
+export { BindAppDomainResponseBodyModuleDnsConflict } from './BindAppDomainResponseBody';
 export { BindAppDomainResponseBodyModule } from './BindAppDomainResponseBody';
 export { CheckAppVerifyCodeResponseBodyModule } from './CheckAppVerifyCodeResponseBody';
 export { CheckResourceMeasureResponseBodyModule } from './CheckResourceMeasureResponseBody';
@@ -112,6 +114,9 @@ export { ListAppDomainRedirectRecordsResponseBodyModuleData } from './ListAppDom
 export { ListAppDomainRedirectRecordsResponseBodyModuleNext } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppDomainRedirectRecordsResponseBodyModule } from './ListAppDomainRedirectRecordsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataCertificate } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleDataDnsConflictRecords } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleDataDnsConflict } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleDataMigration } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataOwnership } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataQualification } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord } from './ListAppInstanceDomainsResponseBody';
@@ -120,6 +125,9 @@ export { ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord } fro
 export { ListAppInstanceDomainsResponseBodyModuleDataVerification } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleData } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextCertificate } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleNextDnsConflictRecords } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleNextDnsConflict } from './ListAppInstanceDomainsResponseBody';
+export { ListAppInstanceDomainsResponseBodyModuleNextMigration } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextOwnership } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextQualification } from './ListAppInstanceDomainsResponseBody';
 export { ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord } from './ListAppInstanceDomainsResponseBody';

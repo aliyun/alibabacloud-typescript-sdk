@@ -2,7 +2,75 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class BindAppDomainResponseBodyModuleDnsConflictRecords extends $dara.Model {
+  host?: string;
+  recordType?: string;
+  status?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      recordType: 'RecordType',
+      status: 'Status',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      recordType: 'string',
+      status: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
+  canAutoResolve?: boolean;
+  hasConflict?: boolean;
+  message?: string;
+  records?: BindAppDomainResponseBodyModuleDnsConflictRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      canAutoResolve: 'CanAutoResolve',
+      hasConflict: 'HasConflict',
+      message: 'Message',
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canAutoResolve: 'boolean',
+      hasConflict: 'boolean',
+      message: 'string',
+      records: { 'type': 'array', 'itemType': BindAppDomainResponseBodyModuleDnsConflictRecords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BindAppDomainResponseBodyModule extends $dara.Model {
+  dnsConflict?: BindAppDomainResponseBodyModuleDnsConflict;
   /**
    * @remarks
    * Indicates whether the request is successful.
@@ -13,17 +81,22 @@ export class BindAppDomainResponseBodyModule extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dnsConflict: 'DnsConflict',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dnsConflict: BindAppDomainResponseBodyModuleDnsConflict,
       success: 'boolean',
     };
   }
 
   validate() {
+    if(this.dnsConflict && typeof (this.dnsConflict as any).validate === 'function') {
+      (this.dnsConflict as any).validate();
+    }
     super.validate();
   }
 
@@ -68,7 +141,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -81,13 +154,13 @@ export class BindAppDomainResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The data table module.
+   * The data table module. Valid values:
    * 
    * - ABTest: experiment data table
    * 
    * - ExperimentTool: experiment tool table
    * 
-   * - DataDiagnosis: data modeling diagnostics.
+   * - DataDiagnosis: data modeling diagnostics
    */
   module?: BindAppDomainResponseBodyModule;
   /**

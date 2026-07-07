@@ -14,7 +14,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   domainKeyword?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per query.
+   * The maximum number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -24,7 +24,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if there are no more results.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -32,7 +32,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used for sorting.
    * 
    * @example
    * CreationTime
@@ -40,7 +40,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC and DESC.
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

@@ -45,7 +45,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   createTime?: string;
   /**
    * @remarks
-   * The creator.
+   * The user who created the activity.
    * 
    * @example
    * onlinehoztestrolebasicallow1755461756261068111(300216315676902267)
@@ -53,7 +53,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   createdBy?: string;
   /**
    * @remarks
-   * The eligibility configuration (JSON).
+   * The eligibility configuration in JSON format.
    * 
    * @example
    * {}
@@ -69,7 +69,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   endDate?: string;
   /**
    * @remarks
-   * The offer configuration (JSON).
+   * The offer configuration in JSON format.
    * 
    * @example
    * {}
@@ -117,7 +117,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModuleActivities exten
   totalQuota?: number;
   /**
    * @remarks
-   * The touchpoint configuration (JSON).
+   * The touchpoint configuration in JSON format.
    * 
    * @example
    * {}
@@ -210,7 +210,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModule extends $dara.M
   activities?: ListPromotionActivitiesForPartnerResponseBodyModuleActivities[];
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -245,7 +245,7 @@ export class ListPromotionActivitiesForPartnerResponseBodyModule extends $dara.M
 export class ListPromotionActivitiesForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The access denied details.
    * 
    * @example
    * {}
