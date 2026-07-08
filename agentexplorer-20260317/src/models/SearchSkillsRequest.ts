@@ -4,26 +4,42 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchSkillsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The skill category code. Separate multiple codes with commas. For a second-level category, use the format: first-level category.second-level category.
+   * 
    * @example
    * compute.serverless,network
    */
   categoryCode?: string;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * ecs
    */
   keyword?: string;
   /**
+   * @remarks
+   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query. Set this to the NextToken value returned by the previous API call.
+   * 
    * @example
    * AAAAAZjtYxxxxxxxx
    */
   nextToken?: string;
+  searchMode?: string;
   /**
+   * @remarks
+   * The number of entries to skip for pagination.
+   * 
    * @example
    * 10
    */
@@ -34,6 +50,7 @@ export class SearchSkillsRequest extends $dara.Model {
       keyword: 'keyword',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      searchMode: 'searchMode',
       skip: 'skip',
     };
   }
@@ -44,6 +61,7 @@ export class SearchSkillsRequest extends $dara.Model {
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      searchMode: 'string',
       skip: 'number',
     };
   }

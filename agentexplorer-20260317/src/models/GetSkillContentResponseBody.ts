@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSkillContentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * SKILL.md file content
+   * 
    * @example
    * ---
    * name: alibabacloud-find-skills

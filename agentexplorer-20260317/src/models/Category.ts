@@ -6,10 +6,20 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CategoryChildren extends $dara.Model {
   /**
+   * @remarks
+   * Level 2 Category Code
+   * 
    * @example
    * ecs
    */
   code?: string;
+  /**
+   * @remarks
+   * Level 2 Category Name
+   * 
+   * @example
+   * 弹性计算
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,12 +45,26 @@ export class CategoryChildren extends $dara.Model {
 }
 
 export class Category extends $dara.Model {
+  /**
+   * @remarks
+   * Sub-categories
+   */
   children?: CategoryChildren[];
   /**
+   * @remarks
+   * Level 1 Category Code
+   * 
    * @example
    * compute
    */
   code?: string;
+  /**
+   * @remarks
+   * Level 1 Category Name
+   * 
+   * @example
+   * 计算
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

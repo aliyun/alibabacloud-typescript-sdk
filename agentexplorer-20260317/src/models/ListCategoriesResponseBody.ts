@@ -4,13 +4,23 @@ import { Category } from "./Category";
 
 
 export class ListCategoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned category list
+   */
   data?: Category[];
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 099A671E-FA21-5A36-8A73-918572DDEF53
    */

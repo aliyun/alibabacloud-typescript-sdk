@@ -4,13 +4,23 @@ import { Skill } from "./Skill";
 
 
 export class SearchSkillsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of skills returned.
+   */
   data?: Skill[];
   /**
+   * @remarks
+   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The NextToken value, which is used to retrieve more results.
+   * 
    * @example
    * AAAAAZjtYxxxxxxxx
    */
@@ -24,6 +34,9 @@ export class SearchSkillsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 22
    */

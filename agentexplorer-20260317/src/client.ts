@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      public: "agentexplorer.aliyuncs.com",
+      'cn-hangzhou': "agentexplorer.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agentexplorer", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取阿里云 Agent Skill 内容
+   * Get the SKILL.md file content of the specified Agent Skill
    * 
    * @param request - GetSkillContentRequest
    * @param headers - map
@@ -57,7 +61,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取阿里云 Agent Skill 内容
+   * Get the SKILL.md file content of the specified Agent Skill
    * 
    * @param request - GetSkillContentRequest
    * @returns GetSkillContentResponse
@@ -69,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举所有的阿里云 Skills 类目
+   * List all Alibaba Cloud Skills categories.
    * 
    * @param request - ListCategoriesRequest
    * @param headers - map
@@ -96,7 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举所有的阿里云 Skills 类目
+   * List all Alibaba Cloud Skills categories.
    * 
    * @param request - ListCategoriesRequest
    * @returns ListCategoriesResponse
@@ -108,7 +112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键词、类目搜索阿里云 Agent Skills
+   * Searches for Alibaba Cloud Agent Skills by keyword or category.
    * 
    * @param request - SearchSkillsRequest
    * @param headers - map
@@ -134,6 +138,10 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.searchMode)) {
+      query["searchMode"] = request.searchMode;
+    }
+
     if (!$dara.isNull(request.skip)) {
       query["skip"] = request.skip;
     }
@@ -157,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过关键词、类目搜索阿里云 Agent Skills
+   * Searches for Alibaba Cloud Agent Skills by keyword or category.
    * 
    * @param request - SearchSkillsRequest
    * @returns SearchSkillsResponse
