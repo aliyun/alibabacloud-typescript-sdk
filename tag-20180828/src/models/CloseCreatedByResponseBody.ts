@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseCreatedByResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * AECFE0F2-CEC3-5D16-BE4C-E2F95083D063
+   * AECFE0F2-CEC3-5D16-BE4C-E2F95083****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,18 +29,7 @@ export class TagResourcesResponseBodyFailedResourcesFailedResourceResult extends
 }
 
 export class TagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-   */
   resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
   result?: TagResourcesResponseBodyFailedResourcesFailedResourceResult;
   static names(): { [key: string]: string } {
     return {
@@ -109,16 +84,6 @@ export class TagResourcesResponseBodyFailedResources extends $dara.Model {
 }
 
 export class TagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the resources to which tags fail to be added.
-   * 
-   * > 
-   * 
-   * *   If tags are added to all resources, the value of `FailedResources` is empty.
-   * 
-   * *   If tags fail to be added to some or all resources, the value of `FailedResources` contains the detailed information about the resources.
-   */
   failedResources?: TagResourcesResponseBodyFailedResources;
   /**
    * @remarks

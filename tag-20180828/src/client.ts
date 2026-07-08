@@ -46,6 +46,35 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "tag.cn-qingdao-nebula.aliyuncs.com",
       'eu-west-1-oxs': "tag.cn-shenzhen-cloudstone.aliyuncs.com",
       'rus-west-1-pop': "tag.aliyuncs.com",
+      'us-east-1': "tag.us-east-1.aliyuncs.com",
+      'me-east-1': "tag.me-east-1.aliyuncs.com",
+      'me-central-1': "tag.me-central-1.aliyuncs.com",
+      'eu-west-1': "tag.eu-west-1.aliyuncs.com",
+      'eu-central-1': "tag.eu-central-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "tag.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "tag.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "tag.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen-finance-1': "tag.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "tag.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "tag.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "tag.cn-qingdao.aliyuncs.com",
+      'cn-nanjing': "tag.cn-nanjing.aliyuncs.com",
+      'cn-huhehaote': "tag.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "tag.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "tag.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou': "tag.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "tag.cn-guangzhou.aliyuncs.com",
+      'cn-fuzhou': "tag.cn-fuzhou.aliyuncs.com",
+      'cn-chengdu': "tag.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "tag.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "tag.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "tag.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "tag.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "tag.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "tag.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "tag.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "tag.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "tag.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("tag", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -65,7 +94,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定策略
+   * Attaches a tag policy to an object.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -124,7 +153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定策略
+   * Attaches a tag policy to an object.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -139,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验CreatedBy开通状态
+   * Checks whether the createdby tag is enabled.
    * 
    * @param request - CheckCreatedByEnabledRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -186,7 +215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验CreatedBy开通状态
+   * Checks whether the createdby tag is enabled.
    * 
    * @param request - CheckCreatedByEnabledRequest
    * @returns CheckCreatedByEnabledResponse
@@ -197,7 +226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭CreatedBy服务
+   * Disables createdby tags.
    * 
    * @param request - CloseCreatedByRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -244,7 +273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭CreatedBy服务
+   * Disables createdby tags.
    * 
    * @param request - CloseCreatedByRequest
    * @returns CloseCreatedByResponse
@@ -255,7 +284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates associated resource tagging rules.
+   * Creates associated resource tag rules.
    * 
    * @param request - CreateAssociatedResourceRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -302,7 +331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates associated resource tagging rules.
+   * Creates associated resource tag rules.
    * 
    * @param request - CreateAssociatedResourceRulesRequest
    * @returns CreateAssociatedResourceRulesResponse
@@ -793,7 +822,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭策略
+   * Disables a control policy.
+   * 
+   * @remarks
+   * ### Usage notes
+   * After you disable a tag policy, all bound tag policies are automatically unbound.
    * 
    * @param request - DisablePolicyTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -848,7 +881,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭策略
+   * Disables a control policy.
+   * 
+   * @remarks
+   * ### Usage notes
+   * After you disable a tag policy, all bound tag policies are automatically unbound.
    * 
    * @param request - DisablePolicyTypeRequest
    * @returns DisablePolicyTypeResponse
@@ -859,7 +896,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通策略
+   * Enables the tag policy feature.
+   * 
+   * @remarks
+   * ### Usage notes
+   * You can enable the single-account mode or multi-account mode for tag policies:
+   * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+   * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+   *   > Members of a resource directory cannot enable the tag policy feature.
    * 
    * @param request - EnablePolicyTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +958,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通策略
+   * Enables the tag policy feature.
+   * 
+   * @remarks
+   * ### Usage notes
+   * You can enable the single-account mode or multi-account mode for tag policies:
+   * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+   * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+   *   > Members of a resource directory cannot enable the tag policy feature.
    * 
    * @param request - EnablePolicyTypeRequest
    * @returns EnablePolicyTypeResponse
@@ -925,7 +976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成规则检测报告
+   * Generates a resource non-compliance report.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -984,7 +1035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成规则检测报告
+   * Generates a resource non-compliance report.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -999,7 +1050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of the resource non-compliance report that is last generated.
+   * Queries the basic information about the latest resource non-compliance report.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1058,7 +1109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of the resource non-compliance report that is last generated.
+   * Queries the basic information about the latest resource non-compliance report.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1073,12 +1124,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the effective policy.
+   * Retrieves the effective policy for a specified object.
    * 
    * @remarks
-   * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
-   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+   * ### Usage notes
+   * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+   * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+   * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
    * 
    * @param request - GetEffectivePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,12 +1185,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the effective policy.
+   * Retrieves the effective policy for a specified object.
    * 
    * @remarks
-   * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
-   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+   * ### Usage notes
+   * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+   * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+   * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
    * 
    * @param request - GetEffectivePolicyRequest
    * @returns GetEffectivePolicyResponse
@@ -1285,7 +1338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search the rules for associated resources that the user has set up.
+   * Retrieves a list of associated resource rules.
    * 
    * @param request - ListAssociatedResourceRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1344,7 +1397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search the rules for associated resources that the user has set up.
+   * Retrieves a list of associated resource rules.
    * 
    * @param request - ListAssociatedResourceRulesRequest
    * @returns ListAssociatedResourceRulesResponse
@@ -1445,7 +1498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag policies.
+   * Queries a list of tag policies.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1512,7 +1565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag policies.
+   * Queries a list of tag policies.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1527,7 +1580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag policies that are attached to an object.
+   * Queries a list of tag policies that are attached to an object.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1590,7 +1643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag policies that are attached to an object.
+   * Queries a list of tag policies that are attached to an object.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -2419,7 +2472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the rule for tagging associated resources.
+   * Updates an Associated Resource Tag Rule.
    * 
    * @param request - UpdateAssociatedResourceRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2478,7 +2531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the rule for tagging associated resources.
+   * Updates an Associated Resource Tag Rule.
    * 
    * @param request - UpdateAssociatedResourceRuleRequest
    * @returns UpdateAssociatedResourceRuleResponse

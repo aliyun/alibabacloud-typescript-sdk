@@ -40,11 +40,13 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The type of the resource tags. This parameter specifies a filter condition for the query. Valid values:
    * 
-   * *   all (default value)
-   * *   custom
-   * *   system
+   * - all (default value)
    * 
-   * >  The value of this parameter is not case-sensitive.
+   * - custom
+   * 
+   * - system
+   * 
+   * > The value of this parameter is not case-sensitive.
    * 
    * @example
    * all
@@ -54,8 +56,9 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The type of the query. Valid values:
    * 
-   * *   EQUAL (default): exact match
-   * *   PREFIX: prefix-based fuzzy match
+   * - EQUAL (default): exact match
+   * 
+   * - PREFIX: prefix-based fuzzy match
    * 
    * @example
    * EQUAL
@@ -85,10 +88,11 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The category of the tags. This parameter specifies a filter condition for the query. Valid values:
    * 
-   * *   ResourceTag: resource tags, including custom and system tags. This is the default value.
-   * *   MetaTag: preset tags.
+   * - ResourceTag: resource tags, including custom and system tags. This is the default value.
    * 
-   * >  The value of this parameter is not case-sensitive.
+   * - MetaTag: preset tags.
+   * 
+   * > The value of this parameter is not case-sensitive.
    * 
    * @example
    * ResourceTag
@@ -113,8 +117,9 @@ export class ListTagKeysRequest extends $dara.Model {
    * 
    * Format: `ALIYUN::${ProductCode}::${ResourceType}`. All letters in the value of this parameter must be in uppercase.
    * 
-   * *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
+   * - `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
+   * 
+   * - `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
    * 
    * @example
    * ALIYUN::ECS::INSTANCE

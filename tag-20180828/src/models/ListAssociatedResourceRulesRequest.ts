@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssociatedResourceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of data entries to display per page during pagination.
+   * The number of entries to return on each page.
    * 
-   * Default value: 50. Maximum value: 100.
+   * Default Value: 50. Maximum Value: 100.
    * 
    * @example
    * 50
@@ -15,7 +15,7 @@ export class ListAssociatedResourceRulesRequest extends $dara.Model {
   maxResult?: number;
   /**
    * @remarks
-   * Token for the next query start.
+   * The token returned from a previous call to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -25,7 +25,7 @@ export class ListAssociatedResourceRulesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID.
+   * The Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -34,15 +34,16 @@ export class ListAssociatedResourceRulesRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * Setting name of the associated resource tag rule.
+   * The names of the associated resource rules.
    */
   settingName?: string[];
   /**
    * @remarks
-   * Whether the associated resource tag rule is enabled. Values:
+   * The status of the associated resource rules to query. Valid values:
    * 
-   * - Enable: Enabled.
-   * - Disable: Disabled.
+   * - Enable: The rule is enabled.
+   * 
+   * - Disable: The rule is disabled.
    * 
    * @example
    * Enable

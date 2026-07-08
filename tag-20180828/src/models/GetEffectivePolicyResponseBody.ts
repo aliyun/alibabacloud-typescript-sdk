@@ -75,7 +75,7 @@ export class GetEffectivePolicyResponseBodyPolicyAttachments extends $dara.Model
 export class GetEffectivePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The effective tag policy.
+   * The effective policy.
    * 
    * @example
    * {\\"tags\\":{\\"costcenter\\":{\\"tag_value\\":[\\"Beijing\\",\\"Shanghai\\"],\\"tag_key\\":\\"CostCenter\\"}}}
@@ -84,7 +84,7 @@ export class GetEffectivePolicyResponseBody extends $dara.Model {
   policyAttachments?: GetEffectivePolicyResponseBodyPolicyAttachments[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BB532282-94F5-5F56-877F-32D5E2A04F3F

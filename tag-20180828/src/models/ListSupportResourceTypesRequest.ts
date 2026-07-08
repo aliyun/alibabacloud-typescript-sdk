@@ -18,7 +18,7 @@ export class ListSupportResourceTypesRequest extends $dara.Model {
    * The token that is used to start the next query.
    * 
    * @example
-   * AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK****
+   * AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK+myOlBL
    */
   nextToken?: string;
   ownerAccount?: string;

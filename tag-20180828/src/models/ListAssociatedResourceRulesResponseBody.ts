@@ -6,7 +6,7 @@ export class ListAssociatedResourceRulesResponseBodyRules extends $dara.Model {
   existingStatus?: string;
   /**
    * @remarks
-   * Setting name of the associated resource tag rule.
+   * The name of the associated resource rule.
    * 
    * @example
    * rule:UpdateLoadBalancerZones-UpdateLoadBalancerAddressTypeConfig-TagAlb:Alb-LoadBalancer:Vpc-Eip
@@ -14,10 +14,7 @@ export class ListAssociatedResourceRulesResponseBodyRules extends $dara.Model {
   settingName?: string;
   /**
    * @remarks
-   * Whether the associated resource tag rule is enabled. Values:
-   * 
-   * - Enable: Enabled.
-   * - Disable: Disabled.
+   * The status of the associated resource rule. Valid values: `Enable` and `Disable`.
    * 
    * @example
    * Disable/Enable
@@ -25,7 +22,7 @@ export class ListAssociatedResourceRulesResponseBodyRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * List of tag keys for the associated resource tag rule.
+   * The Tag Keys to which the rule applies.
    */
   tagKeys?: string[];
   static names(): { [key: string]: string } {
@@ -61,10 +58,11 @@ export class ListAssociatedResourceRulesResponseBodyRules extends $dara.Model {
 export class ListAssociatedResourceRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Determine if there is a token for the next query based on `NextToken`. Values:
+   * You can use the `NextToken` parameter to determine whether there is a token that can be used to start the next query. Valid values:
    * 
-   * - If `NextToken` is empty, it indicates there is no next query.
-   * - If `NextToken` has a value, that value is the token for the next query start.
+   * - If `NextToken` is empty, no next query is performed.
+   * 
+   * - If a value is returned for `NextToken`, the value is the token that is used for the next query.
    * 
    * This parameter is required.
    * 
@@ -74,7 +72,7 @@ export class ListAssociatedResourceRulesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The Request ID.
    * 
    * @example
    * 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
@@ -82,7 +80,7 @@ export class ListAssociatedResourceRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of associated resource tag rules.
+   * A list of associated resource rules.
    */
   rules?: ListAssociatedResourceRulesResponseBodyRules[];
   static names(): { [key: string]: string } {

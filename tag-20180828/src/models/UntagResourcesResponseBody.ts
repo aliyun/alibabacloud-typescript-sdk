@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UntagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,18 +29,7 @@ export class UntagResourcesResponseBodyFailedResourcesFailedResourceResult exten
 }
 
 export class UntagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-xxxxxxxxxx1
-   */
   resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
   result?: UntagResourcesResponseBodyFailedResourcesFailedResourceResult;
   static names(): { [key: string]: string } {
     return {
@@ -109,16 +84,6 @@ export class UntagResourcesResponseBodyFailedResources extends $dara.Model {
 }
 
 export class UntagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the resources from which tags fail to be removed.
-   * 
-   * > 
-   * 
-   * *   If tags are removed from all resources, the value of FailedResources is empty.
-   * 
-   * *   If tags fail to be removed from some or all resources, the value of FailedResources contains the detailed information about the resources.
-   */
   failedResources?: UntagResourcesResponseBodyFailedResources;
   /**
    * @remarks

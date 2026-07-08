@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAssociatedResourceRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 94E16BB6-3FB6-1297-B5B2-ED2250F437CD

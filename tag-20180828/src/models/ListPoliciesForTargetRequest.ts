@@ -44,12 +44,15 @@ export class ListPoliciesForTargetRequest extends $dara.Model {
    * @remarks
    * The type of the object. This parameter specifies a filter condition for the query. Valid values:
    * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * - USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
    * 
-   * >  The value of this parameter is not case-sensitive.
+   * - ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * - FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * - ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * > The value of this parameter is not case-sensitive.
    * 
    * @example
    * ACCOUNT

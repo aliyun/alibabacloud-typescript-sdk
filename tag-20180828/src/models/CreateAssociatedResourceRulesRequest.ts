@@ -8,9 +8,9 @@ export class CreateAssociatedResourceRulesRequestCreateRulesList extends $dara.M
   existingStatus?: string;
   /**
    * @remarks
-   * The name of the associated resource tagging rule.
+   * The setting name of the associated resource tag rule.
    * 
-   * For more information, see the **Rule Name** column in [Resource types that support the Associated Resource Tagging feature](https://help.aliyun.com/document_detail/2586330.html).
+   * For valid values, see the **Setting name** column in [Resources that support associated resource tagging](https://help.aliyun.com/document_detail/2586330.html).
    * 
    * This parameter is required.
    * 
@@ -20,10 +20,11 @@ export class CreateAssociatedResourceRulesRequestCreateRulesList extends $dara.M
   settingName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the associated resource tagging rule. Valid values:
+   * Specifies whether to enable the associated resource tag rule. Valid values:
    * 
-   * *   Enable (default)
-   * *   Disable
+   * - Enable (default): The rule is enabled.
+   * 
+   * - Disable: The rule is disabled.
    * 
    * This parameter is required.
    * 
@@ -33,7 +34,7 @@ export class CreateAssociatedResourceRulesRequestCreateRulesList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The tag keys to which the associated resource tagging rule applies.
+   * The tag keys to which the rule applies.
    */
   tagKeys?: string[];
   static names(): { [key: string]: string } {
@@ -69,7 +70,7 @@ export class CreateAssociatedResourceRulesRequestCreateRulesList extends $dara.M
 export class CreateAssociatedResourceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The associated resource tagging rules that you want to create.
+   * A list of associated resource tag rules.
    */
   createRulesList?: CreateAssociatedResourceRulesRequestCreateRulesList[];
   ownerAccount?: string;

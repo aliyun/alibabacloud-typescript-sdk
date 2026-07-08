@@ -7,6 +7,11 @@ export class EnablePolicyTypeRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-shanghai
    */

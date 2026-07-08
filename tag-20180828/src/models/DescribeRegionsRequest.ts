@@ -7,9 +7,11 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The supported natural language. Valid values:
    * 
-   * *   zh-CN: Chinese (default value)
-   * *   en-US: English
-   * *   ja: Japanese
+   * - zh-CN: Chinese (default value)
+   * 
+   * - en-US: English
+   * 
+   * - ja: Japanese
    * 
    * @example
    * zh-CN

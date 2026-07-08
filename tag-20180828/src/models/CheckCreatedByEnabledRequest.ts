@@ -7,6 +7,10 @@ export class CheckCreatedByEnabledRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the instance resides.
+   * 
+   * Set the value to cn-shanghai.
+   * 
    * This parameter is required.
    * 
    * @example

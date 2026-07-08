@@ -126,7 +126,7 @@ export class ListSupportResourceTypesResponseBody extends $dara.Model {
    * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
    * 
    * @example
-   * AAAAAYws9fJ0Ur4MGm****
+   * AAAAAYws9fJ0Ur4MGm
    */
   nextToken?: string;
   /**

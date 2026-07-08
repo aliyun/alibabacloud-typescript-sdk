@@ -21,7 +21,7 @@ export class DeleteTagRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  Only `cn-hangzhou` is supported.
+   * > Only `cn-hangzhou` is supported.
    * 
    * This parameter is required.
    * 

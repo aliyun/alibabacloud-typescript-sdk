@@ -9,7 +9,7 @@ export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
    * 
    * You can use the ID to query the content of the related resource non-compliance report in Cloud Config.
    * 
-   * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
+   * > This parameter is returned only if you use the Tag Policy feature in multi-account mode.
    * 
    * @example
    * ca-efdc33dc9b37002d****
@@ -27,8 +27,9 @@ export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
    * @remarks
    * The use scenario of the tag policy. Valid values:
    * 
-   * *   tags: enables tags with specified tag values to be added to resources.
-   * *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
+   * - tags: enables tags with specified tag values to be added to resources.
+   * 
+   * - rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
    * 
    * @example
    * tags
@@ -38,8 +39,9 @@ export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether automatic remediation is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -73,10 +75,13 @@ export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the object. Valid values:
    * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * - USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+   * 
+   * - ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * - FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * - ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
    * 
    * @example
    * USER
@@ -127,8 +132,9 @@ export class ListConfigRulesForTargetResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the next query is required.
    * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+   * - If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+   * 
+   * - If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

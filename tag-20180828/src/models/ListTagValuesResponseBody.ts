@@ -48,10 +48,6 @@ export class ListTagValuesResponseBody extends $dara.Model {
    * 8989CA7E-D2E0-4B6D-8282-311106E80150
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information of the tag values.
-   */
   values?: ListTagValuesResponseBodyValues;
   static names(): { [key: string]: string } {
     return {

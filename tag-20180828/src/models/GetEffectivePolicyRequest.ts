@@ -7,7 +7,7 @@ export class GetEffectivePolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. Set the value to cn-shanghai.
+   * The region ID. Only `cn-shanghai` is supported.
    * 
    * @example
    * cn-shanghai
@@ -17,9 +17,9 @@ export class GetEffectivePolicyRequest extends $dara.Model {
   tagKeys?: string[];
   /**
    * @remarks
-   * The ID of the object.
+   * The ID of the target object.
    * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
+   * > This parameter is optional in Single-Account Mode and required in Multi-Account Mode.
    * 
    * @example
    * 154950938137****
@@ -27,14 +27,17 @@ export class GetEffectivePolicyRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the object. Valid values:
+   * The type of the target object. Valid values:
    * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * - USER: queries the effective policy for the current logon account. This value applies only to Single-Account Mode.
    * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
+   * - ROOT: queries the effective policy for the Root Folder in a Resource Directory. This value applies only to Multi-Account Mode.
+   * 
+   * - FOLDER: queries the effective policy for a Folder in a Resource Directory. This value applies only to Multi-Account Mode.
+   * 
+   * - ACCOUNT: queries the effective policy for a Member in a Resource Directory. This value applies only to Multi-Account Mode.
+   * 
+   * > This parameter is optional in Single-Account Mode and required in Multi-Account Mode. The value is case-insensitive.
    * 
    * @example
    * ACCOUNT

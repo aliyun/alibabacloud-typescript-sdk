@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagKeysResponseBodyKeysKey extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the resource tag. Valid values:
-   * 
-   * *   custom
-   * *   system
-   * 
-   * @example
-   * custom
-   */
   category?: string;
-  /**
-   * @remarks
-   * The description of the tag key.
-   * 
-   * @example
-   * Business team
-   */
   description?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * team
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,17 +58,14 @@ export class ListTagKeysResponseBodyKeys extends $dara.Model {
 }
 
 export class ListTagKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the tag keys.
-   */
   keys?: ListTagKeysResponseBodyKeys;
   /**
    * @remarks
    * Indicates whether the next query is required. The value of this parameter may be empty.
    * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+   * - If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+   * 
+   * - If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

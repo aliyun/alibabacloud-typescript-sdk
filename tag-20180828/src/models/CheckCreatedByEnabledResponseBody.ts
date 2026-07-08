@@ -4,13 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckCreatedByEnabledResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the createdby tag is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   openStatus?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 682DD9E1-F530-5D14-A839-A6787FA82B74
+   * 682DD9E1-F530-5D14-A839-A6787FA8****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
